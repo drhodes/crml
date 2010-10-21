@@ -8,6 +8,7 @@ namespace scm {
 	Mainloop::Mainloop(){
 		started_ = false;
 	}
+
 	Mainloop::~Mainloop(){		
 	}
 	
