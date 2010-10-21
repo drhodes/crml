@@ -41,7 +41,6 @@ nacllib.test = function() {
     // Set the plugin to report events to the event log.
     plugin_obj_2d.setTextBox(addLine2d);
 
-
     plugin_obj_2d.reportChecksum();
     if ('1' != plugin_obj_2d.isChecksumCheckSuccess()) {
         return "checksum check failed";

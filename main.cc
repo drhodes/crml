@@ -14,6 +14,11 @@
 #define NPAPI
 #endif
 
+
+
+
+
+
 // Plugin entry points
 extern "C" {
 	NPError NPAPI NP_Initialize(NPNetscapeFuncs* browser_funcs,

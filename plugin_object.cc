@@ -39,8 +39,8 @@
 #include "gles2_demo_cc.h"
 #include "md5.h"
 #include "test_object.h"
-//#include <nacl/npapi_extensions.h>
 #include "npapi_extensions_private.h"
+#include "loop.cc"
 
 NPNetscapeFuncs* browser;
 
@@ -429,8 +429,13 @@ void PluginObject::SetWindow(const NPWindow& window) {
     cfg.sampleFrameCount = 1024;
     cfg.startThread      = 1;  // Start a thread for the audio producer.
     cfg.flags            = 0;
-    cfg.callback         = &SineWaveCallback<200, int16_t>;
+    cfg.callback         = 0; //&SineWaveCallback<200, int16_t>; 
     NPError err = deviceaudio_->initializeContext(npp_, &cfg, &context_audio_);
+
+	// need a good spot to init the main loop.
+	scm::Mainloop ml;
+	ml.Init();
+
     if (err != NPERR_NO_ERROR) {
       printf("Failed to initialize audio context\n");
       exit(1);

@@ -2,8 +2,7 @@
 # Use of this source code is governed by a BSD-style license that can
 # be found in the LICENSE file.
 
-# Makefile for the Life example.
-
+# !! You'll need to change these
 NACLPORTS_ROOT = /home/derek/dev/naclports/src
 NACL_SDK_ROOT = ~/dev/nacl_sdk
 
@@ -21,7 +20,8 @@ CFLAGS =	-Wall \
 			-enable-static \
 			-Wno-long-long \
 			-pthread \
-			-DXP_UNIX # -Werror #-std=c++0
+			-DXP_UNIX \
+			-Werror #-std=c++0
 
 INCLUDES =	-I$(NACLPORTS_ROOT) \
 			-I$(NACL_SDK_ROOT)
@@ -36,6 +36,8 @@ LDFLAGS =	-lgoogle_nacl_imc \
 OPT_FLAGS = -O2
 
 # The check_variables target is in nacl_build.mk.
+# !! the 64 bit build is commented out for faster testing.
+# !! 
 all: check_variables pplugin_x86_32.nexe # life_x86_64.nexe
 
 # nacl_build.mk has rules to build .o files from .cc files.
