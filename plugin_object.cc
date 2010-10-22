@@ -45,6 +45,11 @@
 NPNetscapeFuncs* browser;
 
 namespace {
+	
+// need a good spot to init the main loop.
+// This is bad form, still searching for a good way to introduce this.
+scm::Mainloop MAINLOOP;
+
 
 // Properties ------------------------------------------------------------------
 
@@ -91,7 +96,7 @@ void EnsureIdentifiersInitialized() {
                                 plugin_property_identifiers);
   browser->getstringidentifiers(plugin_method_identifier_names,
                                 NUM_METHOD_IDENTIFIERS,
-                                plugin_method_identifiers);
+                               plugin_method_identifiers);
   identifiers_initialized = true;
 }
 
@@ -227,7 +232,6 @@ NPClass plugin_class = {
 };
 
 // Bitmap painting -------------------------------------------------------------
-
 // Ugly gradient filled rectangle.
 void DrawSampleBitmap(NPDeviceContext2D* context, int width, int height) {
   int stride = context->stride;
@@ -432,9 +436,17 @@ void PluginObject::SetWindow(const NPWindow& window) {
     cfg.callback         = 0; //&SineWaveCallback<200, int16_t>; 
     NPError err = deviceaudio_->initializeContext(npp_, &cfg, &context_audio_);
 
-	// need a good spot to init the main loop.
-	scm::Mainloop ml;
-	ml.Init();
+
+	////  CELL-GRID HACK.
+	////
+	////  The main loop is initialized here
+
+	MAINLOOP.Init(this);
+
+	////  Would really like to find a better way to do this.
+	////
+	////
+
 
     if (err != NPERR_NO_ERROR) {
       printf("Failed to initialize audio context\n");

@@ -17,11 +17,10 @@ OBJECTS_X86_32 = $(CCFILES:%.cc=%_x86_32.o)
 OBJECTS_X86_64 = $(CCFILES:%.cc=%_x86_64.o)
 
 CFLAGS =	-Wall \
-			-enable-static \
 			-Wno-long-long \
 			-pthread \
 			-DXP_UNIX \
-			-Werror #-std=c++0
+			-Werror \
 
 INCLUDES =	-I$(NACLPORTS_ROOT) \
 			-I$(NACL_SDK_ROOT)
