@@ -31,6 +31,8 @@
 #include <nacl/npapi_extensions.h>
 #include <string>
 
+#include "event.h" // drhodes event system.
+
 class EventHandler {
  public:
 	explicit EventHandler(NPP npp);
@@ -40,11 +42,14 @@ class EventHandler {
 	bool is_text_box_set();
 	bool set_text_box(NPObject* text_box_object);
 	
+	scm::EventErr Init(scm::Event*);
+	
  private:
 	static char* string_duplicate(const char* cstr, size_t* len);
 	static void MakeNPVariant(const char* cstr, NPVariant* var);
 	std::string EventName(double timestamp, int32_t type);
-	
+
+	scm::Event* evt_sys_;
 	NPP npp_;
 	NPObject* text_box_;
 };

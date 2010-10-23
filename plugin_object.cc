@@ -40,7 +40,7 @@
 #include "md5.h"
 #include "test_object.h"
 #include "npapi_extensions_private.h"
-#include "loop.cc"
+//#include "loop.cc"
 
 NPNetscapeFuncs* browser;
 
@@ -48,7 +48,8 @@ namespace {
 	
 // need a good spot to init the main loop.
 // This is bad form, still searching for a good way to introduce this.
-scm::Mainloop MAINLOOP;
+
+//scm::Mainloop MAINLOOP;
 
 
 // Properties ------------------------------------------------------------------
@@ -329,130 +330,134 @@ PluginObject::PluginObject(NPP npp)
       device3d_(NULL),
       pgl_context_(NULL),
       deviceaudio_(NULL) {
-  memset(&context_audio_, 0, sizeof(context_audio_));
+	memset(&context_audio_, 0, sizeof(context_audio_));
 }
 
 PluginObject::~PluginObject() {
-  if (pgl_context_)
-    Destroy3D();
-
-  browser->releaseobject(test_object_);
+	if (pgl_context_)
+		Destroy3D();	
+	browser->releaseobject(test_object_);
 }
 
 // static
 NPClass* PluginObject::GetPluginClass() {
-  return &plugin_class;
+	return &plugin_class;
 }
 
 namespace {
-void Draw3DCallback(void* data) {
-    static_cast<PluginObject*>(data)->Draw3D();
-}
+	void Draw3DCallback(void* data) {
+		static_cast<PluginObject*>(data)->Draw3D();
+	}
 }
 
 void PluginObject::New(NPMIMEType pluginType,
                        int16_t argc,
                        char* argn[],
                        char* argv[]) {
-  // Default to 2D rendering.
-  dimensions_ = 2;
+	// Default to 2D rendering.
+	dimensions_ = 2;
 
-  for (int i = 0; i < argc; ++i) {
-    if (strcmp(argn[i], "dimensions") == 0)
-      dimensions_ = atoi(argv[i]);
-  }
+	for (int i = 0; i < argc; ++i) {
+		if (strcmp(argn[i], "dimensions") == 0)
+			dimensions_ = atoi(argv[i]);
+	}
 
-  if (!extensions) {
-    browser->getvalue(npp_, NPNVPepperExtensions,
-                      reinterpret_cast<void*>(&extensions));
-    // CHECK(extensions);
-  }
-  device2d_ = extensions->acquireDevice(npp_, NPPepper2DDevice);
-  if (device2d_ == NULL) {
-    printf("Failed to acquire 2DDevice\n");
-    exit(1);
-  }
+	if (!extensions) {
+		browser->getvalue(npp_, NPNVPepperExtensions,
+						  reinterpret_cast<void*>(&extensions));
+		// CHECK(extensions);
+	}
+	device2d_ = extensions->acquireDevice(npp_, NPPepper2DDevice);
+	if (device2d_ == NULL) {
+		printf("Failed to acquire 2DDevice\n");
+		exit(1);
+	}
+	//GAME.RegisterDevice2D(device2d_);
 
-  device3d_ = extensions->acquireDevice(npp_, NPPepper3DDevice);
-  if (device3d_ == NULL) {
-    printf("Failed to acquire 3DDevice\n");
-    exit(1);
-  }
+	device3d_ = extensions->acquireDevice(npp_, NPPepper3DDevice);
+	if (device3d_ == NULL) {
+		printf("Failed to acquire 3DDevice\n");
+		exit(1);
+	}
 
-  deviceaudio_ = extensions->acquireDevice(npp_, NPPepperAudioDevice);
-  if (deviceaudio_ == NULL) {
-    printf("Failed to acquire AudioDevice\n");
-    exit(1);
-  }
+	deviceaudio_ = extensions->acquireDevice(npp_, NPPepperAudioDevice);
+	if (deviceaudio_ == NULL) {
+		printf("Failed to acquire AudioDevice\n");
+		exit(1);
+	}
 }
 
 void PluginObject::SetWindow(const NPWindow& window) {
-  width_ = window.width;
-  height_ = window.height;
+	width_ = window.width;
+	height_ = window.height;
 
-  if (dimensions_ == 2) {
-    NPDeviceContext2DConfig config;
-    NPDeviceContext2D context;
-    NPError err = device2d_->initializeContext(npp_, &config, &context);
-    if (err != NPERR_NO_ERROR) {
-      printf("Failed to initialize 2D context\n");
-      exit(1);
-    }
+	if (dimensions_ == 2) {
+		NPDeviceContext2DConfig config;
+		NPDeviceContext2D context;
+		NPError err = device2d_->initializeContext(npp_, &config, &context);
+		if (err != NPERR_NO_ERROR) {
+			printf("Failed to initialize 2D context\n");
+			exit(1);
+		}
 
-    DrawSampleBitmap(&context, window.width, window.height);
+		DrawSampleBitmap(&context, window.width, window.height);
 
-    plugin2d_checksum_ = HexStringToUInt(Get2DImageChecksum(&context));
-    err = device2d_->getStateContext(npp_, &context,
-        NPExtensionsReservedStateSharedMemoryChecksum,
-        reinterpret_cast<intptr_t*>(&device2d_checksum_));
-    if (err != NPERR_NO_ERROR) {
-      printf("Failed to retrieve the 2D context checksum\n");
-      exit(1);
-    }
+		plugin2d_checksum_ = HexStringToUInt(Get2DImageChecksum(&context));
+		err = device2d_->getStateContext(npp_, &context,
+										 NPExtensionsReservedStateSharedMemoryChecksum,
+										 reinterpret_cast<intptr_t*>(&device2d_checksum_));
+		if (err != NPERR_NO_ERROR) {
+			printf("Failed to retrieve the 2D context checksum\n");
+			exit(1);
+		}
 
-    // TODO(brettw) figure out why this cast is necessary, the functions seem
-    // to match. Could be a calling convention mismatch?
-    NPDeviceFlushContextCallbackPtr callback =
-        reinterpret_cast<NPDeviceFlushContextCallbackPtr>(&FlushCallback);
-    device2d_->flushContext(npp_, &context, callback, NULL);
-  } else {
-    if (!pgl_context_)
-      Initialize3D();
+		// TODO(brettw) figure out why this cast is necessary, the functions seem
+		// to match. Could be a calling convention mismatch?
+		NPDeviceFlushContextCallbackPtr callback =
+			reinterpret_cast<NPDeviceFlushContextCallbackPtr>(&FlushCallback);
+		device2d_->flushContext(npp_, &context, callback, NULL);
+	} else {
+		if (!pgl_context_)
+			Initialize3D();
 
-    // Schedule the first call to Draw.
-    browser->pluginthreadasynccall(npp_, Draw3DCallback, this);
-  }
-
-  // Audio is only produced on the 2d version, because we embed two in the page.
-  if (dimensions_ == 2 && !context_audio_.config.callback) {
-    NPDeviceContextAudioConfig cfg;
-    cfg.sampleRate       = 44100;
-    cfg.sampleType       = NPAudioSampleTypeInt16;
-    cfg.outputChannelMap = NPAudioChannelStereo;
-    cfg.inputChannelMap  = NPAudioChannelNone;
-    cfg.sampleFrameCount = 1024;
-    cfg.startThread      = 1;  // Start a thread for the audio producer.
-    cfg.flags            = 0;
-    cfg.callback         = 0; //&SineWaveCallback<200, int16_t>; 
-    NPError err = deviceaudio_->initializeContext(npp_, &cfg, &context_audio_);
-
+		// Schedule the first call to Draw.
+		browser->pluginthreadasynccall(npp_, Draw3DCallback, this);
+	}
 
 	////  CELL-GRID HACK.
 	////
 	////  The main loop is initialized here
 
-	MAINLOOP.Init(this);
+	//MAINLOOP.Init(this);
 
 	////  Would really like to find a better way to do this.
 	////
 	////
 
+	// Audio is only produced on the 2d version, because we embed two in the page.
+	if (dimensions_ == 2 && !context_audio_.config.callback) {
+		NPDeviceContextAudioConfig cfg;
+		cfg.sampleRate       = 44100;
+		cfg.sampleType       = NPAudioSampleTypeInt16;
+		cfg.outputChannelMap = NPAudioChannelStereo;
+		cfg.inputChannelMap  = NPAudioChannelNone;
+		cfg.sampleFrameCount = 1024;
+		cfg.startThread      = 1;  // Start a thread for the audio producer.
+		cfg.flags            = 0;
+		cfg.callback         = 0; //&SineWaveCallback<200, int16_t>; 
+		NPError err = deviceaudio_->initializeContext(npp_, &cfg, &context_audio_);
 
-    if (err != NPERR_NO_ERROR) {
-      printf("Failed to initialize audio context\n");
-      exit(1);
-    }
-  }
+
+		if (err != NPERR_NO_ERROR) {
+			printf("Failed to initialize audio context\n");
+			exit(1);
+		}
+	}
+	
+}
+
+NPDevice* PluginObject::GetDevice2D(){
+	return device2d_;
 }
 
 bool PluginObject::IsChecksumCheckSuccess() {

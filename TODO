@@ -1,0 +1,10 @@
+Figure out how to pull images from the browser.
+audio
+video?
+
+Will these things be stored in the browser cache?
+will they get stale?
+
+Get a solid architecture hammered out
+
+embed lua

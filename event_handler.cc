@@ -30,6 +30,7 @@
 #include <string.h>
 #include <string>
 
+#include "event.h"
 #include "nacl_macros.h"
 #include "plugin_object.h"
 
@@ -60,6 +61,12 @@ EventHandler::EventHandler(NPP npp)
 }
 
 EventHandler::~EventHandler() {
+}
+
+scm::EventErr EventHandler::Init(scm::Event* sys){
+	// wiring in the real event handler.
+	evt_sys_ = sys;
+	return scm::EventInitOK;
 }
 
 bool EventHandler::addText(const char* cstr) {
@@ -115,6 +122,11 @@ std::string EventHandler::EventName(double timestamp, int32_t type) {
 int EventHandler::handle(void* event) {
 	NPPepperEvent* npevent = reinterpret_cast<NPPepperEvent*>(event);
 	std::string str = EventName(npevent->timeStampSeconds, npevent->type);
+
+
+	this->evt_sys_->PushEvent(npevent);
+	
+	// the rest of this will be gone.
 	
 	switch (npevent->type) {
     case NPEventType_MouseDown:

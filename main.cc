@@ -7,6 +7,8 @@
 
 #include "plugin_object.h"
 #include "event_handler.h"
+//#include "loop.cc"
+#include "game.cc"
 
 #ifdef WIN32
 #define NPAPI WINAPI
@@ -14,10 +16,8 @@
 #define NPAPI
 #endif
 
-
-
-
-
+//scm::Mainloop MAINLOOP;
+scm::Game GAME; 
 
 // Plugin entry points
 extern "C" {
@@ -75,6 +75,8 @@ NPError NPP_New(NPMIMEType pluginType,
 			(browser->createobject(instance, PluginObject::GetPluginClass()));
 		instance->pdata = obj;
 		event_handler = new EventHandler(instance);
+
+		GAME.RegisterEvent(event_handler);
 		obj->New(pluginType, argc, argn, argv);
 	}
 
@@ -92,8 +94,11 @@ NPError NPP_Destroy(NPP instance, NPSavedData** save) {
 
 NPError NPP_SetWindow(NPP instance, NPWindow* window) {
 	PluginObject* obj = static_cast<PluginObject*>(instance->pdata);
-	if (obj)
+	if (obj) {
 		obj->SetWindow(*window);
+		GAME.RegisterPlugin(obj);
+		GAME.SetWindow(*window);
+	}
 	return NPERR_NO_ERROR;
 }
 
@@ -129,6 +134,7 @@ void NPP_Print(NPP instance, NPPrint* platformPrint) {
 }
 
 int16_t NPP_HandleEvent(NPP instance, void* event) {
+	// push events here.
 	return event_handler->handle(event);
 }
 

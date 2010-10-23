@@ -7,6 +7,7 @@ NACLPORTS_ROOT = /home/derek/dev/naclports/src
 NACL_SDK_ROOT = ~/dev/nacl_sdk
 
 CCFILES =	main.cc \
+			clock.cc \
 			event_handler.cc \
 			gles2_demo_cc.cc \
 			md5.cc \
@@ -21,6 +22,10 @@ CFLAGS =	-Wall \
 			-pthread \
 			-DXP_UNIX \
 			-Werror \
+			-std=gnu++0x
+
+
+# -I/usr/include/lua50 -L/usr/include
 
 INCLUDES =	-I$(NACLPORTS_ROOT) \
 			-I$(NACL_SDK_ROOT)
@@ -30,7 +35,10 @@ LDFLAGS =	-lgoogle_nacl_imc \
 			-lgoogle_nacl_pgl \
 			-lgoogle_nacl_gpu \
 			-lpthread \
-			-lsrpc
+			-lsrpc \
+		    -llua \
+			-losg			
+
 
 OPT_FLAGS = -O2
 

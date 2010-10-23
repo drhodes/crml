@@ -53,6 +53,10 @@ class PluginObject {
 	void Destroy3D();
 	void Draw3D();
 
+	// scm augmentation
+	NPDevice* GetDevice2D(); // evil accessor? probably. necessary? probably.
+
+
  private:
 	bool InitializeCommandBuffer();
 
