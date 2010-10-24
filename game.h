@@ -29,9 +29,17 @@ namespace scm{
 		GameErr RegisterEvent(EventHandler*);
 		GameErr RegisterDevice2D();
 		GameErr SetWindow(const NPWindow&);		
-
 		GameErr RegisterLua();
+		
+		void Wipe();
+		void DrawSampleBitmap();
 		void LuaClose();
+
+		/*
+        void* pixels() {
+			return context2d_.region;
+        }
+		*/
 
 	private:
 		// THEM / boooooooooooo!
@@ -41,11 +49,13 @@ namespace scm{
 		int height_;
 		NPP npp_;		
 		PluginObject* plugin_;
+		NPDeviceContext2D* context2d_;
               
 		// US woot woot woot / dance a little happy dance.
+
 		lua_State* lua_;
 		Event* event_;
-
+		unsigned int* pixels_;
 		// ScmDisplay* display_;
 
 

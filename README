@@ -9,7 +9,7 @@ NACL_SDK_ROOT = ~/dev/nacl_sdk
 where ~dev/nacl_sdk a symlink to native_client_sdk_0_1_507_0/
 
 That SDK is pretty old, so the project includes some recent source
-from SVN to enable key events with pepper 1. (I think). :)
+from SVN to enable key events.
 
 $ make 
 $ python httpd.py

@@ -13,6 +13,66 @@ namespace scm{
 	Game::Game(){}
 	Game::~Game(){}
 
+	inline int MakeRGBA2(int r, int g, int b, int a) {
+        return (((a) << 24) | ((r) << 16) | ((g) << 8) | (b));
+    }
+
+    void Game::Wipe() {
+		/*
+        const int count = height_ * width_ - 1;
+        unsigned int *pixels = static_cast<unsigned int*>(this->pixels());
+
+        for (int i = 0; i < count; i++){
+            *pixels++ = MakeRGBA2(45,45,45,45);
+        }
+		*/
+    }
+
+
+	inline uint32_t MakeRGBA2(uint32_t r, uint32_t g, uint32_t b, uint32_t a) {
+        return (((a) << 24) | ((r) << 16) | ((g) << 8) | (b));
+    }
+
+	void Draw(NPDeviceContext2D* context, int width, int height) {
+		int stride = context->stride;
+		unsigned char* buffer = reinterpret_cast<unsigned char*>(context->region);
+		static const int kPixelStride = 4;
+
+		if (0 == height || 0 == width)
+			return;
+
+		static const float kVStep = 1.0 / static_cast<float>(height);
+		static const float kHStep = 1.0 / static_cast<float>(width);
+		static const float kAlphaStep = 1.0 / static_cast<float>(width + height);
+		for (int i = 0; i < height; ++i) {
+			for (int j = 0; j < width; ++j) {
+				int index = i * stride + j * kPixelStride;
+				float alpha = 1.0 - (i + j) * kAlphaStep;
+				float red = i * kVStep;
+				float green = j * kHStep;
+				// BGRA, premultiplied alpha.
+				buffer[index + 0] = 0x00;
+				buffer[index + 1] = static_cast<unsigned char>(green * alpha * 255);
+				buffer[index + 2] = static_cast<unsigned char>(red * alpha * 255);
+				buffer[index + 3] = static_cast<unsigned char>(alpha * 255);
+			}
+		}
+	}
+
+
+	void Game::DrawSampleBitmap() {
+		Log("<-- DrawSampleBitmap 1");
+		int count = height_ * width_ - 1;
+		unsigned int* pixels = pixels_;
+		unsigned int color = (0<<31) -1;
+
+		for (int i = 0; i < count; i++){
+			pixels[i] = color;
+		}
+		Log("<-- DrawSampleBitmap 2");
+	}
+
+
 	GameErr Game::RegisterLua(){
 		if (lua_ != 0){
 			LuaClose();
@@ -45,7 +105,8 @@ namespace scm{
 			Log("<-- Registered Lua");		
 		if (RegisterNPP() == GameOK)
 			Log("<-- Registered NPP");
-		return GameOK;		
+
+		return GameOK;
 	}
 
 	GameErr Game::RegisterNPP(){
@@ -80,7 +141,6 @@ namespace scm{
 		width_ = window.width;
 		height_ = window.height;
 
-		/*
 		NPDeviceContext2DConfig config;
 		NPDeviceContext2D context;
 		
@@ -97,7 +157,9 @@ namespace scm{
 			Log("Failed to initialize 2D context\n");
 			exit(1);
 		}		
-		*/
+
+		context2d_ = &context;
+		Draw(context2d_, width_, height_);
 		return GameOK;
 	}
 

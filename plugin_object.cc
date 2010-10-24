@@ -400,7 +400,7 @@ void PluginObject::SetWindow(const NPWindow& window) {
 			exit(1);
 		}
 
-		DrawSampleBitmap(&context, window.width, window.height);
+		//DrawSampleBitmap(&context, window.width, window.height);
 
 		plugin2d_checksum_ = HexStringToUInt(Get2DImageChecksum(&context));
 		err = device2d_->getStateContext(npp_, &context,
@@ -420,7 +420,7 @@ void PluginObject::SetWindow(const NPWindow& window) {
 		if (!pgl_context_)
 			Initialize3D();
 
-		// Schedule the first call to Draw.
+		// Schedule the first call to DrawSampleBitmap.
 		browser->pluginthreadasynccall(npp_, Draw3DCallback, this);
 	}
 
