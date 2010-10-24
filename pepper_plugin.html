@@ -13,9 +13,11 @@ found in the LICENSE file.
 </head>
 
 <body onload="nacllib.waitForModulesAndRunTests();"
-      onunload="nacllib.cleanUp();">
+      onunload="nacllib.cleanUp();"
+	  bgcolor="#000">
 
-  <embed name="nacl_module"
+  <center>
+  <embed name="nacl_module"		 
          id="plugin_2d"
          type="application/x-nacl-srpc"
          src="pplugin_x86_32.nexe"
@@ -23,10 +25,11 @@ found in the LICENSE file.
          height="600"
          dimensions="2" />
 
-  <div id="event_text_box_2d" 
-     style="width:1100px; height:300px; overflow:auto"></div>
-
-  <div id="status">NO-STATUS</div>
+	<div id="event_text_box_2d" 
+		 style="width:1100px; height:300px; overflow:auto"></div>
+	
+	<div id="status">NO-STATUS</div>
+  </center>
 
   <script type="text/javascript" src="nacl_js_lib.js"></script>
   <script type="text/javascript" src="2d.js"></script>

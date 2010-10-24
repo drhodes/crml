@@ -14,6 +14,7 @@ namespace scm{
 		GameNullPlugin,
 		GameNullEventHandler,
 		GameNullDisplay,
+		GameNullNPP,
 		GameLuaOK,
 		GameOK,
 		GameUnknown
@@ -43,7 +44,6 @@ namespace scm{
               
 		// US woot woot woot / dance a little happy dance.
 		lua_State* lua_;
-
 		Event* event_;
 
 		// ScmDisplay* display_;
@@ -56,3 +56,4 @@ namespace scm{
 	};
 } //namespace scm
 #endif
+

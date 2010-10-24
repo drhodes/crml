@@ -9,7 +9,6 @@
 #include "game.h"
 #include "event.cc"
 
-
 namespace scm{	
 	Game::Game(){}
 	Game::~Game(){}
@@ -18,15 +17,13 @@ namespace scm{
 		if (lua_ != 0){
 			LuaClose();
 		}
-		lua_ = luaL_newstate(); 
-     
+
+		lua_ = luaL_newstate();      
 		luaL_dostring(lua_, "a = 10 + 5"); 
 		lua_getglobal(lua_, "a"); 
 		int i = lua_tointeger(lua_, -1); 
 		printf("%d\n", i); 
-
-		Log("<-- Registered Lua");		
-		return GameLuaOK;
+		return GameOK;
 	}
 
 	void Game::LuaClose(){
@@ -40,18 +37,21 @@ namespace scm{
 			return GameNullPlugin;
 		}
 		plugin_ = po;		
-		Log("<-- Registered Plugin");
-		RegisterDevice2D();
-		RegisterNPP();
-		RegisterLua();
-		RegisterLua();
-		LuaClose();
+
+		Log("<-- Registered Plugin")
+		if (RegisterDevice2D() == GameOK)
+			Log("<-- RegisterDevice2D");	   
+		if (RegisterLua() == GameOK)
+			Log("<-- Registered Lua");		
+		if (RegisterNPP() == GameOK)
+			Log("<-- Registered NPP");
 		return GameOK;		
 	}
 
 	GameErr Game::RegisterNPP(){
 		npp_ = plugin_->npp();
-		Log("<-- Registered NPP");
+		if (npp_ == 0)
+			return GameNullNPP;
 		return GameOK;
 	}
 
@@ -59,7 +59,6 @@ namespace scm{
 		if (eh == 0) {
 			return GameNullEventHandler;
 		}		
-		//event_handler_ = eh; 
 		event_ = new Event;  
 		eh->Init(event_);
 
@@ -72,7 +71,6 @@ namespace scm{
 			return GameNullPlugin;
 		}
 		device2d_ = plugin_->GetDevice2D();		
-		Log("<-- RegisterDevice2D");
 		return GameOK;
 	}
 
@@ -82,9 +80,10 @@ namespace scm{
 		width_ = window.width;
 		height_ = window.height;
 
+		/*
 		NPDeviceContext2DConfig config;
 		NPDeviceContext2D context;
-
+		
 		if (device2d_ == 0){
 			Log("<-- SetWindow/device2d was null, bailing.");		
 			return GameNullDisplay;
@@ -98,7 +97,7 @@ namespace scm{
 			Log("Failed to initialize 2D context\n");
 			exit(1);
 		}		
-
+		*/
 		return GameOK;
 	}
 

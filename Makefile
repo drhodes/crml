@@ -24,9 +24,6 @@ CFLAGS =	-Wall \
 			-Werror \
 			-std=gnu++0x
 
-
-# -I/usr/include/lua50 -L/usr/include
-
 INCLUDES =	-I$(NACLPORTS_ROOT) \
 			-I$(NACL_SDK_ROOT)
 
@@ -38,7 +35,6 @@ LDFLAGS =	-lgoogle_nacl_imc \
 			-lsrpc \
 		    -llua \
 			-losg			
-
 
 OPT_FLAGS = -O2
 

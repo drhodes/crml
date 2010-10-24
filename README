@@ -1,1 +1,20 @@
-exploring native client with a 2D context.
+Exploring native client with a 2D context.
+
+To build, there are two lines at the top of the Makefile that need
+to be changed.  That should be it.
+
+NACLPORTS_ROOT = /home/derek/dev/naclports/src
+NACL_SDK_ROOT = ~/dev/nacl_sdk
+
+where ~dev/nacl_sdk a symlink to native_client_sdk_0_1_507_0/
+
+That SDK is pretty old, so the project includes some recent source
+from SVN to enable key events with pepper 1. (I think). :)
+
+$ make 
+$ python httpd.py
+$ chrome --enable-nacl
+
+httpd.py will emit an address like localhost:5103
+click the pepper_plugin.html
+
