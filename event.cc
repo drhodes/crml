@@ -139,6 +139,7 @@ namespace scm {
 			break;		
 		}
 		Log(out.str());
+		Drain();
 	}
 } //namespace scm
 

@@ -152,7 +152,7 @@ void NPP_Print(NPP instance, NPPrint* platformPrint) {
 
 int16_t NPP_HandleEvent(NPP instance, void* event) {
 	// push events here.
-	Log("NPP_HandleEvent");
+	Log("NPP_HandleEvent");	
 	return event_handler->handle(event);
 }
 

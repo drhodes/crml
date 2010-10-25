@@ -177,7 +177,7 @@ bool PluginInvoke(NPObject* header,
     return TestGetProperty(plugin, args, arg_count, result);
   } else if (name == plugin_method_identifiers[ID_SET_TEXT_BOX]) {
     if (1 == arg_count && NPVARIANT_IS_OBJECT(args[0])) {
-      return event_handler->set_text_box(NPVARIANT_TO_OBJECT(args[0]));
+		return event_handler->set_text_box(NPVARIANT_TO_OBJECT(args[0]));
     }
   } else if (name == plugin_method_identifiers[ID_MODULE_READY]) {
     INT32_TO_NPVARIANT(1, *result);
@@ -400,7 +400,7 @@ void PluginObject::SetWindow(const NPWindow& window) {
 			exit(1);
 		}
 
-		//DrawSampleBitmap(&context, window.width, window.height);
+		DrawSampleBitmap(&context, window.width, window.height);
 
 		plugin2d_checksum_ = HexStringToUInt(Get2DImageChecksum(&context));
 		err = device2d_->getStateContext(npp_, &context,
