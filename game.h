@@ -2,6 +2,7 @@
 #define GAME_H
 
 #include "event.h"
+#include "plugin_object.h"
 
 extern "C" { 
 #include <lua.h> 
@@ -20,17 +21,22 @@ namespace scm{
 		GameUnknown
 	};
 	
-	class Game {
+	class Game : public PluginObject {
 	public:
 		Game();
 		~Game();	
+
+		Game(NPP npp) : PluginObject(npp){
+		}
+
+		
 		GameErr RegisterNPP();
 		GameErr RegisterPlugin(PluginObject*);
 		GameErr RegisterEvent(EventHandler*);
 		GameErr RegisterDevice2D();
 		GameErr SetWindow(const NPWindow&);		
 		GameErr RegisterLua();
-		
+
 		void Wipe();
 		void DrawSampleBitmap();
 		void LuaClose();

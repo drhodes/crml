@@ -9,6 +9,7 @@
 #include "event_handler.h"
 //#include "loop.cc"
 #include "game.cc"
+#include "log_macro.cc"
 
 #ifdef WIN32
 #define NPAPI WINAPI
@@ -16,8 +17,6 @@
 #define NPAPI
 #endif
 
-//scm::Mainloop MAINLOOP;
-scm::Game GAME; 
 
 // Plugin entry points
 extern "C" {
@@ -38,6 +37,7 @@ extern "C" {
 
 NPError NPAPI NP_Initialize(NPNetscapeFuncs* browser_funcs,
 							NPPluginFuncs* plugin_funcs) {
+	Log("NP_Initialize");
 	browser = browser_funcs;
 	pglInitialize();
 	return NP_GetEntryPoints(plugin_funcs);
@@ -62,8 +62,11 @@ NPError NPAPI NP_GetEntryPoints(NPPluginFuncs* plugin_funcs) {
 	plugin_funcs->getvalue = NPP_GetValue;
 	plugin_funcs->setvalue = NPP_SetValue;
 
+	Log("NP_GetEntryPoints");
 	return NPERR_NO_ERROR;
 }
+
+scm::Game* GAME;
 
 NPError NPP_New(NPMIMEType pluginType,
 				NPP instance,
@@ -71,15 +74,22 @@ NPError NPP_New(NPMIMEType pluginType,
 				int16_t argc, char* argn[], char* argv[],
 				NPSavedData* saved) {
 	if (browser->version >= 14) {
+		Log("WOOOT!");
 		PluginObject* obj = reinterpret_cast<PluginObject*>
 			(browser->createobject(instance, PluginObject::GetPluginClass()));
 		instance->pdata = obj;
 		event_handler = new EventHandler(instance);
 
-		GAME.RegisterEvent(event_handler);
 		obj->New(pluginType, argc, argn, argv);
+
+		GAME = new scm::Game(obj->npp());
+		GAME->RegisterEvent(event_handler);
 	}
 
+	//GAME->~Game();
+
+
+	Log("NPP_New");
 	return NPERR_NO_ERROR;
 }
 
@@ -89,6 +99,7 @@ NPError NPP_Destroy(NPP instance, NPSavedData** save) {
 		NPN_ReleaseObject(obj->header());
 
 	fflush(stdout);
+	Log("NPP_Destroy");
 	return NPERR_NO_ERROR;
 }
 
@@ -96,9 +107,10 @@ NPError NPP_SetWindow(NPP instance, NPWindow* window) {
 	PluginObject* obj = static_cast<PluginObject*>(instance->pdata);
 	if (obj) {
 		obj->SetWindow(*window);
-		GAME.RegisterPlugin(obj);
-		GAME.SetWindow(*window);
+		GAME->RegisterPlugin(obj);
+		GAME->SetWindow(*window);
 	}
+	Log("NPP_SetWindow");
 	return NPERR_NO_ERROR;
 }
 
@@ -108,14 +120,17 @@ NPError NPP_NewStream(NPP instance,
 					  NPBool seekable,
 					  uint16_t* stype) {
 	*stype = NP_ASFILEONLY;
+	Log("NPP_NewStream");
 	return NPERR_NO_ERROR;
 }
 
 NPError NPP_DestroyStream(NPP instance, NPStream* stream, NPReason reason) {
+	Log("NPP_DestroyStream");
 	return NPERR_NO_ERROR;
 }
 
 void NPP_StreamAsFile(NPP instance, NPStream* stream, const char* fname) {
+	Log("NPP_StreamAsFile");
 }
 
 int32_t NPP_Write(NPP instance,
@@ -123,6 +138,7 @@ int32_t NPP_Write(NPP instance,
 				  int32_t offset,
 				  int32_t len,
 				  void* buffer) {
+	Log("NPP_NPP");
 	return 0;
 }
 
@@ -131,10 +147,12 @@ int32_t NPP_WriteReady(NPP instance, NPStream* stream) {
 }
 
 void NPP_Print(NPP instance, NPPrint* platformPrint) {
+	Log("NPP_Print");
 }
 
 int16_t NPP_HandleEvent(NPP instance, void* event) {
 	// push events here.
+	Log("NPP_HandleEvent");
 	return event_handler->handle(event);
 }
 
@@ -142,6 +160,7 @@ void NPP_URLNotify(NPP instance,
 				   const char* url,
 				   NPReason reason,
 				   void* notify_data) {
+	Log("NPP_URLNotify");
 	// PluginObject* obj = static_cast<PluginObject*>(instance->pdata);
 }
 
@@ -186,18 +205,22 @@ NPError NPP_GetValue(NPP instance, NPPVariable variable, void* value) {
 		break;
 	}
 
+	Log("NPP_GetValue");
 	return err;
 }
 
 NPError NPP_SetValue(NPP instance, NPNVariable variable, void* value) {
+	Log("NPP_SetValue");
 	return NPERR_GENERIC_ERROR;
 }
 
 NPError NP_GetValue(void* instance, NPPVariable variable, void* value) {
+	Log("NP_GetValue");
 	return NPP_GetValue(reinterpret_cast<NPP>(instance), variable, value);
 }
 
 char* NP_GetMIMEDescription() {
+	Log("NP_GetMIMEDescription");
 	return const_cast<char*>("pepper-application/x-pepper-test-plugin;");
 }
 

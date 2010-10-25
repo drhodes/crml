@@ -10,7 +10,9 @@
 #include "event.cc"
 
 namespace scm{	
-	Game::Game(){}
+
+
+	//Game::Game(){}
 	Game::~Game(){}
 
 	inline int MakeRGBA2(int r, int g, int b, int a) {

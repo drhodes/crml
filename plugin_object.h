@@ -54,7 +54,7 @@ class PluginObject {
 	void Draw3D();
 
 	// scm augmentation
-	NPDevice* GetDevice2D(); // evil accessor? probably. necessary? probably.
+	NPDevice* GetDevice2D(); // evil accessor? probably. necessary? probably not.
 
 
  private:
