@@ -22,7 +22,11 @@ CFLAGS =	-Wall \
 			-pthread \
 			-DXP_UNIX \
 			-Werror \
-			-std=gnu++0x
+			-std=gnu++0x \
+			-mfpmath=sse \
+			-msse \
+			-fomit-frame-pointer \
+			-lpthread 
 
 INCLUDES =	-I$(NACLPORTS_ROOT) \
 			-I$(NACL_SDK_ROOT)
@@ -36,7 +40,7 @@ LDFLAGS =	-lgoogle_nacl_imc \
 		    -llua \
 			-losg			
 
-OPT_FLAGS = -O2
+OPT_FLAGS = -O3
 
 # The check_variables target is in nacl_build.mk.
 # !! the 64 bit build is commented out for faster testing.
@@ -48,6 +52,7 @@ all: check_variables pplugin_x86_32.nexe # life_x86_64.nexe
 
 pplugin_x86_32.nexe: $(OBJECTS_X86_32)
 	$(CPP) $^ $(LDFLAGS) -m32 -o $@
+	pplugin_x86_32.nexe
 
 pplugin_x86_64.nexe: $(OBJECTS_X86_64)
 	$(CPP) $^ $(LDFLAGS) -m64 -o $@

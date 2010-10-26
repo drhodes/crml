@@ -4,8 +4,7 @@ int mainloop(){
 	scm::Display* dsp = GAME.GetDisplay();
 
 	while (GAME.running()){
-		nanosleep(1);
-		
+		nanosleep(1);		
 	}
 }
 

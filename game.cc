@@ -9,6 +9,8 @@
 #include "game.h"
 #include "event.cc"
 
+
+
 namespace scm{	
 	//Game::Game(){}
 	Game::~Game(){}
@@ -40,16 +42,18 @@ namespace scm{
 		if (po == 0) {
 			return GameNullPlugin;
 		}
-		plugin_ = po;		
 
-		Log("<-- Registered Plugin")
 		if (RegisterDevice2D() == GameOK)
-			Log("<-- RegisterDevice2D");	   
+			Log("<-- RegisterDevice2D");
+		else 
+			Log("!-- RegisterDevice2D FAILED");
+
 		if (RegisterLua() == GameOK)
 			Log("<-- Registered Lua");		
 		if (RegisterNPP() == GameOK)
 			Log("<-- Registered NPP");
 
+		Log("<-- Registered Plugin")
 		return GameOK;
 	}
 

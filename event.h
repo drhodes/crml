@@ -17,7 +17,7 @@ namespace scm {
 	public:
 		Event();
 		~Event();
-		void Init(); // get the scene for logging.
+		void Init();
 		void PushEvent(NPPepperEvent*);		
 		bool Empty();
 		void Drain();

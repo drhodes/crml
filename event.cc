@@ -11,13 +11,12 @@ namespace scm {
 	Event::Event(){
 		queue_ = new std::queue<NPPepperEvent*>;
 	}
-	Event::~Event(){}
+
+	Event::~Event(){
+		delete queue_;
+	}
 	
    	void Event::Init() {
-		/**
-		   -> use a local copy of the main scene providing access to logging facilities
-		   <- void
-		**/		
 		Log(":) Init Event");
 	}
 	
@@ -25,32 +24,21 @@ namespace scm {
 		return queue_->empty();
 	}
 
-	/*
-	  Inline reference from npapi_extensions.h
-	  
-	typedef struct _NPPepperEvent
-	{
-		uint32_t size;
-		int32_t type;
-		double timeStampSeconds;
-		union {
-			NPKeyEvent key;
-			NPCharacterEvent character;
-			NPMouseEvent mouse;
-			NPMouseWheelEvent wheel;
-			NPMinimizeEvent minimize;
-			NPFocusEvent focus;
-			NPDeviceEvent device;
-		} u;
-	} NPPepperEvent;
+	/*	 
+	  NPKeyEvent key;
+	  NPCharacterEvent character;
+	  NPMouseEvent mouse;
+	  NPMouseWheelEvent wheel;
+	  NPMinimizeEvent minimize;
+	  NPFocusEvent focus;
+	  NPDeviceEvent device;
 	*/
 
-	void appendMouseInfo(std::stringstream* out, NPPepperEvent* e){
-		/**
-		   -> take a point to stringstream, add some mouse info from --
-		   -> a pointer to a pepper event
-		   <- void
-		 **/
+	void appendMouseInfo(std::stringstream* out, NPPepperEvent* e) {
+		/* > out  | a pointer to stringstream, add some mouse info from --
+		   > e    | a pointer to a pepper event
+		   < void |  
+		*/
 		*out << "Modifier: " << e->u.mouse.modifier << ", ";
 		*out << "Button: " << e->u.mouse.button << ", ";
 		*out << "<" << e->u.mouse.x << ", " << e->u.mouse.y << ">, ";
@@ -73,12 +61,9 @@ namespace scm {
 	}
 
 	void Event::PushEvent(NPPepperEvent* e){		
-		/**
-		   -> a pointer to a pepper event is pushed onto queue_
-		   <- void
-
-		   !! for some reason, I'm not seeing any keyboard events come through
-		**/
+		/* > e    | a pointer to a pepper event is pushed onto queue_
+		   < void |
+		*/
 		assert( e != NULL );
 		assert( queue_ != NULL );
 
@@ -139,7 +124,6 @@ namespace scm {
 			break;		
 		}
 		Log(out.str());
-		Drain();
 	}
 } //namespace scm
 
