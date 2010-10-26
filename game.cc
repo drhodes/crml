@@ -9,8 +9,6 @@
 #include "game.h"
 #include "event.cc"
 
-
-
 namespace scm{	
 	//Game::Game(){}
 	Game::~Game(){}
@@ -45,9 +43,6 @@ namespace scm{
 
 		if (RegisterDevice2D() == GameOK)
 			Log("<-- RegisterDevice2D");
-		else 
-			Log("!-- RegisterDevice2D FAILED");
-
 		if (RegisterLua() == GameOK)
 			Log("<-- Registered Lua");		
 		if (RegisterNPP() == GameOK)
