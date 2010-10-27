@@ -18,8 +18,8 @@
 	options for including lua code since runtime filesystem
 	access isn't allowed? 
 
-        Probably just pass it down into map<string filename.lua, string filecontents>
-        And then from there interpret?
+	Probably just pass it down into map<string filename.lua, string filecontents>
+    And then from there interpret?
 
 	
 	build time script that transformms lua source into
