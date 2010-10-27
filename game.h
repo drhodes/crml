@@ -27,10 +27,8 @@ namespace scm{
 		~Game();	
 
 		Game(NPP npp) : PluginObject(npp){
-		}
-
-		
-		GameErr RegisterNPP();
+		}		
+		//GameErr RegisterNPP();
 		GameErr RegisterPlugin(PluginObject*);
 		GameErr RegisterEvent(EventHandler*);
 		GameErr RegisterDevice2D();

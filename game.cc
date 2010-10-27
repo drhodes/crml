@@ -45,20 +45,21 @@ namespace scm{
 			Log("<-- RegisterDevice2D");
 		if (RegisterLua() == GameOK)
 			Log("<-- Registered Lua");		
-		if (RegisterNPP() == GameOK)
-			Log("<-- Registered NPP");
-
+		//if (RegisterNPP() == GameOK)
+		//Log("<-- Registered NPP");
+		
 		Log("<-- Registered Plugin")
 		return GameOK;
 	}
 
+	/*
 	GameErr Game::RegisterNPP(){
 		npp_ = plugin_->npp();
 		if (npp_ == 0)
 			return GameNullNPP;
 		return GameOK;
 	}
-
+	*/
 	GameErr Game::RegisterEvent(EventHandler* eh){		
 		if (eh == 0) {
 			return GameNullEventHandler;

@@ -8,6 +8,7 @@
 #include "plugin_object.h"
 #include "event_handler.h"
 //#include "loop.cc"
+//#include "hello_world.cc"
 #include "game.cc"
 #include "log_macro.cc"
 

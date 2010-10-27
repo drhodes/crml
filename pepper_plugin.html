@@ -14,9 +14,12 @@
 
   <body onload="nacllib.waitForModulesAndRunTests();"
 		onunload="nacllib.cleanUp();"
-		bgcolor="#000">
+		bgcolor="#888">
 
 	<center>
+	  <button onclick="fortytwo()">Call fortytwo()</button>
+	  <button onclick="helloworld()">Call helloworld()</button>
+
 	  <embed name="nacl_module"		 
 			 id="plugin_2d"
 			 type="application/x-nacl-srpc"
@@ -31,8 +34,7 @@
 	  <div id="status">NO-STATUS</div>
 	</center>
 
-
-	<div id="nacl:resource">
+	<div id="nacl:resource" style="display: none;">
 	  <div id="nacl:image">
 		<img id="gopher" src="gopher.png"/>	  
 	  </div>
