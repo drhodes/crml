@@ -75,7 +75,9 @@ namespace {
 		ID_MODULE_READY,
 		ID_REPORT_CHECKSUM,
 		ID_IS_CHECKSUM_CHECK_SUCCESS,
-		NUM_METHOD_IDENTIFIERS
+		ID_IS_HELLOWORLD,
+		ID_IS_FORTYTWO,
+		NUM_METHOD_IDENTIFIERS = 7
 	};
 	
 	static NPIdentifier plugin_method_identifiers[NUM_METHOD_IDENTIFIERS];
@@ -85,6 +87,8 @@ namespace {
 		"moduleReady",
 		"reportChecksum",
 		"isChecksumCheckSuccess",
+		"helloworld",
+		"fortytwo",
 	};
 
 	void EnsureIdentifiersInitialized() {
@@ -101,29 +105,27 @@ namespace {
 		identifiers_initialized = true;
 	}
 
-	/*
-	// -----------------------------------------------------------------------------
 
-	// These are the method names as JavaScript sees them.
-	static const char* kHelloWorldMethodId = "helloworld";
-	static const char* kFortyTwoMethodId = "fortytwo";
+	// -----------------------------------------------------------------------------
 
 	// This is the module's function that does the work to set the value of the
 	// result variable to '42'.  The Invoke() function that called this function
 	// then returns the result back to the browser as a JavaScript value.
-	static bool FortyTwo(NPVariant *result) {
-		if (result) {
-			INT32_TO_NPVARIANT(42, *result);
-		}
-		return true;
-	}
+
+	// static bool FortyTwo(NPVariant *result) {
+	// 	if (result) {
+	// 		INT32_TO_NPVARIANT(42, *result);
+	// 	}
+	// 	return true;
+	// }
+
 
 	// This function creates a string in the browser's memory pool and then returns
 	// a variable containing a pointer to that string.  The variable is later
 	// returned back to the browser by the Invoke() function that called this.
 	static bool HelloWorld(NPVariant *result) {
 		if (result) {
-			const char *msg = "hello, world.";
+			const char *msg = "hello, world. soon to be img.";
 			const int msg_length = strlen(msg) + 1;
 			// Note: |msg_copy| will be freed later on by the browser, so it needs to
 			// be allocated here with NPN_MemAlloc().
@@ -133,7 +135,10 @@ namespace {
 		}
 		return true;
 	}
-	*/
+
+	//static bool ReceivePngData(NPVariant *png_data) {
+		
+	//}
 
 
 
@@ -210,21 +215,34 @@ namespace {
 					  const NPVariant* args, uint32_t arg_count,
 					  NPVariant* result) {
 		PluginObject* plugin = reinterpret_cast<PluginObject*>(header);
+
+		
+
+
 		if (name == plugin_method_identifiers[ID_TEST_GET_PROPERTY]) {
-			return TestGetProperty(plugin, args, arg_count, result);
+			return TestGetProperty(plugin, args, arg_count, result);			
 		} else if (name == plugin_method_identifiers[ID_SET_TEXT_BOX]) {
 			if (1 == arg_count && NPVARIANT_IS_OBJECT(args[0])) {
 				return event_handler->set_text_box(NPVARIANT_TO_OBJECT(args[0]));
 			}
+
 		} else if (name == plugin_method_identifiers[ID_MODULE_READY]) {
 			INT32_TO_NPVARIANT(1, *result);
 			return true;
+			
 		} else if (name == plugin_method_identifiers[ID_REPORT_CHECKSUM]) {
 			return event_handler->addText(plugin->ReportChecksum().c_str());
+			
 		} else if (name == plugin_method_identifiers[ID_IS_CHECKSUM_CHECK_SUCCESS]) {
 			BOOLEAN_TO_NPVARIANT(plugin->IsChecksumCheckSuccess(), *result);
 			return true;
+
+		} else if (name == plugin_method_identifiers[ID_IS_HELLOWORLD]) {
+			return HelloWorld(result);
 		}
+
+		
+		
 
 		return false;
 	}

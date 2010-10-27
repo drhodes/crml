@@ -39,7 +39,7 @@ static bool HelloWorld(NPVariant *result) {
   return true;
 }
 
-/*
+
 
 // Creates the plugin-side instance of NPObject.
 // Called by NPN_CreateObject, declared in npruntime.h
@@ -135,4 +135,3 @@ NPClass *GetNPSimpleClass() {
   return &kHelloWorldClass;
 }
 
-*/
