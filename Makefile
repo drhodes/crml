@@ -23,10 +23,6 @@ CFLAGS =	-Wall \
 			-DXP_UNIX \
 			-Werror \
 			-std=gnu++0x \
-			-mfpmath=sse \
-			-msse \
-			-fomit-frame-pointer \
-			-lpthread 
 
 INCLUDES =	-I$(NACLPORTS_ROOT) \
 			-I$(NACL_SDK_ROOT)
@@ -52,7 +48,6 @@ all: check_variables pplugin_x86_32.nexe # life_x86_64.nexe
 
 pplugin_x86_32.nexe: $(OBJECTS_X86_32)
 	$(CPP) $^ $(LDFLAGS) -m32 -o $@
-	pplugin_x86_32.nexe
 
 pplugin_x86_64.nexe: $(OBJECTS_X86_64)
 	$(CPP) $^ $(LDFLAGS) -m64 -o $@
