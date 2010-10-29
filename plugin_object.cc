@@ -37,14 +37,15 @@
 #include <sstream>
 #include <map>
 
+
 #include "event_handler.h"
 #include "gles2_demo_cc.h"
 #include "md5.h"
 #include "test_object.h"
 #include "npapi_extensions_private.h"
-#include "hexdecode.cc"
 
-//#include "loop.cc"
+#include "hex_store.cc"
+#include "hexdecode.cc"
 
 NPNetscapeFuncs* browser;
 
@@ -53,7 +54,8 @@ namespace {
 	// This is bad form, still searching for a good way to introduce this.
 
 	//scm::Mainloop MAINLOOP;
-
+	std::map<std::string, std::string> HEX_STORE;
+	//HexStore HEX_STORE;
 
 	// Properties ------------------------------------------------------------------
 
@@ -118,7 +120,7 @@ namespace {
 						   NPVARIANT_TO_STRING(variant).UTF8Length);
 	}
 
-	std::map <std::string, std::string> STORE;
+
 
 	static bool StoreFortyTwo(const _NPVariant key, const _NPVariant val) {
 		//printf("42 val: %p\n", result);
@@ -132,7 +134,7 @@ namespace {
 		printf("len(val) == %d\n", s_val.size());
 					
 		// store a hex encoded value.
-		STORE[s_key] = s_val;			
+		HEX_STORE[s_key] = s_val;			
 		return true;
 	}
 
@@ -145,10 +147,10 @@ namespace {
 		//printf("val: %s\n", s_val.c_str());
 		//printf("len(val) == %d\n", s_val.size());
 
-		STORE[s_key] += s_val;				
+		HEX_STORE[s_key] += s_val;				
 
-		printf("len(val) == %d\n", STORE[s_key].size());
-		printf("decoding: %s\n", hexdecode(STORE[s_key]).c_str());
+		printf("len(val) == %d\n", HEX_STORE[s_key].size());
+		printf("decoding: %s\n", hexdecode(HEX_STORE[s_key]).c_str());
 
 		return true;
 	}

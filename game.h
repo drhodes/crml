@@ -3,6 +3,7 @@
 
 #include "event.h"
 #include "plugin_object.h"
+#include "hex_store.h"
 
 extern "C" { 
 #include <lua.h> 
@@ -32,6 +33,7 @@ namespace scm{
 		GameErr RegisterPlugin(PluginObject*);
 		GameErr RegisterEvent(EventHandler*);
 		GameErr RegisterDevice2D();
+		//GameErr RegisterHexStore();
 		GameErr SetWindow(const NPWindow&);		
 		GameErr RegisterLua();
 

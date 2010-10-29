@@ -47,7 +47,7 @@ all: check_variables pplugin_x86_32.nexe # life_x86_64.nexe
 -include $(NACLPORTS_ROOT)/common_build_scripts/nacl_build.mk
 
 pplugin_x86_32.nexe: $(OBJECTS_X86_32)
-	$(CPP) $^ $(LDFLAGS) -m32 -o $@
+	$(CPP) $^ $(LDFLAGS) -m32 -o $@ 
 
 pplugin_x86_64.nexe: $(OBJECTS_X86_64)
 	$(CPP) $^ $(LDFLAGS) -m64 -o $@

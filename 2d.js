@@ -41,6 +41,7 @@ function fortytwo() {
         const blocks = partition(data);
         hello_world.store_fortytwo("example", blocks[0]);
         for (i=1; i<blocks.length; i++){
+            addLine2d(""+i);
             hello_world.append_hex("example",  blocks[i]);
         }
     });
