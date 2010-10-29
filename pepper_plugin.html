@@ -10,15 +10,16 @@
 	<title> cell-grid </title>
 	<META HTTP-EQUIV="Pragma" CONTENT="no-cache" />
 	<META HTTP-EQUIV="Expires" CONTENT="-1" />
+	<script type="text/javascript" src="jquery-1.4.3.min.js"></script>
   </head>
 
   <body onload="nacllib.waitForModulesAndRunTests();"
 		onunload="nacllib.cleanUp();"
 		bgcolor="#888">
-
 	<center>
 	  <button onclick="fortytwo()">Call fortytwo()</button>
 	  <button onclick="helloworld()">Call helloworld()</button>
+	  <button onclick="store_fortytwo()">Call store_fortytwo()</button>
 
 	  <embed name="nacl_module"		 
 			 id="plugin_2d"
@@ -33,17 +34,6 @@
 	  
 	  <div id="status">NO-STATUS</div>
 	</center>
-
-	<div id="nacl:resource" style="display: none;">
-	  <div id="nacl:image">
-		<img id="gopher" src="gopher.png"/>	  
-	  </div>
-	  
-	  <div id="nacl:sound">
-		<div id="intro" src="intro.mp3"/>	  
-	  </div>
-	</div>
-
 
 	<script type="text/javascript" src="nacl_js_lib.js"></script>
 	<script type="text/javascript" src="2d.js"></script>

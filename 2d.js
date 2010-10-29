@@ -1,4 +1,3 @@
-
 // -----------------------------------------------------------------------------
 hello_world = null;  // Global application object.
 status_text = 'NO-STATUS';
@@ -6,6 +5,7 @@ status_text = 'NO-STATUS';
 function moduleDidLoad() {
     hello_world = document.getElementById('plugin_2d');
     updateStatus('SUCCESS');
+    fortytwo();
 }
 
 // If the page loads before the Native Client module loads, then set the
@@ -23,13 +23,40 @@ function pageDidLoad() {
     }
 }
 
+function partition(str){
+    // take a string, bust it into blocks
+    // return an array of blocks
+    const block_size = 1024*64;  // 64 <= 99
+    const len = str.length;
+    var blocks = [];
+
+    for (i=0; i<len; i+=block_size) {
+        blocks.push(str.slice(i, i+block_size));
+    }
+    return blocks;
+}
+
 function fortytwo() {
+    $.get('example.hex', function(data) {
+        const blocks = partition(data);
+        hello_world.store_fortytwo("example", blocks[0]);
+        for (i=1; i<blocks.length; i++){
+            hello_world.append_hex("example",  blocks[i]);
+        }
+    });
+}
+
+function store_fortytwo() {
     try {
-        alert(hello_world.fortytwo());
+        hello_world.store_fortytwo("example", _example_hex[0]);
+        for (i=1; i<_example_hex.length; i++){
+            hello_world.append_hex("example",  _example_hex[i]);
+        }
     } catch(e) {
         alert(e.message);
     }
 }
+
 
 function helloworld() {
     try {
@@ -114,4 +141,5 @@ nacllib.test = function() {
     // Return success.
     return "";
 };
+
 

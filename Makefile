@@ -34,7 +34,7 @@ LDFLAGS =	-lgoogle_nacl_imc \
 			-lpthread \
 			-lsrpc \
 		    -llua \
-			-losg			
+			-losg \
 
 OPT_FLAGS = -O3
 

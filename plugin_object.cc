@@ -31,21 +31,24 @@
 #include <stdlib.h>
 #include <string.h>
 #include <GLES2/gl2.h>
+#include <iostream>
 
 #include <limits>
 #include <sstream>
+#include <map>
 
 #include "event_handler.h"
 #include "gles2_demo_cc.h"
 #include "md5.h"
 #include "test_object.h"
 #include "npapi_extensions_private.h"
+#include "hexdecode.cc"
+
 //#include "loop.cc"
 
 NPNetscapeFuncs* browser;
 
 namespace {
-	
 	// need a good spot to init the main loop.
 	// This is bad form, still searching for a good way to introduce this.
 
@@ -77,7 +80,9 @@ namespace {
 		ID_IS_CHECKSUM_CHECK_SUCCESS,
 		ID_IS_HELLOWORLD,
 		ID_IS_FORTYTWO,
-		NUM_METHOD_IDENTIFIERS = 7
+		ID_IS_STORE_FORTYTWO,
+		ID_IS_APPEND_HEX,
+		NUM_METHOD_IDENTIFIERS = 9
 	};
 	
 	static NPIdentifier plugin_method_identifiers[NUM_METHOD_IDENTIFIERS];
@@ -89,8 +94,9 @@ namespace {
 		"isChecksumCheckSuccess",
 		"helloworld",
 		"fortytwo",
+		"store_fortytwo",
+		"append_hex",
 	};
-
 	void EnsureIdentifiersInitialized() {
 		static bool identifiers_initialized = false;
 		if (identifiers_initialized)
@@ -105,20 +111,73 @@ namespace {
 		identifiers_initialized = true;
 	}
 
-
 	// -----------------------------------------------------------------------------
+	// Global prototype STORE.  need to fold this back into game.
+	std::string CreateStringFromNPVariant(const NPVariant& variant) {
+		return std::string(NPVARIANT_TO_STRING(variant).UTF8Characters,
+						   NPVARIANT_TO_STRING(variant).UTF8Length);
+	}
 
-	// This is the module's function that does the work to set the value of the
-	// result variable to '42'.  The Invoke() function that called this function
-	// then returns the result back to the browser as a JavaScript value.
+	std::map <std::string, std::string> STORE;
 
-	// static bool FortyTwo(NPVariant *result) {
-	// 	if (result) {
-	// 		INT32_TO_NPVARIANT(42, *result);
-	// 	}
-	// 	return true;
-	// }
+	static bool StoreFortyTwo(const _NPVariant key, const _NPVariant val) {
+		//printf("42 val: %p\n", result);
+		//printf("42 val: %d\n", int(NPVARIANT_TO_INT32(result)));		
+		std::string s_key = CreateStringFromNPVariant(key);
+		std::string s_val = CreateStringFromNPVariant(val);
 
+		printf("----------------------------------\n");
+		printf("key: %s\n", s_key.c_str());
+		//printf("val: %s\n", s_val.c_str());
+		printf("len(val) == %d\n", s_val.size());
+					
+		// store a hex encoded value.
+		STORE[s_key] = s_val;			
+		return true;
+	}
+
+	static bool AppendHex(const _NPVariant key, const _NPVariant val) {
+		std::string s_key = CreateStringFromNPVariant(key);
+		std::string s_val = CreateStringFromNPVariant(val);
+
+		printf("Appending Store ----------------------------------\n");
+		printf("key: %s\n", s_key.c_str());
+		//printf("val: %s\n", s_val.c_str());
+		//printf("len(val) == %d\n", s_val.size());
+
+		STORE[s_key] += s_val;				
+
+		printf("len(val) == %d\n", STORE[s_key].size());
+		printf("decoding: %s\n", hexdecode(STORE[s_key]).c_str());
+
+		return true;
+	}
+
+
+	static bool FortyTwo(const _NPVariant result) {
+		//printf("42 val: %p\n", result);
+		//printf("42 val: %d\n", int(NPVARIANT_TO_INT32(result)));
+		std::string s = CreateStringFromNPVariant(result);
+		s += "\n";
+		printf(s.c_str());
+		
+		// _NPString js_string = NPVARIANT_TO_STRING(result);		
+		// int len_js_string = int(js_string.UTF8Length);
+		// if (len_js_string == 0){
+		// 	printf("FortyTwo received null string\n Which is ok, but I wanted you to know.\n");
+		// 	return true;
+		// }
+				
+		// char *c = (char*)(js_string.UTF8Characters);
+		// std::string s;
+		// for (int i=0; i<len_js_string; ++i){
+		// 	s += c[i];
+		// }
+		// s += "\n";
+		// printf(s.c_str());
+
+		return true;
+	}
 
 	// This function creates a string in the browser's memory pool and then returns
 	// a variable containing a pointer to that string.  The variable is later
@@ -136,19 +195,9 @@ namespace {
 		return true;
 	}
 
-	//static bool ReceivePngData(NPVariant *png_data) {
-		
+	//static bool ReceivePngData(NPVariant *png_data) {		
 	//}
-
-
-
-
 	// Helper functions ------------------------------------------------------------
-
-	std::string CreateStringFromNPVariant(const NPVariant& variant) {
-		return std::string(NPVARIANT_TO_STRING(variant).UTF8Characters,
-						   NPVARIANT_TO_STRING(variant).UTF8Length);
-	}
 
 	bool TestGetProperty(PluginObject* obj,
 						 const NPVariant* args, uint32_t arg_count,
@@ -215,10 +264,7 @@ namespace {
 					  const NPVariant* args, uint32_t arg_count,
 					  NPVariant* result) {
 		PluginObject* plugin = reinterpret_cast<PluginObject*>(header);
-
 		
-
-
 		if (name == plugin_method_identifiers[ID_TEST_GET_PROPERTY]) {
 			return TestGetProperty(plugin, args, arg_count, result);			
 		} else if (name == plugin_method_identifiers[ID_SET_TEXT_BOX]) {
@@ -239,10 +285,17 @@ namespace {
 
 		} else if (name == plugin_method_identifiers[ID_IS_HELLOWORLD]) {
 			return HelloWorld(result);
-		}
+			
+		} else if (name == plugin_method_identifiers[ID_IS_FORTYTWO]) {
+			return FortyTwo(args[0]);
 
-		
-		
+		} else if (name == plugin_method_identifiers[ID_IS_STORE_FORTYTWO]) {
+			printf("Hello it made it here\n");
+			return StoreFortyTwo(args[0], args[1]);
+
+		} else if (name == plugin_method_identifiers[ID_IS_APPEND_HEX]) {
+			return AppendHex(args[0], args[1]);
+		}
 
 		return false;
 	}
