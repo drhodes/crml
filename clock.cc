@@ -8,29 +8,30 @@
 #include "clock.h"
 
 namespace scm {
-	Clock::Clock() {
-		Reset();
-	}
 
-	void Clock::Reset(){
-		timer_.setStartTick();
-	}
+Clock::Clock() {
+  Reset();
+}
+
+void Clock::Reset(){
+  timer_.setStartTick();
+}
   
-	double Clock::ElapsedSec(){
-		return timer_.time_s();
-	}
+double Clock::ElapsedSec(){
+  return timer_.time_s();
+}
 
-	double Clock::ElapsedMilli(){
-		return timer_.time_m();
-	}
+double Clock::ElapsedMilli(){
+  return timer_.time_m();
+}
 
-	double Clock::ElapsedMicro(){
-		return timer_.time_u();
-	}
+double Clock::ElapsedMicro(){
+  return timer_.time_u();
+}
 
-	double Clock::ElapsedNano(){
-		return timer_.time_n();
-	}
+double Clock::ElapsedNano(){
+  return timer_.time_n();
+}
 
 } // namespace scm
 

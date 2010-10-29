@@ -39,7 +39,7 @@ function fortytwo() {
     loadStatus("> Loading file");
     $.get('example.hex', function(data) {
         const blocks = partition(data);
-        hello_world.store_fortytwo("example", blocks[0]);
+        hello_world.store_hex("example", blocks[0]);
         for (i=1; i<blocks.length; i++){
             addLine2d(""+i);
             hello_world.append_hex("example",  blocks[i]);
@@ -48,9 +48,9 @@ function fortytwo() {
     loadStatus("> Loading done.");
 }
 
-function store_fortytwo() {
+function store_hex() {
     try {
-        hello_world.store_fortytwo("example", _example_hex[0]);
+        hello_world.store_hex("example", _example_hex[0]);
         for (i=1; i<_example_hex.length; i++){
             hello_world.append_hex("example",  _example_hex[i]);
         }

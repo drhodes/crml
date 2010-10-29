@@ -1,3 +1,6 @@
+#ifndef HEXDECODE_CC
+#define HEXDECODE_CC
+
 #include <string>
 
 // dead simple encoding.
@@ -50,3 +53,4 @@ std::string hexdecode(std::string src){
 	return out;
 }
 
+#endif

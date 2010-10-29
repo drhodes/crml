@@ -22,7 +22,7 @@ CFLAGS =	-Wall \
 			-pthread \
 			-DXP_UNIX \
 			-Werror \
-#			-std=gnu++0x \
+			-std=gnu++0x \
 
 INCLUDES =	-I$(NACLPORTS_ROOT) \
 			-I$(NACL_SDK_ROOT)
