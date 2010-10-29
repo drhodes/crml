@@ -1,111 +1,104 @@
+// Copyright 2010 <Derek A. Rhodes> All Rights Reseverd.
+
 #ifndef GAME_CC
 #define GAME_CC
 
-#include <string>
 #include <stdlib.h>
 #include <stdio.h>
-#include "log_macro.cc"
 
-#include "game.h"
-#include "event.cc"
+#include <string>
 
-namespace scm{	
-	//Game::Game(){}
-	Game::~Game(){}
+#include "./log_macro.cc"
+#include "./game.h"
+#include "./event.cc"
 
-	inline int MakeRGBA2(int r, int g, int b, int a) {
-        return (((a) << 24) | ((r) << 16) | ((g) << 8) | (b));
-    }
+namespace scm {
+//  Game::Game() {}
+Game::~Game() {}
 
-	GameErr Game::RegisterLua(){
-		if (lua_ != 0){
-			LuaClose();
-		}
+inline int MakeRGBA2(int r, int g, int b, int a) {
+  return (((a) << 24) | ((r) << 16) | ((g) << 8) | (b));
+}
 
-		lua_ = luaL_newstate();      
-		luaL_dostring(lua_, "a = 10 + 5"); 
-		lua_getglobal(lua_, "a"); 
-		int i = lua_tointeger(lua_, -1); 
-		printf("%d\n", i); 
-		return GameOK;
-	}
+GameErr Game::RegisterLua() {
+  if (lua_ != 0) {
+    LuaClose();
+  }
 
-	void Game::LuaClose(){
-		if (lua_ != 0){
-			lua_close(lua_);
-		}			
-	}
+  lua_ = luaL_newstate();
+  luaL_dostring(lua_, "a = 10 + 5");
+  lua_getglobal(lua_, "a");
+  int i = lua_tointeger(lua_, -1);
+  printf("%d\n", i);
+  return GameOK;
+}
 
-	GameErr Game::RegisterPlugin(PluginObject* po){
-		if (po == 0) {
-			return GameNullPlugin;
-		}
+void Game::LuaClose() {
+  if (lua_ != 0) {
+    lua_close(lua_);
+  }
+}
 
-		if (RegisterDevice2D() == GameOK)
-			Log("<-- RegisterDevice2D");
-		if (RegisterLua() == GameOK)
-			Log("<-- Registered Lua");		
-		//if (RegisterNPP() == GameOK)
-		//Log("<-- Registered NPP");
-		
-		Log("<-- Registered Plugin")
-		return GameOK;
-	}
+GameErr Game::RegisterPlugin(PluginObject* po) {
+  if (po == 0) {
+    return GameNullPlugin;
+  }
 
-	/*
-	GameErr Game::RegisterNPP(){
-		npp_ = plugin_->npp();
-		if (npp_ == 0)
-			return GameNullNPP;
-		return GameOK;
-	}
-	*/
-	GameErr Game::RegisterEvent(EventHandler* eh){		
-		if (eh == 0) {
-			return GameNullEventHandler;
-		}		
-		event_ = new Event;  
-		eh->Init(event_);
+  if (RegisterDevice2D() == GameOK)
+    Log("<-- RegisterDevice2D");
+  if (RegisterLua() == GameOK)
+    Log("<-- Registered Lua");
 
-		Log("<-- Registered Event");
-		return GameOK;
-	}
+  Log("<-- Registered Plugin")
+      return GameOK;
+}
 
-	GameErr Game::RegisterDevice2D(){	   		
-		if (plugin_ == 0){
-			return GameNullPlugin;
-		}
-		device2d_ = plugin_->GetDevice2D();		
-		return GameOK;
-	}
+GameErr Game::RegisterEvent(EventHandler* eh) {
+  if (eh == 0) {
+    return GameNullEventHandler;
+  }
+  event_ = new Event;
+  eh->Init(event_);
 
-	GameErr Game::SetWindow(const NPWindow& window) {
-		// This should needs to be completely rethought.
-		Log("<-- SetWindow");		
-		width_ = window.width;
-		height_ = window.height;
+  Log("<-- Registered Event");
+  return GameOK;
+}
 
-		NPDeviceContext2DConfig config;
-		NPDeviceContext2D context;
-		
-		if (device2d_ == 0){
-			Log("<-- SetWindow/device2d was null, bailing.");		
-			return GameNullDisplay;
-		}
-		Log("<-- SetWindow::1");		
+GameErr Game::RegisterDevice2D() {
+  if (plugin_ == 0) {
+    return GameNullPlugin;
+  }
+  device2d_ = plugin_->GetDevice2D();
+  return GameOK;
+}
 
-		device2d_->initializeContext(npp_, &config, &context);
-		NPError err = device2d_->initializeContext(npp_, &config, &context);
-		
-		if (err != NPERR_NO_ERROR) {
-			Log("Failed to initialize 2D context\n");
-			exit(1);
-		}		
+GameErr Game::SetWindow(const NPWindow& window) {
+  // This should needs to be completely rethought.
+  Log("<-- SetWindow");
+  width_ = window.width;
+  height_ = window.height;
 
-		context2d_ = &context;
-		//Draw(context2d_, width_, height_);
-		return GameOK;
-	}
+  NPDeviceContext2DConfig config;
+  NPDeviceContext2D context;
 
-} // namespace scm
+  if (device2d_ == 0) {
+    Log("<-- SetWindow/device2d was null, bailing.");
+    return GameNullDisplay;
+  }
+  Log("<-- SetWindow::1");
+
+  device2d_->initializeContext(npp_, &config, &context);
+  NPError err = device2d_->initializeContext(npp_, &config, &context);
+
+  if (err != NPERR_NO_ERROR) {
+    Log("Failed to initialize 2D context\n");
+    exit(1);
+  }
+
+  context2d_ = &context;
+  //  Draw(context2d_, width_, height_);
+  return GameOK;
+}
+
+}  // namespace scm
 #endif

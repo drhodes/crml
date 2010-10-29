@@ -128,7 +128,6 @@ static bool StoreHex(const _NPVariant key, const _NPVariant val) {
 
   printf("----------------------------------\n");
   printf("key: %s\n", s_key.c_str());
-  //printf("val: %s\n", s_val.c_str());
   printf("len(val) == %d\n", s_val.size());
 					
   // store a hex encoded value.
@@ -145,7 +144,6 @@ static bool AppendHex(const _NPVariant key, const _NPVariant val) {
   printf("Appending Store ----------------------------------\n");
   printf("key: %s\n", s_key.c_str());
 
-
   HEX_STORE.Append(s_key, s_val);
 
   if (HEX_STORE.Ok()){
@@ -153,8 +151,7 @@ static bool AppendHex(const _NPVariant key, const _NPVariant val) {
     printf("decoding: %s\n", HEX_STORE.ByteArray(s_key));
   } else {
     HEX_STORE.ReportErr();
-  }
- 
+  } 
   return true;
 }
 
