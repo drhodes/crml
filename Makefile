@@ -22,7 +22,7 @@ CFLAGS =	-Wall \
 			-pthread \
 			-DXP_UNIX \
 			-Werror \
-			-std=gnu++0x \
+#			-std=gnu++0x \
 
 INCLUDES =	-I$(NACLPORTS_ROOT) \
 			-I$(NACL_SDK_ROOT)
@@ -36,7 +36,7 @@ LDFLAGS =	-lgoogle_nacl_imc \
 		    -llua \
 			-losg \
 
-OPT_FLAGS = -O3
+OPT_FLAGS = -O0
 
 # The check_variables target is in nacl_build.mk.
 # !! the 64 bit build is commented out for faster testing.

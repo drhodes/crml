@@ -290,7 +290,6 @@ namespace {
 			return FortyTwo(args[0]);
 
 		} else if (name == plugin_method_identifiers[ID_IS_STORE_FORTYTWO]) {
-			printf("Hello it made it here\n");
 			return StoreFortyTwo(args[0], args[1]);
 
 		} else if (name == plugin_method_identifiers[ID_IS_APPEND_HEX]) {

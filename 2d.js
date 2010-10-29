@@ -4,8 +4,8 @@ status_text = 'NO-STATUS';
 
 function moduleDidLoad() {
     hello_world = document.getElementById('plugin_2d');
-    updateStatus('SUCCESS');
     fortytwo();
+    updateStatus("asdf");
 }
 
 // If the page loads before the Native Client module loads, then set the
@@ -29,7 +29,6 @@ function partition(str){
     const block_size = 1024*64;  // 64 <= 99
     const len = str.length;
     var blocks = [];
-
     for (i=0; i<len; i+=block_size) {
         blocks.push(str.slice(i, i+block_size));
     }
@@ -37,6 +36,7 @@ function partition(str){
 }
 
 function fortytwo() {
+    loadStatus("> Loading file");
     $.get('example.hex', function(data) {
         const blocks = partition(data);
         hello_world.store_fortytwo("example", blocks[0]);
@@ -44,6 +44,7 @@ function fortytwo() {
             hello_world.append_hex("example",  blocks[i]);
         }
     });
+    loadStatus("> Loading done.");
 }
 
 function store_fortytwo() {
@@ -79,6 +80,16 @@ function updateStatus(opt_message) {
         status_field.innerHTML = status_text;
     }
 }
+
+function loadStatus(opt_message) {
+    if (opt_message)
+        status_text = opt_message;
+    var status_field = document.getElementById('load-status');
+    if (status_field) {
+        status_field.innerHTML = status_text;
+    }
+}
+
 
 //-----------------------------------------------------------------------------
 
