@@ -2,7 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-#include "gles2_demo_cc.h"
+#include "./gles2_demo_cc.h"
 
 #include <math.h>
 #include <stdio.h>

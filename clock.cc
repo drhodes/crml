@@ -1,3 +1,5 @@
+// Copyright 2010 <Derek A. Rhodes> All Rights Reseverd.
+
 #ifndef CLOCK_CC
 #define CLOCK_CC
 /* thin wrapper for
@@ -5,7 +7,7 @@
 */
 
 #include <time.h>
-#include "clock.h"
+#include "./clock.h"
 
 namespace scm {
 
@@ -13,26 +15,26 @@ Clock::Clock() {
   Reset();
 }
 
-void Clock::Reset(){
+void Clock::Reset() {
   timer_.setStartTick();
 }
-  
-double Clock::ElapsedSec(){
+
+double Clock::ElapsedSec() {
   return timer_.time_s();
 }
 
-double Clock::ElapsedMilli(){
+double Clock::ElapsedMilli() {
   return timer_.time_m();
 }
 
-double Clock::ElapsedMicro(){
+double Clock::ElapsedMicro() {
   return timer_.time_u();
 }
 
-double Clock::ElapsedNano(){
+double Clock::ElapsedNano() {
   return timer_.time_n();
 }
 
-} // namespace scm
+}  // namespace scm
 
 #endif
