@@ -32,7 +32,7 @@ int hexes(char c) {
 
 int hexof(char a, char b) {
   // take a, b | a and b are strings [0..9] + [a..f]
-  // a == 2^16, b == 1^16
+  // a == 16^1, b == 16^0
   int vala = 16 * hexes(a);
   int valb = hexes(b);
   if (vala < 0 || valb < 0) {

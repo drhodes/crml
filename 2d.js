@@ -4,7 +4,7 @@ status_text = 'NO-STATUS';
 
 function moduleDidLoad() {
     hello_world = document.getElementById('plugin_2d');
-    fortytwo();
+    //fortytwo();
     updateStatus("asdf");
 }
 

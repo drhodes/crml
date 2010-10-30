@@ -1,75 +1,71 @@
-#ifndef GAME_H
-#define GAME_H
+// Copyright 2010 <Derek A. Rhodes> All Rights Reseverd.
 
-#include "event.h"
-#include "plugin_object.h"
-#include "hex_store.h"
+#ifndef GAME_H_
+#define GAME_H_
 
-extern "C" { 
-#include <lua.h> 
-#include <lauxlib.h> 
-#include <lualib.h> 
-} 
+extern "C" {
+#include <lua.h>
+#include <lauxlib.h>
+#include <lualib.h>
+}
 
-namespace scm{
-	enum GameErr {
-		GameNullPlugin,
-		GameNullEventHandler,
-		GameNullDisplay,
-		GameNullNPP,
-		GameLuaOK,
-		GameOK,
-		GameUnknown
-	};
-	
-	class Game : public PluginObject {
-	public:
-		Game();
-		~Game();	
+#include <string>
 
-		Game(NPP npp) : PluginObject(npp){
-		}		
-		//GameErr RegisterNPP();
-		GameErr RegisterPlugin(PluginObject*);
-		GameErr RegisterEvent(EventHandler*);
-		GameErr RegisterDevice2D();
-		//GameErr RegisterHexStore();
-		GameErr SetWindow(const NPWindow&);		
-		GameErr RegisterLua();
+#include "./event.h"
+#include "./plugin_object.h"
+#include "./hex_store.h"
 
-		void Wipe();
-		void DrawSampleBitmap();
-		void LuaClose();
+#define ERR_(x) const std::string (x) = std::string(#x);
 
-		/*
-        void* pixels() {
-			return context2d_.region;
-        }
-		*/
+namespace scm {
+  ERR_(GAME_NULL_PLUGIN);
+  ERR_(GAME_NULL_EVENTHANDLER);
+  ERR_(GAME_NULL_DISPLAY);
+  ERR_(GAME_NULL_NPP);
+  ERR_(GAME_OK);
+  ERR_(GAME_UNKNOWN);
+  ERR_(GAME_NUM_ER);
 
-	private:
-		// THEM / boooooooooooo!
-		EventHandler* event_handler_;
-		NPDevice* device2d_;
-		int width_;
-		int height_;
-		NPP npp_;		
-		PluginObject* plugin_;
-		NPDeviceContext2D* context2d_;
-              
-		// US woot woot woot / dance a little happy dance.
+  class Game : public PluginObject {
+   public:
+    explicit Game(NPP npp)
+        : PluginObject(npp) {
+      err_ = GAME_OK;
+    }
+    Game();
+    ~Game();
 
-		lua_State* lua_;
-		Event* event_;
-		unsigned int* pixels_;
-		// ScmDisplay* display_;
+    void RegisterDevice2D();
+    void RegisterEvent(EventHandler* eh);
+    void RegisterHexStore();
+    void RegisterPlugin(PluginObject* po);
 
+    void RegisterLua();
+    void LuaClose();
 
-		/*
-		  Layers
-		  
-		*/
-	};
-} //namespace scm
-#endif
+    void SetWindow(const NPWindow& npw);
+    void Wipe();
+    void DrawSampleBitmap();
 
+    bool Ok();  // Is the object in a OK state?
+    std::string Err();  // What is the error?
+    void ReportErr();
+
+   private:
+    std::string err_;
+    lua_State* lua_;
+    Event* event_;
+    unsigned int* pixels_;
+    // ScmDisplay* display_;
+
+    EventHandler* event_handler_;
+    NPDevice* device2d_;
+    int width_;
+    int height_;
+    NPP npp_;
+    PluginObject* plugin_;
+    NPDeviceContext2D* context2d_;
+  };
+
+}  // namespace scm
+#endif  // GAME_H_

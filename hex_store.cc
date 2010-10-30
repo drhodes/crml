@@ -21,6 +21,23 @@ bool HexStore::Ok() {
   return err_ == HEXSTORE_OK;
 }
 
+void HexStore::ReportErr() {
+  printf("HexStore: Error >> ");
+  switch (err_) {
+    case HEXSTORE_OK:
+      printf("Everything OK");
+      break;
+    case HEXSTORE_KEY_ERROR:
+      printf("Could not find a key for store_");
+      break;
+    default :
+      printf("Unknown Error");
+  }
+  printf("\n");
+}
+
+
+
 void HexStore::Store(std::string key, std::string val) {
   store_[key] = val;
   err_ = HEXSTORE_OK;
@@ -58,20 +75,6 @@ void HexStore::Append(std::string key, std::string val) {
   store_[key] += val;
 }
 
-void HexStore::ReportErr() {
-  printf("HexStore: Error >> ");
-  switch (err_) {
-    case HEXSTORE_OK:
-      printf("Everything OK");
-      break;
-    case HEXSTORE_KEY_ERROR:
-      printf("Could not find a key for store_");
-      break;
-    default :
-      printf("Unknown Error");
-  }
-  printf("\n");
-}
 
 
 const char* HexStore::ByteArray(std::string key) {
