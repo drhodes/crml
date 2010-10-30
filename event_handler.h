@@ -42,7 +42,7 @@ class EventHandler {
 	bool is_text_box_set();
 	bool set_text_box(NPObject* text_box_object);
 	
-	scm::EventErr Init(scm::Event*);
+	void Init(scm::Event*);
 	
  private:
 	static char* string_duplicate(const char* cstr, size_t* len);

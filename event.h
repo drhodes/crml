@@ -8,24 +8,31 @@
 #include <nacl/npupp.h>
 
 #include <queue>
+#include <string>
 
-namespace scm {
-  enum EventErr {
-    EventInitFail,
-    EventInitOK,
-  };
+//#include "./event_handler.h"
+#include "./error_macro.cc"
+
+namespace scm {  
+  ERR_(EVENT_INIT_FAILED);
+  ERR_(EVENT_OK);
 
   class Event {
- public:
+   public:
     Event();
     ~Event();
+
+    void Err(ErrString es);
+    ErrString Err();        
+        
     void Init();
     void PushEvent(NPPepperEvent* evt);
     bool Empty();
     void Drain();
     NPPepperEvent* PopEvent();
-
- private:
+    
+   private:
+    std::string err_;
     std::queue<NPPepperEvent*>* queue_;
   };
 

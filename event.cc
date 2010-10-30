@@ -3,10 +3,10 @@
 #ifndef EVENT_CC
 #define EVENT_CC
 
-#include "./event.h"
 #include <assert.h>
 #include <sstream>
 
+#include "./event.h"
 #include "./log_macro.cc"
 
 namespace scm {
@@ -19,11 +19,16 @@ Event::~Event() {
 }
 
 void Event::Init() {
+  Err(EVENT_OK);
   Log(":) Init Event");
 }
 
 bool Event::Empty() {
   return queue_->empty();
+}
+
+void Event::Err(ErrString es){
+  err_ = es;
 }
 
 /*
@@ -37,10 +42,9 @@ bool Event::Empty() {
 */
 
 void appendMouseInfo(std::stringstream* out, NPPepperEvent* e) {
-  /* > out  | a pointer to stringstream, add some mouse info from --
-     > e    | a pointer to a pepper event
-     < void |
-  */
+  // >out< | a pointer to stringstream, add some mouse info from --
+  // >e    | a pointer to a pepper event
+  
   *out << "Modifier: " << e->u.mouse.modifier << ", ";
   *out << "Button: " << e->u.mouse.button << ", ";
   *out << "<" << e->u.mouse.x << ", " << e->u.mouse.y << ">, ";
@@ -63,9 +67,9 @@ void Event::Drain() {
 }
 
 void Event::PushEvent(NPPepperEvent* e) {
-  /* > e    | a pointer to a pepper event is pushed onto queue_
-     < void |
-  */
+  // > e    | a pointer to a pepper event is pushed onto queue_
+  // < void |
+  
   assert(e != NULL);
   assert(queue_ != NULL);
 
@@ -126,6 +130,7 @@ void Event::PushEvent(NPPepperEvent* e) {
       break;
   }
   Log(out.str());
+
 }
 }  // namespace scm
 

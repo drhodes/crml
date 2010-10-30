@@ -63,10 +63,11 @@ EventHandler::EventHandler(NPP npp)
 EventHandler::~EventHandler() {
 }
 
-scm::EventErr EventHandler::Init(scm::Event* sys) {
+void EventHandler::Init(scm::Event* sys) {
   // wiring in the real event handler.
+  // sys->Err(scm::EVENT_OK);
   evt_sys_ = sys;
-  return scm::EventInitOK;
+
 }
 
 bool EventHandler::addText(const char* cstr) {
@@ -123,11 +124,10 @@ int EventHandler::handle(void* event) {
   NPPepperEvent* npevent = reinterpret_cast<NPPepperEvent*>(event);
   std::string str = EventName(npevent->timeStampSeconds, npevent->type);
 
-
   this->evt_sys_->PushEvent(npevent);
 
   // the rest of this will be gone.
-
+  return 1;
   switch (npevent->type) {
     case NPEventType_MouseDown:
     case NPEventType_MouseUp:

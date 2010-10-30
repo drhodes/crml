@@ -14,8 +14,7 @@ extern "C" {
 #include "./event.h"
 #include "./plugin_object.h"
 #include "./hex_store.h"
-
-#define ERR_(x) const std::string (x) = std::string(#x);
+#include "./error_macro.cc"
 
 namespace scm {
   ERR_(GAME_NULL_PLUGIN);
@@ -34,7 +33,7 @@ namespace scm {
     }
     Game();
     ~Game();
-
+    
     void RegisterDevice2D();
     void RegisterEvent(EventHandler* eh);
     void RegisterHexStore();
@@ -53,6 +52,7 @@ namespace scm {
 
    private:
     std::string err_;
+   
     lua_State* lua_;
     Event* event_;
     unsigned int* pixels_;
