@@ -4,12 +4,13 @@
 
 #include <string>
 
+namespace scm {
+
 typedef const std::string ErrString;
 
 // Where x is the name of a ERROR_CODE, expands to
 // const std::string ERROR_CODE = std::string("ERROR_CODE");
 #define ERR_(x) const std::string (x) = std::string(#x);
 
-
-
+}       // namespace scm
 #endif  // ERR_CC

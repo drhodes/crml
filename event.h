@@ -11,28 +11,29 @@
 #include <string>
 
 //#include "./event_handler.h"
+#include "./error.h"
 #include "./error_macro.cc"
 
 namespace scm {  
   ERR_(EVENT_INIT_FAILED);
   ERR_(EVENT_OK);
 
-  class Event {
+  class Event : public Error {
    public:
-    Event();
+    explicit Event() : Error(EVENT_OK) {
+      ClassName("Event");
+      queue_ = new std::queue<NPPepperEvent*>;
+    }    
     ~Event();
-
-    void Err(ErrString es);
-    ErrString Err();        
         
     void Init();
     void PushEvent(NPPepperEvent* evt);
     bool Empty();
     void Drain();
     NPPepperEvent* PopEvent();
-    
+
+    virtual bool Ok();  // Is the object in a OK state?
    private:
-    std::string err_;
     std::queue<NPPepperEvent*>* queue_;
   };
 

@@ -49,6 +49,7 @@
 
 NPNetscapeFuncs* browser;
 
+
 namespace {
 // need a good spot to init the main loop.
 // This is bad form, still searching for a good way to introduce this.
@@ -58,7 +59,6 @@ namespace {
 scm::HexStore HEX_STORE;
 
 // Properties ------------------------------------------------------------------
-
 enum {
   ID_PROPERTY_PROPERTY = 0,
   ID_PROPERTY_TEST_OBJECT,
@@ -99,7 +99,9 @@ static const NPUTF8* plugin_method_identifier_names[NUM_METHOD_IDENTIFIERS] = {
   "store_hex",
   "append_hex",
 };
+
 void EnsureIdentifiersInitialized() {
+  printf("void EnsureIdentifiersInitialized() {\n");
   static bool identifiers_initialized = false;
   if (identifiers_initialized)
     return;
@@ -116,13 +118,15 @@ void EnsureIdentifiersInitialized() {
 // -----------------------------------------------------------------------------
 // Global prototype STORE.  need to fold this back into game.
 std::string CreateStringFromNPVariant(const NPVariant& variant) {
+  printf("std::string CreateStringFromNPVariant(const NPVariant& variant) {\n");
   return std::string(NPVARIANT_TO_STRING(variant).UTF8Characters,
                      NPVARIANT_TO_STRING(variant).UTF8Length);
 }
 
 
 
-static bool StoreHex(const _NPVariant key, const _NPVariant val) {      
+static bool StoreHex(const _NPVariant key, const _NPVariant val) {
+  printf("static bool StoreHex(const _NPVariant key, const _NPVariant val) {      \n");
   std::string s_key = CreateStringFromNPVariant(key);
   std::string s_val = CreateStringFromNPVariant(val);
 
@@ -138,6 +142,7 @@ static bool StoreHex(const _NPVariant key, const _NPVariant val) {
 }
 
 static bool AppendHex(const _NPVariant key, const _NPVariant val) {
+  printf("static bool AppendHex(const _NPVariant key, const _NPVariant val) {\n");
   std::string s_key = CreateStringFromNPVariant(key);
   std::string s_val = CreateStringFromNPVariant(val);      
 
@@ -157,6 +162,7 @@ static bool AppendHex(const _NPVariant key, const _NPVariant val) {
 
 
 static bool FortyTwo(const _NPVariant result) {
+  printf("static bool FortyTwo(const _NPVariant result) {\n");
   std::string s = CreateStringFromNPVariant(result);
   s += "\n";
   printf(s.c_str());
@@ -167,6 +173,7 @@ static bool FortyTwo(const _NPVariant result) {
 // a variable containing a pointer to that string.  The variable is later
 // returned back to the browser by the Invoke() function that called this.
 static bool HelloWorld(NPVariant *result) {
+  printf("static bool HelloWorld(NPVariant *result) {\n");
   if (result) {
     const char *msg = "hello, world. soon to be img.";
     const int msg_length = strlen(msg) + 1;
@@ -179,13 +186,12 @@ static bool HelloWorld(NPVariant *result) {
   return true;
 }
 
-//static bool ReceivePngData(NPVariant *png_data) {		
-//}
 // Helper functions ------------------------------------------------------------
 
 bool TestGetProperty(PluginObject* obj,
                      const NPVariant* args, uint32_t arg_count,
                      NPVariant* result) {
+  printf("bool TestGetProperty(PluginObject* obj,\n");
   if (arg_count == 0)
     return false;
 
@@ -222,20 +228,24 @@ bool TestGetProperty(PluginObject* obj,
 // Plugin class functions ------------------------------------------------------
 
 NPObject* PluginAllocate(NPP npp, NPClass* the_class) {
+  printf("NPObject* PluginAllocate(NPP npp, NPClass* the_class) {\n");
   EnsureIdentifiersInitialized();
   PluginObject* newInstance = new PluginObject(npp);
   return reinterpret_cast<NPObject*>(newInstance);
 }
 
 void PluginDeallocate(NPObject* header) {
+  printf("void PluginDeallocate(NPObject* header) {\n");
   PluginObject* plugin = reinterpret_cast<PluginObject*>(header);
   delete plugin;
 }
 
 void PluginInvalidate(NPObject* obj) {
+  printf("void PluginInvalidate(NPObject* obj) {\n");
 }
 
 bool PluginHasMethod(NPObject* obj, NPIdentifier name) {
+  printf("bool PluginHasMethod(NPObject* obj, NPIdentifier name) {\n");
   for (int i = 0; i < NUM_METHOD_IDENTIFIERS; i++) {
     if (name == plugin_method_identifiers[i])
       return true;
@@ -247,6 +257,7 @@ bool PluginInvoke(NPObject* header,
                   NPIdentifier name,
                   const NPVariant* args, uint32_t arg_count,
                   NPVariant* result) {
+  printf("bool PluginInvoke(NPObject* header,\n");
   PluginObject* plugin = reinterpret_cast<PluginObject*>(header);
 		
   if (name == plugin_method_identifiers[ID_TEST_GET_PROPERTY]) {
@@ -286,11 +297,13 @@ bool PluginInvoke(NPObject* header,
 bool PluginInvokeDefault(NPObject* obj,
                          const NPVariant* args, uint32_t arg_count,
                          NPVariant* result) {
+  printf("bool PluginInvokeDefault(NPObject* obj,\n");
   INT32_TO_NPVARIANT(1, *result);
   return true;
 }
 
 bool PluginHasProperty(NPObject* obj, NPIdentifier name) {
+  printf("bool PluginHasProperty(NPObject* obj, NPIdentifier name) {\n");
   for (int i = 0; i < NUM_PROPERTY_IDENTIFIERS; i++) {
     if (name == plugin_property_identifiers[i])
       return true;
@@ -301,6 +314,7 @@ bool PluginHasProperty(NPObject* obj, NPIdentifier name) {
 bool PluginGetProperty(NPObject* obj,
                        NPIdentifier name,
                        NPVariant* result) {
+  printf("bool PluginGetProperty(NPObject* obj,\n");
   return false;
 }
 
@@ -326,6 +340,7 @@ NPClass plugin_class = {
 // Bitmap painting -------------------------------------------------------------
 // Ugly gradient filled rectangle.
 void DrawSampleBitmap(NPDeviceContext2D* context, int width, int height) {
+  printf("void DrawSampleBitmap(NPDeviceContext2D* context, int width, int height) {\n");
   int stride = context->stride;
   unsigned char* buffer = reinterpret_cast<unsigned char*>(context->region);
   static const int kPixelStride = 4;
@@ -352,6 +367,7 @@ void DrawSampleBitmap(NPDeviceContext2D* context, int width, int height) {
 }
 
 uint32_t HexStringToUInt(std::string hex_str) {
+  printf("uint32_t HexStringToUInt(std::string hex_str) {\n");
   static const int hex_base = 16;
   uint64_t res = strtoul(hex_str.c_str(), NULL, hex_base);
 #if __LP64__
@@ -367,6 +383,7 @@ uint32_t HexStringToUInt(std::string hex_str) {
 }
 
 std::string Get2DImageChecksum(const NPDeviceContext2D* context) {
+  printf("std::string Get2DImageChecksum(const NPDeviceContext2D* context) {\n");
   int row_count = context->dirty.bottom - context->dirty.top;
   int stride = context->dirty.right - context->dirty.left;
   static const int kPixelStride = 4;
@@ -381,6 +398,7 @@ std::string Get2DImageChecksum(const NPDeviceContext2D* context) {
 
 void FlushCallback(NPP instance, NPDeviceContext* context,
                    NPError err, void* user_data) {
+  printf("void FlushCallback(NPP instance, NPDeviceContext* context,\n");
 }
 
 NPExtensions* extensions = NULL;
@@ -425,26 +443,32 @@ PluginObject::PluginObject(NPP npp)
 }
 
 PluginObject::~PluginObject() {
-  if (pgl_context_)
-    Destroy3D();	
+  printf("PluginObject::~PluginObject() {\n");
+  //if (pgl_context_)
+  //Destroy3D();	
   browser->releaseobject(test_object_);
 }
 
 // static
 NPClass* PluginObject::GetPluginClass() {
+  printf("NPClass* PluginObject::GetPluginClass() {\n");
   return &plugin_class;
 }
 
 namespace {
-void Draw3DCallback(void* data) {
+/*
+  void Draw3DCallback(void* data) {
+  printf("void Draw3DCallback(void* data) {\n");
   static_cast<PluginObject*>(data)->Draw3D();
+*/
 }
-}
+
 
 void PluginObject::New(NPMIMEType pluginType,
                        int16_t argc,
                        char* argn[],
                        char* argv[]) {
+  printf("void PluginObject::New(NPMIMEType pluginType,\n");
   // Default to 2D rendering.
   dimensions_ = 2;
 
@@ -478,7 +502,13 @@ void PluginObject::New(NPMIMEType pluginType,
   }
 }
 
+NPDeviceContext2D* PluginObject::GetContext2D(){
+  printf("NPDeviceContext2D* PluginObject::GetContext2d(){\n");
+  return context2d_;
+}
+
 void PluginObject::SetWindow(const NPWindow& window) {
+  printf("void PluginObject::SetWindow(const NPWindow& window) {\n");
   width_ = window.width;
   height_ = window.height;
 
@@ -491,8 +521,9 @@ void PluginObject::SetWindow(const NPWindow& window) {
       exit(1);
     }
 
-    DrawSampleBitmap(&context, window.width, window.height);
-
+    context2d_ = &context;
+    
+    DrawSampleBitmap(&context, window.width, window.height);    
     plugin2d_checksum_ = HexStringToUInt(Get2DImageChecksum(&context));
     err = device2d_->getStateContext(npp_, &context,
                                      NPExtensionsReservedStateSharedMemoryChecksum,
@@ -504,27 +535,12 @@ void PluginObject::SetWindow(const NPWindow& window) {
 
     // TODO(brettw) figure out why this cast is necessary, the functions seem
     // to match. Could be a calling convention mismatch?
-    NPDeviceFlushContextCallbackPtr callback =
-        reinterpret_cast<NPDeviceFlushContextCallbackPtr>(&FlushCallback);
-    device2d_->flushContext(npp_, &context, callback, NULL);
-  } else {
-    if (!pgl_context_)
-      Initialize3D();
-
-    // Schedule the first call to DrawSampleBitmap.
-    browser->pluginthreadasynccall(npp_, Draw3DCallback, this);
+    //NPDeviceFlushContextCallbackPtr callback =
+    //reinterpret_cast<NPDeviceFlushContextCallbackPtr>(&FlushCallback);
+    //device2d_->flushContext(npp_, &context, callback, NULL);
+    device2d_->flushContext(npp_, &context, NULL, NULL);    
   }
-
-  ////  CELL-GRID HACK.
-  ////
-  ////  The main loop is initialized here
-
-  //MAINLOOP.Init(this);
-
-  ////  Would really like to find a better way to do this.
-  ////
-  ////
-
+  
   // Audio is only produced on the 2d version, because we embed two in the page.
   if (dimensions_ == 2 && !context_audio_.config.callback) {
     NPDeviceContextAudioConfig cfg;
@@ -544,20 +560,24 @@ void PluginObject::SetWindow(const NPWindow& window) {
       exit(1);
     }
   }
-	
+  //GAME
+  
 }
 
 NPDevice* PluginObject::GetDevice2D(){
+  printf("NPDevice* PluginObject::GetDevice2D(){\n");
   return device2d_;
 }
 
 bool PluginObject::IsChecksumCheckSuccess() {
+  printf("bool PluginObject::IsChecksumCheckSuccess() {\n");
   if (device2d_checksum_ != plugin2d_checksum_)
     return false;
   return true;
 }
 
 std::string PluginObject::ReportChecksum() {
+  printf("std::string PluginObject::ReportChecksum() {\n");
   std::ostringstream output;
   if (device2d_checksum_ == plugin2d_checksum_) {
     output << "Checksums matched\n";
@@ -569,46 +589,3 @@ std::string PluginObject::ReportChecksum() {
   return output.str();
 }
 
-void PluginObject::Initialize3D() {
-  // Initialize a 3D context.
-  NPDeviceContext3DConfig config;
-  config.commandBufferSize = kCommandBufferSize;
-  NPError err = device3d_->initializeContext(npp_, &config, &context3d_);
-  if (err != NPERR_NO_ERROR) {
-    printf("Failed to initialize 3D context\n");
-    exit(1);
-  }
-
-  // Create a PGL context.
-  pgl_context_ = pglCreateContext(npp_, device3d_, &context3d_);
-
-  // Initialize the demo GL state.
-  pglMakeCurrent(pgl_context_);
-  GLFromCPPInit();
-  pglMakeCurrent(NULL);
-}
-
-void PluginObject::Destroy3D() {
-  // Destroy the PGL context.
-  pglDestroyContext(pgl_context_);
-  pgl_context_ = NULL;
-
-  // Destroy the Device3D context.
-  device3d_->destroyContext(npp_, &context3d_);
-}
-
-void PluginObject::Draw3D() {
-  if (!pglMakeCurrent(pgl_context_) && pglGetError() == PGL_CONTEXT_LOST) {
-    Destroy3D();
-    Initialize3D();
-    pglMakeCurrent(pgl_context_);
-  }
-
-  glViewport(0, 0, width_, height_);
-  GLFromCPPDraw();
-  pglSwapBuffers();
-  pglMakeCurrent(NULL);
-
-  // Schedule another call to Draw.
-  browser->pluginthreadasynccall(npp_, Draw3DCallback, this);
-}

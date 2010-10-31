@@ -49,15 +49,11 @@ class PluginObject {
 	void SetWindow(const NPWindow& window);
 	bool IsChecksumCheckSuccess();
 	std::string ReportChecksum();
-	void Initialize3D();
-	void Destroy3D();
-	void Draw3D();
-
-	// scm augmentation
+	
 	NPDevice* GetDevice2D(); // evil accessor? probably. necessary? probably not.
+    NPDeviceContext2D* GetContext2D();
 
-
- private:
+ protected:
 	bool InitializeCommandBuffer();
 
 	NPObject header_;
@@ -72,19 +68,19 @@ class PluginObject {
 
 	NPDevice* deviceaudio_;
 
-	NPDeviceContext3D context3d_;
+	//NPDeviceContext3D context3d_;
 	NPDeviceContextAudio context_audio_;
 
+    NPDeviceContext2D* context2d_;
+    
 	unsigned int device2d_checksum_;
 	unsigned int plugin2d_checksum_;
 
 	int width_;
 	int height_;
 
- private:
 	PluginObject(const PluginObject&);
 	void operator=(const PluginObject&);
 };
-
 
 #endif  // NATIVE_CLIENT_TESTS_PEPPER_PLUGIN_PLUGIN_OBJECT_H_

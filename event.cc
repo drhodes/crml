@@ -6,12 +6,12 @@
 #include <assert.h>
 #include <sstream>
 
-#include "./event.h"
 #include "./log_macro.cc"
 
 namespace scm {
-Event::Event() {
-  queue_ = new std::queue<NPPepperEvent*>;
+
+bool Event::Ok() {
+  return Err() == EVENT_OK;
 }
 
 Event::~Event() {
@@ -25,10 +25,6 @@ void Event::Init() {
 
 bool Event::Empty() {
   return queue_->empty();
-}
-
-void Event::Err(ErrString es){
-  err_ = es;
 }
 
 /*

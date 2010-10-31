@@ -1,8 +1,9 @@
 #ifndef CLOCK_H
 #define CLOCK_H
-/* thin wrapper for
-   nacl_sdk/toolchain/linux_x86/nacl64/usr/include/osg/Timer
-*/
+
+//  thin wrapper for
+//  nacl_sdk/toolchain/linux_x86/nacl64/usr/include/osg/Timer
+
 
 #include <osg/Timer>		
 

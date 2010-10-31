@@ -13,23 +13,22 @@
 #include "./event.cc"
 
 namespace scm {
-//  Game::Game() {}
-Game::~Game() {}
+Game::~Game() {  
+}
+
+/*
+void Game::Init(){
+  ClassName("Game");
+  Err(GAME_OK);
+}
+*/
 
 inline int MakeRGBA2(int r, int g, int b, int a) {
   return (((a) << 24) | ((r) << 16) | ((g) << 8) | (b));
 }
 
-std::string Game::Err() {
-  return err_;
-}
-
 bool Game::Ok() {
-  return err_ == GAME_OK;
-}
-
-void Game::ReportErr() {
-  printf("!! Game: Error > %s\n", err_.c_str());
+  return Err() == GAME_OK;
 }
 
 void Game::RegisterLua() {
@@ -40,7 +39,7 @@ void Game::RegisterLua() {
   lua_getglobal(lua_, "a");
   //  int i = lua_tointeger(lua_, -1);
   //  printf("%d\n", i);
-  err_ = GAME_OK;
+  Err(GAME_OK);
 }
 
 void Game::LuaClose() {
@@ -50,20 +49,23 @@ void Game::LuaClose() {
 }
 
 void Game::RegisterPlugin(PluginObject* po) {
+  ReportErr();
   if (po == NULL) {
-    err_ = GAME_NULL_PLUGIN;
+    Err(GAME_NULL_PLUGIN);
     goto fail;
   }
   plugin_ = po;
 
-  RegisterDevice2D();
-  if (!Ok()) goto fail;
+  //RegisterDevice2D();
+  //if (!Ok()) goto fail;
 
   RegisterLua();
   if (!Ok()) goto fail;
 
   Log("<-- Registered Plugin");
-  err_ = GAME_OK;
+  Err(GAME_OK);
+
+  //printf("the context is null: %d\n", context2d_ == NULL);
   return;
 
  fail:
@@ -72,50 +74,77 @@ void Game::RegisterPlugin(PluginObject* po) {
 
 void Game::RegisterEvent(EventHandler* eh) {
   if (eh == 0) {
-    err_ = GAME_NULL_EVENTHANDLER;
-    ReportErr();
+    SetReportErr(GAME_NULL_EVENTHANDLER);
     return;
   }
 
   event_ = new Event;
   eh->Init(event_);
 
-  Log("<-- Registered Event");
-  err_ = GAME_OK;
+  Log("<-- Registered Event"); 
+  Err(GAME_OK);
 }
-
+/*
 void Game::RegisterDevice2D() {
   device2d_ = plugin_->GetDevice2D();
   Log("<-- RegisterDevice2D");
-  err_ = GAME_OK;
+  Err(GAME_OK);
 }
-
-void Game::SetWindow(const NPWindow& window) {
-  // This should needs to be completely rethought.
-  Log("<-- SetWindow");
-  width_ = window.width;
-  height_ = window.height;
-
-  NPDeviceContext2DConfig config;
-  NPDeviceContext2D context;
-
-  if (device2d_ == 0) {
-    Log("<-- SetWindow/device2d was null, bailing.");
-    err_ = GAME_NULL_DISPLAY;
-    ReportErr();
-    return;
-  }
-
-  device2d_->initializeContext(npp_, &config, &context);
-  NPError error = device2d_->initializeContext(npp_, &config, &context);
-
-  if (error != NPERR_NO_ERROR) {
-    Log("Failed to initialize 2D context\n");
+*/
+void Game::DrawSampleBitmap2(NPDeviceContext2D* context, int width, int height) {
+  printf("void DrawSampleBitmap(NPDeviceContext2D* context, int width, int height) {\n");
+  //int stride = context->stride;
+  unsigned char* buffer = reinterpret_cast<unsigned char*>(context->region);
+  
+  if (buffer == NULL){
+    SetReportErr(GAME_NULL_CONTEXT_BUFFER);
     exit(1);
   }
+  /*  
+  static const int kPixelStride = 4;
+      
+  if (0 == height || 0 == width)
+    return;
 
-  context2d_ = &context;
-  err_ = GAME_OK;
+  static const float kVStep = 1.0 / static_cast<float>(height);
+  static const float kHStep = 1.0 / static_cast<float>(width);
+  static const float kAlphaStep = 1.0 / static_cast<float>(width + height);
+
+  for (int i = 0; i < height; ++i) {
+    for (int j = 0; j < width; ++j) {
+
+      int index = i * stride + j * kPixelStride;
+      float alpha = 1.0 - (i + j) * kAlphaStep;
+      float red = i * kVStep;
+      float green = j * kHStep;
+      // BGRA, premultiplied alpha.
+      buffer[index + 0] = 0x00;   /// ITS BARFING RIGHT HERE . WHY?
+      buffer[index + 1] = static_cast<unsigned char>(green * alpha * 255);
+      buffer[index + 2] = static_cast<unsigned char>(red * alpha * 255);
+      buffer[index + 3] = static_cast<unsigned char>(alpha * 255);
+    }
+  }
+  */
+  //device2d_->flushContext(npp_, context, NULL, NULL);    
+}
+
+void Game::RegisterContext2D(NPDeviceContext2D* ctx) {
+  if (ctx == 0) {
+    SetReportErr(GAME_NULL_CONTEXT_2D);
+    return;
+  }  
+  context2d_ = ctx;
+  DrawTrashMe();
+  Err(GAME_OK);
+}
+
+void Game::DrawTrashMe() {
+  printf("!! WIDTH: %d, HEIGHT: %d\n", 1100, 600);
+  DrawSampleBitmap2(context2d_, 1100, 600);
+}
+
+void Game::SetWindow(const NPWindow& window) {  
+  //err_ = GAME_OK;
 }
 
 }  // namespace scm
