@@ -125,6 +125,7 @@ void Game::DrawSampleBitmap2(NPDeviceContext2D* context, int width, int height) 
     }
   }
   */
+  
   //device2d_->flushContext(npp_, context, NULL, NULL);    
 }
 
