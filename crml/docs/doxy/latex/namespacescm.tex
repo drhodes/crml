@@ -1,0 +1,168 @@
+\hypertarget{namespacescm}{
+\section{scm Namespace Reference}
+\label{namespacescm}\index{scm@{scm}}
+}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classscm_1_1_event}{Event}
+\item 
+class \hyperlink{classscm_1_1_clock}{Clock}
+\item 
+class \hyperlink{classscm_1_1_error}{Error}
+\item 
+class \hyperlink{classscm_1_1_hex_store}{HexStore}
+\item 
+class \hyperlink{classscm_1_1_mainloop}{Mainloop}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef const std::string \hyperlink{namespacescm_a13a6ecf77ceb7b5b3a38e0fada54aa99}{ErrString}
+\item 
+typedef std::map$<$ std::string, std::string $>$ \hyperlink{namespacescm_a4d40b517d9d5d1165028e138a05ef06d}{HexMap}
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{namespacescm_a705760e217d94addc2f8f8102f624d61}{HexStoreErr} \{ \hyperlink{namespacescm_a705760e217d94addc2f8f8102f624d61a646922e14c685ecf838b9a5f8621ef55}{HEXSTORE\_\-OK}, 
+\hyperlink{namespacescm_a705760e217d94addc2f8f8102f624d61a723d79af0e48a083e3dd825655a3ddc2}{HEXSTORE\_\-KEY\_\-ERROR}
+ \}
+\item 
+enum \hyperlink{namespacescm_aec9fbdb87d677e6e822d612ed3e3a20b}{MainloopErr} \{ \hyperlink{namespacescm_aec9fbdb87d677e6e822d612ed3e3a20ba91150b31dd282f971b18d0ef72bb638a}{InitFails} =  0, 
+\hyperlink{namespacescm_aec9fbdb87d677e6e822d612ed3e3a20bad024311d624d288f051d63b370c3950b}{InitSucceeds} =  1, 
+\hyperlink{namespacescm_aec9fbdb87d677e6e822d612ed3e3a20ba570ef772c888e789b7a21cae1c4b6d09}{Bad2DDevice} =  2, 
+\hyperlink{namespacescm_aec9fbdb87d677e6e822d612ed3e3a20ba8fcbd9be601bd53af341478a63e75743}{NegativeFPS} =  3
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{namespacescm_acb8f6b2f25d7c07de183bb8b8d518510}{appendMouseInfo} (std::stringstream $\ast$out, NPPepperEvent $\ast$e)
+\item 
+\hyperlink{namespacescm_adbb7998a18f4d5b55f2d9af9146e27e9}{ERR\_\-} (EVENT\_\-INIT\_\-FAILED)
+\item 
+\hyperlink{namespacescm_af343ae95ed75977e4da042874b9edacc}{ERR\_\-} (EVENT\_\-OK)
+\item 
+bool \hyperlink{namespacescm_a2f933647227de09b34772f194e579a63}{TestClock} (Scene $\ast$s)
+\item 
+bool \hyperlink{namespacescm_aca67b9b84fd6253da0c69b4c521e6bc6}{TestPoint} (Scene $\ast$s)
+\end{DoxyCompactItemize}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{namespacescm_a13a6ecf77ceb7b5b3a38e0fada54aa99}{
+\index{scm@{scm}!ErrString@{ErrString}}
+\index{ErrString@{ErrString}!scm@{scm}}
+\subsubsection[{ErrString}]{\setlength{\rightskip}{0pt plus 5cm}typedef const std::string {\bf scm::ErrString}}}
+\label{namespacescm_a13a6ecf77ceb7b5b3a38e0fada54aa99}
+
+
+Definition at line 9 of file error\_\-macro.cc.
+
+\hypertarget{namespacescm_a4d40b517d9d5d1165028e138a05ef06d}{
+\index{scm@{scm}!HexMap@{HexMap}}
+\index{HexMap@{HexMap}!scm@{scm}}
+\subsubsection[{HexMap}]{\setlength{\rightskip}{0pt plus 5cm}typedef std::map$<$std::string, std::string$>$ {\bf scm::HexMap}}}
+\label{namespacescm_a4d40b517d9d5d1165028e138a05ef06d}
+
+
+Definition at line 12 of file hex\_\-store.h.
+
+
+
+\subsection{Enumeration Type Documentation}
+\hypertarget{namespacescm_a705760e217d94addc2f8f8102f624d61}{
+\index{scm@{scm}!HexStoreErr@{HexStoreErr}}
+\index{HexStoreErr@{HexStoreErr}!scm@{scm}}
+\subsubsection[{HexStoreErr}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf scm::HexStoreErr}}}
+\label{namespacescm_a705760e217d94addc2f8f8102f624d61}
+\begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{HEXSTORE\_\-OK@{HEXSTORE\_\-OK}!scm@{scm}}\index{scm@{scm}!HEXSTORE\_\-OK@{HEXSTORE\_\-OK}}\item[{\em 
+\hypertarget{namespacescm_a705760e217d94addc2f8f8102f624d61a646922e14c685ecf838b9a5f8621ef55}{
+HEXSTORE\_\-OK}
+\label{namespacescm_a705760e217d94addc2f8f8102f624d61a646922e14c685ecf838b9a5f8621ef55}
+}]\index{HEXSTORE\_\-KEY\_\-ERROR@{HEXSTORE\_\-KEY\_\-ERROR}!scm@{scm}}\index{scm@{scm}!HEXSTORE\_\-KEY\_\-ERROR@{HEXSTORE\_\-KEY\_\-ERROR}}\item[{\em 
+\hypertarget{namespacescm_a705760e217d94addc2f8f8102f624d61a723d79af0e48a083e3dd825655a3ddc2}{
+HEXSTORE\_\-KEY\_\-ERROR}
+\label{namespacescm_a705760e217d94addc2f8f8102f624d61a723d79af0e48a083e3dd825655a3ddc2}
+}]\end{description}
+\end{Desc}
+
+
+
+Definition at line 14 of file hex\_\-store.h.
+
+\hypertarget{namespacescm_aec9fbdb87d677e6e822d612ed3e3a20b}{
+\index{scm@{scm}!MainloopErr@{MainloopErr}}
+\index{MainloopErr@{MainloopErr}!scm@{scm}}
+\subsubsection[{MainloopErr}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf scm::MainloopErr}}}
+\label{namespacescm_aec9fbdb87d677e6e822d612ed3e3a20b}
+\begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{InitFails@{InitFails}!scm@{scm}}\index{scm@{scm}!InitFails@{InitFails}}\item[{\em 
+\hypertarget{namespacescm_aec9fbdb87d677e6e822d612ed3e3a20ba91150b31dd282f971b18d0ef72bb638a}{
+InitFails}
+\label{namespacescm_aec9fbdb87d677e6e822d612ed3e3a20ba91150b31dd282f971b18d0ef72bb638a}
+}]\index{InitSucceeds@{InitSucceeds}!scm@{scm}}\index{scm@{scm}!InitSucceeds@{InitSucceeds}}\item[{\em 
+\hypertarget{namespacescm_aec9fbdb87d677e6e822d612ed3e3a20bad024311d624d288f051d63b370c3950b}{
+InitSucceeds}
+\label{namespacescm_aec9fbdb87d677e6e822d612ed3e3a20bad024311d624d288f051d63b370c3950b}
+}]\index{Bad2DDevice@{Bad2DDevice}!scm@{scm}}\index{scm@{scm}!Bad2DDevice@{Bad2DDevice}}\item[{\em 
+\hypertarget{namespacescm_aec9fbdb87d677e6e822d612ed3e3a20ba570ef772c888e789b7a21cae1c4b6d09}{
+Bad2DDevice}
+\label{namespacescm_aec9fbdb87d677e6e822d612ed3e3a20ba570ef772c888e789b7a21cae1c4b6d09}
+}]\index{NegativeFPS@{NegativeFPS}!scm@{scm}}\index{scm@{scm}!NegativeFPS@{NegativeFPS}}\item[{\em 
+\hypertarget{namespacescm_aec9fbdb87d677e6e822d612ed3e3a20ba8fcbd9be601bd53af341478a63e75743}{
+NegativeFPS}
+\label{namespacescm_aec9fbdb87d677e6e822d612ed3e3a20ba8fcbd9be601bd53af341478a63e75743}
+}]\end{description}
+\end{Desc}
+
+
+
+Definition at line 12 of file loop.h.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{namespacescm_acb8f6b2f25d7c07de183bb8b8d518510}{
+\index{scm@{scm}!appendMouseInfo@{appendMouseInfo}}
+\index{appendMouseInfo@{appendMouseInfo}!scm@{scm}}
+\subsubsection[{appendMouseInfo}]{\setlength{\rightskip}{0pt plus 5cm}void scm::appendMouseInfo (std::stringstream $\ast$ {\em out}, \/  NPPepperEvent $\ast$ {\em e})}}
+\label{namespacescm_acb8f6b2f25d7c07de183bb8b8d518510}
+
+
+Definition at line 40 of file event.cc.
+
+\hypertarget{namespacescm_af343ae95ed75977e4da042874b9edacc}{
+\index{scm@{scm}!ERR\_\-@{ERR\_\-}}
+\index{ERR\_\-@{ERR\_\-}!scm@{scm}}
+\subsubsection[{ERR\_\-}]{\setlength{\rightskip}{0pt plus 5cm}scm::ERR\_\- (EVENT\_\-OK)}}
+\label{namespacescm_af343ae95ed75977e4da042874b9edacc}
+\hypertarget{namespacescm_adbb7998a18f4d5b55f2d9af9146e27e9}{
+\index{scm@{scm}!ERR\_\-@{ERR\_\-}}
+\index{ERR\_\-@{ERR\_\-}!scm@{scm}}
+\subsubsection[{ERR\_\-}]{\setlength{\rightskip}{0pt plus 5cm}scm::ERR\_\- (EVENT\_\-INIT\_\-FAILED)}}
+\label{namespacescm_adbb7998a18f4d5b55f2d9af9146e27e9}
+\hypertarget{namespacescm_a2f933647227de09b34772f194e579a63}{
+\index{scm@{scm}!TestClock@{TestClock}}
+\index{TestClock@{TestClock}!scm@{scm}}
+\subsubsection[{TestClock}]{\setlength{\rightskip}{0pt plus 5cm}bool scm::TestClock (Scene $\ast$ {\em s})}}
+\label{namespacescm_a2f933647227de09b34772f194e579a63}
+
+
+Definition at line 3 of file test-\/clock.cc.
+
+\hypertarget{namespacescm_aca67b9b84fd6253da0c69b4c521e6bc6}{
+\index{scm@{scm}!TestPoint@{TestPoint}}
+\index{TestPoint@{TestPoint}!scm@{scm}}
+\subsubsection[{TestPoint}]{\setlength{\rightskip}{0pt plus 5cm}bool scm::TestPoint (Scene $\ast$ {\em s})}}
+\label{namespacescm_aca67b9b84fd6253da0c69b4c521e6bc6}
+
+
+Definition at line 4 of file test-\/point.cc.
+

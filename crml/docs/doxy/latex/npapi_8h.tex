@@ -1,0 +1,1647 @@
+\hypertarget{npapi_8h}{
+\section{/home/derek/dev/cell-\/grid-\/game/nacl/crml/crml/core/npapi.h File Reference}
+\label{npapi_8h}\index{/home/derek/dev/cell-\/grid-\/game/nacl/crml/crml/core/npapi.h@{/home/derek/dev/cell-\/grid-\/game/nacl/crml/crml/core/npapi.h}}
+}
+{\ttfamily \#include \char`\"{}nptypes.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}base/basictypes.h\char`\"{}}\par
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct___n_p_p}{\_\-NPP}
+\item 
+struct \hyperlink{struct___n_p_stream}{\_\-NPStream}
+\item 
+struct \hyperlink{struct___n_p_byte_range}{\_\-NPByteRange}
+\item 
+struct \hyperlink{struct___n_p_saved_data}{\_\-NPSavedData}
+\item 
+struct \hyperlink{struct___n_p_rect}{\_\-NPRect}
+\item 
+struct \hyperlink{struct___n_p_size}{\_\-NPSize}
+\item 
+struct \hyperlink{struct___n_p_window}{\_\-NPWindow}
+\item 
+struct \hyperlink{struct___n_p_image_expose}{\_\-NPImageExpose}
+\item 
+struct \hyperlink{struct___n_p_full_print}{\_\-NPFullPrint}
+\item 
+struct \hyperlink{struct___n_p_embed_print}{\_\-NPEmbedPrint}
+\item 
+struct \hyperlink{struct___n_p_print}{\_\-NPPrint}
+\end{DoxyCompactItemize}
+\subsection*{Defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{npapi_8h_ab47457c1e7904b9dfa7c18e8c76a5f89}{NP\_\-VERSION\_\-MAJOR}~0
+\item 
+\#define \hyperlink{npapi_8h_a6eef261b755a9ebbf594d6605e43eb88}{NP\_\-VERSION\_\-MINOR}~23
+\item 
+\#define \hyperlink{npapi_8h_a590263a039d0a19f89efc92a3b0a08db}{NP\_\-INFO\_\-ProductVersion}~1
+\item 
+\#define \hyperlink{npapi_8h_a4ed3322968f34638a15746b93054464d}{NP\_\-INFO\_\-MIMEType}~2
+\item 
+\#define \hyperlink{npapi_8h_ae5382c6f6cfb8fafbd3e453d5f1a7f49}{NP\_\-INFO\_\-FileOpenName}~3
+\item 
+\#define \hyperlink{npapi_8h_ae71364168aee8580f1f41d882ebfa151}{NP\_\-INFO\_\-FileExtents}~4
+\item 
+\#define \hyperlink{npapi_8h_a5f56f2dc6cae93f7be261b802ba6ad69}{NP\_\-INFO\_\-FileDescription}~5
+\item 
+\#define \hyperlink{npapi_8h_a5b25023189682f1b13108f6013d37cf3}{NP\_\-INFO\_\-ProductName}~6
+\item 
+\#define \hyperlink{npapi_8h_a2dda813211ff61f6308b107cb4cb51fb}{NP\_\-INFO\_\-CompanyName}~7
+\item 
+\#define \hyperlink{npapi_8h_a61317bef320a3cc8c139ebc3a8a8e3b6}{NP\_\-INFO\_\-FileVersion}~8
+\item 
+\#define \hyperlink{npapi_8h_ae7b3cf8fbd53ed73bf244142bc96ba58}{NP\_\-INFO\_\-InternalName}~9
+\item 
+\#define \hyperlink{npapi_8h_a1bbe7ba66da129de6cc1a1a701325af7}{NP\_\-INFO\_\-LegalCopyright}~10
+\item 
+\#define \hyperlink{npapi_8h_a7f86e98a9668fa83c4c855ca0acfe7a3}{NP\_\-INFO\_\-OriginalFilename}~11
+\item 
+\#define \hyperlink{npapi_8h_a82943ecb6df2e55db7bf17220802a07f}{kNPEventNotHandled}~0
+\item 
+\#define \hyperlink{npapi_8h_ad2b7bf24d627055e8e03c1b80f2e359c}{kNPEventHandled}~1
+\item 
+\#define \hyperlink{npapi_8h_aafa8dbb0b2b95bcc7dbb8e6f4723535d}{kNPEventStartIME}~2
+\item 
+\#define \hyperlink{npapi_8h_a5dd6bd57a666e694b46601b2dc339f62}{NP\_\-ABI\_\-GCC3\_\-MASK}~0x10000000
+\item 
+\#define \hyperlink{npapi_8h_a942625c4ee32c820694213952a867e0f}{\_\-NP\_\-ABI\_\-MIXIN\_\-FOR\_\-GCC3}~0
+\item 
+\#define \hyperlink{npapi_8h_ad9bcf10196e71201d37c9b614026b9d1}{\_\-NP\_\-ABI\_\-MIXIN\_\-FOR\_\-MACHO}~0
+\item 
+\#define \hyperlink{npapi_8h_a696786d809cb2d524d8a06a7e504acd3}{NP\_\-ABI\_\-MASK}~(\_\-NP\_\-ABI\_\-MIXIN\_\-FOR\_\-GCC3 $|$ \_\-NP\_\-ABI\_\-MIXIN\_\-FOR\_\-MACHO)
+\item 
+\#define \hyperlink{npapi_8h_ab8578fcf4424b3b2125925d63fa0b8a1}{NP\_\-EMBED}~1
+\item 
+\#define \hyperlink{npapi_8h_a36ccc978c591253b34651f04089d8345}{NP\_\-FULL}~2
+\item 
+\#define \hyperlink{npapi_8h_a2dac9ddf9cbf9ac5fe0737e5e60d961d}{NP\_\-NORMAL}~1
+\item 
+\#define \hyperlink{npapi_8h_ab4c6989a49ac0081db1b5d0ca41bb445}{NP\_\-SEEK}~2
+\item 
+\#define \hyperlink{npapi_8h_ab82e12708b0632077476043a2d435414}{NP\_\-ASFILE}~3
+\item 
+\#define \hyperlink{npapi_8h_a489493eb2b974faff74123936c102560}{NP\_\-ASFILEONLY}~4
+\item 
+\#define \hyperlink{npapi_8h_ab22d2aaac7cd578af4d1f907450c342f}{NP\_\-MAXREADY}~(((unsigned)($\sim$0)$<$$<$1)$>$$>$1)
+\item 
+\#define \hyperlink{npapi_8h_abddad8e165630ba591ed226c5a780c4f}{NPERR\_\-BASE}~0
+\item 
+\#define \hyperlink{npapi_8h_a6b839d62e078f61fdf40486c64b1c520}{NPERR\_\-NO\_\-ERROR}~(NPERR\_\-BASE + 0)
+\item 
+\#define \hyperlink{npapi_8h_afd50cf77fc400453ebd5df7bb53bdd1c}{NPERR\_\-GENERIC\_\-ERROR}~(NPERR\_\-BASE + 1)
+\item 
+\#define \hyperlink{npapi_8h_a70233755ff49571b6bd1215ae8bdbfd2}{NPERR\_\-INVALID\_\-INSTANCE\_\-ERROR}~(NPERR\_\-BASE + 2)
+\item 
+\#define \hyperlink{npapi_8h_a757e22701d17ce0ae9c83425ae16e7f1}{NPERR\_\-INVALID\_\-FUNCTABLE\_\-ERROR}~(NPERR\_\-BASE + 3)
+\item 
+\#define \hyperlink{npapi_8h_af8fe97ac91f3488763ef35bfb4c658d6}{NPERR\_\-MODULE\_\-LOAD\_\-FAILED\_\-ERROR}~(NPERR\_\-BASE + 4)
+\item 
+\#define \hyperlink{npapi_8h_acf0a4e2e15a39cdb0c1a037cb9e48a98}{NPERR\_\-OUT\_\-OF\_\-MEMORY\_\-ERROR}~(NPERR\_\-BASE + 5)
+\item 
+\#define \hyperlink{npapi_8h_a6e682e9e564348c7bc0c3f9518eb4942}{NPERR\_\-INVALID\_\-PLUGIN\_\-ERROR}~(NPERR\_\-BASE + 6)
+\item 
+\#define \hyperlink{npapi_8h_a784abeee9aa7f443eef48ac2412cb6e6}{NPERR\_\-INVALID\_\-PLUGIN\_\-DIR\_\-ERROR}~(NPERR\_\-BASE + 7)
+\item 
+\#define \hyperlink{npapi_8h_aaa85433a925da980b0685f514907d5ee}{NPERR\_\-INCOMPATIBLE\_\-VERSION\_\-ERROR}~(NPERR\_\-BASE + 8)
+\item 
+\#define \hyperlink{npapi_8h_ae14022d45651bae344ad36f21ab65519}{NPERR\_\-INVALID\_\-PARAM}~(NPERR\_\-BASE + 9)
+\item 
+\#define \hyperlink{npapi_8h_a1180f220c59d836ca4196c81609bc34c}{NPERR\_\-INVALID\_\-URL}~(NPERR\_\-BASE + 10)
+\item 
+\#define \hyperlink{npapi_8h_a7cabc2be3d6cb054bbadeb49f3064f7a}{NPERR\_\-FILE\_\-NOT\_\-FOUND}~(NPERR\_\-BASE + 11)
+\item 
+\#define \hyperlink{npapi_8h_a0bb1e54a68a1aed79b262e16b4cb0493}{NPERR\_\-NO\_\-DATA}~(NPERR\_\-BASE + 12)
+\item 
+\#define \hyperlink{npapi_8h_ab56c8df2c1ded5884eab89e19e3d925a}{NPERR\_\-STREAM\_\-NOT\_\-SEEKABLE}~(NPERR\_\-BASE + 13)
+\item 
+\#define \hyperlink{npapi_8h_ac81ffc2a9b3488f898d11fd15f6550b7}{NPRES\_\-BASE}~0
+\item 
+\#define \hyperlink{npapi_8h_a2fd73f2b178c94ec294bfa816ccc74f1}{NPRES\_\-DONE}~(NPRES\_\-BASE + 0)
+\item 
+\#define \hyperlink{npapi_8h_a1bd4ef3a4885080741de0319a90d9bc6}{NPRES\_\-NETWORK\_\-ERR}~(NPRES\_\-BASE + 1)
+\item 
+\#define \hyperlink{npapi_8h_a52fe2860902f682a90e3030754c971b8}{NPRES\_\-USER\_\-BREAK}~(NPRES\_\-BASE + 2)
+\item 
+\#define \hyperlink{npapi_8h_a55ab1d801c2a34a062bfad972129dcd7}{NP\_\-NOERR}~NP\_\-NOERR\_\-is\_\-obsolete\_\-use\_\-NPERR\_\-NO\_\-ERROR
+\item 
+\#define \hyperlink{npapi_8h_afaa3e619aea40e0cd85ae2f677423b7e}{NP\_\-EINVAL}~NP\_\-EINVAL\_\-is\_\-obsolete\_\-use\_\-NPERR\_\-GENERIC\_\-ERROR
+\item 
+\#define \hyperlink{npapi_8h_a915edb1dc9a8038a9e7ef4195e788607}{NP\_\-EABORT}~NP\_\-EABORT\_\-is\_\-obsolete\_\-use\_\-NPRES\_\-USER\_\-BREAK
+\item 
+\#define \hyperlink{npapi_8h_a2d8ad2139244d73fed88c51eb9f4b08c}{NPVERS\_\-HAS\_\-STREAMOUTPUT}~8
+\item 
+\#define \hyperlink{npapi_8h_a9a20f8722b82f67c001ce219f04ed08a}{NPVERS\_\-HAS\_\-NOTIFICATION}~9
+\item 
+\#define \hyperlink{npapi_8h_ac03e171ecc94aa8613b296bd7753c33d}{NPVERS\_\-HAS\_\-LIVECONNECT}~9
+\item 
+\#define \hyperlink{npapi_8h_ac4be885716ab4a3885e3fa08a6548de7}{NPVERS\_\-68K\_\-HAS\_\-LIVECONNECT}~11
+\item 
+\#define \hyperlink{npapi_8h_ad9347278b5c2e7c3f75e88dac32f5f42}{NPVERS\_\-HAS\_\-WINDOWLESS}~11
+\item 
+\#define \hyperlink{npapi_8h_a88852478d04920a0d1417cae572b3cf6}{NPVERS\_\-HAS\_\-XPCONNECT\_\-SCRIPTING}~13
+\item 
+\#define \hyperlink{npapi_8h_a352e1ca9c4f1f24e37bfd47c21421ea0}{NPVERS\_\-HAS\_\-NPRUNTIME\_\-SCRIPTING}~14
+\item 
+\#define \hyperlink{npapi_8h_af6261b20aee8f093a4b297a788c0b117}{NPVERS\_\-HAS\_\-FORM\_\-VALUES}~15
+\item 
+\#define \hyperlink{npapi_8h_a3040c2778c5114228047af3dd8cdc119}{NPVERS\_\-HAS\_\-POPUPS\_\-ENABLED\_\-STATE}~16
+\item 
+\#define \hyperlink{npapi_8h_ad4efc5152a2fea4c34769ffe81af4599}{NPVERS\_\-HAS\_\-RESPONSE\_\-HEADERS}~17
+\item 
+\#define \hyperlink{npapi_8h_ac4560d9307995b151564a1d7f26b8e5c}{NPVERS\_\-HAS\_\-NPOBJECT\_\-ENUM}~18
+\item 
+\#define \hyperlink{npapi_8h_afdf50945d150b57868936f4e4a1b50dc}{NPVERS\_\-HAS\_\-PLUGIN\_\-THREAD\_\-ASYNC\_\-CALL}~19
+\item 
+\#define \hyperlink{npapi_8h_aa7a0e448a3cf73cd00c1cd6cb07cf388}{NPVERS\_\-HAS\_\-ALL\_\-NETWORK\_\-STREAMS}~20
+\item 
+\#define \hyperlink{npapi_8h_a38dc91e0e96a58d8445605f32f41178f}{NPVERS\_\-HAS\_\-URL\_\-AND\_\-AUTH\_\-INFO}~21
+\item 
+\#define \hyperlink{npapi_8h_a98925733b885277512fd1c7dcff44f52}{NPVERS\_\-HAS\_\-PRIVATE\_\-MODE}~22
+\item 
+\#define \hyperlink{npapi_8h_a643831a141c8e7ace2d21baccf802139}{NPVERS\_\-MACOSX\_\-HAS\_\-COCOA\_\-EVENTS}~23
+\item 
+\#define \hyperlink{npapi_8h_a37c52b55943657ba99be9528e424c1b2}{NP\_\-LOADDS}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef unsigned char \hyperlink{npapi_8h_acaaa85dcdc33ec2865fb0544f1792142}{NPBool}
+\item 
+typedef int16\_\-t \hyperlink{npapi_8h_a56715bc92ac93f0447a05f852ce18828}{NPError}
+\item 
+typedef int16\_\-t \hyperlink{npapi_8h_ac61a9865800672fc414fcc3c95c5f9c2}{NPReason}
+\item 
+typedef char $\ast$ \hyperlink{npapi_8h_a6ab16d9f607aeb576061783638ae2973}{NPMIMEType}
+\item 
+typedef struct \hyperlink{struct___n_p_p}{\_\-NPP} \hyperlink{npapi_8h_a9a98065d4a62b2e3ae39dbaf9b3ab07e}{NPP\_\-t}
+\item 
+typedef \hyperlink{struct___n_p_p}{NPP\_\-t} $\ast$ \hyperlink{npapi_8h_ad93e58efc010f9b2cd7e92b8de0c6ac3}{NPP}
+\item 
+typedef struct \hyperlink{struct___n_p_stream}{\_\-NPStream} \hyperlink{npapi_8h_a1f12916c566517d77cd34bff77f300fc}{NPStream}
+\item 
+typedef struct \hyperlink{struct___n_p_byte_range}{\_\-NPByteRange} \hyperlink{npapi_8h_a241768a6b969a80710a7b8d1e57a3684}{NPByteRange}
+\item 
+typedef struct \hyperlink{struct___n_p_saved_data}{\_\-NPSavedData} \hyperlink{npapi_8h_ace6d3ef9e9c95b254e6bd2ddc42c063b}{NPSavedData}
+\item 
+typedef struct \hyperlink{struct___n_p_rect}{\_\-NPRect} \hyperlink{npapi_8h_aa81784e15c5241cf2bd8d7aaee180a1f}{NPRect}
+\item 
+typedef struct \hyperlink{struct___n_p_size}{\_\-NPSize} \hyperlink{npapi_8h_a3491d9d270bdfbddc9fe08ce43ee9c9d}{NPSize}
+\item 
+typedef struct \hyperlink{struct___n_p_window}{\_\-NPWindow} \hyperlink{npapi_8h_a40cf0dc408ee49290fb1c1cb822cfb61}{NPWindow}
+\item 
+typedef struct \hyperlink{struct___n_p_image_expose}{\_\-NPImageExpose} \hyperlink{npapi_8h_a671ceedff5d5e961bc19fc3de589b5a2}{NPImageExpose}
+\item 
+typedef struct \hyperlink{struct___n_p_full_print}{\_\-NPFullPrint} \hyperlink{npapi_8h_a99a07739ffa4fd65b19208272d39674a}{NPFullPrint}
+\item 
+typedef struct \hyperlink{struct___n_p_embed_print}{\_\-NPEmbedPrint} \hyperlink{npapi_8h_aa44ffe1ef6da223f36d72d9f33d037f5}{NPEmbedPrint}
+\item 
+typedef struct \hyperlink{struct___n_p_print}{\_\-NPPrint} \hyperlink{npapi_8h_ad99c1bbd7e716640c6deccec501ae2ae}{NPPrint}
+\item 
+typedef void $\ast$ \hyperlink{npapi_8h_ad8065a5f107ec6fca5b319bd14637579}{NPEvent}
+\item 
+typedef void $\ast$ \hyperlink{npapi_8h_a74fa1137f3963131289e50616025a316}{NPRegion}
+\item 
+typedef struct \_\-NPNSString \hyperlink{npapi_8h_ab31fe7637ed7d090c5e4fc6ed3e56f45}{NPNSString}
+\item 
+typedef struct \_\-NPNSWindow \hyperlink{npapi_8h_a18843b5e1cdfb108ba13ed289d2a57ca}{NPNSWindow}
+\item 
+typedef struct \_\-NPNSMenu \hyperlink{npapi_8h_ad3d66c8eae511dbef3a7eaa8ad73bca9}{NPNSMenu}
+\item 
+typedef void $\ast$ \hyperlink{npapi_8h_ad67b8e4bdc755b1357507624a5533d6a}{NPMenu}
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{npapi_8h_a1b56dde896277605195e0fad69cbca7d}{NPPVariable} \{ \par
+\hyperlink{npapi_8h_a1b56dde896277605195e0fad69cbca7dafe7fadd19cdeb53c59cccc5e4e9e9c4c}{NPPVpluginNameString} =  1, 
+\hyperlink{npapi_8h_a1b56dde896277605195e0fad69cbca7da41eb5b965a6b66e15f0d01434d621e64}{NPPVpluginDescriptionString}, 
+\hyperlink{npapi_8h_a1b56dde896277605195e0fad69cbca7daba84cf45d02cb6f2044692cd82ffa377}{NPPVpluginWindowBool}, 
+\hyperlink{npapi_8h_a1b56dde896277605195e0fad69cbca7daf3f173d8d20569a41b2448cd459d6a11}{NPPVpluginTransparentBool}, 
+\par
+\hyperlink{npapi_8h_a1b56dde896277605195e0fad69cbca7dafecec5aa3adb7decf4969c5b8c2cbd9a}{NPPVjavaClass}, 
+\hyperlink{npapi_8h_a1b56dde896277605195e0fad69cbca7da40bcf7fbe82cef7b0943f88d46e34f98}{NPPVpluginWindowSize}, 
+\hyperlink{npapi_8h_a1b56dde896277605195e0fad69cbca7da17f6c2eb20f091e78a551ef7e203d10d}{NPPVpluginTimerInterval}, 
+\hyperlink{npapi_8h_a1b56dde896277605195e0fad69cbca7da473003f41e872402f9b016b5eb8c869e}{NPPVpluginScriptableInstance} =  (10 $|$ NP\_\-ABI\_\-MASK), 
+\par
+\hyperlink{npapi_8h_a1b56dde896277605195e0fad69cbca7daafa1db166a4330c3ddda84ae5860464a}{NPPVpluginScriptableIID} =  11, 
+\hyperlink{npapi_8h_a1b56dde896277605195e0fad69cbca7da218579cc86f3ccb8d6fffa2d21611a09}{NPPVjavascriptPushCallerBool} =  12, 
+\hyperlink{npapi_8h_a1b56dde896277605195e0fad69cbca7da7bbf0fea27bed9ff63a15f1fc0f060b4}{NPPVpluginKeepLibraryInMemory} =  13, 
+\hyperlink{npapi_8h_a1b56dde896277605195e0fad69cbca7da0040cdc80c484d5e7117503b9c9f0bd0}{NPPVpluginNeedsXEmbed} =  14, 
+\par
+\hyperlink{npapi_8h_a1b56dde896277605195e0fad69cbca7da2e8132bf2930a8a89321f1caac78b11d}{NPPVpluginScriptableNPObject} =  15, 
+\hyperlink{npapi_8h_a1b56dde896277605195e0fad69cbca7da36aa5fdd881de309b19a14b6c08cb4f8}{NPPVformValue} =  16, 
+\hyperlink{npapi_8h_a1b56dde896277605195e0fad69cbca7da9994658709cdedcf9ac39d0ceb24cd66}{NPPVpluginUrlRequestsDisplayedBool} =  17, 
+\hyperlink{npapi_8h_a1b56dde896277605195e0fad69cbca7da7f03bef18062fee787e4dff681aa7355}{NPPVpluginWantsAllNetworkStreams} =  18, 
+\par
+\hyperlink{npapi_8h_a1b56dde896277605195e0fad69cbca7da7b4dfa9e6c853fbdc48505b051e5eaac}{NPPVpluginNativeAccessibleAtkPlugId} =  19, 
+\hyperlink{npapi_8h_a1b56dde896277605195e0fad69cbca7da9e78d227809baab0e7c0e3f4f3a6cd40}{NPPVpluginCancelSrcStream} =  20
+ \}
+\item 
+enum \hyperlink{npapi_8h_ac6ceb0585e9b642ef0ee915918ae07c5}{NPNVariable} \{ \par
+\hyperlink{npapi_8h_ac6ceb0585e9b642ef0ee915918ae07c5aff0ce1c9dbbaedce88db1b889be11d6f}{NPNVxDisplay} =  1, 
+\hyperlink{npapi_8h_ac6ceb0585e9b642ef0ee915918ae07c5a347cf87f69a0a42d25b74eeccfb89051}{NPNVxtAppContext}, 
+\hyperlink{npapi_8h_ac6ceb0585e9b642ef0ee915918ae07c5a7b0af0c4404af66f7d8925401b68d7fc}{NPNVnetscapeWindow}, 
+\hyperlink{npapi_8h_ac6ceb0585e9b642ef0ee915918ae07c5a9297356963d9ae32d1f18686ce4773c2}{NPNVjavascriptEnabledBool}, 
+\par
+\hyperlink{npapi_8h_ac6ceb0585e9b642ef0ee915918ae07c5ac318311362506bc022e85dd7835737f5}{NPNVasdEnabledBool}, 
+\hyperlink{npapi_8h_ac6ceb0585e9b642ef0ee915918ae07c5a974446580b2c2634697836586c675582}{NPNVisOfflineBool}, 
+\hyperlink{npapi_8h_ac6ceb0585e9b642ef0ee915918ae07c5af8b98df37ced867aee3ccd3612b03a5f}{NPNVserviceManager} =  (10 $|$ NP\_\-ABI\_\-MASK), 
+\hyperlink{npapi_8h_ac6ceb0585e9b642ef0ee915918ae07c5a3c85c580ea34ee72691dd9ac0af4965f}{NPNVDOMElement} =  (11 $|$ NP\_\-ABI\_\-MASK), 
+\par
+\hyperlink{npapi_8h_ac6ceb0585e9b642ef0ee915918ae07c5af3ea0386b38835626a8979420e2d520c}{NPNVDOMWindow} =  (12 $|$ NP\_\-ABI\_\-MASK), 
+\hyperlink{npapi_8h_ac6ceb0585e9b642ef0ee915918ae07c5a6914475dabee1e604e2a19081ef4cf0f}{NPNVToolkit} =  (13 $|$ NP\_\-ABI\_\-MASK), 
+\hyperlink{npapi_8h_ac6ceb0585e9b642ef0ee915918ae07c5aee9acec7c6fc6b7a8c5d953bdd11122d}{NPNVSupportsXEmbedBool} =  14, 
+\hyperlink{npapi_8h_ac6ceb0585e9b642ef0ee915918ae07c5a09590385eb9871aee64e08e2753d188e}{NPNVWindowNPObject} =  15, 
+\par
+\hyperlink{npapi_8h_ac6ceb0585e9b642ef0ee915918ae07c5a7f8e1e776bc908970840fa38a0dd5605}{NPNVPluginElementNPObject} =  16, 
+\hyperlink{npapi_8h_ac6ceb0585e9b642ef0ee915918ae07c5a2ebb39ba4c56d114fac7f5d93efcb782}{NPNVSupportsWindowless} =  17, 
+\hyperlink{npapi_8h_ac6ceb0585e9b642ef0ee915918ae07c5aba5085eac8ca983677f1d7cb75f2799f}{NPNVprivateModeBool} =  18
+ \}
+\item 
+enum \hyperlink{npapi_8h_acf9736d6e150a99ac9ccd3a37d1aee0c}{NPNURLVariable} \{ \hyperlink{npapi_8h_acf9736d6e150a99ac9ccd3a37d1aee0ca4ea9139e34fa3790baf6b6535cd46c79}{NPNURLVCookie} =  501, 
+\hyperlink{npapi_8h_acf9736d6e150a99ac9ccd3a37d1aee0ca661533b40404c2d80650d51e746f86c2}{NPNURLVProxy}
+ \}
+\item 
+enum \hyperlink{npapi_8h_a1e47b0cd787b6fb1abba6f9429001a90}{NPNToolkitType} \{ \hyperlink{npapi_8h_a1e47b0cd787b6fb1abba6f9429001a90a13d1b7fcf1013d998f23a891db08e37b}{NPNVGtk12} =  1, 
+\hyperlink{npapi_8h_a1e47b0cd787b6fb1abba6f9429001a90ad1b651d51b6652a551754278cafdacca}{NPNVGtk2}
+ \}
+\item 
+enum \hyperlink{npapi_8h_a92d3d7179cbf46985d550adc3274a5da}{NPWindowType} \{ \hyperlink{npapi_8h_a92d3d7179cbf46985d550adc3274a5daa99a19ebe4ef46443bc6f1a2fd880f54b}{NPWindowTypeWindow} =  1, 
+\hyperlink{npapi_8h_a92d3d7179cbf46985d550adc3274a5daaa6952a23fc1e5315c6675ade0e8a8ce2}{NPWindowTypeDrawable}
+ \}
+\item 
+enum \hyperlink{npapi_8h_a2a6dd13b070a0405c4e0cdc47b1aacda}{NPCoordinateSpace} \{ \par
+\hyperlink{npapi_8h_a2a6dd13b070a0405c4e0cdc47b1aacdaac00fed3fcce9d4bc90340b0e71bc45e0}{NPCoordinateSpacePlugin} =  1, 
+\hyperlink{npapi_8h_a2a6dd13b070a0405c4e0cdc47b1aacdaadb9201f3774369152c2d0f20d1f701d6}{NPCoordinateSpaceWindow}, 
+\hyperlink{npapi_8h_a2a6dd13b070a0405c4e0cdc47b1aacdaad52d2ea6805086b3d9e830633083bdbd}{NPCoordinateSpaceFlippedWindow}, 
+\hyperlink{npapi_8h_a2a6dd13b070a0405c4e0cdc47b1aacdaa15b021486a50b84621e856e389f218be}{NPCoordinateSpaceScreen}, 
+\par
+\hyperlink{npapi_8h_a2a6dd13b070a0405c4e0cdc47b1aacdaab1cd6953c33a408d9dfda5cfe82c13b2}{NPCoordinateSpaceFlippedScreen}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{npapi_8h_a56715bc92ac93f0447a05f852ce18828}{NPError} NP\_\-LOADDS \hyperlink{npapi_8h_a4fd00215da5d7ed9e0151fd48c881031}{NPP\_\-Initialize} (void)
+\item 
+void NP\_\-LOADDS \hyperlink{npapi_8h_a6720b17f17b90de5d95bdad6f788d152}{NPP\_\-Shutdown} (void)
+\item 
+\hyperlink{npapi_8h_a56715bc92ac93f0447a05f852ce18828}{NPError} NP\_\-LOADDS \hyperlink{npapi_8h_a777d05edd2b732666f949f37a19cead7}{NPP\_\-New} (\hyperlink{npapi_8h_a6ab16d9f607aeb576061783638ae2973}{NPMIMEType} pluginType, \hyperlink{struct___n_p_p}{NPP} instance, uint16\_\-t mode, int16\_\-t argc, char $\ast$argn\mbox{[}$\,$\mbox{]}, char $\ast$argv\mbox{[}$\,$\mbox{]}, \hyperlink{struct___n_p_saved_data}{NPSavedData} $\ast$saved)
+\item 
+\hyperlink{npapi_8h_a56715bc92ac93f0447a05f852ce18828}{NPError} NP\_\-LOADDS \hyperlink{npapi_8h_a905945385e6f98640775f167d80c9475}{NPP\_\-Destroy} (\hyperlink{struct___n_p_p}{NPP} instance, \hyperlink{struct___n_p_saved_data}{NPSavedData} $\ast$$\ast$save)
+\item 
+\hyperlink{npapi_8h_a56715bc92ac93f0447a05f852ce18828}{NPError} NP\_\-LOADDS \hyperlink{npapi_8h_ab6b2dce9b2edc3f564e2927fe5ecfd08}{NPP\_\-SetWindow} (\hyperlink{struct___n_p_p}{NPP} instance, \hyperlink{struct___n_p_window}{NPWindow} $\ast$window)
+\item 
+\hyperlink{npapi_8h_a56715bc92ac93f0447a05f852ce18828}{NPError} NP\_\-LOADDS \hyperlink{npapi_8h_ab58e9686a363daece548dbc124c6bac1}{NPP\_\-NewStream} (\hyperlink{struct___n_p_p}{NPP} instance, \hyperlink{npapi_8h_a6ab16d9f607aeb576061783638ae2973}{NPMIMEType} type, \hyperlink{struct___n_p_stream}{NPStream} $\ast$stream, \hyperlink{npapi_8h_acaaa85dcdc33ec2865fb0544f1792142}{NPBool} seekable, uint16\_\-t $\ast$stype)
+\item 
+\hyperlink{npapi_8h_a56715bc92ac93f0447a05f852ce18828}{NPError} NP\_\-LOADDS \hyperlink{npapi_8h_a47a71f07b8445643a916fdc554cd2d4c}{NPP\_\-DestroyStream} (\hyperlink{struct___n_p_p}{NPP} instance, \hyperlink{struct___n_p_stream}{NPStream} $\ast$stream, \hyperlink{npapi_8h_ac61a9865800672fc414fcc3c95c5f9c2}{NPReason} reason)
+\item 
+int32\_\-t NP\_\-LOADDS \hyperlink{npapi_8h_a40c243093541fd079ee2731697dddaa0}{NPP\_\-WriteReady} (\hyperlink{struct___n_p_p}{NPP} instance, \hyperlink{struct___n_p_stream}{NPStream} $\ast$stream)
+\item 
+int32\_\-t NP\_\-LOADDS \hyperlink{npapi_8h_acddda12a97b75bf53f5a03c272f08783}{NPP\_\-Write} (\hyperlink{struct___n_p_p}{NPP} instance, \hyperlink{struct___n_p_stream}{NPStream} $\ast$stream, int32\_\-t offset, int32\_\-t len, void $\ast$buffer)
+\item 
+void NP\_\-LOADDS \hyperlink{npapi_8h_a45806535645f1139fdf7342e7d0c86ef}{NPP\_\-StreamAsFile} (\hyperlink{struct___n_p_p}{NPP} instance, \hyperlink{struct___n_p_stream}{NPStream} $\ast$stream, const char $\ast$fname)
+\item 
+void NP\_\-LOADDS \hyperlink{npapi_8h_ae38537757368e78995dd26d64760e190}{NPP\_\-Print} (\hyperlink{struct___n_p_p}{NPP} instance, \hyperlink{struct___n_p_print}{NPPrint} $\ast$platformPrint)
+\item 
+int16\_\-t NP\_\-LOADDS \hyperlink{npapi_8h_ac777bd3f9b9a7923c4ef755fa7f3e2fd}{NPP\_\-HandleEvent} (\hyperlink{struct___n_p_p}{NPP} instance, void $\ast$event)
+\item 
+void NP\_\-LOADDS \hyperlink{npapi_8h_acc9fb3ec9486b43d8e8e7c2a5234675d}{NPP\_\-URLNotify} (\hyperlink{struct___n_p_p}{NPP} instance, const char $\ast$url, \hyperlink{npapi_8h_ac61a9865800672fc414fcc3c95c5f9c2}{NPReason} reason, void $\ast$notifyData)
+\item 
+\hyperlink{npapi_8h_a56715bc92ac93f0447a05f852ce18828}{NPError} NP\_\-LOADDS \hyperlink{npapi_8h_a995de20595303d2ec0bc501f64248875}{NPP\_\-GetValue} (\hyperlink{struct___n_p_p}{NPP} instance, \hyperlink{npapi_8h_a1b56dde896277605195e0fad69cbca7d}{NPPVariable} variable, void $\ast$value)
+\item 
+\hyperlink{npapi_8h_a56715bc92ac93f0447a05f852ce18828}{NPError} NP\_\-LOADDS \hyperlink{npapi_8h_a0047f4cecd3414eb5979f29cfa7dd880}{NPP\_\-SetValue} (\hyperlink{struct___n_p_p}{NPP} instance, \hyperlink{npapi_8h_ac6ceb0585e9b642ef0ee915918ae07c5}{NPNVariable} variable, void $\ast$value)
+\item 
+void NP\_\-LOADDS \hyperlink{npapi_8h_a1953d511090983b637862884ddd0b9aa}{NPN\_\-Version} (int $\ast$plugin\_\-major, int $\ast$plugin\_\-minor, int $\ast$netscape\_\-major, int $\ast$netscape\_\-minor)
+\item 
+\hyperlink{npapi_8h_a56715bc92ac93f0447a05f852ce18828}{NPError} NP\_\-LOADDS \hyperlink{npapi_8h_a6b6d0f15dbb7ff52e10d57ea196ccb8d}{NPN\_\-GetURLNotify} (\hyperlink{struct___n_p_p}{NPP} instance, const char $\ast$url, const char $\ast$target, void $\ast$notifyData)
+\item 
+\hyperlink{npapi_8h_a56715bc92ac93f0447a05f852ce18828}{NPError} NP\_\-LOADDS \hyperlink{npapi_8h_a1da3dad7dc28abed88d9f2fc10f27c22}{NPN\_\-GetURL} (\hyperlink{struct___n_p_p}{NPP} instance, const char $\ast$url, const char $\ast$target)
+\item 
+\hyperlink{npapi_8h_a56715bc92ac93f0447a05f852ce18828}{NPError} NP\_\-LOADDS \hyperlink{npapi_8h_ad02fc5fa534c8b5ed8cab339afccd29e}{NPN\_\-PostURLNotify} (\hyperlink{struct___n_p_p}{NPP} instance, const char $\ast$url, const char $\ast$target, uint32\_\-t len, const char $\ast$buf, \hyperlink{npapi_8h_acaaa85dcdc33ec2865fb0544f1792142}{NPBool} file, void $\ast$notifyData)
+\item 
+\hyperlink{npapi_8h_a56715bc92ac93f0447a05f852ce18828}{NPError} NP\_\-LOADDS \hyperlink{npapi_8h_ac01bf772757060d001dc2808968563f9}{NPN\_\-PostURL} (\hyperlink{struct___n_p_p}{NPP} instance, const char $\ast$url, const char $\ast$target, uint32\_\-t len, const char $\ast$buf, \hyperlink{npapi_8h_acaaa85dcdc33ec2865fb0544f1792142}{NPBool} file)
+\item 
+\hyperlink{npapi_8h_a56715bc92ac93f0447a05f852ce18828}{NPError} NP\_\-LOADDS \hyperlink{npapi_8h_addd44069de713ded99a17a2e60db1b50}{NPN\_\-RequestRead} (\hyperlink{struct___n_p_stream}{NPStream} $\ast$stream, \hyperlink{struct___n_p_byte_range}{NPByteRange} $\ast$rangeList)
+\item 
+\hyperlink{npapi_8h_a56715bc92ac93f0447a05f852ce18828}{NPError} NP\_\-LOADDS \hyperlink{npapi_8h_aa67873c8ec60d1d2c37e3b87cb7b1058}{NPN\_\-NewStream} (\hyperlink{struct___n_p_p}{NPP} instance, \hyperlink{npapi_8h_a6ab16d9f607aeb576061783638ae2973}{NPMIMEType} type, const char $\ast$target, \hyperlink{struct___n_p_stream}{NPStream} $\ast$$\ast$stream)
+\item 
+int32\_\-t NP\_\-LOADDS \hyperlink{npapi_8h_a6f11cfecab47c055d9c968387f0b8231}{NPN\_\-Write} (\hyperlink{struct___n_p_p}{NPP} instance, \hyperlink{struct___n_p_stream}{NPStream} $\ast$stream, int32\_\-t len, void $\ast$buffer)
+\item 
+\hyperlink{npapi_8h_a56715bc92ac93f0447a05f852ce18828}{NPError} NP\_\-LOADDS \hyperlink{npapi_8h_a1431ee6d4c225a4decce78e2d9b8f38e}{NPN\_\-DestroyStream} (\hyperlink{struct___n_p_p}{NPP} instance, \hyperlink{struct___n_p_stream}{NPStream} $\ast$stream, \hyperlink{npapi_8h_ac61a9865800672fc414fcc3c95c5f9c2}{NPReason} reason)
+\item 
+void NP\_\-LOADDS \hyperlink{npapi_8h_a5c55bcd09f78c12f5ac0429b7bc03757}{NPN\_\-Status} (\hyperlink{struct___n_p_p}{NPP} instance, const char $\ast$message)
+\item 
+const char $\ast$NP\_\-LOADDS \hyperlink{npapi_8h_a86b044f4b0f3b25a607c61b884f53525}{NPN\_\-UserAgent} (\hyperlink{struct___n_p_p}{NPP} instance)
+\item 
+void $\ast$NP\_\-LOADDS \hyperlink{npapi_8h_a891dcc0692dd6f097659e5e2b7b555d2}{NPN\_\-MemAlloc} (uint32\_\-t size)
+\item 
+void NP\_\-LOADDS \hyperlink{npapi_8h_aad187842843cf8edb39e04db8db3ee6a}{NPN\_\-MemFree} (void $\ast$ptr)
+\item 
+uint32\_\-t NP\_\-LOADDS \hyperlink{npapi_8h_a6dcf5fc4752c3d76ec81d9a84fd0af1d}{NPN\_\-MemFlush} (uint32\_\-t size)
+\item 
+void NP\_\-LOADDS \hyperlink{npapi_8h_a0766a52cd6e8ef563bc46b979d27a2c5}{NPN\_\-ReloadPlugins} (\hyperlink{npapi_8h_acaaa85dcdc33ec2865fb0544f1792142}{NPBool} reloadPages)
+\item 
+\hyperlink{npapi_8h_a56715bc92ac93f0447a05f852ce18828}{NPError} NP\_\-LOADDS \hyperlink{npapi_8h_acce38523daea527eb7cb21a212277fd4}{NPN\_\-GetValue} (\hyperlink{struct___n_p_p}{NPP} instance, \hyperlink{npapi_8h_ac6ceb0585e9b642ef0ee915918ae07c5}{NPNVariable} variable, void $\ast$value)
+\item 
+\hyperlink{npapi_8h_a56715bc92ac93f0447a05f852ce18828}{NPError} NP\_\-LOADDS \hyperlink{npapi_8h_a0bd64b4bc3b4cca500d390c246c92c3b}{NPN\_\-SetValue} (\hyperlink{struct___n_p_p}{NPP} instance, \hyperlink{npapi_8h_a1b56dde896277605195e0fad69cbca7d}{NPPVariable} variable, void $\ast$value)
+\item 
+void NP\_\-LOADDS \hyperlink{npapi_8h_abe6658ed01076b78cabdb40583531d50}{NPN\_\-InvalidateRect} (\hyperlink{struct___n_p_p}{NPP} instance, \hyperlink{struct___n_p_rect}{NPRect} $\ast$invalidRect)
+\item 
+void NP\_\-LOADDS \hyperlink{npapi_8h_af569858fd174b563bf6368f805da01cc}{NPN\_\-InvalidateRegion} (\hyperlink{struct___n_p_p}{NPP} instance, \hyperlink{npapi_8h_a74fa1137f3963131289e50616025a316}{NPRegion} invalidRegion)
+\item 
+void NP\_\-LOADDS \hyperlink{npapi_8h_a4d08057051d5058b9f58046ab8badb74}{NPN\_\-ForceRedraw} (\hyperlink{struct___n_p_p}{NPP} instance)
+\item 
+void NP\_\-LOADDS \hyperlink{npapi_8h_a14f2044d6e5c1dd3cbdb9942cf0d9a65}{NPN\_\-PushPopupsEnabledState} (\hyperlink{struct___n_p_p}{NPP} instance, \hyperlink{npapi_8h_acaaa85dcdc33ec2865fb0544f1792142}{NPBool} enabled)
+\item 
+void NP\_\-LOADDS \hyperlink{npapi_8h_af04862afb51e420a030f950617c6d375}{NPN\_\-PopPopupsEnabledState} (\hyperlink{struct___n_p_p}{NPP} instance)
+\item 
+void NP\_\-LOADDS \hyperlink{npapi_8h_ace7bc5dcf35b36af93000e7f37c1b2ad}{NPN\_\-PluginThreadAsyncCall} (\hyperlink{struct___n_p_p}{NPP} instance, void($\ast$func)(void $\ast$), void $\ast$userData)
+\item 
+\hyperlink{npapi_8h_a56715bc92ac93f0447a05f852ce18828}{NPError} NP\_\-LOADDS \hyperlink{npapi_8h_a196053ca47894b69e94207bd41615f6a}{NPN\_\-GetValueForURL} (\hyperlink{struct___n_p_p}{NPP} instance, \hyperlink{npapi_8h_acf9736d6e150a99ac9ccd3a37d1aee0c}{NPNURLVariable} variable, const char $\ast$url, char $\ast$$\ast$value, uint32\_\-t $\ast$len)
+\item 
+\hyperlink{npapi_8h_a56715bc92ac93f0447a05f852ce18828}{NPError} NP\_\-LOADDS \hyperlink{npapi_8h_adc5a76d07ef9b3066191ee55febe7fad}{NPN\_\-SetValueForURL} (\hyperlink{struct___n_p_p}{NPP} instance, \hyperlink{npapi_8h_acf9736d6e150a99ac9ccd3a37d1aee0c}{NPNURLVariable} variable, const char $\ast$url, const char $\ast$value, uint32\_\-t len)
+\item 
+\hyperlink{npapi_8h_a56715bc92ac93f0447a05f852ce18828}{NPError} NP\_\-LOADDS \hyperlink{npapi_8h_a17476b6f41cbde8b1439bd3c8442bbc0}{NPN\_\-GetAuthenticationInfo} (\hyperlink{struct___n_p_p}{NPP} instance, const char $\ast$protocol, const char $\ast$host, int32\_\-t port, const char $\ast$scheme, const char $\ast$realm, char $\ast$$\ast$username, uint32\_\-t $\ast$ulen, char $\ast$$\ast$password, uint32\_\-t $\ast$plen)
+\item 
+uint32\_\-t NP\_\-LOADDS \hyperlink{npapi_8h_adcc77893a9dc318dc11e8f33bf7b04fa}{NPN\_\-ScheduleTimer} (\hyperlink{struct___n_p_p}{NPP} instance, uint32\_\-t interval, \hyperlink{npapi_8h_acaaa85dcdc33ec2865fb0544f1792142}{NPBool} repeat, void($\ast$timerFunc)(\hyperlink{struct___n_p_p}{NPP} npp, uint32\_\-t timerID))
+\item 
+void NP\_\-LOADDS \hyperlink{npapi_8h_ae93ceecc4f6310a5c6c1de19e1afb483}{NPN\_\-UnscheduleTimer} (\hyperlink{struct___n_p_p}{NPP} instance, uint32\_\-t timerID)
+\item 
+\hyperlink{npapi_8h_a56715bc92ac93f0447a05f852ce18828}{NPError} NP\_\-LOADDS \hyperlink{npapi_8h_aeea62547064e1e48b0514d00ab50436a}{NPN\_\-PopUpContextMenu} (\hyperlink{struct___n_p_p}{NPP} instance, \hyperlink{npapi_8h_ad67b8e4bdc755b1357507624a5533d6a}{NPMenu} $\ast$menu)
+\item 
+\hyperlink{npapi_8h_acaaa85dcdc33ec2865fb0544f1792142}{NPBool} NP\_\-LOADDS \hyperlink{npapi_8h_a0ce222dda3476a32cca12a9150270c19}{NPN\_\-ConvertPoint} (\hyperlink{struct___n_p_p}{NPP} instance, double sourceX, double sourceY, \hyperlink{npapi_8h_a2a6dd13b070a0405c4e0cdc47b1aacda}{NPCoordinateSpace} sourceSpace, double $\ast$destX, double $\ast$destY, \hyperlink{npapi_8h_a2a6dd13b070a0405c4e0cdc47b1aacda}{NPCoordinateSpace} destSpace)
+\end{DoxyCompactItemize}
+
+
+\subsection{Define Documentation}
+\hypertarget{npapi_8h_a942625c4ee32c820694213952a867e0f}{
+\index{npapi.h@{npapi.h}!\_\-NP\_\-ABI\_\-MIXIN\_\-FOR\_\-GCC3@{\_\-NP\_\-ABI\_\-MIXIN\_\-FOR\_\-GCC3}}
+\index{\_\-NP\_\-ABI\_\-MIXIN\_\-FOR\_\-GCC3@{\_\-NP\_\-ABI\_\-MIXIN\_\-FOR\_\-GCC3}!npapi.h@{npapi.h}}
+\subsubsection[{\_\-NP\_\-ABI\_\-MIXIN\_\-FOR\_\-GCC3}]{\setlength{\rightskip}{0pt plus 5cm}\#define \_\-NP\_\-ABI\_\-MIXIN\_\-FOR\_\-GCC3~0}}
+\label{npapi_8h_a942625c4ee32c820694213952a867e0f}
+
+
+Definition at line 329 of file npapi.h.
+
+\hypertarget{npapi_8h_ad9bcf10196e71201d37c9b614026b9d1}{
+\index{npapi.h@{npapi.h}!\_\-NP\_\-ABI\_\-MIXIN\_\-FOR\_\-MACHO@{\_\-NP\_\-ABI\_\-MIXIN\_\-FOR\_\-MACHO}}
+\index{\_\-NP\_\-ABI\_\-MIXIN\_\-FOR\_\-MACHO@{\_\-NP\_\-ABI\_\-MIXIN\_\-FOR\_\-MACHO}!npapi.h@{npapi.h}}
+\subsubsection[{\_\-NP\_\-ABI\_\-MIXIN\_\-FOR\_\-MACHO}]{\setlength{\rightskip}{0pt plus 5cm}\#define \_\-NP\_\-ABI\_\-MIXIN\_\-FOR\_\-MACHO~0}}
+\label{npapi_8h_ad9bcf10196e71201d37c9b614026b9d1}
+
+
+Definition at line 336 of file npapi.h.
+
+\hypertarget{npapi_8h_ad2b7bf24d627055e8e03c1b80f2e359c}{
+\index{npapi.h@{npapi.h}!kNPEventHandled@{kNPEventHandled}}
+\index{kNPEventHandled@{kNPEventHandled}!npapi.h@{npapi.h}}
+\subsubsection[{kNPEventHandled}]{\setlength{\rightskip}{0pt plus 5cm}\#define kNPEventHandled~1}}
+\label{npapi_8h_ad2b7bf24d627055e8e03c1b80f2e359c}
+
+
+Definition at line 253 of file npapi.h.
+
+\hypertarget{npapi_8h_a82943ecb6df2e55db7bf17220802a07f}{
+\index{npapi.h@{npapi.h}!kNPEventNotHandled@{kNPEventNotHandled}}
+\index{kNPEventNotHandled@{kNPEventNotHandled}!npapi.h@{npapi.h}}
+\subsubsection[{kNPEventNotHandled}]{\setlength{\rightskip}{0pt plus 5cm}\#define kNPEventNotHandled~0}}
+\label{npapi_8h_a82943ecb6df2e55db7bf17220802a07f}
+
+
+Definition at line 252 of file npapi.h.
+
+\hypertarget{npapi_8h_aafa8dbb0b2b95bcc7dbb8e6f4723535d}{
+\index{npapi.h@{npapi.h}!kNPEventStartIME@{kNPEventStartIME}}
+\index{kNPEventStartIME@{kNPEventStartIME}!npapi.h@{npapi.h}}
+\subsubsection[{kNPEventStartIME}]{\setlength{\rightskip}{0pt plus 5cm}\#define kNPEventStartIME~2}}
+\label{npapi_8h_aafa8dbb0b2b95bcc7dbb8e6f4723535d}
+
+
+Definition at line 255 of file npapi.h.
+
+\hypertarget{npapi_8h_a5dd6bd57a666e694b46601b2dc339f62}{
+\index{npapi.h@{npapi.h}!NP\_\-ABI\_\-GCC3\_\-MASK@{NP\_\-ABI\_\-GCC3\_\-MASK}}
+\index{NP\_\-ABI\_\-GCC3\_\-MASK@{NP\_\-ABI\_\-GCC3\_\-MASK}!npapi.h@{npapi.h}}
+\subsubsection[{NP\_\-ABI\_\-GCC3\_\-MASK}]{\setlength{\rightskip}{0pt plus 5cm}\#define NP\_\-ABI\_\-GCC3\_\-MASK~0x10000000}}
+\label{npapi_8h_a5dd6bd57a666e694b46601b2dc339f62}
+
+
+Definition at line 321 of file npapi.h.
+
+\hypertarget{npapi_8h_a696786d809cb2d524d8a06a7e504acd3}{
+\index{npapi.h@{npapi.h}!NP\_\-ABI\_\-MASK@{NP\_\-ABI\_\-MASK}}
+\index{NP\_\-ABI\_\-MASK@{NP\_\-ABI\_\-MASK}!npapi.h@{npapi.h}}
+\subsubsection[{NP\_\-ABI\_\-MASK}]{\setlength{\rightskip}{0pt plus 5cm}\#define NP\_\-ABI\_\-MASK~(\_\-NP\_\-ABI\_\-MIXIN\_\-FOR\_\-GCC3 $|$ \_\-NP\_\-ABI\_\-MIXIN\_\-FOR\_\-MACHO)}}
+\label{npapi_8h_a696786d809cb2d524d8a06a7e504acd3}
+
+
+Definition at line 339 of file npapi.h.
+
+\hypertarget{npapi_8h_ab82e12708b0632077476043a2d435414}{
+\index{npapi.h@{npapi.h}!NP\_\-ASFILE@{NP\_\-ASFILE}}
+\index{NP\_\-ASFILE@{NP\_\-ASFILE}!npapi.h@{npapi.h}}
+\subsubsection[{NP\_\-ASFILE}]{\setlength{\rightskip}{0pt plus 5cm}\#define NP\_\-ASFILE~3}}
+\label{npapi_8h_ab82e12708b0632077476043a2d435414}
+
+
+Definition at line 704 of file npapi.h.
+
+\hypertarget{npapi_8h_a489493eb2b974faff74123936c102560}{
+\index{npapi.h@{npapi.h}!NP\_\-ASFILEONLY@{NP\_\-ASFILEONLY}}
+\index{NP\_\-ASFILEONLY@{NP\_\-ASFILEONLY}!npapi.h@{npapi.h}}
+\subsubsection[{NP\_\-ASFILEONLY}]{\setlength{\rightskip}{0pt plus 5cm}\#define NP\_\-ASFILEONLY~4}}
+\label{npapi_8h_a489493eb2b974faff74123936c102560}
+
+
+Definition at line 705 of file npapi.h.
+
+\hypertarget{npapi_8h_a915edb1dc9a8038a9e7ef4195e788607}{
+\index{npapi.h@{npapi.h}!NP\_\-EABORT@{NP\_\-EABORT}}
+\index{NP\_\-EABORT@{NP\_\-EABORT}!npapi.h@{npapi.h}}
+\subsubsection[{NP\_\-EABORT}]{\setlength{\rightskip}{0pt plus 5cm}\#define NP\_\-EABORT~NP\_\-EABORT\_\-is\_\-obsolete\_\-use\_\-NPRES\_\-USER\_\-BREAK}}
+\label{npapi_8h_a915edb1dc9a8038a9e7ef4195e788607}
+
+
+Definition at line 751 of file npapi.h.
+
+\hypertarget{npapi_8h_afaa3e619aea40e0cd85ae2f677423b7e}{
+\index{npapi.h@{npapi.h}!NP\_\-EINVAL@{NP\_\-EINVAL}}
+\index{NP\_\-EINVAL@{NP\_\-EINVAL}!npapi.h@{npapi.h}}
+\subsubsection[{NP\_\-EINVAL}]{\setlength{\rightskip}{0pt plus 5cm}\#define NP\_\-EINVAL~NP\_\-EINVAL\_\-is\_\-obsolete\_\-use\_\-NPERR\_\-GENERIC\_\-ERROR}}
+\label{npapi_8h_afaa3e619aea40e0cd85ae2f677423b7e}
+
+
+Definition at line 750 of file npapi.h.
+
+\hypertarget{npapi_8h_ab8578fcf4424b3b2125925d63fa0b8a1}{
+\index{npapi.h@{npapi.h}!NP\_\-EMBED@{NP\_\-EMBED}}
+\index{NP\_\-EMBED@{NP\_\-EMBED}!npapi.h@{npapi.h}}
+\subsubsection[{NP\_\-EMBED}]{\setlength{\rightskip}{0pt plus 5cm}\#define NP\_\-EMBED~1}}
+\label{npapi_8h_ab8578fcf4424b3b2125925d63fa0b8a1}
+
+
+Definition at line 696 of file npapi.h.
+
+\hypertarget{npapi_8h_a36ccc978c591253b34651f04089d8345}{
+\index{npapi.h@{npapi.h}!NP\_\-FULL@{NP\_\-FULL}}
+\index{NP\_\-FULL@{NP\_\-FULL}!npapi.h@{npapi.h}}
+\subsubsection[{NP\_\-FULL}]{\setlength{\rightskip}{0pt plus 5cm}\#define NP\_\-FULL~2}}
+\label{npapi_8h_a36ccc978c591253b34651f04089d8345}
+
+
+Definition at line 697 of file npapi.h.
+
+\hypertarget{npapi_8h_a2dda813211ff61f6308b107cb4cb51fb}{
+\index{npapi.h@{npapi.h}!NP\_\-INFO\_\-CompanyName@{NP\_\-INFO\_\-CompanyName}}
+\index{NP\_\-INFO\_\-CompanyName@{NP\_\-INFO\_\-CompanyName}!npapi.h@{npapi.h}}
+\subsubsection[{NP\_\-INFO\_\-CompanyName}]{\setlength{\rightskip}{0pt plus 5cm}\#define NP\_\-INFO\_\-CompanyName~7}}
+\label{npapi_8h_a2dda813211ff61f6308b107cb4cb51fb}
+
+
+Definition at line 166 of file npapi.h.
+
+\hypertarget{npapi_8h_a5f56f2dc6cae93f7be261b802ba6ad69}{
+\index{npapi.h@{npapi.h}!NP\_\-INFO\_\-FileDescription@{NP\_\-INFO\_\-FileDescription}}
+\index{NP\_\-INFO\_\-FileDescription@{NP\_\-INFO\_\-FileDescription}!npapi.h@{npapi.h}}
+\subsubsection[{NP\_\-INFO\_\-FileDescription}]{\setlength{\rightskip}{0pt plus 5cm}\#define NP\_\-INFO\_\-FileDescription~5}}
+\label{npapi_8h_a5f56f2dc6cae93f7be261b802ba6ad69}
+
+
+Definition at line 163 of file npapi.h.
+
+\hypertarget{npapi_8h_ae71364168aee8580f1f41d882ebfa151}{
+\index{npapi.h@{npapi.h}!NP\_\-INFO\_\-FileExtents@{NP\_\-INFO\_\-FileExtents}}
+\index{NP\_\-INFO\_\-FileExtents@{NP\_\-INFO\_\-FileExtents}!npapi.h@{npapi.h}}
+\subsubsection[{NP\_\-INFO\_\-FileExtents}]{\setlength{\rightskip}{0pt plus 5cm}\#define NP\_\-INFO\_\-FileExtents~4}}
+\label{npapi_8h_ae71364168aee8580f1f41d882ebfa151}
+
+
+Definition at line 161 of file npapi.h.
+
+\hypertarget{npapi_8h_ae5382c6f6cfb8fafbd3e453d5f1a7f49}{
+\index{npapi.h@{npapi.h}!NP\_\-INFO\_\-FileOpenName@{NP\_\-INFO\_\-FileOpenName}}
+\index{NP\_\-INFO\_\-FileOpenName@{NP\_\-INFO\_\-FileOpenName}!npapi.h@{npapi.h}}
+\subsubsection[{NP\_\-INFO\_\-FileOpenName}]{\setlength{\rightskip}{0pt plus 5cm}\#define NP\_\-INFO\_\-FileOpenName~3}}
+\label{npapi_8h_ae5382c6f6cfb8fafbd3e453d5f1a7f49}
+
+
+Definition at line 160 of file npapi.h.
+
+\hypertarget{npapi_8h_a61317bef320a3cc8c139ebc3a8a8e3b6}{
+\index{npapi.h@{npapi.h}!NP\_\-INFO\_\-FileVersion@{NP\_\-INFO\_\-FileVersion}}
+\index{NP\_\-INFO\_\-FileVersion@{NP\_\-INFO\_\-FileVersion}!npapi.h@{npapi.h}}
+\subsubsection[{NP\_\-INFO\_\-FileVersion}]{\setlength{\rightskip}{0pt plus 5cm}\#define NP\_\-INFO\_\-FileVersion~8}}
+\label{npapi_8h_a61317bef320a3cc8c139ebc3a8a8e3b6}
+
+
+Definition at line 167 of file npapi.h.
+
+\hypertarget{npapi_8h_ae7b3cf8fbd53ed73bf244142bc96ba58}{
+\index{npapi.h@{npapi.h}!NP\_\-INFO\_\-InternalName@{NP\_\-INFO\_\-InternalName}}
+\index{NP\_\-INFO\_\-InternalName@{NP\_\-INFO\_\-InternalName}!npapi.h@{npapi.h}}
+\subsubsection[{NP\_\-INFO\_\-InternalName}]{\setlength{\rightskip}{0pt plus 5cm}\#define NP\_\-INFO\_\-InternalName~9}}
+\label{npapi_8h_ae7b3cf8fbd53ed73bf244142bc96ba58}
+
+
+Definition at line 168 of file npapi.h.
+
+\hypertarget{npapi_8h_a1bbe7ba66da129de6cc1a1a701325af7}{
+\index{npapi.h@{npapi.h}!NP\_\-INFO\_\-LegalCopyright@{NP\_\-INFO\_\-LegalCopyright}}
+\index{NP\_\-INFO\_\-LegalCopyright@{NP\_\-INFO\_\-LegalCopyright}!npapi.h@{npapi.h}}
+\subsubsection[{NP\_\-INFO\_\-LegalCopyright}]{\setlength{\rightskip}{0pt plus 5cm}\#define NP\_\-INFO\_\-LegalCopyright~10}}
+\label{npapi_8h_a1bbe7ba66da129de6cc1a1a701325af7}
+
+
+Definition at line 169 of file npapi.h.
+
+\hypertarget{npapi_8h_a4ed3322968f34638a15746b93054464d}{
+\index{npapi.h@{npapi.h}!NP\_\-INFO\_\-MIMEType@{NP\_\-INFO\_\-MIMEType}}
+\index{NP\_\-INFO\_\-MIMEType@{NP\_\-INFO\_\-MIMEType}!npapi.h@{npapi.h}}
+\subsubsection[{NP\_\-INFO\_\-MIMEType}]{\setlength{\rightskip}{0pt plus 5cm}\#define NP\_\-INFO\_\-MIMEType~2}}
+\label{npapi_8h_a4ed3322968f34638a15746b93054464d}
+
+
+Definition at line 159 of file npapi.h.
+
+\hypertarget{npapi_8h_a7f86e98a9668fa83c4c855ca0acfe7a3}{
+\index{npapi.h@{npapi.h}!NP\_\-INFO\_\-OriginalFilename@{NP\_\-INFO\_\-OriginalFilename}}
+\index{NP\_\-INFO\_\-OriginalFilename@{NP\_\-INFO\_\-OriginalFilename}!npapi.h@{npapi.h}}
+\subsubsection[{NP\_\-INFO\_\-OriginalFilename}]{\setlength{\rightskip}{0pt plus 5cm}\#define NP\_\-INFO\_\-OriginalFilename~11}}
+\label{npapi_8h_a7f86e98a9668fa83c4c855ca0acfe7a3}
+
+
+Definition at line 170 of file npapi.h.
+
+\hypertarget{npapi_8h_a5b25023189682f1b13108f6013d37cf3}{
+\index{npapi.h@{npapi.h}!NP\_\-INFO\_\-ProductName@{NP\_\-INFO\_\-ProductName}}
+\index{NP\_\-INFO\_\-ProductName@{NP\_\-INFO\_\-ProductName}!npapi.h@{npapi.h}}
+\subsubsection[{NP\_\-INFO\_\-ProductName}]{\setlength{\rightskip}{0pt plus 5cm}\#define NP\_\-INFO\_\-ProductName~6}}
+\label{npapi_8h_a5b25023189682f1b13108f6013d37cf3}
+
+
+Definition at line 164 of file npapi.h.
+
+\hypertarget{npapi_8h_a590263a039d0a19f89efc92a3b0a08db}{
+\index{npapi.h@{npapi.h}!NP\_\-INFO\_\-ProductVersion@{NP\_\-INFO\_\-ProductVersion}}
+\index{NP\_\-INFO\_\-ProductVersion@{NP\_\-INFO\_\-ProductVersion}!npapi.h@{npapi.h}}
+\subsubsection[{NP\_\-INFO\_\-ProductVersion}]{\setlength{\rightskip}{0pt plus 5cm}\#define NP\_\-INFO\_\-ProductVersion~1}}
+\label{npapi_8h_a590263a039d0a19f89efc92a3b0a08db}
+
+
+Definition at line 158 of file npapi.h.
+
+\hypertarget{npapi_8h_a37c52b55943657ba99be9528e424c1b2}{
+\index{npapi.h@{npapi.h}!NP\_\-LOADDS@{NP\_\-LOADDS}}
+\index{NP\_\-LOADDS@{NP\_\-LOADDS}!npapi.h@{npapi.h}}
+\subsubsection[{NP\_\-LOADDS}]{\setlength{\rightskip}{0pt plus 5cm}\#define NP\_\-LOADDS}}
+\label{npapi_8h_a37c52b55943657ba99be9528e424c1b2}
+
+
+Definition at line 780 of file npapi.h.
+
+\hypertarget{npapi_8h_ab22d2aaac7cd578af4d1f907450c342f}{
+\index{npapi.h@{npapi.h}!NP\_\-MAXREADY@{NP\_\-MAXREADY}}
+\index{NP\_\-MAXREADY@{NP\_\-MAXREADY}!npapi.h@{npapi.h}}
+\subsubsection[{NP\_\-MAXREADY}]{\setlength{\rightskip}{0pt plus 5cm}\#define NP\_\-MAXREADY~(((unsigned)($\sim$0)$<$$<$1)$>$$>$1)}}
+\label{npapi_8h_ab22d2aaac7cd578af4d1f907450c342f}
+
+
+Definition at line 707 of file npapi.h.
+
+\hypertarget{npapi_8h_a55ab1d801c2a34a062bfad972129dcd7}{
+\index{npapi.h@{npapi.h}!NP\_\-NOERR@{NP\_\-NOERR}}
+\index{NP\_\-NOERR@{NP\_\-NOERR}!npapi.h@{npapi.h}}
+\subsubsection[{NP\_\-NOERR}]{\setlength{\rightskip}{0pt plus 5cm}\#define NP\_\-NOERR~NP\_\-NOERR\_\-is\_\-obsolete\_\-use\_\-NPERR\_\-NO\_\-ERROR}}
+\label{npapi_8h_a55ab1d801c2a34a062bfad972129dcd7}
+
+
+Definition at line 749 of file npapi.h.
+
+\hypertarget{npapi_8h_a2dac9ddf9cbf9ac5fe0737e5e60d961d}{
+\index{npapi.h@{npapi.h}!NP\_\-NORMAL@{NP\_\-NORMAL}}
+\index{NP\_\-NORMAL@{NP\_\-NORMAL}!npapi.h@{npapi.h}}
+\subsubsection[{NP\_\-NORMAL}]{\setlength{\rightskip}{0pt plus 5cm}\#define NP\_\-NORMAL~1}}
+\label{npapi_8h_a2dac9ddf9cbf9ac5fe0737e5e60d961d}
+
+
+Definition at line 702 of file npapi.h.
+
+\hypertarget{npapi_8h_ab4c6989a49ac0081db1b5d0ca41bb445}{
+\index{npapi.h@{npapi.h}!NP\_\-SEEK@{NP\_\-SEEK}}
+\index{NP\_\-SEEK@{NP\_\-SEEK}!npapi.h@{npapi.h}}
+\subsubsection[{NP\_\-SEEK}]{\setlength{\rightskip}{0pt plus 5cm}\#define NP\_\-SEEK~2}}
+\label{npapi_8h_ab4c6989a49ac0081db1b5d0ca41bb445}
+
+
+Definition at line 703 of file npapi.h.
+
+\hypertarget{npapi_8h_ab47457c1e7904b9dfa7c18e8c76a5f89}{
+\index{npapi.h@{npapi.h}!NP\_\-VERSION\_\-MAJOR@{NP\_\-VERSION\_\-MAJOR}}
+\index{NP\_\-VERSION\_\-MAJOR@{NP\_\-VERSION\_\-MAJOR}!npapi.h@{npapi.h}}
+\subsubsection[{NP\_\-VERSION\_\-MAJOR}]{\setlength{\rightskip}{0pt plus 5cm}\#define NP\_\-VERSION\_\-MAJOR~0}}
+\label{npapi_8h_ab47457c1e7904b9dfa7c18e8c76a5f89}
+
+
+Definition at line 128 of file npapi.h.
+
+\hypertarget{npapi_8h_a6eef261b755a9ebbf594d6605e43eb88}{
+\index{npapi.h@{npapi.h}!NP\_\-VERSION\_\-MINOR@{NP\_\-VERSION\_\-MINOR}}
+\index{NP\_\-VERSION\_\-MINOR@{NP\_\-VERSION\_\-MINOR}!npapi.h@{npapi.h}}
+\subsubsection[{NP\_\-VERSION\_\-MINOR}]{\setlength{\rightskip}{0pt plus 5cm}\#define NP\_\-VERSION\_\-MINOR~23}}
+\label{npapi_8h_a6eef261b755a9ebbf594d6605e43eb88}
+
+
+Definition at line 129 of file npapi.h.
+
+\hypertarget{npapi_8h_abddad8e165630ba591ed226c5a780c4f}{
+\index{npapi.h@{npapi.h}!NPERR\_\-BASE@{NPERR\_\-BASE}}
+\index{NPERR\_\-BASE@{NPERR\_\-BASE}!npapi.h@{npapi.h}}
+\subsubsection[{NPERR\_\-BASE}]{\setlength{\rightskip}{0pt plus 5cm}\#define NPERR\_\-BASE~0}}
+\label{npapi_8h_abddad8e165630ba591ed226c5a780c4f}
+
+
+Definition at line 722 of file npapi.h.
+
+\hypertarget{npapi_8h_a7cabc2be3d6cb054bbadeb49f3064f7a}{
+\index{npapi.h@{npapi.h}!NPERR\_\-FILE\_\-NOT\_\-FOUND@{NPERR\_\-FILE\_\-NOT\_\-FOUND}}
+\index{NPERR\_\-FILE\_\-NOT\_\-FOUND@{NPERR\_\-FILE\_\-NOT\_\-FOUND}!npapi.h@{npapi.h}}
+\subsubsection[{NPERR\_\-FILE\_\-NOT\_\-FOUND}]{\setlength{\rightskip}{0pt plus 5cm}\#define NPERR\_\-FILE\_\-NOT\_\-FOUND~(NPERR\_\-BASE + 11)}}
+\label{npapi_8h_a7cabc2be3d6cb054bbadeb49f3064f7a}
+
+
+Definition at line 734 of file npapi.h.
+
+\hypertarget{npapi_8h_afd50cf77fc400453ebd5df7bb53bdd1c}{
+\index{npapi.h@{npapi.h}!NPERR\_\-GENERIC\_\-ERROR@{NPERR\_\-GENERIC\_\-ERROR}}
+\index{NPERR\_\-GENERIC\_\-ERROR@{NPERR\_\-GENERIC\_\-ERROR}!npapi.h@{npapi.h}}
+\subsubsection[{NPERR\_\-GENERIC\_\-ERROR}]{\setlength{\rightskip}{0pt plus 5cm}\#define NPERR\_\-GENERIC\_\-ERROR~(NPERR\_\-BASE + 1)}}
+\label{npapi_8h_afd50cf77fc400453ebd5df7bb53bdd1c}
+
+
+Definition at line 724 of file npapi.h.
+
+\hypertarget{npapi_8h_aaa85433a925da980b0685f514907d5ee}{
+\index{npapi.h@{npapi.h}!NPERR\_\-INCOMPATIBLE\_\-VERSION\_\-ERROR@{NPERR\_\-INCOMPATIBLE\_\-VERSION\_\-ERROR}}
+\index{NPERR\_\-INCOMPATIBLE\_\-VERSION\_\-ERROR@{NPERR\_\-INCOMPATIBLE\_\-VERSION\_\-ERROR}!npapi.h@{npapi.h}}
+\subsubsection[{NPERR\_\-INCOMPATIBLE\_\-VERSION\_\-ERROR}]{\setlength{\rightskip}{0pt plus 5cm}\#define NPERR\_\-INCOMPATIBLE\_\-VERSION\_\-ERROR~(NPERR\_\-BASE + 8)}}
+\label{npapi_8h_aaa85433a925da980b0685f514907d5ee}
+
+
+Definition at line 731 of file npapi.h.
+
+\hypertarget{npapi_8h_a757e22701d17ce0ae9c83425ae16e7f1}{
+\index{npapi.h@{npapi.h}!NPERR\_\-INVALID\_\-FUNCTABLE\_\-ERROR@{NPERR\_\-INVALID\_\-FUNCTABLE\_\-ERROR}}
+\index{NPERR\_\-INVALID\_\-FUNCTABLE\_\-ERROR@{NPERR\_\-INVALID\_\-FUNCTABLE\_\-ERROR}!npapi.h@{npapi.h}}
+\subsubsection[{NPERR\_\-INVALID\_\-FUNCTABLE\_\-ERROR}]{\setlength{\rightskip}{0pt plus 5cm}\#define NPERR\_\-INVALID\_\-FUNCTABLE\_\-ERROR~(NPERR\_\-BASE + 3)}}
+\label{npapi_8h_a757e22701d17ce0ae9c83425ae16e7f1}
+
+
+Definition at line 726 of file npapi.h.
+
+\hypertarget{npapi_8h_a70233755ff49571b6bd1215ae8bdbfd2}{
+\index{npapi.h@{npapi.h}!NPERR\_\-INVALID\_\-INSTANCE\_\-ERROR@{NPERR\_\-INVALID\_\-INSTANCE\_\-ERROR}}
+\index{NPERR\_\-INVALID\_\-INSTANCE\_\-ERROR@{NPERR\_\-INVALID\_\-INSTANCE\_\-ERROR}!npapi.h@{npapi.h}}
+\subsubsection[{NPERR\_\-INVALID\_\-INSTANCE\_\-ERROR}]{\setlength{\rightskip}{0pt plus 5cm}\#define NPERR\_\-INVALID\_\-INSTANCE\_\-ERROR~(NPERR\_\-BASE + 2)}}
+\label{npapi_8h_a70233755ff49571b6bd1215ae8bdbfd2}
+
+
+Definition at line 725 of file npapi.h.
+
+\hypertarget{npapi_8h_ae14022d45651bae344ad36f21ab65519}{
+\index{npapi.h@{npapi.h}!NPERR\_\-INVALID\_\-PARAM@{NPERR\_\-INVALID\_\-PARAM}}
+\index{NPERR\_\-INVALID\_\-PARAM@{NPERR\_\-INVALID\_\-PARAM}!npapi.h@{npapi.h}}
+\subsubsection[{NPERR\_\-INVALID\_\-PARAM}]{\setlength{\rightskip}{0pt plus 5cm}\#define NPERR\_\-INVALID\_\-PARAM~(NPERR\_\-BASE + 9)}}
+\label{npapi_8h_ae14022d45651bae344ad36f21ab65519}
+
+
+Definition at line 732 of file npapi.h.
+
+\hypertarget{npapi_8h_a784abeee9aa7f443eef48ac2412cb6e6}{
+\index{npapi.h@{npapi.h}!NPERR\_\-INVALID\_\-PLUGIN\_\-DIR\_\-ERROR@{NPERR\_\-INVALID\_\-PLUGIN\_\-DIR\_\-ERROR}}
+\index{NPERR\_\-INVALID\_\-PLUGIN\_\-DIR\_\-ERROR@{NPERR\_\-INVALID\_\-PLUGIN\_\-DIR\_\-ERROR}!npapi.h@{npapi.h}}
+\subsubsection[{NPERR\_\-INVALID\_\-PLUGIN\_\-DIR\_\-ERROR}]{\setlength{\rightskip}{0pt plus 5cm}\#define NPERR\_\-INVALID\_\-PLUGIN\_\-DIR\_\-ERROR~(NPERR\_\-BASE + 7)}}
+\label{npapi_8h_a784abeee9aa7f443eef48ac2412cb6e6}
+
+
+Definition at line 730 of file npapi.h.
+
+\hypertarget{npapi_8h_a6e682e9e564348c7bc0c3f9518eb4942}{
+\index{npapi.h@{npapi.h}!NPERR\_\-INVALID\_\-PLUGIN\_\-ERROR@{NPERR\_\-INVALID\_\-PLUGIN\_\-ERROR}}
+\index{NPERR\_\-INVALID\_\-PLUGIN\_\-ERROR@{NPERR\_\-INVALID\_\-PLUGIN\_\-ERROR}!npapi.h@{npapi.h}}
+\subsubsection[{NPERR\_\-INVALID\_\-PLUGIN\_\-ERROR}]{\setlength{\rightskip}{0pt plus 5cm}\#define NPERR\_\-INVALID\_\-PLUGIN\_\-ERROR~(NPERR\_\-BASE + 6)}}
+\label{npapi_8h_a6e682e9e564348c7bc0c3f9518eb4942}
+
+
+Definition at line 729 of file npapi.h.
+
+\hypertarget{npapi_8h_a1180f220c59d836ca4196c81609bc34c}{
+\index{npapi.h@{npapi.h}!NPERR\_\-INVALID\_\-URL@{NPERR\_\-INVALID\_\-URL}}
+\index{NPERR\_\-INVALID\_\-URL@{NPERR\_\-INVALID\_\-URL}!npapi.h@{npapi.h}}
+\subsubsection[{NPERR\_\-INVALID\_\-URL}]{\setlength{\rightskip}{0pt plus 5cm}\#define NPERR\_\-INVALID\_\-URL~(NPERR\_\-BASE + 10)}}
+\label{npapi_8h_a1180f220c59d836ca4196c81609bc34c}
+
+
+Definition at line 733 of file npapi.h.
+
+\hypertarget{npapi_8h_af8fe97ac91f3488763ef35bfb4c658d6}{
+\index{npapi.h@{npapi.h}!NPERR\_\-MODULE\_\-LOAD\_\-FAILED\_\-ERROR@{NPERR\_\-MODULE\_\-LOAD\_\-FAILED\_\-ERROR}}
+\index{NPERR\_\-MODULE\_\-LOAD\_\-FAILED\_\-ERROR@{NPERR\_\-MODULE\_\-LOAD\_\-FAILED\_\-ERROR}!npapi.h@{npapi.h}}
+\subsubsection[{NPERR\_\-MODULE\_\-LOAD\_\-FAILED\_\-ERROR}]{\setlength{\rightskip}{0pt plus 5cm}\#define NPERR\_\-MODULE\_\-LOAD\_\-FAILED\_\-ERROR~(NPERR\_\-BASE + 4)}}
+\label{npapi_8h_af8fe97ac91f3488763ef35bfb4c658d6}
+
+
+Definition at line 727 of file npapi.h.
+
+\hypertarget{npapi_8h_a0bb1e54a68a1aed79b262e16b4cb0493}{
+\index{npapi.h@{npapi.h}!NPERR\_\-NO\_\-DATA@{NPERR\_\-NO\_\-DATA}}
+\index{NPERR\_\-NO\_\-DATA@{NPERR\_\-NO\_\-DATA}!npapi.h@{npapi.h}}
+\subsubsection[{NPERR\_\-NO\_\-DATA}]{\setlength{\rightskip}{0pt plus 5cm}\#define NPERR\_\-NO\_\-DATA~(NPERR\_\-BASE + 12)}}
+\label{npapi_8h_a0bb1e54a68a1aed79b262e16b4cb0493}
+
+
+Definition at line 735 of file npapi.h.
+
+\hypertarget{npapi_8h_a6b839d62e078f61fdf40486c64b1c520}{
+\index{npapi.h@{npapi.h}!NPERR\_\-NO\_\-ERROR@{NPERR\_\-NO\_\-ERROR}}
+\index{NPERR\_\-NO\_\-ERROR@{NPERR\_\-NO\_\-ERROR}!npapi.h@{npapi.h}}
+\subsubsection[{NPERR\_\-NO\_\-ERROR}]{\setlength{\rightskip}{0pt plus 5cm}\#define NPERR\_\-NO\_\-ERROR~(NPERR\_\-BASE + 0)}}
+\label{npapi_8h_a6b839d62e078f61fdf40486c64b1c520}
+
+
+Definition at line 723 of file npapi.h.
+
+\hypertarget{npapi_8h_acf0a4e2e15a39cdb0c1a037cb9e48a98}{
+\index{npapi.h@{npapi.h}!NPERR\_\-OUT\_\-OF\_\-MEMORY\_\-ERROR@{NPERR\_\-OUT\_\-OF\_\-MEMORY\_\-ERROR}}
+\index{NPERR\_\-OUT\_\-OF\_\-MEMORY\_\-ERROR@{NPERR\_\-OUT\_\-OF\_\-MEMORY\_\-ERROR}!npapi.h@{npapi.h}}
+\subsubsection[{NPERR\_\-OUT\_\-OF\_\-MEMORY\_\-ERROR}]{\setlength{\rightskip}{0pt plus 5cm}\#define NPERR\_\-OUT\_\-OF\_\-MEMORY\_\-ERROR~(NPERR\_\-BASE + 5)}}
+\label{npapi_8h_acf0a4e2e15a39cdb0c1a037cb9e48a98}
+
+
+Definition at line 728 of file npapi.h.
+
+\hypertarget{npapi_8h_ab56c8df2c1ded5884eab89e19e3d925a}{
+\index{npapi.h@{npapi.h}!NPERR\_\-STREAM\_\-NOT\_\-SEEKABLE@{NPERR\_\-STREAM\_\-NOT\_\-SEEKABLE}}
+\index{NPERR\_\-STREAM\_\-NOT\_\-SEEKABLE@{NPERR\_\-STREAM\_\-NOT\_\-SEEKABLE}!npapi.h@{npapi.h}}
+\subsubsection[{NPERR\_\-STREAM\_\-NOT\_\-SEEKABLE}]{\setlength{\rightskip}{0pt plus 5cm}\#define NPERR\_\-STREAM\_\-NOT\_\-SEEKABLE~(NPERR\_\-BASE + 13)}}
+\label{npapi_8h_ab56c8df2c1ded5884eab89e19e3d925a}
+
+
+Definition at line 736 of file npapi.h.
+
+\hypertarget{npapi_8h_ac81ffc2a9b3488f898d11fd15f6550b7}{
+\index{npapi.h@{npapi.h}!NPRES\_\-BASE@{NPRES\_\-BASE}}
+\index{NPRES\_\-BASE@{NPRES\_\-BASE}!npapi.h@{npapi.h}}
+\subsubsection[{NPRES\_\-BASE}]{\setlength{\rightskip}{0pt plus 5cm}\#define NPRES\_\-BASE~0}}
+\label{npapi_8h_ac81ffc2a9b3488f898d11fd15f6550b7}
+
+
+Definition at line 741 of file npapi.h.
+
+\hypertarget{npapi_8h_a2fd73f2b178c94ec294bfa816ccc74f1}{
+\index{npapi.h@{npapi.h}!NPRES\_\-DONE@{NPRES\_\-DONE}}
+\index{NPRES\_\-DONE@{NPRES\_\-DONE}!npapi.h@{npapi.h}}
+\subsubsection[{NPRES\_\-DONE}]{\setlength{\rightskip}{0pt plus 5cm}\#define NPRES\_\-DONE~(NPRES\_\-BASE + 0)}}
+\label{npapi_8h_a2fd73f2b178c94ec294bfa816ccc74f1}
+
+
+Definition at line 742 of file npapi.h.
+
+\hypertarget{npapi_8h_a1bd4ef3a4885080741de0319a90d9bc6}{
+\index{npapi.h@{npapi.h}!NPRES\_\-NETWORK\_\-ERR@{NPRES\_\-NETWORK\_\-ERR}}
+\index{NPRES\_\-NETWORK\_\-ERR@{NPRES\_\-NETWORK\_\-ERR}!npapi.h@{npapi.h}}
+\subsubsection[{NPRES\_\-NETWORK\_\-ERR}]{\setlength{\rightskip}{0pt plus 5cm}\#define NPRES\_\-NETWORK\_\-ERR~(NPRES\_\-BASE + 1)}}
+\label{npapi_8h_a1bd4ef3a4885080741de0319a90d9bc6}
+
+
+Definition at line 743 of file npapi.h.
+
+\hypertarget{npapi_8h_a52fe2860902f682a90e3030754c971b8}{
+\index{npapi.h@{npapi.h}!NPRES\_\-USER\_\-BREAK@{NPRES\_\-USER\_\-BREAK}}
+\index{NPRES\_\-USER\_\-BREAK@{NPRES\_\-USER\_\-BREAK}!npapi.h@{npapi.h}}
+\subsubsection[{NPRES\_\-USER\_\-BREAK}]{\setlength{\rightskip}{0pt plus 5cm}\#define NPRES\_\-USER\_\-BREAK~(NPRES\_\-BASE + 2)}}
+\label{npapi_8h_a52fe2860902f682a90e3030754c971b8}
+
+
+Definition at line 744 of file npapi.h.
+
+\hypertarget{npapi_8h_ac4be885716ab4a3885e3fa08a6548de7}{
+\index{npapi.h@{npapi.h}!NPVERS\_\-68K\_\-HAS\_\-LIVECONNECT@{NPVERS\_\-68K\_\-HAS\_\-LIVECONNECT}}
+\index{NPVERS\_\-68K\_\-HAS\_\-LIVECONNECT@{NPVERS\_\-68K\_\-HAS\_\-LIVECONNECT}!npapi.h@{npapi.h}}
+\subsubsection[{NPVERS\_\-68K\_\-HAS\_\-LIVECONNECT}]{\setlength{\rightskip}{0pt plus 5cm}\#define NPVERS\_\-68K\_\-HAS\_\-LIVECONNECT~11}}
+\label{npapi_8h_ac4be885716ab4a3885e3fa08a6548de7}
+
+
+Definition at line 759 of file npapi.h.
+
+\hypertarget{npapi_8h_aa7a0e448a3cf73cd00c1cd6cb07cf388}{
+\index{npapi.h@{npapi.h}!NPVERS\_\-HAS\_\-ALL\_\-NETWORK\_\-STREAMS@{NPVERS\_\-HAS\_\-ALL\_\-NETWORK\_\-STREAMS}}
+\index{NPVERS\_\-HAS\_\-ALL\_\-NETWORK\_\-STREAMS@{NPVERS\_\-HAS\_\-ALL\_\-NETWORK\_\-STREAMS}!npapi.h@{npapi.h}}
+\subsubsection[{NPVERS\_\-HAS\_\-ALL\_\-NETWORK\_\-STREAMS}]{\setlength{\rightskip}{0pt plus 5cm}\#define NPVERS\_\-HAS\_\-ALL\_\-NETWORK\_\-STREAMS~20}}
+\label{npapi_8h_aa7a0e448a3cf73cd00c1cd6cb07cf388}
+
+
+Definition at line 768 of file npapi.h.
+
+\hypertarget{npapi_8h_af6261b20aee8f093a4b297a788c0b117}{
+\index{npapi.h@{npapi.h}!NPVERS\_\-HAS\_\-FORM\_\-VALUES@{NPVERS\_\-HAS\_\-FORM\_\-VALUES}}
+\index{NPVERS\_\-HAS\_\-FORM\_\-VALUES@{NPVERS\_\-HAS\_\-FORM\_\-VALUES}!npapi.h@{npapi.h}}
+\subsubsection[{NPVERS\_\-HAS\_\-FORM\_\-VALUES}]{\setlength{\rightskip}{0pt plus 5cm}\#define NPVERS\_\-HAS\_\-FORM\_\-VALUES~15}}
+\label{npapi_8h_af6261b20aee8f093a4b297a788c0b117}
+
+
+Definition at line 763 of file npapi.h.
+
+\hypertarget{npapi_8h_ac03e171ecc94aa8613b296bd7753c33d}{
+\index{npapi.h@{npapi.h}!NPVERS\_\-HAS\_\-LIVECONNECT@{NPVERS\_\-HAS\_\-LIVECONNECT}}
+\index{NPVERS\_\-HAS\_\-LIVECONNECT@{NPVERS\_\-HAS\_\-LIVECONNECT}!npapi.h@{npapi.h}}
+\subsubsection[{NPVERS\_\-HAS\_\-LIVECONNECT}]{\setlength{\rightskip}{0pt plus 5cm}\#define NPVERS\_\-HAS\_\-LIVECONNECT~9}}
+\label{npapi_8h_ac03e171ecc94aa8613b296bd7753c33d}
+
+
+Definition at line 758 of file npapi.h.
+
+\hypertarget{npapi_8h_a9a20f8722b82f67c001ce219f04ed08a}{
+\index{npapi.h@{npapi.h}!NPVERS\_\-HAS\_\-NOTIFICATION@{NPVERS\_\-HAS\_\-NOTIFICATION}}
+\index{NPVERS\_\-HAS\_\-NOTIFICATION@{NPVERS\_\-HAS\_\-NOTIFICATION}!npapi.h@{npapi.h}}
+\subsubsection[{NPVERS\_\-HAS\_\-NOTIFICATION}]{\setlength{\rightskip}{0pt plus 5cm}\#define NPVERS\_\-HAS\_\-NOTIFICATION~9}}
+\label{npapi_8h_a9a20f8722b82f67c001ce219f04ed08a}
+
+
+Definition at line 757 of file npapi.h.
+
+\hypertarget{npapi_8h_ac4560d9307995b151564a1d7f26b8e5c}{
+\index{npapi.h@{npapi.h}!NPVERS\_\-HAS\_\-NPOBJECT\_\-ENUM@{NPVERS\_\-HAS\_\-NPOBJECT\_\-ENUM}}
+\index{NPVERS\_\-HAS\_\-NPOBJECT\_\-ENUM@{NPVERS\_\-HAS\_\-NPOBJECT\_\-ENUM}!npapi.h@{npapi.h}}
+\subsubsection[{NPVERS\_\-HAS\_\-NPOBJECT\_\-ENUM}]{\setlength{\rightskip}{0pt plus 5cm}\#define NPVERS\_\-HAS\_\-NPOBJECT\_\-ENUM~18}}
+\label{npapi_8h_ac4560d9307995b151564a1d7f26b8e5c}
+
+
+Definition at line 766 of file npapi.h.
+
+\hypertarget{npapi_8h_a352e1ca9c4f1f24e37bfd47c21421ea0}{
+\index{npapi.h@{npapi.h}!NPVERS\_\-HAS\_\-NPRUNTIME\_\-SCRIPTING@{NPVERS\_\-HAS\_\-NPRUNTIME\_\-SCRIPTING}}
+\index{NPVERS\_\-HAS\_\-NPRUNTIME\_\-SCRIPTING@{NPVERS\_\-HAS\_\-NPRUNTIME\_\-SCRIPTING}!npapi.h@{npapi.h}}
+\subsubsection[{NPVERS\_\-HAS\_\-NPRUNTIME\_\-SCRIPTING}]{\setlength{\rightskip}{0pt plus 5cm}\#define NPVERS\_\-HAS\_\-NPRUNTIME\_\-SCRIPTING~14}}
+\label{npapi_8h_a352e1ca9c4f1f24e37bfd47c21421ea0}
+
+
+Definition at line 762 of file npapi.h.
+
+\hypertarget{npapi_8h_afdf50945d150b57868936f4e4a1b50dc}{
+\index{npapi.h@{npapi.h}!NPVERS\_\-HAS\_\-PLUGIN\_\-THREAD\_\-ASYNC\_\-CALL@{NPVERS\_\-HAS\_\-PLUGIN\_\-THREAD\_\-ASYNC\_\-CALL}}
+\index{NPVERS\_\-HAS\_\-PLUGIN\_\-THREAD\_\-ASYNC\_\-CALL@{NPVERS\_\-HAS\_\-PLUGIN\_\-THREAD\_\-ASYNC\_\-CALL}!npapi.h@{npapi.h}}
+\subsubsection[{NPVERS\_\-HAS\_\-PLUGIN\_\-THREAD\_\-ASYNC\_\-CALL}]{\setlength{\rightskip}{0pt plus 5cm}\#define NPVERS\_\-HAS\_\-PLUGIN\_\-THREAD\_\-ASYNC\_\-CALL~19}}
+\label{npapi_8h_afdf50945d150b57868936f4e4a1b50dc}
+
+
+Definition at line 767 of file npapi.h.
+
+\hypertarget{npapi_8h_a3040c2778c5114228047af3dd8cdc119}{
+\index{npapi.h@{npapi.h}!NPVERS\_\-HAS\_\-POPUPS\_\-ENABLED\_\-STATE@{NPVERS\_\-HAS\_\-POPUPS\_\-ENABLED\_\-STATE}}
+\index{NPVERS\_\-HAS\_\-POPUPS\_\-ENABLED\_\-STATE@{NPVERS\_\-HAS\_\-POPUPS\_\-ENABLED\_\-STATE}!npapi.h@{npapi.h}}
+\subsubsection[{NPVERS\_\-HAS\_\-POPUPS\_\-ENABLED\_\-STATE}]{\setlength{\rightskip}{0pt plus 5cm}\#define NPVERS\_\-HAS\_\-POPUPS\_\-ENABLED\_\-STATE~16}}
+\label{npapi_8h_a3040c2778c5114228047af3dd8cdc119}
+
+
+Definition at line 764 of file npapi.h.
+
+\hypertarget{npapi_8h_a98925733b885277512fd1c7dcff44f52}{
+\index{npapi.h@{npapi.h}!NPVERS\_\-HAS\_\-PRIVATE\_\-MODE@{NPVERS\_\-HAS\_\-PRIVATE\_\-MODE}}
+\index{NPVERS\_\-HAS\_\-PRIVATE\_\-MODE@{NPVERS\_\-HAS\_\-PRIVATE\_\-MODE}!npapi.h@{npapi.h}}
+\subsubsection[{NPVERS\_\-HAS\_\-PRIVATE\_\-MODE}]{\setlength{\rightskip}{0pt plus 5cm}\#define NPVERS\_\-HAS\_\-PRIVATE\_\-MODE~22}}
+\label{npapi_8h_a98925733b885277512fd1c7dcff44f52}
+
+
+Definition at line 770 of file npapi.h.
+
+\hypertarget{npapi_8h_ad4efc5152a2fea4c34769ffe81af4599}{
+\index{npapi.h@{npapi.h}!NPVERS\_\-HAS\_\-RESPONSE\_\-HEADERS@{NPVERS\_\-HAS\_\-RESPONSE\_\-HEADERS}}
+\index{NPVERS\_\-HAS\_\-RESPONSE\_\-HEADERS@{NPVERS\_\-HAS\_\-RESPONSE\_\-HEADERS}!npapi.h@{npapi.h}}
+\subsubsection[{NPVERS\_\-HAS\_\-RESPONSE\_\-HEADERS}]{\setlength{\rightskip}{0pt plus 5cm}\#define NPVERS\_\-HAS\_\-RESPONSE\_\-HEADERS~17}}
+\label{npapi_8h_ad4efc5152a2fea4c34769ffe81af4599}
+
+
+Definition at line 765 of file npapi.h.
+
+\hypertarget{npapi_8h_a2d8ad2139244d73fed88c51eb9f4b08c}{
+\index{npapi.h@{npapi.h}!NPVERS\_\-HAS\_\-STREAMOUTPUT@{NPVERS\_\-HAS\_\-STREAMOUTPUT}}
+\index{NPVERS\_\-HAS\_\-STREAMOUTPUT@{NPVERS\_\-HAS\_\-STREAMOUTPUT}!npapi.h@{npapi.h}}
+\subsubsection[{NPVERS\_\-HAS\_\-STREAMOUTPUT}]{\setlength{\rightskip}{0pt plus 5cm}\#define NPVERS\_\-HAS\_\-STREAMOUTPUT~8}}
+\label{npapi_8h_a2d8ad2139244d73fed88c51eb9f4b08c}
+
+
+Definition at line 756 of file npapi.h.
+
+\hypertarget{npapi_8h_a38dc91e0e96a58d8445605f32f41178f}{
+\index{npapi.h@{npapi.h}!NPVERS\_\-HAS\_\-URL\_\-AND\_\-AUTH\_\-INFO@{NPVERS\_\-HAS\_\-URL\_\-AND\_\-AUTH\_\-INFO}}
+\index{NPVERS\_\-HAS\_\-URL\_\-AND\_\-AUTH\_\-INFO@{NPVERS\_\-HAS\_\-URL\_\-AND\_\-AUTH\_\-INFO}!npapi.h@{npapi.h}}
+\subsubsection[{NPVERS\_\-HAS\_\-URL\_\-AND\_\-AUTH\_\-INFO}]{\setlength{\rightskip}{0pt plus 5cm}\#define NPVERS\_\-HAS\_\-URL\_\-AND\_\-AUTH\_\-INFO~21}}
+\label{npapi_8h_a38dc91e0e96a58d8445605f32f41178f}
+
+
+Definition at line 769 of file npapi.h.
+
+\hypertarget{npapi_8h_ad9347278b5c2e7c3f75e88dac32f5f42}{
+\index{npapi.h@{npapi.h}!NPVERS\_\-HAS\_\-WINDOWLESS@{NPVERS\_\-HAS\_\-WINDOWLESS}}
+\index{NPVERS\_\-HAS\_\-WINDOWLESS@{NPVERS\_\-HAS\_\-WINDOWLESS}!npapi.h@{npapi.h}}
+\subsubsection[{NPVERS\_\-HAS\_\-WINDOWLESS}]{\setlength{\rightskip}{0pt plus 5cm}\#define NPVERS\_\-HAS\_\-WINDOWLESS~11}}
+\label{npapi_8h_ad9347278b5c2e7c3f75e88dac32f5f42}
+
+
+Definition at line 760 of file npapi.h.
+
+\hypertarget{npapi_8h_a88852478d04920a0d1417cae572b3cf6}{
+\index{npapi.h@{npapi.h}!NPVERS\_\-HAS\_\-XPCONNECT\_\-SCRIPTING@{NPVERS\_\-HAS\_\-XPCONNECT\_\-SCRIPTING}}
+\index{NPVERS\_\-HAS\_\-XPCONNECT\_\-SCRIPTING@{NPVERS\_\-HAS\_\-XPCONNECT\_\-SCRIPTING}!npapi.h@{npapi.h}}
+\subsubsection[{NPVERS\_\-HAS\_\-XPCONNECT\_\-SCRIPTING}]{\setlength{\rightskip}{0pt plus 5cm}\#define NPVERS\_\-HAS\_\-XPCONNECT\_\-SCRIPTING~13}}
+\label{npapi_8h_a88852478d04920a0d1417cae572b3cf6}
+
+
+Definition at line 761 of file npapi.h.
+
+\hypertarget{npapi_8h_a643831a141c8e7ace2d21baccf802139}{
+\index{npapi.h@{npapi.h}!NPVERS\_\-MACOSX\_\-HAS\_\-COCOA\_\-EVENTS@{NPVERS\_\-MACOSX\_\-HAS\_\-COCOA\_\-EVENTS}}
+\index{NPVERS\_\-MACOSX\_\-HAS\_\-COCOA\_\-EVENTS@{NPVERS\_\-MACOSX\_\-HAS\_\-COCOA\_\-EVENTS}!npapi.h@{npapi.h}}
+\subsubsection[{NPVERS\_\-MACOSX\_\-HAS\_\-COCOA\_\-EVENTS}]{\setlength{\rightskip}{0pt plus 5cm}\#define NPVERS\_\-MACOSX\_\-HAS\_\-COCOA\_\-EVENTS~23}}
+\label{npapi_8h_a643831a141c8e7ace2d21baccf802139}
+
+
+Definition at line 771 of file npapi.h.
+
+
+
+\subsection{Typedef Documentation}
+\hypertarget{npapi_8h_acaaa85dcdc33ec2865fb0544f1792142}{
+\index{npapi.h@{npapi.h}!NPBool@{NPBool}}
+\index{NPBool@{NPBool}!npapi.h@{npapi.h}}
+\subsubsection[{NPBool}]{\setlength{\rightskip}{0pt plus 5cm}typedef unsigned char {\bf NPBool}}}
+\label{npapi_8h_acaaa85dcdc33ec2865fb0544f1792142}
+
+
+Definition at line 178 of file npapi.h.
+
+\hypertarget{npapi_8h_a241768a6b969a80710a7b8d1e57a3684}{
+\index{npapi.h@{npapi.h}!NPByteRange@{NPByteRange}}
+\index{NPByteRange@{NPByteRange}!npapi.h@{npapi.h}}
+\subsubsection[{NPByteRange}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf \_\-NPByteRange}  {\bf NPByteRange}}}
+\label{npapi_8h_a241768a6b969a80710a7b8d1e57a3684}
+\hypertarget{npapi_8h_aa44ffe1ef6da223f36d72d9f33d037f5}{
+\index{npapi.h@{npapi.h}!NPEmbedPrint@{NPEmbedPrint}}
+\index{NPEmbedPrint@{NPEmbedPrint}!npapi.h@{npapi.h}}
+\subsubsection[{NPEmbedPrint}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf \_\-NPEmbedPrint}  {\bf NPEmbedPrint}}}
+\label{npapi_8h_aa44ffe1ef6da223f36d72d9f33d037f5}
+\hypertarget{npapi_8h_a56715bc92ac93f0447a05f852ce18828}{
+\index{npapi.h@{npapi.h}!NPError@{NPError}}
+\index{NPError@{NPError}!npapi.h@{npapi.h}}
+\subsubsection[{NPError}]{\setlength{\rightskip}{0pt plus 5cm}typedef int16\_\-t {\bf NPError}}}
+\label{npapi_8h_a56715bc92ac93f0447a05f852ce18828}
+
+
+Definition at line 179 of file npapi.h.
+
+\hypertarget{npapi_8h_ad8065a5f107ec6fca5b319bd14637579}{
+\index{npapi.h@{npapi.h}!NPEvent@{NPEvent}}
+\index{NPEvent@{NPEvent}!npapi.h@{npapi.h}}
+\subsubsection[{NPEvent}]{\setlength{\rightskip}{0pt plus 5cm}typedef void$\ast$ {\bf NPEvent}}}
+\label{npapi_8h_ad8065a5f107ec6fca5b319bd14637579}
+
+
+Definition at line 547 of file npapi.h.
+
+\hypertarget{npapi_8h_a99a07739ffa4fd65b19208272d39674a}{
+\index{npapi.h@{npapi.h}!NPFullPrint@{NPFullPrint}}
+\index{NPFullPrint@{NPFullPrint}!npapi.h@{npapi.h}}
+\subsubsection[{NPFullPrint}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf \_\-NPFullPrint}  {\bf NPFullPrint}}}
+\label{npapi_8h_a99a07739ffa4fd65b19208272d39674a}
+\hypertarget{npapi_8h_a671ceedff5d5e961bc19fc3de589b5a2}{
+\index{npapi.h@{npapi.h}!NPImageExpose@{NPImageExpose}}
+\index{NPImageExpose@{NPImageExpose}!npapi.h@{npapi.h}}
+\subsubsection[{NPImageExpose}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf \_\-NPImageExpose}  {\bf NPImageExpose}}}
+\label{npapi_8h_a671ceedff5d5e961bc19fc3de589b5a2}
+\hypertarget{npapi_8h_ad67b8e4bdc755b1357507624a5533d6a}{
+\index{npapi.h@{npapi.h}!NPMenu@{NPMenu}}
+\index{NPMenu@{NPMenu}!npapi.h@{npapi.h}}
+\subsubsection[{NPMenu}]{\setlength{\rightskip}{0pt plus 5cm}typedef void$\ast$ {\bf NPMenu}}}
+\label{npapi_8h_ad67b8e4bdc755b1357507624a5533d6a}
+
+
+Definition at line 576 of file npapi.h.
+
+\hypertarget{npapi_8h_a6ab16d9f607aeb576061783638ae2973}{
+\index{npapi.h@{npapi.h}!NPMIMEType@{NPMIMEType}}
+\index{NPMIMEType@{NPMIMEType}!npapi.h@{npapi.h}}
+\subsubsection[{NPMIMEType}]{\setlength{\rightskip}{0pt plus 5cm}typedef char$\ast$ {\bf NPMIMEType}}}
+\label{npapi_8h_a6ab16d9f607aeb576061783638ae2973}
+
+
+Definition at line 181 of file npapi.h.
+
+\hypertarget{npapi_8h_ad3d66c8eae511dbef3a7eaa8ad73bca9}{
+\index{npapi.h@{npapi.h}!NPNSMenu@{NPNSMenu}}
+\index{NPNSMenu@{NPNSMenu}!npapi.h@{npapi.h}}
+\subsubsection[{NPNSMenu}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct \_\-NPNSMenu {\bf NPNSMenu}}}
+\label{npapi_8h_ad3d66c8eae511dbef3a7eaa8ad73bca9}
+
+
+Definition at line 571 of file npapi.h.
+
+\hypertarget{npapi_8h_ab31fe7637ed7d090c5e4fc6ed3e56f45}{
+\index{npapi.h@{npapi.h}!NPNSString@{NPNSString}}
+\index{NPNSString@{NPNSString}!npapi.h@{npapi.h}}
+\subsubsection[{NPNSString}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct \_\-NPNSString {\bf NPNSString}}}
+\label{npapi_8h_ab31fe7637ed7d090c5e4fc6ed3e56f45}
+
+
+Definition at line 569 of file npapi.h.
+
+\hypertarget{npapi_8h_a18843b5e1cdfb108ba13ed289d2a57ca}{
+\index{npapi.h@{npapi.h}!NPNSWindow@{NPNSWindow}}
+\index{NPNSWindow@{NPNSWindow}!npapi.h@{npapi.h}}
+\subsubsection[{NPNSWindow}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct \_\-NPNSWindow {\bf NPNSWindow}}}
+\label{npapi_8h_a18843b5e1cdfb108ba13ed289d2a57ca}
+
+
+Definition at line 570 of file npapi.h.
+
+\hypertarget{npapi_8h_ad93e58efc010f9b2cd7e92b8de0c6ac3}{
+\index{npapi.h@{npapi.h}!NPP@{NPP}}
+\index{NPP@{NPP}!npapi.h@{npapi.h}}
+\subsubsection[{NPP}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf NPP\_\-t}$\ast$ {\bf NPP}}}
+\label{npapi_8h_ad93e58efc010f9b2cd7e92b8de0c6ac3}
+
+
+Definition at line 202 of file npapi.h.
+
+\hypertarget{npapi_8h_a9a98065d4a62b2e3ae39dbaf9b3ab07e}{
+\index{npapi.h@{npapi.h}!NPP\_\-t@{NPP\_\-t}}
+\index{NPP\_\-t@{NPP\_\-t}!npapi.h@{npapi.h}}
+\subsubsection[{NPP\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf \_\-NPP}  {\bf NPP\_\-t}}}
+\label{npapi_8h_a9a98065d4a62b2e3ae39dbaf9b3ab07e}
+\hypertarget{npapi_8h_ad99c1bbd7e716640c6deccec501ae2ae}{
+\index{npapi.h@{npapi.h}!NPPrint@{NPPrint}}
+\index{NPPrint@{NPPrint}!npapi.h@{npapi.h}}
+\subsubsection[{NPPrint}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf \_\-NPPrint}  {\bf NPPrint}}}
+\label{npapi_8h_ad99c1bbd7e716640c6deccec501ae2ae}
+\hypertarget{npapi_8h_ac61a9865800672fc414fcc3c95c5f9c2}{
+\index{npapi.h@{npapi.h}!NPReason@{NPReason}}
+\index{NPReason@{NPReason}!npapi.h@{npapi.h}}
+\subsubsection[{NPReason}]{\setlength{\rightskip}{0pt plus 5cm}typedef int16\_\-t {\bf NPReason}}}
+\label{npapi_8h_ac61a9865800672fc414fcc3c95c5f9c2}
+
+
+Definition at line 180 of file npapi.h.
+
+\hypertarget{npapi_8h_aa81784e15c5241cf2bd8d7aaee180a1f}{
+\index{npapi.h@{npapi.h}!NPRect@{NPRect}}
+\index{NPRect@{NPRect}!npapi.h@{npapi.h}}
+\subsubsection[{NPRect}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf \_\-NPRect}  {\bf NPRect}}}
+\label{npapi_8h_aa81784e15c5241cf2bd8d7aaee180a1f}
+\hypertarget{npapi_8h_a74fa1137f3963131289e50616025a316}{
+\index{npapi.h@{npapi.h}!NPRegion@{NPRegion}}
+\index{NPRegion@{NPRegion}!npapi.h@{npapi.h}}
+\subsubsection[{NPRegion}]{\setlength{\rightskip}{0pt plus 5cm}typedef void$\ast$ {\bf NPRegion}}}
+\label{npapi_8h_a74fa1137f3963131289e50616025a316}
+
+
+Definition at line 566 of file npapi.h.
+
+\hypertarget{npapi_8h_ace6d3ef9e9c95b254e6bd2ddc42c063b}{
+\index{npapi.h@{npapi.h}!NPSavedData@{NPSavedData}}
+\index{NPSavedData@{NPSavedData}!npapi.h@{npapi.h}}
+\subsubsection[{NPSavedData}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf \_\-NPSavedData}  {\bf NPSavedData}}}
+\label{npapi_8h_ace6d3ef9e9c95b254e6bd2ddc42c063b}
+\hypertarget{npapi_8h_a3491d9d270bdfbddc9fe08ce43ee9c9d}{
+\index{npapi.h@{npapi.h}!NPSize@{NPSize}}
+\index{NPSize@{NPSize}!npapi.h@{npapi.h}}
+\subsubsection[{NPSize}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf \_\-NPSize}  {\bf NPSize}}}
+\label{npapi_8h_a3491d9d270bdfbddc9fe08ce43ee9c9d}
+\hypertarget{npapi_8h_a1f12916c566517d77cd34bff77f300fc}{
+\index{npapi.h@{npapi.h}!NPStream@{NPStream}}
+\index{NPStream@{NPStream}!npapi.h@{npapi.h}}
+\subsubsection[{NPStream}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf \_\-NPStream}  {\bf NPStream}}}
+\label{npapi_8h_a1f12916c566517d77cd34bff77f300fc}
+\hypertarget{npapi_8h_a40cf0dc408ee49290fb1c1cb822cfb61}{
+\index{npapi.h@{npapi.h}!NPWindow@{NPWindow}}
+\index{NPWindow@{NPWindow}!npapi.h@{npapi.h}}
+\subsubsection[{NPWindow}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf \_\-NPWindow}  {\bf NPWindow}}}
+\label{npapi_8h_a40cf0dc408ee49290fb1c1cb822cfb61}
+
+
+\subsection{Enumeration Type Documentation}
+\hypertarget{npapi_8h_a2a6dd13b070a0405c4e0cdc47b1aacda}{
+\index{npapi.h@{npapi.h}!NPCoordinateSpace@{NPCoordinateSpace}}
+\index{NPCoordinateSpace@{NPCoordinateSpace}!npapi.h@{npapi.h}}
+\subsubsection[{NPCoordinateSpace}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf NPCoordinateSpace}}}
+\label{npapi_8h_a2a6dd13b070a0405c4e0cdc47b1aacda}
+\begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{NPCoordinateSpacePlugin@{NPCoordinateSpacePlugin}!npapi.h@{npapi.h}}\index{npapi.h@{npapi.h}!NPCoordinateSpacePlugin@{NPCoordinateSpacePlugin}}\item[{\em 
+\hypertarget{npapi_8h_a2a6dd13b070a0405c4e0cdc47b1aacdaac00fed3fcce9d4bc90340b0e71bc45e0}{
+NPCoordinateSpacePlugin}
+\label{npapi_8h_a2a6dd13b070a0405c4e0cdc47b1aacdaac00fed3fcce9d4bc90340b0e71bc45e0}
+}]\index{NPCoordinateSpaceWindow@{NPCoordinateSpaceWindow}!npapi.h@{npapi.h}}\index{npapi.h@{npapi.h}!NPCoordinateSpaceWindow@{NPCoordinateSpaceWindow}}\item[{\em 
+\hypertarget{npapi_8h_a2a6dd13b070a0405c4e0cdc47b1aacdaadb9201f3774369152c2d0f20d1f701d6}{
+NPCoordinateSpaceWindow}
+\label{npapi_8h_a2a6dd13b070a0405c4e0cdc47b1aacdaadb9201f3774369152c2d0f20d1f701d6}
+}]\index{NPCoordinateSpaceFlippedWindow@{NPCoordinateSpaceFlippedWindow}!npapi.h@{npapi.h}}\index{npapi.h@{npapi.h}!NPCoordinateSpaceFlippedWindow@{NPCoordinateSpaceFlippedWindow}}\item[{\em 
+\hypertarget{npapi_8h_a2a6dd13b070a0405c4e0cdc47b1aacdaad52d2ea6805086b3d9e830633083bdbd}{
+NPCoordinateSpaceFlippedWindow}
+\label{npapi_8h_a2a6dd13b070a0405c4e0cdc47b1aacdaad52d2ea6805086b3d9e830633083bdbd}
+}]\index{NPCoordinateSpaceScreen@{NPCoordinateSpaceScreen}!npapi.h@{npapi.h}}\index{npapi.h@{npapi.h}!NPCoordinateSpaceScreen@{NPCoordinateSpaceScreen}}\item[{\em 
+\hypertarget{npapi_8h_a2a6dd13b070a0405c4e0cdc47b1aacdaa15b021486a50b84621e856e389f218be}{
+NPCoordinateSpaceScreen}
+\label{npapi_8h_a2a6dd13b070a0405c4e0cdc47b1aacdaa15b021486a50b84621e856e389f218be}
+}]\index{NPCoordinateSpaceFlippedScreen@{NPCoordinateSpaceFlippedScreen}!npapi.h@{npapi.h}}\index{npapi.h@{npapi.h}!NPCoordinateSpaceFlippedScreen@{NPCoordinateSpaceFlippedScreen}}\item[{\em 
+\hypertarget{npapi_8h_a2a6dd13b070a0405c4e0cdc47b1aacdaab1cd6953c33a408d9dfda5cfe82c13b2}{
+NPCoordinateSpaceFlippedScreen}
+\label{npapi_8h_a2a6dd13b070a0405c4e0cdc47b1aacdaab1cd6953c33a408d9dfda5cfe82c13b2}
+}]\end{description}
+\end{Desc}
+
+
+
+Definition at line 579 of file npapi.h.
+
+\hypertarget{npapi_8h_a1e47b0cd787b6fb1abba6f9429001a90}{
+\index{npapi.h@{npapi.h}!NPNToolkitType@{NPNToolkitType}}
+\index{NPNToolkitType@{NPNToolkitType}!npapi.h@{npapi.h}}
+\subsubsection[{NPNToolkitType}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf NPNToolkitType}}}
+\label{npapi_8h_a1e47b0cd787b6fb1abba6f9429001a90}
+\begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{NPNVGtk12@{NPNVGtk12}!npapi.h@{npapi.h}}\index{npapi.h@{npapi.h}!NPNVGtk12@{NPNVGtk12}}\item[{\em 
+\hypertarget{npapi_8h_a1e47b0cd787b6fb1abba6f9429001a90a13d1b7fcf1013d998f23a891db08e37b}{
+NPNVGtk12}
+\label{npapi_8h_a1e47b0cd787b6fb1abba6f9429001a90a13d1b7fcf1013d998f23a891db08e37b}
+}]\index{NPNVGtk2@{NPNVGtk2}!npapi.h@{npapi.h}}\index{npapi.h@{npapi.h}!NPNVGtk2@{NPNVGtk2}}\item[{\em 
+\hypertarget{npapi_8h_a1e47b0cd787b6fb1abba6f9429001a90ad1b651d51b6652a551754278cafdacca}{
+NPNVGtk2}
+\label{npapi_8h_a1e47b0cd787b6fb1abba6f9429001a90ad1b651d51b6652a551754278cafdacca}
+}]\end{description}
+\end{Desc}
+
+
+
+Definition at line 451 of file npapi.h.
+
+\hypertarget{npapi_8h_acf9736d6e150a99ac9ccd3a37d1aee0c}{
+\index{npapi.h@{npapi.h}!NPNURLVariable@{NPNURLVariable}}
+\index{NPNURLVariable@{NPNURLVariable}!npapi.h@{npapi.h}}
+\subsubsection[{NPNURLVariable}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf NPNURLVariable}}}
+\label{npapi_8h_acf9736d6e150a99ac9ccd3a37d1aee0c}
+\begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{NPNURLVCookie@{NPNURLVCookie}!npapi.h@{npapi.h}}\index{npapi.h@{npapi.h}!NPNURLVCookie@{NPNURLVCookie}}\item[{\em 
+\hypertarget{npapi_8h_acf9736d6e150a99ac9ccd3a37d1aee0ca4ea9139e34fa3790baf6b6535cd46c79}{
+NPNURLVCookie}
+\label{npapi_8h_acf9736d6e150a99ac9ccd3a37d1aee0ca4ea9139e34fa3790baf6b6535cd46c79}
+}]\index{NPNURLVProxy@{NPNURLVProxy}!npapi.h@{npapi.h}}\index{npapi.h@{npapi.h}!NPNURLVProxy@{NPNURLVProxy}}\item[{\em 
+\hypertarget{npapi_8h_acf9736d6e150a99ac9ccd3a37d1aee0ca661533b40404c2d80650d51e746f86c2}{
+NPNURLVProxy}
+\label{npapi_8h_acf9736d6e150a99ac9ccd3a37d1aee0ca661533b40404c2d80650d51e746f86c2}
+}]\end{description}
+\end{Desc}
+
+
+
+Definition at line 443 of file npapi.h.
+
+\hypertarget{npapi_8h_ac6ceb0585e9b642ef0ee915918ae07c5}{
+\index{npapi.h@{npapi.h}!NPNVariable@{NPNVariable}}
+\index{NPNVariable@{NPNVariable}!npapi.h@{npapi.h}}
+\subsubsection[{NPNVariable}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf NPNVariable}}}
+\label{npapi_8h_ac6ceb0585e9b642ef0ee915918ae07c5}
+\begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{NPNVxDisplay@{NPNVxDisplay}!npapi.h@{npapi.h}}\index{npapi.h@{npapi.h}!NPNVxDisplay@{NPNVxDisplay}}\item[{\em 
+\hypertarget{npapi_8h_ac6ceb0585e9b642ef0ee915918ae07c5aff0ce1c9dbbaedce88db1b889be11d6f}{
+NPNVxDisplay}
+\label{npapi_8h_ac6ceb0585e9b642ef0ee915918ae07c5aff0ce1c9dbbaedce88db1b889be11d6f}
+}]\index{NPNVxtAppContext@{NPNVxtAppContext}!npapi.h@{npapi.h}}\index{npapi.h@{npapi.h}!NPNVxtAppContext@{NPNVxtAppContext}}\item[{\em 
+\hypertarget{npapi_8h_ac6ceb0585e9b642ef0ee915918ae07c5a347cf87f69a0a42d25b74eeccfb89051}{
+NPNVxtAppContext}
+\label{npapi_8h_ac6ceb0585e9b642ef0ee915918ae07c5a347cf87f69a0a42d25b74eeccfb89051}
+}]\index{NPNVnetscapeWindow@{NPNVnetscapeWindow}!npapi.h@{npapi.h}}\index{npapi.h@{npapi.h}!NPNVnetscapeWindow@{NPNVnetscapeWindow}}\item[{\em 
+\hypertarget{npapi_8h_ac6ceb0585e9b642ef0ee915918ae07c5a7b0af0c4404af66f7d8925401b68d7fc}{
+NPNVnetscapeWindow}
+\label{npapi_8h_ac6ceb0585e9b642ef0ee915918ae07c5a7b0af0c4404af66f7d8925401b68d7fc}
+}]\index{NPNVjavascriptEnabledBool@{NPNVjavascriptEnabledBool}!npapi.h@{npapi.h}}\index{npapi.h@{npapi.h}!NPNVjavascriptEnabledBool@{NPNVjavascriptEnabledBool}}\item[{\em 
+\hypertarget{npapi_8h_ac6ceb0585e9b642ef0ee915918ae07c5a9297356963d9ae32d1f18686ce4773c2}{
+NPNVjavascriptEnabledBool}
+\label{npapi_8h_ac6ceb0585e9b642ef0ee915918ae07c5a9297356963d9ae32d1f18686ce4773c2}
+}]\index{NPNVasdEnabledBool@{NPNVasdEnabledBool}!npapi.h@{npapi.h}}\index{npapi.h@{npapi.h}!NPNVasdEnabledBool@{NPNVasdEnabledBool}}\item[{\em 
+\hypertarget{npapi_8h_ac6ceb0585e9b642ef0ee915918ae07c5ac318311362506bc022e85dd7835737f5}{
+NPNVasdEnabledBool}
+\label{npapi_8h_ac6ceb0585e9b642ef0ee915918ae07c5ac318311362506bc022e85dd7835737f5}
+}]\index{NPNVisOfflineBool@{NPNVisOfflineBool}!npapi.h@{npapi.h}}\index{npapi.h@{npapi.h}!NPNVisOfflineBool@{NPNVisOfflineBool}}\item[{\em 
+\hypertarget{npapi_8h_ac6ceb0585e9b642ef0ee915918ae07c5a974446580b2c2634697836586c675582}{
+NPNVisOfflineBool}
+\label{npapi_8h_ac6ceb0585e9b642ef0ee915918ae07c5a974446580b2c2634697836586c675582}
+}]\index{NPNVserviceManager@{NPNVserviceManager}!npapi.h@{npapi.h}}\index{npapi.h@{npapi.h}!NPNVserviceManager@{NPNVserviceManager}}\item[{\em 
+\hypertarget{npapi_8h_ac6ceb0585e9b642ef0ee915918ae07c5af8b98df37ced867aee3ccd3612b03a5f}{
+NPNVserviceManager}
+\label{npapi_8h_ac6ceb0585e9b642ef0ee915918ae07c5af8b98df37ced867aee3ccd3612b03a5f}
+}]\index{NPNVDOMElement@{NPNVDOMElement}!npapi.h@{npapi.h}}\index{npapi.h@{npapi.h}!NPNVDOMElement@{NPNVDOMElement}}\item[{\em 
+\hypertarget{npapi_8h_ac6ceb0585e9b642ef0ee915918ae07c5a3c85c580ea34ee72691dd9ac0af4965f}{
+NPNVDOMElement}
+\label{npapi_8h_ac6ceb0585e9b642ef0ee915918ae07c5a3c85c580ea34ee72691dd9ac0af4965f}
+}]\index{NPNVDOMWindow@{NPNVDOMWindow}!npapi.h@{npapi.h}}\index{npapi.h@{npapi.h}!NPNVDOMWindow@{NPNVDOMWindow}}\item[{\em 
+\hypertarget{npapi_8h_ac6ceb0585e9b642ef0ee915918ae07c5af3ea0386b38835626a8979420e2d520c}{
+NPNVDOMWindow}
+\label{npapi_8h_ac6ceb0585e9b642ef0ee915918ae07c5af3ea0386b38835626a8979420e2d520c}
+}]\index{NPNVToolkit@{NPNVToolkit}!npapi.h@{npapi.h}}\index{npapi.h@{npapi.h}!NPNVToolkit@{NPNVToolkit}}\item[{\em 
+\hypertarget{npapi_8h_ac6ceb0585e9b642ef0ee915918ae07c5a6914475dabee1e604e2a19081ef4cf0f}{
+NPNVToolkit}
+\label{npapi_8h_ac6ceb0585e9b642ef0ee915918ae07c5a6914475dabee1e604e2a19081ef4cf0f}
+}]\index{NPNVSupportsXEmbedBool@{NPNVSupportsXEmbedBool}!npapi.h@{npapi.h}}\index{npapi.h@{npapi.h}!NPNVSupportsXEmbedBool@{NPNVSupportsXEmbedBool}}\item[{\em 
+\hypertarget{npapi_8h_ac6ceb0585e9b642ef0ee915918ae07c5aee9acec7c6fc6b7a8c5d953bdd11122d}{
+NPNVSupportsXEmbedBool}
+\label{npapi_8h_ac6ceb0585e9b642ef0ee915918ae07c5aee9acec7c6fc6b7a8c5d953bdd11122d}
+}]\index{NPNVWindowNPObject@{NPNVWindowNPObject}!npapi.h@{npapi.h}}\index{npapi.h@{npapi.h}!NPNVWindowNPObject@{NPNVWindowNPObject}}\item[{\em 
+\hypertarget{npapi_8h_ac6ceb0585e9b642ef0ee915918ae07c5a09590385eb9871aee64e08e2753d188e}{
+NPNVWindowNPObject}
+\label{npapi_8h_ac6ceb0585e9b642ef0ee915918ae07c5a09590385eb9871aee64e08e2753d188e}
+}]\index{NPNVPluginElementNPObject@{NPNVPluginElementNPObject}!npapi.h@{npapi.h}}\index{npapi.h@{npapi.h}!NPNVPluginElementNPObject@{NPNVPluginElementNPObject}}\item[{\em 
+\hypertarget{npapi_8h_ac6ceb0585e9b642ef0ee915918ae07c5a7f8e1e776bc908970840fa38a0dd5605}{
+NPNVPluginElementNPObject}
+\label{npapi_8h_ac6ceb0585e9b642ef0ee915918ae07c5a7f8e1e776bc908970840fa38a0dd5605}
+}]\index{NPNVSupportsWindowless@{NPNVSupportsWindowless}!npapi.h@{npapi.h}}\index{npapi.h@{npapi.h}!NPNVSupportsWindowless@{NPNVSupportsWindowless}}\item[{\em 
+\hypertarget{npapi_8h_ac6ceb0585e9b642ef0ee915918ae07c5a2ebb39ba4c56d114fac7f5d93efcb782}{
+NPNVSupportsWindowless}
+\label{npapi_8h_ac6ceb0585e9b642ef0ee915918ae07c5a2ebb39ba4c56d114fac7f5d93efcb782}
+}]\index{NPNVprivateModeBool@{NPNVprivateModeBool}!npapi.h@{npapi.h}}\index{npapi.h@{npapi.h}!NPNVprivateModeBool@{NPNVprivateModeBool}}\item[{\em 
+\hypertarget{npapi_8h_ac6ceb0585e9b642ef0ee915918ae07c5aba5085eac8ca983677f1d7cb75f2799f}{
+NPNVprivateModeBool}
+\label{npapi_8h_ac6ceb0585e9b642ef0ee915918ae07c5aba5085eac8ca983677f1d7cb75f2799f}
+}]\end{description}
+\end{Desc}
+
+
+
+Definition at line 399 of file npapi.h.
+
+\hypertarget{npapi_8h_a1b56dde896277605195e0fad69cbca7d}{
+\index{npapi.h@{npapi.h}!NPPVariable@{NPPVariable}}
+\index{NPPVariable@{NPPVariable}!npapi.h@{npapi.h}}
+\subsubsection[{NPPVariable}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf NPPVariable}}}
+\label{npapi_8h_a1b56dde896277605195e0fad69cbca7d}
+\begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{NPPVpluginNameString@{NPPVpluginNameString}!npapi.h@{npapi.h}}\index{npapi.h@{npapi.h}!NPPVpluginNameString@{NPPVpluginNameString}}\item[{\em 
+\hypertarget{npapi_8h_a1b56dde896277605195e0fad69cbca7dafe7fadd19cdeb53c59cccc5e4e9e9c4c}{
+NPPVpluginNameString}
+\label{npapi_8h_a1b56dde896277605195e0fad69cbca7dafe7fadd19cdeb53c59cccc5e4e9e9c4c}
+}]\index{NPPVpluginDescriptionString@{NPPVpluginDescriptionString}!npapi.h@{npapi.h}}\index{npapi.h@{npapi.h}!NPPVpluginDescriptionString@{NPPVpluginDescriptionString}}\item[{\em 
+\hypertarget{npapi_8h_a1b56dde896277605195e0fad69cbca7da41eb5b965a6b66e15f0d01434d621e64}{
+NPPVpluginDescriptionString}
+\label{npapi_8h_a1b56dde896277605195e0fad69cbca7da41eb5b965a6b66e15f0d01434d621e64}
+}]\index{NPPVpluginWindowBool@{NPPVpluginWindowBool}!npapi.h@{npapi.h}}\index{npapi.h@{npapi.h}!NPPVpluginWindowBool@{NPPVpluginWindowBool}}\item[{\em 
+\hypertarget{npapi_8h_a1b56dde896277605195e0fad69cbca7daba84cf45d02cb6f2044692cd82ffa377}{
+NPPVpluginWindowBool}
+\label{npapi_8h_a1b56dde896277605195e0fad69cbca7daba84cf45d02cb6f2044692cd82ffa377}
+}]\index{NPPVpluginTransparentBool@{NPPVpluginTransparentBool}!npapi.h@{npapi.h}}\index{npapi.h@{npapi.h}!NPPVpluginTransparentBool@{NPPVpluginTransparentBool}}\item[{\em 
+\hypertarget{npapi_8h_a1b56dde896277605195e0fad69cbca7daf3f173d8d20569a41b2448cd459d6a11}{
+NPPVpluginTransparentBool}
+\label{npapi_8h_a1b56dde896277605195e0fad69cbca7daf3f173d8d20569a41b2448cd459d6a11}
+}]\index{NPPVjavaClass@{NPPVjavaClass}!npapi.h@{npapi.h}}\index{npapi.h@{npapi.h}!NPPVjavaClass@{NPPVjavaClass}}\item[{\em 
+\hypertarget{npapi_8h_a1b56dde896277605195e0fad69cbca7dafecec5aa3adb7decf4969c5b8c2cbd9a}{
+NPPVjavaClass}
+\label{npapi_8h_a1b56dde896277605195e0fad69cbca7dafecec5aa3adb7decf4969c5b8c2cbd9a}
+}]\index{NPPVpluginWindowSize@{NPPVpluginWindowSize}!npapi.h@{npapi.h}}\index{npapi.h@{npapi.h}!NPPVpluginWindowSize@{NPPVpluginWindowSize}}\item[{\em 
+\hypertarget{npapi_8h_a1b56dde896277605195e0fad69cbca7da40bcf7fbe82cef7b0943f88d46e34f98}{
+NPPVpluginWindowSize}
+\label{npapi_8h_a1b56dde896277605195e0fad69cbca7da40bcf7fbe82cef7b0943f88d46e34f98}
+}]\index{NPPVpluginTimerInterval@{NPPVpluginTimerInterval}!npapi.h@{npapi.h}}\index{npapi.h@{npapi.h}!NPPVpluginTimerInterval@{NPPVpluginTimerInterval}}\item[{\em 
+\hypertarget{npapi_8h_a1b56dde896277605195e0fad69cbca7da17f6c2eb20f091e78a551ef7e203d10d}{
+NPPVpluginTimerInterval}
+\label{npapi_8h_a1b56dde896277605195e0fad69cbca7da17f6c2eb20f091e78a551ef7e203d10d}
+}]\index{NPPVpluginScriptableInstance@{NPPVpluginScriptableInstance}!npapi.h@{npapi.h}}\index{npapi.h@{npapi.h}!NPPVpluginScriptableInstance@{NPPVpluginScriptableInstance}}\item[{\em 
+\hypertarget{npapi_8h_a1b56dde896277605195e0fad69cbca7da473003f41e872402f9b016b5eb8c869e}{
+NPPVpluginScriptableInstance}
+\label{npapi_8h_a1b56dde896277605195e0fad69cbca7da473003f41e872402f9b016b5eb8c869e}
+}]\index{NPPVpluginScriptableIID@{NPPVpluginScriptableIID}!npapi.h@{npapi.h}}\index{npapi.h@{npapi.h}!NPPVpluginScriptableIID@{NPPVpluginScriptableIID}}\item[{\em 
+\hypertarget{npapi_8h_a1b56dde896277605195e0fad69cbca7daafa1db166a4330c3ddda84ae5860464a}{
+NPPVpluginScriptableIID}
+\label{npapi_8h_a1b56dde896277605195e0fad69cbca7daafa1db166a4330c3ddda84ae5860464a}
+}]\index{NPPVjavascriptPushCallerBool@{NPPVjavascriptPushCallerBool}!npapi.h@{npapi.h}}\index{npapi.h@{npapi.h}!NPPVjavascriptPushCallerBool@{NPPVjavascriptPushCallerBool}}\item[{\em 
+\hypertarget{npapi_8h_a1b56dde896277605195e0fad69cbca7da218579cc86f3ccb8d6fffa2d21611a09}{
+NPPVjavascriptPushCallerBool}
+\label{npapi_8h_a1b56dde896277605195e0fad69cbca7da218579cc86f3ccb8d6fffa2d21611a09}
+}]\index{NPPVpluginKeepLibraryInMemory@{NPPVpluginKeepLibraryInMemory}!npapi.h@{npapi.h}}\index{npapi.h@{npapi.h}!NPPVpluginKeepLibraryInMemory@{NPPVpluginKeepLibraryInMemory}}\item[{\em 
+\hypertarget{npapi_8h_a1b56dde896277605195e0fad69cbca7da7bbf0fea27bed9ff63a15f1fc0f060b4}{
+NPPVpluginKeepLibraryInMemory}
+\label{npapi_8h_a1b56dde896277605195e0fad69cbca7da7bbf0fea27bed9ff63a15f1fc0f060b4}
+}]\index{NPPVpluginNeedsXEmbed@{NPPVpluginNeedsXEmbed}!npapi.h@{npapi.h}}\index{npapi.h@{npapi.h}!NPPVpluginNeedsXEmbed@{NPPVpluginNeedsXEmbed}}\item[{\em 
+\hypertarget{npapi_8h_a1b56dde896277605195e0fad69cbca7da0040cdc80c484d5e7117503b9c9f0bd0}{
+NPPVpluginNeedsXEmbed}
+\label{npapi_8h_a1b56dde896277605195e0fad69cbca7da0040cdc80c484d5e7117503b9c9f0bd0}
+}]\index{NPPVpluginScriptableNPObject@{NPPVpluginScriptableNPObject}!npapi.h@{npapi.h}}\index{npapi.h@{npapi.h}!NPPVpluginScriptableNPObject@{NPPVpluginScriptableNPObject}}\item[{\em 
+\hypertarget{npapi_8h_a1b56dde896277605195e0fad69cbca7da2e8132bf2930a8a89321f1caac78b11d}{
+NPPVpluginScriptableNPObject}
+\label{npapi_8h_a1b56dde896277605195e0fad69cbca7da2e8132bf2930a8a89321f1caac78b11d}
+}]\index{NPPVformValue@{NPPVformValue}!npapi.h@{npapi.h}}\index{npapi.h@{npapi.h}!NPPVformValue@{NPPVformValue}}\item[{\em 
+\hypertarget{npapi_8h_a1b56dde896277605195e0fad69cbca7da36aa5fdd881de309b19a14b6c08cb4f8}{
+NPPVformValue}
+\label{npapi_8h_a1b56dde896277605195e0fad69cbca7da36aa5fdd881de309b19a14b6c08cb4f8}
+}]\index{NPPVpluginUrlRequestsDisplayedBool@{NPPVpluginUrlRequestsDisplayedBool}!npapi.h@{npapi.h}}\index{npapi.h@{npapi.h}!NPPVpluginUrlRequestsDisplayedBool@{NPPVpluginUrlRequestsDisplayedBool}}\item[{\em 
+\hypertarget{npapi_8h_a1b56dde896277605195e0fad69cbca7da9994658709cdedcf9ac39d0ceb24cd66}{
+NPPVpluginUrlRequestsDisplayedBool}
+\label{npapi_8h_a1b56dde896277605195e0fad69cbca7da9994658709cdedcf9ac39d0ceb24cd66}
+}]\index{NPPVpluginWantsAllNetworkStreams@{NPPVpluginWantsAllNetworkStreams}!npapi.h@{npapi.h}}\index{npapi.h@{npapi.h}!NPPVpluginWantsAllNetworkStreams@{NPPVpluginWantsAllNetworkStreams}}\item[{\em 
+\hypertarget{npapi_8h_a1b56dde896277605195e0fad69cbca7da7f03bef18062fee787e4dff681aa7355}{
+NPPVpluginWantsAllNetworkStreams}
+\label{npapi_8h_a1b56dde896277605195e0fad69cbca7da7f03bef18062fee787e4dff681aa7355}
+}]\index{NPPVpluginNativeAccessibleAtkPlugId@{NPPVpluginNativeAccessibleAtkPlugId}!npapi.h@{npapi.h}}\index{npapi.h@{npapi.h}!NPPVpluginNativeAccessibleAtkPlugId@{NPPVpluginNativeAccessibleAtkPlugId}}\item[{\em 
+\hypertarget{npapi_8h_a1b56dde896277605195e0fad69cbca7da7b4dfa9e6c853fbdc48505b051e5eaac}{
+NPPVpluginNativeAccessibleAtkPlugId}
+\label{npapi_8h_a1b56dde896277605195e0fad69cbca7da7b4dfa9e6c853fbdc48505b051e5eaac}
+}]\index{NPPVpluginCancelSrcStream@{NPPVpluginCancelSrcStream}!npapi.h@{npapi.h}}\index{npapi.h@{npapi.h}!NPPVpluginCancelSrcStream@{NPPVpluginCancelSrcStream}}\item[{\em 
+\hypertarget{npapi_8h_a1b56dde896277605195e0fad69cbca7da9e78d227809baab0e7c0e3f4f3a6cd40}{
+NPPVpluginCancelSrcStream}
+\label{npapi_8h_a1b56dde896277605195e0fad69cbca7da9e78d227809baab0e7c0e3f4f3a6cd40}
+}]\end{description}
+\end{Desc}
+
+
+
+Definition at line 344 of file npapi.h.
+
+\hypertarget{npapi_8h_a92d3d7179cbf46985d550adc3274a5da}{
+\index{npapi.h@{npapi.h}!NPWindowType@{NPWindowType}}
+\index{NPWindowType@{NPWindowType}!npapi.h@{npapi.h}}
+\subsubsection[{NPWindowType}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf NPWindowType}}}
+\label{npapi_8h_a92d3d7179cbf46985d550adc3274a5da}
+\begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{NPWindowTypeWindow@{NPWindowTypeWindow}!npapi.h@{npapi.h}}\index{npapi.h@{npapi.h}!NPWindowTypeWindow@{NPWindowTypeWindow}}\item[{\em 
+\hypertarget{npapi_8h_a92d3d7179cbf46985d550adc3274a5daa99a19ebe4ef46443bc6f1a2fd880f54b}{
+NPWindowTypeWindow}
+\label{npapi_8h_a92d3d7179cbf46985d550adc3274a5daa99a19ebe4ef46443bc6f1a2fd880f54b}
+}]\index{NPWindowTypeDrawable@{NPWindowTypeDrawable}!npapi.h@{npapi.h}}\index{npapi.h@{npapi.h}!NPWindowTypeDrawable@{NPWindowTypeDrawable}}\item[{\em 
+\hypertarget{npapi_8h_a92d3d7179cbf46985d550adc3274a5daaa6952a23fc1e5315c6675ade0e8a8ce2}{
+NPWindowTypeDrawable}
+\label{npapi_8h_a92d3d7179cbf46985d550adc3274a5daaa6952a23fc1e5315c6675ade0e8a8ce2}
+}]\end{description}
+\end{Desc}
+
+
+
+Definition at line 460 of file npapi.h.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{npapi_8h_a0ce222dda3476a32cca12a9150270c19}{
+\index{npapi.h@{npapi.h}!NPN\_\-ConvertPoint@{NPN\_\-ConvertPoint}}
+\index{NPN\_\-ConvertPoint@{NPN\_\-ConvertPoint}!npapi.h@{npapi.h}}
+\subsubsection[{NPN\_\-ConvertPoint}]{\setlength{\rightskip}{0pt plus 5cm}{\bf NPBool} NP\_\-LOADDS NPN\_\-ConvertPoint ({\bf NPP} {\em instance}, \/  double {\em sourceX}, \/  double {\em sourceY}, \/  {\bf NPCoordinateSpace} {\em sourceSpace}, \/  double $\ast$ {\em destX}, \/  double $\ast$ {\em destY}, \/  {\bf NPCoordinateSpace} {\em destSpace})}}
+\label{npapi_8h_a0ce222dda3476a32cca12a9150270c19}
+\hypertarget{npapi_8h_a1431ee6d4c225a4decce78e2d9b8f38e}{
+\index{npapi.h@{npapi.h}!NPN\_\-DestroyStream@{NPN\_\-DestroyStream}}
+\index{NPN\_\-DestroyStream@{NPN\_\-DestroyStream}!npapi.h@{npapi.h}}
+\subsubsection[{NPN\_\-DestroyStream}]{\setlength{\rightskip}{0pt plus 5cm}{\bf NPError} NP\_\-LOADDS NPN\_\-DestroyStream ({\bf NPP} {\em instance}, \/  {\bf NPStream} $\ast$ {\em stream}, \/  {\bf NPReason} {\em reason})}}
+\label{npapi_8h_a1431ee6d4c225a4decce78e2d9b8f38e}
+\hypertarget{npapi_8h_a4d08057051d5058b9f58046ab8badb74}{
+\index{npapi.h@{npapi.h}!NPN\_\-ForceRedraw@{NPN\_\-ForceRedraw}}
+\index{NPN\_\-ForceRedraw@{NPN\_\-ForceRedraw}!npapi.h@{npapi.h}}
+\subsubsection[{NPN\_\-ForceRedraw}]{\setlength{\rightskip}{0pt plus 5cm}void NP\_\-LOADDS NPN\_\-ForceRedraw ({\bf NPP} {\em instance})}}
+\label{npapi_8h_a4d08057051d5058b9f58046ab8badb74}
+\hypertarget{npapi_8h_a17476b6f41cbde8b1439bd3c8442bbc0}{
+\index{npapi.h@{npapi.h}!NPN\_\-GetAuthenticationInfo@{NPN\_\-GetAuthenticationInfo}}
+\index{NPN\_\-GetAuthenticationInfo@{NPN\_\-GetAuthenticationInfo}!npapi.h@{npapi.h}}
+\subsubsection[{NPN\_\-GetAuthenticationInfo}]{\setlength{\rightskip}{0pt plus 5cm}{\bf NPError} NP\_\-LOADDS NPN\_\-GetAuthenticationInfo ({\bf NPP} {\em instance}, \/  const char $\ast$ {\em protocol}, \/  const char $\ast$ {\em host}, \/  int32\_\-t {\em port}, \/  const char $\ast$ {\em scheme}, \/  const char $\ast$ {\em realm}, \/  char $\ast$$\ast$ {\em username}, \/  uint32\_\-t $\ast$ {\em ulen}, \/  char $\ast$$\ast$ {\em password}, \/  uint32\_\-t $\ast$ {\em plen})}}
+\label{npapi_8h_a17476b6f41cbde8b1439bd3c8442bbc0}
+\hypertarget{npapi_8h_a1da3dad7dc28abed88d9f2fc10f27c22}{
+\index{npapi.h@{npapi.h}!NPN\_\-GetURL@{NPN\_\-GetURL}}
+\index{NPN\_\-GetURL@{NPN\_\-GetURL}!npapi.h@{npapi.h}}
+\subsubsection[{NPN\_\-GetURL}]{\setlength{\rightskip}{0pt plus 5cm}{\bf NPError} NP\_\-LOADDS NPN\_\-GetURL ({\bf NPP} {\em instance}, \/  const char $\ast$ {\em url}, \/  const char $\ast$ {\em target})}}
+\label{npapi_8h_a1da3dad7dc28abed88d9f2fc10f27c22}
+\hypertarget{npapi_8h_a6b6d0f15dbb7ff52e10d57ea196ccb8d}{
+\index{npapi.h@{npapi.h}!NPN\_\-GetURLNotify@{NPN\_\-GetURLNotify}}
+\index{NPN\_\-GetURLNotify@{NPN\_\-GetURLNotify}!npapi.h@{npapi.h}}
+\subsubsection[{NPN\_\-GetURLNotify}]{\setlength{\rightskip}{0pt plus 5cm}{\bf NPError} NP\_\-LOADDS NPN\_\-GetURLNotify ({\bf NPP} {\em instance}, \/  const char $\ast$ {\em url}, \/  const char $\ast$ {\em target}, \/  void $\ast$ {\em notifyData})}}
+\label{npapi_8h_a6b6d0f15dbb7ff52e10d57ea196ccb8d}
+\hypertarget{npapi_8h_acce38523daea527eb7cb21a212277fd4}{
+\index{npapi.h@{npapi.h}!NPN\_\-GetValue@{NPN\_\-GetValue}}
+\index{NPN\_\-GetValue@{NPN\_\-GetValue}!npapi.h@{npapi.h}}
+\subsubsection[{NPN\_\-GetValue}]{\setlength{\rightskip}{0pt plus 5cm}{\bf NPError} NP\_\-LOADDS NPN\_\-GetValue ({\bf NPP} {\em instance}, \/  {\bf NPNVariable} {\em variable}, \/  void $\ast$ {\em value})}}
+\label{npapi_8h_acce38523daea527eb7cb21a212277fd4}
+\hypertarget{npapi_8h_a196053ca47894b69e94207bd41615f6a}{
+\index{npapi.h@{npapi.h}!NPN\_\-GetValueForURL@{NPN\_\-GetValueForURL}}
+\index{NPN\_\-GetValueForURL@{NPN\_\-GetValueForURL}!npapi.h@{npapi.h}}
+\subsubsection[{NPN\_\-GetValueForURL}]{\setlength{\rightskip}{0pt plus 5cm}{\bf NPError} NP\_\-LOADDS NPN\_\-GetValueForURL ({\bf NPP} {\em instance}, \/  {\bf NPNURLVariable} {\em variable}, \/  const char $\ast$ {\em url}, \/  char $\ast$$\ast$ {\em value}, \/  uint32\_\-t $\ast$ {\em len})}}
+\label{npapi_8h_a196053ca47894b69e94207bd41615f6a}
+\hypertarget{npapi_8h_abe6658ed01076b78cabdb40583531d50}{
+\index{npapi.h@{npapi.h}!NPN\_\-InvalidateRect@{NPN\_\-InvalidateRect}}
+\index{NPN\_\-InvalidateRect@{NPN\_\-InvalidateRect}!npapi.h@{npapi.h}}
+\subsubsection[{NPN\_\-InvalidateRect}]{\setlength{\rightskip}{0pt plus 5cm}void NP\_\-LOADDS NPN\_\-InvalidateRect ({\bf NPP} {\em instance}, \/  {\bf NPRect} $\ast$ {\em invalidRect})}}
+\label{npapi_8h_abe6658ed01076b78cabdb40583531d50}
+\hypertarget{npapi_8h_af569858fd174b563bf6368f805da01cc}{
+\index{npapi.h@{npapi.h}!NPN\_\-InvalidateRegion@{NPN\_\-InvalidateRegion}}
+\index{NPN\_\-InvalidateRegion@{NPN\_\-InvalidateRegion}!npapi.h@{npapi.h}}
+\subsubsection[{NPN\_\-InvalidateRegion}]{\setlength{\rightskip}{0pt plus 5cm}void NP\_\-LOADDS NPN\_\-InvalidateRegion ({\bf NPP} {\em instance}, \/  {\bf NPRegion} {\em invalidRegion})}}
+\label{npapi_8h_af569858fd174b563bf6368f805da01cc}
+\hypertarget{npapi_8h_a891dcc0692dd6f097659e5e2b7b555d2}{
+\index{npapi.h@{npapi.h}!NPN\_\-MemAlloc@{NPN\_\-MemAlloc}}
+\index{NPN\_\-MemAlloc@{NPN\_\-MemAlloc}!npapi.h@{npapi.h}}
+\subsubsection[{NPN\_\-MemAlloc}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ NP\_\-LOADDS NPN\_\-MemAlloc (uint32\_\-t {\em size})}}
+\label{npapi_8h_a891dcc0692dd6f097659e5e2b7b555d2}
+\hypertarget{npapi_8h_a6dcf5fc4752c3d76ec81d9a84fd0af1d}{
+\index{npapi.h@{npapi.h}!NPN\_\-MemFlush@{NPN\_\-MemFlush}}
+\index{NPN\_\-MemFlush@{NPN\_\-MemFlush}!npapi.h@{npapi.h}}
+\subsubsection[{NPN\_\-MemFlush}]{\setlength{\rightskip}{0pt plus 5cm}uint32\_\-t NP\_\-LOADDS NPN\_\-MemFlush (uint32\_\-t {\em size})}}
+\label{npapi_8h_a6dcf5fc4752c3d76ec81d9a84fd0af1d}
+\hypertarget{npapi_8h_aad187842843cf8edb39e04db8db3ee6a}{
+\index{npapi.h@{npapi.h}!NPN\_\-MemFree@{NPN\_\-MemFree}}
+\index{NPN\_\-MemFree@{NPN\_\-MemFree}!npapi.h@{npapi.h}}
+\subsubsection[{NPN\_\-MemFree}]{\setlength{\rightskip}{0pt plus 5cm}void NP\_\-LOADDS NPN\_\-MemFree (void $\ast$ {\em ptr})}}
+\label{npapi_8h_aad187842843cf8edb39e04db8db3ee6a}
+\hypertarget{npapi_8h_aa67873c8ec60d1d2c37e3b87cb7b1058}{
+\index{npapi.h@{npapi.h}!NPN\_\-NewStream@{NPN\_\-NewStream}}
+\index{NPN\_\-NewStream@{NPN\_\-NewStream}!npapi.h@{npapi.h}}
+\subsubsection[{NPN\_\-NewStream}]{\setlength{\rightskip}{0pt plus 5cm}{\bf NPError} NP\_\-LOADDS NPN\_\-NewStream ({\bf NPP} {\em instance}, \/  {\bf NPMIMEType} {\em type}, \/  const char $\ast$ {\em target}, \/  {\bf NPStream} $\ast$$\ast$ {\em stream})}}
+\label{npapi_8h_aa67873c8ec60d1d2c37e3b87cb7b1058}
+\hypertarget{npapi_8h_ace7bc5dcf35b36af93000e7f37c1b2ad}{
+\index{npapi.h@{npapi.h}!NPN\_\-PluginThreadAsyncCall@{NPN\_\-PluginThreadAsyncCall}}
+\index{NPN\_\-PluginThreadAsyncCall@{NPN\_\-PluginThreadAsyncCall}!npapi.h@{npapi.h}}
+\subsubsection[{NPN\_\-PluginThreadAsyncCall}]{\setlength{\rightskip}{0pt plus 5cm}void NP\_\-LOADDS NPN\_\-PluginThreadAsyncCall ({\bf NPP} {\em instance}, \/  void($\ast$)(void $\ast$) {\em func}, \/  void $\ast$ {\em userData})}}
+\label{npapi_8h_ace7bc5dcf35b36af93000e7f37c1b2ad}
+\hypertarget{npapi_8h_af04862afb51e420a030f950617c6d375}{
+\index{npapi.h@{npapi.h}!NPN\_\-PopPopupsEnabledState@{NPN\_\-PopPopupsEnabledState}}
+\index{NPN\_\-PopPopupsEnabledState@{NPN\_\-PopPopupsEnabledState}!npapi.h@{npapi.h}}
+\subsubsection[{NPN\_\-PopPopupsEnabledState}]{\setlength{\rightskip}{0pt plus 5cm}void NP\_\-LOADDS NPN\_\-PopPopupsEnabledState ({\bf NPP} {\em instance})}}
+\label{npapi_8h_af04862afb51e420a030f950617c6d375}
+\hypertarget{npapi_8h_aeea62547064e1e48b0514d00ab50436a}{
+\index{npapi.h@{npapi.h}!NPN\_\-PopUpContextMenu@{NPN\_\-PopUpContextMenu}}
+\index{NPN\_\-PopUpContextMenu@{NPN\_\-PopUpContextMenu}!npapi.h@{npapi.h}}
+\subsubsection[{NPN\_\-PopUpContextMenu}]{\setlength{\rightskip}{0pt plus 5cm}{\bf NPError} NP\_\-LOADDS NPN\_\-PopUpContextMenu ({\bf NPP} {\em instance}, \/  {\bf NPMenu} $\ast$ {\em menu})}}
+\label{npapi_8h_aeea62547064e1e48b0514d00ab50436a}
+\hypertarget{npapi_8h_ac01bf772757060d001dc2808968563f9}{
+\index{npapi.h@{npapi.h}!NPN\_\-PostURL@{NPN\_\-PostURL}}
+\index{NPN\_\-PostURL@{NPN\_\-PostURL}!npapi.h@{npapi.h}}
+\subsubsection[{NPN\_\-PostURL}]{\setlength{\rightskip}{0pt plus 5cm}{\bf NPError} NP\_\-LOADDS NPN\_\-PostURL ({\bf NPP} {\em instance}, \/  const char $\ast$ {\em url}, \/  const char $\ast$ {\em target}, \/  uint32\_\-t {\em len}, \/  const char $\ast$ {\em buf}, \/  {\bf NPBool} {\em file})}}
+\label{npapi_8h_ac01bf772757060d001dc2808968563f9}
+\hypertarget{npapi_8h_ad02fc5fa534c8b5ed8cab339afccd29e}{
+\index{npapi.h@{npapi.h}!NPN\_\-PostURLNotify@{NPN\_\-PostURLNotify}}
+\index{NPN\_\-PostURLNotify@{NPN\_\-PostURLNotify}!npapi.h@{npapi.h}}
+\subsubsection[{NPN\_\-PostURLNotify}]{\setlength{\rightskip}{0pt plus 5cm}{\bf NPError} NP\_\-LOADDS NPN\_\-PostURLNotify ({\bf NPP} {\em instance}, \/  const char $\ast$ {\em url}, \/  const char $\ast$ {\em target}, \/  uint32\_\-t {\em len}, \/  const char $\ast$ {\em buf}, \/  {\bf NPBool} {\em file}, \/  void $\ast$ {\em notifyData})}}
+\label{npapi_8h_ad02fc5fa534c8b5ed8cab339afccd29e}
+\hypertarget{npapi_8h_a14f2044d6e5c1dd3cbdb9942cf0d9a65}{
+\index{npapi.h@{npapi.h}!NPN\_\-PushPopupsEnabledState@{NPN\_\-PushPopupsEnabledState}}
+\index{NPN\_\-PushPopupsEnabledState@{NPN\_\-PushPopupsEnabledState}!npapi.h@{npapi.h}}
+\subsubsection[{NPN\_\-PushPopupsEnabledState}]{\setlength{\rightskip}{0pt plus 5cm}void NP\_\-LOADDS NPN\_\-PushPopupsEnabledState ({\bf NPP} {\em instance}, \/  {\bf NPBool} {\em enabled})}}
+\label{npapi_8h_a14f2044d6e5c1dd3cbdb9942cf0d9a65}
+\hypertarget{npapi_8h_a0766a52cd6e8ef563bc46b979d27a2c5}{
+\index{npapi.h@{npapi.h}!NPN\_\-ReloadPlugins@{NPN\_\-ReloadPlugins}}
+\index{NPN\_\-ReloadPlugins@{NPN\_\-ReloadPlugins}!npapi.h@{npapi.h}}
+\subsubsection[{NPN\_\-ReloadPlugins}]{\setlength{\rightskip}{0pt plus 5cm}void NP\_\-LOADDS NPN\_\-ReloadPlugins ({\bf NPBool} {\em reloadPages})}}
+\label{npapi_8h_a0766a52cd6e8ef563bc46b979d27a2c5}
+\hypertarget{npapi_8h_addd44069de713ded99a17a2e60db1b50}{
+\index{npapi.h@{npapi.h}!NPN\_\-RequestRead@{NPN\_\-RequestRead}}
+\index{NPN\_\-RequestRead@{NPN\_\-RequestRead}!npapi.h@{npapi.h}}
+\subsubsection[{NPN\_\-RequestRead}]{\setlength{\rightskip}{0pt plus 5cm}{\bf NPError} NP\_\-LOADDS NPN\_\-RequestRead ({\bf NPStream} $\ast$ {\em stream}, \/  {\bf NPByteRange} $\ast$ {\em rangeList})}}
+\label{npapi_8h_addd44069de713ded99a17a2e60db1b50}
+\hypertarget{npapi_8h_adcc77893a9dc318dc11e8f33bf7b04fa}{
+\index{npapi.h@{npapi.h}!NPN\_\-ScheduleTimer@{NPN\_\-ScheduleTimer}}
+\index{NPN\_\-ScheduleTimer@{NPN\_\-ScheduleTimer}!npapi.h@{npapi.h}}
+\subsubsection[{NPN\_\-ScheduleTimer}]{\setlength{\rightskip}{0pt plus 5cm}uint32\_\-t NP\_\-LOADDS NPN\_\-ScheduleTimer ({\bf NPP} {\em instance}, \/  uint32\_\-t {\em interval}, \/  {\bf NPBool} {\em repeat}, \/  void($\ast$)({\bf NPP} npp, uint32\_\-t timerID) {\em timerFunc})}}
+\label{npapi_8h_adcc77893a9dc318dc11e8f33bf7b04fa}
+\hypertarget{npapi_8h_a0bd64b4bc3b4cca500d390c246c92c3b}{
+\index{npapi.h@{npapi.h}!NPN\_\-SetValue@{NPN\_\-SetValue}}
+\index{NPN\_\-SetValue@{NPN\_\-SetValue}!npapi.h@{npapi.h}}
+\subsubsection[{NPN\_\-SetValue}]{\setlength{\rightskip}{0pt plus 5cm}{\bf NPError} NP\_\-LOADDS NPN\_\-SetValue ({\bf NPP} {\em instance}, \/  {\bf NPPVariable} {\em variable}, \/  void $\ast$ {\em value})}}
+\label{npapi_8h_a0bd64b4bc3b4cca500d390c246c92c3b}
+\hypertarget{npapi_8h_adc5a76d07ef9b3066191ee55febe7fad}{
+\index{npapi.h@{npapi.h}!NPN\_\-SetValueForURL@{NPN\_\-SetValueForURL}}
+\index{NPN\_\-SetValueForURL@{NPN\_\-SetValueForURL}!npapi.h@{npapi.h}}
+\subsubsection[{NPN\_\-SetValueForURL}]{\setlength{\rightskip}{0pt plus 5cm}{\bf NPError} NP\_\-LOADDS NPN\_\-SetValueForURL ({\bf NPP} {\em instance}, \/  {\bf NPNURLVariable} {\em variable}, \/  const char $\ast$ {\em url}, \/  const char $\ast$ {\em value}, \/  uint32\_\-t {\em len})}}
+\label{npapi_8h_adc5a76d07ef9b3066191ee55febe7fad}
+\hypertarget{npapi_8h_a5c55bcd09f78c12f5ac0429b7bc03757}{
+\index{npapi.h@{npapi.h}!NPN\_\-Status@{NPN\_\-Status}}
+\index{NPN\_\-Status@{NPN\_\-Status}!npapi.h@{npapi.h}}
+\subsubsection[{NPN\_\-Status}]{\setlength{\rightskip}{0pt plus 5cm}void NP\_\-LOADDS NPN\_\-Status ({\bf NPP} {\em instance}, \/  const char $\ast$ {\em message})}}
+\label{npapi_8h_a5c55bcd09f78c12f5ac0429b7bc03757}
+\hypertarget{npapi_8h_ae93ceecc4f6310a5c6c1de19e1afb483}{
+\index{npapi.h@{npapi.h}!NPN\_\-UnscheduleTimer@{NPN\_\-UnscheduleTimer}}
+\index{NPN\_\-UnscheduleTimer@{NPN\_\-UnscheduleTimer}!npapi.h@{npapi.h}}
+\subsubsection[{NPN\_\-UnscheduleTimer}]{\setlength{\rightskip}{0pt plus 5cm}void NP\_\-LOADDS NPN\_\-UnscheduleTimer ({\bf NPP} {\em instance}, \/  uint32\_\-t {\em timerID})}}
+\label{npapi_8h_ae93ceecc4f6310a5c6c1de19e1afb483}
+\hypertarget{npapi_8h_a86b044f4b0f3b25a607c61b884f53525}{
+\index{npapi.h@{npapi.h}!NPN\_\-UserAgent@{NPN\_\-UserAgent}}
+\index{NPN\_\-UserAgent@{NPN\_\-UserAgent}!npapi.h@{npapi.h}}
+\subsubsection[{NPN\_\-UserAgent}]{\setlength{\rightskip}{0pt plus 5cm}const char$\ast$ NP\_\-LOADDS NPN\_\-UserAgent ({\bf NPP} {\em instance})}}
+\label{npapi_8h_a86b044f4b0f3b25a607c61b884f53525}
+\hypertarget{npapi_8h_a1953d511090983b637862884ddd0b9aa}{
+\index{npapi.h@{npapi.h}!NPN\_\-Version@{NPN\_\-Version}}
+\index{NPN\_\-Version@{NPN\_\-Version}!npapi.h@{npapi.h}}
+\subsubsection[{NPN\_\-Version}]{\setlength{\rightskip}{0pt plus 5cm}void NP\_\-LOADDS NPN\_\-Version (int $\ast$ {\em plugin\_\-major}, \/  int $\ast$ {\em plugin\_\-minor}, \/  int $\ast$ {\em netscape\_\-major}, \/  int $\ast$ {\em netscape\_\-minor})}}
+\label{npapi_8h_a1953d511090983b637862884ddd0b9aa}
+\hypertarget{npapi_8h_a6f11cfecab47c055d9c968387f0b8231}{
+\index{npapi.h@{npapi.h}!NPN\_\-Write@{NPN\_\-Write}}
+\index{NPN\_\-Write@{NPN\_\-Write}!npapi.h@{npapi.h}}
+\subsubsection[{NPN\_\-Write}]{\setlength{\rightskip}{0pt plus 5cm}int32\_\-t NP\_\-LOADDS NPN\_\-Write ({\bf NPP} {\em instance}, \/  {\bf NPStream} $\ast$ {\em stream}, \/  int32\_\-t {\em len}, \/  void $\ast$ {\em buffer})}}
+\label{npapi_8h_a6f11cfecab47c055d9c968387f0b8231}
+\hypertarget{npapi_8h_a905945385e6f98640775f167d80c9475}{
+\index{npapi.h@{npapi.h}!NPP\_\-Destroy@{NPP\_\-Destroy}}
+\index{NPP\_\-Destroy@{NPP\_\-Destroy}!npapi.h@{npapi.h}}
+\subsubsection[{NPP\_\-Destroy}]{\setlength{\rightskip}{0pt plus 5cm}{\bf NPError} NP\_\-LOADDS NPP\_\-Destroy ({\bf NPP} {\em instance}, \/  {\bf NPSavedData} $\ast$$\ast$ {\em save})}}
+\label{npapi_8h_a905945385e6f98640775f167d80c9475}
+
+
+Definition at line 55 of file npp\_\-gate.cc.
+
+\hypertarget{npapi_8h_a47a71f07b8445643a916fdc554cd2d4c}{
+\index{npapi.h@{npapi.h}!NPP\_\-DestroyStream@{NPP\_\-DestroyStream}}
+\index{NPP\_\-DestroyStream@{NPP\_\-DestroyStream}!npapi.h@{npapi.h}}
+\subsubsection[{NPP\_\-DestroyStream}]{\setlength{\rightskip}{0pt plus 5cm}{\bf NPError} NP\_\-LOADDS NPP\_\-DestroyStream ({\bf NPP} {\em instance}, \/  {\bf NPStream} $\ast$ {\em stream}, \/  {\bf NPReason} {\em reason})}}
+\label{npapi_8h_a47a71f07b8445643a916fdc554cd2d4c}
+\hypertarget{npapi_8h_a995de20595303d2ec0bc501f64248875}{
+\index{npapi.h@{npapi.h}!NPP\_\-GetValue@{NPP\_\-GetValue}}
+\index{NPP\_\-GetValue@{NPP\_\-GetValue}!npapi.h@{npapi.h}}
+\subsubsection[{NPP\_\-GetValue}]{\setlength{\rightskip}{0pt plus 5cm}{\bf NPError} NP\_\-LOADDS NPP\_\-GetValue ({\bf NPP} {\em instance}, \/  {\bf NPPVariable} {\em variable}, \/  void $\ast$ {\em value})}}
+\label{npapi_8h_a995de20595303d2ec0bc501f64248875}
+
+
+Definition at line 90 of file npp\_\-gate.cc.
+
+\hypertarget{npapi_8h_ac777bd3f9b9a7923c4ef755fa7f3e2fd}{
+\index{npapi.h@{npapi.h}!NPP\_\-HandleEvent@{NPP\_\-HandleEvent}}
+\index{NPP\_\-HandleEvent@{NPP\_\-HandleEvent}!npapi.h@{npapi.h}}
+\subsubsection[{NPP\_\-HandleEvent}]{\setlength{\rightskip}{0pt plus 5cm}int16\_\-t NP\_\-LOADDS NPP\_\-HandleEvent ({\bf NPP} {\em instance}, \/  void $\ast$ {\em event})}}
+\label{npapi_8h_ac777bd3f9b9a7923c4ef755fa7f3e2fd}
+
+
+Definition at line 106 of file npp\_\-gate.cc.
+
+\hypertarget{npapi_8h_a4fd00215da5d7ed9e0151fd48c881031}{
+\index{npapi.h@{npapi.h}!NPP\_\-Initialize@{NPP\_\-Initialize}}
+\index{NPP\_\-Initialize@{NPP\_\-Initialize}!npapi.h@{npapi.h}}
+\subsubsection[{NPP\_\-Initialize}]{\setlength{\rightskip}{0pt plus 5cm}{\bf NPError} NP\_\-LOADDS NPP\_\-Initialize (void)}}
+\label{npapi_8h_a4fd00215da5d7ed9e0151fd48c881031}
+\hypertarget{npapi_8h_a777d05edd2b732666f949f37a19cead7}{
+\index{npapi.h@{npapi.h}!NPP\_\-New@{NPP\_\-New}}
+\index{NPP\_\-New@{NPP\_\-New}!npapi.h@{npapi.h}}
+\subsubsection[{NPP\_\-New}]{\setlength{\rightskip}{0pt plus 5cm}{\bf NPError} NP\_\-LOADDS NPP\_\-New ({\bf NPMIMEType} {\em pluginType}, \/  {\bf NPP} {\em instance}, \/  uint16\_\-t {\em mode}, \/  int16\_\-t {\em argc}, \/  char $\ast$ {\em argn}\mbox{[}$\,$\mbox{]}, \/  char $\ast$ {\em argv}\mbox{[}$\,$\mbox{]}, \/  {\bf NPSavedData} $\ast$ {\em saved})}}
+\label{npapi_8h_a777d05edd2b732666f949f37a19cead7}
+
+
+Definition at line 25 of file npp\_\-gate.cc.
+
+\hypertarget{npapi_8h_ab58e9686a363daece548dbc124c6bac1}{
+\index{npapi.h@{npapi.h}!NPP\_\-NewStream@{NPP\_\-NewStream}}
+\index{NPP\_\-NewStream@{NPP\_\-NewStream}!npapi.h@{npapi.h}}
+\subsubsection[{NPP\_\-NewStream}]{\setlength{\rightskip}{0pt plus 5cm}{\bf NPError} NP\_\-LOADDS NPP\_\-NewStream ({\bf NPP} {\em instance}, \/  {\bf NPMIMEType} {\em type}, \/  {\bf NPStream} $\ast$ {\em stream}, \/  {\bf NPBool} {\em seekable}, \/  uint16\_\-t $\ast$ {\em stype})}}
+\label{npapi_8h_ab58e9686a363daece548dbc124c6bac1}
+\hypertarget{npapi_8h_ae38537757368e78995dd26d64760e190}{
+\index{npapi.h@{npapi.h}!NPP\_\-Print@{NPP\_\-Print}}
+\index{NPP\_\-Print@{NPP\_\-Print}!npapi.h@{npapi.h}}
+\subsubsection[{NPP\_\-Print}]{\setlength{\rightskip}{0pt plus 5cm}void NP\_\-LOADDS NPP\_\-Print ({\bf NPP} {\em instance}, \/  {\bf NPPrint} $\ast$ {\em platformPrint})}}
+\label{npapi_8h_ae38537757368e78995dd26d64760e190}
+\hypertarget{npapi_8h_a0047f4cecd3414eb5979f29cfa7dd880}{
+\index{npapi.h@{npapi.h}!NPP\_\-SetValue@{NPP\_\-SetValue}}
+\index{NPP\_\-SetValue@{NPP\_\-SetValue}!npapi.h@{npapi.h}}
+\subsubsection[{NPP\_\-SetValue}]{\setlength{\rightskip}{0pt plus 5cm}{\bf NPError} NP\_\-LOADDS NPP\_\-SetValue ({\bf NPP} {\em instance}, \/  {\bf NPNVariable} {\em variable}, \/  void $\ast$ {\em value})}}
+\label{npapi_8h_a0047f4cecd3414eb5979f29cfa7dd880}
+\hypertarget{npapi_8h_ab6b2dce9b2edc3f564e2927fe5ecfd08}{
+\index{npapi.h@{npapi.h}!NPP\_\-SetWindow@{NPP\_\-SetWindow}}
+\index{NPP\_\-SetWindow@{NPP\_\-SetWindow}!npapi.h@{npapi.h}}
+\subsubsection[{NPP\_\-SetWindow}]{\setlength{\rightskip}{0pt plus 5cm}{\bf NPError} NP\_\-LOADDS NPP\_\-SetWindow ({\bf NPP} {\em instance}, \/  {\bf NPWindow} $\ast$ {\em window})}}
+\label{npapi_8h_ab6b2dce9b2edc3f564e2927fe5ecfd08}
+
+
+Definition at line 114 of file npp\_\-gate.cc.
+
+\hypertarget{npapi_8h_a6720b17f17b90de5d95bdad6f788d152}{
+\index{npapi.h@{npapi.h}!NPP\_\-Shutdown@{NPP\_\-Shutdown}}
+\index{NPP\_\-Shutdown@{NPP\_\-Shutdown}!npapi.h@{npapi.h}}
+\subsubsection[{NPP\_\-Shutdown}]{\setlength{\rightskip}{0pt plus 5cm}void NP\_\-LOADDS NPP\_\-Shutdown (void)}}
+\label{npapi_8h_a6720b17f17b90de5d95bdad6f788d152}
+\hypertarget{npapi_8h_a45806535645f1139fdf7342e7d0c86ef}{
+\index{npapi.h@{npapi.h}!NPP\_\-StreamAsFile@{NPP\_\-StreamAsFile}}
+\index{NPP\_\-StreamAsFile@{NPP\_\-StreamAsFile}!npapi.h@{npapi.h}}
+\subsubsection[{NPP\_\-StreamAsFile}]{\setlength{\rightskip}{0pt plus 5cm}void NP\_\-LOADDS NPP\_\-StreamAsFile ({\bf NPP} {\em instance}, \/  {\bf NPStream} $\ast$ {\em stream}, \/  const char $\ast$ {\em fname})}}
+\label{npapi_8h_a45806535645f1139fdf7342e7d0c86ef}
+\hypertarget{npapi_8h_acc9fb3ec9486b43d8e8e7c2a5234675d}{
+\index{npapi.h@{npapi.h}!NPP\_\-URLNotify@{NPP\_\-URLNotify}}
+\index{NPP\_\-URLNotify@{NPP\_\-URLNotify}!npapi.h@{npapi.h}}
+\subsubsection[{NPP\_\-URLNotify}]{\setlength{\rightskip}{0pt plus 5cm}void NP\_\-LOADDS NPP\_\-URLNotify ({\bf NPP} {\em instance}, \/  const char $\ast$ {\em url}, \/  {\bf NPReason} {\em reason}, \/  void $\ast$ {\em notifyData})}}
+\label{npapi_8h_acc9fb3ec9486b43d8e8e7c2a5234675d}
+\hypertarget{npapi_8h_acddda12a97b75bf53f5a03c272f08783}{
+\index{npapi.h@{npapi.h}!NPP\_\-Write@{NPP\_\-Write}}
+\index{NPP\_\-Write@{NPP\_\-Write}!npapi.h@{npapi.h}}
+\subsubsection[{NPP\_\-Write}]{\setlength{\rightskip}{0pt plus 5cm}int32\_\-t NP\_\-LOADDS NPP\_\-Write ({\bf NPP} {\em instance}, \/  {\bf NPStream} $\ast$ {\em stream}, \/  int32\_\-t {\em offset}, \/  int32\_\-t {\em len}, \/  void $\ast$ {\em buffer})}}
+\label{npapi_8h_acddda12a97b75bf53f5a03c272f08783}
+\hypertarget{npapi_8h_a40c243093541fd079ee2731697dddaa0}{
+\index{npapi.h@{npapi.h}!NPP\_\-WriteReady@{NPP\_\-WriteReady}}
+\index{NPP\_\-WriteReady@{NPP\_\-WriteReady}!npapi.h@{npapi.h}}
+\subsubsection[{NPP\_\-WriteReady}]{\setlength{\rightskip}{0pt plus 5cm}int32\_\-t NP\_\-LOADDS NPP\_\-WriteReady ({\bf NPP} {\em instance}, \/  {\bf NPStream} $\ast$ {\em stream})}}
+\label{npapi_8h_a40c243093541fd079ee2731697dddaa0}

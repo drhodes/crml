@@ -1,5 +1,6 @@
 NACLPORTS_ROOT = /home/derek/dev/naclports/src
 NACL_SDK_ROOT = /home/derek/dev/nacl_sdk
+CRML_ROOT = /home/derek/dev/crml/crml
 
 DEBUGFLAGS = -O2 #-DNDEBUG
 
@@ -15,8 +16,12 @@ LINKFLAGS = -lgoogle_nacl_imc \
 
 export CC         = nacl-gcc
 export CPP        = nacl-g++
-export CFLAGS     = -Wall -Wno-long-long -pthread -DXP_UNIX -Werror -std=gnu++0x \
-					-I$(NACLPORTS_ROOT) -I$(NACL_SDK_ROOT) $(DEBUGFLAGS) $(BUILDFLAGS)
+export CFLAGS     = -Wall -Wno-long-long -pthread -DXP_UNIX -Werror -std=gnu++0x -m32 \
+					-I$(NACLPORTS_ROOT) \
+					-I$(NACL_SDK_ROOT) \
+					-I$(CRML_ROOT) \
+					$(DEBUGFLAGS) $(BUILDFLAGS)
+
 export CFLAGSEXT  = -I../../../include -I../.. $(DEBUGFLAGS) $(BUILDFLAGS)
 export LDFLAGS    = $(LINKFLAGS)
 export LIBPATH    = ../build
@@ -30,11 +35,15 @@ export DESTDIR    = build
 export DESTLIBDIR = $(DESTDIR)/lib
 export DESTINCDIR = $(DESTDIR)/include
 
-all: crml-sys # crml-win crml-net crml-gfx crml-aud
+all: crml-sys crml-core # crml-win crml-net crml-gfx crml-aud
 
 crml-sys:
 	@(mkdir -p ./build)
 	@(cd ./sys && $(MAKE))
+
+crml-core:
+	@(mkdir -p ./build)
+	@(cd ./core && $(MAKE))
 
 # crml-win:
 # 	@(mkdir -p ../../lib)
@@ -56,15 +65,25 @@ crml-sys:
 
 clean:
 	@(	cd  ./sys && $(MAKE) $@ && \
+		cd ../core && $(MAKE) $@ && \
 		cd ../win && $(MAKE) $@ && \
 		cd ../net && $(MAKE) $@ && \
 		cd ../gfx && $(MAKE) $@ && \
 		cd ../aud && $(MAKE) $@ )
 
 mrproper: clean
-	@(cd ./sys && $(MAKE) $@	&& cd ../win && $(MAKE) $@ && cd ../net && $(MAKE) $@ && cd ../gfx && $(MAKE) $@ && cd ../aud && $(MAKE) $@)
+	@(	cd ./sys && $(MAKE) $@ && \
+		cd ../win && $(MAKE) $@ && \
+		cd ../net && $(MAKE) $@ && \
+		cd ../gfx && $(MAKE) $@ && \
+		cd ../aud && $(MAKE) $@ )
 
 install:
 	@(mkdir -p $(DESTLIBDIR))
 	@(mkdir -p $(DESTINCDIR))
-	@(cd ./sys && $(MAKE) $@ && cd ../win && $(MAKE) $@ && cd ../net && $(MAKE) $@ && cd ../gfx && $(MAKE) $@ && cd ../aud && $(MAKE) $@ && $(CP) -r ../../../include/CRML/ $(DESTINCDIR)/)
+	@(	cd ./sys && $(MAKE) $@ && \
+		cd ../win && $(MAKE) $@ && \
+		cd ../net && $(MAKE) $@ && \
+		cd ../gfx && $(MAKE) $@ && \
+		cd ../aud && $(MAKE) $@ &&\
+		$(CP) -r ../../../include/CRML/ $(DESTINCDIR)/ )

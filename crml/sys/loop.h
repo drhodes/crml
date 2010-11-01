@@ -4,9 +4,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <pthread.h>
-#include "plugin_object.h"
-#include "clock.h"
-#include <sys/nacl_syscalls.h>
+#include <core/plugin_object.h>
+#include <sys/clock.h>
+#include <core/nacl_syscalls.h>
 
 namespace scm {
 	enum MainloopErr {

@@ -1,0 +1,93 @@
+\hypertarget{lib_2tumbler_2npp__gate_8cc}{
+\section{/home/derek/dev/cell-\/grid-\/game/nacl/crml/crml/lib/tumbler/npp\_\-gate.cc File Reference}
+\label{lib_2tumbler_2npp__gate_8cc}\index{/home/derek/dev/cell-\/grid-\/game/nacl/crml/crml/lib/tumbler/npp\_\-gate.cc@{/home/derek/dev/cell-\/grid-\/game/nacl/crml/crml/lib/tumbler/npp\_\-gate.cc}}
+}
+{\ttfamily \#include $<$assert.h$>$}\par
+{\ttfamily \#include $<$stdio.h$>$}\par
+{\ttfamily \#include $<$string.h$>$}\par
+{\ttfamily \#include $<$nacl/npupp.h$>$}\par
+{\ttfamily \#include $<$new$>$}\par
+{\ttfamily \#include \char`\"{}examples/tumbler/tumbler.h\char`\"{}}\par
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{npapi_8h_a56715bc92ac93f0447a05f852ce18828}{NPError} \hyperlink{lib_2tumbler_2npp__gate_8cc_a1549c7141eb65cb6eca02d3cba8f48d1}{NPP\_\-New} (\hyperlink{npapi_8h_a6ab16d9f607aeb576061783638ae2973}{NPMIMEType} mime\_\-type, \hyperlink{struct___n_p_p}{NPP} instance, uint16\_\-t mode, int16\_\-t argc, char $\ast$argn\mbox{[}$\,$\mbox{]}, char $\ast$argv\mbox{[}$\,$\mbox{]}, \hyperlink{struct___n_p_saved_data}{NPSavedData} $\ast$saved)
+\item 
+\hyperlink{npapi_8h_a56715bc92ac93f0447a05f852ce18828}{NPError} \hyperlink{lib_2tumbler_2npp__gate_8cc_a13cdb3ad1ae5ab428bd418ce64af269f}{NPP\_\-Destroy} (\hyperlink{struct___n_p_p}{NPP} instance, \hyperlink{struct___n_p_saved_data}{NPSavedData} $\ast$$\ast$save)
+\item 
+NPObject $\ast$ \hyperlink{lib_2tumbler_2npp__gate_8cc_ad6b92f15011abb6dde0ae16e86f46ed7}{NPP\_\-GetScriptableInstance} (\hyperlink{struct___n_p_p}{NPP} instance)
+\item 
+\hyperlink{npapi_8h_a56715bc92ac93f0447a05f852ce18828}{NPError} \hyperlink{lib_2tumbler_2npp__gate_8cc_aae56cbb0b1b9e955b67b98f8178fbeef}{NPP\_\-GetValue} (\hyperlink{struct___n_p_p}{NPP} instance, \hyperlink{npapi_8h_a1b56dde896277605195e0fad69cbca7d}{NPPVariable} variable, void $\ast$value)
+\item 
+int16\_\-t \hyperlink{lib_2tumbler_2npp__gate_8cc_afc9809fb9d0ee0ed5666723b2db78161}{NPP\_\-HandleEvent} (\hyperlink{struct___n_p_p}{NPP} instance, void $\ast$event)
+\item 
+\hyperlink{npapi_8h_a56715bc92ac93f0447a05f852ce18828}{NPError} \hyperlink{lib_2tumbler_2npp__gate_8cc_a352d8aac09e759465185ddd4eeea9df9}{NPP\_\-SetWindow} (\hyperlink{struct___n_p_p}{NPP} instance, \hyperlink{struct___n_p_window}{NPWindow} $\ast$window)
+\item 
+\hyperlink{npapi_8h_a56715bc92ac93f0447a05f852ce18828}{NPError} \hyperlink{lib_2tumbler_2npp__gate_8cc_a2e202c35d113ebeb05eb2175fc8d97cb}{InitializePluginFunctions} (NPPluginFuncs $\ast$plugin\_\-funcs)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{lib_2tumbler_2npp__gate_8cc_a2e202c35d113ebeb05eb2175fc8d97cb}{
+\index{lib/tumbler/npp\_\-gate.cc@{lib/tumbler/npp\_\-gate.cc}!InitializePluginFunctions@{InitializePluginFunctions}}
+\index{InitializePluginFunctions@{InitializePluginFunctions}!lib/tumbler/npp_gate.cc@{lib/tumbler/npp\_\-gate.cc}}
+\subsubsection[{InitializePluginFunctions}]{\setlength{\rightskip}{0pt plus 5cm}{\bf NPError} InitializePluginFunctions (NPPluginFuncs $\ast$ {\em plugin\_\-funcs})}}
+\label{lib_2tumbler_2npp__gate_8cc_a2e202c35d113ebeb05eb2175fc8d97cb}
+
+
+Definition at line 133 of file npp\_\-gate.cc.
+
+\hypertarget{lib_2tumbler_2npp__gate_8cc_a13cdb3ad1ae5ab428bd418ce64af269f}{
+\index{lib/tumbler/npp\_\-gate.cc@{lib/tumbler/npp\_\-gate.cc}!NPP\_\-Destroy@{NPP\_\-Destroy}}
+\index{NPP\_\-Destroy@{NPP\_\-Destroy}!lib/tumbler/npp_gate.cc@{lib/tumbler/npp\_\-gate.cc}}
+\subsubsection[{NPP\_\-Destroy}]{\setlength{\rightskip}{0pt plus 5cm}{\bf NPError} NPP\_\-Destroy ({\bf NPP} {\em instance}, \/  {\bf NPSavedData} $\ast$$\ast$ {\em save})}}
+\label{lib_2tumbler_2npp__gate_8cc_a13cdb3ad1ae5ab428bd418ce64af269f}
+
+
+Definition at line 55 of file npp\_\-gate.cc.
+
+\hypertarget{lib_2tumbler_2npp__gate_8cc_ad6b92f15011abb6dde0ae16e86f46ed7}{
+\index{lib/tumbler/npp\_\-gate.cc@{lib/tumbler/npp\_\-gate.cc}!NPP\_\-GetScriptableInstance@{NPP\_\-GetScriptableInstance}}
+\index{NPP\_\-GetScriptableInstance@{NPP\_\-GetScriptableInstance}!lib/tumbler/npp_gate.cc@{lib/tumbler/npp\_\-gate.cc}}
+\subsubsection[{NPP\_\-GetScriptableInstance}]{\setlength{\rightskip}{0pt plus 5cm}NPObject$\ast$ NPP\_\-GetScriptableInstance ({\bf NPP} {\em instance})}}
+\label{lib_2tumbler_2npp__gate_8cc_ad6b92f15011abb6dde0ae16e86f46ed7}
+
+
+Definition at line 74 of file npp\_\-gate.cc.
+
+\hypertarget{lib_2tumbler_2npp__gate_8cc_aae56cbb0b1b9e955b67b98f8178fbeef}{
+\index{lib/tumbler/npp\_\-gate.cc@{lib/tumbler/npp\_\-gate.cc}!NPP\_\-GetValue@{NPP\_\-GetValue}}
+\index{NPP\_\-GetValue@{NPP\_\-GetValue}!lib/tumbler/npp_gate.cc@{lib/tumbler/npp\_\-gate.cc}}
+\subsubsection[{NPP\_\-GetValue}]{\setlength{\rightskip}{0pt plus 5cm}{\bf NPError} NPP\_\-GetValue ({\bf NPP} {\em instance}, \/  {\bf NPPVariable} {\em variable}, \/  void $\ast$ {\em value})}}
+\label{lib_2tumbler_2npp__gate_8cc_aae56cbb0b1b9e955b67b98f8178fbeef}
+
+
+Definition at line 90 of file npp\_\-gate.cc.
+
+\hypertarget{lib_2tumbler_2npp__gate_8cc_afc9809fb9d0ee0ed5666723b2db78161}{
+\index{lib/tumbler/npp\_\-gate.cc@{lib/tumbler/npp\_\-gate.cc}!NPP\_\-HandleEvent@{NPP\_\-HandleEvent}}
+\index{NPP\_\-HandleEvent@{NPP\_\-HandleEvent}!lib/tumbler/npp_gate.cc@{lib/tumbler/npp\_\-gate.cc}}
+\subsubsection[{NPP\_\-HandleEvent}]{\setlength{\rightskip}{0pt plus 5cm}int16\_\-t NPP\_\-HandleEvent ({\bf NPP} {\em instance}, \/  void $\ast$ {\em event})}}
+\label{lib_2tumbler_2npp__gate_8cc_afc9809fb9d0ee0ed5666723b2db78161}
+
+
+Definition at line 106 of file npp\_\-gate.cc.
+
+\hypertarget{lib_2tumbler_2npp__gate_8cc_a1549c7141eb65cb6eca02d3cba8f48d1}{
+\index{lib/tumbler/npp\_\-gate.cc@{lib/tumbler/npp\_\-gate.cc}!NPP\_\-New@{NPP\_\-New}}
+\index{NPP\_\-New@{NPP\_\-New}!lib/tumbler/npp_gate.cc@{lib/tumbler/npp\_\-gate.cc}}
+\subsubsection[{NPP\_\-New}]{\setlength{\rightskip}{0pt plus 5cm}{\bf NPError} NPP\_\-New ({\bf NPMIMEType} {\em mime\_\-type}, \/  {\bf NPP} {\em instance}, \/  uint16\_\-t {\em mode}, \/  int16\_\-t {\em argc}, \/  char $\ast$ {\em argn}\mbox{[}$\,$\mbox{]}, \/  char $\ast$ {\em argv}\mbox{[}$\,$\mbox{]}, \/  {\bf NPSavedData} $\ast$ {\em saved})}}
+\label{lib_2tumbler_2npp__gate_8cc_a1549c7141eb65cb6eca02d3cba8f48d1}
+
+
+Definition at line 25 of file npp\_\-gate.cc.
+
+\hypertarget{lib_2tumbler_2npp__gate_8cc_a352d8aac09e759465185ddd4eeea9df9}{
+\index{lib/tumbler/npp\_\-gate.cc@{lib/tumbler/npp\_\-gate.cc}!NPP\_\-SetWindow@{NPP\_\-SetWindow}}
+\index{NPP\_\-SetWindow@{NPP\_\-SetWindow}!lib/tumbler/npp_gate.cc@{lib/tumbler/npp\_\-gate.cc}}
+\subsubsection[{NPP\_\-SetWindow}]{\setlength{\rightskip}{0pt plus 5cm}{\bf NPError} NPP\_\-SetWindow ({\bf NPP} {\em instance}, \/  {\bf NPWindow} $\ast$ {\em window})}}
+\label{lib_2tumbler_2npp__gate_8cc_a352d8aac09e759465185ddd4eeea9df9}
+
+
+Definition at line 114 of file npp\_\-gate.cc.
+

@@ -1,0 +1,181 @@
+\hypertarget{nacl__macros_8h}{
+\section{/home/derek/dev/cell-\/grid-\/game/nacl/crml/crml/core/nacl\_\-macros.h File Reference}
+\label{nacl__macros_8h}\index{/home/derek/dev/cell-\/grid-\/game/nacl/crml/crml/core/nacl\_\-macros.h@{/home/derek/dev/cell-\/grid-\/game/nacl/crml/crml/core/nacl\_\-macros.h}}
+}
+{\ttfamily \#include $<$stdlib.h$>$}\par
+\subsection*{Defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{nacl__macros_8h_adf354c0329c28f6c403e56848dd9d2df}{NACL\_\-ARRAY\_\-SIZE\_\-UNSAFE}(arr)~((sizeof arr)/sizeof arr\mbox{[}0\mbox{]})
+\item 
+\#define \hyperlink{nacl__macros_8h_a5c932ef314189f0a509d279a83c949a4}{NACL\_\-ASSERT\_\-IS\_\-ARRAY}(arr)
+\item 
+\#define \hyperlink{nacl__macros_8h_ae4c39134b9463bd7ba877e0d812fdf6b}{NACL\_\-ARRAY\_\-SIZE}(arr)~NACL\_\-ARRAY\_\-SIZE\_\-UNSAFE(arr)
+\item 
+\#define \hyperlink{nacl__macros_8h_a23263f5965a3c42982bcfd35b160b2e6}{NACL\_\-ASSERT\_\-IS\_\-POINTER}(ptr)~do \{ if (0) \{ ++ptr; \} \} while (0)
+\item 
+\#define \hyperlink{nacl__macros_8h_a03dfabcb731517256cc8037301a4bbf6}{NACL\_\-ASSERT\_\-SAME\_\-SIZE}(t1, t2)
+\item 
+\#define \hyperlink{nacl__macros_8h_af099bc858885cc07068796b91997177d}{NACL\_\-UMAX\_\-VAL}(T)~((T) -\/1)
+\item 
+\#define \hyperlink{nacl__macros_8h_a16169ad0458b172a2ef2a3ad79233ee5}{NACL\_\-MAX\_\-VAL}(T)~((T) (((u \#\# T) -\/1) $>$$>$ 1))
+\item 
+\#define \hyperlink{nacl__macros_8h_a8700a419c98364b6f8d13c3ffa200cfc}{NACL\_\-UMIN\_\-VAL}(T)~((T) 0)
+\item 
+\#define \hyperlink{nacl__macros_8h_aa301cbfdf6debc8102ff99e381c3d857}{NACL\_\-MIN\_\-VAL}(T)~((T) $\sim$NACL\_\-MAX\_\-VAL(T))
+\item 
+\#define \hyperlink{nacl__macros_8h_a5595c5e0048ed5698c0eeef3fd2468ca}{NACL\_\-NANOS\_\-PER\_\-MICRO}~1000
+\item 
+\#define \hyperlink{nacl__macros_8h_a96fba197fc9829fba81ab0ecbf2ed044}{NACL\_\-100\_\-NANOS\_\-PER\_\-MILLI}~(10 $\ast$ 1000)
+\item 
+\#define \hyperlink{nacl__macros_8h_adc3779b215d4284406a7e4c58773c44d}{NACL\_\-NANOS\_\-PER\_\-MILLI}~(1000 $\ast$ 1000)
+\item 
+\#define \hyperlink{nacl__macros_8h_a83a1e567faa9c215885c0a096fffd77a}{NACL\_\-MICROS\_\-PER\_\-UNIT}~(1000 $\ast$ 1000)
+\item 
+\#define \hyperlink{nacl__macros_8h_affb63becc478fef278629abae0b22fc5}{NACL\_\-MILLIS\_\-PER\_\-UNIT}~1000
+\item 
+\#define \hyperlink{nacl__macros_8h_aed31fc49401725e4b6767ffdfead336f}{NACL\_\-UNIT\_\-CONVERT\_\-ROUND}(v, m)~(((v) + (m) -\/ 1)/(m))
+\end{DoxyCompactItemize}
+
+
+\subsection{Define Documentation}
+\hypertarget{nacl__macros_8h_a96fba197fc9829fba81ab0ecbf2ed044}{
+\index{nacl\_\-macros.h@{nacl\_\-macros.h}!NACL\_\-100\_\-NANOS\_\-PER\_\-MILLI@{NACL\_\-100\_\-NANOS\_\-PER\_\-MILLI}}
+\index{NACL\_\-100\_\-NANOS\_\-PER\_\-MILLI@{NACL\_\-100\_\-NANOS\_\-PER\_\-MILLI}!nacl_macros.h@{nacl\_\-macros.h}}
+\subsubsection[{NACL\_\-100\_\-NANOS\_\-PER\_\-MILLI}]{\setlength{\rightskip}{0pt plus 5cm}\#define NACL\_\-100\_\-NANOS\_\-PER\_\-MILLI~(10 $\ast$ 1000)}}
+\label{nacl__macros_8h_a96fba197fc9829fba81ab0ecbf2ed044}
+
+
+Definition at line 211 of file nacl\_\-macros.h.
+
+\hypertarget{nacl__macros_8h_ae4c39134b9463bd7ba877e0d812fdf6b}{
+\index{nacl\_\-macros.h@{nacl\_\-macros.h}!NACL\_\-ARRAY\_\-SIZE@{NACL\_\-ARRAY\_\-SIZE}}
+\index{NACL\_\-ARRAY\_\-SIZE@{NACL\_\-ARRAY\_\-SIZE}!nacl_macros.h@{nacl\_\-macros.h}}
+\subsubsection[{NACL\_\-ARRAY\_\-SIZE}]{\setlength{\rightskip}{0pt plus 5cm}\#define NACL\_\-ARRAY\_\-SIZE(arr)~NACL\_\-ARRAY\_\-SIZE\_\-UNSAFE(arr)}}
+\label{nacl__macros_8h_ae4c39134b9463bd7ba877e0d812fdf6b}
+
+
+Definition at line 158 of file nacl\_\-macros.h.
+
+\hypertarget{nacl__macros_8h_adf354c0329c28f6c403e56848dd9d2df}{
+\index{nacl\_\-macros.h@{nacl\_\-macros.h}!NACL\_\-ARRAY\_\-SIZE\_\-UNSAFE@{NACL\_\-ARRAY\_\-SIZE\_\-UNSAFE}}
+\index{NACL\_\-ARRAY\_\-SIZE\_\-UNSAFE@{NACL\_\-ARRAY\_\-SIZE\_\-UNSAFE}!nacl_macros.h@{nacl\_\-macros.h}}
+\subsubsection[{NACL\_\-ARRAY\_\-SIZE\_\-UNSAFE}]{\setlength{\rightskip}{0pt plus 5cm}\#define NACL\_\-ARRAY\_\-SIZE\_\-UNSAFE(arr)~((sizeof arr)/sizeof arr\mbox{[}0\mbox{]})}}
+\label{nacl__macros_8h_adf354c0329c28f6c403e56848dd9d2df}
+
+
+Definition at line 20 of file nacl\_\-macros.h.
+
+\hypertarget{nacl__macros_8h_a5c932ef314189f0a509d279a83c949a4}{
+\index{nacl\_\-macros.h@{nacl\_\-macros.h}!NACL\_\-ASSERT\_\-IS\_\-ARRAY@{NACL\_\-ASSERT\_\-IS\_\-ARRAY}}
+\index{NACL\_\-ASSERT\_\-IS\_\-ARRAY@{NACL\_\-ASSERT\_\-IS\_\-ARRAY}!nacl_macros.h@{nacl\_\-macros.h}}
+\subsubsection[{NACL\_\-ASSERT\_\-IS\_\-ARRAY}]{\setlength{\rightskip}{0pt plus 5cm}\#define NACL\_\-ASSERT\_\-IS\_\-ARRAY(arr)}}
+\label{nacl__macros_8h_a5c932ef314189f0a509d279a83c949a4}
+
+
+Definition at line 157 of file nacl\_\-macros.h.
+
+\hypertarget{nacl__macros_8h_a23263f5965a3c42982bcfd35b160b2e6}{
+\index{nacl\_\-macros.h@{nacl\_\-macros.h}!NACL\_\-ASSERT\_\-IS\_\-POINTER@{NACL\_\-ASSERT\_\-IS\_\-POINTER}}
+\index{NACL\_\-ASSERT\_\-IS\_\-POINTER@{NACL\_\-ASSERT\_\-IS\_\-POINTER}!nacl_macros.h@{nacl\_\-macros.h}}
+\subsubsection[{NACL\_\-ASSERT\_\-IS\_\-POINTER}]{\setlength{\rightskip}{0pt plus 5cm}\#define NACL\_\-ASSERT\_\-IS\_\-POINTER(ptr)~do \{ if (0) \{ ++ptr; \} \} while (0)}}
+\label{nacl__macros_8h_a23263f5965a3c42982bcfd35b160b2e6}
+
+
+Definition at line 168 of file nacl\_\-macros.h.
+
+\hypertarget{nacl__macros_8h_a03dfabcb731517256cc8037301a4bbf6}{
+\index{nacl\_\-macros.h@{nacl\_\-macros.h}!NACL\_\-ASSERT\_\-SAME\_\-SIZE@{NACL\_\-ASSERT\_\-SAME\_\-SIZE}}
+\index{NACL\_\-ASSERT\_\-SAME\_\-SIZE@{NACL\_\-ASSERT\_\-SAME\_\-SIZE}!nacl_macros.h@{nacl\_\-macros.h}}
+\subsubsection[{NACL\_\-ASSERT\_\-SAME\_\-SIZE}]{\setlength{\rightskip}{0pt plus 5cm}\#define NACL\_\-ASSERT\_\-SAME\_\-SIZE(t1, \/  t2)}}
+\label{nacl__macros_8h_a03dfabcb731517256cc8037301a4bbf6}
+{\bfseries Value:}
+\begin{DoxyCode}
+do { char tested_types_are_not_the_same_size[sizeof(t1) == sizeof(t2)]; \
+       (void) tested_types_are_not_the_same_size; } while (0)
+\end{DoxyCode}
+
+
+Definition at line 179 of file nacl\_\-macros.h.
+
+\hypertarget{nacl__macros_8h_a16169ad0458b172a2ef2a3ad79233ee5}{
+\index{nacl\_\-macros.h@{nacl\_\-macros.h}!NACL\_\-MAX\_\-VAL@{NACL\_\-MAX\_\-VAL}}
+\index{NACL\_\-MAX\_\-VAL@{NACL\_\-MAX\_\-VAL}!nacl_macros.h@{nacl\_\-macros.h}}
+\subsubsection[{NACL\_\-MAX\_\-VAL}]{\setlength{\rightskip}{0pt plus 5cm}\#define NACL\_\-MAX\_\-VAL(T)~((T) (((u \#\# T) -\/1) $>$$>$ 1))}}
+\label{nacl__macros_8h_a16169ad0458b172a2ef2a3ad79233ee5}
+
+
+Definition at line 201 of file nacl\_\-macros.h.
+
+\hypertarget{nacl__macros_8h_a83a1e567faa9c215885c0a096fffd77a}{
+\index{nacl\_\-macros.h@{nacl\_\-macros.h}!NACL\_\-MICROS\_\-PER\_\-UNIT@{NACL\_\-MICROS\_\-PER\_\-UNIT}}
+\index{NACL\_\-MICROS\_\-PER\_\-UNIT@{NACL\_\-MICROS\_\-PER\_\-UNIT}!nacl_macros.h@{nacl\_\-macros.h}}
+\subsubsection[{NACL\_\-MICROS\_\-PER\_\-UNIT}]{\setlength{\rightskip}{0pt plus 5cm}\#define NACL\_\-MICROS\_\-PER\_\-UNIT~(1000 $\ast$ 1000)}}
+\label{nacl__macros_8h_a83a1e567faa9c215885c0a096fffd77a}
+
+
+Definition at line 213 of file nacl\_\-macros.h.
+
+\hypertarget{nacl__macros_8h_affb63becc478fef278629abae0b22fc5}{
+\index{nacl\_\-macros.h@{nacl\_\-macros.h}!NACL\_\-MILLIS\_\-PER\_\-UNIT@{NACL\_\-MILLIS\_\-PER\_\-UNIT}}
+\index{NACL\_\-MILLIS\_\-PER\_\-UNIT@{NACL\_\-MILLIS\_\-PER\_\-UNIT}!nacl_macros.h@{nacl\_\-macros.h}}
+\subsubsection[{NACL\_\-MILLIS\_\-PER\_\-UNIT}]{\setlength{\rightskip}{0pt plus 5cm}\#define NACL\_\-MILLIS\_\-PER\_\-UNIT~1000}}
+\label{nacl__macros_8h_affb63becc478fef278629abae0b22fc5}
+
+
+Definition at line 214 of file nacl\_\-macros.h.
+
+\hypertarget{nacl__macros_8h_aa301cbfdf6debc8102ff99e381c3d857}{
+\index{nacl\_\-macros.h@{nacl\_\-macros.h}!NACL\_\-MIN\_\-VAL@{NACL\_\-MIN\_\-VAL}}
+\index{NACL\_\-MIN\_\-VAL@{NACL\_\-MIN\_\-VAL}!nacl_macros.h@{nacl\_\-macros.h}}
+\subsubsection[{NACL\_\-MIN\_\-VAL}]{\setlength{\rightskip}{0pt plus 5cm}\#define NACL\_\-MIN\_\-VAL(T)~((T) $\sim$NACL\_\-MAX\_\-VAL(T))}}
+\label{nacl__macros_8h_aa301cbfdf6debc8102ff99e381c3d857}
+
+
+Definition at line 203 of file nacl\_\-macros.h.
+
+\hypertarget{nacl__macros_8h_a5595c5e0048ed5698c0eeef3fd2468ca}{
+\index{nacl\_\-macros.h@{nacl\_\-macros.h}!NACL\_\-NANOS\_\-PER\_\-MICRO@{NACL\_\-NANOS\_\-PER\_\-MICRO}}
+\index{NACL\_\-NANOS\_\-PER\_\-MICRO@{NACL\_\-NANOS\_\-PER\_\-MICRO}!nacl_macros.h@{nacl\_\-macros.h}}
+\subsubsection[{NACL\_\-NANOS\_\-PER\_\-MICRO}]{\setlength{\rightskip}{0pt plus 5cm}\#define NACL\_\-NANOS\_\-PER\_\-MICRO~1000}}
+\label{nacl__macros_8h_a5595c5e0048ed5698c0eeef3fd2468ca}
+
+
+Definition at line 210 of file nacl\_\-macros.h.
+
+\hypertarget{nacl__macros_8h_adc3779b215d4284406a7e4c58773c44d}{
+\index{nacl\_\-macros.h@{nacl\_\-macros.h}!NACL\_\-NANOS\_\-PER\_\-MILLI@{NACL\_\-NANOS\_\-PER\_\-MILLI}}
+\index{NACL\_\-NANOS\_\-PER\_\-MILLI@{NACL\_\-NANOS\_\-PER\_\-MILLI}!nacl_macros.h@{nacl\_\-macros.h}}
+\subsubsection[{NACL\_\-NANOS\_\-PER\_\-MILLI}]{\setlength{\rightskip}{0pt plus 5cm}\#define NACL\_\-NANOS\_\-PER\_\-MILLI~(1000 $\ast$ 1000)}}
+\label{nacl__macros_8h_adc3779b215d4284406a7e4c58773c44d}
+
+
+Definition at line 212 of file nacl\_\-macros.h.
+
+\hypertarget{nacl__macros_8h_af099bc858885cc07068796b91997177d}{
+\index{nacl\_\-macros.h@{nacl\_\-macros.h}!NACL\_\-UMAX\_\-VAL@{NACL\_\-UMAX\_\-VAL}}
+\index{NACL\_\-UMAX\_\-VAL@{NACL\_\-UMAX\_\-VAL}!nacl_macros.h@{nacl\_\-macros.h}}
+\subsubsection[{NACL\_\-UMAX\_\-VAL}]{\setlength{\rightskip}{0pt plus 5cm}\#define NACL\_\-UMAX\_\-VAL(T)~((T) -\/1)}}
+\label{nacl__macros_8h_af099bc858885cc07068796b91997177d}
+
+
+Definition at line 200 of file nacl\_\-macros.h.
+
+\hypertarget{nacl__macros_8h_a8700a419c98364b6f8d13c3ffa200cfc}{
+\index{nacl\_\-macros.h@{nacl\_\-macros.h}!NACL\_\-UMIN\_\-VAL@{NACL\_\-UMIN\_\-VAL}}
+\index{NACL\_\-UMIN\_\-VAL@{NACL\_\-UMIN\_\-VAL}!nacl_macros.h@{nacl\_\-macros.h}}
+\subsubsection[{NACL\_\-UMIN\_\-VAL}]{\setlength{\rightskip}{0pt plus 5cm}\#define NACL\_\-UMIN\_\-VAL(T)~((T) 0)}}
+\label{nacl__macros_8h_a8700a419c98364b6f8d13c3ffa200cfc}
+
+
+Definition at line 202 of file nacl\_\-macros.h.
+
+\hypertarget{nacl__macros_8h_aed31fc49401725e4b6767ffdfead336f}{
+\index{nacl\_\-macros.h@{nacl\_\-macros.h}!NACL\_\-UNIT\_\-CONVERT\_\-ROUND@{NACL\_\-UNIT\_\-CONVERT\_\-ROUND}}
+\index{NACL\_\-UNIT\_\-CONVERT\_\-ROUND@{NACL\_\-UNIT\_\-CONVERT\_\-ROUND}!nacl_macros.h@{nacl\_\-macros.h}}
+\subsubsection[{NACL\_\-UNIT\_\-CONVERT\_\-ROUND}]{\setlength{\rightskip}{0pt plus 5cm}\#define NACL\_\-UNIT\_\-CONVERT\_\-ROUND(v, \/  m)~(((v) + (m) -\/ 1)/(m))}}
+\label{nacl__macros_8h_aed31fc49401725e4b6767ffdfead336f}
+
+
+Definition at line 215 of file nacl\_\-macros.h.
+

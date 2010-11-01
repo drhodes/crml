@@ -1,0 +1,87 @@
+\hypertarget{sys_2npp__gate_8cc}{
+\section{/home/derek/dev/cell-\/grid-\/game/nacl/crml/crml/sys/npp\_\-gate.cc File Reference}
+\label{sys_2npp__gate_8cc}\index{/home/derek/dev/cell-\/grid-\/game/nacl/crml/crml/sys/npp\_\-gate.cc@{/home/derek/dev/cell-\/grid-\/game/nacl/crml/crml/sys/npp\_\-gate.cc}}
+}
+{\ttfamily \#include $<$stdbool.h$>$}\par
+{\ttfamily \#include $<$stdio.h$>$}\par
+{\ttfamily \#include $<$stdlib.h$>$}\par
+{\ttfamily \#include $<$string.h$>$}\par
+{\ttfamily \#include $<$nacl/nacl\_\-npapi.h$>$}\par
+{\ttfamily \#include $<$nacl/npupp.h$>$}\par
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct_hello_world}{HelloWorld}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{npapi_8h_a56715bc92ac93f0447a05f852ce18828}{NPError} \hyperlink{sys_2npp__gate_8cc_a1549c7141eb65cb6eca02d3cba8f48d1}{NPP\_\-New} (\hyperlink{npapi_8h_a6ab16d9f607aeb576061783638ae2973}{NPMIMEType} mime\_\-type, \hyperlink{struct___n_p_p}{NPP} instance, uint16\_\-t mode, int16\_\-t argc, char $\ast$argn\mbox{[}$\,$\mbox{]}, char $\ast$argv\mbox{[}$\,$\mbox{]}, \hyperlink{struct___n_p_saved_data}{NPSavedData} $\ast$saved)
+\item 
+\hyperlink{npapi_8h_a56715bc92ac93f0447a05f852ce18828}{NPError} \hyperlink{sys_2npp__gate_8cc_a13cdb3ad1ae5ab428bd418ce64af269f}{NPP\_\-Destroy} (\hyperlink{struct___n_p_p}{NPP} instance, \hyperlink{struct___n_p_saved_data}{NPSavedData} $\ast$$\ast$save)
+\item 
+NPObject $\ast$ \hyperlink{sys_2npp__gate_8cc_ad6b92f15011abb6dde0ae16e86f46ed7}{NPP\_\-GetScriptableInstance} (\hyperlink{struct___n_p_p}{NPP} instance)
+\item 
+\hyperlink{npapi_8h_a56715bc92ac93f0447a05f852ce18828}{NPError} \hyperlink{sys_2npp__gate_8cc_ab93893b6f6dcfa2b9e0f53b462badb0a}{NPP\_\-GetValue} (\hyperlink{struct___n_p_p}{NPP} instance, \hyperlink{npapi_8h_a1b56dde896277605195e0fad69cbca7d}{NPPVariable} variable, void $\ast$ret\_\-value)
+\item 
+\hyperlink{npapi_8h_a56715bc92ac93f0447a05f852ce18828}{NPError} \hyperlink{sys_2npp__gate_8cc_a352d8aac09e759465185ddd4eeea9df9}{NPP\_\-SetWindow} (\hyperlink{struct___n_p_p}{NPP} instance, \hyperlink{struct___n_p_window}{NPWindow} $\ast$window)
+\item 
+\hyperlink{npapi_8h_a56715bc92ac93f0447a05f852ce18828}{NPError} \hyperlink{sys_2npp__gate_8cc_a2e202c35d113ebeb05eb2175fc8d97cb}{InitializePluginFunctions} (NPPluginFuncs $\ast$plugin\_\-funcs)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{sys_2npp__gate_8cc_a2e202c35d113ebeb05eb2175fc8d97cb}{
+\index{sys/npp\_\-gate.cc@{sys/npp\_\-gate.cc}!InitializePluginFunctions@{InitializePluginFunctions}}
+\index{InitializePluginFunctions@{InitializePluginFunctions}!sys/npp_gate.cc@{sys/npp\_\-gate.cc}}
+\subsubsection[{InitializePluginFunctions}]{\setlength{\rightskip}{0pt plus 5cm}{\bf NPError} InitializePluginFunctions (NPPluginFuncs $\ast$ {\em plugin\_\-funcs})}}
+\label{sys_2npp__gate_8cc_a2e202c35d113ebeb05eb2175fc8d97cb}
+
+
+Definition at line 117 of file npp\_\-gate.cc.
+
+\hypertarget{sys_2npp__gate_8cc_a13cdb3ad1ae5ab428bd418ce64af269f}{
+\index{sys/npp\_\-gate.cc@{sys/npp\_\-gate.cc}!NPP\_\-Destroy@{NPP\_\-Destroy}}
+\index{NPP\_\-Destroy@{NPP\_\-Destroy}!sys/npp_gate.cc@{sys/npp\_\-gate.cc}}
+\subsubsection[{NPP\_\-Destroy}]{\setlength{\rightskip}{0pt plus 5cm}{\bf NPError} NPP\_\-Destroy ({\bf NPP} {\em instance}, \/  {\bf NPSavedData} $\ast$$\ast$ {\em save})}}
+\label{sys_2npp__gate_8cc_a13cdb3ad1ae5ab428bd418ce64af269f}
+
+
+Definition at line 53 of file npp\_\-gate.cc.
+
+\hypertarget{sys_2npp__gate_8cc_ad6b92f15011abb6dde0ae16e86f46ed7}{
+\index{sys/npp\_\-gate.cc@{sys/npp\_\-gate.cc}!NPP\_\-GetScriptableInstance@{NPP\_\-GetScriptableInstance}}
+\index{NPP\_\-GetScriptableInstance@{NPP\_\-GetScriptableInstance}!sys/npp_gate.cc@{sys/npp\_\-gate.cc}}
+\subsubsection[{NPP\_\-GetScriptableInstance}]{\setlength{\rightskip}{0pt plus 5cm}NPObject$\ast$ NPP\_\-GetScriptableInstance ({\bf NPP} {\em instance})}}
+\label{sys_2npp__gate_8cc_ad6b92f15011abb6dde0ae16e86f46ed7}
+
+
+Definition at line 73 of file npp\_\-gate.cc.
+
+\hypertarget{sys_2npp__gate_8cc_ab93893b6f6dcfa2b9e0f53b462badb0a}{
+\index{sys/npp\_\-gate.cc@{sys/npp\_\-gate.cc}!NPP\_\-GetValue@{NPP\_\-GetValue}}
+\index{NPP\_\-GetValue@{NPP\_\-GetValue}!sys/npp_gate.cc@{sys/npp\_\-gate.cc}}
+\subsubsection[{NPP\_\-GetValue}]{\setlength{\rightskip}{0pt plus 5cm}{\bf NPError} NPP\_\-GetValue ({\bf NPP} {\em instance}, \/  {\bf NPPVariable} {\em variable}, \/  void $\ast$ {\em ret\_\-value})}}
+\label{sys_2npp__gate_8cc_ab93893b6f6dcfa2b9e0f53b462badb0a}
+
+
+Definition at line 94 of file npp\_\-gate.cc.
+
+\hypertarget{sys_2npp__gate_8cc_a1549c7141eb65cb6eca02d3cba8f48d1}{
+\index{sys/npp\_\-gate.cc@{sys/npp\_\-gate.cc}!NPP\_\-New@{NPP\_\-New}}
+\index{NPP\_\-New@{NPP\_\-New}!sys/npp_gate.cc@{sys/npp\_\-gate.cc}}
+\subsubsection[{NPP\_\-New}]{\setlength{\rightskip}{0pt plus 5cm}{\bf NPError} NPP\_\-New ({\bf NPMIMEType} {\em mime\_\-type}, \/  {\bf NPP} {\em instance}, \/  uint16\_\-t {\em mode}, \/  int16\_\-t {\em argc}, \/  char $\ast$ {\em argn}\mbox{[}$\,$\mbox{]}, \/  char $\ast$ {\em argv}\mbox{[}$\,$\mbox{]}, \/  {\bf NPSavedData} $\ast$ {\em saved})}}
+\label{sys_2npp__gate_8cc_a1549c7141eb65cb6eca02d3cba8f48d1}
+
+
+Definition at line 27 of file npp\_\-gate.cc.
+
+\hypertarget{sys_2npp__gate_8cc_a352d8aac09e759465185ddd4eeea9df9}{
+\index{sys/npp\_\-gate.cc@{sys/npp\_\-gate.cc}!NPP\_\-SetWindow@{NPP\_\-SetWindow}}
+\index{NPP\_\-SetWindow@{NPP\_\-SetWindow}!sys/npp_gate.cc@{sys/npp\_\-gate.cc}}
+\subsubsection[{NPP\_\-SetWindow}]{\setlength{\rightskip}{0pt plus 5cm}{\bf NPError} NPP\_\-SetWindow ({\bf NPP} {\em instance}, \/  {\bf NPWindow} $\ast$ {\em window})}}
+\label{sys_2npp__gate_8cc_a352d8aac09e759465185ddd4eeea9df9}
+
+
+Definition at line 108 of file npp\_\-gate.cc.
+

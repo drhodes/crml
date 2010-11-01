@@ -1,0 +1,56 @@
+\hypertarget{test-macros_8cc}{
+\section{/home/derek/dev/cell-\/grid-\/game/nacl/crml/crml/test/test-\/macros.cc File Reference}
+\label{test-macros_8cc}\index{/home/derek/dev/cell-\/grid-\/game/nacl/crml/crml/test/test-\/macros.cc@{/home/derek/dev/cell-\/grid-\/game/nacl/crml/crml/test/test-\/macros.cc}}
+}
+{\ttfamily \#include \char`\"{}jslog.cc\char`\"{}}\par
+{\ttfamily \#include $<$string$>$}\par
+\subsection*{Defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{test-macros_8cc_a642fd9241bc9e4219ea15503ca87fefb}{log}(msg)~s-\/$>$Log(msg);
+\item 
+\#define \hyperlink{test-macros_8cc_af496d3b8121eb066859c5af577597d9c}{pass}(msg)~s-\/$>$Log((modulename + std::string(\char`\"{} -\/-\/ passed: \char`\"{}) + msg).c\_\-str());
+\item 
+\#define \hyperlink{test-macros_8cc_a05ec25e11ffdcaea9c4627c906388dd1}{fail}(msg)~s-\/$>$Log((std::string(\char`\"{}!FAIL!: \char`\"{}) + msg).c\_\-str());
+\item 
+\#define \hyperlink{test-macros_8cc_afaeb9641e4b11cff7242820dbb1c156d}{ok}(cond, msg)~if(cond) \{ pass(msg); \} else \{ fail(msg); \};
+\end{DoxyCompactItemize}
+
+
+\subsection{Define Documentation}
+\hypertarget{test-macros_8cc_a05ec25e11ffdcaea9c4627c906388dd1}{
+\index{test-\/macros.cc@{test-\/macros.cc}!fail@{fail}}
+\index{fail@{fail}!test-macros.cc@{test-\/macros.cc}}
+\subsubsection[{fail}]{\setlength{\rightskip}{0pt plus 5cm}\#define fail(msg)~s-\/$>$Log((std::string(\char`\"{}!FAIL!: \char`\"{}) + msg).c\_\-str());}}
+\label{test-macros_8cc_a05ec25e11ffdcaea9c4627c906388dd1}
+
+
+Definition at line 6 of file test-\/macros.cc.
+
+\hypertarget{test-macros_8cc_a642fd9241bc9e4219ea15503ca87fefb}{
+\index{test-\/macros.cc@{test-\/macros.cc}!log@{log}}
+\index{log@{log}!test-macros.cc@{test-\/macros.cc}}
+\subsubsection[{log}]{\setlength{\rightskip}{0pt plus 5cm}\#define log(msg)~s-\/$>$Log(msg);}}
+\label{test-macros_8cc_a642fd9241bc9e4219ea15503ca87fefb}
+
+
+Definition at line 4 of file test-\/macros.cc.
+
+\hypertarget{test-macros_8cc_afaeb9641e4b11cff7242820dbb1c156d}{
+\index{test-\/macros.cc@{test-\/macros.cc}!ok@{ok}}
+\index{ok@{ok}!test-macros.cc@{test-\/macros.cc}}
+\subsubsection[{ok}]{\setlength{\rightskip}{0pt plus 5cm}\#define ok(cond, \/  msg)~if(cond) \{ pass(msg); \} else \{ fail(msg); \};}}
+\label{test-macros_8cc_afaeb9641e4b11cff7242820dbb1c156d}
+
+
+Definition at line 7 of file test-\/macros.cc.
+
+\hypertarget{test-macros_8cc_af496d3b8121eb066859c5af577597d9c}{
+\index{test-\/macros.cc@{test-\/macros.cc}!pass@{pass}}
+\index{pass@{pass}!test-macros.cc@{test-\/macros.cc}}
+\subsubsection[{pass}]{\setlength{\rightskip}{0pt plus 5cm}\#define pass(msg)~s-\/$>$Log((modulename + std::string(\char`\"{} -\/-\/ passed: \char`\"{}) + msg).c\_\-str());}}
+\label{test-macros_8cc_af496d3b8121eb066859c5af577597d9c}
+
+
+Definition at line 5 of file test-\/macros.cc.
+
