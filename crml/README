@@ -1,0 +1,13 @@
+A game library for google native client.
+
+To build, there are two lines at the top of the Makefile that need
+to be changed.  That should be it.
+
+
+$ make 
+$ python httpd.py
+$ chrome --enable-nacl
+
+httpd.py will emit an address like localhost:5103
+click the pepper_plugin.html
+

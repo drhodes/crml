@@ -6,9 +6,7 @@
 #include <pgl/pgl.h>
 
 #include "plugin_object.h"
-#include "event_handler.h"
-#include "game.cc"
-#include "log_macro.cc"
+#include "crml/sys/log_macro.cc"
 
 #ifdef WIN32
 #define NPAPI WINAPI
@@ -78,15 +76,15 @@ NPError NPP_New(NPMIMEType pluginType,
     PluginObject* obj = reinterpret_cast<PluginObject*>
         (browser->createobject(instance, PluginObject::GetPluginClass()));
     instance->pdata = obj;
-    event_handler = new EventHandler(instance);
+
+    //event_handler = new EventHandler(instance);
 
     obj->New(pluginType, argc, argn, argv);
 
     //  REFACTOR ASAP
     //
     GAME = new scm::Game(obj->npp());
-    //GAME->Init();
-    GAME->RegisterEvent(event_handler);
+    GAME->RegisterEvent(instance); //  event_handler);
     //
     //
   }

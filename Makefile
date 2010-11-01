@@ -7,13 +7,14 @@ NACLPORTS_ROOT = /home/derek/dev/naclports/src
 NACL_SDK_ROOT = ~/dev/nacl_sdk
 
 CCFILES =	main.cc \
-			clock.cc \
-			error.cc \
-			event_handler.cc \
-			gles2_demo_cc.cc \
-			md5.cc \
-			plugin_object.cc \
-			test_object.cc \
+#			clock.cc \
+#			error.cc \
+#			event.cc \
+#			game.cc \
+#			gles2_demo_cc.cc \
+#			md5.cc \
+#			plugin_object.cc \
+#			test_object.cc \
 
 OBJECTS_X86_32 = $(CCFILES:%.cc=%_x86_32.o)
 OBJECTS_X86_64 = $(CCFILES:%.cc=%_x86_64.o)
