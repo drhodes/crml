@@ -12,6 +12,7 @@
   <div class="tabs">
     <ul>
       <li><a href="main.html"><span>Main&nbsp;Page</span></a></li>
+      <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
@@ -37,14 +38,14 @@
 <a name="l00012"></a>00012 
 <a name="l00013"></a>00013 <span class="comment">// Pepper extensions.  These get instantiated when NPN_New is called and</span>
 <a name="l00014"></a>00014 <span class="comment">// populated with pepper extensions in the NPN_GetValue call below.</span>
-<a name="l00015"></a>00015 <span class="keyword">static</span> NPExtensions* kPepperExtensions = NULL;
+<a name="l00015"></a>00015 <span class="keyword">static</span> <a class="code" href="struct_n_p_n_extensions.html">NPExtensions</a>* kPepperExtensions = NULL;
 <a name="l00016"></a>00016 
 <a name="l00017"></a>00017 <span class="comment">// Chrome specific, this function calls GetValue to get Pepper extensions</span>
 <a name="l00018"></a>00018 <span class="comment">// made available to the plugin, |instance|.</span>
 <a name="l00019"></a>00019 <span class="comment">// Declaration of NPNVPepperExtensions: npapi_extensions.h</span>
 <a name="l00020"></a><a class="code" href="lib_2tumbler_2npn__bridge_8cc.html#a4084a1c4bd65fa38046b67c758bd6862">00020</a> <span class="keywordtype">void</span> <a class="code" href="lib_2tumbler_2npn__bridge_8cc.html#a4084a1c4bd65fa38046b67c758bd6862">InitializePepperExtensions</a>(<a class="code" href="struct___n_p_p.html">NPP</a> instance) {
 <a name="l00021"></a>00021   <span class="comment">// Grab the Pepper extensions.</span>
-<a name="l00022"></a>00022   <a class="code" href="npapi_8h.html#acce38523daea527eb7cb21a212277fd4">NPN_GetValue</a>(instance, NPNVPepperExtensions,
+<a name="l00022"></a>00022   <a class="code" href="npapi_8h.html#acce38523daea527eb7cb21a212277fd4">NPN_GetValue</a>(instance, <a class="code" href="npapi__extensions_8h.html#af101125600c9189fbb293566ed8c0ef5">NPNVPepperExtensions</a>,
 <a name="l00023"></a>00023                reinterpret_cast&lt;void*&gt;(&amp;kPepperExtensions));
 <a name="l00024"></a>00024   assert(NULL != kPepperExtensions);
 <a name="l00025"></a>00025 }
@@ -53,12 +54,12 @@
 <a name="l00028"></a>00028 <span class="comment">// the pepper interface.  For example audio, 2d and 3d devices.</span>
 <a name="l00029"></a>00029 <span class="comment">// Returns NULL if device could not be acquired.</span>
 <a name="l00030"></a>00030 <span class="comment">// Decaration of kPepperExtensions::acquireDevice: npapi_extensions.h</span>
-<a name="l00031"></a><a class="code" href="pi__generator_8cc.html#af6ca8d586b1bc4be36e2a870354c019b">00031</a> NPDevice* <a class="code" href="lib_2tumbler_2npn__bridge_8cc.html#af6ca8d586b1bc4be36e2a870354c019b">NPN_AcquireDevice</a>(<a class="code" href="struct___n_p_p.html">NPP</a> instance, NPDeviceID device) {
+<a name="l00031"></a><a class="code" href="pi__generator_8cc.html#af6ca8d586b1bc4be36e2a870354c019b">00031</a> <a class="code" href="struct_n_p_device.html">NPDevice</a>* <a class="code" href="lib_2tumbler_2npn__bridge_8cc.html#af6ca8d586b1bc4be36e2a870354c019b">NPN_AcquireDevice</a>(<a class="code" href="struct___n_p_p.html">NPP</a> instance, <a class="code" href="npapi__extensions_8h.html#af06c24765f895a9b7ac2af96d8db1e61">NPDeviceID</a> device) {
 <a name="l00032"></a>00032   <span class="keywordflow">return</span> kPepperExtensions ?
-<a name="l00033"></a>00033       kPepperExtensions-&gt;acquireDevice(instance, device) : NULL;
+<a name="l00033"></a>00033       kPepperExtensions-&gt;<a class="code" href="struct_n_p_n_extensions.html#aac32128f303a0affff3f9ee28834d643">acquireDevice</a>(instance, device) : NULL;
 <a name="l00034"></a>00034 }
 </pre></div></div>
-<hr class="footer"/><address style="text-align: right;"><small>Generated on Mon Nov 1 14:47:09 2010 for crml by&nbsp;
+<hr class="footer"/><address style="text-align: right;"><small>Generated on Mon Nov 1 15:47:12 2010 for crml by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
 </body>

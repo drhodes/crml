@@ -38,26 +38,25 @@ ifneq (, $(findstring Linux, $(OS)))
 endif
 
 NACL_SDK_ROOT = /home/derek/dev/native_client_sdk_0_1_507_0
-
 NACL_TOOLCHAIN_DIR = toolchain/$(PLATFORM)_$(TARGET)
 
 CC = $(NACL_SDK_ROOT)/$(NACL_TOOLCHAIN_DIR)/bin/nacl-gcc
 CPP = $(NACL_SDK_ROOT)/$(NACL_TOOLCHAIN_DIR)/bin/nacl-g++
 
 %_x86_32.o: %.c
-	$(CC) $(CFLAGS) -m32 $(INCLUDES) $(OPT_FLAGS) -c -o $@ $<
+	$(CC) $(CFLAGS) -m32  $(INCLUDES) $(OPT_FLAGS) -c -o $@ $<
 
 %_x86_32.o: %.cc
-	$(CPP) $(CFLAGS) -m32 $(INCLUDES) $(OPT_FLAGS) -c -o $@ $<
+	$(CPP) $(CFLAGS) -m32  $(INCLUDES) $(OPT_FLAGS) -c -o $@ $<
 
 %_x86_32.o: %.cpp
-	$(CPP) $(CFLAGS) -m32 $(INCLUDES) $(OPT_FLAGS) -c -o $@ $<
+	$(CPP) $(CFLAGS) -m32  $(INCLUDES) $(OPT_FLAGS) -c -o $@ $<
 
 %_x86_64.o: %.c
-	$(CC) $(CFLAGS) -m64 $(INCLUDES) $(OPT_FLAGS) -c -o $@ $<
+	$(CC) $(CFLAGS) -m64  $(INCLUDES) $(OPT_FLAGS) -c -o $@ $<
 
 %_x86_64.o: %.cc
-	$(CPP) $(CFLAGS) -m64 $(INCLUDES) $(OPT_FLAGS) -c -o $@ $<
+	$(CPP) $(CFLAGS) -m64  $(INCLUDES) $(OPT_FLAGS) -c -o $@ $<
 
 %_x86_64.o: %.cpp
 	$(CPP) $(CFLAGS) -m64 $(INCLUDES) $(OPT_FLAGS) -c -o $@ $<

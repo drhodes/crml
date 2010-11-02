@@ -1,0 +1,14 @@
+#! /usr/bin/env python
+import os
+
+for d in ["aud", "core", "evt", "gfx", 
+          "net", "sys", "util", "web", "win"]:
+    fname = "./include/crml-%s.h" % d
+    outfile = open(fname, 'w')
+    files = map(str.strip, os.popen("ls %s | grep h$" % d).readlines())
+    s = ""
+    for f in files:
+        s += '#include "../%s/%s"\n' % (d,f)
+    outfile.write(s)
+    
+    

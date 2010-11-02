@@ -1,0 +1,2312 @@
+\hypertarget{npapi__extensions_8h}{
+\section{/home/derek/dev/cell-\/grid-\/game/nacl/crml/crml/core/npapi\_\-extensions.h File Reference}
+\label{npapi__extensions_8h}\index{/home/derek/dev/cell-\/grid-\/game/nacl/crml/crml/core/npapi\_\-extensions.h@{/home/derek/dev/cell-\/grid-\/game/nacl/crml/crml/core/npapi\_\-extensions.h}}
+}
+{\ttfamily \#include $<$nacl/npapi.h$>$}\par
+{\ttfamily \#include $<$stddef.h$>$}\par
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct___n_p_key_event}{\_\-NPKeyEvent}
+\item 
+struct \hyperlink{struct___n_p_character_event}{\_\-NPCharacterEvent}
+\item 
+struct \hyperlink{struct___n_p_mouse_event}{\_\-NPMouseEvent}
+\item 
+struct \hyperlink{struct___n_p_mouse_wheel_event}{\_\-NPMouseWheelEvent}
+\item 
+struct \hyperlink{struct___n_p_device_event}{\_\-NPDeviceEvent}
+\item 
+struct \hyperlink{struct___n_p_minimize_event}{\_\-NPMinimizeEvent}
+\item 
+struct \hyperlink{struct___n_p_focus_event}{\_\-NPFocusEvent}
+\item 
+struct \hyperlink{struct___n_p_pepper_event}{\_\-NPPepperEvent}
+\item 
+struct \hyperlink{struct___n_p_device_context2_d_config}{\_\-NPDeviceContext2DConfig}
+\item 
+struct \hyperlink{struct___n_p_device_context2_d}{\_\-NPDeviceContext2D}
+\item 
+struct \hyperlink{struct___n_p_device_buffer}{\_\-NPDeviceBuffer}
+\item 
+struct \hyperlink{struct_n_p_device}{NPDevice}
+\item 
+struct \hyperlink{struct___n_p_scrollbar_create_params}{\_\-NPScrollbarCreateParams}
+\item 
+struct \hyperlink{struct___n_p_rect32}{\_\-NPRect32}
+\item 
+struct \hyperlink{struct___n_p_scrollbar_tick_marks}{\_\-NPScrollbarTickMarks}
+\item 
+struct \hyperlink{struct___n_p_widget_extensions}{\_\-NPWidgetExtensions}
+\item 
+struct \hyperlink{struct___n_p_font_description}{\_\-NPFontDescription}
+\item 
+struct \hyperlink{struct___n_p_font_extensions}{\_\-NPFontExtensions}
+\item 
+struct \hyperlink{struct_n_p_n_extensions}{NPNExtensions}
+\item 
+struct \hyperlink{struct___n_p_device_context3_d_config}{\_\-NPDeviceContext3DConfig}
+\item 
+struct \hyperlink{struct___n_p_device_context3_d}{\_\-NPDeviceContext3D}
+\item 
+struct \hyperlink{struct___n_p_device_context_audio_config}{\_\-NPDeviceContextAudioConfig}
+\item 
+struct \hyperlink{struct___n_p_device_context_audio}{\_\-NPDeviceContextAudio}
+\item 
+struct \hyperlink{struct___n_p_print_page_number_range}{\_\-NPPrintPageNumberRange}
+\item 
+struct \hyperlink{struct___n_p_p_print_extensions}{\_\-NPPPrintExtensions}
+\item 
+struct \hyperlink{struct___n_p_p_find_extensions}{\_\-NPPFindExtensions}
+\item 
+struct \hyperlink{struct___n_p_p_extensions}{\_\-NPPExtensions}
+\end{DoxyCompactItemize}
+\subsection*{Defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{npapi__extensions_8h_af101125600c9189fbb293566ed8c0ef5}{NPNVPepperExtensions}~((\hyperlink{npapi_8h_ac6ceb0585e9b642ef0ee915918ae07c5}{NPNVariable}) 4000)
+\item 
+\#define \hyperlink{npapi__extensions_8h_a02dc7840eb0a224ddac370883f3f870c}{NPPVPepperExtensions}~((\hyperlink{npapi_8h_a1b56dde896277605195e0fad69cbca7d}{NPPVariable}) 4001)
+\item 
+\#define \hyperlink{npapi__extensions_8h_aa2d69250c7545bbd1eae88eedb3d5ed3}{NPPepper2DDevice}~1
+\item 
+\#define \hyperlink{npapi__extensions_8h_a7f176c6b597f67ac34e2566fe5ff8fcd}{NPPepper3DDevice}~2
+\item 
+\#define \hyperlink{npapi__extensions_8h_a9ed8afab12f113f8a0d3fb567cf113f6}{NPPepperAudioDevice}~3
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef void \hyperlink{npapi__extensions_8h_aff49d24cce064681b541c4c137d7f26b}{NPDeviceConfig}
+\item 
+typedef void \hyperlink{npapi__extensions_8h_a767de32383e08a9cfeb71079e60466bf}{NPDeviceContext}
+\item 
+typedef void \hyperlink{npapi__extensions_8h_abc0171cecceff1ceff07f3352c4a3888}{NPUserData}
+\item 
+typedef int32\_\-t \hyperlink{npapi__extensions_8h_af06c24765f895a9b7ac2af96d8db1e61}{NPDeviceID}
+\item 
+typedef struct \hyperlink{struct___n_p_key_event}{\_\-NPKeyEvent} \hyperlink{npapi__extensions_8h_a54184a21190545a2ecf4b77118d30f54}{NPKeyEvent}
+\item 
+typedef struct \hyperlink{struct___n_p_character_event}{\_\-NPCharacterEvent} \hyperlink{npapi__extensions_8h_ac31817f3fd946d93f2f027dda3483c61}{NPCharacterEvent}
+\item 
+typedef struct \hyperlink{struct___n_p_mouse_event}{\_\-NPMouseEvent} \hyperlink{npapi__extensions_8h_af6ff77be2f16da2f914067170e87d9f0}{NPMouseEvent}
+\item 
+typedef struct \hyperlink{struct___n_p_mouse_wheel_event}{\_\-NPMouseWheelEvent} \hyperlink{npapi__extensions_8h_aaf296c760e39523a65671fe4fa5949e5}{NPMouseWheelEvent}
+\item 
+typedef struct \hyperlink{struct___n_p_device_event}{\_\-NPDeviceEvent} \hyperlink{npapi__extensions_8h_a18a6a4546a187268ee09ae622ee3bc8e}{NPDeviceEvent}
+\item 
+typedef struct \hyperlink{struct___n_p_minimize_event}{\_\-NPMinimizeEvent} \hyperlink{npapi__extensions_8h_aca6d6ac772387c9cbd0b43df02141585}{NPMinimizeEvent}
+\item 
+typedef struct \hyperlink{struct___n_p_focus_event}{\_\-NPFocusEvent} \hyperlink{npapi__extensions_8h_a8781644f16a41fba88358f06f576b088}{NPFocusEvent}
+\item 
+typedef struct \hyperlink{struct___n_p_pepper_event}{\_\-NPPepperEvent} \hyperlink{npapi__extensions_8h_a56e5558e872ff8e3b782a22adef19474}{NPPepperEvent}
+\item 
+typedef struct \hyperlink{struct___n_p_device_context2_d_config}{\_\-NPDeviceContext2DConfig} \hyperlink{npapi__extensions_8h_a96b199b60ed2e566be8d515dbd42c865}{NPDeviceContext2DConfig}
+\item 
+typedef struct \hyperlink{struct___n_p_device_context2_d}{\_\-NPDeviceContext2D} \hyperlink{npapi__extensions_8h_a169aa6149cbd2be74211721750d22cb8}{NPDeviceContext2D}
+\item 
+typedef struct \hyperlink{struct___n_p_device_buffer}{\_\-NPDeviceBuffer} \hyperlink{npapi__extensions_8h_ae0c4c4a612d4ef7b0bdaef86381a16aa}{NPDeviceBuffer}
+\item 
+typedef void($\ast$ \hyperlink{npapi__extensions_8h_a1354657486b971aafcd2745c5b97e436}{NPDeviceFlushContextCallbackPtr} )(\hyperlink{struct___n_p_p}{NPP} instance, \hyperlink{npapi__extensions_8h_a767de32383e08a9cfeb71079e60466bf}{NPDeviceContext} $\ast$context, \hyperlink{npapi_8h_a56715bc92ac93f0447a05f852ce18828}{NPError} err, \hyperlink{npapi__extensions_8h_abc0171cecceff1ceff07f3352c4a3888}{NPUserData} $\ast$userData)
+\item 
+typedef \hyperlink{npapi_8h_a56715bc92ac93f0447a05f852ce18828}{NPError}($\ast$ \hyperlink{npapi__extensions_8h_a048052d99502d616b23a7d4744600618}{NPDeviceQueryCapabilityPtr} )(\hyperlink{struct___n_p_p}{NPP} instance, int32\_\-t capability, int32\_\-t $\ast$value)
+\item 
+typedef \hyperlink{npapi_8h_a56715bc92ac93f0447a05f852ce18828}{NPError}($\ast$ \hyperlink{npapi__extensions_8h_acd6318131a9d90e0ddfbae5b341f18a7}{NPDeviceQueryConfigPtr} )(\hyperlink{struct___n_p_p}{NPP} instance, const \hyperlink{npapi__extensions_8h_aff49d24cce064681b541c4c137d7f26b}{NPDeviceConfig} $\ast$request, \hyperlink{npapi__extensions_8h_aff49d24cce064681b541c4c137d7f26b}{NPDeviceConfig} $\ast$obtain)
+\item 
+typedef \hyperlink{npapi_8h_a56715bc92ac93f0447a05f852ce18828}{NPError}($\ast$ \hyperlink{npapi__extensions_8h_ab43b75c14de2dbcd6fff653c6c2b718f}{NPDeviceInitializeContextPtr} )(\hyperlink{struct___n_p_p}{NPP} instance, const \hyperlink{npapi__extensions_8h_aff49d24cce064681b541c4c137d7f26b}{NPDeviceConfig} $\ast$config, \hyperlink{npapi__extensions_8h_a767de32383e08a9cfeb71079e60466bf}{NPDeviceContext} $\ast$context)
+\item 
+typedef \hyperlink{npapi_8h_a56715bc92ac93f0447a05f852ce18828}{NPError}($\ast$ \hyperlink{npapi__extensions_8h_aa45815351f353c0424a2b69733206a71}{NPDeviceGetStateContextPtr} )(\hyperlink{struct___n_p_p}{NPP} instance, \hyperlink{npapi__extensions_8h_a767de32383e08a9cfeb71079e60466bf}{NPDeviceContext} $\ast$context, int32\_\-t state, intptr\_\-t $\ast$value)
+\item 
+typedef \hyperlink{npapi_8h_a56715bc92ac93f0447a05f852ce18828}{NPError}($\ast$ \hyperlink{npapi__extensions_8h_a7454cddd29af1e03fee6956298f3a0fb}{NPDeviceSetStateContextPtr} )(\hyperlink{struct___n_p_p}{NPP} instance, \hyperlink{npapi__extensions_8h_a767de32383e08a9cfeb71079e60466bf}{NPDeviceContext} $\ast$context, int32\_\-t state, intptr\_\-t value)
+\item 
+typedef \hyperlink{npapi_8h_a56715bc92ac93f0447a05f852ce18828}{NPError}($\ast$ \hyperlink{npapi__extensions_8h_aedbb7b875a59c38191ae3e448dccf885}{NPDeviceFlushContextPtr} )(\hyperlink{struct___n_p_p}{NPP} instance, \hyperlink{npapi__extensions_8h_a767de32383e08a9cfeb71079e60466bf}{NPDeviceContext} $\ast$context, \hyperlink{npapi__extensions_8h_a1354657486b971aafcd2745c5b97e436}{NPDeviceFlushContextCallbackPtr} callback, void $\ast$userData)
+\item 
+typedef \hyperlink{npapi_8h_a56715bc92ac93f0447a05f852ce18828}{NPError}($\ast$ \hyperlink{npapi__extensions_8h_ae5a0f8b1ce7f30a7c919aa180e6e8f61}{NPDeviceDestroyContextPtr} )(\hyperlink{struct___n_p_p}{NPP} instance, \hyperlink{npapi__extensions_8h_a767de32383e08a9cfeb71079e60466bf}{NPDeviceContext} $\ast$context)
+\item 
+typedef \hyperlink{npapi_8h_a56715bc92ac93f0447a05f852ce18828}{NPError}($\ast$ \hyperlink{npapi__extensions_8h_a7c82e5512e772db685c46d1597157ab4}{NPDeviceCreateBufferPtr} )(\hyperlink{struct___n_p_p}{NPP} instance, \hyperlink{npapi__extensions_8h_a767de32383e08a9cfeb71079e60466bf}{NPDeviceContext} $\ast$context, size\_\-t size, int32\_\-t $\ast$id)
+\item 
+typedef \hyperlink{npapi_8h_a56715bc92ac93f0447a05f852ce18828}{NPError}($\ast$ \hyperlink{npapi__extensions_8h_a60dc39f005eec39bf1efd43149fde911}{NPDeviceDestroyBufferPtr} )(\hyperlink{struct___n_p_p}{NPP} instance, \hyperlink{npapi__extensions_8h_a767de32383e08a9cfeb71079e60466bf}{NPDeviceContext} $\ast$context, int32\_\-t id)
+\item 
+typedef \hyperlink{npapi_8h_a56715bc92ac93f0447a05f852ce18828}{NPError}($\ast$ \hyperlink{npapi__extensions_8h_ad14ca40b2289d2bd9e7c55cb02448b5e}{NPDeviceMapBufferPtr} )(\hyperlink{struct___n_p_p}{NPP} instance, \hyperlink{npapi__extensions_8h_a767de32383e08a9cfeb71079e60466bf}{NPDeviceContext} $\ast$context, int32\_\-t id, \hyperlink{struct___n_p_device_buffer}{NPDeviceBuffer} $\ast$buffer)
+\item 
+typedef struct \hyperlink{struct_n_p_device}{NPDevice} \hyperlink{npapi__extensions_8h_a91fee7dce854160a03a34db32e1775f7}{NPDevice}
+\item 
+typedef struct \hyperlink{struct_n_p_n_extensions}{NPNExtensions} \hyperlink{npapi__extensions_8h_a53bcdf1b9e111620331810631b7c21c7}{NPNExtensions}
+\item 
+typedef struct \hyperlink{struct_n_p_n_extensions}{NPNExtensions} \hyperlink{npapi__extensions_8h_a70f0dc879af15b492560d712421b0899}{NPExtensions}
+\item 
+typedef \hyperlink{npapi_8h_a56715bc92ac93f0447a05f852ce18828}{NPError}($\ast$ \hyperlink{npapi__extensions_8h_ade5ff8d3cb504dfbf245dcaebc7cd3b2}{NPDeviceGetNumConfigsPtr} )(\hyperlink{struct___n_p_p}{NPP} instance, int32\_\-t $\ast$numConfigs)
+\item 
+typedef \hyperlink{npapi_8h_a56715bc92ac93f0447a05f852ce18828}{NPError}($\ast$ \hyperlink{npapi__extensions_8h_a660df27bed370abf3baebb56c704200a}{NPDeviceGetConfigAttribsPtr} )(\hyperlink{struct___n_p_p}{NPP} instance, int32\_\-t config, int32\_\-t $\ast$attribList)
+\item 
+typedef \hyperlink{npapi_8h_a56715bc92ac93f0447a05f852ce18828}{NPError}($\ast$ \hyperlink{npapi__extensions_8h_a36b356d09b5e82da40ec7ad19bd42bc6}{NPDeviceCreateContextPtr} )(\hyperlink{struct___n_p_p}{NPP} instance, int32\_\-t config, const int32\_\-t $\ast$attribList, \hyperlink{npapi__extensions_8h_a767de32383e08a9cfeb71079e60466bf}{NPDeviceContext} $\ast$$\ast$context)
+\item 
+typedef void($\ast$ \hyperlink{npapi__extensions_8h_a6acc2a2e6f6e5937b3b49d61d969dc56}{NPDeviceGenericCallbackPtr} )(void)
+\item 
+typedef \hyperlink{npapi_8h_a56715bc92ac93f0447a05f852ce18828}{NPError}($\ast$ \hyperlink{npapi__extensions_8h_a003fb978f531f551765fb44894197b51}{NPDeviceRegisterCallbackPtr} )(\hyperlink{struct___n_p_p}{NPP} instance, \hyperlink{npapi__extensions_8h_a767de32383e08a9cfeb71079e60466bf}{NPDeviceContext} $\ast$context, int32\_\-t callbackType, \hyperlink{npapi__extensions_8h_a6acc2a2e6f6e5937b3b49d61d969dc56}{NPDeviceGenericCallbackPtr} callback, void $\ast$callbackData)
+\item 
+typedef void($\ast$ \hyperlink{npapi__extensions_8h_a068fe5ab6b62db6c7d8b7ee3e756b564}{NPDeviceSynchronizeContextCallbackPtr} )(\hyperlink{struct___n_p_p}{NPP} instance, \hyperlink{npapi__extensions_8h_a767de32383e08a9cfeb71079e60466bf}{NPDeviceContext} $\ast$context, \hyperlink{npapi_8h_a56715bc92ac93f0447a05f852ce18828}{NPError} error, void $\ast$data)
+\item 
+typedef \hyperlink{npapi_8h_a56715bc92ac93f0447a05f852ce18828}{NPError}($\ast$ \hyperlink{npapi__extensions_8h_afd16b06e76a421e061954c742082cd1c}{NPDeviceSynchronizeContextPtr} )(\hyperlink{struct___n_p_p}{NPP} instance, \hyperlink{npapi__extensions_8h_a767de32383e08a9cfeb71079e60466bf}{NPDeviceContext} $\ast$context, \hyperlink{npapi__extensions_8h_ac3ad6d70d8b6501e504d3980d0e9be7e}{NPDeviceSynchronizationMode} mode, const int32\_\-t $\ast$inputAttribList, int32\_\-t $\ast$outputAttribList, \hyperlink{npapi__extensions_8h_a068fe5ab6b62db6c7d8b7ee3e756b564}{NPDeviceSynchronizeContextCallbackPtr} callback, void $\ast$callbackData)
+\item 
+typedef \hyperlink{struct_n_p_device}{NPDevice} $\ast$($\ast$ \hyperlink{npapi__extensions_8h_a718039334715c01ec9d651fab6873762}{NPAcquireDevicePtr} )(\hyperlink{struct___n_p_p}{NPP} instance, \hyperlink{npapi__extensions_8h_af06c24765f895a9b7ac2af96d8db1e61}{NPDeviceID} device)
+\item 
+typedef void($\ast$ \hyperlink{npapi__extensions_8h_a669d08b972f7ac19bfb551f575940803}{NPNumberOfFindResultsChangedPtr} )(\hyperlink{struct___n_p_p}{NPP} instance, int total, bool finalResult)
+\item 
+typedef void($\ast$ \hyperlink{npapi__extensions_8h_a1b4c4cc3146e0723b7f0c0d5189b9200}{NPSelectedFindResultChangedPtr} )(\hyperlink{struct___n_p_p}{NPP} instance, int index)
+\item 
+typedef int32\_\-t \hyperlink{npapi__extensions_8h_adfb8f5bdd62cb39bc3544c2a835af6fd}{NPWidgetID}
+\item 
+typedef struct \hyperlink{struct___n_p_scrollbar_create_params}{\_\-NPScrollbarCreateParams} \hyperlink{npapi__extensions_8h_a36348a1e5e1fa04c1c8b4f51acb51df9}{NPScrollbarCreateParams}
+\item 
+typedef struct \hyperlink{struct___n_p_rect32}{\_\-NPRect32} \hyperlink{npapi__extensions_8h_a06075cec6e3481127cf38fcaf4a60d5d}{NPRect32}
+\item 
+typedef struct \hyperlink{struct___n_p_scrollbar_tick_marks}{\_\-NPScrollbarTickMarks} \hyperlink{npapi__extensions_8h_ad6edec5182d7fe205ea963ae3d892339}{NPScrollbarTickMarks}
+\item 
+typedef \hyperlink{npapi_8h_a56715bc92ac93f0447a05f852ce18828}{NPError}($\ast$ \hyperlink{npapi__extensions_8h_abff4046dcfab965b3e91b0bc6f81a191}{NPCreateWidgetPtr} )(\hyperlink{struct___n_p_p}{NPP} instance, \hyperlink{npapi__extensions_8h_a4e443aad32384692d97110cae9843481}{NPWidgetType} type, void $\ast$params, \hyperlink{npapi__extensions_8h_adfb8f5bdd62cb39bc3544c2a835af6fd}{NPWidgetID} $\ast$id)
+\item 
+typedef \hyperlink{npapi_8h_a56715bc92ac93f0447a05f852ce18828}{NPError}($\ast$ \hyperlink{npapi__extensions_8h_ad465d3f058b0f8c3dcfee2e2575dfb64}{NPDestroyWidgetPtr} )(\hyperlink{struct___n_p_p}{NPP} instance, \hyperlink{npapi__extensions_8h_adfb8f5bdd62cb39bc3544c2a835af6fd}{NPWidgetID} id)
+\item 
+typedef \hyperlink{npapi_8h_a56715bc92ac93f0447a05f852ce18828}{NPError}($\ast$ \hyperlink{npapi__extensions_8h_ab0aa503371ea560cdf1ca8b7b2e18af3}{NPPaintWidgetPtr} )(\hyperlink{struct___n_p_p}{NPP} instance, \hyperlink{npapi__extensions_8h_adfb8f5bdd62cb39bc3544c2a835af6fd}{NPWidgetID} id, \hyperlink{struct___n_p_device_context2_d}{NPDeviceContext2D} $\ast$context, \hyperlink{struct___n_p_rect}{NPRect} $\ast$dirty)
+\item 
+typedef bool($\ast$ \hyperlink{npapi__extensions_8h_a160e9c388ac38a57286619e69985d82a}{NPHandleWidgetEventPtr} )(\hyperlink{struct___n_p_p}{NPP} instance, \hyperlink{npapi__extensions_8h_adfb8f5bdd62cb39bc3544c2a835af6fd}{NPWidgetID} id, \hyperlink{struct___n_p_pepper_event}{NPPepperEvent} $\ast$event)
+\item 
+typedef \hyperlink{npapi_8h_a56715bc92ac93f0447a05f852ce18828}{NPError}($\ast$ \hyperlink{npapi__extensions_8h_a9a52de31fde3f4099fe5f5be01b799a7}{NPGetWidgetPropertyPtr} )(\hyperlink{struct___n_p_p}{NPP} instance, \hyperlink{npapi__extensions_8h_adfb8f5bdd62cb39bc3544c2a835af6fd}{NPWidgetID} id, \hyperlink{npapi__extensions_8h_ac86c3112e5617ea60fab07fecce57cd2}{NPWidgetProperty} property, void $\ast$value)
+\item 
+typedef \hyperlink{npapi_8h_a56715bc92ac93f0447a05f852ce18828}{NPError}($\ast$ \hyperlink{npapi__extensions_8h_a9a53efaef2e5ec6314c2c0a436212677}{NPSetWidgetPropertyPtr} )(\hyperlink{struct___n_p_p}{NPP} instance, \hyperlink{npapi__extensions_8h_adfb8f5bdd62cb39bc3544c2a835af6fd}{NPWidgetID} id, \hyperlink{npapi__extensions_8h_ac86c3112e5617ea60fab07fecce57cd2}{NPWidgetProperty} property, void $\ast$value)
+\item 
+typedef struct \hyperlink{struct___n_p_widget_extensions}{\_\-NPWidgetExtensions} \hyperlink{npapi__extensions_8h_ad6fe595fcb09c88284cfe4e7921d350c}{NPWidgetExtensions}
+\item 
+typedef \hyperlink{struct___n_p_widget_extensions}{NPWidgetExtensions} $\ast$($\ast$ \hyperlink{npapi__extensions_8h_a953f27eab35003c42c2caabbf8ea6603}{NPGetWidgetExtensionsPtr} )(\hyperlink{struct___n_p_p}{NPP} instance)
+\item 
+typedef void($\ast$ \hyperlink{npapi__extensions_8h_a7f06df87f25a1a17f7c1f4a809cbd02b}{NPChooseFileCallback} )(const char $\ast$$\ast$filePaths, uint32\_\-t pathCount, void $\ast$userData)
+\item 
+typedef \hyperlink{npapi_8h_a56715bc92ac93f0447a05f852ce18828}{NPError}($\ast$ \hyperlink{npapi__extensions_8h_a0ab0de5413eb4d975ac9a22df04d9909}{NPChooseFilePtr} )(\hyperlink{struct___n_p_p}{NPP} instance, const char $\ast$mimeTypes, \hyperlink{npapi__extensions_8h_a996c70aa4f311653c38ea4c6db13f91f}{NPChooseFileMode} mode, \hyperlink{npapi__extensions_8h_a7f06df87f25a1a17f7c1f4a809cbd02b}{NPChooseFileCallback} callback, void $\ast$userData)
+\item 
+typedef \hyperlink{npapi_8h_a56715bc92ac93f0447a05f852ce18828}{NPError}($\ast$ \hyperlink{npapi__extensions_8h_a21eebf919613dec3d7790905d9bd1dd8}{NPSetCursorPtr} )(\hyperlink{struct___n_p_p}{NPP} instance, \hyperlink{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161}{NPCursorType} type)
+\item 
+typedef int \hyperlink{npapi__extensions_8h_ac35247aaf757ec2b44ec1d67de5b1b04}{NPFontID}
+\item 
+typedef struct \hyperlink{struct___n_p_font_description}{\_\-NPFontDescription} \hyperlink{npapi__extensions_8h_a694d1344a0ec8cf679cce86765aba47b}{NPFontDescription}
+\item 
+typedef \hyperlink{npapi_8h_a56715bc92ac93f0447a05f852ce18828}{NPError}($\ast$ \hyperlink{npapi__extensions_8h_a34e4527ad657576de1f6ade509b9bdf0}{NPMatchFontWithFallbackPtr} )(\hyperlink{struct___n_p_p}{NPP} instance, const \hyperlink{struct___n_p_font_description}{NPFontDescription} $\ast$description, \hyperlink{npapi__extensions_8h_ac35247aaf757ec2b44ec1d67de5b1b04}{NPFontID} $\ast$id)
+\item 
+typedef \hyperlink{npapi_8h_a56715bc92ac93f0447a05f852ce18828}{NPError}($\ast$ \hyperlink{npapi__extensions_8h_aa4528a94d7c4edaf308a784b25310069}{GetFontTablePtr} )(\hyperlink{struct___n_p_p}{NPP} instance, \hyperlink{npapi__extensions_8h_ac35247aaf757ec2b44ec1d67de5b1b04}{NPFontID} id, uint32\_\-t table, void $\ast$output, size\_\-t $\ast$output\_\-length)
+\item 
+typedef \hyperlink{npapi_8h_a56715bc92ac93f0447a05f852ce18828}{NPError}($\ast$ \hyperlink{npapi__extensions_8h_a18516feaf8eb67200682c7b55f0844a5}{NPDestroyFontPtr} )(\hyperlink{struct___n_p_p}{NPP} instance, \hyperlink{npapi__extensions_8h_ac35247aaf757ec2b44ec1d67de5b1b04}{NPFontID} id)
+\item 
+typedef struct \hyperlink{struct___n_p_font_extensions}{\_\-NPFontExtensions} \hyperlink{npapi__extensions_8h_a7a5678b906362566db2d9c22ca9a2c0c}{NPFontExtensions}
+\item 
+typedef \hyperlink{struct___n_p_font_extensions}{NPFontExtensions} $\ast$($\ast$ \hyperlink{npapi__extensions_8h_a4df1919745f7f62ef1710b25f14dd9ac}{NPGetFontExtensionsPtr} )(\hyperlink{struct___n_p_p}{NPP} instance)
+\item 
+typedef struct \hyperlink{struct___n_p_device_context3_d_config}{\_\-NPDeviceContext3DConfig} \hyperlink{npapi__extensions_8h_a07a86c9f28a529f54933e5efca159227}{NPDeviceContext3DConfig}
+\item 
+typedef enum \hyperlink{npapi__extensions_8h_ab5399bc87c840ea21d35a3bb9b134304}{\_\-NPDeviceContext3DError} \hyperlink{npapi__extensions_8h_a906aa19cdf5fda7001f724a41118229a}{NPDeviceContext3DError}
+\item 
+typedef struct \hyperlink{struct___n_p_device_context3_d}{\_\-NPDeviceContext3D} \hyperlink{npapi__extensions_8h_ab4abe9a009fd531352a4fbea8219f529}{NPDeviceContext3D}
+\item 
+typedef void($\ast$ \hyperlink{npapi__extensions_8h_a619585c201cffd2cf885f5962c18acad}{NPDeviceContext3DRepaintPtr} )(\hyperlink{struct___n_p_p}{NPP} npp, \hyperlink{struct___n_p_device_context3_d}{NPDeviceContext3D} $\ast$context)
+\item 
+typedef struct \hyperlink{struct___n_p_device_context_audio}{\_\-NPDeviceContextAudio} \hyperlink{npapi__extensions_8h_ad74d13352c45ec6c69f25872975bb397}{NPDeviceContextAudio}
+\item 
+typedef void($\ast$ \hyperlink{npapi__extensions_8h_ac16a100eeec4f1d8a44e1d4e4a55cd31}{NPAudioCallback} )(\hyperlink{struct___n_p_device_context_audio}{NPDeviceContextAudio} $\ast$context)
+\item 
+typedef struct \hyperlink{struct___n_p_device_context_audio_config}{\_\-NPDeviceContextAudioConfig} \hyperlink{npapi__extensions_8h_a6979daef08fb2446983e5bd707300898}{NPDeviceContextAudioConfig}
+\item 
+typedef struct \hyperlink{struct___n_p_print_page_number_range}{\_\-NPPrintPageNumberRange} \hyperlink{npapi__extensions_8h_ace4f9715727a8e7cb5c38f22401a57ca}{NPPrintPageNumberRange}
+\item 
+typedef \hyperlink{npapi_8h_a56715bc92ac93f0447a05f852ce18828}{NPError}($\ast$ \hyperlink{npapi__extensions_8h_ac4ce3082b0e9d4ba0cd69b296a69a946}{NPPPrintBeginPtr} )(\hyperlink{struct___n_p_p}{NPP} instance, \hyperlink{struct___n_p_rect}{NPRect} $\ast$printableArea, int32\_\-t printerDPI, int32\_\-t $\ast$numPages)
+\item 
+typedef \hyperlink{npapi_8h_a56715bc92ac93f0447a05f852ce18828}{NPError}($\ast$ \hyperlink{npapi__extensions_8h_a73f0f82629c1090966640bc461193624}{NPPGetRasterDimensionsPtr} )(\hyperlink{struct___n_p_p}{NPP} instance, int32\_\-t pageNumber, int32\_\-t $\ast$widthInPixels, int32\_\-t $\ast$heightInPixels)
+\item 
+typedef \hyperlink{npapi_8h_a56715bc92ac93f0447a05f852ce18828}{NPError}($\ast$ \hyperlink{npapi__extensions_8h_a93b16a0532f2d7748c59b5987709a0e5}{NPPPrintPageRasterPtr} )(\hyperlink{struct___n_p_p}{NPP} instance, int32\_\-t pageNumber, \hyperlink{struct___n_p_device_context2_d}{NPDeviceContext2D} $\ast$printSurface)
+\item 
+typedef \hyperlink{npapi_8h_a56715bc92ac93f0447a05f852ce18828}{NPError}($\ast$ \hyperlink{npapi__extensions_8h_afab984aad3dfedabd2b9aae4c8250a8d}{NPPPrintEndPtr} )(\hyperlink{struct___n_p_p}{NPP} instance)
+\item 
+typedef \hyperlink{npapi_8h_a56715bc92ac93f0447a05f852ce18828}{NPError}($\ast$ \hyperlink{npapi__extensions_8h_a0aa9a3a1bb215dc36d466efdab898789}{NPPrintPagesAsPDFPtr} )(\hyperlink{struct___n_p_p}{NPP} instance, \hyperlink{struct___n_p_print_page_number_range}{NPPrintPageNumberRange} $\ast$page\_\-ranges, int32\_\-t page\_\-range\_\-count, unsigned char $\ast$$\ast$pdf\_\-output, int32\_\-t $\ast$output\_\-size)
+\item 
+typedef struct \hyperlink{struct___n_p_p_print_extensions}{\_\-NPPPrintExtensions} \hyperlink{npapi__extensions_8h_a2ded5aa224d475daa36354c461e6bc45}{NPPPrintExtensions}
+\item 
+typedef \hyperlink{struct___n_p_p_print_extensions}{NPPPrintExtensions} $\ast$($\ast$ \hyperlink{npapi__extensions_8h_a42e6862ee4614a5f45e3158bf882b6ba}{NPPGetPrintExtensionsPtr} )(\hyperlink{struct___n_p_p}{NPP} instance)
+\item 
+typedef \hyperlink{npapi_8h_a56715bc92ac93f0447a05f852ce18828}{NPError}($\ast$ \hyperlink{npapi__extensions_8h_a83120f743e8de769e389550822523f51}{NPPStartFindPtr} )(\hyperlink{struct___n_p_p}{NPP} instance, const char $\ast$text, bool caseSensitive)
+\item 
+typedef \hyperlink{npapi_8h_a56715bc92ac93f0447a05f852ce18828}{NPError}($\ast$ \hyperlink{npapi__extensions_8h_af3581e5704f4303fdb93ed502f59a9f5}{NPPSelectFindResultPtr} )(\hyperlink{struct___n_p_p}{NPP} instance, bool forward)
+\item 
+typedef \hyperlink{npapi_8h_a56715bc92ac93f0447a05f852ce18828}{NPError}($\ast$ \hyperlink{npapi__extensions_8h_a79111add50d7429acdfa26ad0a55e4ae}{NPPStopFindPtr} )(\hyperlink{struct___n_p_p}{NPP} instance)
+\item 
+typedef struct \hyperlink{struct___n_p_p_find_extensions}{\_\-NPPFindExtensions} \hyperlink{npapi__extensions_8h_ae9595289845576ceff9b1c6b5c4095af}{NPPFindExtensions}
+\item 
+typedef \hyperlink{struct___n_p_p_find_extensions}{NPPFindExtensions} $\ast$($\ast$ \hyperlink{npapi__extensions_8h_aeb4bff85058ef043c6c55eacdeb7fc08}{NPPGetFindExtensionsPtr} )(\hyperlink{struct___n_p_p}{NPP} instance)
+\item 
+typedef \hyperlink{npapi_8h_a56715bc92ac93f0447a05f852ce18828}{NPError}($\ast$ \hyperlink{npapi__extensions_8h_a9bb4d9f7a42a25495ba0046eabf49cf6}{NPPZoomPtr} )(\hyperlink{struct___n_p_p}{NPP} instance, int factor)
+\item 
+typedef \hyperlink{npapi_8h_a56715bc92ac93f0447a05f852ce18828}{NPError}($\ast$ \hyperlink{npapi__extensions_8h_a27a03ca543630aa9b10afb5a0d0c6bd7}{NPPWidgetPropertyChangedPtr} )(\hyperlink{struct___n_p_p}{NPP} instance, \hyperlink{npapi__extensions_8h_adfb8f5bdd62cb39bc3544c2a835af6fd}{NPWidgetID} id, \hyperlink{npapi__extensions_8h_ac86c3112e5617ea60fab07fecce57cd2}{NPWidgetProperty} property)
+\item 
+typedef \hyperlink{npapi_8h_a56715bc92ac93f0447a05f852ce18828}{NPError}($\ast$ \hyperlink{npapi__extensions_8h_aedba5dce93f8bbc6144acce81353a1c8}{NPPGetSelectionPtr} )(\hyperlink{struct___n_p_p}{NPP} instance, \hyperlink{npapi__extensions_8h_adc5452bf7e44f44283e4f400a89c54b8}{NPSelectionType} $\ast$type, void $\ast$$\ast$data)
+\item 
+typedef struct \hyperlink{struct___n_p_p_extensions}{\_\-NPPExtensions} \hyperlink{npapi__extensions_8h_a4fce3cfd5f89ea1eaff19fdbe4d2ffbf}{NPPExtensions}
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{npapi__extensions_8h_ae8ae220daf8d448b0572cef14e504d6c}{NPMouseButtons} \{ \hyperlink{npapi__extensions_8h_ae8ae220daf8d448b0572cef14e504d6ca90619b8a1dd79be801ab3a63f8df391f}{NPMouseButton\_\-None} =  -\/1, 
+\hyperlink{npapi__extensions_8h_ae8ae220daf8d448b0572cef14e504d6cace386c87669ba3910c359a5b6526ae51}{NPMouseButton\_\-Left} =  0, 
+\hyperlink{npapi__extensions_8h_ae8ae220daf8d448b0572cef14e504d6caecf0a660b38ea084d88beff3e6fa0c7d}{NPMouseButton\_\-Middle} =  1, 
+\hyperlink{npapi__extensions_8h_ae8ae220daf8d448b0572cef14e504d6cac7233fde605e27bf714ef91c3c53d2df}{NPMouseButton\_\-Right} =  2
+ \}
+\item 
+enum \hyperlink{npapi__extensions_8h_a42572ecedf094f156536d7d6d8e6c590}{NPEventTypes} \{ \par
+\hyperlink{npapi__extensions_8h_a42572ecedf094f156536d7d6d8e6c590a567e0b7911ebaf6cd306a9d07b169319}{NPEventType\_\-Undefined} =  -\/1, 
+\hyperlink{npapi__extensions_8h_a42572ecedf094f156536d7d6d8e6c590aafb7e97d5a9d7dec34402a346eabedd1}{NPEventType\_\-MouseDown} =  0, 
+\hyperlink{npapi__extensions_8h_a42572ecedf094f156536d7d6d8e6c590a8ce3c82485c9538da1e422e1c0556168}{NPEventType\_\-MouseUp} =  1, 
+\hyperlink{npapi__extensions_8h_a42572ecedf094f156536d7d6d8e6c590a0f7bc51550d05d5699c78ca5eb996f1f}{NPEventType\_\-MouseMove} =  2, 
+\par
+\hyperlink{npapi__extensions_8h_a42572ecedf094f156536d7d6d8e6c590ae29e9f84d6ee6899a416d0c5e8b2a329}{NPEventType\_\-MouseEnter} =  3, 
+\hyperlink{npapi__extensions_8h_a42572ecedf094f156536d7d6d8e6c590a0743a1ea69036db69a5a32fb24125e90}{NPEventType\_\-MouseLeave} =  4, 
+\hyperlink{npapi__extensions_8h_a42572ecedf094f156536d7d6d8e6c590a1683c205fb4f0b29da9d50b6379dad64}{NPEventType\_\-MouseWheel} =  5, 
+\hyperlink{npapi__extensions_8h_a42572ecedf094f156536d7d6d8e6c590aba7337b396b7b4d8fd60498fcc3b8d89}{NPEventType\_\-RawKeyDown} =  6, 
+\par
+\hyperlink{npapi__extensions_8h_a42572ecedf094f156536d7d6d8e6c590a508199f3c8ad17467df53622fba60bd9}{NPEventType\_\-KeyDown} =  7, 
+\hyperlink{npapi__extensions_8h_a42572ecedf094f156536d7d6d8e6c590a05aa87a120196887d6c86f444932034a}{NPEventType\_\-KeyUp} =  8, 
+\hyperlink{npapi__extensions_8h_a42572ecedf094f156536d7d6d8e6c590aae4c909eab3d58f96df3873d136c77c5}{NPEventType\_\-Char} =  9, 
+\hyperlink{npapi__extensions_8h_a42572ecedf094f156536d7d6d8e6c590a909d25300a912a43aff48901ae92feb2}{NPEventType\_\-Minimize} =  10, 
+\par
+\hyperlink{npapi__extensions_8h_a42572ecedf094f156536d7d6d8e6c590addf7f0ccdbe96be3d21377509bb22708}{NPEventType\_\-Focus} =  11, 
+\hyperlink{npapi__extensions_8h_a42572ecedf094f156536d7d6d8e6c590a661e9784ac1b112acb54d5ac5f7614a1}{NPEventType\_\-Device} =  12
+ \}
+\item 
+enum \hyperlink{npapi__extensions_8h_a0a150d8eab15ad60f6a6b56db828ed66}{NPEventModifiers} \{ \par
+\hyperlink{npapi__extensions_8h_a0a150d8eab15ad60f6a6b56db828ed66a2a5ec574f16988f6bf2195c52bf7d9b9}{NPEventModifier\_\-ShiftKey} =  1 $<$$<$ 0, 
+\hyperlink{npapi__extensions_8h_a0a150d8eab15ad60f6a6b56db828ed66a53f189477943037c82b233bfc90506e9}{NPEventModifier\_\-ControlKey} =  1 $<$$<$ 1, 
+\hyperlink{npapi__extensions_8h_a0a150d8eab15ad60f6a6b56db828ed66a1afa17e612af85d4b87e38d4de569441}{NPEventModifier\_\-AltKey} =  1 $<$$<$ 2, 
+\hyperlink{npapi__extensions_8h_a0a150d8eab15ad60f6a6b56db828ed66ac7112b366896b87a9b48a3a59e543c5e}{NPEventModifier\_\-MetaKey} =  1 $<$$<$ 3, 
+\par
+\hyperlink{npapi__extensions_8h_a0a150d8eab15ad60f6a6b56db828ed66af2f7674daa9b9f760276607c9aac8fe5}{NPEventModifier\_\-IsKeyPad} =  1 $<$$<$ 4, 
+\hyperlink{npapi__extensions_8h_a0a150d8eab15ad60f6a6b56db828ed66a9d59a9c55fd0c7e1ce66182b0efb557e}{NPEventModifier\_\-IsAutoRepeat} =  1 $<$$<$ 5, 
+\hyperlink{npapi__extensions_8h_a0a150d8eab15ad60f6a6b56db828ed66afd5b94c7d55c868df95db6672abdf11b}{NPEventModifier\_\-LeftButtonDown} =  1 $<$$<$ 6, 
+\hyperlink{npapi__extensions_8h_a0a150d8eab15ad60f6a6b56db828ed66a42e2dd8af5dcece916dfd5b720804882}{NPEventModifier\_\-MiddleButtonDown} =  1 $<$$<$ 7, 
+\par
+\hyperlink{npapi__extensions_8h_a0a150d8eab15ad60f6a6b56db828ed66ac00922f58cdb8adf50f69cb0f5e41170}{NPEventModifier\_\-RightButtonDown} =  1 $<$$<$ 8
+ \}
+\item 
+enum \hyperlink{npapi__extensions_8h_ac3ad6d70d8b6501e504d3980d0e9be7e}{NPDeviceSynchronizationMode} \{ \hyperlink{npapi__extensions_8h_ac3ad6d70d8b6501e504d3980d0e9be7ea7f6647154557f662adf80715491769c7}{NPDeviceSynchronizationMode\_\-Cached}, 
+\hyperlink{npapi__extensions_8h_ac3ad6d70d8b6501e504d3980d0e9be7ea7355689acf0d66475efb3fe7c8c9dafc}{NPDeviceSynchronizationMode\_\-Immediate}, 
+\hyperlink{npapi__extensions_8h_ac3ad6d70d8b6501e504d3980d0e9be7ea5431966adc58b01728987df32a47223b}{NPDeviceSynchronizationMode\_\-Flush}
+ \}
+\item 
+enum \{ \hyperlink{npapi__extensions_8h_adf764cbdea00d65edcd07bb9953ad2b7a867cd8f4efcf8bee29cea4d46d6314c9}{NPAttrib\_\-End} =  0, 
+\hyperlink{npapi__extensions_8h_adf764cbdea00d65edcd07bb9953ad2b7a130cba0a0db690fda476efe73a423d90}{NPAttrib\_\-Error} =  0x80000000
+ \}
+\item 
+enum \hyperlink{npapi__extensions_8h_a4e443aad32384692d97110cae9843481}{NPWidgetType} \{ \hyperlink{npapi__extensions_8h_a4e443aad32384692d97110cae9843481a4aa2bf3be302ec6fb1a4feb752ee07a7}{NPWidgetTypeScrollbar} =  0
+ \}
+\item 
+enum \hyperlink{npapi__extensions_8h_ac86c3112e5617ea60fab07fecce57cd2}{NPWidgetProperty} \{ \par
+\hyperlink{npapi__extensions_8h_ac86c3112e5617ea60fab07fecce57cd2afd35ea123beefcbfc548e46a9dfe1a5e}{NPWidgetPropertyLocation} =  0, 
+\hyperlink{npapi__extensions_8h_ac86c3112e5617ea60fab07fecce57cd2ac9d0e2a185ca8a9a3d7f78fd08e29c07}{NPWidgetPropertyDirtyRect} =  1, 
+\hyperlink{npapi__extensions_8h_ac86c3112e5617ea60fab07fecce57cd2aa8696ff63337908029db47ffd64ada46}{NPWidgetPropertyScrollbarThickness} =  2, 
+\hyperlink{npapi__extensions_8h_ac86c3112e5617ea60fab07fecce57cd2ac02fa99233cec7eae80fb10d8586c561}{NPWidgetPropertyScrollbarValue} =  3, 
+\par
+\hyperlink{npapi__extensions_8h_ac86c3112e5617ea60fab07fecce57cd2a9c2dcefc62840b3a8eafd6bb4e88aec5}{NPWidgetPropertyScrollbarDocumentSize} =  4, 
+\hyperlink{npapi__extensions_8h_ac86c3112e5617ea60fab07fecce57cd2a0ea6df8738475e26aea3c466fcddffc8}{NPWidgetPropertyScrollbarTickMarks} =  5, 
+\hyperlink{npapi__extensions_8h_ac86c3112e5617ea60fab07fecce57cd2a1417434ea3c6ade049c58cfe219862f9}{NPWidgetPropertyScrollbarScrollByLine} =  6, 
+\hyperlink{npapi__extensions_8h_ac86c3112e5617ea60fab07fecce57cd2aae973448c17dfa0ec1c97e6dde897ab1}{NPWidgetPropertyScrollbarScrollByPage} =  7, 
+\par
+\hyperlink{npapi__extensions_8h_ac86c3112e5617ea60fab07fecce57cd2a981c49640d73afc1cabb42139bdb92e1}{NPWidgetPropertyScrollbarScrollByDocument} =  8, 
+\hyperlink{npapi__extensions_8h_ac86c3112e5617ea60fab07fecce57cd2aeab6bbe3612bcef6a80d8c06762b59a4}{NPWidgetPropertyScrollbarScrollByPixels} =  9
+ \}
+\item 
+enum \hyperlink{npapi__extensions_8h_a996c70aa4f311653c38ea4c6db13f91f}{NPChooseFileMode} \{ \hyperlink{npapi__extensions_8h_a996c70aa4f311653c38ea4c6db13f91faf1faf107fb91561f32cf2448ac13d04b}{NPChooseFile\_\-Open} =  1, 
+\hyperlink{npapi__extensions_8h_a996c70aa4f311653c38ea4c6db13f91fa60fc01076487ee262d545ac3e77ee23e}{NPChooseFile\_\-OpenMultiple} =  2, 
+\hyperlink{npapi__extensions_8h_a996c70aa4f311653c38ea4c6db13f91fa9d3ffc981aad4985b6a9c1677a6d47ea}{NPChooseFile\_\-Save} =  3
+ \}
+\item 
+enum \hyperlink{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161}{NPCursorType} \{ \par
+\hyperlink{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161a639a3baf60167cf332857f95be5becc9}{NPCursorTypePointer} =  0, 
+\hyperlink{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161ab30584f87146bcefbb2b8971f5ff00d2}{NPCursorTypeCross} =  1, 
+\hyperlink{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161a30d7fd8fe4b7c4a34fd9393cebead7b2}{NPCursorTypeHand} =  2, 
+\hyperlink{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161aa9e70af8c7d636b8a4001b0dba2902d5}{NPCursorTypeIBeam} =  3, 
+\par
+\hyperlink{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161aa99716433080b38f68de871093ec3ade}{NPCursorTypeWait} =  4, 
+\hyperlink{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161a94cd948f88b5aafac7dc935ff04fff85}{NPCursorTypeHelp} =  5, 
+\hyperlink{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161a99e067d938bb9da7ba1a3ecd56a95307}{NPCursorTypeEastResize} =  6, 
+\hyperlink{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161aa54cc5463063b43e1bbbb6adc7e656f2}{NPCursorTypeNorthResize} =  7, 
+\par
+\hyperlink{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161a7ff3682125efa8ccc8622a81c84e3ea9}{NPCursorTypeNorthEastResize} =  8, 
+\hyperlink{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161a8928cd07755abd9a0de629c2fc8250cb}{NPCursorTypeNorthWestResize} =  9, 
+\hyperlink{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161aa918add5833763bb3e9d402613de836d}{NPCursorTypeSouthResize} =  10, 
+\hyperlink{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161a5c6ef88c141ff06f28162a3d917b652f}{NPCursorTypeSouthEastResize} =  11, 
+\par
+\hyperlink{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161aed8b94bbb5586abcfd83425cf54b91b6}{NPCursorTypeSouthWestResize} =  12, 
+\hyperlink{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161a43874493d3ca67e252baa633ec2ad356}{NPCursorTypeWestResize} =  13, 
+\hyperlink{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161a71f9695e908beeecf16a4a122d9ce427}{NPCursorTypeNorthSouthResize} =  14, 
+\hyperlink{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161a6ae2c1c7d93422b07594108010323d85}{NPCursorTypeEastWestResize} =  15, 
+\par
+\hyperlink{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161ae592fb99844c22e29850bd7ce631d448}{NPCursorTypeNorthEastSouthWestResize} =  16, 
+\hyperlink{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161aabb598931247438818e1ff90fd20c8dc}{NPCursorTypeNorthWestSouthEastResize} =  17, 
+\hyperlink{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161a7a5f146a7d78e5bc4f978c715a1c9554}{NPCursorTypeColumnResize} =  18, 
+\hyperlink{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161a14ea6b72bb0548aec2074fb073cfbafd}{NPCursorTypeRowResize} =  19, 
+\par
+\hyperlink{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161a5f97a69b1ae86b92b3328f9d57182ddb}{NPCursorTypeMiddlePanning} =  20, 
+\hyperlink{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161a5853568be9f267141c3d0c989e8044bb}{NPCursorTypeEastPanning} =  21, 
+\hyperlink{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161a60a2ee73fd390222a5f61ae6170f4879}{NPCursorTypeNorthPanning} =  22, 
+\hyperlink{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161a5b41091bc1a91355278b3e873f51ab63}{NPCursorTypeNorthEastPanning} =  23, 
+\par
+\hyperlink{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161a8c8f47867806ded9fc2f4a1f3e133735}{NPCursorTypeNorthWestPanning} =  24, 
+\hyperlink{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161a92146e82e26da04b9502e414bb65f6cf}{NPCursorTypeSouthPanning} =  25, 
+\hyperlink{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161a5aa65d8617738fd968b6c2e33bc432cb}{NPCursorTypeSouthEastPanning} =  26, 
+\hyperlink{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161a5dcbe16158722f5e75ddd474cf9225fd}{NPCursorTypeSouthWestPanning} =  27, 
+\par
+\hyperlink{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161a71ef21dde6662934a8813cd1eac7a4f2}{NPCursorTypeWestPanning} =  28, 
+\hyperlink{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161aa9e7fad86d29316e037d2082718d0334}{NPCursorTypeMove} =  29, 
+\hyperlink{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161ae033415623fab92d8799564f62fee349}{NPCursorTypeVerticalText} =  30, 
+\hyperlink{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161a0fa54fd4e5c25821c1dce6d67a30ce34}{NPCursorTypeCell} =  31, 
+\par
+\hyperlink{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161a1740b7c73383c6522b9d20cf6a1e9982}{NPCursorTypeContextMenu} =  32, 
+\hyperlink{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161aa40cf238742f9339da564b44f1be62f3}{NPCursorTypeAlias} =  33, 
+\hyperlink{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161a83ae23439902a12b667fc9f586056e37}{NPCursorTypeProgress} =  34, 
+\hyperlink{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161af5934de7da8b6c6bd7d914c2e69bb163}{NPCursorTypeNoDrop} =  35, 
+\par
+\hyperlink{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161aea77ce89d19fbed809e27b0ba70d8bc8}{NPCursorTypeCopy} =  36, 
+\hyperlink{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161ab0742ea517785bbd18ca82bed831c34e}{NPCursorTypeNone} =  37, 
+\hyperlink{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161a578a2551fe28cf60806729af5d988085}{NPCursorTypeNotAllowed} =  38, 
+\hyperlink{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161a1f57a1e10972b8450f745eca61c42d7f}{NPCursorTypeZoomIn} =  39, 
+\par
+\hyperlink{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161ab708960bdd116d1c7c430df47a250d5c}{NPCursorTypeZoomOut} =  40
+ \}
+\item 
+enum \hyperlink{npapi__extensions_8h_a8d338781e5a4a188e3cb597be4e5bbe2}{NPCharset} \{ \par
+\hyperlink{npapi__extensions_8h_a8d338781e5a4a188e3cb597be4e5bbe2a848bfd0446318f32b21e9b9450275bf9}{NPCharsetAnsi} =  0, 
+\hyperlink{npapi__extensions_8h_a8d338781e5a4a188e3cb597be4e5bbe2a2820ada14c69a35ef61938416f095060}{NPCharsetDefault} =  1, 
+\hyperlink{npapi__extensions_8h_a8d338781e5a4a188e3cb597be4e5bbe2a030a5ca4f9dda585c671baa053fba44a}{NPCharsetSymbol} =  2, 
+\hyperlink{npapi__extensions_8h_a8d338781e5a4a188e3cb597be4e5bbe2a12c2bfd99efbd70a3f713982dc5faf2f}{NPCharsetMac} =  77, 
+\par
+\hyperlink{npapi__extensions_8h_a8d338781e5a4a188e3cb597be4e5bbe2aad37a3d42c25897b091144f05e374896}{NPCharsetShiftJIS} =  128, 
+\hyperlink{npapi__extensions_8h_a8d338781e5a4a188e3cb597be4e5bbe2a182f72c3e54343e7fe8efec6bd7e40e6}{NPCharsetHangul} =  129, 
+\hyperlink{npapi__extensions_8h_a8d338781e5a4a188e3cb597be4e5bbe2a7118a28b1d7f4d0426131dcc4d3e16a8}{NPCharsetJohab} =  130, 
+\hyperlink{npapi__extensions_8h_a8d338781e5a4a188e3cb597be4e5bbe2a98938fff1751b6ffed16d7195a91b4d7}{NPCharsetGB2312} = 134, 
+\par
+\hyperlink{npapi__extensions_8h_a8d338781e5a4a188e3cb597be4e5bbe2a82c3633b3deadc9c951e51705d388ab8}{NPCharsetChineseBIG5} =  136, 
+\hyperlink{npapi__extensions_8h_a8d338781e5a4a188e3cb597be4e5bbe2a7bc73ecc11db02a80bde443985de7d84}{NPCharsetGreek} =  161, 
+\hyperlink{npapi__extensions_8h_a8d338781e5a4a188e3cb597be4e5bbe2aac5413a0e4d5cf7d73ae5d4359b4f594}{NPCharsetTurkish} =  162, 
+\hyperlink{npapi__extensions_8h_a8d338781e5a4a188e3cb597be4e5bbe2acaf046fe71359a610ac18e93103fe801}{NPCharsetVietnamese} =  163, 
+\par
+\hyperlink{npapi__extensions_8h_a8d338781e5a4a188e3cb597be4e5bbe2a552432b5b386fb4cd58a10c5adcd6866}{NPCharsetHebrew} =  177, 
+\hyperlink{npapi__extensions_8h_a8d338781e5a4a188e3cb597be4e5bbe2a649ad2bde664960b350606b0c12401cc}{NPCharsetArabic} =  178, 
+\hyperlink{npapi__extensions_8h_a8d338781e5a4a188e3cb597be4e5bbe2abebd50f9e53a3c0edc4d39620b79b62f}{NPCharsetBaltic} =  186, 
+\hyperlink{npapi__extensions_8h_a8d338781e5a4a188e3cb597be4e5bbe2af3ea397f848326cef9037500fdaa6045}{NPCharsetRussian} =  204, 
+\par
+\hyperlink{npapi__extensions_8h_a8d338781e5a4a188e3cb597be4e5bbe2addc49636e45b9f52f1f9523df821e468}{NPCharsetThai} =  222, 
+\hyperlink{npapi__extensions_8h_a8d338781e5a4a188e3cb597be4e5bbe2a8d9b1afb83bedb62e5ca537811dd7ba9}{NPCharsetEastEurope} =  238, 
+\hyperlink{npapi__extensions_8h_a8d338781e5a4a188e3cb597be4e5bbe2a8dcc9b26b9d9bcaccc597d22283e9df0}{NPCharsetOEM} =  255
+ \}
+\item 
+enum \hyperlink{npapi__extensions_8h_a3eae6a1f6a13d35171a4bd5f6c6b35a8}{NPPitch} \{ \hyperlink{npapi__extensions_8h_a3eae6a1f6a13d35171a4bd5f6c6b35a8ad349b95ef9041379e6e82585515286e8}{NPPitchDefault}, 
+\hyperlink{npapi__extensions_8h_a3eae6a1f6a13d35171a4bd5f6c6b35a8a24497990a5f5033bdc8afbaedbfec71d}{NPPitchFixed}
+ \}
+\item 
+enum \hyperlink{npapi__extensions_8h_a34cbc00a891faea17015ea04c0c30083}{NPFamily} \{ \hyperlink{npapi__extensions_8h_a34cbc00a891faea17015ea04c0c30083a0148efe2beac57784caab7b27a339d66}{NPFamilyDefault}, 
+\hyperlink{npapi__extensions_8h_a34cbc00a891faea17015ea04c0c30083a9502057771a8ec0625ce161da6a76eae}{NPFamilyRoman}, 
+\hyperlink{npapi__extensions_8h_a34cbc00a891faea17015ea04c0c30083a09d48acac0a577506749ef6a82b15cec}{NPFamilyScript}
+ \}
+\item 
+enum \hyperlink{npapi__extensions_8h_ab5399bc87c840ea21d35a3bb9b134304}{\_\-NPDeviceContext3DError} \{ \par
+\hyperlink{npapi__extensions_8h_ab5399bc87c840ea21d35a3bb9b134304a9f21dccfe8796b28a405ca401095d1a3}{NPDeviceContext3DError\_\-NoError}, 
+\hyperlink{npapi__extensions_8h_ab5399bc87c840ea21d35a3bb9b134304a220f77c5ebc3aa256ac568126115acca}{NPDeviceContext3DError\_\-InvalidSize}, 
+\hyperlink{npapi__extensions_8h_ab5399bc87c840ea21d35a3bb9b134304a39ace4fdabba92ea0b9c271191644b9c}{NPDeviceContext3DError\_\-OutOfBounds}, 
+\hyperlink{npapi__extensions_8h_ab5399bc87c840ea21d35a3bb9b134304a0374cb1bc3867267f6071421b85b86a9}{NPDeviceContext3DError\_\-UnknownCommand}, 
+\par
+\hyperlink{npapi__extensions_8h_ab5399bc87c840ea21d35a3bb9b134304a56c4a13e0d802178ba70f5fbbba72099}{NPDeviceContext3DError\_\-InvalidArguments}, 
+\hyperlink{npapi__extensions_8h_ab5399bc87c840ea21d35a3bb9b134304a50c5b44f87505ee4ee86fd015069d824}{NPDeviceContext3DError\_\-LostContext}, 
+\hyperlink{npapi__extensions_8h_ab5399bc87c840ea21d35a3bb9b134304a9baee0a4de440b64c4d7fdc51ccc3048}{NPDeviceContext3DError\_\-GenericError}
+ \}
+\item 
+enum \{ \hyperlink{npapi__extensions_8h_a99fb83031ce9923c84392b4e92f956b5a1f3b69bc44a98145516116652c16ab27}{NP3DCommandBufferId} =  0
+ \}
+\item 
+enum \{ \par
+\hyperlink{npapi__extensions_8h_abc6126af1d45847bc59afa0aa3216b04a83f91224e904529703ee10a38c88de72}{NP3DAttrib\_\-BufferSize} =  0x3020, 
+\hyperlink{npapi__extensions_8h_abc6126af1d45847bc59afa0aa3216b04af5466a250b95cb2d960460ef9ba0703f}{NP3DAttrib\_\-AlphaSize} =  0x3021, 
+\hyperlink{npapi__extensions_8h_abc6126af1d45847bc59afa0aa3216b04a0f0c13894fd5077ae2e76e19c1d4eebc}{NP3DAttrib\_\-BlueSize} =  0x3022, 
+\hyperlink{npapi__extensions_8h_abc6126af1d45847bc59afa0aa3216b04a5e74544a41d659a1ec4f687e0c63e393}{NP3DAttrib\_\-GreenSize} =  0x3023, 
+\par
+\hyperlink{npapi__extensions_8h_abc6126af1d45847bc59afa0aa3216b04a3d8a1bf2b74774172040076ae569c75b}{NP3DAttrib\_\-RedSize} =  0x3024, 
+\hyperlink{npapi__extensions_8h_abc6126af1d45847bc59afa0aa3216b04a70134d71371f7a4be5cfa83c122ae89c}{NP3DAttrib\_\-DepthSize} =  0x3025, 
+\hyperlink{npapi__extensions_8h_abc6126af1d45847bc59afa0aa3216b04a1c5628a4f5a95980e16d173bfb1fe555}{NP3DAttrib\_\-StencilSize} =  0x3026, 
+\hyperlink{npapi__extensions_8h_abc6126af1d45847bc59afa0aa3216b04a4e6ba810c3f8f4f6fe5bd174f22656fc}{NP3DAttrib\_\-SurfaceType} =  0x3033, 
+\par
+\hyperlink{npapi__extensions_8h_abc6126af1d45847bc59afa0aa3216b04ab6964cad2be52e1c0c156dafd5586a33}{NP3DAttrib\_\-SwapBehavior} =  0x3093, 
+\hyperlink{npapi__extensions_8h_abc6126af1d45847bc59afa0aa3216b04a09cb0857d7003d78f33cf2bbe8d3af54}{NP3DAttrib\_\-MultisampleResolve} =  0x3099, 
+\hyperlink{npapi__extensions_8h_abc6126af1d45847bc59afa0aa3216b04a9ec2b1fcfba749e2145f832fb94ba0d3}{NP3DAttrib\_\-CommandBufferSize} =  0x10000000, 
+\hyperlink{npapi__extensions_8h_abc6126af1d45847bc59afa0aa3216b04a6fba335a801ea7bb90502946cb76ab4f}{NP3DAttrib\_\-PutOffset}, 
+\par
+\hyperlink{npapi__extensions_8h_abc6126af1d45847bc59afa0aa3216b04a0d4a7ff74a5d398a83682a5dc4d99625}{NP3DAttrib\_\-GetOffset}, 
+\hyperlink{npapi__extensions_8h_abc6126af1d45847bc59afa0aa3216b04a1311b764c5bd20481c657260ede1cbb5}{NP3DAttrib\_\-Token}
+ \}
+\item 
+enum \{ \hyperlink{npapi__extensions_8h_adc29c2ff13d900c2f185ee95427fb06ca6f7b3a36dcb2e325c7686eebd5c15219}{NP3DCallback\_\-Repaint} =  1
+ \}
+\item 
+enum \{ \hyperlink{npapi__extensions_8h_a61dadd085c1777f559549e05962b2c9eae4bddc91f7456d77c0c289d970e8a298}{NP3DSurfaceType\_\-MultisampleResolveBox} =  0x0200, 
+\hyperlink{npapi__extensions_8h_a61dadd085c1777f559549e05962b2c9ea46f248272a6717bf75dc782484ce0416}{NP3DSurfaceType\_\-SwapBehaviorPreserved} =  0x0400
+ \}
+\item 
+enum \{ \hyperlink{npapi__extensions_8h_a726ca809ffd3d67ab4b8476646f26635a0c3c917c987951718d42c6fd3ddd03e8}{NP3DSwapBehavior\_\-Preserved} =  0x3094, 
+\hyperlink{npapi__extensions_8h_a726ca809ffd3d67ab4b8476646f26635a5848e183e31518908edb617ca7dc991f}{NP3DSwapBehavior\_\-Destroyed} =  0x3095
+ \}
+\item 
+enum \{ \hyperlink{npapi__extensions_8h_a0411cd49bb5b71852cecd93bcbf0ca2da1a1fd5a3b2a92d5399ea29d1ec36f908}{NP3DMultisampleResolve\_\-Default} =  0x309A, 
+\hyperlink{npapi__extensions_8h_a0411cd49bb5b71852cecd93bcbf0ca2da87420e7a88526451584d007bef5c4847}{NP3DMultisampleResolve\_\-Box} =  0x309B
+ \}
+\item 
+enum \hyperlink{npapi__extensions_8h_aa759b2287a0a85f0861d673e6afe2840}{NPAudioSampleFrameCounts} \{ \hyperlink{npapi__extensions_8h_aa759b2287a0a85f0861d673e6afe2840aae129f9af4f405a6700e9068037c4353}{NPAudioMinSampleFrameCount} =  64, 
+\hyperlink{npapi__extensions_8h_aa759b2287a0a85f0861d673e6afe2840adc27c477bcb63b07359ced23365525c9}{NPAudioMaxSampleFrameCount} =  32768
+ \}
+\item 
+enum \hyperlink{npapi__extensions_8h_a2d3ea3c5b6b24b92c580ef8e116caa0f}{NPAudioSampleRates} \{ \hyperlink{npapi__extensions_8h_a2d3ea3c5b6b24b92c580ef8e116caa0fa91e5c37f4baa9d5662f8fa03ca217a76}{NPAudioSampleRate44100Hz} =  44100, 
+\hyperlink{npapi__extensions_8h_a2d3ea3c5b6b24b92c580ef8e116caa0fa7e36663ff5fd5761bf5ad23e47c41bb3}{NPAudioSampleRate48000Hz} =  48000, 
+\hyperlink{npapi__extensions_8h_a2d3ea3c5b6b24b92c580ef8e116caa0fa538925b92d2a7624331537be2c1342e9}{NPAudioSampleRate96000Hz} =  96000
+ \}
+\item 
+enum \hyperlink{npapi__extensions_8h_a14952ea320f0406921148fbab7d6d382}{NPAudioSampleTypes} \{ \hyperlink{npapi__extensions_8h_a14952ea320f0406921148fbab7d6d382a953f425b86e0259de99b2fc2f92684bd}{NPAudioSampleTypeInt16} =  0, 
+\hyperlink{npapi__extensions_8h_a14952ea320f0406921148fbab7d6d382a67f112a7678ee7d35d49a0858df15adc}{NPAudioSampleTypeFloat32} =  1
+ \}
+\item 
+enum \hyperlink{npapi__extensions_8h_ae176cc84f95555c7c38bf941de2dd3ab}{NPAudioChannels} \{ \par
+\hyperlink{npapi__extensions_8h_ae176cc84f95555c7c38bf941de2dd3aba39032a87191ee2bcbbecbf37f1201f32}{NPAudioChannelNone} =  0, 
+\hyperlink{npapi__extensions_8h_ae176cc84f95555c7c38bf941de2dd3aba8d777d229c7200f08311a9e21be47d18}{NPAudioChannelMono} =  1, 
+\hyperlink{npapi__extensions_8h_ae176cc84f95555c7c38bf941de2dd3abaa27f740684141523d4b21cf3ad87946a}{NPAudioChannelStereo} =  2, 
+\hyperlink{npapi__extensions_8h_ae176cc84f95555c7c38bf941de2dd3abae049b7e6d84d9f4515f4d88949e631d5}{NPAudioChannelThree} =  3, 
+\par
+\hyperlink{npapi__extensions_8h_ae176cc84f95555c7c38bf941de2dd3abaed3acb401e737b0671e11d27636ac505}{NPAudioChannelFour} =  4, 
+\hyperlink{npapi__extensions_8h_ae176cc84f95555c7c38bf941de2dd3abab922e14f365e79c3f9cf39d94d1939a7}{NPAudioChannelFive} =  5, 
+\hyperlink{npapi__extensions_8h_ae176cc84f95555c7c38bf941de2dd3aba67811686c7e47207ecd69abcfcf6e362}{NPAudioChannelFiveOne} =  6, 
+\hyperlink{npapi__extensions_8h_ae176cc84f95555c7c38bf941de2dd3aba73042cf3f4c8d6378910ed72e39cb48f}{NPAudioChannelSeven} =  7, 
+\par
+\hyperlink{npapi__extensions_8h_ae176cc84f95555c7c38bf941de2dd3aba4f3e92510bbfd5736bd68342e9ec5200}{NPAudioChannelSevenOne} =  8
+ \}
+\item 
+enum \hyperlink{npapi__extensions_8h_aeb415f78a02f852ec50e30ef18235421}{NPAudioContextStates} \{ \hyperlink{npapi__extensions_8h_aeb415f78a02f852ec50e30ef18235421a0df7067261f0edf96b961ccc5df1091b}{NPAudioContextStateCallback} =  0, 
+\hyperlink{npapi__extensions_8h_aeb415f78a02f852ec50e30ef18235421ac6052bdfb278af22adac9e9674b9ae30}{NPAudioContextStateUnderrunCounter} =  1
+ \}
+\item 
+enum \hyperlink{npapi__extensions_8h_a2238d95f73e1715d228d292282383bcf}{NPAudioContextStateValues} \{ \hyperlink{npapi__extensions_8h_a2238d95f73e1715d228d292282383bcfa03d5495c7163fe0e09bd6d46055a1d09}{NPAudioCallbackStop} =  0, 
+\hyperlink{npapi__extensions_8h_a2238d95f73e1715d228d292282383bcfa57c562b3eaa8247ca40ef16ea1ac0136}{NPAudioCallbackStart} =  1
+ \}
+\item 
+enum \hyperlink{npapi__extensions_8h_a4b9d38847a4e6de5f56a93a8d65541f1}{NPAudioCapabilities} \{ \par
+\hyperlink{npapi__extensions_8h_a4b9d38847a4e6de5f56a93a8d65541f1a20f82ee66b5c21d83d3e762469202996}{NPAudioCapabilitySampleRate} =  0, 
+\hyperlink{npapi__extensions_8h_a4b9d38847a4e6de5f56a93a8d65541f1a1c67d97ed8c8527c2b2124c7311044cd}{NPAudioCapabilitySampleType} =  1, 
+\hyperlink{npapi__extensions_8h_a4b9d38847a4e6de5f56a93a8d65541f1ab6788ba2a3e3c87b582edc0d9e25876e}{NPAudioCapabilitySampleFrameCount} =  2, 
+\hyperlink{npapi__extensions_8h_a4b9d38847a4e6de5f56a93a8d65541f1a5094fd91e76da6a15177ea133e7daf97}{NPAudioCapabilitySampleFrameCount44100Hz} =  3, 
+\par
+\hyperlink{npapi__extensions_8h_a4b9d38847a4e6de5f56a93a8d65541f1aa9271640d734216ece5d59daacc9c461}{NPAudioCapabilitySampleFrameCount48000Hz} =  4, 
+\hyperlink{npapi__extensions_8h_a4b9d38847a4e6de5f56a93a8d65541f1a90bffc85b5c19db1ec55d25d87ef9808}{NPAudioCapabilitySampleFrameCount96000Hz} =  5, 
+\hyperlink{npapi__extensions_8h_a4b9d38847a4e6de5f56a93a8d65541f1aa47e82329d89a0d9a90eff17e9af9630}{NPAudioCapabilityOutputChannelMap} =  6, 
+\hyperlink{npapi__extensions_8h_a4b9d38847a4e6de5f56a93a8d65541f1a56e17628edbdb9b0fec2248b56d3feb3}{NPAudioCapabilityInputChannelMap} =  7
+ \}
+\item 
+enum \hyperlink{npapi__extensions_8h_adc5452bf7e44f44283e4f400a89c54b8}{NPSelectionType} \{ \hyperlink{npapi__extensions_8h_adc5452bf7e44f44283e4f400a89c54b8a3f2cad7ae917588d81178a670edf425b}{NPSelectionTypeAny} =  0, 
+\hyperlink{npapi__extensions_8h_adc5452bf7e44f44283e4f400a89c54b8ae1d08a836e6701e9c28ebb850557e278}{NPSelectionTypePlainText} =  1, 
+\hyperlink{npapi__extensions_8h_adc5452bf7e44f44283e4f400a89c54b8a832cd147a3f9bd01904684d95abb0427}{NPSelectionTypeHTML} =  2
+ \}
+\end{DoxyCompactItemize}
+
+
+\subsection{Define Documentation}
+\hypertarget{npapi__extensions_8h_af101125600c9189fbb293566ed8c0ef5}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPNVPepperExtensions@{NPNVPepperExtensions}}
+\index{NPNVPepperExtensions@{NPNVPepperExtensions}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPNVPepperExtensions}]{\setlength{\rightskip}{0pt plus 5cm}\#define NPNVPepperExtensions~(({\bf NPNVariable}) 4000)}}
+\label{npapi__extensions_8h_af101125600c9189fbb293566ed8c0ef5}
+
+
+Definition at line 16 of file npapi\_\-extensions.h.
+
+\hypertarget{npapi__extensions_8h_aa2d69250c7545bbd1eae88eedb3d5ed3}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPPepper2DDevice@{NPPepper2DDevice}}
+\index{NPPepper2DDevice@{NPPepper2DDevice}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPPepper2DDevice}]{\setlength{\rightskip}{0pt plus 5cm}\#define NPPepper2DDevice~1}}
+\label{npapi__extensions_8h_aa2d69250c7545bbd1eae88eedb3d5ed3}
+
+
+Definition at line 132 of file npapi\_\-extensions.h.
+
+\hypertarget{npapi__extensions_8h_a7f176c6b597f67ac34e2566fe5ff8fcd}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPPepper3DDevice@{NPPepper3DDevice}}
+\index{NPPepper3DDevice@{NPPepper3DDevice}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPPepper3DDevice}]{\setlength{\rightskip}{0pt plus 5cm}\#define NPPepper3DDevice~2}}
+\label{npapi__extensions_8h_a7f176c6b597f67ac34e2566fe5ff8fcd}
+
+
+Definition at line 722 of file npapi\_\-extensions.h.
+
+\hypertarget{npapi__extensions_8h_a9ed8afab12f113f8a0d3fb567cf113f6}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPPepperAudioDevice@{NPPepperAudioDevice}}
+\index{NPPepperAudioDevice@{NPPepperAudioDevice}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPPepperAudioDevice}]{\setlength{\rightskip}{0pt plus 5cm}\#define NPPepperAudioDevice~3}}
+\label{npapi__extensions_8h_a9ed8afab12f113f8a0d3fb567cf113f6}
+
+
+Definition at line 868 of file npapi\_\-extensions.h.
+
+\hypertarget{npapi__extensions_8h_a02dc7840eb0a224ddac370883f3f870c}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPPVPepperExtensions@{NPPVPepperExtensions}}
+\index{NPPVPepperExtensions@{NPPVPepperExtensions}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPPVPepperExtensions}]{\setlength{\rightskip}{0pt plus 5cm}\#define NPPVPepperExtensions~(({\bf NPPVariable}) 4001)}}
+\label{npapi__extensions_8h_a02dc7840eb0a224ddac370883f3f870c}
+
+
+Definition at line 21 of file npapi\_\-extensions.h.
+
+
+
+\subsection{Typedef Documentation}
+\hypertarget{npapi__extensions_8h_aa4528a94d7c4edaf308a784b25310069}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!GetFontTablePtr@{GetFontTablePtr}}
+\index{GetFontTablePtr@{GetFontTablePtr}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{GetFontTablePtr}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf NPError}($\ast$ {\bf GetFontTablePtr})({\bf NPP} instance, {\bf NPFontID} id, uint32\_\-t table, void $\ast$output, size\_\-t $\ast$output\_\-length)}}
+\label{npapi__extensions_8h_aa4528a94d7c4edaf308a784b25310069}
+
+
+Definition at line 682 of file npapi\_\-extensions.h.
+
+\hypertarget{npapi__extensions_8h_a718039334715c01ec9d651fab6873762}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPAcquireDevicePtr@{NPAcquireDevicePtr}}
+\index{NPAcquireDevicePtr@{NPAcquireDevicePtr}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPAcquireDevicePtr}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf NPDevice}$\ast$($\ast$ {\bf NPAcquireDevicePtr})({\bf NPP} instance, {\bf NPDeviceID} device)}}
+\label{npapi__extensions_8h_a718039334715c01ec9d651fab6873762}
+
+
+Definition at line 407 of file npapi\_\-extensions.h.
+
+\hypertarget{npapi__extensions_8h_ac16a100eeec4f1d8a44e1d4e4a55cd31}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPAudioCallback@{NPAudioCallback}}
+\index{NPAudioCallback@{NPAudioCallback}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPAudioCallback}]{\setlength{\rightskip}{0pt plus 5cm}typedef void($\ast$ {\bf NPAudioCallback})({\bf NPDeviceContextAudio} $\ast$context)}}
+\label{npapi__extensions_8h_ac16a100eeec4f1d8a44e1d4e4a55cd31}
+
+
+Definition at line 930 of file npapi\_\-extensions.h.
+
+\hypertarget{npapi__extensions_8h_ac31817f3fd946d93f2f027dda3483c61}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPCharacterEvent@{NPCharacterEvent}}
+\index{NPCharacterEvent@{NPCharacterEvent}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPCharacterEvent}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf \_\-NPCharacterEvent}  {\bf NPCharacterEvent}}}
+\label{npapi__extensions_8h_ac31817f3fd946d93f2f027dda3483c61}
+\hypertarget{npapi__extensions_8h_a7f06df87f25a1a17f7c1f4a809cbd02b}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPChooseFileCallback@{NPChooseFileCallback}}
+\index{NPChooseFileCallback@{NPChooseFileCallback}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPChooseFileCallback}]{\setlength{\rightskip}{0pt plus 5cm}typedef void($\ast$ {\bf NPChooseFileCallback})(const char $\ast$$\ast$filePaths, uint32\_\-t pathCount, void $\ast$userData)}}
+\label{npapi__extensions_8h_a7f06df87f25a1a17f7c1f4a809cbd02b}
+
+
+Definition at line 567 of file npapi\_\-extensions.h.
+
+\hypertarget{npapi__extensions_8h_a0ab0de5413eb4d975ac9a22df04d9909}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPChooseFilePtr@{NPChooseFilePtr}}
+\index{NPChooseFilePtr@{NPChooseFilePtr}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPChooseFilePtr}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf NPError}($\ast$ {\bf NPChooseFilePtr})({\bf NPP} instance, const char $\ast$mimeTypes, {\bf NPChooseFileMode} mode, {\bf NPChooseFileCallback} callback, void $\ast$userData)}}
+\label{npapi__extensions_8h_a0ab0de5413eb4d975ac9a22df04d9909}
+
+
+Definition at line 570 of file npapi\_\-extensions.h.
+
+\hypertarget{npapi__extensions_8h_abff4046dcfab965b3e91b0bc6f81a191}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPCreateWidgetPtr@{NPCreateWidgetPtr}}
+\index{NPCreateWidgetPtr@{NPCreateWidgetPtr}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPCreateWidgetPtr}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf NPError}($\ast$ {\bf NPCreateWidgetPtr})({\bf NPP} instance, {\bf NPWidgetType} type, void $\ast$params,{\bf NPWidgetID} $\ast$id)}}
+\label{npapi__extensions_8h_abff4046dcfab965b3e91b0bc6f81a191}
+
+
+Definition at line 469 of file npapi\_\-extensions.h.
+
+\hypertarget{npapi__extensions_8h_a18516feaf8eb67200682c7b55f0844a5}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPDestroyFontPtr@{NPDestroyFontPtr}}
+\index{NPDestroyFontPtr@{NPDestroyFontPtr}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPDestroyFontPtr}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf NPError}($\ast$ {\bf NPDestroyFontPtr})({\bf NPP} instance, {\bf NPFontID} id)}}
+\label{npapi__extensions_8h_a18516feaf8eb67200682c7b55f0844a5}
+
+
+Definition at line 690 of file npapi\_\-extensions.h.
+
+\hypertarget{npapi__extensions_8h_ad465d3f058b0f8c3dcfee2e2575dfb64}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPDestroyWidgetPtr@{NPDestroyWidgetPtr}}
+\index{NPDestroyWidgetPtr@{NPDestroyWidgetPtr}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPDestroyWidgetPtr}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf NPError}($\ast$ {\bf NPDestroyWidgetPtr})({\bf NPP} instance, {\bf NPWidgetID} id)}}
+\label{npapi__extensions_8h_ad465d3f058b0f8c3dcfee2e2575dfb64}
+
+
+Definition at line 476 of file npapi\_\-extensions.h.
+
+\hypertarget{npapi__extensions_8h_a91fee7dce854160a03a34db32e1775f7}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPDevice@{NPDevice}}
+\index{NPDevice@{NPDevice}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPDevice}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf NPDevice} {\bf NPDevice}}}
+\label{npapi__extensions_8h_a91fee7dce854160a03a34db32e1775f7}
+
+
+Definition at line 240 of file npapi\_\-extensions.h.
+
+\hypertarget{npapi__extensions_8h_ae0c4c4a612d4ef7b0bdaef86381a16aa}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPDeviceBuffer@{NPDeviceBuffer}}
+\index{NPDeviceBuffer@{NPDeviceBuffer}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPDeviceBuffer}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf \_\-NPDeviceBuffer}  {\bf NPDeviceBuffer}}}
+\label{npapi__extensions_8h_ae0c4c4a612d4ef7b0bdaef86381a16aa}
+\hypertarget{npapi__extensions_8h_aff49d24cce064681b541c4c137d7f26b}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPDeviceConfig@{NPDeviceConfig}}
+\index{NPDeviceConfig@{NPDeviceConfig}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPDeviceConfig}]{\setlength{\rightskip}{0pt plus 5cm}typedef void {\bf NPDeviceConfig}}}
+\label{npapi__extensions_8h_aff49d24cce064681b541c4c137d7f26b}
+
+
+Definition at line 23 of file npapi\_\-extensions.h.
+
+\hypertarget{npapi__extensions_8h_a767de32383e08a9cfeb71079e60466bf}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPDeviceContext@{NPDeviceContext}}
+\index{NPDeviceContext@{NPDeviceContext}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPDeviceContext}]{\setlength{\rightskip}{0pt plus 5cm}typedef void {\bf NPDeviceContext}}}
+\label{npapi__extensions_8h_a767de32383e08a9cfeb71079e60466bf}
+
+
+Definition at line 24 of file npapi\_\-extensions.h.
+
+\hypertarget{npapi__extensions_8h_a169aa6149cbd2be74211721750d22cb8}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPDeviceContext2D@{NPDeviceContext2D}}
+\index{NPDeviceContext2D@{NPDeviceContext2D}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPDeviceContext2D}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf \_\-NPDeviceContext2D}  {\bf NPDeviceContext2D}}}
+\label{npapi__extensions_8h_a169aa6149cbd2be74211721750d22cb8}
+\hypertarget{npapi__extensions_8h_a96b199b60ed2e566be8d515dbd42c865}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPDeviceContext2DConfig@{NPDeviceContext2DConfig}}
+\index{NPDeviceContext2DConfig@{NPDeviceContext2DConfig}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPDeviceContext2DConfig}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf \_\-NPDeviceContext2DConfig}  {\bf NPDeviceContext2DConfig}}}
+\label{npapi__extensions_8h_a96b199b60ed2e566be8d515dbd42c865}
+\hypertarget{npapi__extensions_8h_ab4abe9a009fd531352a4fbea8219f529}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPDeviceContext3D@{NPDeviceContext3D}}
+\index{NPDeviceContext3D@{NPDeviceContext3D}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPDeviceContext3D}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf \_\-NPDeviceContext3D} {\bf NPDeviceContext3D}}}
+\label{npapi__extensions_8h_ab4abe9a009fd531352a4fbea8219f529}
+
+
+Definition at line 752 of file npapi\_\-extensions.h.
+
+\hypertarget{npapi__extensions_8h_a07a86c9f28a529f54933e5efca159227}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPDeviceContext3DConfig@{NPDeviceContext3DConfig}}
+\index{NPDeviceContext3DConfig@{NPDeviceContext3DConfig}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPDeviceContext3DConfig}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf \_\-NPDeviceContext3DConfig}  {\bf NPDeviceContext3DConfig}}}
+\label{npapi__extensions_8h_a07a86c9f28a529f54933e5efca159227}
+\hypertarget{npapi__extensions_8h_a906aa19cdf5fda7001f724a41118229a}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPDeviceContext3DError@{NPDeviceContext3DError}}
+\index{NPDeviceContext3DError@{NPDeviceContext3DError}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPDeviceContext3DError}]{\setlength{\rightskip}{0pt plus 5cm}typedef enum {\bf \_\-NPDeviceContext3DError}  {\bf NPDeviceContext3DError}}}
+\label{npapi__extensions_8h_a906aa19cdf5fda7001f724a41118229a}
+\hypertarget{npapi__extensions_8h_a619585c201cffd2cf885f5962c18acad}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPDeviceContext3DRepaintPtr@{NPDeviceContext3DRepaintPtr}}
+\index{NPDeviceContext3DRepaintPtr@{NPDeviceContext3DRepaintPtr}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPDeviceContext3DRepaintPtr}]{\setlength{\rightskip}{0pt plus 5cm}typedef void($\ast$ {\bf NPDeviceContext3DRepaintPtr})({\bf NPP} npp, {\bf NPDeviceContext3D} $\ast$context)}}
+\label{npapi__extensions_8h_a619585c201cffd2cf885f5962c18acad}
+
+
+Definition at line 754 of file npapi\_\-extensions.h.
+
+\hypertarget{npapi__extensions_8h_ad74d13352c45ec6c69f25872975bb397}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPDeviceContextAudio@{NPDeviceContextAudio}}
+\index{NPDeviceContextAudio@{NPDeviceContextAudio}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPDeviceContextAudio}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf \_\-NPDeviceContextAudio} {\bf NPDeviceContextAudio}}}
+\label{npapi__extensions_8h_ad74d13352c45ec6c69f25872975bb397}
+
+
+Definition at line 927 of file npapi\_\-extensions.h.
+
+\hypertarget{npapi__extensions_8h_a6979daef08fb2446983e5bd707300898}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPDeviceContextAudioConfig@{NPDeviceContextAudioConfig}}
+\index{NPDeviceContextAudioConfig@{NPDeviceContextAudioConfig}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPDeviceContextAudioConfig}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf \_\-NPDeviceContextAudioConfig}  {\bf NPDeviceContextAudioConfig}}}
+\label{npapi__extensions_8h_a6979daef08fb2446983e5bd707300898}
+\hypertarget{npapi__extensions_8h_a7c82e5512e772db685c46d1597157ab4}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPDeviceCreateBufferPtr@{NPDeviceCreateBufferPtr}}
+\index{NPDeviceCreateBufferPtr@{NPDeviceCreateBufferPtr}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPDeviceCreateBufferPtr}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf NPError}($\ast$ {\bf NPDeviceCreateBufferPtr})({\bf NPP} instance, {\bf NPDeviceContext} $\ast$context, size\_\-t size, int32\_\-t $\ast$id)}}
+\label{npapi__extensions_8h_a7c82e5512e772db685c46d1597157ab4}
+
+
+Definition at line 221 of file npapi\_\-extensions.h.
+
+\hypertarget{npapi__extensions_8h_a36b356d09b5e82da40ec7ad19bd42bc6}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPDeviceCreateContextPtr@{NPDeviceCreateContextPtr}}
+\index{NPDeviceCreateContextPtr@{NPDeviceCreateContextPtr}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPDeviceCreateContextPtr}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf NPError}($\ast$ {\bf NPDeviceCreateContextPtr})({\bf NPP} instance, int32\_\-t config, const int32\_\-t $\ast$attribList, {\bf NPDeviceContext} $\ast$$\ast$context)}}
+\label{npapi__extensions_8h_a36b356d09b5e82da40ec7ad19bd42bc6}
+
+
+Definition at line 293 of file npapi\_\-extensions.h.
+
+\hypertarget{npapi__extensions_8h_a60dc39f005eec39bf1efd43149fde911}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPDeviceDestroyBufferPtr@{NPDeviceDestroyBufferPtr}}
+\index{NPDeviceDestroyBufferPtr@{NPDeviceDestroyBufferPtr}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPDeviceDestroyBufferPtr}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf NPError}($\ast$ {\bf NPDeviceDestroyBufferPtr})({\bf NPP} instance, {\bf NPDeviceContext} $\ast$context, int32\_\-t id)}}
+\label{npapi__extensions_8h_a60dc39f005eec39bf1efd43149fde911}
+
+
+Definition at line 227 of file npapi\_\-extensions.h.
+
+\hypertarget{npapi__extensions_8h_ae5a0f8b1ce7f30a7c919aa180e6e8f61}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPDeviceDestroyContextPtr@{NPDeviceDestroyContextPtr}}
+\index{NPDeviceDestroyContextPtr@{NPDeviceDestroyContextPtr}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPDeviceDestroyContextPtr}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf NPError}($\ast$ {\bf NPDeviceDestroyContextPtr})({\bf NPP} instance, {\bf NPDeviceContext} $\ast$context)}}
+\label{npapi__extensions_8h_ae5a0f8b1ce7f30a7c919aa180e6e8f61}
+
+
+Definition at line 215 of file npapi\_\-extensions.h.
+
+\hypertarget{npapi__extensions_8h_a18a6a4546a187268ee09ae622ee3bc8e}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPDeviceEvent@{NPDeviceEvent}}
+\index{NPDeviceEvent@{NPDeviceEvent}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPDeviceEvent}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf \_\-NPDeviceEvent}  {\bf NPDeviceEvent}}}
+\label{npapi__extensions_8h_a18a6a4546a187268ee09ae622ee3bc8e}
+\hypertarget{npapi__extensions_8h_a1354657486b971aafcd2745c5b97e436}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPDeviceFlushContextCallbackPtr@{NPDeviceFlushContextCallbackPtr}}
+\index{NPDeviceFlushContextCallbackPtr@{NPDeviceFlushContextCallbackPtr}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPDeviceFlushContextCallbackPtr}]{\setlength{\rightskip}{0pt plus 5cm}typedef void($\ast$ {\bf NPDeviceFlushContextCallbackPtr})({\bf NPP} instance, {\bf NPDeviceContext} $\ast$context, {\bf NPError} err, {\bf NPUserData} $\ast$userData)}}
+\label{npapi__extensions_8h_a1354657486b971aafcd2745c5b97e436}
+
+
+Definition at line 173 of file npapi\_\-extensions.h.
+
+\hypertarget{npapi__extensions_8h_aedbb7b875a59c38191ae3e448dccf885}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPDeviceFlushContextPtr@{NPDeviceFlushContextPtr}}
+\index{NPDeviceFlushContextPtr@{NPDeviceFlushContextPtr}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPDeviceFlushContextPtr}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf NPError}($\ast$ {\bf NPDeviceFlushContextPtr})({\bf NPP} instance, {\bf NPDeviceContext} $\ast$context, {\bf NPDeviceFlushContextCallbackPtr} callback, void $\ast$userData)}}
+\label{npapi__extensions_8h_aedbb7b875a59c38191ae3e448dccf885}
+
+
+Definition at line 208 of file npapi\_\-extensions.h.
+
+\hypertarget{npapi__extensions_8h_a6acc2a2e6f6e5937b3b49d61d969dc56}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPDeviceGenericCallbackPtr@{NPDeviceGenericCallbackPtr}}
+\index{NPDeviceGenericCallbackPtr@{NPDeviceGenericCallbackPtr}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPDeviceGenericCallbackPtr}]{\setlength{\rightskip}{0pt plus 5cm}typedef void($\ast$ {\bf NPDeviceGenericCallbackPtr})(void)}}
+\label{npapi__extensions_8h_a6acc2a2e6f6e5937b3b49d61d969dc56}
+
+
+Definition at line 306 of file npapi\_\-extensions.h.
+
+\hypertarget{npapi__extensions_8h_a660df27bed370abf3baebb56c704200a}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPDeviceGetConfigAttribsPtr@{NPDeviceGetConfigAttribsPtr}}
+\index{NPDeviceGetConfigAttribsPtr@{NPDeviceGetConfigAttribsPtr}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPDeviceGetConfigAttribsPtr}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf NPError}($\ast$ {\bf NPDeviceGetConfigAttribsPtr})({\bf NPP} instance, int32\_\-t config, int32\_\-t $\ast$attribList)}}
+\label{npapi__extensions_8h_a660df27bed370abf3baebb56c704200a}
+
+
+Definition at line 281 of file npapi\_\-extensions.h.
+
+\hypertarget{npapi__extensions_8h_ade5ff8d3cb504dfbf245dcaebc7cd3b2}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPDeviceGetNumConfigsPtr@{NPDeviceGetNumConfigsPtr}}
+\index{NPDeviceGetNumConfigsPtr@{NPDeviceGetNumConfigsPtr}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPDeviceGetNumConfigsPtr}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf NPError}($\ast$ {\bf NPDeviceGetNumConfigsPtr})({\bf NPP} instance, int32\_\-t $\ast$numConfigs)}}
+\label{npapi__extensions_8h_ade5ff8d3cb504dfbf245dcaebc7cd3b2}
+
+
+Definition at line 266 of file npapi\_\-extensions.h.
+
+\hypertarget{npapi__extensions_8h_aa45815351f353c0424a2b69733206a71}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPDeviceGetStateContextPtr@{NPDeviceGetStateContextPtr}}
+\index{NPDeviceGetStateContextPtr@{NPDeviceGetStateContextPtr}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPDeviceGetStateContextPtr}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf NPError}($\ast$ {\bf NPDeviceGetStateContextPtr})({\bf NPP} instance, {\bf NPDeviceContext} $\ast$context, int32\_\-t state, intptr\_\-t $\ast$value)}}
+\label{npapi__extensions_8h_aa45815351f353c0424a2b69733206a71}
+
+
+Definition at line 195 of file npapi\_\-extensions.h.
+
+\hypertarget{npapi__extensions_8h_af06c24765f895a9b7ac2af96d8db1e61}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPDeviceID@{NPDeviceID}}
+\index{NPDeviceID@{NPDeviceID}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPDeviceID}]{\setlength{\rightskip}{0pt plus 5cm}typedef int32\_\-t {\bf NPDeviceID}}}
+\label{npapi__extensions_8h_af06c24765f895a9b7ac2af96d8db1e61}
+
+
+Definition at line 28 of file npapi\_\-extensions.h.
+
+\hypertarget{npapi__extensions_8h_ab43b75c14de2dbcd6fff653c6c2b718f}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPDeviceInitializeContextPtr@{NPDeviceInitializeContextPtr}}
+\index{NPDeviceInitializeContextPtr@{NPDeviceInitializeContextPtr}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPDeviceInitializeContextPtr}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf NPError}($\ast$ {\bf NPDeviceInitializeContextPtr})({\bf NPP} instance, const {\bf NPDeviceConfig} $\ast$config, {\bf NPDeviceContext} $\ast$context)}}
+\label{npapi__extensions_8h_ab43b75c14de2dbcd6fff653c6c2b718f}
+
+
+Definition at line 190 of file npapi\_\-extensions.h.
+
+\hypertarget{npapi__extensions_8h_ad14ca40b2289d2bd9e7c55cb02448b5e}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPDeviceMapBufferPtr@{NPDeviceMapBufferPtr}}
+\index{NPDeviceMapBufferPtr@{NPDeviceMapBufferPtr}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPDeviceMapBufferPtr}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf NPError}($\ast$ {\bf NPDeviceMapBufferPtr})({\bf NPP} instance, {\bf NPDeviceContext} $\ast$context, int32\_\-t id, {\bf NPDeviceBuffer} $\ast$buffer)}}
+\label{npapi__extensions_8h_ad14ca40b2289d2bd9e7c55cb02448b5e}
+
+
+Definition at line 232 of file npapi\_\-extensions.h.
+
+\hypertarget{npapi__extensions_8h_a048052d99502d616b23a7d4744600618}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPDeviceQueryCapabilityPtr@{NPDeviceQueryCapabilityPtr}}
+\index{NPDeviceQueryCapabilityPtr@{NPDeviceQueryCapabilityPtr}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPDeviceQueryCapabilityPtr}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf NPError}( $\ast$ {\bf NPDeviceQueryCapabilityPtr})({\bf NPP} instance, int32\_\-t capability, int32\_\-t $\ast$value)}}
+\label{npapi__extensions_8h_a048052d99502d616b23a7d4744600618}
+
+
+Definition at line 181 of file npapi\_\-extensions.h.
+
+\hypertarget{npapi__extensions_8h_acd6318131a9d90e0ddfbae5b341f18a7}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPDeviceQueryConfigPtr@{NPDeviceQueryConfigPtr}}
+\index{NPDeviceQueryConfigPtr@{NPDeviceQueryConfigPtr}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPDeviceQueryConfigPtr}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf NPError}( $\ast$ {\bf NPDeviceQueryConfigPtr})({\bf NPP} instance, const {\bf NPDeviceConfig} $\ast$request, {\bf NPDeviceConfig} $\ast$obtain)}}
+\label{npapi__extensions_8h_acd6318131a9d90e0ddfbae5b341f18a7}
+
+
+Definition at line 186 of file npapi\_\-extensions.h.
+
+\hypertarget{npapi__extensions_8h_a003fb978f531f551765fb44894197b51}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPDeviceRegisterCallbackPtr@{NPDeviceRegisterCallbackPtr}}
+\index{NPDeviceRegisterCallbackPtr@{NPDeviceRegisterCallbackPtr}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPDeviceRegisterCallbackPtr}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf NPError}($\ast$ {\bf NPDeviceRegisterCallbackPtr})({\bf NPP} instance, {\bf NPDeviceContext} $\ast$context, int32\_\-t callbackType, {\bf NPDeviceGenericCallbackPtr} callback, void $\ast$callbackData)}}
+\label{npapi__extensions_8h_a003fb978f531f551765fb44894197b51}
+
+
+Definition at line 319 of file npapi\_\-extensions.h.
+
+\hypertarget{npapi__extensions_8h_a7454cddd29af1e03fee6956298f3a0fb}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPDeviceSetStateContextPtr@{NPDeviceSetStateContextPtr}}
+\index{NPDeviceSetStateContextPtr@{NPDeviceSetStateContextPtr}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPDeviceSetStateContextPtr}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf NPError}($\ast$ {\bf NPDeviceSetStateContextPtr})({\bf NPP} instance, {\bf NPDeviceContext} $\ast$context, int32\_\-t state, intptr\_\-t value)}}
+\label{npapi__extensions_8h_a7454cddd29af1e03fee6956298f3a0fb}
+
+
+Definition at line 201 of file npapi\_\-extensions.h.
+
+\hypertarget{npapi__extensions_8h_a068fe5ab6b62db6c7d8b7ee3e756b564}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPDeviceSynchronizeContextCallbackPtr@{NPDeviceSynchronizeContextCallbackPtr}}
+\index{NPDeviceSynchronizeContextCallbackPtr@{NPDeviceSynchronizeContextCallbackPtr}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPDeviceSynchronizeContextCallbackPtr}]{\setlength{\rightskip}{0pt plus 5cm}typedef void($\ast$ {\bf NPDeviceSynchronizeContextCallbackPtr})({\bf NPP} instance, {\bf NPDeviceContext} $\ast$context, {\bf NPError} error, void $\ast$data)}}
+\label{npapi__extensions_8h_a068fe5ab6b62db6c7d8b7ee3e756b564}
+
+
+Definition at line 333 of file npapi\_\-extensions.h.
+
+\hypertarget{npapi__extensions_8h_afd16b06e76a421e061954c742082cd1c}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPDeviceSynchronizeContextPtr@{NPDeviceSynchronizeContextPtr}}
+\index{NPDeviceSynchronizeContextPtr@{NPDeviceSynchronizeContextPtr}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPDeviceSynchronizeContextPtr}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf NPError}($\ast$ {\bf NPDeviceSynchronizeContextPtr})({\bf NPP} instance, {\bf NPDeviceContext} $\ast$context, {\bf NPDeviceSynchronizationMode} mode, const int32\_\-t $\ast$inputAttribList, int32\_\-t $\ast$outputAttribList, {\bf NPDeviceSynchronizeContextCallbackPtr} callback, void $\ast$callbackData)}}
+\label{npapi__extensions_8h_afd16b06e76a421e061954c742082cd1c}
+
+
+Definition at line 360 of file npapi\_\-extensions.h.
+
+\hypertarget{npapi__extensions_8h_a70f0dc879af15b492560d712421b0899}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPExtensions@{NPExtensions}}
+\index{NPExtensions@{NPExtensions}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPExtensions}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf NPNExtensions} {\bf NPExtensions}}}
+\label{npapi__extensions_8h_a70f0dc879af15b492560d712421b0899}
+
+
+Definition at line 245 of file npapi\_\-extensions.h.
+
+\hypertarget{npapi__extensions_8h_a8781644f16a41fba88358f06f576b088}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPFocusEvent@{NPFocusEvent}}
+\index{NPFocusEvent@{NPFocusEvent}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPFocusEvent}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf \_\-NPFocusEvent}  {\bf NPFocusEvent}}}
+\label{npapi__extensions_8h_a8781644f16a41fba88358f06f576b088}
+\hypertarget{npapi__extensions_8h_a694d1344a0ec8cf679cce86765aba47b}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPFontDescription@{NPFontDescription}}
+\index{NPFontDescription@{NPFontDescription}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPFontDescription}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf \_\-NPFontDescription}  {\bf NPFontDescription}}}
+\label{npapi__extensions_8h_a694d1344a0ec8cf679cce86765aba47b}
+\hypertarget{npapi__extensions_8h_a7a5678b906362566db2d9c22ca9a2c0c}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPFontExtensions@{NPFontExtensions}}
+\index{NPFontExtensions@{NPFontExtensions}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPFontExtensions}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf \_\-NPFontExtensions}  {\bf NPFontExtensions}}}
+\label{npapi__extensions_8h_a7a5678b906362566db2d9c22ca9a2c0c}
+\hypertarget{npapi__extensions_8h_ac35247aaf757ec2b44ec1d67de5b1b04}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPFontID@{NPFontID}}
+\index{NPFontID@{NPFontID}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPFontID}]{\setlength{\rightskip}{0pt plus 5cm}typedef int {\bf NPFontID}}}
+\label{npapi__extensions_8h_ac35247aaf757ec2b44ec1d67de5b1b04}
+
+
+Definition at line 627 of file npapi\_\-extensions.h.
+
+\hypertarget{npapi__extensions_8h_a4df1919745f7f62ef1710b25f14dd9ac}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPGetFontExtensionsPtr@{NPGetFontExtensionsPtr}}
+\index{NPGetFontExtensionsPtr@{NPGetFontExtensionsPtr}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPGetFontExtensionsPtr}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf NPFontExtensions}$\ast$($\ast$ {\bf NPGetFontExtensionsPtr})({\bf NPP} instance)}}
+\label{npapi__extensions_8h_a4df1919745f7f62ef1710b25f14dd9ac}
+
+
+Definition at line 700 of file npapi\_\-extensions.h.
+
+\hypertarget{npapi__extensions_8h_a953f27eab35003c42c2caabbf8ea6603}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPGetWidgetExtensionsPtr@{NPGetWidgetExtensionsPtr}}
+\index{NPGetWidgetExtensionsPtr@{NPGetWidgetExtensionsPtr}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPGetWidgetExtensionsPtr}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf NPWidgetExtensions}$\ast$($\ast$ {\bf NPGetWidgetExtensionsPtr})({\bf NPP} instance)}}
+\label{npapi__extensions_8h_a953f27eab35003c42c2caabbf8ea6603}
+
+
+Definition at line 516 of file npapi\_\-extensions.h.
+
+\hypertarget{npapi__extensions_8h_a9a52de31fde3f4099fe5f5be01b799a7}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPGetWidgetPropertyPtr@{NPGetWidgetPropertyPtr}}
+\index{NPGetWidgetPropertyPtr@{NPGetWidgetPropertyPtr}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPGetWidgetPropertyPtr}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf NPError}($\ast$ {\bf NPGetWidgetPropertyPtr})({\bf NPP} instance, {\bf NPWidgetID} id, {\bf NPWidgetProperty} property, void $\ast$value)}}
+\label{npapi__extensions_8h_a9a52de31fde3f4099fe5f5be01b799a7}
+
+
+Definition at line 494 of file npapi\_\-extensions.h.
+
+\hypertarget{npapi__extensions_8h_a160e9c388ac38a57286619e69985d82a}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPHandleWidgetEventPtr@{NPHandleWidgetEventPtr}}
+\index{NPHandleWidgetEventPtr@{NPHandleWidgetEventPtr}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPHandleWidgetEventPtr}]{\setlength{\rightskip}{0pt plus 5cm}typedef bool($\ast$ {\bf NPHandleWidgetEventPtr})({\bf NPP} instance, {\bf NPWidgetID} id, {\bf NPPepperEvent} $\ast$event)}}
+\label{npapi__extensions_8h_a160e9c388ac38a57286619e69985d82a}
+
+
+Definition at line 488 of file npapi\_\-extensions.h.
+
+\hypertarget{npapi__extensions_8h_a54184a21190545a2ecf4b77118d30f54}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPKeyEvent@{NPKeyEvent}}
+\index{NPKeyEvent@{NPKeyEvent}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPKeyEvent}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf \_\-NPKeyEvent}  {\bf NPKeyEvent}}}
+\label{npapi__extensions_8h_a54184a21190545a2ecf4b77118d30f54}
+\hypertarget{npapi__extensions_8h_a34e4527ad657576de1f6ade509b9bdf0}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPMatchFontWithFallbackPtr@{NPMatchFontWithFallbackPtr}}
+\index{NPMatchFontWithFallbackPtr@{NPMatchFontWithFallbackPtr}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPMatchFontWithFallbackPtr}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf NPError}($\ast$ {\bf NPMatchFontWithFallbackPtr})({\bf NPP} instance, const {\bf NPFontDescription} $\ast$description, {\bf NPFontID} $\ast$id)}}
+\label{npapi__extensions_8h_a34e4527ad657576de1f6ade509b9bdf0}
+
+
+Definition at line 672 of file npapi\_\-extensions.h.
+
+\hypertarget{npapi__extensions_8h_aca6d6ac772387c9cbd0b43df02141585}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPMinimizeEvent@{NPMinimizeEvent}}
+\index{NPMinimizeEvent@{NPMinimizeEvent}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPMinimizeEvent}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf \_\-NPMinimizeEvent}  {\bf NPMinimizeEvent}}}
+\label{npapi__extensions_8h_aca6d6ac772387c9cbd0b43df02141585}
+\hypertarget{npapi__extensions_8h_af6ff77be2f16da2f914067170e87d9f0}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPMouseEvent@{NPMouseEvent}}
+\index{NPMouseEvent@{NPMouseEvent}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPMouseEvent}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf \_\-NPMouseEvent}  {\bf NPMouseEvent}}}
+\label{npapi__extensions_8h_af6ff77be2f16da2f914067170e87d9f0}
+\hypertarget{npapi__extensions_8h_aaf296c760e39523a65671fe4fa5949e5}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPMouseWheelEvent@{NPMouseWheelEvent}}
+\index{NPMouseWheelEvent@{NPMouseWheelEvent}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPMouseWheelEvent}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf \_\-NPMouseWheelEvent}  {\bf NPMouseWheelEvent}}}
+\label{npapi__extensions_8h_aaf296c760e39523a65671fe4fa5949e5}
+\hypertarget{npapi__extensions_8h_a53bcdf1b9e111620331810631b7c21c7}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPNExtensions@{NPNExtensions}}
+\index{NPNExtensions@{NPNExtensions}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPNExtensions}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf NPNExtensions} {\bf NPNExtensions}}}
+\label{npapi__extensions_8h_a53bcdf1b9e111620331810631b7c21c7}
+
+
+Definition at line 241 of file npapi\_\-extensions.h.
+
+\hypertarget{npapi__extensions_8h_a669d08b972f7ac19bfb551f575940803}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPNumberOfFindResultsChangedPtr@{NPNumberOfFindResultsChangedPtr}}
+\index{NPNumberOfFindResultsChangedPtr@{NPNumberOfFindResultsChangedPtr}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPNumberOfFindResultsChangedPtr}]{\setlength{\rightskip}{0pt plus 5cm}typedef void($\ast$ {\bf NPNumberOfFindResultsChangedPtr})({\bf NPP} instance, int total, bool finalResult)}}
+\label{npapi__extensions_8h_a669d08b972f7ac19bfb551f575940803}
+
+
+Definition at line 415 of file npapi\_\-extensions.h.
+
+\hypertarget{npapi__extensions_8h_ab0aa503371ea560cdf1ca8b7b2e18af3}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPPaintWidgetPtr@{NPPaintWidgetPtr}}
+\index{NPPaintWidgetPtr@{NPPaintWidgetPtr}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPPaintWidgetPtr}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf NPError}($\ast$ {\bf NPPaintWidgetPtr})({\bf NPP} instance, {\bf NPWidgetID} id, {\bf NPDeviceContext2D} $\ast$context, {\bf NPRect} $\ast$dirty)}}
+\label{npapi__extensions_8h_ab0aa503371ea560cdf1ca8b7b2e18af3}
+
+
+Definition at line 481 of file npapi\_\-extensions.h.
+
+\hypertarget{npapi__extensions_8h_a56e5558e872ff8e3b782a22adef19474}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPPepperEvent@{NPPepperEvent}}
+\index{NPPepperEvent@{NPPepperEvent}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPPepperEvent}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf \_\-NPPepperEvent}  {\bf NPPepperEvent}}}
+\label{npapi__extensions_8h_a56e5558e872ff8e3b782a22adef19474}
+\hypertarget{npapi__extensions_8h_a4fce3cfd5f89ea1eaff19fdbe4d2ffbf}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPPExtensions@{NPPExtensions}}
+\index{NPPExtensions@{NPPExtensions}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPPExtensions}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf \_\-NPPExtensions}  {\bf NPPExtensions}}}
+\label{npapi__extensions_8h_a4fce3cfd5f89ea1eaff19fdbe4d2ffbf}
+\hypertarget{npapi__extensions_8h_ae9595289845576ceff9b1c6b5c4095af}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPPFindExtensions@{NPPFindExtensions}}
+\index{NPPFindExtensions@{NPPFindExtensions}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPPFindExtensions}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf \_\-NPPFindExtensions}  {\bf NPPFindExtensions}}}
+\label{npapi__extensions_8h_ae9595289845576ceff9b1c6b5c4095af}
+\hypertarget{npapi__extensions_8h_aeb4bff85058ef043c6c55eacdeb7fc08}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPPGetFindExtensionsPtr@{NPPGetFindExtensionsPtr}}
+\index{NPPGetFindExtensionsPtr@{NPPGetFindExtensionsPtr}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPPGetFindExtensionsPtr}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf NPPFindExtensions}$\ast$($\ast$ {\bf NPPGetFindExtensionsPtr})({\bf NPP} instance)}}
+\label{npapi__extensions_8h_aeb4bff85058ef043c6c55eacdeb7fc08}
+
+
+Definition at line 1036 of file npapi\_\-extensions.h.
+
+\hypertarget{npapi__extensions_8h_a42e6862ee4614a5f45e3158bf882b6ba}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPPGetPrintExtensionsPtr@{NPPGetPrintExtensionsPtr}}
+\index{NPPGetPrintExtensionsPtr@{NPPGetPrintExtensionsPtr}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPPGetPrintExtensionsPtr}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf NPPPrintExtensions}$\ast$($\ast$ {\bf NPPGetPrintExtensionsPtr})({\bf NPP} instance)}}
+\label{npapi__extensions_8h_a42e6862ee4614a5f45e3158bf882b6ba}
+
+
+Definition at line 1006 of file npapi\_\-extensions.h.
+
+\hypertarget{npapi__extensions_8h_a73f0f82629c1090966640bc461193624}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPPGetRasterDimensionsPtr@{NPPGetRasterDimensionsPtr}}
+\index{NPPGetRasterDimensionsPtr@{NPPGetRasterDimensionsPtr}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPPGetRasterDimensionsPtr}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf NPError}($\ast$ {\bf NPPGetRasterDimensionsPtr})({\bf NPP} instance, int32\_\-t pageNumber, int32\_\-t $\ast$widthInPixels, int32\_\-t $\ast$heightInPixels)}}
+\label{npapi__extensions_8h_a73f0f82629c1090966640bc461193624}
+
+
+Definition at line 971 of file npapi\_\-extensions.h.
+
+\hypertarget{npapi__extensions_8h_aedba5dce93f8bbc6144acce81353a1c8}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPPGetSelectionPtr@{NPPGetSelectionPtr}}
+\index{NPPGetSelectionPtr@{NPPGetSelectionPtr}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPPGetSelectionPtr}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf NPError}($\ast$ {\bf NPPGetSelectionPtr})({\bf NPP} instance, {\bf NPSelectionType} $\ast$type, void $\ast$$\ast$data)}}
+\label{npapi__extensions_8h_aedba5dce93f8bbc6144acce81353a1c8}
+
+
+Definition at line 1062 of file npapi\_\-extensions.h.
+
+\hypertarget{npapi__extensions_8h_ac4ce3082b0e9d4ba0cd69b296a69a946}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPPPrintBeginPtr@{NPPPrintBeginPtr}}
+\index{NPPPrintBeginPtr@{NPPPrintBeginPtr}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPPPrintBeginPtr}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf NPError}($\ast$ {\bf NPPPrintBeginPtr})({\bf NPP} instance, {\bf NPRect} $\ast$printableArea, int32\_\-t printerDPI, int32\_\-t $\ast$numPages)}}
+\label{npapi__extensions_8h_ac4ce3082b0e9d4ba0cd69b296a69a946}
+
+
+Definition at line 965 of file npapi\_\-extensions.h.
+
+\hypertarget{npapi__extensions_8h_afab984aad3dfedabd2b9aae4c8250a8d}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPPPrintEndPtr@{NPPPrintEndPtr}}
+\index{NPPPrintEndPtr@{NPPPrintEndPtr}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPPPrintEndPtr}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf NPError}($\ast$ {\bf NPPPrintEndPtr})({\bf NPP} instance)}}
+\label{npapi__extensions_8h_afab984aad3dfedabd2b9aae4c8250a8d}
+
+
+Definition at line 982 of file npapi\_\-extensions.h.
+
+\hypertarget{npapi__extensions_8h_a2ded5aa224d475daa36354c461e6bc45}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPPPrintExtensions@{NPPPrintExtensions}}
+\index{NPPPrintExtensions@{NPPPrintExtensions}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPPPrintExtensions}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf \_\-NPPPrintExtensions}  {\bf NPPPrintExtensions}}}
+\label{npapi__extensions_8h_a2ded5aa224d475daa36354c461e6bc45}
+\hypertarget{npapi__extensions_8h_a93b16a0532f2d7748c59b5987709a0e5}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPPPrintPageRasterPtr@{NPPPrintPageRasterPtr}}
+\index{NPPPrintPageRasterPtr@{NPPPrintPageRasterPtr}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPPPrintPageRasterPtr}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf NPError}($\ast$ {\bf NPPPrintPageRasterPtr})({\bf NPP} instance, int32\_\-t pageNumber, {\bf NPDeviceContext2D} $\ast$printSurface)}}
+\label{npapi__extensions_8h_a93b16a0532f2d7748c59b5987709a0e5}
+
+
+Definition at line 977 of file npapi\_\-extensions.h.
+
+\hypertarget{npapi__extensions_8h_ace4f9715727a8e7cb5c38f22401a57ca}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPPrintPageNumberRange@{NPPrintPageNumberRange}}
+\index{NPPrintPageNumberRange@{NPPrintPageNumberRange}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPPrintPageNumberRange}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf \_\-NPPrintPageNumberRange}  {\bf NPPrintPageNumberRange}}}
+\label{npapi__extensions_8h_ace4f9715727a8e7cb5c38f22401a57ca}
+\hypertarget{npapi__extensions_8h_a0aa9a3a1bb215dc36d466efdab898789}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPPrintPagesAsPDFPtr@{NPPrintPagesAsPDFPtr}}
+\index{NPPrintPagesAsPDFPtr@{NPPrintPagesAsPDFPtr}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPPrintPagesAsPDFPtr}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf NPError}($\ast$ {\bf NPPrintPagesAsPDFPtr})({\bf NPP} instance, {\bf NPPrintPageNumberRange} $\ast$page\_\-ranges, int32\_\-t page\_\-range\_\-count, unsigned char $\ast$$\ast$pdf\_\-output, int32\_\-t $\ast$output\_\-size)}}
+\label{npapi__extensions_8h_a0aa9a3a1bb215dc36d466efdab898789}
+
+
+Definition at line 986 of file npapi\_\-extensions.h.
+
+\hypertarget{npapi__extensions_8h_af3581e5704f4303fdb93ed502f59a9f5}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPPSelectFindResultPtr@{NPPSelectFindResultPtr}}
+\index{NPPSelectFindResultPtr@{NPPSelectFindResultPtr}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPPSelectFindResultPtr}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf NPError}($\ast$ {\bf NPPSelectFindResultPtr})({\bf NPP} instance, bool forward)}}
+\label{npapi__extensions_8h_af3581e5704f4303fdb93ed502f59a9f5}
+
+
+Definition at line 1020 of file npapi\_\-extensions.h.
+
+\hypertarget{npapi__extensions_8h_a83120f743e8de769e389550822523f51}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPPStartFindPtr@{NPPStartFindPtr}}
+\index{NPPStartFindPtr@{NPPStartFindPtr}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPPStartFindPtr}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf NPError}($\ast$ {\bf NPPStartFindPtr})({\bf NPP} instance, const char $\ast$text, bool caseSensitive)}}
+\label{npapi__extensions_8h_a83120f743e8de769e389550822523f51}
+
+
+Definition at line 1014 of file npapi\_\-extensions.h.
+
+\hypertarget{npapi__extensions_8h_a79111add50d7429acdfa26ad0a55e4ae}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPPStopFindPtr@{NPPStopFindPtr}}
+\index{NPPStopFindPtr@{NPPStopFindPtr}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPPStopFindPtr}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf NPError}($\ast$ {\bf NPPStopFindPtr})({\bf NPP} instance)}}
+\label{npapi__extensions_8h_a79111add50d7429acdfa26ad0a55e4ae}
+
+
+Definition at line 1026 of file npapi\_\-extensions.h.
+
+\hypertarget{npapi__extensions_8h_a27a03ca543630aa9b10afb5a0d0c6bd7}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPPWidgetPropertyChangedPtr@{NPPWidgetPropertyChangedPtr}}
+\index{NPPWidgetPropertyChangedPtr@{NPPWidgetPropertyChangedPtr}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPPWidgetPropertyChangedPtr}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf NPError}($\ast$ {\bf NPPWidgetPropertyChangedPtr})({\bf NPP} instance, {\bf NPWidgetID} id, {\bf NPWidgetProperty} property)}}
+\label{npapi__extensions_8h_a27a03ca543630aa9b10afb5a0d0c6bd7}
+
+
+Definition at line 1043 of file npapi\_\-extensions.h.
+
+\hypertarget{npapi__extensions_8h_a9bb4d9f7a42a25495ba0046eabf49cf6}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPPZoomPtr@{NPPZoomPtr}}
+\index{NPPZoomPtr@{NPPZoomPtr}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPPZoomPtr}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf NPError}($\ast$ {\bf NPPZoomPtr})({\bf NPP} instance, int factor)}}
+\label{npapi__extensions_8h_a9bb4d9f7a42a25495ba0046eabf49cf6}
+
+
+Definition at line 1039 of file npapi\_\-extensions.h.
+
+\hypertarget{npapi__extensions_8h_a06075cec6e3481127cf38fcaf4a60d5d}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPRect32@{NPRect32}}
+\index{NPRect32@{NPRect32}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPRect32}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf \_\-NPRect32}  {\bf NPRect32}}}
+\label{npapi__extensions_8h_a06075cec6e3481127cf38fcaf4a60d5d}
+\hypertarget{npapi__extensions_8h_a36348a1e5e1fa04c1c8b4f51acb51df9}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPScrollbarCreateParams@{NPScrollbarCreateParams}}
+\index{NPScrollbarCreateParams@{NPScrollbarCreateParams}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPScrollbarCreateParams}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf \_\-NPScrollbarCreateParams}  {\bf NPScrollbarCreateParams}}}
+\label{npapi__extensions_8h_a36348a1e5e1fa04c1c8b4f51acb51df9}
+\hypertarget{npapi__extensions_8h_ad6edec5182d7fe205ea963ae3d892339}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPScrollbarTickMarks@{NPScrollbarTickMarks}}
+\index{NPScrollbarTickMarks@{NPScrollbarTickMarks}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPScrollbarTickMarks}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf \_\-NPScrollbarTickMarks}  {\bf NPScrollbarTickMarks}}}
+\label{npapi__extensions_8h_ad6edec5182d7fe205ea963ae3d892339}
+\hypertarget{npapi__extensions_8h_a1b4c4cc3146e0723b7f0c0d5189b9200}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPSelectedFindResultChangedPtr@{NPSelectedFindResultChangedPtr}}
+\index{NPSelectedFindResultChangedPtr@{NPSelectedFindResultChangedPtr}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPSelectedFindResultChangedPtr}]{\setlength{\rightskip}{0pt plus 5cm}typedef void($\ast$ {\bf NPSelectedFindResultChangedPtr})({\bf NPP} instance, int index)}}
+\label{npapi__extensions_8h_a1b4c4cc3146e0723b7f0c0d5189b9200}
+
+
+Definition at line 421 of file npapi\_\-extensions.h.
+
+\hypertarget{npapi__extensions_8h_a21eebf919613dec3d7790905d9bd1dd8}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPSetCursorPtr@{NPSetCursorPtr}}
+\index{NPSetCursorPtr@{NPSetCursorPtr}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPSetCursorPtr}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf NPError}($\ast$ {\bf NPSetCursorPtr})({\bf NPP} instance, {\bf NPCursorType} type)}}
+\label{npapi__extensions_8h_a21eebf919613dec3d7790905d9bd1dd8}
+
+
+Definition at line 622 of file npapi\_\-extensions.h.
+
+\hypertarget{npapi__extensions_8h_a9a53efaef2e5ec6314c2c0a436212677}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPSetWidgetPropertyPtr@{NPSetWidgetPropertyPtr}}
+\index{NPSetWidgetPropertyPtr@{NPSetWidgetPropertyPtr}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPSetWidgetPropertyPtr}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf NPError}($\ast$ {\bf NPSetWidgetPropertyPtr})({\bf NPP} instance, {\bf NPWidgetID} id, {\bf NPWidgetProperty} property, void $\ast$value)}}
+\label{npapi__extensions_8h_a9a53efaef2e5ec6314c2c0a436212677}
+
+
+Definition at line 501 of file npapi\_\-extensions.h.
+
+\hypertarget{npapi__extensions_8h_abc0171cecceff1ceff07f3352c4a3888}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPUserData@{NPUserData}}
+\index{NPUserData@{NPUserData}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPUserData}]{\setlength{\rightskip}{0pt plus 5cm}typedef void {\bf NPUserData}}}
+\label{npapi__extensions_8h_abc0171cecceff1ceff07f3352c4a3888}
+
+
+Definition at line 25 of file npapi\_\-extensions.h.
+
+\hypertarget{npapi__extensions_8h_ad6fe595fcb09c88284cfe4e7921d350c}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPWidgetExtensions@{NPWidgetExtensions}}
+\index{NPWidgetExtensions@{NPWidgetExtensions}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPWidgetExtensions}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf \_\-NPWidgetExtensions}  {\bf NPWidgetExtensions}}}
+\label{npapi__extensions_8h_ad6fe595fcb09c88284cfe4e7921d350c}
+\hypertarget{npapi__extensions_8h_adfb8f5bdd62cb39bc3544c2a835af6fd}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPWidgetID@{NPWidgetID}}
+\index{NPWidgetID@{NPWidgetID}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPWidgetID}]{\setlength{\rightskip}{0pt plus 5cm}typedef int32\_\-t {\bf NPWidgetID}}}
+\label{npapi__extensions_8h_adfb8f5bdd62cb39bc3544c2a835af6fd}
+
+
+Definition at line 426 of file npapi\_\-extensions.h.
+
+
+
+\subsection{Enumeration Type Documentation}
+\hypertarget{npapi__extensions_8h_adf764cbdea00d65edcd07bb9953ad2b7}{
+\subsubsection[{"@1}]{\setlength{\rightskip}{0pt plus 5cm}anonymous enum}}
+\label{npapi__extensions_8h_adf764cbdea00d65edcd07bb9953ad2b7}
+\begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{NPAttrib\_\-End@{NPAttrib\_\-End}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPAttrib\_\-End@{NPAttrib\_\-End}}\item[{\em 
+\hypertarget{npapi__extensions_8h_adf764cbdea00d65edcd07bb9953ad2b7a867cd8f4efcf8bee29cea4d46d6314c9}{
+NPAttrib\_\-End}
+\label{npapi__extensions_8h_adf764cbdea00d65edcd07bb9953ad2b7a867cd8f4efcf8bee29cea4d46d6314c9}
+}]\index{NPAttrib\_\-Error@{NPAttrib\_\-Error}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPAttrib\_\-Error@{NPAttrib\_\-Error}}\item[{\em 
+\hypertarget{npapi__extensions_8h_adf764cbdea00d65edcd07bb9953ad2b7a130cba0a0db690fda476efe73a423d90}{
+NPAttrib\_\-Error}
+\label{npapi__extensions_8h_adf764cbdea00d65edcd07bb9953ad2b7a130cba0a0db690fda476efe73a423d90}
+}]\end{description}
+\end{Desc}
+
+
+
+Definition at line 372 of file npapi\_\-extensions.h.
+
+\hypertarget{npapi__extensions_8h_a99fb83031ce9923c84392b4e92f956b5}{
+\subsubsection[{"@2}]{\setlength{\rightskip}{0pt plus 5cm}anonymous enum}}
+\label{npapi__extensions_8h_a99fb83031ce9923c84392b4e92f956b5}
+\begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{NP3DCommandBufferId@{NP3DCommandBufferId}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NP3DCommandBufferId@{NP3DCommandBufferId}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a99fb83031ce9923c84392b4e92f956b5a1f3b69bc44a98145516116652c16ab27}{
+NP3DCommandBufferId}
+\label{npapi__extensions_8h_a99fb83031ce9923c84392b4e92f956b5a1f3b69bc44a98145516116652c16ab27}
+}]\end{description}
+\end{Desc}
+
+
+
+Definition at line 799 of file npapi\_\-extensions.h.
+
+\hypertarget{npapi__extensions_8h_abc6126af1d45847bc59afa0aa3216b04}{
+\subsubsection[{"@3}]{\setlength{\rightskip}{0pt plus 5cm}anonymous enum}}
+\label{npapi__extensions_8h_abc6126af1d45847bc59afa0aa3216b04}
+\begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{NP3DAttrib\_\-BufferSize@{NP3DAttrib\_\-BufferSize}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NP3DAttrib\_\-BufferSize@{NP3DAttrib\_\-BufferSize}}\item[{\em 
+\hypertarget{npapi__extensions_8h_abc6126af1d45847bc59afa0aa3216b04a83f91224e904529703ee10a38c88de72}{
+NP3DAttrib\_\-BufferSize}
+\label{npapi__extensions_8h_abc6126af1d45847bc59afa0aa3216b04a83f91224e904529703ee10a38c88de72}
+}]\index{NP3DAttrib\_\-AlphaSize@{NP3DAttrib\_\-AlphaSize}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NP3DAttrib\_\-AlphaSize@{NP3DAttrib\_\-AlphaSize}}\item[{\em 
+\hypertarget{npapi__extensions_8h_abc6126af1d45847bc59afa0aa3216b04af5466a250b95cb2d960460ef9ba0703f}{
+NP3DAttrib\_\-AlphaSize}
+\label{npapi__extensions_8h_abc6126af1d45847bc59afa0aa3216b04af5466a250b95cb2d960460ef9ba0703f}
+}]\index{NP3DAttrib\_\-BlueSize@{NP3DAttrib\_\-BlueSize}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NP3DAttrib\_\-BlueSize@{NP3DAttrib\_\-BlueSize}}\item[{\em 
+\hypertarget{npapi__extensions_8h_abc6126af1d45847bc59afa0aa3216b04a0f0c13894fd5077ae2e76e19c1d4eebc}{
+NP3DAttrib\_\-BlueSize}
+\label{npapi__extensions_8h_abc6126af1d45847bc59afa0aa3216b04a0f0c13894fd5077ae2e76e19c1d4eebc}
+}]\index{NP3DAttrib\_\-GreenSize@{NP3DAttrib\_\-GreenSize}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NP3DAttrib\_\-GreenSize@{NP3DAttrib\_\-GreenSize}}\item[{\em 
+\hypertarget{npapi__extensions_8h_abc6126af1d45847bc59afa0aa3216b04a5e74544a41d659a1ec4f687e0c63e393}{
+NP3DAttrib\_\-GreenSize}
+\label{npapi__extensions_8h_abc6126af1d45847bc59afa0aa3216b04a5e74544a41d659a1ec4f687e0c63e393}
+}]\index{NP3DAttrib\_\-RedSize@{NP3DAttrib\_\-RedSize}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NP3DAttrib\_\-RedSize@{NP3DAttrib\_\-RedSize}}\item[{\em 
+\hypertarget{npapi__extensions_8h_abc6126af1d45847bc59afa0aa3216b04a3d8a1bf2b74774172040076ae569c75b}{
+NP3DAttrib\_\-RedSize}
+\label{npapi__extensions_8h_abc6126af1d45847bc59afa0aa3216b04a3d8a1bf2b74774172040076ae569c75b}
+}]\index{NP3DAttrib\_\-DepthSize@{NP3DAttrib\_\-DepthSize}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NP3DAttrib\_\-DepthSize@{NP3DAttrib\_\-DepthSize}}\item[{\em 
+\hypertarget{npapi__extensions_8h_abc6126af1d45847bc59afa0aa3216b04a70134d71371f7a4be5cfa83c122ae89c}{
+NP3DAttrib\_\-DepthSize}
+\label{npapi__extensions_8h_abc6126af1d45847bc59afa0aa3216b04a70134d71371f7a4be5cfa83c122ae89c}
+}]\index{NP3DAttrib\_\-StencilSize@{NP3DAttrib\_\-StencilSize}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NP3DAttrib\_\-StencilSize@{NP3DAttrib\_\-StencilSize}}\item[{\em 
+\hypertarget{npapi__extensions_8h_abc6126af1d45847bc59afa0aa3216b04a1c5628a4f5a95980e16d173bfb1fe555}{
+NP3DAttrib\_\-StencilSize}
+\label{npapi__extensions_8h_abc6126af1d45847bc59afa0aa3216b04a1c5628a4f5a95980e16d173bfb1fe555}
+}]\index{NP3DAttrib\_\-SurfaceType@{NP3DAttrib\_\-SurfaceType}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NP3DAttrib\_\-SurfaceType@{NP3DAttrib\_\-SurfaceType}}\item[{\em 
+\hypertarget{npapi__extensions_8h_abc6126af1d45847bc59afa0aa3216b04a4e6ba810c3f8f4f6fe5bd174f22656fc}{
+NP3DAttrib\_\-SurfaceType}
+\label{npapi__extensions_8h_abc6126af1d45847bc59afa0aa3216b04a4e6ba810c3f8f4f6fe5bd174f22656fc}
+}]\index{NP3DAttrib\_\-SwapBehavior@{NP3DAttrib\_\-SwapBehavior}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NP3DAttrib\_\-SwapBehavior@{NP3DAttrib\_\-SwapBehavior}}\item[{\em 
+\hypertarget{npapi__extensions_8h_abc6126af1d45847bc59afa0aa3216b04ab6964cad2be52e1c0c156dafd5586a33}{
+NP3DAttrib\_\-SwapBehavior}
+\label{npapi__extensions_8h_abc6126af1d45847bc59afa0aa3216b04ab6964cad2be52e1c0c156dafd5586a33}
+}]\index{NP3DAttrib\_\-MultisampleResolve@{NP3DAttrib\_\-MultisampleResolve}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NP3DAttrib\_\-MultisampleResolve@{NP3DAttrib\_\-MultisampleResolve}}\item[{\em 
+\hypertarget{npapi__extensions_8h_abc6126af1d45847bc59afa0aa3216b04a09cb0857d7003d78f33cf2bbe8d3af54}{
+NP3DAttrib\_\-MultisampleResolve}
+\label{npapi__extensions_8h_abc6126af1d45847bc59afa0aa3216b04a09cb0857d7003d78f33cf2bbe8d3af54}
+}]\index{NP3DAttrib\_\-CommandBufferSize@{NP3DAttrib\_\-CommandBufferSize}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NP3DAttrib\_\-CommandBufferSize@{NP3DAttrib\_\-CommandBufferSize}}\item[{\em 
+\hypertarget{npapi__extensions_8h_abc6126af1d45847bc59afa0aa3216b04a9ec2b1fcfba749e2145f832fb94ba0d3}{
+NP3DAttrib\_\-CommandBufferSize}
+\label{npapi__extensions_8h_abc6126af1d45847bc59afa0aa3216b04a9ec2b1fcfba749e2145f832fb94ba0d3}
+}]\index{NP3DAttrib\_\-PutOffset@{NP3DAttrib\_\-PutOffset}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NP3DAttrib\_\-PutOffset@{NP3DAttrib\_\-PutOffset}}\item[{\em 
+\hypertarget{npapi__extensions_8h_abc6126af1d45847bc59afa0aa3216b04a6fba335a801ea7bb90502946cb76ab4f}{
+NP3DAttrib\_\-PutOffset}
+\label{npapi__extensions_8h_abc6126af1d45847bc59afa0aa3216b04a6fba335a801ea7bb90502946cb76ab4f}
+}]\index{NP3DAttrib\_\-GetOffset@{NP3DAttrib\_\-GetOffset}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NP3DAttrib\_\-GetOffset@{NP3DAttrib\_\-GetOffset}}\item[{\em 
+\hypertarget{npapi__extensions_8h_abc6126af1d45847bc59afa0aa3216b04a0d4a7ff74a5d398a83682a5dc4d99625}{
+NP3DAttrib\_\-GetOffset}
+\label{npapi__extensions_8h_abc6126af1d45847bc59afa0aa3216b04a0d4a7ff74a5d398a83682a5dc4d99625}
+}]\index{NP3DAttrib\_\-Token@{NP3DAttrib\_\-Token}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NP3DAttrib\_\-Token@{NP3DAttrib\_\-Token}}\item[{\em 
+\hypertarget{npapi__extensions_8h_abc6126af1d45847bc59afa0aa3216b04a1311b764c5bd20481c657260ede1cbb5}{
+NP3DAttrib\_\-Token}
+\label{npapi__extensions_8h_abc6126af1d45847bc59afa0aa3216b04a1311b764c5bd20481c657260ede1cbb5}
+}]\end{description}
+\end{Desc}
+
+
+
+Definition at line 804 of file npapi\_\-extensions.h.
+
+\hypertarget{npapi__extensions_8h_adc29c2ff13d900c2f185ee95427fb06c}{
+\subsubsection[{"@4}]{\setlength{\rightskip}{0pt plus 5cm}anonymous enum}}
+\label{npapi__extensions_8h_adc29c2ff13d900c2f185ee95427fb06c}
+\begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{NP3DCallback\_\-Repaint@{NP3DCallback\_\-Repaint}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NP3DCallback\_\-Repaint@{NP3DCallback\_\-Repaint}}\item[{\em 
+\hypertarget{npapi__extensions_8h_adc29c2ff13d900c2f185ee95427fb06ca6f7b3a36dcb2e325c7686eebd5c15219}{
+NP3DCallback\_\-Repaint}
+\label{npapi__extensions_8h_adc29c2ff13d900c2f185ee95427fb06ca6f7b3a36dcb2e325c7686eebd5c15219}
+}]\end{description}
+\end{Desc}
+
+
+
+Definition at line 839 of file npapi\_\-extensions.h.
+
+\hypertarget{npapi__extensions_8h_a61dadd085c1777f559549e05962b2c9e}{
+\subsubsection[{"@5}]{\setlength{\rightskip}{0pt plus 5cm}anonymous enum}}
+\label{npapi__extensions_8h_a61dadd085c1777f559549e05962b2c9e}
+\begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{NP3DSurfaceType\_\-MultisampleResolveBox@{NP3DSurfaceType\_\-MultisampleResolveBox}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NP3DSurfaceType\_\-MultisampleResolveBox@{NP3DSurfaceType\_\-MultisampleResolveBox}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a61dadd085c1777f559549e05962b2c9eae4bddc91f7456d77c0c289d970e8a298}{
+NP3DSurfaceType\_\-MultisampleResolveBox}
+\label{npapi__extensions_8h_a61dadd085c1777f559549e05962b2c9eae4bddc91f7456d77c0c289d970e8a298}
+}]\index{NP3DSurfaceType\_\-SwapBehaviorPreserved@{NP3DSurfaceType\_\-SwapBehaviorPreserved}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NP3DSurfaceType\_\-SwapBehaviorPreserved@{NP3DSurfaceType\_\-SwapBehaviorPreserved}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a61dadd085c1777f559549e05962b2c9ea46f248272a6717bf75dc782484ce0416}{
+NP3DSurfaceType\_\-SwapBehaviorPreserved}
+\label{npapi__extensions_8h_a61dadd085c1777f559549e05962b2c9ea46f248272a6717bf75dc782484ce0416}
+}]\end{description}
+\end{Desc}
+
+
+
+Definition at line 847 of file npapi\_\-extensions.h.
+
+\hypertarget{npapi__extensions_8h_a726ca809ffd3d67ab4b8476646f26635}{
+\subsubsection[{"@6}]{\setlength{\rightskip}{0pt plus 5cm}anonymous enum}}
+\label{npapi__extensions_8h_a726ca809ffd3d67ab4b8476646f26635}
+\begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{NP3DSwapBehavior\_\-Preserved@{NP3DSwapBehavior\_\-Preserved}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NP3DSwapBehavior\_\-Preserved@{NP3DSwapBehavior\_\-Preserved}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a726ca809ffd3d67ab4b8476646f26635a0c3c917c987951718d42c6fd3ddd03e8}{
+NP3DSwapBehavior\_\-Preserved}
+\label{npapi__extensions_8h_a726ca809ffd3d67ab4b8476646f26635a0c3c917c987951718d42c6fd3ddd03e8}
+}]\index{NP3DSwapBehavior\_\-Destroyed@{NP3DSwapBehavior\_\-Destroyed}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NP3DSwapBehavior\_\-Destroyed@{NP3DSwapBehavior\_\-Destroyed}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a726ca809ffd3d67ab4b8476646f26635a5848e183e31518908edb617ca7dc991f}{
+NP3DSwapBehavior\_\-Destroyed}
+\label{npapi__extensions_8h_a726ca809ffd3d67ab4b8476646f26635a5848e183e31518908edb617ca7dc991f}
+}]\end{description}
+\end{Desc}
+
+
+
+Definition at line 853 of file npapi\_\-extensions.h.
+
+\hypertarget{npapi__extensions_8h_a0411cd49bb5b71852cecd93bcbf0ca2d}{
+\subsubsection[{"@7}]{\setlength{\rightskip}{0pt plus 5cm}anonymous enum}}
+\label{npapi__extensions_8h_a0411cd49bb5b71852cecd93bcbf0ca2d}
+\begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{NP3DMultisampleResolve\_\-Default@{NP3DMultisampleResolve\_\-Default}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NP3DMultisampleResolve\_\-Default@{NP3DMultisampleResolve\_\-Default}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a0411cd49bb5b71852cecd93bcbf0ca2da1a1fd5a3b2a92d5399ea29d1ec36f908}{
+NP3DMultisampleResolve\_\-Default}
+\label{npapi__extensions_8h_a0411cd49bb5b71852cecd93bcbf0ca2da1a1fd5a3b2a92d5399ea29d1ec36f908}
+}]\index{NP3DMultisampleResolve\_\-Box@{NP3DMultisampleResolve\_\-Box}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NP3DMultisampleResolve\_\-Box@{NP3DMultisampleResolve\_\-Box}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a0411cd49bb5b71852cecd93bcbf0ca2da87420e7a88526451584d007bef5c4847}{
+NP3DMultisampleResolve\_\-Box}
+\label{npapi__extensions_8h_a0411cd49bb5b71852cecd93bcbf0ca2da87420e7a88526451584d007bef5c4847}
+}]\end{description}
+\end{Desc}
+
+
+
+Definition at line 859 of file npapi\_\-extensions.h.
+
+\hypertarget{npapi__extensions_8h_ab5399bc87c840ea21d35a3bb9b134304}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!\_\-NPDeviceContext3DError@{\_\-NPDeviceContext3DError}}
+\index{\_\-NPDeviceContext3DError@{\_\-NPDeviceContext3DError}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{\_\-NPDeviceContext3DError}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf \_\-NPDeviceContext3DError}}}
+\label{npapi__extensions_8h_ab5399bc87c840ea21d35a3bb9b134304}
+\begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{NPDeviceContext3DError\_\-NoError@{NPDeviceContext3DError\_\-NoError}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPDeviceContext3DError\_\-NoError@{NPDeviceContext3DError\_\-NoError}}\item[{\em 
+\hypertarget{npapi__extensions_8h_ab5399bc87c840ea21d35a3bb9b134304a9f21dccfe8796b28a405ca401095d1a3}{
+NPDeviceContext3DError\_\-NoError}
+\label{npapi__extensions_8h_ab5399bc87c840ea21d35a3bb9b134304a9f21dccfe8796b28a405ca401095d1a3}
+}]\index{NPDeviceContext3DError\_\-InvalidSize@{NPDeviceContext3DError\_\-InvalidSize}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPDeviceContext3DError\_\-InvalidSize@{NPDeviceContext3DError\_\-InvalidSize}}\item[{\em 
+\hypertarget{npapi__extensions_8h_ab5399bc87c840ea21d35a3bb9b134304a220f77c5ebc3aa256ac568126115acca}{
+NPDeviceContext3DError\_\-InvalidSize}
+\label{npapi__extensions_8h_ab5399bc87c840ea21d35a3bb9b134304a220f77c5ebc3aa256ac568126115acca}
+}]\index{NPDeviceContext3DError\_\-OutOfBounds@{NPDeviceContext3DError\_\-OutOfBounds}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPDeviceContext3DError\_\-OutOfBounds@{NPDeviceContext3DError\_\-OutOfBounds}}\item[{\em 
+\hypertarget{npapi__extensions_8h_ab5399bc87c840ea21d35a3bb9b134304a39ace4fdabba92ea0b9c271191644b9c}{
+NPDeviceContext3DError\_\-OutOfBounds}
+\label{npapi__extensions_8h_ab5399bc87c840ea21d35a3bb9b134304a39ace4fdabba92ea0b9c271191644b9c}
+}]\index{NPDeviceContext3DError\_\-UnknownCommand@{NPDeviceContext3DError\_\-UnknownCommand}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPDeviceContext3DError\_\-UnknownCommand@{NPDeviceContext3DError\_\-UnknownCommand}}\item[{\em 
+\hypertarget{npapi__extensions_8h_ab5399bc87c840ea21d35a3bb9b134304a0374cb1bc3867267f6071421b85b86a9}{
+NPDeviceContext3DError\_\-UnknownCommand}
+\label{npapi__extensions_8h_ab5399bc87c840ea21d35a3bb9b134304a0374cb1bc3867267f6071421b85b86a9}
+}]\index{NPDeviceContext3DError\_\-InvalidArguments@{NPDeviceContext3DError\_\-InvalidArguments}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPDeviceContext3DError\_\-InvalidArguments@{NPDeviceContext3DError\_\-InvalidArguments}}\item[{\em 
+\hypertarget{npapi__extensions_8h_ab5399bc87c840ea21d35a3bb9b134304a56c4a13e0d802178ba70f5fbbba72099}{
+NPDeviceContext3DError\_\-InvalidArguments}
+\label{npapi__extensions_8h_ab5399bc87c840ea21d35a3bb9b134304a56c4a13e0d802178ba70f5fbbba72099}
+}]\index{NPDeviceContext3DError\_\-LostContext@{NPDeviceContext3DError\_\-LostContext}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPDeviceContext3DError\_\-LostContext@{NPDeviceContext3DError\_\-LostContext}}\item[{\em 
+\hypertarget{npapi__extensions_8h_ab5399bc87c840ea21d35a3bb9b134304a50c5b44f87505ee4ee86fd015069d824}{
+NPDeviceContext3DError\_\-LostContext}
+\label{npapi__extensions_8h_ab5399bc87c840ea21d35a3bb9b134304a50c5b44f87505ee4ee86fd015069d824}
+}]\index{NPDeviceContext3DError\_\-GenericError@{NPDeviceContext3DError\_\-GenericError}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPDeviceContext3DError\_\-GenericError@{NPDeviceContext3DError\_\-GenericError}}\item[{\em 
+\hypertarget{npapi__extensions_8h_ab5399bc87c840ea21d35a3bb9b134304a9baee0a4de440b64c4d7fdc51ccc3048}{
+NPDeviceContext3DError\_\-GenericError}
+\label{npapi__extensions_8h_ab5399bc87c840ea21d35a3bb9b134304a9baee0a4de440b64c4d7fdc51ccc3048}
+}]\end{description}
+\end{Desc}
+
+
+
+Definition at line 728 of file npapi\_\-extensions.h.
+
+\hypertarget{npapi__extensions_8h_a4b9d38847a4e6de5f56a93a8d65541f1}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPAudioCapabilities@{NPAudioCapabilities}}
+\index{NPAudioCapabilities@{NPAudioCapabilities}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPAudioCapabilities}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf NPAudioCapabilities}}}
+\label{npapi__extensions_8h_a4b9d38847a4e6de5f56a93a8d65541f1}
+\begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{NPAudioCapabilitySampleRate@{NPAudioCapabilitySampleRate}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPAudioCapabilitySampleRate@{NPAudioCapabilitySampleRate}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a4b9d38847a4e6de5f56a93a8d65541f1a20f82ee66b5c21d83d3e762469202996}{
+NPAudioCapabilitySampleRate}
+\label{npapi__extensions_8h_a4b9d38847a4e6de5f56a93a8d65541f1a20f82ee66b5c21d83d3e762469202996}
+}]\index{NPAudioCapabilitySampleType@{NPAudioCapabilitySampleType}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPAudioCapabilitySampleType@{NPAudioCapabilitySampleType}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a4b9d38847a4e6de5f56a93a8d65541f1a1c67d97ed8c8527c2b2124c7311044cd}{
+NPAudioCapabilitySampleType}
+\label{npapi__extensions_8h_a4b9d38847a4e6de5f56a93a8d65541f1a1c67d97ed8c8527c2b2124c7311044cd}
+}]\index{NPAudioCapabilitySampleFrameCount@{NPAudioCapabilitySampleFrameCount}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPAudioCapabilitySampleFrameCount@{NPAudioCapabilitySampleFrameCount}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a4b9d38847a4e6de5f56a93a8d65541f1ab6788ba2a3e3c87b582edc0d9e25876e}{
+NPAudioCapabilitySampleFrameCount}
+\label{npapi__extensions_8h_a4b9d38847a4e6de5f56a93a8d65541f1ab6788ba2a3e3c87b582edc0d9e25876e}
+}]\index{NPAudioCapabilitySampleFrameCount44100Hz@{NPAudioCapabilitySampleFrameCount44100Hz}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPAudioCapabilitySampleFrameCount44100Hz@{NPAudioCapabilitySampleFrameCount44100Hz}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a4b9d38847a4e6de5f56a93a8d65541f1a5094fd91e76da6a15177ea133e7daf97}{
+NPAudioCapabilitySampleFrameCount44100Hz}
+\label{npapi__extensions_8h_a4b9d38847a4e6de5f56a93a8d65541f1a5094fd91e76da6a15177ea133e7daf97}
+}]\index{NPAudioCapabilitySampleFrameCount48000Hz@{NPAudioCapabilitySampleFrameCount48000Hz}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPAudioCapabilitySampleFrameCount48000Hz@{NPAudioCapabilitySampleFrameCount48000Hz}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a4b9d38847a4e6de5f56a93a8d65541f1aa9271640d734216ece5d59daacc9c461}{
+NPAudioCapabilitySampleFrameCount48000Hz}
+\label{npapi__extensions_8h_a4b9d38847a4e6de5f56a93a8d65541f1aa9271640d734216ece5d59daacc9c461}
+}]\index{NPAudioCapabilitySampleFrameCount96000Hz@{NPAudioCapabilitySampleFrameCount96000Hz}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPAudioCapabilitySampleFrameCount96000Hz@{NPAudioCapabilitySampleFrameCount96000Hz}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a4b9d38847a4e6de5f56a93a8d65541f1a90bffc85b5c19db1ec55d25d87ef9808}{
+NPAudioCapabilitySampleFrameCount96000Hz}
+\label{npapi__extensions_8h_a4b9d38847a4e6de5f56a93a8d65541f1a90bffc85b5c19db1ec55d25d87ef9808}
+}]\index{NPAudioCapabilityOutputChannelMap@{NPAudioCapabilityOutputChannelMap}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPAudioCapabilityOutputChannelMap@{NPAudioCapabilityOutputChannelMap}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a4b9d38847a4e6de5f56a93a8d65541f1aa47e82329d89a0d9a90eff17e9af9630}{
+NPAudioCapabilityOutputChannelMap}
+\label{npapi__extensions_8h_a4b9d38847a4e6de5f56a93a8d65541f1aa47e82329d89a0d9a90eff17e9af9630}
+}]\index{NPAudioCapabilityInputChannelMap@{NPAudioCapabilityInputChannelMap}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPAudioCapabilityInputChannelMap@{NPAudioCapabilityInputChannelMap}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a4b9d38847a4e6de5f56a93a8d65541f1a56e17628edbdb9b0fec2248b56d3feb3}{
+NPAudioCapabilityInputChannelMap}
+\label{npapi__extensions_8h_a4b9d38847a4e6de5f56a93a8d65541f1a56e17628edbdb9b0fec2248b56d3feb3}
+}]\end{description}
+\end{Desc}
+
+
+
+Definition at line 916 of file npapi\_\-extensions.h.
+
+\hypertarget{npapi__extensions_8h_ae176cc84f95555c7c38bf941de2dd3ab}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPAudioChannels@{NPAudioChannels}}
+\index{NPAudioChannels@{NPAudioChannels}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPAudioChannels}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf NPAudioChannels}}}
+\label{npapi__extensions_8h_ae176cc84f95555c7c38bf941de2dd3ab}
+\begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{NPAudioChannelNone@{NPAudioChannelNone}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPAudioChannelNone@{NPAudioChannelNone}}\item[{\em 
+\hypertarget{npapi__extensions_8h_ae176cc84f95555c7c38bf941de2dd3aba39032a87191ee2bcbbecbf37f1201f32}{
+NPAudioChannelNone}
+\label{npapi__extensions_8h_ae176cc84f95555c7c38bf941de2dd3aba39032a87191ee2bcbbecbf37f1201f32}
+}]\index{NPAudioChannelMono@{NPAudioChannelMono}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPAudioChannelMono@{NPAudioChannelMono}}\item[{\em 
+\hypertarget{npapi__extensions_8h_ae176cc84f95555c7c38bf941de2dd3aba8d777d229c7200f08311a9e21be47d18}{
+NPAudioChannelMono}
+\label{npapi__extensions_8h_ae176cc84f95555c7c38bf941de2dd3aba8d777d229c7200f08311a9e21be47d18}
+}]\index{NPAudioChannelStereo@{NPAudioChannelStereo}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPAudioChannelStereo@{NPAudioChannelStereo}}\item[{\em 
+\hypertarget{npapi__extensions_8h_ae176cc84f95555c7c38bf941de2dd3abaa27f740684141523d4b21cf3ad87946a}{
+NPAudioChannelStereo}
+\label{npapi__extensions_8h_ae176cc84f95555c7c38bf941de2dd3abaa27f740684141523d4b21cf3ad87946a}
+}]\index{NPAudioChannelThree@{NPAudioChannelThree}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPAudioChannelThree@{NPAudioChannelThree}}\item[{\em 
+\hypertarget{npapi__extensions_8h_ae176cc84f95555c7c38bf941de2dd3abae049b7e6d84d9f4515f4d88949e631d5}{
+NPAudioChannelThree}
+\label{npapi__extensions_8h_ae176cc84f95555c7c38bf941de2dd3abae049b7e6d84d9f4515f4d88949e631d5}
+}]\index{NPAudioChannelFour@{NPAudioChannelFour}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPAudioChannelFour@{NPAudioChannelFour}}\item[{\em 
+\hypertarget{npapi__extensions_8h_ae176cc84f95555c7c38bf941de2dd3abaed3acb401e737b0671e11d27636ac505}{
+NPAudioChannelFour}
+\label{npapi__extensions_8h_ae176cc84f95555c7c38bf941de2dd3abaed3acb401e737b0671e11d27636ac505}
+}]\index{NPAudioChannelFive@{NPAudioChannelFive}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPAudioChannelFive@{NPAudioChannelFive}}\item[{\em 
+\hypertarget{npapi__extensions_8h_ae176cc84f95555c7c38bf941de2dd3abab922e14f365e79c3f9cf39d94d1939a7}{
+NPAudioChannelFive}
+\label{npapi__extensions_8h_ae176cc84f95555c7c38bf941de2dd3abab922e14f365e79c3f9cf39d94d1939a7}
+}]\index{NPAudioChannelFiveOne@{NPAudioChannelFiveOne}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPAudioChannelFiveOne@{NPAudioChannelFiveOne}}\item[{\em 
+\hypertarget{npapi__extensions_8h_ae176cc84f95555c7c38bf941de2dd3aba67811686c7e47207ecd69abcfcf6e362}{
+NPAudioChannelFiveOne}
+\label{npapi__extensions_8h_ae176cc84f95555c7c38bf941de2dd3aba67811686c7e47207ecd69abcfcf6e362}
+}]\index{NPAudioChannelSeven@{NPAudioChannelSeven}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPAudioChannelSeven@{NPAudioChannelSeven}}\item[{\em 
+\hypertarget{npapi__extensions_8h_ae176cc84f95555c7c38bf941de2dd3aba73042cf3f4c8d6378910ed72e39cb48f}{
+NPAudioChannelSeven}
+\label{npapi__extensions_8h_ae176cc84f95555c7c38bf941de2dd3aba73042cf3f4c8d6378910ed72e39cb48f}
+}]\index{NPAudioChannelSevenOne@{NPAudioChannelSevenOne}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPAudioChannelSevenOne@{NPAudioChannelSevenOne}}\item[{\em 
+\hypertarget{npapi__extensions_8h_ae176cc84f95555c7c38bf941de2dd3aba4f3e92510bbfd5736bd68342e9ec5200}{
+NPAudioChannelSevenOne}
+\label{npapi__extensions_8h_ae176cc84f95555c7c38bf941de2dd3aba4f3e92510bbfd5736bd68342e9ec5200}
+}]\end{description}
+\end{Desc}
+
+
+
+Definition at line 891 of file npapi\_\-extensions.h.
+
+\hypertarget{npapi__extensions_8h_aeb415f78a02f852ec50e30ef18235421}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPAudioContextStates@{NPAudioContextStates}}
+\index{NPAudioContextStates@{NPAudioContextStates}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPAudioContextStates}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf NPAudioContextStates}}}
+\label{npapi__extensions_8h_aeb415f78a02f852ec50e30ef18235421}
+\begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{NPAudioContextStateCallback@{NPAudioContextStateCallback}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPAudioContextStateCallback@{NPAudioContextStateCallback}}\item[{\em 
+\hypertarget{npapi__extensions_8h_aeb415f78a02f852ec50e30ef18235421a0df7067261f0edf96b961ccc5df1091b}{
+NPAudioContextStateCallback}
+\label{npapi__extensions_8h_aeb415f78a02f852ec50e30ef18235421a0df7067261f0edf96b961ccc5df1091b}
+}]\index{NPAudioContextStateUnderrunCounter@{NPAudioContextStateUnderrunCounter}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPAudioContextStateUnderrunCounter@{NPAudioContextStateUnderrunCounter}}\item[{\em 
+\hypertarget{npapi__extensions_8h_aeb415f78a02f852ec50e30ef18235421ac6052bdfb278af22adac9e9674b9ae30}{
+NPAudioContextStateUnderrunCounter}
+\label{npapi__extensions_8h_aeb415f78a02f852ec50e30ef18235421ac6052bdfb278af22adac9e9674b9ae30}
+}]\end{description}
+\end{Desc}
+
+
+
+Definition at line 904 of file npapi\_\-extensions.h.
+
+\hypertarget{npapi__extensions_8h_a2238d95f73e1715d228d292282383bcf}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPAudioContextStateValues@{NPAudioContextStateValues}}
+\index{NPAudioContextStateValues@{NPAudioContextStateValues}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPAudioContextStateValues}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf NPAudioContextStateValues}}}
+\label{npapi__extensions_8h_a2238d95f73e1715d228d292282383bcf}
+\begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{NPAudioCallbackStop@{NPAudioCallbackStop}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPAudioCallbackStop@{NPAudioCallbackStop}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a2238d95f73e1715d228d292282383bcfa03d5495c7163fe0e09bd6d46055a1d09}{
+NPAudioCallbackStop}
+\label{npapi__extensions_8h_a2238d95f73e1715d228d292282383bcfa03d5495c7163fe0e09bd6d46055a1d09}
+}]\index{NPAudioCallbackStart@{NPAudioCallbackStart}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPAudioCallbackStart@{NPAudioCallbackStart}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a2238d95f73e1715d228d292282383bcfa57c562b3eaa8247ca40ef16ea1ac0136}{
+NPAudioCallbackStart}
+\label{npapi__extensions_8h_a2238d95f73e1715d228d292282383bcfa57c562b3eaa8247ca40ef16ea1ac0136}
+}]\end{description}
+\end{Desc}
+
+
+
+Definition at line 910 of file npapi\_\-extensions.h.
+
+\hypertarget{npapi__extensions_8h_aa759b2287a0a85f0861d673e6afe2840}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPAudioSampleFrameCounts@{NPAudioSampleFrameCounts}}
+\index{NPAudioSampleFrameCounts@{NPAudioSampleFrameCounts}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPAudioSampleFrameCounts}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf NPAudioSampleFrameCounts}}}
+\label{npapi__extensions_8h_aa759b2287a0a85f0861d673e6afe2840}
+\begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{NPAudioMinSampleFrameCount@{NPAudioMinSampleFrameCount}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPAudioMinSampleFrameCount@{NPAudioMinSampleFrameCount}}\item[{\em 
+\hypertarget{npapi__extensions_8h_aa759b2287a0a85f0861d673e6afe2840aae129f9af4f405a6700e9068037c4353}{
+NPAudioMinSampleFrameCount}
+\label{npapi__extensions_8h_aa759b2287a0a85f0861d673e6afe2840aae129f9af4f405a6700e9068037c4353}
+}]\index{NPAudioMaxSampleFrameCount@{NPAudioMaxSampleFrameCount}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPAudioMaxSampleFrameCount@{NPAudioMaxSampleFrameCount}}\item[{\em 
+\hypertarget{npapi__extensions_8h_aa759b2287a0a85f0861d673e6afe2840adc27c477bcb63b07359ced23365525c9}{
+NPAudioMaxSampleFrameCount}
+\label{npapi__extensions_8h_aa759b2287a0a85f0861d673e6afe2840adc27c477bcb63b07359ced23365525c9}
+}]\end{description}
+\end{Desc}
+
+
+
+Definition at line 871 of file npapi\_\-extensions.h.
+
+\hypertarget{npapi__extensions_8h_a2d3ea3c5b6b24b92c580ef8e116caa0f}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPAudioSampleRates@{NPAudioSampleRates}}
+\index{NPAudioSampleRates@{NPAudioSampleRates}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPAudioSampleRates}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf NPAudioSampleRates}}}
+\label{npapi__extensions_8h_a2d3ea3c5b6b24b92c580ef8e116caa0f}
+\begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{NPAudioSampleRate44100Hz@{NPAudioSampleRate44100Hz}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPAudioSampleRate44100Hz@{NPAudioSampleRate44100Hz}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a2d3ea3c5b6b24b92c580ef8e116caa0fa91e5c37f4baa9d5662f8fa03ca217a76}{
+NPAudioSampleRate44100Hz}
+\label{npapi__extensions_8h_a2d3ea3c5b6b24b92c580ef8e116caa0fa91e5c37f4baa9d5662f8fa03ca217a76}
+}]\index{NPAudioSampleRate48000Hz@{NPAudioSampleRate48000Hz}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPAudioSampleRate48000Hz@{NPAudioSampleRate48000Hz}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a2d3ea3c5b6b24b92c580ef8e116caa0fa7e36663ff5fd5761bf5ad23e47c41bb3}{
+NPAudioSampleRate48000Hz}
+\label{npapi__extensions_8h_a2d3ea3c5b6b24b92c580ef8e116caa0fa7e36663ff5fd5761bf5ad23e47c41bb3}
+}]\index{NPAudioSampleRate96000Hz@{NPAudioSampleRate96000Hz}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPAudioSampleRate96000Hz@{NPAudioSampleRate96000Hz}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a2d3ea3c5b6b24b92c580ef8e116caa0fa538925b92d2a7624331537be2c1342e9}{
+NPAudioSampleRate96000Hz}
+\label{npapi__extensions_8h_a2d3ea3c5b6b24b92c580ef8e116caa0fa538925b92d2a7624331537be2c1342e9}
+}]\end{description}
+\end{Desc}
+
+
+
+Definition at line 877 of file npapi\_\-extensions.h.
+
+\hypertarget{npapi__extensions_8h_a14952ea320f0406921148fbab7d6d382}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPAudioSampleTypes@{NPAudioSampleTypes}}
+\index{NPAudioSampleTypes@{NPAudioSampleTypes}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPAudioSampleTypes}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf NPAudioSampleTypes}}}
+\label{npapi__extensions_8h_a14952ea320f0406921148fbab7d6d382}
+\begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{NPAudioSampleTypeInt16@{NPAudioSampleTypeInt16}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPAudioSampleTypeInt16@{NPAudioSampleTypeInt16}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a14952ea320f0406921148fbab7d6d382a953f425b86e0259de99b2fc2f92684bd}{
+NPAudioSampleTypeInt16}
+\label{npapi__extensions_8h_a14952ea320f0406921148fbab7d6d382a953f425b86e0259de99b2fc2f92684bd}
+}]\index{NPAudioSampleTypeFloat32@{NPAudioSampleTypeFloat32}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPAudioSampleTypeFloat32@{NPAudioSampleTypeFloat32}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a14952ea320f0406921148fbab7d6d382a67f112a7678ee7d35d49a0858df15adc}{
+NPAudioSampleTypeFloat32}
+\label{npapi__extensions_8h_a14952ea320f0406921148fbab7d6d382a67f112a7678ee7d35d49a0858df15adc}
+}]\end{description}
+\end{Desc}
+
+
+
+Definition at line 884 of file npapi\_\-extensions.h.
+
+\hypertarget{npapi__extensions_8h_a8d338781e5a4a188e3cb597be4e5bbe2}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPCharset@{NPCharset}}
+\index{NPCharset@{NPCharset}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPCharset}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf NPCharset}}}
+\label{npapi__extensions_8h_a8d338781e5a4a188e3cb597be4e5bbe2}
+\begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{NPCharsetAnsi@{NPCharsetAnsi}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPCharsetAnsi@{NPCharsetAnsi}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a8d338781e5a4a188e3cb597be4e5bbe2a848bfd0446318f32b21e9b9450275bf9}{
+NPCharsetAnsi}
+\label{npapi__extensions_8h_a8d338781e5a4a188e3cb597be4e5bbe2a848bfd0446318f32b21e9b9450275bf9}
+}]\index{NPCharsetDefault@{NPCharsetDefault}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPCharsetDefault@{NPCharsetDefault}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a8d338781e5a4a188e3cb597be4e5bbe2a2820ada14c69a35ef61938416f095060}{
+NPCharsetDefault}
+\label{npapi__extensions_8h_a8d338781e5a4a188e3cb597be4e5bbe2a2820ada14c69a35ef61938416f095060}
+}]\index{NPCharsetSymbol@{NPCharsetSymbol}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPCharsetSymbol@{NPCharsetSymbol}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a8d338781e5a4a188e3cb597be4e5bbe2a030a5ca4f9dda585c671baa053fba44a}{
+NPCharsetSymbol}
+\label{npapi__extensions_8h_a8d338781e5a4a188e3cb597be4e5bbe2a030a5ca4f9dda585c671baa053fba44a}
+}]\index{NPCharsetMac@{NPCharsetMac}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPCharsetMac@{NPCharsetMac}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a8d338781e5a4a188e3cb597be4e5bbe2a12c2bfd99efbd70a3f713982dc5faf2f}{
+NPCharsetMac}
+\label{npapi__extensions_8h_a8d338781e5a4a188e3cb597be4e5bbe2a12c2bfd99efbd70a3f713982dc5faf2f}
+}]\index{NPCharsetShiftJIS@{NPCharsetShiftJIS}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPCharsetShiftJIS@{NPCharsetShiftJIS}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a8d338781e5a4a188e3cb597be4e5bbe2aad37a3d42c25897b091144f05e374896}{
+NPCharsetShiftJIS}
+\label{npapi__extensions_8h_a8d338781e5a4a188e3cb597be4e5bbe2aad37a3d42c25897b091144f05e374896}
+}]\index{NPCharsetHangul@{NPCharsetHangul}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPCharsetHangul@{NPCharsetHangul}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a8d338781e5a4a188e3cb597be4e5bbe2a182f72c3e54343e7fe8efec6bd7e40e6}{
+NPCharsetHangul}
+\label{npapi__extensions_8h_a8d338781e5a4a188e3cb597be4e5bbe2a182f72c3e54343e7fe8efec6bd7e40e6}
+}]\index{NPCharsetJohab@{NPCharsetJohab}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPCharsetJohab@{NPCharsetJohab}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a8d338781e5a4a188e3cb597be4e5bbe2a7118a28b1d7f4d0426131dcc4d3e16a8}{
+NPCharsetJohab}
+\label{npapi__extensions_8h_a8d338781e5a4a188e3cb597be4e5bbe2a7118a28b1d7f4d0426131dcc4d3e16a8}
+}]\index{NPCharsetGB2312@{NPCharsetGB2312}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPCharsetGB2312@{NPCharsetGB2312}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a8d338781e5a4a188e3cb597be4e5bbe2a98938fff1751b6ffed16d7195a91b4d7}{
+NPCharsetGB2312}
+\label{npapi__extensions_8h_a8d338781e5a4a188e3cb597be4e5bbe2a98938fff1751b6ffed16d7195a91b4d7}
+}]\index{NPCharsetChineseBIG5@{NPCharsetChineseBIG5}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPCharsetChineseBIG5@{NPCharsetChineseBIG5}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a8d338781e5a4a188e3cb597be4e5bbe2a82c3633b3deadc9c951e51705d388ab8}{
+NPCharsetChineseBIG5}
+\label{npapi__extensions_8h_a8d338781e5a4a188e3cb597be4e5bbe2a82c3633b3deadc9c951e51705d388ab8}
+}]\index{NPCharsetGreek@{NPCharsetGreek}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPCharsetGreek@{NPCharsetGreek}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a8d338781e5a4a188e3cb597be4e5bbe2a7bc73ecc11db02a80bde443985de7d84}{
+NPCharsetGreek}
+\label{npapi__extensions_8h_a8d338781e5a4a188e3cb597be4e5bbe2a7bc73ecc11db02a80bde443985de7d84}
+}]\index{NPCharsetTurkish@{NPCharsetTurkish}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPCharsetTurkish@{NPCharsetTurkish}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a8d338781e5a4a188e3cb597be4e5bbe2aac5413a0e4d5cf7d73ae5d4359b4f594}{
+NPCharsetTurkish}
+\label{npapi__extensions_8h_a8d338781e5a4a188e3cb597be4e5bbe2aac5413a0e4d5cf7d73ae5d4359b4f594}
+}]\index{NPCharsetVietnamese@{NPCharsetVietnamese}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPCharsetVietnamese@{NPCharsetVietnamese}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a8d338781e5a4a188e3cb597be4e5bbe2acaf046fe71359a610ac18e93103fe801}{
+NPCharsetVietnamese}
+\label{npapi__extensions_8h_a8d338781e5a4a188e3cb597be4e5bbe2acaf046fe71359a610ac18e93103fe801}
+}]\index{NPCharsetHebrew@{NPCharsetHebrew}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPCharsetHebrew@{NPCharsetHebrew}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a8d338781e5a4a188e3cb597be4e5bbe2a552432b5b386fb4cd58a10c5adcd6866}{
+NPCharsetHebrew}
+\label{npapi__extensions_8h_a8d338781e5a4a188e3cb597be4e5bbe2a552432b5b386fb4cd58a10c5adcd6866}
+}]\index{NPCharsetArabic@{NPCharsetArabic}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPCharsetArabic@{NPCharsetArabic}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a8d338781e5a4a188e3cb597be4e5bbe2a649ad2bde664960b350606b0c12401cc}{
+NPCharsetArabic}
+\label{npapi__extensions_8h_a8d338781e5a4a188e3cb597be4e5bbe2a649ad2bde664960b350606b0c12401cc}
+}]\index{NPCharsetBaltic@{NPCharsetBaltic}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPCharsetBaltic@{NPCharsetBaltic}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a8d338781e5a4a188e3cb597be4e5bbe2abebd50f9e53a3c0edc4d39620b79b62f}{
+NPCharsetBaltic}
+\label{npapi__extensions_8h_a8d338781e5a4a188e3cb597be4e5bbe2abebd50f9e53a3c0edc4d39620b79b62f}
+}]\index{NPCharsetRussian@{NPCharsetRussian}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPCharsetRussian@{NPCharsetRussian}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a8d338781e5a4a188e3cb597be4e5bbe2af3ea397f848326cef9037500fdaa6045}{
+NPCharsetRussian}
+\label{npapi__extensions_8h_a8d338781e5a4a188e3cb597be4e5bbe2af3ea397f848326cef9037500fdaa6045}
+}]\index{NPCharsetThai@{NPCharsetThai}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPCharsetThai@{NPCharsetThai}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a8d338781e5a4a188e3cb597be4e5bbe2addc49636e45b9f52f1f9523df821e468}{
+NPCharsetThai}
+\label{npapi__extensions_8h_a8d338781e5a4a188e3cb597be4e5bbe2addc49636e45b9f52f1f9523df821e468}
+}]\index{NPCharsetEastEurope@{NPCharsetEastEurope}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPCharsetEastEurope@{NPCharsetEastEurope}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a8d338781e5a4a188e3cb597be4e5bbe2a8d9b1afb83bedb62e5ca537811dd7ba9}{
+NPCharsetEastEurope}
+\label{npapi__extensions_8h_a8d338781e5a4a188e3cb597be4e5bbe2a8d9b1afb83bedb62e5ca537811dd7ba9}
+}]\index{NPCharsetOEM@{NPCharsetOEM}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPCharsetOEM@{NPCharsetOEM}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a8d338781e5a4a188e3cb597be4e5bbe2a8dcc9b26b9d9bcaccc597d22283e9df0}{
+NPCharsetOEM}
+\label{npapi__extensions_8h_a8d338781e5a4a188e3cb597be4e5bbe2a8dcc9b26b9d9bcaccc597d22283e9df0}
+}]\end{description}
+\end{Desc}
+
+
+
+Definition at line 629 of file npapi\_\-extensions.h.
+
+\hypertarget{npapi__extensions_8h_a996c70aa4f311653c38ea4c6db13f91f}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPChooseFileMode@{NPChooseFileMode}}
+\index{NPChooseFileMode@{NPChooseFileMode}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPChooseFileMode}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf NPChooseFileMode}}}
+\label{npapi__extensions_8h_a996c70aa4f311653c38ea4c6db13f91f}
+\begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{NPChooseFile\_\-Open@{NPChooseFile\_\-Open}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPChooseFile\_\-Open@{NPChooseFile\_\-Open}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a996c70aa4f311653c38ea4c6db13f91faf1faf107fb91561f32cf2448ac13d04b}{
+NPChooseFile\_\-Open}
+\label{npapi__extensions_8h_a996c70aa4f311653c38ea4c6db13f91faf1faf107fb91561f32cf2448ac13d04b}
+}]\index{NPChooseFile\_\-OpenMultiple@{NPChooseFile\_\-OpenMultiple}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPChooseFile\_\-OpenMultiple@{NPChooseFile\_\-OpenMultiple}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a996c70aa4f311653c38ea4c6db13f91fa60fc01076487ee262d545ac3e77ee23e}{
+NPChooseFile\_\-OpenMultiple}
+\label{npapi__extensions_8h_a996c70aa4f311653c38ea4c6db13f91fa60fc01076487ee262d545ac3e77ee23e}
+}]\index{NPChooseFile\_\-Save@{NPChooseFile\_\-Save}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPChooseFile\_\-Save@{NPChooseFile\_\-Save}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a996c70aa4f311653c38ea4c6db13f91fa9d3ffc981aad4985b6a9c1677a6d47ea}{
+NPChooseFile\_\-Save}
+\label{npapi__extensions_8h_a996c70aa4f311653c38ea4c6db13f91fa9d3ffc981aad4985b6a9c1677a6d47ea}
+}]\end{description}
+\end{Desc}
+
+
+
+Definition at line 562 of file npapi\_\-extensions.h.
+
+\hypertarget{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPCursorType@{NPCursorType}}
+\index{NPCursorType@{NPCursorType}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPCursorType}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf NPCursorType}}}
+\label{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161}
+\begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{NPCursorTypePointer@{NPCursorTypePointer}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPCursorTypePointer@{NPCursorTypePointer}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161a639a3baf60167cf332857f95be5becc9}{
+NPCursorTypePointer}
+\label{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161a639a3baf60167cf332857f95be5becc9}
+}]\index{NPCursorTypeCross@{NPCursorTypeCross}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPCursorTypeCross@{NPCursorTypeCross}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161ab30584f87146bcefbb2b8971f5ff00d2}{
+NPCursorTypeCross}
+\label{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161ab30584f87146bcefbb2b8971f5ff00d2}
+}]\index{NPCursorTypeHand@{NPCursorTypeHand}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPCursorTypeHand@{NPCursorTypeHand}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161a30d7fd8fe4b7c4a34fd9393cebead7b2}{
+NPCursorTypeHand}
+\label{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161a30d7fd8fe4b7c4a34fd9393cebead7b2}
+}]\index{NPCursorTypeIBeam@{NPCursorTypeIBeam}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPCursorTypeIBeam@{NPCursorTypeIBeam}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161aa9e70af8c7d636b8a4001b0dba2902d5}{
+NPCursorTypeIBeam}
+\label{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161aa9e70af8c7d636b8a4001b0dba2902d5}
+}]\index{NPCursorTypeWait@{NPCursorTypeWait}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPCursorTypeWait@{NPCursorTypeWait}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161aa99716433080b38f68de871093ec3ade}{
+NPCursorTypeWait}
+\label{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161aa99716433080b38f68de871093ec3ade}
+}]\index{NPCursorTypeHelp@{NPCursorTypeHelp}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPCursorTypeHelp@{NPCursorTypeHelp}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161a94cd948f88b5aafac7dc935ff04fff85}{
+NPCursorTypeHelp}
+\label{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161a94cd948f88b5aafac7dc935ff04fff85}
+}]\index{NPCursorTypeEastResize@{NPCursorTypeEastResize}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPCursorTypeEastResize@{NPCursorTypeEastResize}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161a99e067d938bb9da7ba1a3ecd56a95307}{
+NPCursorTypeEastResize}
+\label{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161a99e067d938bb9da7ba1a3ecd56a95307}
+}]\index{NPCursorTypeNorthResize@{NPCursorTypeNorthResize}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPCursorTypeNorthResize@{NPCursorTypeNorthResize}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161aa54cc5463063b43e1bbbb6adc7e656f2}{
+NPCursorTypeNorthResize}
+\label{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161aa54cc5463063b43e1bbbb6adc7e656f2}
+}]\index{NPCursorTypeNorthEastResize@{NPCursorTypeNorthEastResize}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPCursorTypeNorthEastResize@{NPCursorTypeNorthEastResize}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161a7ff3682125efa8ccc8622a81c84e3ea9}{
+NPCursorTypeNorthEastResize}
+\label{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161a7ff3682125efa8ccc8622a81c84e3ea9}
+}]\index{NPCursorTypeNorthWestResize@{NPCursorTypeNorthWestResize}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPCursorTypeNorthWestResize@{NPCursorTypeNorthWestResize}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161a8928cd07755abd9a0de629c2fc8250cb}{
+NPCursorTypeNorthWestResize}
+\label{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161a8928cd07755abd9a0de629c2fc8250cb}
+}]\index{NPCursorTypeSouthResize@{NPCursorTypeSouthResize}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPCursorTypeSouthResize@{NPCursorTypeSouthResize}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161aa918add5833763bb3e9d402613de836d}{
+NPCursorTypeSouthResize}
+\label{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161aa918add5833763bb3e9d402613de836d}
+}]\index{NPCursorTypeSouthEastResize@{NPCursorTypeSouthEastResize}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPCursorTypeSouthEastResize@{NPCursorTypeSouthEastResize}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161a5c6ef88c141ff06f28162a3d917b652f}{
+NPCursorTypeSouthEastResize}
+\label{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161a5c6ef88c141ff06f28162a3d917b652f}
+}]\index{NPCursorTypeSouthWestResize@{NPCursorTypeSouthWestResize}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPCursorTypeSouthWestResize@{NPCursorTypeSouthWestResize}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161aed8b94bbb5586abcfd83425cf54b91b6}{
+NPCursorTypeSouthWestResize}
+\label{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161aed8b94bbb5586abcfd83425cf54b91b6}
+}]\index{NPCursorTypeWestResize@{NPCursorTypeWestResize}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPCursorTypeWestResize@{NPCursorTypeWestResize}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161a43874493d3ca67e252baa633ec2ad356}{
+NPCursorTypeWestResize}
+\label{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161a43874493d3ca67e252baa633ec2ad356}
+}]\index{NPCursorTypeNorthSouthResize@{NPCursorTypeNorthSouthResize}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPCursorTypeNorthSouthResize@{NPCursorTypeNorthSouthResize}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161a71f9695e908beeecf16a4a122d9ce427}{
+NPCursorTypeNorthSouthResize}
+\label{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161a71f9695e908beeecf16a4a122d9ce427}
+}]\index{NPCursorTypeEastWestResize@{NPCursorTypeEastWestResize}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPCursorTypeEastWestResize@{NPCursorTypeEastWestResize}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161a6ae2c1c7d93422b07594108010323d85}{
+NPCursorTypeEastWestResize}
+\label{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161a6ae2c1c7d93422b07594108010323d85}
+}]\index{NPCursorTypeNorthEastSouthWestResize@{NPCursorTypeNorthEastSouthWestResize}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPCursorTypeNorthEastSouthWestResize@{NPCursorTypeNorthEastSouthWestResize}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161ae592fb99844c22e29850bd7ce631d448}{
+NPCursorTypeNorthEastSouthWestResize}
+\label{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161ae592fb99844c22e29850bd7ce631d448}
+}]\index{NPCursorTypeNorthWestSouthEastResize@{NPCursorTypeNorthWestSouthEastResize}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPCursorTypeNorthWestSouthEastResize@{NPCursorTypeNorthWestSouthEastResize}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161aabb598931247438818e1ff90fd20c8dc}{
+NPCursorTypeNorthWestSouthEastResize}
+\label{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161aabb598931247438818e1ff90fd20c8dc}
+}]\index{NPCursorTypeColumnResize@{NPCursorTypeColumnResize}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPCursorTypeColumnResize@{NPCursorTypeColumnResize}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161a7a5f146a7d78e5bc4f978c715a1c9554}{
+NPCursorTypeColumnResize}
+\label{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161a7a5f146a7d78e5bc4f978c715a1c9554}
+}]\index{NPCursorTypeRowResize@{NPCursorTypeRowResize}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPCursorTypeRowResize@{NPCursorTypeRowResize}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161a14ea6b72bb0548aec2074fb073cfbafd}{
+NPCursorTypeRowResize}
+\label{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161a14ea6b72bb0548aec2074fb073cfbafd}
+}]\index{NPCursorTypeMiddlePanning@{NPCursorTypeMiddlePanning}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPCursorTypeMiddlePanning@{NPCursorTypeMiddlePanning}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161a5f97a69b1ae86b92b3328f9d57182ddb}{
+NPCursorTypeMiddlePanning}
+\label{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161a5f97a69b1ae86b92b3328f9d57182ddb}
+}]\index{NPCursorTypeEastPanning@{NPCursorTypeEastPanning}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPCursorTypeEastPanning@{NPCursorTypeEastPanning}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161a5853568be9f267141c3d0c989e8044bb}{
+NPCursorTypeEastPanning}
+\label{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161a5853568be9f267141c3d0c989e8044bb}
+}]\index{NPCursorTypeNorthPanning@{NPCursorTypeNorthPanning}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPCursorTypeNorthPanning@{NPCursorTypeNorthPanning}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161a60a2ee73fd390222a5f61ae6170f4879}{
+NPCursorTypeNorthPanning}
+\label{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161a60a2ee73fd390222a5f61ae6170f4879}
+}]\index{NPCursorTypeNorthEastPanning@{NPCursorTypeNorthEastPanning}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPCursorTypeNorthEastPanning@{NPCursorTypeNorthEastPanning}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161a5b41091bc1a91355278b3e873f51ab63}{
+NPCursorTypeNorthEastPanning}
+\label{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161a5b41091bc1a91355278b3e873f51ab63}
+}]\index{NPCursorTypeNorthWestPanning@{NPCursorTypeNorthWestPanning}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPCursorTypeNorthWestPanning@{NPCursorTypeNorthWestPanning}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161a8c8f47867806ded9fc2f4a1f3e133735}{
+NPCursorTypeNorthWestPanning}
+\label{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161a8c8f47867806ded9fc2f4a1f3e133735}
+}]\index{NPCursorTypeSouthPanning@{NPCursorTypeSouthPanning}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPCursorTypeSouthPanning@{NPCursorTypeSouthPanning}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161a92146e82e26da04b9502e414bb65f6cf}{
+NPCursorTypeSouthPanning}
+\label{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161a92146e82e26da04b9502e414bb65f6cf}
+}]\index{NPCursorTypeSouthEastPanning@{NPCursorTypeSouthEastPanning}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPCursorTypeSouthEastPanning@{NPCursorTypeSouthEastPanning}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161a5aa65d8617738fd968b6c2e33bc432cb}{
+NPCursorTypeSouthEastPanning}
+\label{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161a5aa65d8617738fd968b6c2e33bc432cb}
+}]\index{NPCursorTypeSouthWestPanning@{NPCursorTypeSouthWestPanning}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPCursorTypeSouthWestPanning@{NPCursorTypeSouthWestPanning}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161a5dcbe16158722f5e75ddd474cf9225fd}{
+NPCursorTypeSouthWestPanning}
+\label{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161a5dcbe16158722f5e75ddd474cf9225fd}
+}]\index{NPCursorTypeWestPanning@{NPCursorTypeWestPanning}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPCursorTypeWestPanning@{NPCursorTypeWestPanning}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161a71ef21dde6662934a8813cd1eac7a4f2}{
+NPCursorTypeWestPanning}
+\label{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161a71ef21dde6662934a8813cd1eac7a4f2}
+}]\index{NPCursorTypeMove@{NPCursorTypeMove}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPCursorTypeMove@{NPCursorTypeMove}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161aa9e7fad86d29316e037d2082718d0334}{
+NPCursorTypeMove}
+\label{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161aa9e7fad86d29316e037d2082718d0334}
+}]\index{NPCursorTypeVerticalText@{NPCursorTypeVerticalText}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPCursorTypeVerticalText@{NPCursorTypeVerticalText}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161ae033415623fab92d8799564f62fee349}{
+NPCursorTypeVerticalText}
+\label{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161ae033415623fab92d8799564f62fee349}
+}]\index{NPCursorTypeCell@{NPCursorTypeCell}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPCursorTypeCell@{NPCursorTypeCell}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161a0fa54fd4e5c25821c1dce6d67a30ce34}{
+NPCursorTypeCell}
+\label{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161a0fa54fd4e5c25821c1dce6d67a30ce34}
+}]\index{NPCursorTypeContextMenu@{NPCursorTypeContextMenu}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPCursorTypeContextMenu@{NPCursorTypeContextMenu}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161a1740b7c73383c6522b9d20cf6a1e9982}{
+NPCursorTypeContextMenu}
+\label{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161a1740b7c73383c6522b9d20cf6a1e9982}
+}]\index{NPCursorTypeAlias@{NPCursorTypeAlias}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPCursorTypeAlias@{NPCursorTypeAlias}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161aa40cf238742f9339da564b44f1be62f3}{
+NPCursorTypeAlias}
+\label{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161aa40cf238742f9339da564b44f1be62f3}
+}]\index{NPCursorTypeProgress@{NPCursorTypeProgress}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPCursorTypeProgress@{NPCursorTypeProgress}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161a83ae23439902a12b667fc9f586056e37}{
+NPCursorTypeProgress}
+\label{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161a83ae23439902a12b667fc9f586056e37}
+}]\index{NPCursorTypeNoDrop@{NPCursorTypeNoDrop}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPCursorTypeNoDrop@{NPCursorTypeNoDrop}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161af5934de7da8b6c6bd7d914c2e69bb163}{
+NPCursorTypeNoDrop}
+\label{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161af5934de7da8b6c6bd7d914c2e69bb163}
+}]\index{NPCursorTypeCopy@{NPCursorTypeCopy}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPCursorTypeCopy@{NPCursorTypeCopy}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161aea77ce89d19fbed809e27b0ba70d8bc8}{
+NPCursorTypeCopy}
+\label{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161aea77ce89d19fbed809e27b0ba70d8bc8}
+}]\index{NPCursorTypeNone@{NPCursorTypeNone}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPCursorTypeNone@{NPCursorTypeNone}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161ab0742ea517785bbd18ca82bed831c34e}{
+NPCursorTypeNone}
+\label{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161ab0742ea517785bbd18ca82bed831c34e}
+}]\index{NPCursorTypeNotAllowed@{NPCursorTypeNotAllowed}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPCursorTypeNotAllowed@{NPCursorTypeNotAllowed}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161a578a2551fe28cf60806729af5d988085}{
+NPCursorTypeNotAllowed}
+\label{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161a578a2551fe28cf60806729af5d988085}
+}]\index{NPCursorTypeZoomIn@{NPCursorTypeZoomIn}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPCursorTypeZoomIn@{NPCursorTypeZoomIn}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161a1f57a1e10972b8450f745eca61c42d7f}{
+NPCursorTypeZoomIn}
+\label{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161a1f57a1e10972b8450f745eca61c42d7f}
+}]\index{NPCursorTypeZoomOut@{NPCursorTypeZoomOut}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPCursorTypeZoomOut@{NPCursorTypeZoomOut}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161ab708960bdd116d1c7c430df47a250d5c}{
+NPCursorTypeZoomOut}
+\label{npapi__extensions_8h_a20c9cef36786ea86647afc6f2dab4161ab708960bdd116d1c7c430df47a250d5c}
+}]\end{description}
+\end{Desc}
+
+
+
+Definition at line 577 of file npapi\_\-extensions.h.
+
+\hypertarget{npapi__extensions_8h_ac3ad6d70d8b6501e504d3980d0e9be7e}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPDeviceSynchronizationMode@{NPDeviceSynchronizationMode}}
+\index{NPDeviceSynchronizationMode@{NPDeviceSynchronizationMode}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPDeviceSynchronizationMode}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf NPDeviceSynchronizationMode}}}
+\label{npapi__extensions_8h_ac3ad6d70d8b6501e504d3980d0e9be7e}
+\begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{NPDeviceSynchronizationMode\_\-Cached@{NPDeviceSynchronizationMode\_\-Cached}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPDeviceSynchronizationMode\_\-Cached@{NPDeviceSynchronizationMode\_\-Cached}}\item[{\em 
+\hypertarget{npapi__extensions_8h_ac3ad6d70d8b6501e504d3980d0e9be7ea7f6647154557f662adf80715491769c7}{
+NPDeviceSynchronizationMode\_\-Cached}
+\label{npapi__extensions_8h_ac3ad6d70d8b6501e504d3980d0e9be7ea7f6647154557f662adf80715491769c7}
+}]\index{NPDeviceSynchronizationMode\_\-Immediate@{NPDeviceSynchronizationMode\_\-Immediate}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPDeviceSynchronizationMode\_\-Immediate@{NPDeviceSynchronizationMode\_\-Immediate}}\item[{\em 
+\hypertarget{npapi__extensions_8h_ac3ad6d70d8b6501e504d3980d0e9be7ea7355689acf0d66475efb3fe7c8c9dafc}{
+NPDeviceSynchronizationMode\_\-Immediate}
+\label{npapi__extensions_8h_ac3ad6d70d8b6501e504d3980d0e9be7ea7355689acf0d66475efb3fe7c8c9dafc}
+}]\index{NPDeviceSynchronizationMode\_\-Flush@{NPDeviceSynchronizationMode\_\-Flush}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPDeviceSynchronizationMode\_\-Flush@{NPDeviceSynchronizationMode\_\-Flush}}\item[{\em 
+\hypertarget{npapi__extensions_8h_ac3ad6d70d8b6501e504d3980d0e9be7ea5431966adc58b01728987df32a47223b}{
+NPDeviceSynchronizationMode\_\-Flush}
+\label{npapi__extensions_8h_ac3ad6d70d8b6501e504d3980d0e9be7ea5431966adc58b01728987df32a47223b}
+}]\end{description}
+\end{Desc}
+
+
+
+Definition at line 251 of file npapi\_\-extensions.h.
+
+\hypertarget{npapi__extensions_8h_a0a150d8eab15ad60f6a6b56db828ed66}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPEventModifiers@{NPEventModifiers}}
+\index{NPEventModifiers@{NPEventModifiers}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPEventModifiers}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf NPEventModifiers}}}
+\label{npapi__extensions_8h_a0a150d8eab15ad60f6a6b56db828ed66}
+\begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{NPEventModifier\_\-ShiftKey@{NPEventModifier\_\-ShiftKey}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPEventModifier\_\-ShiftKey@{NPEventModifier\_\-ShiftKey}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a0a150d8eab15ad60f6a6b56db828ed66a2a5ec574f16988f6bf2195c52bf7d9b9}{
+NPEventModifier\_\-ShiftKey}
+\label{npapi__extensions_8h_a0a150d8eab15ad60f6a6b56db828ed66a2a5ec574f16988f6bf2195c52bf7d9b9}
+}]\index{NPEventModifier\_\-ControlKey@{NPEventModifier\_\-ControlKey}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPEventModifier\_\-ControlKey@{NPEventModifier\_\-ControlKey}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a0a150d8eab15ad60f6a6b56db828ed66a53f189477943037c82b233bfc90506e9}{
+NPEventModifier\_\-ControlKey}
+\label{npapi__extensions_8h_a0a150d8eab15ad60f6a6b56db828ed66a53f189477943037c82b233bfc90506e9}
+}]\index{NPEventModifier\_\-AltKey@{NPEventModifier\_\-AltKey}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPEventModifier\_\-AltKey@{NPEventModifier\_\-AltKey}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a0a150d8eab15ad60f6a6b56db828ed66a1afa17e612af85d4b87e38d4de569441}{
+NPEventModifier\_\-AltKey}
+\label{npapi__extensions_8h_a0a150d8eab15ad60f6a6b56db828ed66a1afa17e612af85d4b87e38d4de569441}
+}]\index{NPEventModifier\_\-MetaKey@{NPEventModifier\_\-MetaKey}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPEventModifier\_\-MetaKey@{NPEventModifier\_\-MetaKey}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a0a150d8eab15ad60f6a6b56db828ed66ac7112b366896b87a9b48a3a59e543c5e}{
+NPEventModifier\_\-MetaKey}
+\label{npapi__extensions_8h_a0a150d8eab15ad60f6a6b56db828ed66ac7112b366896b87a9b48a3a59e543c5e}
+}]\index{NPEventModifier\_\-IsKeyPad@{NPEventModifier\_\-IsKeyPad}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPEventModifier\_\-IsKeyPad@{NPEventModifier\_\-IsKeyPad}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a0a150d8eab15ad60f6a6b56db828ed66af2f7674daa9b9f760276607c9aac8fe5}{
+NPEventModifier\_\-IsKeyPad}
+\label{npapi__extensions_8h_a0a150d8eab15ad60f6a6b56db828ed66af2f7674daa9b9f760276607c9aac8fe5}
+}]\index{NPEventModifier\_\-IsAutoRepeat@{NPEventModifier\_\-IsAutoRepeat}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPEventModifier\_\-IsAutoRepeat@{NPEventModifier\_\-IsAutoRepeat}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a0a150d8eab15ad60f6a6b56db828ed66a9d59a9c55fd0c7e1ce66182b0efb557e}{
+NPEventModifier\_\-IsAutoRepeat}
+\label{npapi__extensions_8h_a0a150d8eab15ad60f6a6b56db828ed66a9d59a9c55fd0c7e1ce66182b0efb557e}
+}]\index{NPEventModifier\_\-LeftButtonDown@{NPEventModifier\_\-LeftButtonDown}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPEventModifier\_\-LeftButtonDown@{NPEventModifier\_\-LeftButtonDown}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a0a150d8eab15ad60f6a6b56db828ed66afd5b94c7d55c868df95db6672abdf11b}{
+NPEventModifier\_\-LeftButtonDown}
+\label{npapi__extensions_8h_a0a150d8eab15ad60f6a6b56db828ed66afd5b94c7d55c868df95db6672abdf11b}
+}]\index{NPEventModifier\_\-MiddleButtonDown@{NPEventModifier\_\-MiddleButtonDown}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPEventModifier\_\-MiddleButtonDown@{NPEventModifier\_\-MiddleButtonDown}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a0a150d8eab15ad60f6a6b56db828ed66a42e2dd8af5dcece916dfd5b720804882}{
+NPEventModifier\_\-MiddleButtonDown}
+\label{npapi__extensions_8h_a0a150d8eab15ad60f6a6b56db828ed66a42e2dd8af5dcece916dfd5b720804882}
+}]\index{NPEventModifier\_\-RightButtonDown@{NPEventModifier\_\-RightButtonDown}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPEventModifier\_\-RightButtonDown@{NPEventModifier\_\-RightButtonDown}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a0a150d8eab15ad60f6a6b56db828ed66ac00922f58cdb8adf50f69cb0f5e41170}{
+NPEventModifier\_\-RightButtonDown}
+\label{npapi__extensions_8h_a0a150d8eab15ad60f6a6b56db828ed66ac00922f58cdb8adf50f69cb0f5e41170}
+}]\end{description}
+\end{Desc}
+
+
+
+Definition at line 56 of file npapi\_\-extensions.h.
+
+\hypertarget{npapi__extensions_8h_a42572ecedf094f156536d7d6d8e6c590}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPEventTypes@{NPEventTypes}}
+\index{NPEventTypes@{NPEventTypes}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPEventTypes}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf NPEventTypes}}}
+\label{npapi__extensions_8h_a42572ecedf094f156536d7d6d8e6c590}
+\begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{NPEventType\_\-Undefined@{NPEventType\_\-Undefined}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPEventType\_\-Undefined@{NPEventType\_\-Undefined}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a42572ecedf094f156536d7d6d8e6c590a567e0b7911ebaf6cd306a9d07b169319}{
+NPEventType\_\-Undefined}
+\label{npapi__extensions_8h_a42572ecedf094f156536d7d6d8e6c590a567e0b7911ebaf6cd306a9d07b169319}
+}]\index{NPEventType\_\-MouseDown@{NPEventType\_\-MouseDown}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPEventType\_\-MouseDown@{NPEventType\_\-MouseDown}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a42572ecedf094f156536d7d6d8e6c590aafb7e97d5a9d7dec34402a346eabedd1}{
+NPEventType\_\-MouseDown}
+\label{npapi__extensions_8h_a42572ecedf094f156536d7d6d8e6c590aafb7e97d5a9d7dec34402a346eabedd1}
+}]\index{NPEventType\_\-MouseUp@{NPEventType\_\-MouseUp}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPEventType\_\-MouseUp@{NPEventType\_\-MouseUp}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a42572ecedf094f156536d7d6d8e6c590a8ce3c82485c9538da1e422e1c0556168}{
+NPEventType\_\-MouseUp}
+\label{npapi__extensions_8h_a42572ecedf094f156536d7d6d8e6c590a8ce3c82485c9538da1e422e1c0556168}
+}]\index{NPEventType\_\-MouseMove@{NPEventType\_\-MouseMove}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPEventType\_\-MouseMove@{NPEventType\_\-MouseMove}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a42572ecedf094f156536d7d6d8e6c590a0f7bc51550d05d5699c78ca5eb996f1f}{
+NPEventType\_\-MouseMove}
+\label{npapi__extensions_8h_a42572ecedf094f156536d7d6d8e6c590a0f7bc51550d05d5699c78ca5eb996f1f}
+}]\index{NPEventType\_\-MouseEnter@{NPEventType\_\-MouseEnter}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPEventType\_\-MouseEnter@{NPEventType\_\-MouseEnter}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a42572ecedf094f156536d7d6d8e6c590ae29e9f84d6ee6899a416d0c5e8b2a329}{
+NPEventType\_\-MouseEnter}
+\label{npapi__extensions_8h_a42572ecedf094f156536d7d6d8e6c590ae29e9f84d6ee6899a416d0c5e8b2a329}
+}]\index{NPEventType\_\-MouseLeave@{NPEventType\_\-MouseLeave}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPEventType\_\-MouseLeave@{NPEventType\_\-MouseLeave}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a42572ecedf094f156536d7d6d8e6c590a0743a1ea69036db69a5a32fb24125e90}{
+NPEventType\_\-MouseLeave}
+\label{npapi__extensions_8h_a42572ecedf094f156536d7d6d8e6c590a0743a1ea69036db69a5a32fb24125e90}
+}]\index{NPEventType\_\-MouseWheel@{NPEventType\_\-MouseWheel}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPEventType\_\-MouseWheel@{NPEventType\_\-MouseWheel}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a42572ecedf094f156536d7d6d8e6c590a1683c205fb4f0b29da9d50b6379dad64}{
+NPEventType\_\-MouseWheel}
+\label{npapi__extensions_8h_a42572ecedf094f156536d7d6d8e6c590a1683c205fb4f0b29da9d50b6379dad64}
+}]\index{NPEventType\_\-RawKeyDown@{NPEventType\_\-RawKeyDown}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPEventType\_\-RawKeyDown@{NPEventType\_\-RawKeyDown}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a42572ecedf094f156536d7d6d8e6c590aba7337b396b7b4d8fd60498fcc3b8d89}{
+NPEventType\_\-RawKeyDown}
+\label{npapi__extensions_8h_a42572ecedf094f156536d7d6d8e6c590aba7337b396b7b4d8fd60498fcc3b8d89}
+}]\index{NPEventType\_\-KeyDown@{NPEventType\_\-KeyDown}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPEventType\_\-KeyDown@{NPEventType\_\-KeyDown}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a42572ecedf094f156536d7d6d8e6c590a508199f3c8ad17467df53622fba60bd9}{
+NPEventType\_\-KeyDown}
+\label{npapi__extensions_8h_a42572ecedf094f156536d7d6d8e6c590a508199f3c8ad17467df53622fba60bd9}
+}]\index{NPEventType\_\-KeyUp@{NPEventType\_\-KeyUp}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPEventType\_\-KeyUp@{NPEventType\_\-KeyUp}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a42572ecedf094f156536d7d6d8e6c590a05aa87a120196887d6c86f444932034a}{
+NPEventType\_\-KeyUp}
+\label{npapi__extensions_8h_a42572ecedf094f156536d7d6d8e6c590a05aa87a120196887d6c86f444932034a}
+}]\index{NPEventType\_\-Char@{NPEventType\_\-Char}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPEventType\_\-Char@{NPEventType\_\-Char}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a42572ecedf094f156536d7d6d8e6c590aae4c909eab3d58f96df3873d136c77c5}{
+NPEventType\_\-Char}
+\label{npapi__extensions_8h_a42572ecedf094f156536d7d6d8e6c590aae4c909eab3d58f96df3873d136c77c5}
+}]\index{NPEventType\_\-Minimize@{NPEventType\_\-Minimize}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPEventType\_\-Minimize@{NPEventType\_\-Minimize}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a42572ecedf094f156536d7d6d8e6c590a909d25300a912a43aff48901ae92feb2}{
+NPEventType\_\-Minimize}
+\label{npapi__extensions_8h_a42572ecedf094f156536d7d6d8e6c590a909d25300a912a43aff48901ae92feb2}
+}]\index{NPEventType\_\-Focus@{NPEventType\_\-Focus}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPEventType\_\-Focus@{NPEventType\_\-Focus}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a42572ecedf094f156536d7d6d8e6c590addf7f0ccdbe96be3d21377509bb22708}{
+NPEventType\_\-Focus}
+\label{npapi__extensions_8h_a42572ecedf094f156536d7d6d8e6c590addf7f0ccdbe96be3d21377509bb22708}
+}]\index{NPEventType\_\-Device@{NPEventType\_\-Device}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPEventType\_\-Device@{NPEventType\_\-Device}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a42572ecedf094f156536d7d6d8e6c590a661e9784ac1b112acb54d5ac5f7614a1}{
+NPEventType\_\-Device}
+\label{npapi__extensions_8h_a42572ecedf094f156536d7d6d8e6c590a661e9784ac1b112acb54d5ac5f7614a1}
+}]\end{description}
+\end{Desc}
+
+
+
+Definition at line 39 of file npapi\_\-extensions.h.
+
+\hypertarget{npapi__extensions_8h_a34cbc00a891faea17015ea04c0c30083}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPFamily@{NPFamily}}
+\index{NPFamily@{NPFamily}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPFamily}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf NPFamily}}}
+\label{npapi__extensions_8h_a34cbc00a891faea17015ea04c0c30083}
+\begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{NPFamilyDefault@{NPFamilyDefault}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPFamilyDefault@{NPFamilyDefault}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a34cbc00a891faea17015ea04c0c30083a0148efe2beac57784caab7b27a339d66}{
+NPFamilyDefault}
+\label{npapi__extensions_8h_a34cbc00a891faea17015ea04c0c30083a0148efe2beac57784caab7b27a339d66}
+}]\index{NPFamilyRoman@{NPFamilyRoman}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPFamilyRoman@{NPFamilyRoman}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a34cbc00a891faea17015ea04c0c30083a9502057771a8ec0625ce161da6a76eae}{
+NPFamilyRoman}
+\label{npapi__extensions_8h_a34cbc00a891faea17015ea04c0c30083a9502057771a8ec0625ce161da6a76eae}
+}]\index{NPFamilyScript@{NPFamilyScript}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPFamilyScript@{NPFamilyScript}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a34cbc00a891faea17015ea04c0c30083a09d48acac0a577506749ef6a82b15cec}{
+NPFamilyScript}
+\label{npapi__extensions_8h_a34cbc00a891faea17015ea04c0c30083a09d48acac0a577506749ef6a82b15cec}
+}]\end{description}
+\end{Desc}
+
+
+
+Definition at line 656 of file npapi\_\-extensions.h.
+
+\hypertarget{npapi__extensions_8h_ae8ae220daf8d448b0572cef14e504d6c}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPMouseButtons@{NPMouseButtons}}
+\index{NPMouseButtons@{NPMouseButtons}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPMouseButtons}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf NPMouseButtons}}}
+\label{npapi__extensions_8h_ae8ae220daf8d448b0572cef14e504d6c}
+\begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{NPMouseButton\_\-None@{NPMouseButton\_\-None}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPMouseButton\_\-None@{NPMouseButton\_\-None}}\item[{\em 
+\hypertarget{npapi__extensions_8h_ae8ae220daf8d448b0572cef14e504d6ca90619b8a1dd79be801ab3a63f8df391f}{
+NPMouseButton\_\-None}
+\label{npapi__extensions_8h_ae8ae220daf8d448b0572cef14e504d6ca90619b8a1dd79be801ab3a63f8df391f}
+}]\index{NPMouseButton\_\-Left@{NPMouseButton\_\-Left}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPMouseButton\_\-Left@{NPMouseButton\_\-Left}}\item[{\em 
+\hypertarget{npapi__extensions_8h_ae8ae220daf8d448b0572cef14e504d6cace386c87669ba3910c359a5b6526ae51}{
+NPMouseButton\_\-Left}
+\label{npapi__extensions_8h_ae8ae220daf8d448b0572cef14e504d6cace386c87669ba3910c359a5b6526ae51}
+}]\index{NPMouseButton\_\-Middle@{NPMouseButton\_\-Middle}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPMouseButton\_\-Middle@{NPMouseButton\_\-Middle}}\item[{\em 
+\hypertarget{npapi__extensions_8h_ae8ae220daf8d448b0572cef14e504d6caecf0a660b38ea084d88beff3e6fa0c7d}{
+NPMouseButton\_\-Middle}
+\label{npapi__extensions_8h_ae8ae220daf8d448b0572cef14e504d6caecf0a660b38ea084d88beff3e6fa0c7d}
+}]\index{NPMouseButton\_\-Right@{NPMouseButton\_\-Right}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPMouseButton\_\-Right@{NPMouseButton\_\-Right}}\item[{\em 
+\hypertarget{npapi__extensions_8h_ae8ae220daf8d448b0572cef14e504d6cac7233fde605e27bf714ef91c3c53d2df}{
+NPMouseButton\_\-Right}
+\label{npapi__extensions_8h_ae8ae220daf8d448b0572cef14e504d6cac7233fde605e27bf714ef91c3c53d2df}
+}]\end{description}
+\end{Desc}
+
+
+
+Definition at line 32 of file npapi\_\-extensions.h.
+
+\hypertarget{npapi__extensions_8h_a3eae6a1f6a13d35171a4bd5f6c6b35a8}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPPitch@{NPPitch}}
+\index{NPPitch@{NPPitch}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPPitch}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf NPPitch}}}
+\label{npapi__extensions_8h_a3eae6a1f6a13d35171a4bd5f6c6b35a8}
+\begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{NPPitchDefault@{NPPitchDefault}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPPitchDefault@{NPPitchDefault}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a3eae6a1f6a13d35171a4bd5f6c6b35a8ad349b95ef9041379e6e82585515286e8}{
+NPPitchDefault}
+\label{npapi__extensions_8h_a3eae6a1f6a13d35171a4bd5f6c6b35a8ad349b95ef9041379e6e82585515286e8}
+}]\index{NPPitchFixed@{NPPitchFixed}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPPitchFixed@{NPPitchFixed}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a3eae6a1f6a13d35171a4bd5f6c6b35a8a24497990a5f5033bdc8afbaedbfec71d}{
+NPPitchFixed}
+\label{npapi__extensions_8h_a3eae6a1f6a13d35171a4bd5f6c6b35a8a24497990a5f5033bdc8afbaedbfec71d}
+}]\end{description}
+\end{Desc}
+
+
+
+Definition at line 651 of file npapi\_\-extensions.h.
+
+\hypertarget{npapi__extensions_8h_adc5452bf7e44f44283e4f400a89c54b8}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPSelectionType@{NPSelectionType}}
+\index{NPSelectionType@{NPSelectionType}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPSelectionType}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf NPSelectionType}}}
+\label{npapi__extensions_8h_adc5452bf7e44f44283e4f400a89c54b8}
+\begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{NPSelectionTypeAny@{NPSelectionTypeAny}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPSelectionTypeAny@{NPSelectionTypeAny}}\item[{\em 
+\hypertarget{npapi__extensions_8h_adc5452bf7e44f44283e4f400a89c54b8a3f2cad7ae917588d81178a670edf425b}{
+NPSelectionTypeAny}
+\label{npapi__extensions_8h_adc5452bf7e44f44283e4f400a89c54b8a3f2cad7ae917588d81178a670edf425b}
+}]\index{NPSelectionTypePlainText@{NPSelectionTypePlainText}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPSelectionTypePlainText@{NPSelectionTypePlainText}}\item[{\em 
+\hypertarget{npapi__extensions_8h_adc5452bf7e44f44283e4f400a89c54b8ae1d08a836e6701e9c28ebb850557e278}{
+NPSelectionTypePlainText}
+\label{npapi__extensions_8h_adc5452bf7e44f44283e4f400a89c54b8ae1d08a836e6701e9c28ebb850557e278}
+}]\index{NPSelectionTypeHTML@{NPSelectionTypeHTML}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPSelectionTypeHTML@{NPSelectionTypeHTML}}\item[{\em 
+\hypertarget{npapi__extensions_8h_adc5452bf7e44f44283e4f400a89c54b8a832cd147a3f9bd01904684d95abb0427}{
+NPSelectionTypeHTML}
+\label{npapi__extensions_8h_adc5452bf7e44f44283e4f400a89c54b8a832cd147a3f9bd01904684d95abb0427}
+}]\end{description}
+\end{Desc}
+
+
+
+Definition at line 1049 of file npapi\_\-extensions.h.
+
+\hypertarget{npapi__extensions_8h_ac86c3112e5617ea60fab07fecce57cd2}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPWidgetProperty@{NPWidgetProperty}}
+\index{NPWidgetProperty@{NPWidgetProperty}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPWidgetProperty}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf NPWidgetProperty}}}
+\label{npapi__extensions_8h_ac86c3112e5617ea60fab07fecce57cd2}
+\begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{NPWidgetPropertyLocation@{NPWidgetPropertyLocation}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPWidgetPropertyLocation@{NPWidgetPropertyLocation}}\item[{\em 
+\hypertarget{npapi__extensions_8h_ac86c3112e5617ea60fab07fecce57cd2afd35ea123beefcbfc548e46a9dfe1a5e}{
+NPWidgetPropertyLocation}
+\label{npapi__extensions_8h_ac86c3112e5617ea60fab07fecce57cd2afd35ea123beefcbfc548e46a9dfe1a5e}
+}]\index{NPWidgetPropertyDirtyRect@{NPWidgetPropertyDirtyRect}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPWidgetPropertyDirtyRect@{NPWidgetPropertyDirtyRect}}\item[{\em 
+\hypertarget{npapi__extensions_8h_ac86c3112e5617ea60fab07fecce57cd2ac9d0e2a185ca8a9a3d7f78fd08e29c07}{
+NPWidgetPropertyDirtyRect}
+\label{npapi__extensions_8h_ac86c3112e5617ea60fab07fecce57cd2ac9d0e2a185ca8a9a3d7f78fd08e29c07}
+}]\index{NPWidgetPropertyScrollbarThickness@{NPWidgetPropertyScrollbarThickness}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPWidgetPropertyScrollbarThickness@{NPWidgetPropertyScrollbarThickness}}\item[{\em 
+\hypertarget{npapi__extensions_8h_ac86c3112e5617ea60fab07fecce57cd2aa8696ff63337908029db47ffd64ada46}{
+NPWidgetPropertyScrollbarThickness}
+\label{npapi__extensions_8h_ac86c3112e5617ea60fab07fecce57cd2aa8696ff63337908029db47ffd64ada46}
+}]\index{NPWidgetPropertyScrollbarValue@{NPWidgetPropertyScrollbarValue}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPWidgetPropertyScrollbarValue@{NPWidgetPropertyScrollbarValue}}\item[{\em 
+\hypertarget{npapi__extensions_8h_ac86c3112e5617ea60fab07fecce57cd2ac02fa99233cec7eae80fb10d8586c561}{
+NPWidgetPropertyScrollbarValue}
+\label{npapi__extensions_8h_ac86c3112e5617ea60fab07fecce57cd2ac02fa99233cec7eae80fb10d8586c561}
+}]\index{NPWidgetPropertyScrollbarDocumentSize@{NPWidgetPropertyScrollbarDocumentSize}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPWidgetPropertyScrollbarDocumentSize@{NPWidgetPropertyScrollbarDocumentSize}}\item[{\em 
+\hypertarget{npapi__extensions_8h_ac86c3112e5617ea60fab07fecce57cd2a9c2dcefc62840b3a8eafd6bb4e88aec5}{
+NPWidgetPropertyScrollbarDocumentSize}
+\label{npapi__extensions_8h_ac86c3112e5617ea60fab07fecce57cd2a9c2dcefc62840b3a8eafd6bb4e88aec5}
+}]\index{NPWidgetPropertyScrollbarTickMarks@{NPWidgetPropertyScrollbarTickMarks}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPWidgetPropertyScrollbarTickMarks@{NPWidgetPropertyScrollbarTickMarks}}\item[{\em 
+\hypertarget{npapi__extensions_8h_ac86c3112e5617ea60fab07fecce57cd2a0ea6df8738475e26aea3c466fcddffc8}{
+NPWidgetPropertyScrollbarTickMarks}
+\label{npapi__extensions_8h_ac86c3112e5617ea60fab07fecce57cd2a0ea6df8738475e26aea3c466fcddffc8}
+}]\index{NPWidgetPropertyScrollbarScrollByLine@{NPWidgetPropertyScrollbarScrollByLine}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPWidgetPropertyScrollbarScrollByLine@{NPWidgetPropertyScrollbarScrollByLine}}\item[{\em 
+\hypertarget{npapi__extensions_8h_ac86c3112e5617ea60fab07fecce57cd2a1417434ea3c6ade049c58cfe219862f9}{
+NPWidgetPropertyScrollbarScrollByLine}
+\label{npapi__extensions_8h_ac86c3112e5617ea60fab07fecce57cd2a1417434ea3c6ade049c58cfe219862f9}
+}]\index{NPWidgetPropertyScrollbarScrollByPage@{NPWidgetPropertyScrollbarScrollByPage}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPWidgetPropertyScrollbarScrollByPage@{NPWidgetPropertyScrollbarScrollByPage}}\item[{\em 
+\hypertarget{npapi__extensions_8h_ac86c3112e5617ea60fab07fecce57cd2aae973448c17dfa0ec1c97e6dde897ab1}{
+NPWidgetPropertyScrollbarScrollByPage}
+\label{npapi__extensions_8h_ac86c3112e5617ea60fab07fecce57cd2aae973448c17dfa0ec1c97e6dde897ab1}
+}]\index{NPWidgetPropertyScrollbarScrollByDocument@{NPWidgetPropertyScrollbarScrollByDocument}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPWidgetPropertyScrollbarScrollByDocument@{NPWidgetPropertyScrollbarScrollByDocument}}\item[{\em 
+\hypertarget{npapi__extensions_8h_ac86c3112e5617ea60fab07fecce57cd2a981c49640d73afc1cabb42139bdb92e1}{
+NPWidgetPropertyScrollbarScrollByDocument}
+\label{npapi__extensions_8h_ac86c3112e5617ea60fab07fecce57cd2a981c49640d73afc1cabb42139bdb92e1}
+}]\index{NPWidgetPropertyScrollbarScrollByPixels@{NPWidgetPropertyScrollbarScrollByPixels}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPWidgetPropertyScrollbarScrollByPixels@{NPWidgetPropertyScrollbarScrollByPixels}}\item[{\em 
+\hypertarget{npapi__extensions_8h_ac86c3112e5617ea60fab07fecce57cd2aeab6bbe3612bcef6a80d8c06762b59a4}{
+NPWidgetPropertyScrollbarScrollByPixels}
+\label{npapi__extensions_8h_ac86c3112e5617ea60fab07fecce57cd2aeab6bbe3612bcef6a80d8c06762b59a4}
+}]\end{description}
+\end{Desc}
+
+
+
+Definition at line 449 of file npapi\_\-extensions.h.
+
+\hypertarget{npapi__extensions_8h_a4e443aad32384692d97110cae9843481}{
+\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPWidgetType@{NPWidgetType}}
+\index{NPWidgetType@{NPWidgetType}!npapi_extensions.h@{npapi\_\-extensions.h}}
+\subsubsection[{NPWidgetType}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf NPWidgetType}}}
+\label{npapi__extensions_8h_a4e443aad32384692d97110cae9843481}
+\begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{NPWidgetTypeScrollbar@{NPWidgetTypeScrollbar}!npapi\_\-extensions.h@{npapi\_\-extensions.h}}\index{npapi\_\-extensions.h@{npapi\_\-extensions.h}!NPWidgetTypeScrollbar@{NPWidgetTypeScrollbar}}\item[{\em 
+\hypertarget{npapi__extensions_8h_a4e443aad32384692d97110cae9843481a4aa2bf3be302ec6fb1a4feb752ee07a7}{
+NPWidgetTypeScrollbar}
+\label{npapi__extensions_8h_a4e443aad32384692d97110cae9843481a4aa2bf3be302ec6fb1a4feb752ee07a7}
+}]\end{description}
+\end{Desc}
+
+
+
+Definition at line 428 of file npapi\_\-extensions.h.
+

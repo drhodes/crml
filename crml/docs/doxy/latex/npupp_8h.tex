@@ -1,0 +1,1381 @@
+\hypertarget{npupp_8h}{
+\section{/home/derek/dev/cell-\/grid-\/game/nacl/crml/crml/core/npupp.h File Reference}
+\label{npupp_8h}\index{/home/derek/dev/cell-\/grid-\/game/nacl/crml/crml/core/npupp.h@{/home/derek/dev/cell-\/grid-\/game/nacl/crml/crml/core/npupp.h}}
+}
+{\ttfamily \#include \char`\"{}third\_\-party/npapi/bindings/npapi.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}third\_\-party/npapi/bindings/npruntime.h\char`\"{}}\par
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct___n_p_plugin_funcs}{\_\-NPPluginFuncs}
+\item 
+struct \hyperlink{struct___n_p_netscape_funcs}{\_\-NPNetscapeFuncs}
+\end{DoxyCompactItemize}
+\subsection*{Defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{npupp_8h_a56ef17951a5582d4c8acda395573969d}{NewNPP\_\-InitializeProc}(FUNC)~((NPP\_\-InitializeUPP) (FUNC))
+\item 
+\#define \hyperlink{npupp_8h_ac873d25684d47873ed2881bf2a1976aa}{CallNPP\_\-InitializeProc}(FUNC)~($\ast$(FUNC))()
+\item 
+\#define \hyperlink{npupp_8h_a1b1717d3a48ec9a9011eb5dc02c3b74a}{NewNPP\_\-ShutdownProc}(FUNC)~((NPP\_\-ShutdownUPP) (FUNC))
+\item 
+\#define \hyperlink{npupp_8h_ac90c01478fd9b1332e3583f3d26cfc5d}{CallNPP\_\-ShutdownProc}(FUNC)~($\ast$(FUNC))()
+\item 
+\#define \hyperlink{npupp_8h_a9779226786fb633dda6c39ea6da0b5cf}{NewNPP\_\-NewProc}(FUNC)~((NPP\_\-NewUPP) (FUNC))
+\item 
+\#define \hyperlink{npupp_8h_a455b4223c138004717f9e9b5e075b75a}{CallNPP\_\-NewProc}(FUNC, ARG1, ARG2, ARG3, ARG4, ARG5, ARG6, ARG7)~($\ast$(FUNC))((ARG1), (ARG2), (ARG3), (ARG4), (ARG5), (ARG6), (ARG7))
+\item 
+\#define \hyperlink{npupp_8h_afcb805971942d123bfd574091a34bd95}{NewNPP\_\-DestroyProc}(FUNC)~((NPP\_\-DestroyUPP) (FUNC))
+\item 
+\#define \hyperlink{npupp_8h_a4f0d90b1bd3faf1db77ec934a97f4d86}{CallNPP\_\-DestroyProc}(FUNC, ARG1, ARG2)~($\ast$(FUNC))((ARG1), (ARG2))
+\item 
+\#define \hyperlink{npupp_8h_af5bfe16d8024438584aa3789792d1afb}{NewNPP\_\-SetWindowProc}(FUNC)~((NPP\_\-SetWindowUPP) (FUNC))
+\item 
+\#define \hyperlink{npupp_8h_abd801b2188dbaecf754288410fdaa066}{CallNPP\_\-SetWindowProc}(FUNC, ARG1, ARG2)~($\ast$(FUNC))((ARG1), (ARG2))
+\item 
+\#define \hyperlink{npupp_8h_afebf57f2e54fb7539e12a57361db2c2b}{NewNPP\_\-NewStreamProc}(FUNC)~((NPP\_\-NewStreamUPP) (FUNC))
+\item 
+\#define \hyperlink{npupp_8h_a498f63d44c85ea4c2a51e43421e8afbf}{CallNPP\_\-NewStreamProc}(FUNC, ARG1, ARG2, ARG3, ARG4, ARG5)~($\ast$(FUNC))((ARG1), (ARG2), (ARG3), (ARG4), (ARG5))
+\item 
+\#define \hyperlink{npupp_8h_a1306363cce18b02757c5d526cc0e0d12}{NewNPP\_\-DestroyStreamProc}(FUNC)~((NPP\_\-DestroyStreamUPP) (FUNC))
+\item 
+\#define \hyperlink{npupp_8h_aa32273c6c41e5f4142c505dc3cde5561}{CallNPP\_\-DestroyStreamProc}(FUNC,NPParg, NPStreamPtr, NPReasonArg)~($\ast$(FUNC))((NPParg), (NPStreamPtr), (NPReasonArg))
+\item 
+\#define \hyperlink{npupp_8h_a103a2440e29ae639a917f7838005f47c}{NewNPP\_\-WriteReadyProc}(FUNC)~((NPP\_\-WriteReadyUPP) (FUNC))
+\item 
+\#define \hyperlink{npupp_8h_af8fc3a474142095798334a8a6ccfbd71}{CallNPP\_\-WriteReadyProc}(FUNC,NPParg, NPStreamPtr)~($\ast$(FUNC))((NPParg), (NPStreamPtr))
+\item 
+\#define \hyperlink{npupp_8h_a7814772e8cc61d5751761408b5576894}{NewNPP\_\-WriteProc}(FUNC)~((NPP\_\-WriteUPP) (FUNC))
+\item 
+\#define \hyperlink{npupp_8h_a09d4bdf9e745785909e18947cab625ad}{CallNPP\_\-WriteProc}(FUNC,NPParg, NPStreamPtr, offsetArg, lenArg, bufferPtr)~($\ast$(FUNC))((NPParg), (NPStreamPtr), (offsetArg), (lenArg), (bufferPtr))
+\item 
+\#define \hyperlink{npupp_8h_a5f9cb7975acf9c8c5151a2c825bc36e2}{NewNPP\_\-StreamAsFileProc}(FUNC)~((NPP\_\-StreamAsFileUPP) (FUNC))
+\item 
+\#define \hyperlink{npupp_8h_ad0f0d4c2cf81e0ff62aa1c43733efd69}{CallNPP\_\-StreamAsFileProc}(FUNC,ARG1, ARG2, ARG3)~($\ast$(FUNC))((ARG1), (ARG2), (ARG3))
+\item 
+\#define \hyperlink{npupp_8h_a2bb84da3b6def01b522d733fefdd5b3f}{NewNPP\_\-PrintProc}(FUNC)~((NPP\_\-PrintUPP) (FUNC))
+\item 
+\#define \hyperlink{npupp_8h_a78ba501f80e1b23b86e88b803429324a}{CallNPP\_\-PrintProc}(FUNC,NPParg, NPPrintArg)~($\ast$(FUNC))((NPParg), (NPPrintArg))
+\item 
+\#define \hyperlink{npupp_8h_ad76281edd1e8e078d917c7fd2241a0af}{NewNPP\_\-HandleEventProc}(FUNC)~((NPP\_\-HandleEventUPP) (FUNC))
+\item 
+\#define \hyperlink{npupp_8h_a145c6f9c961ee3ae9ae17e5150bf6833}{CallNPP\_\-HandleEventProc}(FUNC,NPParg, voidPtr)~($\ast$(FUNC))((NPParg), (voidPtr))
+\item 
+\#define \hyperlink{npupp_8h_ad529be321c61282620331847fbfbd631}{NewNPP\_\-URLNotifyProc}(FUNC)~((NPP\_\-URLNotifyUPP) (FUNC))
+\item 
+\#define \hyperlink{npupp_8h_aabd109b4ebd3c14526733d720db94650}{CallNPP\_\-URLNotifyProc}(FUNC,ARG1, ARG2, ARG3, ARG4)~($\ast$(FUNC))((ARG1), (ARG2), (ARG3), (ARG4))
+\item 
+\#define \hyperlink{npupp_8h_ad850bc9442a59b13f218dd9c83857b6d}{NewNPP\_\-GetValueProc}(FUNC)~((NPP\_\-GetValueUPP) (FUNC))
+\item 
+\#define \hyperlink{npupp_8h_a83f8f205afcdb242a4e05923e0633cb8}{CallNPP\_\-GetValueProc}(FUNC, ARG1, ARG2, ARG3)~($\ast$(FUNC))((ARG1), (ARG2), (ARG3))
+\item 
+\#define \hyperlink{npupp_8h_a65f9daea82bd94ce52532a6993834c50}{NewNPP\_\-SetValueProc}(FUNC)~((NPP\_\-SetValueUPP) (FUNC))
+\item 
+\#define \hyperlink{npupp_8h_a806e04362f45b16bda95e8cb9db004c0}{CallNPP\_\-SetValueProc}(FUNC, ARG1, ARG2, ARG3)~($\ast$(FUNC))((ARG1), (ARG2), (ARG3))
+\item 
+\#define \hyperlink{npupp_8h_a95b5be33f7cf99f6913ad4c4b074a112}{NewNPN\_\-GetValueProc}(FUNC)~((NPN\_\-GetValueUPP) (FUNC))
+\item 
+\#define \hyperlink{npupp_8h_a9b87fc1ca3e98960064602285d69891e}{CallNPN\_\-GetValueProc}(FUNC, ARG1, ARG2, ARG3)~($\ast$(FUNC))((ARG1), (ARG2), (ARG3))
+\item 
+\#define \hyperlink{npupp_8h_a6ad85705dda4b3e417896e4f654c57ef}{NewNPN\_\-SetValueProc}(FUNC)~((NPN\_\-SetValueUPP) (FUNC))
+\item 
+\#define \hyperlink{npupp_8h_aac85f8ad1ec794751985ff236d266d0b}{CallNPN\_\-SetValueProc}(FUNC, ARG1, ARG2, ARG3)~($\ast$(FUNC))((ARG1), (ARG2), (ARG3))
+\item 
+\#define \hyperlink{npupp_8h_adcbb5e20df6bb341ee3b28d52ea483ba}{NewNPN\_\-GetURLNotifyProc}(FUNC)~((NPN\_\-GetURLNotifyUPP) (FUNC))
+\item 
+\#define \hyperlink{npupp_8h_a1f084b340de335aecd52cf610f6d52ce}{CallNPN\_\-GetURLNotifyProc}(FUNC, ARG1, ARG2, ARG3, ARG4)~($\ast$(FUNC))((ARG1), (ARG2), (ARG3), (ARG4))
+\item 
+\#define \hyperlink{npupp_8h_a0bb3a000f7aa1cb37bfb8a674a68b56b}{NewNPN\_\-PostURLNotifyProc}(FUNC)~((NPN\_\-PostURLNotifyUPP) (FUNC))
+\item 
+\#define \hyperlink{npupp_8h_a01fb163646fe44438e2b6b82b92a703a}{CallNPN\_\-PostURLNotifyProc}(FUNC, ARG1, ARG2, ARG3, ARG4, ARG5, ARG6, ARG7)~($\ast$(FUNC))((ARG1), (ARG2), (ARG3), (ARG4), (ARG5), (ARG6), (ARG7))
+\item 
+\#define \hyperlink{npupp_8h_a3d0bf4b94635849f701bd186fdc12824}{NewNPN\_\-GetURLProc}(FUNC)~((NPN\_\-GetURLUPP) (FUNC))
+\item 
+\#define \hyperlink{npupp_8h_a82cc034a59b71664113b94ad25217b92}{CallNPN\_\-GetURLProc}(FUNC, ARG1, ARG2, ARG3)~($\ast$(FUNC))((ARG1), (ARG2), (ARG3))
+\item 
+\#define \hyperlink{npupp_8h_a708c65621e668966a41290427370c63e}{NewNPN\_\-PostURLProc}(FUNC)~((NPN\_\-PostURLUPP) (FUNC))
+\item 
+\#define \hyperlink{npupp_8h_a4eb5fac9c8e55d7bc9a7d82c64225053}{CallNPN\_\-PostURLProc}(FUNC, ARG1, ARG2, ARG3, ARG4, ARG5, ARG6)~($\ast$(FUNC))((ARG1), (ARG2), (ARG3), (ARG4), (ARG5), (ARG6))
+\item 
+\#define \hyperlink{npupp_8h_a0031abed88f2faaa197524a5fef55835}{NewNPN\_\-RequestReadProc}(FUNC)~((NPN\_\-RequestReadUPP) (FUNC))
+\item 
+\#define \hyperlink{npupp_8h_ad3954926372db95e53eafbab1d9e78fe}{CallNPN\_\-RequestReadProc}(FUNC, stream, range)~($\ast$(FUNC))((stream), (range))
+\item 
+\#define \hyperlink{npupp_8h_a0da1389264fcf3ef981cdba53c3c1f6d}{NewNPN\_\-NewStreamProc}(FUNC)~((NPN\_\-NewStreamUPP) (FUNC))
+\item 
+\#define \hyperlink{npupp_8h_aeb83d970a31c825c59730f0e5cb804f5}{CallNPN\_\-NewStreamProc}(FUNC, npp, type, window, stream)~($\ast$(FUNC))((npp), (type), (window), (stream))
+\item 
+\#define \hyperlink{npupp_8h_a48ebeb62fe088bfcb0ae56c287b9f2bc}{NewNPN\_\-WriteProc}(FUNC)~((NPN\_\-WriteUPP) (FUNC))
+\item 
+\#define \hyperlink{npupp_8h_a3e738b73d4dd96b5a3ac6a406b25372a}{CallNPN\_\-WriteProc}(FUNC, npp, stream, len, buffer)~($\ast$(FUNC))((npp), (stream), (len), (buffer))
+\item 
+\#define \hyperlink{npupp_8h_a6adffe8507237d4c96c051994381ea1c}{NewNPN\_\-DestroyStreamProc}(FUNC)~((NPN\_\-DestroyStreamUPP) (FUNC))
+\item 
+\#define \hyperlink{npupp_8h_ab8d553f152795d86c82534d136e30b12}{CallNPN\_\-DestroyStreamProc}(FUNC, npp, stream, reason)~($\ast$(FUNC))((npp), (stream), (reason))
+\item 
+\#define \hyperlink{npupp_8h_ad4818e68b742da7b97c2312ad93ce2b3}{NewNPN\_\-StatusProc}(FUNC)~((NPN\_\-StatusUPP) (FUNC))
+\item 
+\#define \hyperlink{npupp_8h_a5c5dd6fa8b2eea1ae18adf094201460d}{CallNPN\_\-StatusProc}(FUNC, npp, msg)~($\ast$(FUNC))((npp), (msg))
+\item 
+\#define \hyperlink{npupp_8h_a05797594836d6a5328d65163767e7901}{NewNPN\_\-UserAgentProc}(FUNC)~((NPN\_\-UserAgentUPP) (FUNC))
+\item 
+\#define \hyperlink{npupp_8h_abe5cb72f40774be32d8421816817217c}{CallNPN\_\-UserAgentProc}(FUNC, ARG1)~($\ast$(FUNC))((ARG1))
+\item 
+\#define \hyperlink{npupp_8h_ad1812109e9c86ee0a7ba54792c16246c}{NewNPN\_\-MemAllocProc}(FUNC)~((NPN\_\-MemAllocUPP) (FUNC))
+\item 
+\#define \hyperlink{npupp_8h_aae463734908c8dc64723b033b01779f9}{CallNPN\_\-MemAllocProc}(FUNC, ARG1)~($\ast$(FUNC))((ARG1))
+\item 
+\#define \hyperlink{npupp_8h_af0e52a36899639c277161c06ba5c7e84}{NewNPN\_\-MemFreeProc}(FUNC)~((NPN\_\-MemFreeUPP) (FUNC))
+\item 
+\#define \hyperlink{npupp_8h_afe7115304d45e0204f9b1c93cee6b681}{CallNPN\_\-MemFreeProc}(FUNC, ARG1)~($\ast$(FUNC))((ARG1))
+\item 
+\#define \hyperlink{npupp_8h_a4939e0d717f942f2eb401f215f8f2483}{NewNPN\_\-MemFlushProc}(FUNC)~((NPN\_\-MemFlushUPP) (FUNC))
+\item 
+\#define \hyperlink{npupp_8h_a74770a79c743ff84e4d05dc95bd1b156}{CallNPN\_\-MemFlushProc}(FUNC, ARG1)~($\ast$(FUNC))((ARG1))
+\item 
+\#define \hyperlink{npupp_8h_afd2cd17cb04571c8071e7e1bd9f3f8a3}{NewNPN\_\-ReloadPluginsProc}(FUNC)~((NPN\_\-ReloadPluginsUPP) (FUNC))
+\item 
+\#define \hyperlink{npupp_8h_a77ecf38e272d31a9633bb7d84654de7e}{CallNPN\_\-ReloadPluginsProc}(FUNC, ARG1)~($\ast$(FUNC))((ARG1))
+\item 
+\#define \hyperlink{npupp_8h_a4a17b1dfc0bcbd768df2decc94025de8}{NewNPN\_\-GetJavaEnvProc}(FUNC)~((NPN\_\-GetJavaEnvUPP) (FUNC))
+\item 
+\#define \hyperlink{npupp_8h_a836e118fe5770bce3a0be564a4e63de9}{CallNPN\_\-GetJavaEnvProc}(FUNC)~($\ast$(FUNC))()
+\item 
+\#define \hyperlink{npupp_8h_ac19e6aaf7c27f3a957fdd90c7bcde6fd}{NewNPN\_\-GetJavaPeerProc}(FUNC)~((NPN\_\-GetJavaPeerUPP) (FUNC))
+\item 
+\#define \hyperlink{npupp_8h_a9ec2fc963cf70f151f3c644732169f6e}{CallNPN\_\-GetJavaPeerProc}(FUNC, ARG1)~($\ast$(FUNC))((ARG1))
+\item 
+\#define \hyperlink{npupp_8h_a939bceb1ecb7cf57d94af2c671547caf}{NewNPN\_\-InvalidateRectProc}(FUNC)~((NPN\_\-InvalidateRectUPP) (FUNC))
+\item 
+\#define \hyperlink{npupp_8h_aa70cabf3d4ae143111f5bff32a0aec22}{CallNPN\_\-InvalidateRectProc}(FUNC, ARG1, ARG2)~($\ast$(FUNC))((ARG1), (ARG2))
+\item 
+\#define \hyperlink{npupp_8h_a91af2571022e562cba29f7eb7064c26f}{NewNPN\_\-InvalidateRegionProc}(FUNC)~((NPN\_\-InvalidateRegionUPP) (FUNC))
+\item 
+\#define \hyperlink{npupp_8h_a2d17627dd4a8d456053bde97bdcfb8f3}{CallNPN\_\-InvalidateRegionProc}(FUNC, ARG1, ARG2)~($\ast$(FUNC))((ARG1), (ARG2))
+\item 
+\#define \hyperlink{npupp_8h_ae7c1854eba573bc612d75776d47ad4d3}{NewNPN\_\-ForceRedrawProc}(FUNC)~((NPN\_\-ForceRedrawUPP) (FUNC))
+\item 
+\#define \hyperlink{npupp_8h_a37dfccb1ec2c8d6867cf06c3ecc31943}{CallNPN\_\-ForceRedrawProc}(FUNC, ARG1)~($\ast$(FUNC))((ARG1))
+\item 
+\#define \hyperlink{npupp_8h_ae42f3136d2736233fbf0dbe91e0c49b8}{NewNPN\_\-GetStringIdentifierProc}(FUNC)~((NPN\_\-GetStringIdentifierUPP) (FUNC))
+\item 
+\#define \hyperlink{npupp_8h_a453e24138d7f13dda82e64b18e487330}{CallNPN\_\-GetStringIdentifierProc}(FUNC, ARG1)~($\ast$(FUNC))((ARG1))
+\item 
+\#define \hyperlink{npupp_8h_aa3da74697ec95111d520a6185a910013}{NewNPN\_\-GetStringIdentifiersProc}(FUNC)~((NPN\_\-GetStringIdentifiersUPP) (FUNC))
+\item 
+\#define \hyperlink{npupp_8h_ae2e6094b5f1890f5bba7bf555271169a}{CallNPN\_\-GetStringIdentifiersProc}(FUNC, ARG1, ARG2, ARG3)~($\ast$(FUNC))((ARG1), (ARG2), (ARG3))
+\item 
+\#define \hyperlink{npupp_8h_a3dfc7405f24429c0673084a23ae74a49}{NewNPN\_\-GetIntIdentifierProc}(FUNC)~((NPN\_\-GetIntIdentifierUPP) (FUNC))
+\item 
+\#define \hyperlink{npupp_8h_a6328a149bdd17913063aa2540cb31957}{CallNPN\_\-GetIntIdentifierProc}(FUNC, ARG1)~($\ast$(FUNC))((ARG1))
+\item 
+\#define \hyperlink{npupp_8h_a1c7de824352790ae458c7b29af98b0d3}{NewNPN\_\-IdentifierIsStringProc}(FUNC)~((NPN\_\-IdentifierIsStringUPP) (FUNC))
+\item 
+\#define \hyperlink{npupp_8h_aaa5eb2cc180353426ba178f4b5160634}{CallNPN\_\-IdentifierIsStringProc}(FUNC, ARG1)~($\ast$(FUNC))((ARG1))
+\item 
+\#define \hyperlink{npupp_8h_a816bdcdce7203192fc3465309717aaf8}{NewNPN\_\-UTF8FromIdentifierProc}(FUNC)~((NPN\_\-UTF8FromIdentifierUPP) (FUNC))
+\item 
+\#define \hyperlink{npupp_8h_a1978362625404a58732966b915529e16}{CallNPN\_\-UTF8FromIdentifierProc}(FUNC, ARG1)~($\ast$(FUNC))((ARG1))
+\item 
+\#define \hyperlink{npupp_8h_a168b8be7470f6e0b22ed92d909ce555e}{NewNPN\_\-IntFromIdentifierProc}(FUNC)~((NPN\_\-IntFromIdentifierUPP) (FUNC))
+\item 
+\#define \hyperlink{npupp_8h_a8b8a9f33500e7091dfd044f7d4d04787}{CallNPN\_\-IntFromIdentifierProc}(FUNC, ARG1)~($\ast$(FUNC))((ARG1))
+\item 
+\#define \hyperlink{npupp_8h_a8d9f5b9fe33a1809317142a6dfa54655}{NewNPN\_\-CreateObjectProc}(FUNC)~((NPN\_\-CreateObjectUPP) (FUNC))
+\item 
+\#define \hyperlink{npupp_8h_aa720bb608f9e7630ea619cb8ce766401}{CallNPN\_\-CreateObjectProc}(FUNC, ARG1, ARG2)~($\ast$(FUNC))((ARG1), (ARG2))
+\item 
+\#define \hyperlink{npupp_8h_a9c8ad7457836048678c45c8c50be4123}{NewNPN\_\-RetainObjectProc}(FUNC)~((NPN\_\-RetainObjectUPP) (FUNC))
+\item 
+\#define \hyperlink{npupp_8h_a47dd2244fb7b4f8cf9c1e42bc909e6fa}{CallNPN\_\-RetainObjectProc}(FUNC, ARG1)~($\ast$(FUNC))((ARG1))
+\item 
+\#define \hyperlink{npupp_8h_a830d9c1a0c50ace1c42489ef932fcdd8}{NewNPN\_\-ReleaseObjectProc}(FUNC)~((NPN\_\-ReleaseObjectUPP) (FUNC))
+\item 
+\#define \hyperlink{npupp_8h_a57477cee6df5662572807cb56b088cca}{CallNPN\_\-ReleaseObjectProc}(FUNC, ARG1)~($\ast$(FUNC))((ARG1))
+\item 
+\#define \hyperlink{npupp_8h_a921aa8ea73aada6b8788a9b9a0858db8}{NewNPN\_\-InvokeProc}(FUNC)~((NPN\_\-InvokeUPP) (FUNC))
+\item 
+\#define \hyperlink{npupp_8h_aa018722045d7642800ce48ccd6e2dfe3}{CallNPN\_\-InvokeProc}(FUNC, ARG1, ARG2, ARG3, ARG4, ARG5, ARG6)~($\ast$(FUNC))((ARG1), (ARG2), (ARG3), (ARG4), (ARG5), (ARG6))
+\item 
+\#define \hyperlink{npupp_8h_afe70e988cc3958542f786d3a5b915419}{NewNPN\_\-InvokeDefaultProc}(FUNC)~((NPN\_\-InvokeDefaultUPP) (FUNC))
+\item 
+\#define \hyperlink{npupp_8h_aadb3191cd4391dc6d4479e0b12c25d80}{CallNPN\_\-InvokeDefaultProc}(FUNC, ARG1, ARG2, ARG3, ARG4, ARG5)~($\ast$(FUNC))((ARG1), (ARG2), (ARG3), (ARG4), (ARG5))
+\item 
+\#define \hyperlink{npupp_8h_ab5e91872b9cfe07ecc6f2ef415e7e35d}{NewNPN\_\-EvaluateProc}(FUNC)~((NPN\_\-EvaluateUPP) (FUNC))
+\item 
+\#define \hyperlink{npupp_8h_a299a71f035237c51f05f1d8b818b9b13}{CallNPN\_\-EvaluateProc}(FUNC, ARG1, ARG2, ARG3, ARG4)~($\ast$(FUNC))((ARG1), (ARG2), (ARG3), (ARG4))
+\item 
+\#define \hyperlink{npupp_8h_ad12ccec181584d1246d51e80a463ee4e}{NewNPN\_\-GetPropertyProc}(FUNC)~((NPN\_\-GetPropertyUPP) (FUNC))
+\item 
+\#define \hyperlink{npupp_8h_a57cec1cf0d45e7712835a897f8f72219}{CallNPN\_\-GetPropertyProc}(FUNC, ARG1, ARG2, ARG3, ARG4)~($\ast$(FUNC))((ARG1), (ARG2), (ARG3), (ARG4))
+\item 
+\#define \hyperlink{npupp_8h_ad9af81fac4e6d1cc2f3eab02ddaade46}{NewNPN\_\-SetPropertyProc}(FUNC)~((NPN\_\-SetPropertyUPP) (FUNC))
+\item 
+\#define \hyperlink{npupp_8h_aec998848c98cfd7062cb920c8fca39aa}{CallNPN\_\-SetPropertyProc}(FUNC, ARG1, ARG2, ARG3, ARG4)~($\ast$(FUNC))((ARG1), (ARG2), (ARG3), (ARG4))
+\item 
+\#define \hyperlink{npupp_8h_afcc7804220f6bb6545380bb0c5fb6738}{NewNPN\_\-RemovePropertyProc}(FUNC)~((NPN\_\-RemovePropertyUPP) (FUNC))
+\item 
+\#define \hyperlink{npupp_8h_aea75144ed60f01cd592422e4b7a3bc8a}{CallNPN\_\-RemovePropertyProc}(FUNC, ARG1, ARG2, ARG3)~($\ast$(FUNC))((ARG1), (ARG2), (ARG3))
+\item 
+\#define \hyperlink{npupp_8h_aaa189b9c6ef1c43945e1be9198011089}{NewNPN\_\-HasPropertyProc}(FUNC)~((NPN\_\-HasPropertyUPP) (FUNC))
+\item 
+\#define \hyperlink{npupp_8h_a38392700d7c74bfecd4da296091f04bf}{CallNPN\_\-HasPropertyProc}(FUNC, ARG1, ARG2, ARG3)~($\ast$(FUNC))((ARG1), (ARG2), (ARG3))
+\item 
+\#define \hyperlink{npupp_8h_a83f604bffb3a9facf8382b35334d2e34}{NewNPN\_\-HasMethodProc}(FUNC)~((NPN\_\-HasMethodUPP) (FUNC))
+\item 
+\#define \hyperlink{npupp_8h_af326d487ee4e2cdf9de1e4824969c3e6}{CallNPN\_\-HasMethodProc}(FUNC, ARG1, ARG2, ARG3)~($\ast$(FUNC))((ARG1), (ARG2), (ARG3))
+\item 
+\#define \hyperlink{npupp_8h_a15e3035468c470f1555051e3a05e9694}{NewNPN\_\-ReleaseVariantValueProc}(FUNC)~((NPN\_\-ReleaseVariantValueUPP) (FUNC))
+\item 
+\#define \hyperlink{npupp_8h_abdcbbda7fba63782bff2c356cc1ea074}{CallNPN\_\-ReleaseVariantValueProc}(FUNC, ARG1)~($\ast$(FUNC))((ARG1))
+\item 
+\#define \hyperlink{npupp_8h_a8aa9119a96d4d86775a94c6e57762951}{NewNPN\_\-SetExceptionProc}(FUNC)~((NPN\_\-SetExceptionUPP) (FUNC))
+\item 
+\#define \hyperlink{npupp_8h_a7f1c266d9d3e046729af4363d672747a}{CallNPN\_\-SetExceptionProc}(FUNC, ARG1, ARG2)~($\ast$(FUNC))((ARG1), (ARG2))
+\item 
+\#define \hyperlink{npupp_8h_a6f092374fc2fee0fbaab27ee0df73f4b}{NewNPN\_\-PushPopupsEnabledStateProc}(FUNC)~((NPN\_\-PushPopupsEnabledStateUPP) (FUNC))
+\item 
+\#define \hyperlink{npupp_8h_a418708194ea24eb65e032b4734b06871}{CallNPN\_\-PushPopupsEnabledStateProc}(FUNC, ARG1, ARG2)~($\ast$(FUNC))((ARG1), (ARG2))
+\item 
+\#define \hyperlink{npupp_8h_ab6cfc31a976aa88e694284fa1c0af028}{NewNPN\_\-PopPopupsEnabledStateProc}(FUNC)~((NPN\_\-PopPopupsEnabledStateUPP) (FUNC))
+\item 
+\#define \hyperlink{npupp_8h_a70f6f27710aace4be5b3f3839ac44706}{CallNPN\_\-PopPopupsEnabledStateProc}(FUNC, ARG1)~($\ast$(FUNC))((ARG1))
+\item 
+\#define \hyperlink{npupp_8h_ad44ceb11cbbf0adab9b864854ea32a03}{NewNPN\_\-EnumerateProc}(FUNC)~((NPN\_\-EnumerateUPP) (FUNC))
+\item 
+\#define \hyperlink{npupp_8h_a53bf46ded5a5e0a51be8068a676bd69c}{CallNPN\_\-EnumerateProc}(FUNC, ARG1, ARG2, ARG3, ARG4)~($\ast$(FUNC))((ARG1), (ARG2), (ARG3), (ARG4))
+\item 
+\#define \hyperlink{npupp_8h_ab3bb958a8f59133eb84e302dc16acc30}{NewNPN\_\-PluginThreadAsyncCallProc}(FUNC)~((NPN\_\-PluginThreadAsyncCallUPP) (FUNC))
+\item 
+\#define \hyperlink{npupp_8h_a66391d80625a478ca4b6521eda5be23a}{CallNPN\_\-PluginThreadAsyncCallProc}(FUNC, ARG1, ARG2, ARG3)~($\ast$(FUNC))((ARG1), (ARG2), (ARG3))
+\item 
+\#define \hyperlink{npupp_8h_a5abec9ea7f75b3ce5baa6fcbc8a94b77}{NewNPN\_\-ConstructProc}(FUNC)~((NPN\_\-ConstructUPP) (FUNC))
+\item 
+\#define \hyperlink{npupp_8h_a40a9f555fe4b2c25c6810c966f959aff}{CallNPN\_\-ConstructProc}(FUNC, ARG1, ARG2, ARG3, ARG4, ARG5)~($\ast$(FUNC))((ARG1), (ARG2), (ARG3), (ARG4), (ARG5))
+\item 
+\#define \hyperlink{npupp_8h_a65d1cc61b816ca66e55e0704ee94eb9d}{OSCALL}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef void($\ast$ \hyperlink{npupp_8h_ad0db9c65c959b0697a3c637a7f021469}{NP\_\-LOADDS} )(void)
+\item 
+typedef struct \hyperlink{struct___n_p_plugin_funcs}{\_\-NPPluginFuncs} \hyperlink{npupp_8h_a039d9087aae17e52d21f4ff3c72a644f}{NPPluginFuncs}
+\item 
+typedef struct \hyperlink{struct___n_p_netscape_funcs}{\_\-NPNetscapeFuncs} \hyperlink{npupp_8h_ab264b3e75241c5d251a909ce09ed9c6f}{NPNetscapeFuncs}
+\end{DoxyCompactItemize}
+
+
+\subsection{Define Documentation}
+\hypertarget{npupp_8h_a40a9f555fe4b2c25c6810c966f959aff}{
+\index{npupp.h@{npupp.h}!CallNPN\_\-ConstructProc@{CallNPN\_\-ConstructProc}}
+\index{CallNPN\_\-ConstructProc@{CallNPN\_\-ConstructProc}!npupp.h@{npupp.h}}
+\subsubsection[{CallNPN\_\-ConstructProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define CallNPN\_\-ConstructProc(FUNC, \/  ARG1, \/  ARG2, \/  ARG3, \/  ARG4, \/  ARG5)~($\ast$(FUNC))((ARG1), (ARG2), (ARG3), (ARG4), (ARG5))}}
+\label{npupp_8h_a40a9f555fe4b2c25c6810c966f959aff}
+
+
+Definition at line 509 of file npupp.h.
+
+\hypertarget{npupp_8h_aa720bb608f9e7630ea619cb8ce766401}{
+\index{npupp.h@{npupp.h}!CallNPN\_\-CreateObjectProc@{CallNPN\_\-CreateObjectProc}}
+\index{CallNPN\_\-CreateObjectProc@{CallNPN\_\-CreateObjectProc}!npupp.h@{npupp.h}}
+\subsubsection[{CallNPN\_\-CreateObjectProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define CallNPN\_\-CreateObjectProc(FUNC, \/  ARG1, \/  ARG2)~($\ast$(FUNC))((ARG1), (ARG2))}}
+\label{npupp_8h_aa720bb608f9e7630ea619cb8ce766401}
+
+
+Definition at line 390 of file npupp.h.
+
+\hypertarget{npupp_8h_ab8d553f152795d86c82534d136e30b12}{
+\index{npupp.h@{npupp.h}!CallNPN\_\-DestroyStreamProc@{CallNPN\_\-DestroyStreamProc}}
+\index{CallNPN\_\-DestroyStreamProc@{CallNPN\_\-DestroyStreamProc}!npupp.h@{npupp.h}}
+\subsubsection[{CallNPN\_\-DestroyStreamProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define CallNPN\_\-DestroyStreamProc(FUNC, \/  npp, \/  stream, \/  reason)~($\ast$(FUNC))((npp), (stream), (reason))}}
+\label{npupp_8h_ab8d553f152795d86c82534d136e30b12}
+
+
+Definition at line 256 of file npupp.h.
+
+\hypertarget{npupp_8h_a53bf46ded5a5e0a51be8068a676bd69c}{
+\index{npupp.h@{npupp.h}!CallNPN\_\-EnumerateProc@{CallNPN\_\-EnumerateProc}}
+\index{CallNPN\_\-EnumerateProc@{CallNPN\_\-EnumerateProc}!npupp.h@{npupp.h}}
+\subsubsection[{CallNPN\_\-EnumerateProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define CallNPN\_\-EnumerateProc(FUNC, \/  ARG1, \/  ARG2, \/  ARG3, \/  ARG4)~($\ast$(FUNC))((ARG1), (ARG2), (ARG3), (ARG4))}}
+\label{npupp_8h_a53bf46ded5a5e0a51be8068a676bd69c}
+
+
+Definition at line 495 of file npupp.h.
+
+\hypertarget{npupp_8h_a299a71f035237c51f05f1d8b818b9b13}{
+\index{npupp.h@{npupp.h}!CallNPN\_\-EvaluateProc@{CallNPN\_\-EvaluateProc}}
+\index{CallNPN\_\-EvaluateProc@{CallNPN\_\-EvaluateProc}!npupp.h@{npupp.h}}
+\subsubsection[{CallNPN\_\-EvaluateProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define CallNPN\_\-EvaluateProc(FUNC, \/  ARG1, \/  ARG2, \/  ARG3, \/  ARG4)~($\ast$(FUNC))((ARG1), (ARG2), (ARG3), (ARG4))}}
+\label{npupp_8h_a299a71f035237c51f05f1d8b818b9b13}
+
+
+Definition at line 425 of file npupp.h.
+
+\hypertarget{npupp_8h_a37dfccb1ec2c8d6867cf06c3ecc31943}{
+\index{npupp.h@{npupp.h}!CallNPN\_\-ForceRedrawProc@{CallNPN\_\-ForceRedrawProc}}
+\index{CallNPN\_\-ForceRedrawProc@{CallNPN\_\-ForceRedrawProc}!npupp.h@{npupp.h}}
+\subsubsection[{CallNPN\_\-ForceRedrawProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define CallNPN\_\-ForceRedrawProc(FUNC, \/  ARG1)~($\ast$(FUNC))((ARG1))}}
+\label{npupp_8h_a37dfccb1ec2c8d6867cf06c3ecc31943}
+
+
+Definition at line 339 of file npupp.h.
+
+\hypertarget{npupp_8h_a6328a149bdd17913063aa2540cb31957}{
+\index{npupp.h@{npupp.h}!CallNPN\_\-GetIntIdentifierProc@{CallNPN\_\-GetIntIdentifierProc}}
+\index{CallNPN\_\-GetIntIdentifierProc@{CallNPN\_\-GetIntIdentifierProc}!npupp.h@{npupp.h}}
+\subsubsection[{CallNPN\_\-GetIntIdentifierProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define CallNPN\_\-GetIntIdentifierProc(FUNC, \/  ARG1)~($\ast$(FUNC))((ARG1))}}
+\label{npupp_8h_a6328a149bdd17913063aa2540cb31957}
+
+
+Definition at line 362 of file npupp.h.
+
+\hypertarget{npupp_8h_a836e118fe5770bce3a0be564a4e63de9}{
+\index{npupp.h@{npupp.h}!CallNPN\_\-GetJavaEnvProc@{CallNPN\_\-GetJavaEnvProc}}
+\index{CallNPN\_\-GetJavaEnvProc@{CallNPN\_\-GetJavaEnvProc}!npupp.h@{npupp.h}}
+\subsubsection[{CallNPN\_\-GetJavaEnvProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define CallNPN\_\-GetJavaEnvProc(FUNC)~($\ast$(FUNC))()}}
+\label{npupp_8h_a836e118fe5770bce3a0be564a4e63de9}
+
+
+Definition at line 308 of file npupp.h.
+
+\hypertarget{npupp_8h_a9ec2fc963cf70f151f3c644732169f6e}{
+\index{npupp.h@{npupp.h}!CallNPN\_\-GetJavaPeerProc@{CallNPN\_\-GetJavaPeerProc}}
+\index{CallNPN\_\-GetJavaPeerProc@{CallNPN\_\-GetJavaPeerProc}!npupp.h@{npupp.h}}
+\subsubsection[{CallNPN\_\-GetJavaPeerProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define CallNPN\_\-GetJavaPeerProc(FUNC, \/  ARG1)~($\ast$(FUNC))((ARG1))}}
+\label{npupp_8h_a9ec2fc963cf70f151f3c644732169f6e}
+
+
+Definition at line 318 of file npupp.h.
+
+\hypertarget{npupp_8h_a57cec1cf0d45e7712835a897f8f72219}{
+\index{npupp.h@{npupp.h}!CallNPN\_\-GetPropertyProc@{CallNPN\_\-GetPropertyProc}}
+\index{CallNPN\_\-GetPropertyProc@{CallNPN\_\-GetPropertyProc}!npupp.h@{npupp.h}}
+\subsubsection[{CallNPN\_\-GetPropertyProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define CallNPN\_\-GetPropertyProc(FUNC, \/  ARG1, \/  ARG2, \/  ARG3, \/  ARG4)~($\ast$(FUNC))((ARG1), (ARG2), (ARG3), (ARG4))}}
+\label{npupp_8h_a57cec1cf0d45e7712835a897f8f72219}
+
+
+Definition at line 432 of file npupp.h.
+
+\hypertarget{npupp_8h_a453e24138d7f13dda82e64b18e487330}{
+\index{npupp.h@{npupp.h}!CallNPN\_\-GetStringIdentifierProc@{CallNPN\_\-GetStringIdentifierProc}}
+\index{CallNPN\_\-GetStringIdentifierProc@{CallNPN\_\-GetStringIdentifierProc}!npupp.h@{npupp.h}}
+\subsubsection[{CallNPN\_\-GetStringIdentifierProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define CallNPN\_\-GetStringIdentifierProc(FUNC, \/  ARG1)~($\ast$(FUNC))((ARG1))}}
+\label{npupp_8h_a453e24138d7f13dda82e64b18e487330}
+
+
+Definition at line 346 of file npupp.h.
+
+\hypertarget{npupp_8h_ae2e6094b5f1890f5bba7bf555271169a}{
+\index{npupp.h@{npupp.h}!CallNPN\_\-GetStringIdentifiersProc@{CallNPN\_\-GetStringIdentifiersProc}}
+\index{CallNPN\_\-GetStringIdentifiersProc@{CallNPN\_\-GetStringIdentifiersProc}!npupp.h@{npupp.h}}
+\subsubsection[{CallNPN\_\-GetStringIdentifiersProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define CallNPN\_\-GetStringIdentifiersProc(FUNC, \/  ARG1, \/  ARG2, \/  ARG3)~($\ast$(FUNC))((ARG1), (ARG2), (ARG3))}}
+\label{npupp_8h_ae2e6094b5f1890f5bba7bf555271169a}
+
+
+Definition at line 355 of file npupp.h.
+
+\hypertarget{npupp_8h_a1f084b340de335aecd52cf610f6d52ce}{
+\index{npupp.h@{npupp.h}!CallNPN\_\-GetURLNotifyProc@{CallNPN\_\-GetURLNotifyProc}}
+\index{CallNPN\_\-GetURLNotifyProc@{CallNPN\_\-GetURLNotifyProc}!npupp.h@{npupp.h}}
+\subsubsection[{CallNPN\_\-GetURLNotifyProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define CallNPN\_\-GetURLNotifyProc(FUNC, \/  ARG1, \/  ARG2, \/  ARG3, \/  ARG4)~($\ast$(FUNC))((ARG1), (ARG2), (ARG3), (ARG4))}}
+\label{npupp_8h_a1f084b340de335aecd52cf610f6d52ce}
+
+
+Definition at line 207 of file npupp.h.
+
+\hypertarget{npupp_8h_a82cc034a59b71664113b94ad25217b92}{
+\index{npupp.h@{npupp.h}!CallNPN\_\-GetURLProc@{CallNPN\_\-GetURLProc}}
+\index{CallNPN\_\-GetURLProc@{CallNPN\_\-GetURLProc}!npupp.h@{npupp.h}}
+\subsubsection[{CallNPN\_\-GetURLProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define CallNPN\_\-GetURLProc(FUNC, \/  ARG1, \/  ARG2, \/  ARG3)~($\ast$(FUNC))((ARG1), (ARG2), (ARG3))}}
+\label{npupp_8h_a82cc034a59b71664113b94ad25217b92}
+
+
+Definition at line 221 of file npupp.h.
+
+\hypertarget{npupp_8h_a9b87fc1ca3e98960064602285d69891e}{
+\index{npupp.h@{npupp.h}!CallNPN\_\-GetValueProc@{CallNPN\_\-GetValueProc}}
+\index{CallNPN\_\-GetValueProc@{CallNPN\_\-GetValueProc}!npupp.h@{npupp.h}}
+\subsubsection[{CallNPN\_\-GetValueProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define CallNPN\_\-GetValueProc(FUNC, \/  ARG1, \/  ARG2, \/  ARG3)~($\ast$(FUNC))((ARG1), (ARG2), (ARG3))}}
+\label{npupp_8h_a9b87fc1ca3e98960064602285d69891e}
+
+
+Definition at line 193 of file npupp.h.
+
+\hypertarget{npupp_8h_af326d487ee4e2cdf9de1e4824969c3e6}{
+\index{npupp.h@{npupp.h}!CallNPN\_\-HasMethodProc@{CallNPN\_\-HasMethodProc}}
+\index{CallNPN\_\-HasMethodProc@{CallNPN\_\-HasMethodProc}!npupp.h@{npupp.h}}
+\subsubsection[{CallNPN\_\-HasMethodProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define CallNPN\_\-HasMethodProc(FUNC, \/  ARG1, \/  ARG2, \/  ARG3)~($\ast$(FUNC))((ARG1), (ARG2), (ARG3))}}
+\label{npupp_8h_af326d487ee4e2cdf9de1e4824969c3e6}
+
+
+Definition at line 460 of file npupp.h.
+
+\hypertarget{npupp_8h_a38392700d7c74bfecd4da296091f04bf}{
+\index{npupp.h@{npupp.h}!CallNPN\_\-HasPropertyProc@{CallNPN\_\-HasPropertyProc}}
+\index{CallNPN\_\-HasPropertyProc@{CallNPN\_\-HasPropertyProc}!npupp.h@{npupp.h}}
+\subsubsection[{CallNPN\_\-HasPropertyProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define CallNPN\_\-HasPropertyProc(FUNC, \/  ARG1, \/  ARG2, \/  ARG3)~($\ast$(FUNC))((ARG1), (ARG2), (ARG3))}}
+\label{npupp_8h_a38392700d7c74bfecd4da296091f04bf}
+
+
+Definition at line 453 of file npupp.h.
+
+\hypertarget{npupp_8h_aaa5eb2cc180353426ba178f4b5160634}{
+\index{npupp.h@{npupp.h}!CallNPN\_\-IdentifierIsStringProc@{CallNPN\_\-IdentifierIsStringProc}}
+\index{CallNPN\_\-IdentifierIsStringProc@{CallNPN\_\-IdentifierIsStringProc}!npupp.h@{npupp.h}}
+\subsubsection[{CallNPN\_\-IdentifierIsStringProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define CallNPN\_\-IdentifierIsStringProc(FUNC, \/  ARG1)~($\ast$(FUNC))((ARG1))}}
+\label{npupp_8h_aaa5eb2cc180353426ba178f4b5160634}
+
+
+Definition at line 369 of file npupp.h.
+
+\hypertarget{npupp_8h_a8b8a9f33500e7091dfd044f7d4d04787}{
+\index{npupp.h@{npupp.h}!CallNPN\_\-IntFromIdentifierProc@{CallNPN\_\-IntFromIdentifierProc}}
+\index{CallNPN\_\-IntFromIdentifierProc@{CallNPN\_\-IntFromIdentifierProc}!npupp.h@{npupp.h}}
+\subsubsection[{CallNPN\_\-IntFromIdentifierProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define CallNPN\_\-IntFromIdentifierProc(FUNC, \/  ARG1)~($\ast$(FUNC))((ARG1))}}
+\label{npupp_8h_a8b8a9f33500e7091dfd044f7d4d04787}
+
+
+Definition at line 383 of file npupp.h.
+
+\hypertarget{npupp_8h_aa70cabf3d4ae143111f5bff32a0aec22}{
+\index{npupp.h@{npupp.h}!CallNPN\_\-InvalidateRectProc@{CallNPN\_\-InvalidateRectProc}}
+\index{CallNPN\_\-InvalidateRectProc@{CallNPN\_\-InvalidateRectProc}!npupp.h@{npupp.h}}
+\subsubsection[{CallNPN\_\-InvalidateRectProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define CallNPN\_\-InvalidateRectProc(FUNC, \/  ARG1, \/  ARG2)~($\ast$(FUNC))((ARG1), (ARG2))}}
+\label{npupp_8h_aa70cabf3d4ae143111f5bff32a0aec22}
+
+
+Definition at line 325 of file npupp.h.
+
+\hypertarget{npupp_8h_a2d17627dd4a8d456053bde97bdcfb8f3}{
+\index{npupp.h@{npupp.h}!CallNPN\_\-InvalidateRegionProc@{CallNPN\_\-InvalidateRegionProc}}
+\index{CallNPN\_\-InvalidateRegionProc@{CallNPN\_\-InvalidateRegionProc}!npupp.h@{npupp.h}}
+\subsubsection[{CallNPN\_\-InvalidateRegionProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define CallNPN\_\-InvalidateRegionProc(FUNC, \/  ARG1, \/  ARG2)~($\ast$(FUNC))((ARG1), (ARG2))}}
+\label{npupp_8h_a2d17627dd4a8d456053bde97bdcfb8f3}
+
+
+Definition at line 332 of file npupp.h.
+
+\hypertarget{npupp_8h_aadb3191cd4391dc6d4479e0b12c25d80}{
+\index{npupp.h@{npupp.h}!CallNPN\_\-InvokeDefaultProc@{CallNPN\_\-InvokeDefaultProc}}
+\index{CallNPN\_\-InvokeDefaultProc@{CallNPN\_\-InvokeDefaultProc}!npupp.h@{npupp.h}}
+\subsubsection[{CallNPN\_\-InvokeDefaultProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define CallNPN\_\-InvokeDefaultProc(FUNC, \/  ARG1, \/  ARG2, \/  ARG3, \/  ARG4, \/  ARG5)~($\ast$(FUNC))((ARG1), (ARG2), (ARG3), (ARG4), (ARG5))}}
+\label{npupp_8h_aadb3191cd4391dc6d4479e0b12c25d80}
+
+
+Definition at line 418 of file npupp.h.
+
+\hypertarget{npupp_8h_aa018722045d7642800ce48ccd6e2dfe3}{
+\index{npupp.h@{npupp.h}!CallNPN\_\-InvokeProc@{CallNPN\_\-InvokeProc}}
+\index{CallNPN\_\-InvokeProc@{CallNPN\_\-InvokeProc}!npupp.h@{npupp.h}}
+\subsubsection[{CallNPN\_\-InvokeProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define CallNPN\_\-InvokeProc(FUNC, \/  ARG1, \/  ARG2, \/  ARG3, \/  ARG4, \/  ARG5, \/  ARG6)~($\ast$(FUNC))((ARG1), (ARG2), (ARG3), (ARG4), (ARG5), (ARG6))}}
+\label{npupp_8h_aa018722045d7642800ce48ccd6e2dfe3}
+
+
+Definition at line 411 of file npupp.h.
+
+\hypertarget{npupp_8h_aae463734908c8dc64723b033b01779f9}{
+\index{npupp.h@{npupp.h}!CallNPN\_\-MemAllocProc@{CallNPN\_\-MemAllocProc}}
+\index{CallNPN\_\-MemAllocProc@{CallNPN\_\-MemAllocProc}!npupp.h@{npupp.h}}
+\subsubsection[{CallNPN\_\-MemAllocProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define CallNPN\_\-MemAllocProc(FUNC, \/  ARG1)~($\ast$(FUNC))((ARG1))}}
+\label{npupp_8h_aae463734908c8dc64723b033b01779f9}
+
+
+Definition at line 277 of file npupp.h.
+
+\hypertarget{npupp_8h_a74770a79c743ff84e4d05dc95bd1b156}{
+\index{npupp.h@{npupp.h}!CallNPN\_\-MemFlushProc@{CallNPN\_\-MemFlushProc}}
+\index{CallNPN\_\-MemFlushProc@{CallNPN\_\-MemFlushProc}!npupp.h@{npupp.h}}
+\subsubsection[{CallNPN\_\-MemFlushProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define CallNPN\_\-MemFlushProc(FUNC, \/  ARG1)~($\ast$(FUNC))((ARG1))}}
+\label{npupp_8h_a74770a79c743ff84e4d05dc95bd1b156}
+
+
+Definition at line 291 of file npupp.h.
+
+\hypertarget{npupp_8h_afe7115304d45e0204f9b1c93cee6b681}{
+\index{npupp.h@{npupp.h}!CallNPN\_\-MemFreeProc@{CallNPN\_\-MemFreeProc}}
+\index{CallNPN\_\-MemFreeProc@{CallNPN\_\-MemFreeProc}!npupp.h@{npupp.h}}
+\subsubsection[{CallNPN\_\-MemFreeProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define CallNPN\_\-MemFreeProc(FUNC, \/  ARG1)~($\ast$(FUNC))((ARG1))}}
+\label{npupp_8h_afe7115304d45e0204f9b1c93cee6b681}
+
+
+Definition at line 284 of file npupp.h.
+
+\hypertarget{npupp_8h_aeb83d970a31c825c59730f0e5cb804f5}{
+\index{npupp.h@{npupp.h}!CallNPN\_\-NewStreamProc@{CallNPN\_\-NewStreamProc}}
+\index{CallNPN\_\-NewStreamProc@{CallNPN\_\-NewStreamProc}!npupp.h@{npupp.h}}
+\subsubsection[{CallNPN\_\-NewStreamProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define CallNPN\_\-NewStreamProc(FUNC, \/  npp, \/  type, \/  window, \/  stream)~($\ast$(FUNC))((npp), (type), (window), (stream))}}
+\label{npupp_8h_aeb83d970a31c825c59730f0e5cb804f5}
+
+
+Definition at line 242 of file npupp.h.
+
+\hypertarget{npupp_8h_a66391d80625a478ca4b6521eda5be23a}{
+\index{npupp.h@{npupp.h}!CallNPN\_\-PluginThreadAsyncCallProc@{CallNPN\_\-PluginThreadAsyncCallProc}}
+\index{CallNPN\_\-PluginThreadAsyncCallProc@{CallNPN\_\-PluginThreadAsyncCallProc}!npupp.h@{npupp.h}}
+\subsubsection[{CallNPN\_\-PluginThreadAsyncCallProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define CallNPN\_\-PluginThreadAsyncCallProc(FUNC, \/  ARG1, \/  ARG2, \/  ARG3)~($\ast$(FUNC))((ARG1), (ARG2), (ARG3))}}
+\label{npupp_8h_a66391d80625a478ca4b6521eda5be23a}
+
+
+Definition at line 502 of file npupp.h.
+
+\hypertarget{npupp_8h_a70f6f27710aace4be5b3f3839ac44706}{
+\index{npupp.h@{npupp.h}!CallNPN\_\-PopPopupsEnabledStateProc@{CallNPN\_\-PopPopupsEnabledStateProc}}
+\index{CallNPN\_\-PopPopupsEnabledStateProc@{CallNPN\_\-PopPopupsEnabledStateProc}!npupp.h@{npupp.h}}
+\subsubsection[{CallNPN\_\-PopPopupsEnabledStateProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define CallNPN\_\-PopPopupsEnabledStateProc(FUNC, \/  ARG1)~($\ast$(FUNC))((ARG1))}}
+\label{npupp_8h_a70f6f27710aace4be5b3f3839ac44706}
+
+
+Definition at line 488 of file npupp.h.
+
+\hypertarget{npupp_8h_a01fb163646fe44438e2b6b82b92a703a}{
+\index{npupp.h@{npupp.h}!CallNPN\_\-PostURLNotifyProc@{CallNPN\_\-PostURLNotifyProc}}
+\index{CallNPN\_\-PostURLNotifyProc@{CallNPN\_\-PostURLNotifyProc}!npupp.h@{npupp.h}}
+\subsubsection[{CallNPN\_\-PostURLNotifyProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define CallNPN\_\-PostURLNotifyProc(FUNC, \/  ARG1, \/  ARG2, \/  ARG3, \/  ARG4, \/  ARG5, \/  ARG6, \/  ARG7)~($\ast$(FUNC))((ARG1), (ARG2), (ARG3), (ARG4), (ARG5), (ARG6), (ARG7))}}
+\label{npupp_8h_a01fb163646fe44438e2b6b82b92a703a}
+
+
+Definition at line 214 of file npupp.h.
+
+\hypertarget{npupp_8h_a4eb5fac9c8e55d7bc9a7d82c64225053}{
+\index{npupp.h@{npupp.h}!CallNPN\_\-PostURLProc@{CallNPN\_\-PostURLProc}}
+\index{CallNPN\_\-PostURLProc@{CallNPN\_\-PostURLProc}!npupp.h@{npupp.h}}
+\subsubsection[{CallNPN\_\-PostURLProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define CallNPN\_\-PostURLProc(FUNC, \/  ARG1, \/  ARG2, \/  ARG3, \/  ARG4, \/  ARG5, \/  ARG6)~($\ast$(FUNC))((ARG1), (ARG2), (ARG3), (ARG4), (ARG5), (ARG6))}}
+\label{npupp_8h_a4eb5fac9c8e55d7bc9a7d82c64225053}
+
+
+Definition at line 228 of file npupp.h.
+
+\hypertarget{npupp_8h_a418708194ea24eb65e032b4734b06871}{
+\index{npupp.h@{npupp.h}!CallNPN\_\-PushPopupsEnabledStateProc@{CallNPN\_\-PushPopupsEnabledStateProc}}
+\index{CallNPN\_\-PushPopupsEnabledStateProc@{CallNPN\_\-PushPopupsEnabledStateProc}!npupp.h@{npupp.h}}
+\subsubsection[{CallNPN\_\-PushPopupsEnabledStateProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define CallNPN\_\-PushPopupsEnabledStateProc(FUNC, \/  ARG1, \/  ARG2)~($\ast$(FUNC))((ARG1), (ARG2))}}
+\label{npupp_8h_a418708194ea24eb65e032b4734b06871}
+
+
+Definition at line 481 of file npupp.h.
+
+\hypertarget{npupp_8h_a57477cee6df5662572807cb56b088cca}{
+\index{npupp.h@{npupp.h}!CallNPN\_\-ReleaseObjectProc@{CallNPN\_\-ReleaseObjectProc}}
+\index{CallNPN\_\-ReleaseObjectProc@{CallNPN\_\-ReleaseObjectProc}!npupp.h@{npupp.h}}
+\subsubsection[{CallNPN\_\-ReleaseObjectProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define CallNPN\_\-ReleaseObjectProc(FUNC, \/  ARG1)~($\ast$(FUNC))((ARG1))}}
+\label{npupp_8h_a57477cee6df5662572807cb56b088cca}
+
+
+Definition at line 404 of file npupp.h.
+
+\hypertarget{npupp_8h_abdcbbda7fba63782bff2c356cc1ea074}{
+\index{npupp.h@{npupp.h}!CallNPN\_\-ReleaseVariantValueProc@{CallNPN\_\-ReleaseVariantValueProc}}
+\index{CallNPN\_\-ReleaseVariantValueProc@{CallNPN\_\-ReleaseVariantValueProc}!npupp.h@{npupp.h}}
+\subsubsection[{CallNPN\_\-ReleaseVariantValueProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define CallNPN\_\-ReleaseVariantValueProc(FUNC, \/  ARG1)~($\ast$(FUNC))((ARG1))}}
+\label{npupp_8h_abdcbbda7fba63782bff2c356cc1ea074}
+
+
+Definition at line 467 of file npupp.h.
+
+\hypertarget{npupp_8h_a77ecf38e272d31a9633bb7d84654de7e}{
+\index{npupp.h@{npupp.h}!CallNPN\_\-ReloadPluginsProc@{CallNPN\_\-ReloadPluginsProc}}
+\index{CallNPN\_\-ReloadPluginsProc@{CallNPN\_\-ReloadPluginsProc}!npupp.h@{npupp.h}}
+\subsubsection[{CallNPN\_\-ReloadPluginsProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define CallNPN\_\-ReloadPluginsProc(FUNC, \/  ARG1)~($\ast$(FUNC))((ARG1))}}
+\label{npupp_8h_a77ecf38e272d31a9633bb7d84654de7e}
+
+
+Definition at line 298 of file npupp.h.
+
+\hypertarget{npupp_8h_aea75144ed60f01cd592422e4b7a3bc8a}{
+\index{npupp.h@{npupp.h}!CallNPN\_\-RemovePropertyProc@{CallNPN\_\-RemovePropertyProc}}
+\index{CallNPN\_\-RemovePropertyProc@{CallNPN\_\-RemovePropertyProc}!npupp.h@{npupp.h}}
+\subsubsection[{CallNPN\_\-RemovePropertyProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define CallNPN\_\-RemovePropertyProc(FUNC, \/  ARG1, \/  ARG2, \/  ARG3)~($\ast$(FUNC))((ARG1), (ARG2), (ARG3))}}
+\label{npupp_8h_aea75144ed60f01cd592422e4b7a3bc8a}
+
+
+Definition at line 446 of file npupp.h.
+
+\hypertarget{npupp_8h_ad3954926372db95e53eafbab1d9e78fe}{
+\index{npupp.h@{npupp.h}!CallNPN\_\-RequestReadProc@{CallNPN\_\-RequestReadProc}}
+\index{CallNPN\_\-RequestReadProc@{CallNPN\_\-RequestReadProc}!npupp.h@{npupp.h}}
+\subsubsection[{CallNPN\_\-RequestReadProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define CallNPN\_\-RequestReadProc(FUNC, \/  stream, \/  range)~($\ast$(FUNC))((stream), (range))}}
+\label{npupp_8h_ad3954926372db95e53eafbab1d9e78fe}
+
+
+Definition at line 235 of file npupp.h.
+
+\hypertarget{npupp_8h_a47dd2244fb7b4f8cf9c1e42bc909e6fa}{
+\index{npupp.h@{npupp.h}!CallNPN\_\-RetainObjectProc@{CallNPN\_\-RetainObjectProc}}
+\index{CallNPN\_\-RetainObjectProc@{CallNPN\_\-RetainObjectProc}!npupp.h@{npupp.h}}
+\subsubsection[{CallNPN\_\-RetainObjectProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define CallNPN\_\-RetainObjectProc(FUNC, \/  ARG1)~($\ast$(FUNC))((ARG1))}}
+\label{npupp_8h_a47dd2244fb7b4f8cf9c1e42bc909e6fa}
+
+
+Definition at line 397 of file npupp.h.
+
+\hypertarget{npupp_8h_a7f1c266d9d3e046729af4363d672747a}{
+\index{npupp.h@{npupp.h}!CallNPN\_\-SetExceptionProc@{CallNPN\_\-SetExceptionProc}}
+\index{CallNPN\_\-SetExceptionProc@{CallNPN\_\-SetExceptionProc}!npupp.h@{npupp.h}}
+\subsubsection[{CallNPN\_\-SetExceptionProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define CallNPN\_\-SetExceptionProc(FUNC, \/  ARG1, \/  ARG2)~($\ast$(FUNC))((ARG1), (ARG2))}}
+\label{npupp_8h_a7f1c266d9d3e046729af4363d672747a}
+
+
+Definition at line 474 of file npupp.h.
+
+\hypertarget{npupp_8h_aec998848c98cfd7062cb920c8fca39aa}{
+\index{npupp.h@{npupp.h}!CallNPN\_\-SetPropertyProc@{CallNPN\_\-SetPropertyProc}}
+\index{CallNPN\_\-SetPropertyProc@{CallNPN\_\-SetPropertyProc}!npupp.h@{npupp.h}}
+\subsubsection[{CallNPN\_\-SetPropertyProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define CallNPN\_\-SetPropertyProc(FUNC, \/  ARG1, \/  ARG2, \/  ARG3, \/  ARG4)~($\ast$(FUNC))((ARG1), (ARG2), (ARG3), (ARG4))}}
+\label{npupp_8h_aec998848c98cfd7062cb920c8fca39aa}
+
+
+Definition at line 439 of file npupp.h.
+
+\hypertarget{npupp_8h_aac85f8ad1ec794751985ff236d266d0b}{
+\index{npupp.h@{npupp.h}!CallNPN\_\-SetValueProc@{CallNPN\_\-SetValueProc}}
+\index{CallNPN\_\-SetValueProc@{CallNPN\_\-SetValueProc}!npupp.h@{npupp.h}}
+\subsubsection[{CallNPN\_\-SetValueProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define CallNPN\_\-SetValueProc(FUNC, \/  ARG1, \/  ARG2, \/  ARG3)~($\ast$(FUNC))((ARG1), (ARG2), (ARG3))}}
+\label{npupp_8h_aac85f8ad1ec794751985ff236d266d0b}
+
+
+Definition at line 200 of file npupp.h.
+
+\hypertarget{npupp_8h_a5c5dd6fa8b2eea1ae18adf094201460d}{
+\index{npupp.h@{npupp.h}!CallNPN\_\-StatusProc@{CallNPN\_\-StatusProc}}
+\index{CallNPN\_\-StatusProc@{CallNPN\_\-StatusProc}!npupp.h@{npupp.h}}
+\subsubsection[{CallNPN\_\-StatusProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define CallNPN\_\-StatusProc(FUNC, \/  npp, \/  msg)~($\ast$(FUNC))((npp), (msg))}}
+\label{npupp_8h_a5c5dd6fa8b2eea1ae18adf094201460d}
+
+
+Definition at line 263 of file npupp.h.
+
+\hypertarget{npupp_8h_abe5cb72f40774be32d8421816817217c}{
+\index{npupp.h@{npupp.h}!CallNPN\_\-UserAgentProc@{CallNPN\_\-UserAgentProc}}
+\index{CallNPN\_\-UserAgentProc@{CallNPN\_\-UserAgentProc}!npupp.h@{npupp.h}}
+\subsubsection[{CallNPN\_\-UserAgentProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define CallNPN\_\-UserAgentProc(FUNC, \/  ARG1)~($\ast$(FUNC))((ARG1))}}
+\label{npupp_8h_abe5cb72f40774be32d8421816817217c}
+
+
+Definition at line 270 of file npupp.h.
+
+\hypertarget{npupp_8h_a1978362625404a58732966b915529e16}{
+\index{npupp.h@{npupp.h}!CallNPN\_\-UTF8FromIdentifierProc@{CallNPN\_\-UTF8FromIdentifierProc}}
+\index{CallNPN\_\-UTF8FromIdentifierProc@{CallNPN\_\-UTF8FromIdentifierProc}!npupp.h@{npupp.h}}
+\subsubsection[{CallNPN\_\-UTF8FromIdentifierProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define CallNPN\_\-UTF8FromIdentifierProc(FUNC, \/  ARG1)~($\ast$(FUNC))((ARG1))}}
+\label{npupp_8h_a1978362625404a58732966b915529e16}
+
+
+Definition at line 376 of file npupp.h.
+
+\hypertarget{npupp_8h_a3e738b73d4dd96b5a3ac6a406b25372a}{
+\index{npupp.h@{npupp.h}!CallNPN\_\-WriteProc@{CallNPN\_\-WriteProc}}
+\index{CallNPN\_\-WriteProc@{CallNPN\_\-WriteProc}!npupp.h@{npupp.h}}
+\subsubsection[{CallNPN\_\-WriteProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define CallNPN\_\-WriteProc(FUNC, \/  npp, \/  stream, \/  len, \/  buffer)~($\ast$(FUNC))((npp), (stream), (len), (buffer))}}
+\label{npupp_8h_a3e738b73d4dd96b5a3ac6a406b25372a}
+
+
+Definition at line 249 of file npupp.h.
+
+\hypertarget{npupp_8h_a4f0d90b1bd3faf1db77ec934a97f4d86}{
+\index{npupp.h@{npupp.h}!CallNPP\_\-DestroyProc@{CallNPP\_\-DestroyProc}}
+\index{CallNPP\_\-DestroyProc@{CallNPP\_\-DestroyProc}!npupp.h@{npupp.h}}
+\subsubsection[{CallNPP\_\-DestroyProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define CallNPP\_\-DestroyProc(FUNC, \/  ARG1, \/  ARG2)~($\ast$(FUNC))((ARG1), (ARG2))}}
+\label{npupp_8h_a4f0d90b1bd3faf1db77ec934a97f4d86}
+
+
+Definition at line 104 of file npupp.h.
+
+\hypertarget{npupp_8h_aa32273c6c41e5f4142c505dc3cde5561}{
+\index{npupp.h@{npupp.h}!CallNPP\_\-DestroyStreamProc@{CallNPP\_\-DestroyStreamProc}}
+\index{CallNPP\_\-DestroyStreamProc@{CallNPP\_\-DestroyStreamProc}!npupp.h@{npupp.h}}
+\subsubsection[{CallNPP\_\-DestroyStreamProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define CallNPP\_\-DestroyStreamProc(FUNC, \/  NPParg, \/  NPStreamPtr, \/  NPReasonArg)~($\ast$(FUNC))((NPParg), (NPStreamPtr), (NPReasonArg))}}
+\label{npupp_8h_aa32273c6c41e5f4142c505dc3cde5561}
+
+
+Definition at line 125 of file npupp.h.
+
+\hypertarget{npupp_8h_a83f8f205afcdb242a4e05923e0633cb8}{
+\index{npupp.h@{npupp.h}!CallNPP\_\-GetValueProc@{CallNPP\_\-GetValueProc}}
+\index{CallNPP\_\-GetValueProc@{CallNPP\_\-GetValueProc}!npupp.h@{npupp.h}}
+\subsubsection[{CallNPP\_\-GetValueProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define CallNPP\_\-GetValueProc(FUNC, \/  ARG1, \/  ARG2, \/  ARG3)~($\ast$(FUNC))((ARG1), (ARG2), (ARG3))}}
+\label{npupp_8h_a83f8f205afcdb242a4e05923e0633cb8}
+
+
+Definition at line 174 of file npupp.h.
+
+\hypertarget{npupp_8h_a145c6f9c961ee3ae9ae17e5150bf6833}{
+\index{npupp.h@{npupp.h}!CallNPP\_\-HandleEventProc@{CallNPP\_\-HandleEventProc}}
+\index{CallNPP\_\-HandleEventProc@{CallNPP\_\-HandleEventProc}!npupp.h@{npupp.h}}
+\subsubsection[{CallNPP\_\-HandleEventProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define CallNPP\_\-HandleEventProc(FUNC, \/  NPParg, \/  voidPtr)~($\ast$(FUNC))((NPParg), (voidPtr))}}
+\label{npupp_8h_a145c6f9c961ee3ae9ae17e5150bf6833}
+
+
+Definition at line 160 of file npupp.h.
+
+\hypertarget{npupp_8h_ac873d25684d47873ed2881bf2a1976aa}{
+\index{npupp.h@{npupp.h}!CallNPP\_\-InitializeProc@{CallNPP\_\-InitializeProc}}
+\index{CallNPP\_\-InitializeProc@{CallNPP\_\-InitializeProc}!npupp.h@{npupp.h}}
+\subsubsection[{CallNPP\_\-InitializeProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define CallNPP\_\-InitializeProc(FUNC)~($\ast$(FUNC))()}}
+\label{npupp_8h_ac873d25684d47873ed2881bf2a1976aa}
+
+
+Definition at line 83 of file npupp.h.
+
+\hypertarget{npupp_8h_a455b4223c138004717f9e9b5e075b75a}{
+\index{npupp.h@{npupp.h}!CallNPP\_\-NewProc@{CallNPP\_\-NewProc}}
+\index{CallNPP\_\-NewProc@{CallNPP\_\-NewProc}!npupp.h@{npupp.h}}
+\subsubsection[{CallNPP\_\-NewProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define CallNPP\_\-NewProc(FUNC, \/  ARG1, \/  ARG2, \/  ARG3, \/  ARG4, \/  ARG5, \/  ARG6, \/  ARG7)~($\ast$(FUNC))((ARG1), (ARG2), (ARG3), (ARG4), (ARG5), (ARG6), (ARG7))}}
+\label{npupp_8h_a455b4223c138004717f9e9b5e075b75a}
+
+
+Definition at line 97 of file npupp.h.
+
+\hypertarget{npupp_8h_a498f63d44c85ea4c2a51e43421e8afbf}{
+\index{npupp.h@{npupp.h}!CallNPP\_\-NewStreamProc@{CallNPP\_\-NewStreamProc}}
+\index{CallNPP\_\-NewStreamProc@{CallNPP\_\-NewStreamProc}!npupp.h@{npupp.h}}
+\subsubsection[{CallNPP\_\-NewStreamProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define CallNPP\_\-NewStreamProc(FUNC, \/  ARG1, \/  ARG2, \/  ARG3, \/  ARG4, \/  ARG5)~($\ast$(FUNC))((ARG1), (ARG2), (ARG3), (ARG4), (ARG5))}}
+\label{npupp_8h_a498f63d44c85ea4c2a51e43421e8afbf}
+
+
+Definition at line 118 of file npupp.h.
+
+\hypertarget{npupp_8h_a78ba501f80e1b23b86e88b803429324a}{
+\index{npupp.h@{npupp.h}!CallNPP\_\-PrintProc@{CallNPP\_\-PrintProc}}
+\index{CallNPP\_\-PrintProc@{CallNPP\_\-PrintProc}!npupp.h@{npupp.h}}
+\subsubsection[{CallNPP\_\-PrintProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define CallNPP\_\-PrintProc(FUNC, \/  NPParg, \/  NPPrintArg)~($\ast$(FUNC))((NPParg), (NPPrintArg))}}
+\label{npupp_8h_a78ba501f80e1b23b86e88b803429324a}
+
+
+Definition at line 153 of file npupp.h.
+
+\hypertarget{npupp_8h_a806e04362f45b16bda95e8cb9db004c0}{
+\index{npupp.h@{npupp.h}!CallNPP\_\-SetValueProc@{CallNPP\_\-SetValueProc}}
+\index{CallNPP\_\-SetValueProc@{CallNPP\_\-SetValueProc}!npupp.h@{npupp.h}}
+\subsubsection[{CallNPP\_\-SetValueProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define CallNPP\_\-SetValueProc(FUNC, \/  ARG1, \/  ARG2, \/  ARG3)~($\ast$(FUNC))((ARG1), (ARG2), (ARG3))}}
+\label{npupp_8h_a806e04362f45b16bda95e8cb9db004c0}
+
+
+Definition at line 181 of file npupp.h.
+
+\hypertarget{npupp_8h_abd801b2188dbaecf754288410fdaa066}{
+\index{npupp.h@{npupp.h}!CallNPP\_\-SetWindowProc@{CallNPP\_\-SetWindowProc}}
+\index{CallNPP\_\-SetWindowProc@{CallNPP\_\-SetWindowProc}!npupp.h@{npupp.h}}
+\subsubsection[{CallNPP\_\-SetWindowProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define CallNPP\_\-SetWindowProc(FUNC, \/  ARG1, \/  ARG2)~($\ast$(FUNC))((ARG1), (ARG2))}}
+\label{npupp_8h_abd801b2188dbaecf754288410fdaa066}
+
+
+Definition at line 111 of file npupp.h.
+
+\hypertarget{npupp_8h_ac90c01478fd9b1332e3583f3d26cfc5d}{
+\index{npupp.h@{npupp.h}!CallNPP\_\-ShutdownProc@{CallNPP\_\-ShutdownProc}}
+\index{CallNPP\_\-ShutdownProc@{CallNPP\_\-ShutdownProc}!npupp.h@{npupp.h}}
+\subsubsection[{CallNPP\_\-ShutdownProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define CallNPP\_\-ShutdownProc(FUNC)~($\ast$(FUNC))()}}
+\label{npupp_8h_ac90c01478fd9b1332e3583f3d26cfc5d}
+
+
+Definition at line 90 of file npupp.h.
+
+\hypertarget{npupp_8h_ad0f0d4c2cf81e0ff62aa1c43733efd69}{
+\index{npupp.h@{npupp.h}!CallNPP\_\-StreamAsFileProc@{CallNPP\_\-StreamAsFileProc}}
+\index{CallNPP\_\-StreamAsFileProc@{CallNPP\_\-StreamAsFileProc}!npupp.h@{npupp.h}}
+\subsubsection[{CallNPP\_\-StreamAsFileProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define CallNPP\_\-StreamAsFileProc(FUNC, \/  ARG1, \/  ARG2, \/  ARG3)~($\ast$(FUNC))((ARG1), (ARG2), (ARG3))}}
+\label{npupp_8h_ad0f0d4c2cf81e0ff62aa1c43733efd69}
+
+
+Definition at line 146 of file npupp.h.
+
+\hypertarget{npupp_8h_aabd109b4ebd3c14526733d720db94650}{
+\index{npupp.h@{npupp.h}!CallNPP\_\-URLNotifyProc@{CallNPP\_\-URLNotifyProc}}
+\index{CallNPP\_\-URLNotifyProc@{CallNPP\_\-URLNotifyProc}!npupp.h@{npupp.h}}
+\subsubsection[{CallNPP\_\-URLNotifyProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define CallNPP\_\-URLNotifyProc(FUNC, \/  ARG1, \/  ARG2, \/  ARG3, \/  ARG4)~($\ast$(FUNC))((ARG1), (ARG2), (ARG3), (ARG4))}}
+\label{npupp_8h_aabd109b4ebd3c14526733d720db94650}
+
+
+Definition at line 167 of file npupp.h.
+
+\hypertarget{npupp_8h_a09d4bdf9e745785909e18947cab625ad}{
+\index{npupp.h@{npupp.h}!CallNPP\_\-WriteProc@{CallNPP\_\-WriteProc}}
+\index{CallNPP\_\-WriteProc@{CallNPP\_\-WriteProc}!npupp.h@{npupp.h}}
+\subsubsection[{CallNPP\_\-WriteProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define CallNPP\_\-WriteProc(FUNC, \/  NPParg, \/  NPStreamPtr, \/  offsetArg, \/  lenArg, \/  bufferPtr)~($\ast$(FUNC))((NPParg), (NPStreamPtr), (offsetArg), (lenArg), (bufferPtr))}}
+\label{npupp_8h_a09d4bdf9e745785909e18947cab625ad}
+
+
+Definition at line 139 of file npupp.h.
+
+\hypertarget{npupp_8h_af8fc3a474142095798334a8a6ccfbd71}{
+\index{npupp.h@{npupp.h}!CallNPP\_\-WriteReadyProc@{CallNPP\_\-WriteReadyProc}}
+\index{CallNPP\_\-WriteReadyProc@{CallNPP\_\-WriteReadyProc}!npupp.h@{npupp.h}}
+\subsubsection[{CallNPP\_\-WriteReadyProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define CallNPP\_\-WriteReadyProc(FUNC, \/  NPParg, \/  NPStreamPtr)~($\ast$(FUNC))((NPParg), (NPStreamPtr))}}
+\label{npupp_8h_af8fc3a474142095798334a8a6ccfbd71}
+
+
+Definition at line 132 of file npupp.h.
+
+\hypertarget{npupp_8h_a5abec9ea7f75b3ce5baa6fcbc8a94b77}{
+\index{npupp.h@{npupp.h}!NewNPN\_\-ConstructProc@{NewNPN\_\-ConstructProc}}
+\index{NewNPN\_\-ConstructProc@{NewNPN\_\-ConstructProc}!npupp.h@{npupp.h}}
+\subsubsection[{NewNPN\_\-ConstructProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define NewNPN\_\-ConstructProc(FUNC)~((NPN\_\-ConstructUPP) (FUNC))}}
+\label{npupp_8h_a5abec9ea7f75b3ce5baa6fcbc8a94b77}
+
+
+Definition at line 507 of file npupp.h.
+
+\hypertarget{npupp_8h_a8d9f5b9fe33a1809317142a6dfa54655}{
+\index{npupp.h@{npupp.h}!NewNPN\_\-CreateObjectProc@{NewNPN\_\-CreateObjectProc}}
+\index{NewNPN\_\-CreateObjectProc@{NewNPN\_\-CreateObjectProc}!npupp.h@{npupp.h}}
+\subsubsection[{NewNPN\_\-CreateObjectProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define NewNPN\_\-CreateObjectProc(FUNC)~((NPN\_\-CreateObjectUPP) (FUNC))}}
+\label{npupp_8h_a8d9f5b9fe33a1809317142a6dfa54655}
+
+
+Definition at line 388 of file npupp.h.
+
+\hypertarget{npupp_8h_a6adffe8507237d4c96c051994381ea1c}{
+\index{npupp.h@{npupp.h}!NewNPN\_\-DestroyStreamProc@{NewNPN\_\-DestroyStreamProc}}
+\index{NewNPN\_\-DestroyStreamProc@{NewNPN\_\-DestroyStreamProc}!npupp.h@{npupp.h}}
+\subsubsection[{NewNPN\_\-DestroyStreamProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define NewNPN\_\-DestroyStreamProc(FUNC)~((NPN\_\-DestroyStreamUPP) (FUNC))}}
+\label{npupp_8h_a6adffe8507237d4c96c051994381ea1c}
+
+
+Definition at line 254 of file npupp.h.
+
+\hypertarget{npupp_8h_ad44ceb11cbbf0adab9b864854ea32a03}{
+\index{npupp.h@{npupp.h}!NewNPN\_\-EnumerateProc@{NewNPN\_\-EnumerateProc}}
+\index{NewNPN\_\-EnumerateProc@{NewNPN\_\-EnumerateProc}!npupp.h@{npupp.h}}
+\subsubsection[{NewNPN\_\-EnumerateProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define NewNPN\_\-EnumerateProc(FUNC)~((NPN\_\-EnumerateUPP) (FUNC))}}
+\label{npupp_8h_ad44ceb11cbbf0adab9b864854ea32a03}
+
+
+Definition at line 493 of file npupp.h.
+
+\hypertarget{npupp_8h_ab5e91872b9cfe07ecc6f2ef415e7e35d}{
+\index{npupp.h@{npupp.h}!NewNPN\_\-EvaluateProc@{NewNPN\_\-EvaluateProc}}
+\index{NewNPN\_\-EvaluateProc@{NewNPN\_\-EvaluateProc}!npupp.h@{npupp.h}}
+\subsubsection[{NewNPN\_\-EvaluateProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define NewNPN\_\-EvaluateProc(FUNC)~((NPN\_\-EvaluateUPP) (FUNC))}}
+\label{npupp_8h_ab5e91872b9cfe07ecc6f2ef415e7e35d}
+
+
+Definition at line 423 of file npupp.h.
+
+\hypertarget{npupp_8h_ae7c1854eba573bc612d75776d47ad4d3}{
+\index{npupp.h@{npupp.h}!NewNPN\_\-ForceRedrawProc@{NewNPN\_\-ForceRedrawProc}}
+\index{NewNPN\_\-ForceRedrawProc@{NewNPN\_\-ForceRedrawProc}!npupp.h@{npupp.h}}
+\subsubsection[{NewNPN\_\-ForceRedrawProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define NewNPN\_\-ForceRedrawProc(FUNC)~((NPN\_\-ForceRedrawUPP) (FUNC))}}
+\label{npupp_8h_ae7c1854eba573bc612d75776d47ad4d3}
+
+
+Definition at line 337 of file npupp.h.
+
+\hypertarget{npupp_8h_a3dfc7405f24429c0673084a23ae74a49}{
+\index{npupp.h@{npupp.h}!NewNPN\_\-GetIntIdentifierProc@{NewNPN\_\-GetIntIdentifierProc}}
+\index{NewNPN\_\-GetIntIdentifierProc@{NewNPN\_\-GetIntIdentifierProc}!npupp.h@{npupp.h}}
+\subsubsection[{NewNPN\_\-GetIntIdentifierProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define NewNPN\_\-GetIntIdentifierProc(FUNC)~((NPN\_\-GetIntIdentifierUPP) (FUNC))}}
+\label{npupp_8h_a3dfc7405f24429c0673084a23ae74a49}
+
+
+Definition at line 360 of file npupp.h.
+
+\hypertarget{npupp_8h_a4a17b1dfc0bcbd768df2decc94025de8}{
+\index{npupp.h@{npupp.h}!NewNPN\_\-GetJavaEnvProc@{NewNPN\_\-GetJavaEnvProc}}
+\index{NewNPN\_\-GetJavaEnvProc@{NewNPN\_\-GetJavaEnvProc}!npupp.h@{npupp.h}}
+\subsubsection[{NewNPN\_\-GetJavaEnvProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define NewNPN\_\-GetJavaEnvProc(FUNC)~((NPN\_\-GetJavaEnvUPP) (FUNC))}}
+\label{npupp_8h_a4a17b1dfc0bcbd768df2decc94025de8}
+
+
+Definition at line 306 of file npupp.h.
+
+\hypertarget{npupp_8h_ac19e6aaf7c27f3a957fdd90c7bcde6fd}{
+\index{npupp.h@{npupp.h}!NewNPN\_\-GetJavaPeerProc@{NewNPN\_\-GetJavaPeerProc}}
+\index{NewNPN\_\-GetJavaPeerProc@{NewNPN\_\-GetJavaPeerProc}!npupp.h@{npupp.h}}
+\subsubsection[{NewNPN\_\-GetJavaPeerProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define NewNPN\_\-GetJavaPeerProc(FUNC)~((NPN\_\-GetJavaPeerUPP) (FUNC))}}
+\label{npupp_8h_ac19e6aaf7c27f3a957fdd90c7bcde6fd}
+
+
+Definition at line 316 of file npupp.h.
+
+\hypertarget{npupp_8h_ad12ccec181584d1246d51e80a463ee4e}{
+\index{npupp.h@{npupp.h}!NewNPN\_\-GetPropertyProc@{NewNPN\_\-GetPropertyProc}}
+\index{NewNPN\_\-GetPropertyProc@{NewNPN\_\-GetPropertyProc}!npupp.h@{npupp.h}}
+\subsubsection[{NewNPN\_\-GetPropertyProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define NewNPN\_\-GetPropertyProc(FUNC)~((NPN\_\-GetPropertyUPP) (FUNC))}}
+\label{npupp_8h_ad12ccec181584d1246d51e80a463ee4e}
+
+
+Definition at line 430 of file npupp.h.
+
+\hypertarget{npupp_8h_ae42f3136d2736233fbf0dbe91e0c49b8}{
+\index{npupp.h@{npupp.h}!NewNPN\_\-GetStringIdentifierProc@{NewNPN\_\-GetStringIdentifierProc}}
+\index{NewNPN\_\-GetStringIdentifierProc@{NewNPN\_\-GetStringIdentifierProc}!npupp.h@{npupp.h}}
+\subsubsection[{NewNPN\_\-GetStringIdentifierProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define NewNPN\_\-GetStringIdentifierProc(FUNC)~((NPN\_\-GetStringIdentifierUPP) (FUNC))}}
+\label{npupp_8h_ae42f3136d2736233fbf0dbe91e0c49b8}
+
+
+Definition at line 344 of file npupp.h.
+
+\hypertarget{npupp_8h_aa3da74697ec95111d520a6185a910013}{
+\index{npupp.h@{npupp.h}!NewNPN\_\-GetStringIdentifiersProc@{NewNPN\_\-GetStringIdentifiersProc}}
+\index{NewNPN\_\-GetStringIdentifiersProc@{NewNPN\_\-GetStringIdentifiersProc}!npupp.h@{npupp.h}}
+\subsubsection[{NewNPN\_\-GetStringIdentifiersProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define NewNPN\_\-GetStringIdentifiersProc(FUNC)~((NPN\_\-GetStringIdentifiersUPP) (FUNC))}}
+\label{npupp_8h_aa3da74697ec95111d520a6185a910013}
+
+
+Definition at line 353 of file npupp.h.
+
+\hypertarget{npupp_8h_adcbb5e20df6bb341ee3b28d52ea483ba}{
+\index{npupp.h@{npupp.h}!NewNPN\_\-GetURLNotifyProc@{NewNPN\_\-GetURLNotifyProc}}
+\index{NewNPN\_\-GetURLNotifyProc@{NewNPN\_\-GetURLNotifyProc}!npupp.h@{npupp.h}}
+\subsubsection[{NewNPN\_\-GetURLNotifyProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define NewNPN\_\-GetURLNotifyProc(FUNC)~((NPN\_\-GetURLNotifyUPP) (FUNC))}}
+\label{npupp_8h_adcbb5e20df6bb341ee3b28d52ea483ba}
+
+
+Definition at line 205 of file npupp.h.
+
+\hypertarget{npupp_8h_a3d0bf4b94635849f701bd186fdc12824}{
+\index{npupp.h@{npupp.h}!NewNPN\_\-GetURLProc@{NewNPN\_\-GetURLProc}}
+\index{NewNPN\_\-GetURLProc@{NewNPN\_\-GetURLProc}!npupp.h@{npupp.h}}
+\subsubsection[{NewNPN\_\-GetURLProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define NewNPN\_\-GetURLProc(FUNC)~((NPN\_\-GetURLUPP) (FUNC))}}
+\label{npupp_8h_a3d0bf4b94635849f701bd186fdc12824}
+
+
+Definition at line 219 of file npupp.h.
+
+\hypertarget{npupp_8h_a95b5be33f7cf99f6913ad4c4b074a112}{
+\index{npupp.h@{npupp.h}!NewNPN\_\-GetValueProc@{NewNPN\_\-GetValueProc}}
+\index{NewNPN\_\-GetValueProc@{NewNPN\_\-GetValueProc}!npupp.h@{npupp.h}}
+\subsubsection[{NewNPN\_\-GetValueProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define NewNPN\_\-GetValueProc(FUNC)~((NPN\_\-GetValueUPP) (FUNC))}}
+\label{npupp_8h_a95b5be33f7cf99f6913ad4c4b074a112}
+
+
+Definition at line 191 of file npupp.h.
+
+\hypertarget{npupp_8h_a83f604bffb3a9facf8382b35334d2e34}{
+\index{npupp.h@{npupp.h}!NewNPN\_\-HasMethodProc@{NewNPN\_\-HasMethodProc}}
+\index{NewNPN\_\-HasMethodProc@{NewNPN\_\-HasMethodProc}!npupp.h@{npupp.h}}
+\subsubsection[{NewNPN\_\-HasMethodProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define NewNPN\_\-HasMethodProc(FUNC)~((NPN\_\-HasMethodUPP) (FUNC))}}
+\label{npupp_8h_a83f604bffb3a9facf8382b35334d2e34}
+
+
+Definition at line 458 of file npupp.h.
+
+\hypertarget{npupp_8h_aaa189b9c6ef1c43945e1be9198011089}{
+\index{npupp.h@{npupp.h}!NewNPN\_\-HasPropertyProc@{NewNPN\_\-HasPropertyProc}}
+\index{NewNPN\_\-HasPropertyProc@{NewNPN\_\-HasPropertyProc}!npupp.h@{npupp.h}}
+\subsubsection[{NewNPN\_\-HasPropertyProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define NewNPN\_\-HasPropertyProc(FUNC)~((NPN\_\-HasPropertyUPP) (FUNC))}}
+\label{npupp_8h_aaa189b9c6ef1c43945e1be9198011089}
+
+
+Definition at line 451 of file npupp.h.
+
+\hypertarget{npupp_8h_a1c7de824352790ae458c7b29af98b0d3}{
+\index{npupp.h@{npupp.h}!NewNPN\_\-IdentifierIsStringProc@{NewNPN\_\-IdentifierIsStringProc}}
+\index{NewNPN\_\-IdentifierIsStringProc@{NewNPN\_\-IdentifierIsStringProc}!npupp.h@{npupp.h}}
+\subsubsection[{NewNPN\_\-IdentifierIsStringProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define NewNPN\_\-IdentifierIsStringProc(FUNC)~((NPN\_\-IdentifierIsStringUPP) (FUNC))}}
+\label{npupp_8h_a1c7de824352790ae458c7b29af98b0d3}
+
+
+Definition at line 367 of file npupp.h.
+
+\hypertarget{npupp_8h_a168b8be7470f6e0b22ed92d909ce555e}{
+\index{npupp.h@{npupp.h}!NewNPN\_\-IntFromIdentifierProc@{NewNPN\_\-IntFromIdentifierProc}}
+\index{NewNPN\_\-IntFromIdentifierProc@{NewNPN\_\-IntFromIdentifierProc}!npupp.h@{npupp.h}}
+\subsubsection[{NewNPN\_\-IntFromIdentifierProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define NewNPN\_\-IntFromIdentifierProc(FUNC)~((NPN\_\-IntFromIdentifierUPP) (FUNC))}}
+\label{npupp_8h_a168b8be7470f6e0b22ed92d909ce555e}
+
+
+Definition at line 381 of file npupp.h.
+
+\hypertarget{npupp_8h_a939bceb1ecb7cf57d94af2c671547caf}{
+\index{npupp.h@{npupp.h}!NewNPN\_\-InvalidateRectProc@{NewNPN\_\-InvalidateRectProc}}
+\index{NewNPN\_\-InvalidateRectProc@{NewNPN\_\-InvalidateRectProc}!npupp.h@{npupp.h}}
+\subsubsection[{NewNPN\_\-InvalidateRectProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define NewNPN\_\-InvalidateRectProc(FUNC)~((NPN\_\-InvalidateRectUPP) (FUNC))}}
+\label{npupp_8h_a939bceb1ecb7cf57d94af2c671547caf}
+
+
+Definition at line 323 of file npupp.h.
+
+\hypertarget{npupp_8h_a91af2571022e562cba29f7eb7064c26f}{
+\index{npupp.h@{npupp.h}!NewNPN\_\-InvalidateRegionProc@{NewNPN\_\-InvalidateRegionProc}}
+\index{NewNPN\_\-InvalidateRegionProc@{NewNPN\_\-InvalidateRegionProc}!npupp.h@{npupp.h}}
+\subsubsection[{NewNPN\_\-InvalidateRegionProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define NewNPN\_\-InvalidateRegionProc(FUNC)~((NPN\_\-InvalidateRegionUPP) (FUNC))}}
+\label{npupp_8h_a91af2571022e562cba29f7eb7064c26f}
+
+
+Definition at line 330 of file npupp.h.
+
+\hypertarget{npupp_8h_afe70e988cc3958542f786d3a5b915419}{
+\index{npupp.h@{npupp.h}!NewNPN\_\-InvokeDefaultProc@{NewNPN\_\-InvokeDefaultProc}}
+\index{NewNPN\_\-InvokeDefaultProc@{NewNPN\_\-InvokeDefaultProc}!npupp.h@{npupp.h}}
+\subsubsection[{NewNPN\_\-InvokeDefaultProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define NewNPN\_\-InvokeDefaultProc(FUNC)~((NPN\_\-InvokeDefaultUPP) (FUNC))}}
+\label{npupp_8h_afe70e988cc3958542f786d3a5b915419}
+
+
+Definition at line 416 of file npupp.h.
+
+\hypertarget{npupp_8h_a921aa8ea73aada6b8788a9b9a0858db8}{
+\index{npupp.h@{npupp.h}!NewNPN\_\-InvokeProc@{NewNPN\_\-InvokeProc}}
+\index{NewNPN\_\-InvokeProc@{NewNPN\_\-InvokeProc}!npupp.h@{npupp.h}}
+\subsubsection[{NewNPN\_\-InvokeProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define NewNPN\_\-InvokeProc(FUNC)~((NPN\_\-InvokeUPP) (FUNC))}}
+\label{npupp_8h_a921aa8ea73aada6b8788a9b9a0858db8}
+
+
+Definition at line 409 of file npupp.h.
+
+\hypertarget{npupp_8h_ad1812109e9c86ee0a7ba54792c16246c}{
+\index{npupp.h@{npupp.h}!NewNPN\_\-MemAllocProc@{NewNPN\_\-MemAllocProc}}
+\index{NewNPN\_\-MemAllocProc@{NewNPN\_\-MemAllocProc}!npupp.h@{npupp.h}}
+\subsubsection[{NewNPN\_\-MemAllocProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define NewNPN\_\-MemAllocProc(FUNC)~((NPN\_\-MemAllocUPP) (FUNC))}}
+\label{npupp_8h_ad1812109e9c86ee0a7ba54792c16246c}
+
+
+Definition at line 275 of file npupp.h.
+
+\hypertarget{npupp_8h_a4939e0d717f942f2eb401f215f8f2483}{
+\index{npupp.h@{npupp.h}!NewNPN\_\-MemFlushProc@{NewNPN\_\-MemFlushProc}}
+\index{NewNPN\_\-MemFlushProc@{NewNPN\_\-MemFlushProc}!npupp.h@{npupp.h}}
+\subsubsection[{NewNPN\_\-MemFlushProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define NewNPN\_\-MemFlushProc(FUNC)~((NPN\_\-MemFlushUPP) (FUNC))}}
+\label{npupp_8h_a4939e0d717f942f2eb401f215f8f2483}
+
+
+Definition at line 289 of file npupp.h.
+
+\hypertarget{npupp_8h_af0e52a36899639c277161c06ba5c7e84}{
+\index{npupp.h@{npupp.h}!NewNPN\_\-MemFreeProc@{NewNPN\_\-MemFreeProc}}
+\index{NewNPN\_\-MemFreeProc@{NewNPN\_\-MemFreeProc}!npupp.h@{npupp.h}}
+\subsubsection[{NewNPN\_\-MemFreeProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define NewNPN\_\-MemFreeProc(FUNC)~((NPN\_\-MemFreeUPP) (FUNC))}}
+\label{npupp_8h_af0e52a36899639c277161c06ba5c7e84}
+
+
+Definition at line 282 of file npupp.h.
+
+\hypertarget{npupp_8h_a0da1389264fcf3ef981cdba53c3c1f6d}{
+\index{npupp.h@{npupp.h}!NewNPN\_\-NewStreamProc@{NewNPN\_\-NewStreamProc}}
+\index{NewNPN\_\-NewStreamProc@{NewNPN\_\-NewStreamProc}!npupp.h@{npupp.h}}
+\subsubsection[{NewNPN\_\-NewStreamProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define NewNPN\_\-NewStreamProc(FUNC)~((NPN\_\-NewStreamUPP) (FUNC))}}
+\label{npupp_8h_a0da1389264fcf3ef981cdba53c3c1f6d}
+
+
+Definition at line 240 of file npupp.h.
+
+\hypertarget{npupp_8h_ab3bb958a8f59133eb84e302dc16acc30}{
+\index{npupp.h@{npupp.h}!NewNPN\_\-PluginThreadAsyncCallProc@{NewNPN\_\-PluginThreadAsyncCallProc}}
+\index{NewNPN\_\-PluginThreadAsyncCallProc@{NewNPN\_\-PluginThreadAsyncCallProc}!npupp.h@{npupp.h}}
+\subsubsection[{NewNPN\_\-PluginThreadAsyncCallProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define NewNPN\_\-PluginThreadAsyncCallProc(FUNC)~((NPN\_\-PluginThreadAsyncCallUPP) (FUNC))}}
+\label{npupp_8h_ab3bb958a8f59133eb84e302dc16acc30}
+
+
+Definition at line 500 of file npupp.h.
+
+\hypertarget{npupp_8h_ab6cfc31a976aa88e694284fa1c0af028}{
+\index{npupp.h@{npupp.h}!NewNPN\_\-PopPopupsEnabledStateProc@{NewNPN\_\-PopPopupsEnabledStateProc}}
+\index{NewNPN\_\-PopPopupsEnabledStateProc@{NewNPN\_\-PopPopupsEnabledStateProc}!npupp.h@{npupp.h}}
+\subsubsection[{NewNPN\_\-PopPopupsEnabledStateProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define NewNPN\_\-PopPopupsEnabledStateProc(FUNC)~((NPN\_\-PopPopupsEnabledStateUPP) (FUNC))}}
+\label{npupp_8h_ab6cfc31a976aa88e694284fa1c0af028}
+
+
+Definition at line 486 of file npupp.h.
+
+\hypertarget{npupp_8h_a0bb3a000f7aa1cb37bfb8a674a68b56b}{
+\index{npupp.h@{npupp.h}!NewNPN\_\-PostURLNotifyProc@{NewNPN\_\-PostURLNotifyProc}}
+\index{NewNPN\_\-PostURLNotifyProc@{NewNPN\_\-PostURLNotifyProc}!npupp.h@{npupp.h}}
+\subsubsection[{NewNPN\_\-PostURLNotifyProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define NewNPN\_\-PostURLNotifyProc(FUNC)~((NPN\_\-PostURLNotifyUPP) (FUNC))}}
+\label{npupp_8h_a0bb3a000f7aa1cb37bfb8a674a68b56b}
+
+
+Definition at line 212 of file npupp.h.
+
+\hypertarget{npupp_8h_a708c65621e668966a41290427370c63e}{
+\index{npupp.h@{npupp.h}!NewNPN\_\-PostURLProc@{NewNPN\_\-PostURLProc}}
+\index{NewNPN\_\-PostURLProc@{NewNPN\_\-PostURLProc}!npupp.h@{npupp.h}}
+\subsubsection[{NewNPN\_\-PostURLProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define NewNPN\_\-PostURLProc(FUNC)~((NPN\_\-PostURLUPP) (FUNC))}}
+\label{npupp_8h_a708c65621e668966a41290427370c63e}
+
+
+Definition at line 226 of file npupp.h.
+
+\hypertarget{npupp_8h_a6f092374fc2fee0fbaab27ee0df73f4b}{
+\index{npupp.h@{npupp.h}!NewNPN\_\-PushPopupsEnabledStateProc@{NewNPN\_\-PushPopupsEnabledStateProc}}
+\index{NewNPN\_\-PushPopupsEnabledStateProc@{NewNPN\_\-PushPopupsEnabledStateProc}!npupp.h@{npupp.h}}
+\subsubsection[{NewNPN\_\-PushPopupsEnabledStateProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define NewNPN\_\-PushPopupsEnabledStateProc(FUNC)~((NPN\_\-PushPopupsEnabledStateUPP) (FUNC))}}
+\label{npupp_8h_a6f092374fc2fee0fbaab27ee0df73f4b}
+
+
+Definition at line 479 of file npupp.h.
+
+\hypertarget{npupp_8h_a830d9c1a0c50ace1c42489ef932fcdd8}{
+\index{npupp.h@{npupp.h}!NewNPN\_\-ReleaseObjectProc@{NewNPN\_\-ReleaseObjectProc}}
+\index{NewNPN\_\-ReleaseObjectProc@{NewNPN\_\-ReleaseObjectProc}!npupp.h@{npupp.h}}
+\subsubsection[{NewNPN\_\-ReleaseObjectProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define NewNPN\_\-ReleaseObjectProc(FUNC)~((NPN\_\-ReleaseObjectUPP) (FUNC))}}
+\label{npupp_8h_a830d9c1a0c50ace1c42489ef932fcdd8}
+
+
+Definition at line 402 of file npupp.h.
+
+\hypertarget{npupp_8h_a15e3035468c470f1555051e3a05e9694}{
+\index{npupp.h@{npupp.h}!NewNPN\_\-ReleaseVariantValueProc@{NewNPN\_\-ReleaseVariantValueProc}}
+\index{NewNPN\_\-ReleaseVariantValueProc@{NewNPN\_\-ReleaseVariantValueProc}!npupp.h@{npupp.h}}
+\subsubsection[{NewNPN\_\-ReleaseVariantValueProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define NewNPN\_\-ReleaseVariantValueProc(FUNC)~((NPN\_\-ReleaseVariantValueUPP) (FUNC))}}
+\label{npupp_8h_a15e3035468c470f1555051e3a05e9694}
+
+
+Definition at line 465 of file npupp.h.
+
+\hypertarget{npupp_8h_afd2cd17cb04571c8071e7e1bd9f3f8a3}{
+\index{npupp.h@{npupp.h}!NewNPN\_\-ReloadPluginsProc@{NewNPN\_\-ReloadPluginsProc}}
+\index{NewNPN\_\-ReloadPluginsProc@{NewNPN\_\-ReloadPluginsProc}!npupp.h@{npupp.h}}
+\subsubsection[{NewNPN\_\-ReloadPluginsProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define NewNPN\_\-ReloadPluginsProc(FUNC)~((NPN\_\-ReloadPluginsUPP) (FUNC))}}
+\label{npupp_8h_afd2cd17cb04571c8071e7e1bd9f3f8a3}
+
+
+Definition at line 296 of file npupp.h.
+
+\hypertarget{npupp_8h_afcc7804220f6bb6545380bb0c5fb6738}{
+\index{npupp.h@{npupp.h}!NewNPN\_\-RemovePropertyProc@{NewNPN\_\-RemovePropertyProc}}
+\index{NewNPN\_\-RemovePropertyProc@{NewNPN\_\-RemovePropertyProc}!npupp.h@{npupp.h}}
+\subsubsection[{NewNPN\_\-RemovePropertyProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define NewNPN\_\-RemovePropertyProc(FUNC)~((NPN\_\-RemovePropertyUPP) (FUNC))}}
+\label{npupp_8h_afcc7804220f6bb6545380bb0c5fb6738}
+
+
+Definition at line 444 of file npupp.h.
+
+\hypertarget{npupp_8h_a0031abed88f2faaa197524a5fef55835}{
+\index{npupp.h@{npupp.h}!NewNPN\_\-RequestReadProc@{NewNPN\_\-RequestReadProc}}
+\index{NewNPN\_\-RequestReadProc@{NewNPN\_\-RequestReadProc}!npupp.h@{npupp.h}}
+\subsubsection[{NewNPN\_\-RequestReadProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define NewNPN\_\-RequestReadProc(FUNC)~((NPN\_\-RequestReadUPP) (FUNC))}}
+\label{npupp_8h_a0031abed88f2faaa197524a5fef55835}
+
+
+Definition at line 233 of file npupp.h.
+
+\hypertarget{npupp_8h_a9c8ad7457836048678c45c8c50be4123}{
+\index{npupp.h@{npupp.h}!NewNPN\_\-RetainObjectProc@{NewNPN\_\-RetainObjectProc}}
+\index{NewNPN\_\-RetainObjectProc@{NewNPN\_\-RetainObjectProc}!npupp.h@{npupp.h}}
+\subsubsection[{NewNPN\_\-RetainObjectProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define NewNPN\_\-RetainObjectProc(FUNC)~((NPN\_\-RetainObjectUPP) (FUNC))}}
+\label{npupp_8h_a9c8ad7457836048678c45c8c50be4123}
+
+
+Definition at line 395 of file npupp.h.
+
+\hypertarget{npupp_8h_a8aa9119a96d4d86775a94c6e57762951}{
+\index{npupp.h@{npupp.h}!NewNPN\_\-SetExceptionProc@{NewNPN\_\-SetExceptionProc}}
+\index{NewNPN\_\-SetExceptionProc@{NewNPN\_\-SetExceptionProc}!npupp.h@{npupp.h}}
+\subsubsection[{NewNPN\_\-SetExceptionProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define NewNPN\_\-SetExceptionProc(FUNC)~((NPN\_\-SetExceptionUPP) (FUNC))}}
+\label{npupp_8h_a8aa9119a96d4d86775a94c6e57762951}
+
+
+Definition at line 472 of file npupp.h.
+
+\hypertarget{npupp_8h_ad9af81fac4e6d1cc2f3eab02ddaade46}{
+\index{npupp.h@{npupp.h}!NewNPN\_\-SetPropertyProc@{NewNPN\_\-SetPropertyProc}}
+\index{NewNPN\_\-SetPropertyProc@{NewNPN\_\-SetPropertyProc}!npupp.h@{npupp.h}}
+\subsubsection[{NewNPN\_\-SetPropertyProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define NewNPN\_\-SetPropertyProc(FUNC)~((NPN\_\-SetPropertyUPP) (FUNC))}}
+\label{npupp_8h_ad9af81fac4e6d1cc2f3eab02ddaade46}
+
+
+Definition at line 437 of file npupp.h.
+
+\hypertarget{npupp_8h_a6ad85705dda4b3e417896e4f654c57ef}{
+\index{npupp.h@{npupp.h}!NewNPN\_\-SetValueProc@{NewNPN\_\-SetValueProc}}
+\index{NewNPN\_\-SetValueProc@{NewNPN\_\-SetValueProc}!npupp.h@{npupp.h}}
+\subsubsection[{NewNPN\_\-SetValueProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define NewNPN\_\-SetValueProc(FUNC)~((NPN\_\-SetValueUPP) (FUNC))}}
+\label{npupp_8h_a6ad85705dda4b3e417896e4f654c57ef}
+
+
+Definition at line 198 of file npupp.h.
+
+\hypertarget{npupp_8h_ad4818e68b742da7b97c2312ad93ce2b3}{
+\index{npupp.h@{npupp.h}!NewNPN\_\-StatusProc@{NewNPN\_\-StatusProc}}
+\index{NewNPN\_\-StatusProc@{NewNPN\_\-StatusProc}!npupp.h@{npupp.h}}
+\subsubsection[{NewNPN\_\-StatusProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define NewNPN\_\-StatusProc(FUNC)~((NPN\_\-StatusUPP) (FUNC))}}
+\label{npupp_8h_ad4818e68b742da7b97c2312ad93ce2b3}
+
+
+Definition at line 261 of file npupp.h.
+
+\hypertarget{npupp_8h_a05797594836d6a5328d65163767e7901}{
+\index{npupp.h@{npupp.h}!NewNPN\_\-UserAgentProc@{NewNPN\_\-UserAgentProc}}
+\index{NewNPN\_\-UserAgentProc@{NewNPN\_\-UserAgentProc}!npupp.h@{npupp.h}}
+\subsubsection[{NewNPN\_\-UserAgentProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define NewNPN\_\-UserAgentProc(FUNC)~((NPN\_\-UserAgentUPP) (FUNC))}}
+\label{npupp_8h_a05797594836d6a5328d65163767e7901}
+
+
+Definition at line 268 of file npupp.h.
+
+\hypertarget{npupp_8h_a816bdcdce7203192fc3465309717aaf8}{
+\index{npupp.h@{npupp.h}!NewNPN\_\-UTF8FromIdentifierProc@{NewNPN\_\-UTF8FromIdentifierProc}}
+\index{NewNPN\_\-UTF8FromIdentifierProc@{NewNPN\_\-UTF8FromIdentifierProc}!npupp.h@{npupp.h}}
+\subsubsection[{NewNPN\_\-UTF8FromIdentifierProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define NewNPN\_\-UTF8FromIdentifierProc(FUNC)~((NPN\_\-UTF8FromIdentifierUPP) (FUNC))}}
+\label{npupp_8h_a816bdcdce7203192fc3465309717aaf8}
+
+
+Definition at line 374 of file npupp.h.
+
+\hypertarget{npupp_8h_a48ebeb62fe088bfcb0ae56c287b9f2bc}{
+\index{npupp.h@{npupp.h}!NewNPN\_\-WriteProc@{NewNPN\_\-WriteProc}}
+\index{NewNPN\_\-WriteProc@{NewNPN\_\-WriteProc}!npupp.h@{npupp.h}}
+\subsubsection[{NewNPN\_\-WriteProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define NewNPN\_\-WriteProc(FUNC)~((NPN\_\-WriteUPP) (FUNC))}}
+\label{npupp_8h_a48ebeb62fe088bfcb0ae56c287b9f2bc}
+
+
+Definition at line 247 of file npupp.h.
+
+\hypertarget{npupp_8h_afcb805971942d123bfd574091a34bd95}{
+\index{npupp.h@{npupp.h}!NewNPP\_\-DestroyProc@{NewNPP\_\-DestroyProc}}
+\index{NewNPP\_\-DestroyProc@{NewNPP\_\-DestroyProc}!npupp.h@{npupp.h}}
+\subsubsection[{NewNPP\_\-DestroyProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define NewNPP\_\-DestroyProc(FUNC)~((NPP\_\-DestroyUPP) (FUNC))}}
+\label{npupp_8h_afcb805971942d123bfd574091a34bd95}
+
+
+Definition at line 102 of file npupp.h.
+
+\hypertarget{npupp_8h_a1306363cce18b02757c5d526cc0e0d12}{
+\index{npupp.h@{npupp.h}!NewNPP\_\-DestroyStreamProc@{NewNPP\_\-DestroyStreamProc}}
+\index{NewNPP\_\-DestroyStreamProc@{NewNPP\_\-DestroyStreamProc}!npupp.h@{npupp.h}}
+\subsubsection[{NewNPP\_\-DestroyStreamProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define NewNPP\_\-DestroyStreamProc(FUNC)~((NPP\_\-DestroyStreamUPP) (FUNC))}}
+\label{npupp_8h_a1306363cce18b02757c5d526cc0e0d12}
+
+
+Definition at line 123 of file npupp.h.
+
+\hypertarget{npupp_8h_ad850bc9442a59b13f218dd9c83857b6d}{
+\index{npupp.h@{npupp.h}!NewNPP\_\-GetValueProc@{NewNPP\_\-GetValueProc}}
+\index{NewNPP\_\-GetValueProc@{NewNPP\_\-GetValueProc}!npupp.h@{npupp.h}}
+\subsubsection[{NewNPP\_\-GetValueProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define NewNPP\_\-GetValueProc(FUNC)~((NPP\_\-GetValueUPP) (FUNC))}}
+\label{npupp_8h_ad850bc9442a59b13f218dd9c83857b6d}
+
+
+Definition at line 172 of file npupp.h.
+
+\hypertarget{npupp_8h_ad76281edd1e8e078d917c7fd2241a0af}{
+\index{npupp.h@{npupp.h}!NewNPP\_\-HandleEventProc@{NewNPP\_\-HandleEventProc}}
+\index{NewNPP\_\-HandleEventProc@{NewNPP\_\-HandleEventProc}!npupp.h@{npupp.h}}
+\subsubsection[{NewNPP\_\-HandleEventProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define NewNPP\_\-HandleEventProc(FUNC)~((NPP\_\-HandleEventUPP) (FUNC))}}
+\label{npupp_8h_ad76281edd1e8e078d917c7fd2241a0af}
+
+
+Definition at line 158 of file npupp.h.
+
+\hypertarget{npupp_8h_a56ef17951a5582d4c8acda395573969d}{
+\index{npupp.h@{npupp.h}!NewNPP\_\-InitializeProc@{NewNPP\_\-InitializeProc}}
+\index{NewNPP\_\-InitializeProc@{NewNPP\_\-InitializeProc}!npupp.h@{npupp.h}}
+\subsubsection[{NewNPP\_\-InitializeProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define NewNPP\_\-InitializeProc(FUNC)~((NPP\_\-InitializeUPP) (FUNC))}}
+\label{npupp_8h_a56ef17951a5582d4c8acda395573969d}
+
+
+Definition at line 81 of file npupp.h.
+
+\hypertarget{npupp_8h_a9779226786fb633dda6c39ea6da0b5cf}{
+\index{npupp.h@{npupp.h}!NewNPP\_\-NewProc@{NewNPP\_\-NewProc}}
+\index{NewNPP\_\-NewProc@{NewNPP\_\-NewProc}!npupp.h@{npupp.h}}
+\subsubsection[{NewNPP\_\-NewProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define NewNPP\_\-NewProc(FUNC)~((NPP\_\-NewUPP) (FUNC))}}
+\label{npupp_8h_a9779226786fb633dda6c39ea6da0b5cf}
+
+
+Definition at line 95 of file npupp.h.
+
+\hypertarget{npupp_8h_afebf57f2e54fb7539e12a57361db2c2b}{
+\index{npupp.h@{npupp.h}!NewNPP\_\-NewStreamProc@{NewNPP\_\-NewStreamProc}}
+\index{NewNPP\_\-NewStreamProc@{NewNPP\_\-NewStreamProc}!npupp.h@{npupp.h}}
+\subsubsection[{NewNPP\_\-NewStreamProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define NewNPP\_\-NewStreamProc(FUNC)~((NPP\_\-NewStreamUPP) (FUNC))}}
+\label{npupp_8h_afebf57f2e54fb7539e12a57361db2c2b}
+
+
+Definition at line 116 of file npupp.h.
+
+\hypertarget{npupp_8h_a2bb84da3b6def01b522d733fefdd5b3f}{
+\index{npupp.h@{npupp.h}!NewNPP\_\-PrintProc@{NewNPP\_\-PrintProc}}
+\index{NewNPP\_\-PrintProc@{NewNPP\_\-PrintProc}!npupp.h@{npupp.h}}
+\subsubsection[{NewNPP\_\-PrintProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define NewNPP\_\-PrintProc(FUNC)~((NPP\_\-PrintUPP) (FUNC))}}
+\label{npupp_8h_a2bb84da3b6def01b522d733fefdd5b3f}
+
+
+Definition at line 151 of file npupp.h.
+
+\hypertarget{npupp_8h_a65f9daea82bd94ce52532a6993834c50}{
+\index{npupp.h@{npupp.h}!NewNPP\_\-SetValueProc@{NewNPP\_\-SetValueProc}}
+\index{NewNPP\_\-SetValueProc@{NewNPP\_\-SetValueProc}!npupp.h@{npupp.h}}
+\subsubsection[{NewNPP\_\-SetValueProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define NewNPP\_\-SetValueProc(FUNC)~((NPP\_\-SetValueUPP) (FUNC))}}
+\label{npupp_8h_a65f9daea82bd94ce52532a6993834c50}
+
+
+Definition at line 179 of file npupp.h.
+
+\hypertarget{npupp_8h_af5bfe16d8024438584aa3789792d1afb}{
+\index{npupp.h@{npupp.h}!NewNPP\_\-SetWindowProc@{NewNPP\_\-SetWindowProc}}
+\index{NewNPP\_\-SetWindowProc@{NewNPP\_\-SetWindowProc}!npupp.h@{npupp.h}}
+\subsubsection[{NewNPP\_\-SetWindowProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define NewNPP\_\-SetWindowProc(FUNC)~((NPP\_\-SetWindowUPP) (FUNC))}}
+\label{npupp_8h_af5bfe16d8024438584aa3789792d1afb}
+
+
+Definition at line 109 of file npupp.h.
+
+\hypertarget{npupp_8h_a1b1717d3a48ec9a9011eb5dc02c3b74a}{
+\index{npupp.h@{npupp.h}!NewNPP\_\-ShutdownProc@{NewNPP\_\-ShutdownProc}}
+\index{NewNPP\_\-ShutdownProc@{NewNPP\_\-ShutdownProc}!npupp.h@{npupp.h}}
+\subsubsection[{NewNPP\_\-ShutdownProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define NewNPP\_\-ShutdownProc(FUNC)~((NPP\_\-ShutdownUPP) (FUNC))}}
+\label{npupp_8h_a1b1717d3a48ec9a9011eb5dc02c3b74a}
+
+
+Definition at line 88 of file npupp.h.
+
+\hypertarget{npupp_8h_a5f9cb7975acf9c8c5151a2c825bc36e2}{
+\index{npupp.h@{npupp.h}!NewNPP\_\-StreamAsFileProc@{NewNPP\_\-StreamAsFileProc}}
+\index{NewNPP\_\-StreamAsFileProc@{NewNPP\_\-StreamAsFileProc}!npupp.h@{npupp.h}}
+\subsubsection[{NewNPP\_\-StreamAsFileProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define NewNPP\_\-StreamAsFileProc(FUNC)~((NPP\_\-StreamAsFileUPP) (FUNC))}}
+\label{npupp_8h_a5f9cb7975acf9c8c5151a2c825bc36e2}
+
+
+Definition at line 144 of file npupp.h.
+
+\hypertarget{npupp_8h_ad529be321c61282620331847fbfbd631}{
+\index{npupp.h@{npupp.h}!NewNPP\_\-URLNotifyProc@{NewNPP\_\-URLNotifyProc}}
+\index{NewNPP\_\-URLNotifyProc@{NewNPP\_\-URLNotifyProc}!npupp.h@{npupp.h}}
+\subsubsection[{NewNPP\_\-URLNotifyProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define NewNPP\_\-URLNotifyProc(FUNC)~((NPP\_\-URLNotifyUPP) (FUNC))}}
+\label{npupp_8h_ad529be321c61282620331847fbfbd631}
+
+
+Definition at line 165 of file npupp.h.
+
+\hypertarget{npupp_8h_a7814772e8cc61d5751761408b5576894}{
+\index{npupp.h@{npupp.h}!NewNPP\_\-WriteProc@{NewNPP\_\-WriteProc}}
+\index{NewNPP\_\-WriteProc@{NewNPP\_\-WriteProc}!npupp.h@{npupp.h}}
+\subsubsection[{NewNPP\_\-WriteProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define NewNPP\_\-WriteProc(FUNC)~((NPP\_\-WriteUPP) (FUNC))}}
+\label{npupp_8h_a7814772e8cc61d5751761408b5576894}
+
+
+Definition at line 137 of file npupp.h.
+
+\hypertarget{npupp_8h_a103a2440e29ae639a917f7838005f47c}{
+\index{npupp.h@{npupp.h}!NewNPP\_\-WriteReadyProc@{NewNPP\_\-WriteReadyProc}}
+\index{NewNPP\_\-WriteReadyProc@{NewNPP\_\-WriteReadyProc}!npupp.h@{npupp.h}}
+\subsubsection[{NewNPP\_\-WriteReadyProc}]{\setlength{\rightskip}{0pt plus 5cm}\#define NewNPP\_\-WriteReadyProc(FUNC)~((NPP\_\-WriteReadyUPP) (FUNC))}}
+\label{npupp_8h_a103a2440e29ae639a917f7838005f47c}
+
+
+Definition at line 130 of file npupp.h.
+
+\hypertarget{npupp_8h_a65d1cc61b816ca66e55e0704ee94eb9d}{
+\index{npupp.h@{npupp.h}!OSCALL@{OSCALL}}
+\index{OSCALL@{OSCALL}!npupp.h@{npupp.h}}
+\subsubsection[{OSCALL}]{\setlength{\rightskip}{0pt plus 5cm}\#define OSCALL}}
+\label{npupp_8h_a65d1cc61b816ca66e55e0704ee94eb9d}
+
+
+Definition at line 653 of file npupp.h.
+
+
+
+\subsection{Typedef Documentation}
+\hypertarget{npupp_8h_ad0db9c65c959b0697a3c637a7f021469}{
+\index{npupp.h@{npupp.h}!NP\_\-LOADDS@{NP\_\-LOADDS}}
+\index{NP\_\-LOADDS@{NP\_\-LOADDS}!npupp.h@{npupp.h}}
+\subsubsection[{NP\_\-LOADDS}]{\setlength{\rightskip}{0pt plus 5cm}typedef bool($\ast$ {\bf NP\_\-LOADDS})({\bf NPP} npp, {\bf NPObject} $\ast$obj, const {\bf NPVariant} $\ast$args, uint32\_\-t argCount, {\bf NPVariant} $\ast$result)}}
+\label{npupp_8h_ad0db9c65c959b0697a3c637a7f021469}
+
+
+Definition at line 80 of file npupp.h.
+
+\hypertarget{npupp_8h_ab264b3e75241c5d251a909ce09ed9c6f}{
+\index{npupp.h@{npupp.h}!NPNetscapeFuncs@{NPNetscapeFuncs}}
+\index{NPNetscapeFuncs@{NPNetscapeFuncs}!npupp.h@{npupp.h}}
+\subsubsection[{NPNetscapeFuncs}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf \_\-NPNetscapeFuncs}  {\bf NPNetscapeFuncs}}}
+\label{npupp_8h_ab264b3e75241c5d251a909ce09ed9c6f}
+\hypertarget{npupp_8h_a039d9087aae17e52d21f4ff3c72a644f}{
+\index{npupp.h@{npupp.h}!NPPluginFuncs@{NPPluginFuncs}}
+\index{NPPluginFuncs@{NPPluginFuncs}!npupp.h@{npupp.h}}
+\subsubsection[{NPPluginFuncs}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf \_\-NPPluginFuncs}  {\bf NPPluginFuncs}}}
+\label{npupp_8h_a039d9087aae17e52d21f4ff3c72a644f}

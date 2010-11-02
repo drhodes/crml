@@ -12,6 +12,7 @@
   <div class="tabs">
     <ul>
       <li><a href="main.html"><span>Main&nbsp;Page</span></a></li>
+      <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
@@ -33,7 +34,7 @@
 <a name="l00008"></a>00008 
 <a name="l00009"></a>00009 <span class="keyword">namespace </span>pi_generator {
 <a name="l00010"></a>00010 
-<a name="l00011"></a>00011 NPIdentifier ScriptingBridge::id_paint;
+<a name="l00011"></a>00011 <a class="code" href="npruntime_8h.html#a3ce51391e08bd3e24128c342b1d055b9">NPIdentifier</a> ScriptingBridge::id_paint;
 <a name="l00012"></a>00012 
 <a name="l00013"></a>00013 <span class="comment">// Method table for use by HasMethod and Invoke.</span>
 <a name="l00014"></a>00014 std::map&lt;NPIdentifier, ScriptingBridge::Method&gt;*
@@ -45,7 +46,7 @@
 <a name="l00020"></a>00020 
 <a name="l00021"></a>00021 <span class="comment">// Sets up method_table and property_table.</span>
 <a name="l00022"></a>00022 <span class="keywordtype">bool</span> <a class="code" href="classpi__generator_1_1_scripting_bridge.html#a76184c7bc22d728d207e275b5f980d67">ScriptingBridge::InitializeIdentifiers</a>() {
-<a name="l00023"></a>00023   id_paint = NPN_GetStringIdentifier(<span class="stringliteral">&quot;paint&quot;</span>);
+<a name="l00023"></a>00023   id_paint = <a class="code" href="npruntime_8h.html#ad5e91207290b739f1d4b74a95cf6bbbc">NPN_GetStringIdentifier</a>(<span class="stringliteral">&quot;paint&quot;</span>);
 <a name="l00024"></a>00024 
 <a name="l00025"></a>00025   method_table =
 <a name="l00026"></a>00026     <span class="keyword">new</span>(std::nothrow) std::map&lt;NPIdentifier, Method&gt;;
@@ -70,7 +71,7 @@
 <a name="l00045"></a>00045 
 <a name="l00046"></a>00046 <span class="comment">// Class-specific implementation of HasMethod, used by the C-style one</span>
 <a name="l00047"></a>00047 <span class="comment">// below.</span>
-<a name="l00048"></a>00048 <span class="keywordtype">bool</span> <a class="code" href="classpi__generator_1_1_scripting_bridge.html#aaa99f91c8ced5df6fac0700516cdd058">ScriptingBridge::HasMethod</a>(NPIdentifier name) {
+<a name="l00048"></a>00048 <span class="keywordtype">bool</span> <a class="code" href="classpi__generator_1_1_scripting_bridge.html#aaa99f91c8ced5df6fac0700516cdd058">ScriptingBridge::HasMethod</a>(<a class="code" href="npruntime_8h.html#a3ce51391e08bd3e24128c342b1d055b9">NPIdentifier</a> name) {
 <a name="l00049"></a>00049   std::map&lt;NPIdentifier, Method&gt;::iterator i;
 <a name="l00050"></a>00050   i = method_table-&gt;find(name);
 <a name="l00051"></a>00051   <span class="keywordflow">return</span> i != method_table-&gt;end();
@@ -78,7 +79,7 @@
 <a name="l00053"></a>00053 
 <a name="l00054"></a>00054 <span class="comment">// Class-specific implementation of HasProperty, used by the C-style one</span>
 <a name="l00055"></a>00055 <span class="comment">// below.</span>
-<a name="l00056"></a>00056 <span class="keywordtype">bool</span> <a class="code" href="classpi__generator_1_1_scripting_bridge.html#a55f52d9e5e377367881e919db10b019f">ScriptingBridge::HasProperty</a>(NPIdentifier name) {
+<a name="l00056"></a>00056 <span class="keywordtype">bool</span> <a class="code" href="classpi__generator_1_1_scripting_bridge.html#a55f52d9e5e377367881e919db10b019f">ScriptingBridge::HasProperty</a>(<a class="code" href="npruntime_8h.html#a3ce51391e08bd3e24128c342b1d055b9">NPIdentifier</a> name) {
 <a name="l00057"></a>00057   std::map&lt;NPIdentifier, Property&gt;::iterator i;
 <a name="l00058"></a>00058   i = property_table-&gt;find(name);
 <a name="l00059"></a>00059   <span class="keywordflow">return</span> i != property_table-&gt;end();
@@ -86,8 +87,8 @@
 <a name="l00061"></a>00061 
 <a name="l00062"></a>00062 <span class="comment">// Class-specific implementation of GetProperty, used by the C-style one</span>
 <a name="l00063"></a>00063 <span class="comment">// below.</span>
-<a name="l00064"></a>00064 <span class="keywordtype">bool</span> <a class="code" href="classpi__generator_1_1_scripting_bridge.html#ab97693ce171c216783e79debb3b192cc">ScriptingBridge::GetProperty</a>(NPIdentifier name, NPVariant *result) {
-<a name="l00065"></a>00065   VOID_TO_NPVARIANT(*result);
+<a name="l00064"></a>00064 <span class="keywordtype">bool</span> <a class="code" href="classpi__generator_1_1_scripting_bridge.html#ab97693ce171c216783e79debb3b192cc">ScriptingBridge::GetProperty</a>(<a class="code" href="npruntime_8h.html#a3ce51391e08bd3e24128c342b1d055b9">NPIdentifier</a> name, <a class="code" href="struct___n_p_variant.html">NPVariant</a> *result) {
+<a name="l00065"></a>00065   <a class="code" href="npruntime_8h.html#a535c2e8a27be98cec3eca18919438912">VOID_TO_NPVARIANT</a>(*result);
 <a name="l00066"></a>00066 
 <a name="l00067"></a>00067   std::map&lt;NPIdentifier, Property&gt;::iterator i;
 <a name="l00068"></a>00068   i = property_table-&gt;find(name);
@@ -99,29 +100,29 @@
 <a name="l00074"></a>00074 
 <a name="l00075"></a>00075 <span class="comment">// Class-specific implementation of SetProperty, used by the C-style one</span>
 <a name="l00076"></a>00076 <span class="comment">// below.</span>
-<a name="l00077"></a>00077 <span class="keywordtype">bool</span> <a class="code" href="classpi__generator_1_1_scripting_bridge.html#aa87ffdeb58a36a1e352814132d4a020a">ScriptingBridge::SetProperty</a>(NPIdentifier name, <span class="keyword">const</span> NPVariant* value) {
+<a name="l00077"></a>00077 <span class="keywordtype">bool</span> <a class="code" href="classpi__generator_1_1_scripting_bridge.html#aa87ffdeb58a36a1e352814132d4a020a">ScriptingBridge::SetProperty</a>(<a class="code" href="npruntime_8h.html#a3ce51391e08bd3e24128c342b1d055b9">NPIdentifier</a> name, <span class="keyword">const</span> <a class="code" href="struct___n_p_variant.html">NPVariant</a>* value) {
 <a name="l00078"></a>00078   <span class="keywordflow">return</span> <span class="keyword">false</span>;  <span class="comment">// Not implemented.</span>
 <a name="l00079"></a>00079 }
 <a name="l00080"></a>00080 
 <a name="l00081"></a>00081 <span class="comment">// Class-specific implementation of RemoveProperty, used by the C-style one</span>
 <a name="l00082"></a>00082 <span class="comment">// below.</span>
-<a name="l00083"></a>00083 <span class="keywordtype">bool</span> <a class="code" href="classpi__generator_1_1_scripting_bridge.html#ab1a46993e1a36b9857d48776f7085aa2">ScriptingBridge::RemoveProperty</a>(NPIdentifier name) {
+<a name="l00083"></a>00083 <span class="keywordtype">bool</span> <a class="code" href="classpi__generator_1_1_scripting_bridge.html#ab1a46993e1a36b9857d48776f7085aa2">ScriptingBridge::RemoveProperty</a>(<a class="code" href="npruntime_8h.html#a3ce51391e08bd3e24128c342b1d055b9">NPIdentifier</a> name) {
 <a name="l00084"></a>00084   <span class="keywordflow">return</span> <span class="keyword">false</span>;  <span class="comment">// Not implemented.</span>
 <a name="l00085"></a>00085 }
 <a name="l00086"></a>00086 
 <a name="l00087"></a>00087 <span class="comment">// Class-specific implementation of InvokeDefault, used by the C-style one</span>
 <a name="l00088"></a>00088 <span class="comment">// below.</span>
-<a name="l00089"></a>00089 <span class="keywordtype">bool</span> <a class="code" href="classpi__generator_1_1_scripting_bridge.html#a0589fe559ec8b9297e37239233e238be">ScriptingBridge::InvokeDefault</a>(<span class="keyword">const</span> NPVariant* args,
+<a name="l00089"></a>00089 <span class="keywordtype">bool</span> <a class="code" href="classpi__generator_1_1_scripting_bridge.html#a0589fe559ec8b9297e37239233e238be">ScriptingBridge::InvokeDefault</a>(<span class="keyword">const</span> <a class="code" href="struct___n_p_variant.html">NPVariant</a>* args,
 <a name="l00090"></a>00090                                     uint32_t arg_count,
-<a name="l00091"></a>00091                                     NPVariant* result) {
+<a name="l00091"></a>00091                                     <a class="code" href="struct___n_p_variant.html">NPVariant</a>* result) {
 <a name="l00092"></a>00092   <span class="keywordflow">return</span> <span class="keyword">false</span>;  <span class="comment">// Not implemented.</span>
 <a name="l00093"></a>00093 }
 <a name="l00094"></a>00094 
 <a name="l00095"></a>00095 <span class="comment">// Class-specific implementation of Invoke, used by the C-style one</span>
 <a name="l00096"></a>00096 <span class="comment">// below.</span>
-<a name="l00097"></a>00097 <span class="keywordtype">bool</span> <a class="code" href="classpi__generator_1_1_scripting_bridge.html#a3518781037308ae1d63bcdf5cc77a3de">ScriptingBridge::Invoke</a>(NPIdentifier name,
-<a name="l00098"></a>00098                              <span class="keyword">const</span> NPVariant* args, uint32_t arg_count,
-<a name="l00099"></a>00099                              NPVariant* result) {
+<a name="l00097"></a>00097 <span class="keywordtype">bool</span> <a class="code" href="classpi__generator_1_1_scripting_bridge.html#a3518781037308ae1d63bcdf5cc77a3de">ScriptingBridge::Invoke</a>(<a class="code" href="npruntime_8h.html#a3ce51391e08bd3e24128c342b1d055b9">NPIdentifier</a> name,
+<a name="l00098"></a>00098                              <span class="keyword">const</span> <a class="code" href="struct___n_p_variant.html">NPVariant</a>* args, uint32_t arg_count,
+<a name="l00099"></a>00099                              <a class="code" href="struct___n_p_variant.html">NPVariant</a>* result) {
 <a name="l00100"></a>00100   std::map&lt;NPIdentifier, Method&gt;::iterator i;
 <a name="l00101"></a>00101   i = method_table-&gt;find(name);
 <a name="l00102"></a>00102   <span class="keywordflow">if</span> (i != method_table-&gt;end()) {
@@ -136,12 +137,12 @@
 <a name="l00111"></a>00111   <span class="comment">// Not implemented.</span>
 <a name="l00112"></a>00112 }
 <a name="l00113"></a>00113 
-<a name="l00114"></a>00114 <span class="keywordtype">bool</span> <a class="code" href="classpi__generator_1_1_scripting_bridge.html#afcd2c9c3e990cae2d713e8bb5d84048d">ScriptingBridge::Paint</a>(<span class="keyword">const</span> NPVariant* args,
+<a name="l00114"></a>00114 <span class="keywordtype">bool</span> <a class="code" href="classpi__generator_1_1_scripting_bridge.html#afcd2c9c3e990cae2d713e8bb5d84048d">ScriptingBridge::Paint</a>(<span class="keyword">const</span> <a class="code" href="struct___n_p_variant.html">NPVariant</a>* args,
 <a name="l00115"></a>00115                             uint32_t arg_count,
-<a name="l00116"></a>00116                             NPVariant* result) {
+<a name="l00116"></a>00116                             <a class="code" href="struct___n_p_variant.html">NPVariant</a>* result) {
 <a name="l00117"></a>00117   PiGenerator* pi_generator = <span class="keyword">static_cast&lt;</span>PiGenerator*<span class="keyword">&gt;</span>(npp_-&gt;<a class="code" href="struct___n_p_p.html#aaa6688d5b2a25be78d23122713ba9669">pdata</a>);
 <a name="l00118"></a>00118   <span class="keywordflow">if</span> (pi_generator) {
-<a name="l00119"></a>00119     DOUBLE_TO_NPVARIANT(pi_generator-&gt;pi(), *result);
+<a name="l00119"></a>00119     <a class="code" href="npruntime_8h.html#a5c15076ba02ebc90777684e9b7646a76">DOUBLE_TO_NPVARIANT</a>(pi_generator-&gt;pi(), *result);
 <a name="l00120"></a>00120     <span class="keywordflow">return</span> pi_generator-&gt;Paint();
 <a name="l00121"></a>00121   }
 <a name="l00122"></a>00122   <span class="keywordflow">return</span> <span class="keyword">false</span>;
@@ -150,23 +151,23 @@
 <a name="l00125"></a>00125 <span class="comment">// Called by the browser when a plugin is being destroyed to clean up any</span>
 <a name="l00126"></a>00126 <span class="comment">// remaining instances of NPClass.</span>
 <a name="l00127"></a>00127 <span class="comment">// Documentation URL: https://developer.mozilla.org/en/NPClass</span>
-<a name="l00128"></a><a class="code" href="namespacepi__generator.html#a733df66e71ec7f2dba460c638180aa0e">00128</a> <span class="keywordtype">void</span> <a class="code" href="namespacepi__generator.html#a733df66e71ec7f2dba460c638180aa0e">Invalidate</a>(NPObject* <span class="keywordtype">object</span>) {
+<a name="l00128"></a><a class="code" href="namespacepi__generator.html#a733df66e71ec7f2dba460c638180aa0e">00128</a> <span class="keywordtype">void</span> <a class="code" href="namespacepi__generator.html#a733df66e71ec7f2dba460c638180aa0e">Invalidate</a>(<a class="code" href="struct_n_p_object.html">NPObject</a>* <span class="keywordtype">object</span>) {
 <a name="l00129"></a>00129   <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><a class="code" href="classpi__generator_1_1_scripting_bridge.html">ScriptingBridge</a>*<span class="keyword">&gt;</span>(object)-&gt;<a class="code" href="namespacepi__generator.html#a733df66e71ec7f2dba460c638180aa0e">Invalidate</a>();
 <a name="l00130"></a>00130 }
 <a name="l00131"></a>00131 
 <a name="l00132"></a>00132 <span class="comment">// Returns |true| if |method_name| is a recognized method.</span>
 <a name="l00133"></a>00133 <span class="comment">// Called by NPN_HasMethod, declared in npruntime.h</span>
 <a name="l00134"></a>00134 <span class="comment">// Documentation URL: https://developer.mozilla.org/en/NPClass</span>
-<a name="l00135"></a><a class="code" href="namespacepi__generator.html#a952c6436fb4cc8d87e830f81f3bae284">00135</a> <span class="keywordtype">bool</span> <a class="code" href="namespacepi__generator.html#a952c6436fb4cc8d87e830f81f3bae284">HasMethod</a>(NPObject* <span class="keywordtype">object</span>, NPIdentifier name) {
+<a name="l00135"></a><a class="code" href="namespacepi__generator.html#a952c6436fb4cc8d87e830f81f3bae284">00135</a> <span class="keywordtype">bool</span> <a class="code" href="namespacepi__generator.html#a952c6436fb4cc8d87e830f81f3bae284">HasMethod</a>(<a class="code" href="struct_n_p_object.html">NPObject</a>* <span class="keywordtype">object</span>, <a class="code" href="npruntime_8h.html#a3ce51391e08bd3e24128c342b1d055b9">NPIdentifier</a> name) {
 <a name="l00136"></a>00136   <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><a class="code" href="classpi__generator_1_1_scripting_bridge.html">ScriptingBridge</a>*<span class="keyword">&gt;</span>(object)-&gt;<a class="code" href="namespacepi__generator.html#a952c6436fb4cc8d87e830f81f3bae284">HasMethod</a>(name);
 <a name="l00137"></a>00137 }
 <a name="l00138"></a>00138 
 <a name="l00139"></a>00139 <span class="comment">// Called by the browser to invoke a function object whose name is |name|.</span>
 <a name="l00140"></a>00140 <span class="comment">// Called by NPN_Invoke, declared in npruntime.h</span>
 <a name="l00141"></a>00141 <span class="comment">// Documentation URL: https://developer.mozilla.org/en/NPClass</span>
-<a name="l00142"></a><a class="code" href="namespacepi__generator.html#a861f69824d0671573232af470d07c0fa">00142</a> <span class="keywordtype">bool</span> <a class="code" href="namespacepi__generator.html#a861f69824d0671573232af470d07c0fa">Invoke</a>(NPObject* <span class="keywordtype">object</span>, NPIdentifier name,
-<a name="l00143"></a>00143             <span class="keyword">const</span> NPVariant* args, uint32_t arg_count,
-<a name="l00144"></a>00144             NPVariant* result) {
+<a name="l00142"></a><a class="code" href="namespacepi__generator.html#a861f69824d0671573232af470d07c0fa">00142</a> <span class="keywordtype">bool</span> <a class="code" href="namespacepi__generator.html#a861f69824d0671573232af470d07c0fa">Invoke</a>(<a class="code" href="struct_n_p_object.html">NPObject</a>* <span class="keywordtype">object</span>, <a class="code" href="npruntime_8h.html#a3ce51391e08bd3e24128c342b1d055b9">NPIdentifier</a> name,
+<a name="l00143"></a>00143             <span class="keyword">const</span> <a class="code" href="struct___n_p_variant.html">NPVariant</a>* args, uint32_t arg_count,
+<a name="l00144"></a>00144             <a class="code" href="struct___n_p_variant.html">NPVariant</a>* result) {
 <a name="l00145"></a>00145   <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><a class="code" href="classpi__generator_1_1_scripting_bridge.html">ScriptingBridge</a>*<span class="keyword">&gt;</span>(object)-&gt;<a class="code" href="namespacepi__generator.html#a861f69824d0671573232af470d07c0fa">Invoke</a>(
 <a name="l00146"></a>00146       name, args, arg_count, result);
 <a name="l00147"></a>00147 }
@@ -177,8 +178,8 @@
 <a name="l00152"></a>00152 <span class="comment">// tell the browser we don&#39;t have this method.</span>
 <a name="l00153"></a>00153 <span class="comment">// Called by NPN_InvokeDefault, declared in npruntime.h</span>
 <a name="l00154"></a>00154 <span class="comment">// Documentation URL: https://developer.mozilla.org/en/NPClass</span>
-<a name="l00155"></a><a class="code" href="namespacepi__generator.html#a7fab356f3ceba853332861bcc927c54f">00155</a> <span class="keywordtype">bool</span> <a class="code" href="namespacepi__generator.html#a7fab356f3ceba853332861bcc927c54f">InvokeDefault</a>(NPObject* <span class="keywordtype">object</span>, <span class="keyword">const</span> NPVariant* args, uint32_t arg_count,
-<a name="l00156"></a>00156                    NPVariant* result) {
+<a name="l00155"></a><a class="code" href="namespacepi__generator.html#a7fab356f3ceba853332861bcc927c54f">00155</a> <span class="keywordtype">bool</span> <a class="code" href="namespacepi__generator.html#a7fab356f3ceba853332861bcc927c54f">InvokeDefault</a>(<a class="code" href="struct_n_p_object.html">NPObject</a>* <span class="keywordtype">object</span>, <span class="keyword">const</span> <a class="code" href="struct___n_p_variant.html">NPVariant</a>* args, uint32_t arg_count,
+<a name="l00156"></a>00156                    <a class="code" href="struct___n_p_variant.html">NPVariant</a>* result) {
 <a name="l00157"></a>00157   <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><a class="code" href="classpi__generator_1_1_scripting_bridge.html">ScriptingBridge</a>*<span class="keyword">&gt;</span>(object)-&gt;<a class="code" href="namespacepi__generator.html#a7fab356f3ceba853332861bcc927c54f">InvokeDefault</a>(
 <a name="l00158"></a>00158       args, arg_count, result);
 <a name="l00159"></a>00159 }
@@ -187,7 +188,7 @@
 <a name="l00162"></a>00162 <span class="comment">// plugin class being queried.</span>
 <a name="l00163"></a>00163 <span class="comment">// Called by NPN_HasProperty, declared in npruntime.h</span>
 <a name="l00164"></a>00164 <span class="comment">// Documentation URL: https://developer.mozilla.org/en/NPClass</span>
-<a name="l00165"></a><a class="code" href="namespacepi__generator.html#a87a1eff2d42a1e673e616057680369b7">00165</a> <span class="keywordtype">bool</span> <a class="code" href="namespacepi__generator.html#a87a1eff2d42a1e673e616057680369b7">HasProperty</a>(NPObject* <span class="keywordtype">object</span>, NPIdentifier name) {
+<a name="l00165"></a><a class="code" href="namespacepi__generator.html#a87a1eff2d42a1e673e616057680369b7">00165</a> <span class="keywordtype">bool</span> <a class="code" href="namespacepi__generator.html#a87a1eff2d42a1e673e616057680369b7">HasProperty</a>(<a class="code" href="struct_n_p_object.html">NPObject</a>* <span class="keywordtype">object</span>, <a class="code" href="npruntime_8h.html#a3ce51391e08bd3e24128c342b1d055b9">NPIdentifier</a> name) {
 <a name="l00166"></a>00166   <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><a class="code" href="classpi__generator_1_1_scripting_bridge.html">ScriptingBridge</a>*<span class="keyword">&gt;</span>(object)-&gt;<a class="code" href="namespacepi__generator.html#a87a1eff2d42a1e673e616057680369b7">HasProperty</a>(name);
 <a name="l00167"></a>00167 }
 <a name="l00168"></a>00168 
@@ -196,7 +197,7 @@
 <a name="l00171"></a>00171 <span class="comment">// goes wrong.</span>
 <a name="l00172"></a>00172 <span class="comment">// Called by NPN_GetProperty, declared in npruntime.h</span>
 <a name="l00173"></a>00173 <span class="comment">// Documentation URL: https://developer.mozilla.org/en/NPClass</span>
-<a name="l00174"></a><a class="code" href="namespacepi__generator.html#aa945b983b43a437de8e06ebbbe8f6064">00174</a> <span class="keywordtype">bool</span> <a class="code" href="namespacepi__generator.html#aa945b983b43a437de8e06ebbbe8f6064">GetProperty</a>(NPObject* <span class="keywordtype">object</span>, NPIdentifier name, NPVariant* result) {
+<a name="l00174"></a><a class="code" href="namespacepi__generator.html#aa945b983b43a437de8e06ebbbe8f6064">00174</a> <span class="keywordtype">bool</span> <a class="code" href="namespacepi__generator.html#aa945b983b43a437de8e06ebbbe8f6064">GetProperty</a>(<a class="code" href="struct_n_p_object.html">NPObject</a>* <span class="keywordtype">object</span>, <a class="code" href="npruntime_8h.html#a3ce51391e08bd3e24128c342b1d055b9">NPIdentifier</a> name, <a class="code" href="struct___n_p_variant.html">NPVariant</a>* result) {
 <a name="l00175"></a>00175   <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><a class="code" href="classpi__generator_1_1_scripting_bridge.html">ScriptingBridge</a>*<span class="keyword">&gt;</span>(object)-&gt;<a class="code" href="namespacepi__generator.html#aa945b983b43a437de8e06ebbbe8f6064">GetProperty</a>(name, result);
 <a name="l00176"></a>00176 }
 <a name="l00177"></a>00177 
@@ -205,7 +206,7 @@
 <a name="l00180"></a>00180 <span class="comment">// or if something else goes wrong.</span>
 <a name="l00181"></a>00181 <span class="comment">// Called by NPN_SetProperty, declared in npruntime.h</span>
 <a name="l00182"></a>00182 <span class="comment">// Documentation URL: https://developer.mozilla.org/en/NPClass</span>
-<a name="l00183"></a><a class="code" href="namespacepi__generator.html#a54b3ed1c0ca9069974a0a575680896c9">00183</a> <span class="keywordtype">bool</span> <a class="code" href="namespacepi__generator.html#a54b3ed1c0ca9069974a0a575680896c9">SetProperty</a>(NPObject* <span class="keywordtype">object</span>, NPIdentifier name, <span class="keyword">const</span> NPVariant* value) {
+<a name="l00183"></a><a class="code" href="namespacepi__generator.html#a54b3ed1c0ca9069974a0a575680896c9">00183</a> <span class="keywordtype">bool</span> <a class="code" href="namespacepi__generator.html#a54b3ed1c0ca9069974a0a575680896c9">SetProperty</a>(<a class="code" href="struct_n_p_object.html">NPObject</a>* <span class="keywordtype">object</span>, <a class="code" href="npruntime_8h.html#a3ce51391e08bd3e24128c342b1d055b9">NPIdentifier</a> name, <span class="keyword">const</span> <a class="code" href="struct___n_p_variant.html">NPVariant</a>* value) {
 <a name="l00184"></a>00184   <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><a class="code" href="classpi__generator_1_1_scripting_bridge.html">ScriptingBridge</a>*<span class="keyword">&gt;</span>(object)-&gt;<a class="code" href="namespacepi__generator.html#a54b3ed1c0ca9069974a0a575680896c9">SetProperty</a>(name, value);
 <a name="l00185"></a>00185 }
 <a name="l00186"></a>00186 
@@ -213,21 +214,21 @@
 <a name="l00188"></a>00188 <span class="comment">// Returns false if it can&#39;t be removed for some reason.</span>
 <a name="l00189"></a>00189 <span class="comment">// Called by NPN_RemoveProperty, declared in npruntime.h</span>
 <a name="l00190"></a>00190 <span class="comment">// Documentation URL: https://developer.mozilla.org/en/NPClass</span>
-<a name="l00191"></a><a class="code" href="namespacepi__generator.html#ae5666fa423e3664b2c082f0e8b2fcfd4">00191</a> <span class="keywordtype">bool</span> <a class="code" href="namespacepi__generator.html#ae5666fa423e3664b2c082f0e8b2fcfd4">RemoveProperty</a>(NPObject* <span class="keywordtype">object</span>, NPIdentifier name) {
+<a name="l00191"></a><a class="code" href="namespacepi__generator.html#ae5666fa423e3664b2c082f0e8b2fcfd4">00191</a> <span class="keywordtype">bool</span> <a class="code" href="namespacepi__generator.html#ae5666fa423e3664b2c082f0e8b2fcfd4">RemoveProperty</a>(<a class="code" href="struct_n_p_object.html">NPObject</a>* <span class="keywordtype">object</span>, <a class="code" href="npruntime_8h.html#a3ce51391e08bd3e24128c342b1d055b9">NPIdentifier</a> name) {
 <a name="l00192"></a>00192   <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><a class="code" href="classpi__generator_1_1_scripting_bridge.html">ScriptingBridge</a>*<span class="keyword">&gt;</span>(object)-&gt;<a class="code" href="namespacepi__generator.html#ae5666fa423e3664b2c082f0e8b2fcfd4">RemoveProperty</a>(name);
 <a name="l00193"></a>00193 }
 <a name="l00194"></a>00194 
 <a name="l00195"></a>00195 <span class="comment">// Creates the plugin-side instance of NPObject.</span>
 <a name="l00196"></a>00196 <span class="comment">// Called by NPN_CreateObject, declared in npruntime.h</span>
 <a name="l00197"></a>00197 <span class="comment">// Documentation URL: https://developer.mozilla.org/en/NPClass</span>
-<a name="l00198"></a><a class="code" href="namespacepi__generator.html#a94f67bed2d50304566aa1f7c35f91ab2">00198</a> NPObject* <a class="code" href="namespacepi__generator.html#a94f67bed2d50304566aa1f7c35f91ab2">Allocate</a>(<a class="code" href="struct___n_p_p.html">NPP</a> npp, NPClass* npclass) {
+<a name="l00198"></a><a class="code" href="namespacepi__generator.html#a94f67bed2d50304566aa1f7c35f91ab2">00198</a> <a class="code" href="struct_n_p_object.html">NPObject</a>* <a class="code" href="namespacepi__generator.html#a94f67bed2d50304566aa1f7c35f91ab2">Allocate</a>(<a class="code" href="struct___n_p_p.html">NPP</a> npp, <a class="code" href="struct_n_p_class.html">NPClass</a>* npclass) {
 <a name="l00199"></a>00199   <span class="keywordflow">return</span> <span class="keyword">new</span> <a class="code" href="classpi__generator_1_1_scripting_bridge.html">ScriptingBridge</a>(npp);
 <a name="l00200"></a>00200 }
 <a name="l00201"></a>00201 
 <a name="l00202"></a>00202 <span class="comment">// Cleans up the plugin-side instance of an NPObject.</span>
 <a name="l00203"></a>00203 <span class="comment">// Called by NPN_ReleaseObject, declared in npruntime.h</span>
 <a name="l00204"></a>00204 <span class="comment">// Documentation URL: https://developer.mozilla.org/en/NPClass</span>
-<a name="l00205"></a><a class="code" href="namespacepi__generator.html#a36cb8ad170a393eedf2f477fa7561f62">00205</a> <span class="keywordtype">void</span> <a class="code" href="namespacepi__generator.html#a36cb8ad170a393eedf2f477fa7561f62">Deallocate</a>(NPObject* <span class="keywordtype">object</span>) {
+<a name="l00205"></a><a class="code" href="namespacepi__generator.html#a36cb8ad170a393eedf2f477fa7561f62">00205</a> <span class="keywordtype">void</span> <a class="code" href="namespacepi__generator.html#a36cb8ad170a393eedf2f477fa7561f62">Deallocate</a>(<a class="code" href="struct_n_p_object.html">NPObject</a>* <span class="keywordtype">object</span>) {
 <a name="l00206"></a>00206   <span class="keyword">delete</span> <span class="keyword">static_cast&lt;</span><a class="code" href="classpi__generator_1_1_scripting_bridge.html">ScriptingBridge</a>*<span class="keyword">&gt;</span>(object);
 <a name="l00207"></a>00207 }
 <a name="l00208"></a>00208 
@@ -237,8 +238,8 @@
 <a name="l00212"></a>00212 <span class="comment">// can call on this plugin object.  The browser can use the methods in this</span>
 <a name="l00213"></a>00213 <span class="comment">// class to discover the rest of the plugin&#39;s interface.</span>
 <a name="l00214"></a>00214 <span class="comment">// Documentation URL: https://developer.mozilla.org/en/NPClass</span>
-<a name="l00215"></a>00215 NPClass <a class="code" href="classpi__generator_1_1_scripting_bridge.html#aed4a415c7f15933562413031d458792e">pi_generator::ScriptingBridge::np_class</a> = {
-<a name="l00216"></a>00216   NP_CLASS_STRUCT_VERSION,
+<a name="l00215"></a>00215 <a class="code" href="struct_n_p_class.html">NPClass</a> <a class="code" href="classpi__generator_1_1_scripting_bridge.html#a1756e8dff7625cda7697f3e9725ede25">pi_generator::ScriptingBridge::np_class</a> = {
+<a name="l00216"></a>00216   <a class="code" href="npruntime_8h.html#a6fca3735dfc4eb8d19ceb582cabd0645">NP_CLASS_STRUCT_VERSION</a>,
 <a name="l00217"></a>00217   <a class="code" href="namespacepi__generator.html#a94f67bed2d50304566aa1f7c35f91ab2">pi_generator::Allocate</a>,
 <a name="l00218"></a>00218   <a class="code" href="namespacepi__generator.html#a36cb8ad170a393eedf2f477fa7561f62">pi_generator::Deallocate</a>,
 <a name="l00219"></a>00219   <a class="code" href="namespacepi__generator.html#a733df66e71ec7f2dba460c638180aa0e">pi_generator::Invalidate</a>,
@@ -251,7 +252,7 @@
 <a name="l00226"></a>00226   <a class="code" href="namespacepi__generator.html#ae5666fa423e3664b2c082f0e8b2fcfd4">pi_generator::RemoveProperty</a>
 <a name="l00227"></a>00227 };
 </pre></div></div>
-<hr class="footer"/><address style="text-align: right;"><small>Generated on Mon Nov 1 14:47:09 2010 for crml by&nbsp;
+<hr class="footer"/><address style="text-align: right;"><small>Generated on Mon Nov 1 15:47:12 2010 for crml by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
 </body>

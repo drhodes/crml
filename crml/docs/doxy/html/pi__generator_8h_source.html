@@ -12,6 +12,7 @@
   <div class="tabs">
     <ul>
       <li><a href="main.html"><span>Main&nbsp;Page</span></a></li>
+      <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
@@ -49,7 +50,7 @@
 <a name="l00024"></a>00024   <span class="keyword">explicit</span> <a class="code" href="classpi__generator_1_1_pi_generator.html#a0f5a55bbb942dee1b185447f0a7e24be">PiGenerator</a>(<a class="code" href="struct___n_p_p.html">NPP</a> npp);
 <a name="l00025"></a>00025   <a class="code" href="classpi__generator_1_1_pi_generator.html#ac7d9c07492fd86678b8f66643e1e8c1e">~PiGenerator</a>();
 <a name="l00026"></a>00026 
-<a name="l00027"></a>00027   NPObject* <a class="code" href="classpi__generator_1_1_pi_generator.html#ac65f31616ae3d223bdc01b91aea91762">GetScriptableObject</a>();
+<a name="l00027"></a>00027   <a class="code" href="struct_n_p_object.html">NPObject</a>* <a class="code" href="classpi__generator_1_1_pi_generator.html#ac65f31616ae3d223bdc01b91aea91762">GetScriptableObject</a>();
 <a name="l00028"></a>00028   <a class="code" href="npapi_8h.html#a56715bc92ac93f0447a05f852ce18828">NPError</a> <a class="code" href="classpi__generator_1_1_pi_generator.html#ad19c9de44971a5c08ee8e26a45598f38">SetWindow</a>(<a class="code" href="struct___n_p_window.html">NPWindow</a>* window);
 <a name="l00029"></a>00029   <span class="keywordtype">bool</span> <a class="code" href="classpi__generator_1_1_pi_generator.html#a47540afa1d21ef0b6e6ea7d986b71243">Paint</a>();
 <a name="l00030"></a><a class="code" href="classpi__generator_1_1_pi_generator.html#a02e8796485d878cbe8a42dcc2b204c4a">00030</a>   <span class="keywordtype">bool</span> <a class="code" href="classpi__generator_1_1_pi_generator.html#a02e8796485d878cbe8a42dcc2b204c4a">quit</a>()<span class="keyword"> const </span>{
@@ -59,7 +60,7 @@
 <a name="l00034"></a>00034     <span class="keywordflow">return</span> pi_;
 <a name="l00035"></a>00035   }
 <a name="l00036"></a><a class="code" href="classpi__generator_1_1_pi_generator.html#a3e4279bb7732861b21ab6d1dcfc27429">00036</a>   <span class="keywordtype">void</span>* <a class="code" href="classpi__generator_1_1_pi_generator.html#a3e4279bb7732861b21ab6d1dcfc27429">pixels</a>()<span class="keyword"> const </span>{
-<a name="l00037"></a>00037     <span class="keywordflow">return</span> context2d_.region;
+<a name="l00037"></a>00037     <span class="keywordflow">return</span> context2d_.<a class="code" href="struct___n_p_device_context2_d.html#a8ec3c876c329a4b94c6ac730d2e33885">region</a>;
 <a name="l00038"></a>00038   }
 <a name="l00039"></a><a class="code" href="classpi__generator_1_1_pi_generator.html#ae3b2d276f4cf6209d7653f6fc4437fc4">00039</a>   <span class="keywordtype">int</span> <a class="code" href="classpi__generator_1_1_pi_generator.html#ae3b2d276f4cf6209d7653f6fc4437fc4">width</a>()<span class="keyword"> const </span>{
 <a name="l00040"></a>00040     <span class="keywordflow">return</span> window_ ? window_-&gt;<a class="code" href="struct___n_p_window.html#a108a91a5fdc3e8130e0d40406612bd65">width</a> : 0;
@@ -78,11 +79,11 @@
 <a name="l00053"></a>00053   }
 <a name="l00054"></a>00054 
 <a name="l00055"></a>00055   <a class="code" href="struct___n_p_p.html">NPP</a>       npp_;
-<a name="l00056"></a>00056   NPObject* scriptable_object_;  <span class="comment">// strong reference</span>
+<a name="l00056"></a>00056   <a class="code" href="struct_n_p_object.html">NPObject</a>* scriptable_object_;  <span class="comment">// strong reference</span>
 <a name="l00057"></a>00057 
 <a name="l00058"></a>00058   <a class="code" href="struct___n_p_window.html">NPWindow</a>* window_;
-<a name="l00059"></a>00059   NPDevice* device2d_;  <span class="comment">// The PINPAPI 2D device.</span>
-<a name="l00060"></a>00060   NPDeviceContext2D context2d_;  <span class="comment">// The PINPAPI 2D drawing context.</span>
+<a name="l00059"></a>00059   <a class="code" href="struct_n_p_device.html">NPDevice</a>* device2d_;  <span class="comment">// The PINPAPI 2D device.</span>
+<a name="l00060"></a>00060   <a class="code" href="struct___n_p_device_context2_d.html">NPDeviceContext2D</a> context2d_;  <span class="comment">// The PINPAPI 2D drawing context.</span>
 <a name="l00061"></a>00061 
 <a name="l00062"></a>00062   <span class="keywordtype">bool</span> quit_;
 <a name="l00063"></a>00063   pthread_t thread_;
@@ -95,7 +96,7 @@
 <a name="l00070"></a>00070 
 <a name="l00071"></a>00071 <span class="preprocessor">#endif  // EXAMPLES_PI_GENERATOR_H_</span>
 </pre></div></div>
-<hr class="footer"/><address style="text-align: right;"><small>Generated on Mon Nov 1 14:47:09 2010 for crml by&nbsp;
+<hr class="footer"/><address style="text-align: right;"><small>Generated on Mon Nov 1 15:47:12 2010 for crml by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
 </body>

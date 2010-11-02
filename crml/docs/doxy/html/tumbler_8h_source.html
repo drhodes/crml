@@ -12,6 +12,7 @@
   <div class="tabs">
     <ul>
       <li><a href="main.html"><span>Main&nbsp;Page</span></a></li>
+      <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
@@ -56,7 +57,7 @@
 <a name="l00031"></a>00031 
 <a name="l00032"></a>00032 <span class="comment">// Extend NPDeviceContext3D to include a user_data pointer.  This pointer is</span>
 <a name="l00033"></a>00033 <span class="comment">// used to carry context-specific data for, e.g. the repaint callback.</span>
-<a name="l00034"></a><a class="code" href="structtumbler_1_1_tumbler_context3_d.html">00034</a> <span class="keyword">struct </span><a class="code" href="structtumbler_1_1_tumbler_context3_d.html">TumblerContext3D</a> : NPDeviceContext3D {
+<a name="l00034"></a><a class="code" href="structtumbler_1_1_tumbler_context3_d.html">00034</a> <span class="keyword">struct </span><a class="code" href="structtumbler_1_1_tumbler_context3_d.html">TumblerContext3D</a> : <a class="code" href="struct___n_p_device_context3_d.html">NPDeviceContext3D</a> {
 <a name="l00035"></a><a class="code" href="structtumbler_1_1_tumbler_context3_d.html#a1274a5b24b002c4e264bc7ee9298e85d">00035</a>   <span class="keywordtype">void</span>* <a class="code" href="structtumbler_1_1_tumbler_context3_d.html#a1274a5b24b002c4e264bc7ee9298e85d">user_data_</a>;
 <a name="l00036"></a>00036 };
 <a name="l00037"></a>00037 
@@ -68,7 +69,7 @@
 <a name="l00043"></a>00043   <span class="comment">// destroys the 3D context both in the module and in the browser.</span>
 <a name="l00044"></a>00044   <a class="code" href="classtumbler_1_1_tumbler.html#a80349e180aa825c15d63bada00c6e9a8">~Tumbler</a>();
 <a name="l00045"></a>00045 
-<a name="l00046"></a>00046   NPObject* <a class="code" href="classtumbler_1_1_tumbler.html#ad438453c62d1edcbdd5cb39a38143a0b">GetScriptableObject</a>();
+<a name="l00046"></a>00046   <a class="code" href="struct_n_p_object.html">NPObject</a>* <a class="code" href="classtumbler_1_1_tumbler.html#ad438453c62d1edcbdd5cb39a38143a0b">GetScriptableObject</a>();
 <a name="l00047"></a>00047 
 <a name="l00048"></a>00048   <span class="comment">// SetWindow is called by the browser when the window is created, moved,</span>
 <a name="l00049"></a>00049   <span class="comment">// sized, or destroyed.</span>
@@ -96,8 +97,8 @@
 <a name="l00071"></a>00071   <span class="comment">// TODO(dspringer): Once we get smart pointers in the Native Client SDK,</span>
 <a name="l00072"></a>00072   <span class="comment">// all the following pointers should become scoped_ptr&lt;&gt; types.</span>
 <a name="l00073"></a>00073   <a class="code" href="struct___n_p_p.html">NPP</a> npp_;
-<a name="l00074"></a>00074   NPObject* scriptable_object_;
-<a name="l00075"></a>00075   NPDevice* device3d_;
+<a name="l00074"></a>00074   <a class="code" href="struct_n_p_object.html">NPObject</a>* scriptable_object_;
+<a name="l00075"></a>00075   <a class="code" href="struct_n_p_device.html">NPDevice</a>* device3d_;
 <a name="l00076"></a>00076   <a class="code" href="structtumbler_1_1_tumbler_context3_d.html">TumblerContext3D</a> context3d_;
 <a name="l00077"></a>00077   PGLContext pgl_context_;
 <a name="l00078"></a>00078   <a class="code" href="classtumbler_1_1_cube.html">Cube</a>* cube_;
@@ -109,7 +110,7 @@
 <a name="l00084"></a>00084 
 <a name="l00085"></a>00085 <span class="preprocessor">#endif  // EXAMPLES_TUMBLER_TUMBLER_H_</span>
 </pre></div></div>
-<hr class="footer"/><address style="text-align: right;"><small>Generated on Mon Nov 1 14:47:09 2010 for crml by&nbsp;
+<hr class="footer"/><address style="text-align: right;"><small>Generated on Mon Nov 1 15:47:12 2010 for crml by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
 </body>

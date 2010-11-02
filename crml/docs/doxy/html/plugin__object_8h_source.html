@@ -12,6 +12,7 @@
   <div class="tabs">
     <ul>
       <li><a href="main.html"><span>Main&nbsp;Page</span></a></li>
+      <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
@@ -51,23 +52,23 @@
 <a name="l00026"></a>00026 <span class="preprocessor">#ifndef NATIVE_CLIENT_TESTS_PEPPER_PLUGIN_PLUGIN_OBJECT_H_</span>
 <a name="l00027"></a>00027 <span class="preprocessor"></span><span class="preprocessor">#define NATIVE_CLIENT_TESTS_PEPPER_PLUGIN_PLUGIN_OBJECT_H_</span>
 <a name="l00028"></a>00028 <span class="preprocessor"></span>
-<a name="l00029"></a>00029 <span class="preprocessor">#include &lt;nacl/npapi.h&gt;</span>
-<a name="l00030"></a>00030 <span class="preprocessor">#include &lt;nacl/npruntime.h&gt;</span>
-<a name="l00031"></a>00031 <span class="preprocessor">#include &lt;nacl/npapi_extensions.h&gt;</span>
-<a name="l00032"></a>00032 <span class="preprocessor">#include &lt;nacl/npupp.h&gt;</span>
+<a name="l00029"></a>00029 <span class="preprocessor">#include &lt;<a class="code" href="npapi_8h.html">core/npapi.h</a>&gt;</span>
+<a name="l00030"></a>00030 <span class="preprocessor">#include &lt;<a class="code" href="npruntime_8h.html">core/npruntime.h</a>&gt;</span>
+<a name="l00031"></a>00031 <span class="preprocessor">#include &lt;<a class="code" href="npapi__extensions_8h.html">core/npapi_extensions.h</a>&gt;</span>
+<a name="l00032"></a>00032 <span class="preprocessor">#include &lt;<a class="code" href="npupp_8h.html">core/npupp.h</a>&gt;</span>
 <a name="l00033"></a>00033 <span class="preprocessor">#include &lt;pgl/pgl.h&gt;</span>
 <a name="l00034"></a>00034 <span class="preprocessor">#include &lt;string&gt;</span>
 <a name="l00035"></a>00035 
-<a name="l00036"></a>00036 <span class="keyword">extern</span> NPNetscapeFuncs* <a class="code" href="plugin__object_8cc.html#a6bc4d2698dc5cfabc5b23f38cd107dcd">browser</a>;
+<a name="l00036"></a>00036 <span class="keyword">extern</span> <a class="code" href="struct___n_p_netscape_funcs.html">NPNetscapeFuncs</a>* <a class="code" href="plugin__object_8cc.html#a6bc4d2698dc5cfabc5b23f38cd107dcd">browser</a>;
 <a name="l00037"></a>00037 
 <a name="l00038"></a><a class="code" href="class_plugin_object.html">00038</a> <span class="keyword">class </span><a class="code" href="class_plugin_object.html">PluginObject</a> {
 <a name="l00039"></a>00039  <span class="keyword">public</span>:
 <a name="l00040"></a>00040         <span class="keyword">explicit</span> <a class="code" href="class_plugin_object.html#ab24118f5b174beacb1b7f652bbbcf78d">PluginObject</a>(<a class="code" href="struct___n_p_p.html">NPP</a> <a class="code" href="class_plugin_object.html#a1a051ee92618bae8134b4d273d1d9982">npp</a>);
 <a name="l00041"></a>00041         <a class="code" href="class_plugin_object.html#ab2a72410c84a20133db4dec8ca92b277">~PluginObject</a>();
 <a name="l00042"></a>00042 
-<a name="l00043"></a>00043         <span class="keyword">static</span> NPClass* <a class="code" href="class_plugin_object.html#a4b017230102036f1626af06df4864a95">GetPluginClass</a>();
+<a name="l00043"></a>00043         <span class="keyword">static</span> <a class="code" href="struct_n_p_class.html">NPClass</a>* <a class="code" href="class_plugin_object.html#a4b017230102036f1626af06df4864a95">GetPluginClass</a>();
 <a name="l00044"></a>00044 
-<a name="l00045"></a><a class="code" href="class_plugin_object.html#ac551056ed0941b76c4161ba71e4cf449">00045</a>         NPObject* <a class="code" href="class_plugin_object.html#ac551056ed0941b76c4161ba71e4cf449">header</a>() { <span class="keywordflow">return</span> &amp;<a class="code" href="class_plugin_object.html#a2d49cd1ca32c2522400d2505bd3e357e">header_</a>; }
+<a name="l00045"></a><a class="code" href="class_plugin_object.html#ac551056ed0941b76c4161ba71e4cf449">00045</a>         <a class="code" href="struct_n_p_object.html">NPObject</a>* <a class="code" href="class_plugin_object.html#ac551056ed0941b76c4161ba71e4cf449">header</a>() { <span class="keywordflow">return</span> &amp;<a class="code" href="class_plugin_object.html#a2d49cd1ca32c2522400d2505bd3e357e">header_</a>; }
 <a name="l00046"></a><a class="code" href="class_plugin_object.html#a1a051ee92618bae8134b4d273d1d9982">00046</a>         <a class="code" href="struct___n_p_p.html">NPP</a> <a class="code" href="class_plugin_object.html#a1a051ee92618bae8134b4d273d1d9982">npp</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="class_plugin_object.html#a73abf33dbc703aaab8c133b4fc16a6f4">npp_</a>; }
 <a name="l00047"></a>00047 
 <a name="l00048"></a>00048         <span class="keywordtype">void</span> <a class="code" href="class_plugin_object.html#a5e103c3aefcd2afb642c2414b92311ac">New</a>(<a class="code" href="npapi_8h.html#a6ab16d9f607aeb576061783638ae2973">NPMIMEType</a> pluginType, int16_t argc, <span class="keywordtype">char</span>* argn[], <span class="keywordtype">char</span>* argv[]);
@@ -75,28 +76,28 @@
 <a name="l00050"></a>00050         <span class="keywordtype">bool</span> <a class="code" href="class_plugin_object.html#a4f594d05bd890649ca0f87ce30f03d26">IsChecksumCheckSuccess</a>();
 <a name="l00051"></a>00051         std::string <a class="code" href="class_plugin_object.html#a0ab936e960c08282554224a4570540aa">ReportChecksum</a>();
 <a name="l00052"></a>00052         
-<a name="l00053"></a>00053         NPDevice* <a class="code" href="class_plugin_object.html#a0678b6675237f65d7679a400759b5c29">GetDevice2D</a>(); <span class="comment">// evil accessor? probably. necessary? probably not.</span>
-<a name="l00054"></a>00054     NPDeviceContext2D* <a class="code" href="class_plugin_object.html#ad121e4145b1f1cdcf878208919859e31">GetContext2D</a>();
+<a name="l00053"></a>00053         <a class="code" href="struct_n_p_device.html">NPDevice</a>* <a class="code" href="class_plugin_object.html#a0678b6675237f65d7679a400759b5c29">GetDevice2D</a>(); <span class="comment">// evil accessor? probably. necessary? probably not.</span>
+<a name="l00054"></a>00054     <a class="code" href="struct___n_p_device_context2_d.html">NPDeviceContext2D</a>* <a class="code" href="class_plugin_object.html#ad121e4145b1f1cdcf878208919859e31">GetContext2D</a>();
 <a name="l00055"></a>00055 
 <a name="l00056"></a>00056  <span class="keyword">protected</span>:
 <a name="l00057"></a>00057         <span class="keywordtype">bool</span> <a class="code" href="class_plugin_object.html#add4437ed89953c9617ef7bd07ae32194">InitializeCommandBuffer</a>();
 <a name="l00058"></a>00058 
-<a name="l00059"></a><a class="code" href="class_plugin_object.html#a2d49cd1ca32c2522400d2505bd3e357e">00059</a>         NPObject <a class="code" href="class_plugin_object.html#a2d49cd1ca32c2522400d2505bd3e357e">header_</a>;
+<a name="l00059"></a><a class="code" href="class_plugin_object.html#a2d49cd1ca32c2522400d2505bd3e357e">00059</a>         <a class="code" href="struct_n_p_object.html">NPObject</a> <a class="code" href="class_plugin_object.html#a2d49cd1ca32c2522400d2505bd3e357e">header_</a>;
 <a name="l00060"></a><a class="code" href="class_plugin_object.html#a73abf33dbc703aaab8c133b4fc16a6f4">00060</a>         <a class="code" href="struct___n_p_p.html">NPP</a> <a class="code" href="class_plugin_object.html#a73abf33dbc703aaab8c133b4fc16a6f4">npp_</a>;
-<a name="l00061"></a><a class="code" href="class_plugin_object.html#aa643ef173ea31331094fbf809d87b70d">00061</a>         NPObject* <a class="code" href="class_plugin_object.html#aa643ef173ea31331094fbf809d87b70d">test_object_</a>;
+<a name="l00061"></a><a class="code" href="class_plugin_object.html#aa643ef173ea31331094fbf809d87b70d">00061</a>         <a class="code" href="struct_n_p_object.html">NPObject</a>* <a class="code" href="class_plugin_object.html#aa643ef173ea31331094fbf809d87b70d">test_object_</a>;
 <a name="l00062"></a><a class="code" href="class_plugin_object.html#a60f6c920af50735f647d1715d7a27384">00062</a>         <span class="keywordtype">int</span> <a class="code" href="class_plugin_object.html#a60f6c920af50735f647d1715d7a27384">dimensions_</a>;
 <a name="l00063"></a>00063 
-<a name="l00064"></a><a class="code" href="class_plugin_object.html#a32c9649b557037cc8fbbf95f8c126c15">00064</a>         NPDevice* <a class="code" href="class_plugin_object.html#a32c9649b557037cc8fbbf95f8c126c15">device2d_</a>;
-<a name="l00065"></a><a class="code" href="class_plugin_object.html#af2fd117655e58027408e3cde1f7283fb">00065</a>         NPDevice* <a class="code" href="class_plugin_object.html#af2fd117655e58027408e3cde1f7283fb">device3d_</a>;
+<a name="l00064"></a><a class="code" href="class_plugin_object.html#a32c9649b557037cc8fbbf95f8c126c15">00064</a>         <a class="code" href="struct_n_p_device.html">NPDevice</a>* <a class="code" href="class_plugin_object.html#a32c9649b557037cc8fbbf95f8c126c15">device2d_</a>;
+<a name="l00065"></a><a class="code" href="class_plugin_object.html#af2fd117655e58027408e3cde1f7283fb">00065</a>         <a class="code" href="struct_n_p_device.html">NPDevice</a>* <a class="code" href="class_plugin_object.html#af2fd117655e58027408e3cde1f7283fb">device3d_</a>;
 <a name="l00066"></a>00066 
 <a name="l00067"></a><a class="code" href="class_plugin_object.html#a3819f8c68ea54fa3717c1487e288ee88">00067</a>         PGLContext <a class="code" href="class_plugin_object.html#a3819f8c68ea54fa3717c1487e288ee88">pgl_context_</a>;
 <a name="l00068"></a>00068 
-<a name="l00069"></a><a class="code" href="class_plugin_object.html#aec43fcb4f77ce50598bb1851b100d045">00069</a>         NPDevice* <a class="code" href="class_plugin_object.html#aec43fcb4f77ce50598bb1851b100d045">deviceaudio_</a>;
+<a name="l00069"></a><a class="code" href="class_plugin_object.html#aec43fcb4f77ce50598bb1851b100d045">00069</a>         <a class="code" href="struct_n_p_device.html">NPDevice</a>* <a class="code" href="class_plugin_object.html#aec43fcb4f77ce50598bb1851b100d045">deviceaudio_</a>;
 <a name="l00070"></a>00070 
 <a name="l00071"></a>00071         <span class="comment">//NPDeviceContext3D context3d_;</span>
-<a name="l00072"></a><a class="code" href="class_plugin_object.html#a29a7c72b105825ff135a29c9af9206f2">00072</a>         NPDeviceContextAudio <a class="code" href="class_plugin_object.html#a29a7c72b105825ff135a29c9af9206f2">context_audio_</a>;
+<a name="l00072"></a><a class="code" href="class_plugin_object.html#a29a7c72b105825ff135a29c9af9206f2">00072</a>         <a class="code" href="struct___n_p_device_context_audio.html">NPDeviceContextAudio</a> <a class="code" href="class_plugin_object.html#a29a7c72b105825ff135a29c9af9206f2">context_audio_</a>;
 <a name="l00073"></a>00073 
-<a name="l00074"></a><a class="code" href="class_plugin_object.html#ac4e47e096e7046c00152e0979a120059">00074</a>     NPDeviceContext2D* <a class="code" href="class_plugin_object.html#ac4e47e096e7046c00152e0979a120059">context2d_</a>;
+<a name="l00074"></a><a class="code" href="class_plugin_object.html#ac4e47e096e7046c00152e0979a120059">00074</a>     <a class="code" href="struct___n_p_device_context2_d.html">NPDeviceContext2D</a>* <a class="code" href="class_plugin_object.html#ac4e47e096e7046c00152e0979a120059">context2d_</a>;
 <a name="l00075"></a>00075     
 <a name="l00076"></a><a class="code" href="class_plugin_object.html#ac792c1966624836cbbadf26eaeae4e52">00076</a>         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_plugin_object.html#ac792c1966624836cbbadf26eaeae4e52">device2d_checksum_</a>;
 <a name="l00077"></a><a class="code" href="class_plugin_object.html#a1efe762777df7a3fc4b879d723598ef7">00077</a>         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_plugin_object.html#a1efe762777df7a3fc4b879d723598ef7">plugin2d_checksum_</a>;
@@ -110,7 +111,7 @@
 <a name="l00085"></a>00085 
 <a name="l00086"></a>00086 <span class="preprocessor">#endif  // NATIVE_CLIENT_TESTS_PEPPER_PLUGIN_PLUGIN_OBJECT_H_</span>
 </pre></div></div>
-<hr class="footer"/><address style="text-align: right;"><small>Generated on Mon Nov 1 14:47:09 2010 for crml by&nbsp;
+<hr class="footer"/><address style="text-align: right;"><small>Generated on Mon Nov 1 15:47:12 2010 for crml by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
 </body>

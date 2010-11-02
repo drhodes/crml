@@ -1,6 +1,6 @@
 NACLPORTS_ROOT = /home/derek/dev/naclports/src
 NACL_SDK_ROOT = /home/derek/dev/nacl_sdk
-CRML_ROOT = /home/derek/dev/crml/crml
+CRML_ROOT = /home/derek/dev/crml/crml/src
 
 DEBUGFLAGS = -O2 #-DNDEBUG
 
@@ -14,36 +14,39 @@ LINKFLAGS = -lgoogle_nacl_imc \
 			-llua \
 			-losg
 
-export CC         = nacl-gcc
-export CPP        = nacl-g++
-export CFLAGS     = -Wall -Wno-long-long -pthread -DXP_UNIX -Werror -std=gnu++0x -m32 \
-					-I$(NACLPORTS_ROOT) \
-					-I$(NACL_SDK_ROOT) \
-					-I$(CRML_ROOT) \
-					$(DEBUGFLAGS) $(BUILDFLAGS)
+export CC     = nacl-gcc
+export CPP    = nacl-g++
+export CFLAGS =	-Wall -Wno-long-long -pthread -DXP_UNIX -Werror -std=gnu++0x -m32 \
+				-I$(NACLPORTS_ROOT) \
+				-I$(NACL_SDK_ROOT) \
+				-I$(CRML_ROOT) \
+				-L$(CRML_ROOT) \
+				-enable-static \
+				-enable-shared=no \
+				$(DEBUGFLAGS) $(BUILDFLAGS)
 
 export CFLAGSEXT  = -I../../../include -I../.. $(DEBUGFLAGS) $(BUILDFLAGS)
 export LDFLAGS    = $(LINKFLAGS)
-export LIBPATH    = ../build
+export LIBPATH    = ../../build
 export VERSION    = 0.1
 export CP         = cp
 export LN         = nacl-ld
 export LNFLAGS    = -s -f
 export AR         = nacl-ar
 export ARFLAGS    = rcs
-export DESTDIR    = build
+export DESTDIR    = ../../build
 export DESTLIBDIR = $(DESTDIR)/lib
 export DESTINCDIR = $(DESTDIR)/include
 
-all: crml-sys crml-core # crml-win crml-net crml-gfx crml-aud
+all: crml_sys crml_core # crml-win crml-net crml-gfx crml-aud
 
-crml-sys:
+crml_sys:
 	@(mkdir -p ./build)
-	@(cd ./sys && $(MAKE))
+	@(cd ./src/sys && $(MAKE))
 
-crml-core:
+crml_core:
 	@(mkdir -p ./build)
-	@(cd ./core && $(MAKE))
+	@(cd ./src/core && $(MAKE))
 
 # crml-win:
 # 	@(mkdir -p ../../lib)
@@ -64,7 +67,7 @@ crml-core:
 .PHONY: clean mrproper
 
 clean:
-	@(	cd  ./sys && $(MAKE) $@ && \
+	@(	cd  ./src/sys && $(MAKE) $@ && \
 		cd ../core && $(MAKE) $@ && \
 		cd ../win && $(MAKE) $@ && \
 		cd ../net && $(MAKE) $@ && \
@@ -72,7 +75,7 @@ clean:
 		cd ../aud && $(MAKE) $@ )
 
 mrproper: clean
-	@(	cd ./sys && $(MAKE) $@ && \
+	@(	cd ./src/sys && $(MAKE) $@ && \
 		cd ../win && $(MAKE) $@ && \
 		cd ../net && $(MAKE) $@ && \
 		cd ../gfx && $(MAKE) $@ && \
@@ -81,7 +84,7 @@ mrproper: clean
 install:
 	@(mkdir -p $(DESTLIBDIR))
 	@(mkdir -p $(DESTINCDIR))
-	@(	cd ./sys && $(MAKE) $@ && \
+	@(	cd ./src/sys && $(MAKE) $@ && \
 		cd ../win && $(MAKE) $@ && \
 		cd ../net && $(MAKE) $@ && \
 		cd ../gfx && $(MAKE) $@ && \

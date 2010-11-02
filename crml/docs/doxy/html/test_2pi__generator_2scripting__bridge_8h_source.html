@@ -12,6 +12,7 @@
   <div class="tabs">
     <ul>
       <li><a href="main.html"><span>Main&nbsp;Page</span></a></li>
+      <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
@@ -45,12 +46,12 @@
 <a name="l00020"></a>00020   <span class="comment">// This class represents the Pepper3D object that gets exposed to the browser</span>
 <a name="l00021"></a>00021   <span class="comment">// code.</span>
 <a name="l00022"></a>00022 
-<a name="l00023"></a>00023   <span class="keyword">class </span>ScriptingBridge : <span class="keyword">public</span> NPObject {
+<a name="l00023"></a><a class="code" href="classpi__generator_1_1_scripting_bridge.html">00023</a>   <span class="keyword">class </span><a class="code" href="classpi__generator_1_1_scripting_bridge.html">ScriptingBridge</a> : <span class="keyword">public</span> <a class="code" href="struct_n_p_object.html">NPObject</a> {
 <a name="l00024"></a>00024    <span class="keyword">public</span>:
-<a name="l00025"></a><a class="code" href="classpi__generator_1_1_scripting_bridge.html#a48f5f7b0dfb3daabcdbfb3f7b667fd39">00025</a>     <span class="keyword">typedef</span> bool (<a class="code" href="classpi__generator_1_1_scripting_bridge.html">ScriptingBridge</a>::*<a class="code" href="classpi__generator_1_1_scripting_bridge.html#a48f5f7b0dfb3daabcdbfb3f7b667fd39">Method</a>)(<span class="keyword">const</span> NPVariant* args,
+<a name="l00025"></a><a class="code" href="classpi__generator_1_1_scripting_bridge.html#a48f5f7b0dfb3daabcdbfb3f7b667fd39">00025</a>     <span class="keyword">typedef</span> bool (<a class="code" href="classpi__generator_1_1_scripting_bridge.html">ScriptingBridge</a>::*<a class="code" href="classpi__generator_1_1_scripting_bridge.html#a48f5f7b0dfb3daabcdbfb3f7b667fd39">Method</a>)(<span class="keyword">const</span> <a class="code" href="struct___n_p_variant.html">NPVariant</a>* args,
 <a name="l00026"></a>00026                                             uint32_t arg_count,
-<a name="l00027"></a>00027                                             NPVariant* result);
-<a name="l00028"></a><a class="code" href="classpi__generator_1_1_scripting_bridge.html#abcd8cffa7f26f348e68cde316038245f">00028</a>     <span class="keyword">typedef</span> bool (<a class="code" href="classpi__generator_1_1_scripting_bridge.html">ScriptingBridge</a>::*<a class="code" href="classpi__generator_1_1_scripting_bridge.html#abcd8cffa7f26f348e68cde316038245f">Property</a>)(NPVariant* result);
+<a name="l00027"></a>00027                                             <a class="code" href="struct___n_p_variant.html">NPVariant</a>* result);
+<a name="l00028"></a><a class="code" href="classpi__generator_1_1_scripting_bridge.html#abcd8cffa7f26f348e68cde316038245f">00028</a>     <span class="keyword">typedef</span> bool (<a class="code" href="classpi__generator_1_1_scripting_bridge.html">ScriptingBridge</a>::*<a class="code" href="classpi__generator_1_1_scripting_bridge.html#abcd8cffa7f26f348e68cde316038245f">Property</a>)(<a class="code" href="struct___n_p_variant.html">NPVariant</a>* result);
 <a name="l00029"></a>00029 
 <a name="l00030"></a><a class="code" href="classpi__generator_1_1_scripting_bridge.html#abcc778b6a4c482dff1ed271d7e776e42">00030</a>     <span class="keyword">explicit</span> <a class="code" href="classpi__generator_1_1_scripting_bridge.html#abcc778b6a4c482dff1ed271d7e776e42">ScriptingBridge</a>(<a class="code" href="struct___n_p_p.html">NPP</a> npp) : npp_(npp) {}
 <a name="l00031"></a>00031     <span class="keyword">virtual</span> <a class="code" href="classpi__generator_1_1_scripting_bridge.html#a605567080f40ddb9a6c2fa4ea9f2e876">~ScriptingBridge</a>();
@@ -58,22 +59,22 @@
 <a name="l00033"></a>00033     <span class="comment">// These methods represent the NPObject implementation.  The browser calls</span>
 <a name="l00034"></a>00034     <span class="comment">// these methods by calling functions in the |np_class| struct.</span>
 <a name="l00035"></a>00035     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classpi__generator_1_1_scripting_bridge.html#a581ae88aa4acbefc30ae563452ab2fd5">Invalidate</a>();
-<a name="l00036"></a>00036     <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classpi__generator_1_1_scripting_bridge.html#aaa99f91c8ced5df6fac0700516cdd058">HasMethod</a>(NPIdentifier name);
-<a name="l00037"></a>00037     <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classpi__generator_1_1_scripting_bridge.html#a3518781037308ae1d63bcdf5cc77a3de">Invoke</a>(NPIdentifier name,
-<a name="l00038"></a>00038                         <span class="keyword">const</span> NPVariant* args,
+<a name="l00036"></a>00036     <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classpi__generator_1_1_scripting_bridge.html#aaa99f91c8ced5df6fac0700516cdd058">HasMethod</a>(<a class="code" href="npruntime_8h.html#a3ce51391e08bd3e24128c342b1d055b9">NPIdentifier</a> name);
+<a name="l00037"></a>00037     <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classpi__generator_1_1_scripting_bridge.html#a3518781037308ae1d63bcdf5cc77a3de">Invoke</a>(<a class="code" href="npruntime_8h.html#a3ce51391e08bd3e24128c342b1d055b9">NPIdentifier</a> name,
+<a name="l00038"></a>00038                         <span class="keyword">const</span> <a class="code" href="struct___n_p_variant.html">NPVariant</a>* args,
 <a name="l00039"></a>00039                         uint32_t arg_count,
-<a name="l00040"></a>00040                         NPVariant* result);
-<a name="l00041"></a>00041     <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classpi__generator_1_1_scripting_bridge.html#a0589fe559ec8b9297e37239233e238be">InvokeDefault</a>(<span class="keyword">const</span> NPVariant* args,
+<a name="l00040"></a>00040                         <a class="code" href="struct___n_p_variant.html">NPVariant</a>* result);
+<a name="l00041"></a>00041     <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classpi__generator_1_1_scripting_bridge.html#a0589fe559ec8b9297e37239233e238be">InvokeDefault</a>(<span class="keyword">const</span> <a class="code" href="struct___n_p_variant.html">NPVariant</a>* args,
 <a name="l00042"></a>00042                                uint32_t arg_count,
-<a name="l00043"></a>00043                                NPVariant* result);
-<a name="l00044"></a>00044     <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classpi__generator_1_1_scripting_bridge.html#a55f52d9e5e377367881e919db10b019f">HasProperty</a>(NPIdentifier name);
-<a name="l00045"></a>00045     <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classpi__generator_1_1_scripting_bridge.html#ab97693ce171c216783e79debb3b192cc">GetProperty</a>(NPIdentifier name, NPVariant* result);
-<a name="l00046"></a>00046     <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classpi__generator_1_1_scripting_bridge.html#aa87ffdeb58a36a1e352814132d4a020a">SetProperty</a>(NPIdentifier name, <span class="keyword">const</span> NPVariant* value);
-<a name="l00047"></a>00047     <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classpi__generator_1_1_scripting_bridge.html#ab1a46993e1a36b9857d48776f7085aa2">RemoveProperty</a>(NPIdentifier name);
+<a name="l00043"></a>00043                                <a class="code" href="struct___n_p_variant.html">NPVariant</a>* result);
+<a name="l00044"></a>00044     <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classpi__generator_1_1_scripting_bridge.html#a55f52d9e5e377367881e919db10b019f">HasProperty</a>(<a class="code" href="npruntime_8h.html#a3ce51391e08bd3e24128c342b1d055b9">NPIdentifier</a> name);
+<a name="l00045"></a>00045     <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classpi__generator_1_1_scripting_bridge.html#ab97693ce171c216783e79debb3b192cc">GetProperty</a>(<a class="code" href="npruntime_8h.html#a3ce51391e08bd3e24128c342b1d055b9">NPIdentifier</a> name, <a class="code" href="struct___n_p_variant.html">NPVariant</a>* result);
+<a name="l00046"></a>00046     <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classpi__generator_1_1_scripting_bridge.html#aa87ffdeb58a36a1e352814132d4a020a">SetProperty</a>(<a class="code" href="npruntime_8h.html#a3ce51391e08bd3e24128c342b1d055b9">NPIdentifier</a> name, <span class="keyword">const</span> <a class="code" href="struct___n_p_variant.html">NPVariant</a>* value);
+<a name="l00047"></a>00047     <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classpi__generator_1_1_scripting_bridge.html#ab1a46993e1a36b9857d48776f7085aa2">RemoveProperty</a>(<a class="code" href="npruntime_8h.html#a3ce51391e08bd3e24128c342b1d055b9">NPIdentifier</a> name);
 <a name="l00048"></a>00048 
 <a name="l00049"></a>00049     <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="classpi__generator_1_1_scripting_bridge.html#a76184c7bc22d728d207e275b5f980d67">InitializeIdentifiers</a>();
 <a name="l00050"></a>00050 
-<a name="l00051"></a>00051     <span class="keyword">static</span> NPClass <a class="code" href="classpi__generator_1_1_scripting_bridge.html#aed4a415c7f15933562413031d458792e">np_class</a>;
+<a name="l00051"></a><a class="code" href="classpi__generator_1_1_scripting_bridge.html#a1756e8dff7625cda7697f3e9725ede25">00051</a>     <span class="keyword">static</span> <a class="code" href="struct_n_p_class.html">NPClass</a> <a class="code" href="classpi__generator_1_1_scripting_bridge.html#a1756e8dff7625cda7697f3e9725ede25">np_class</a>;
 <a name="l00052"></a>00052 
 <a name="l00053"></a>00053     <span class="comment">// These methods are exposed via the scripting bridge to the browser.</span>
 <a name="l00054"></a>00054     <span class="comment">// Each one is mapped to a string id, which is the name of the method that</span>
@@ -85,13 +86,13 @@
 <a name="l00060"></a>00060     <span class="comment">// which is where the actual implementation lies.</span>
 <a name="l00061"></a>00061 
 <a name="l00062"></a>00062     <span class="comment">// Draws the quarter-circle image representing the stochasitc PI generator.</span>
-<a name="l00063"></a>00063     <span class="keywordtype">bool</span> <a class="code" href="classpi__generator_1_1_scripting_bridge.html#afcd2c9c3e990cae2d713e8bb5d84048d">Paint</a>(<span class="keyword">const</span> NPVariant* args, uint32_t arg_count, NPVariant* result);
+<a name="l00063"></a>00063     <span class="keywordtype">bool</span> <a class="code" href="classpi__generator_1_1_scripting_bridge.html#afcd2c9c3e990cae2d713e8bb5d84048d">Paint</a>(<span class="keyword">const</span> <a class="code" href="struct___n_p_variant.html">NPVariant</a>* args, uint32_t arg_count, <a class="code" href="struct___n_p_variant.html">NPVariant</a>* result);
 <a name="l00064"></a>00064 
 <a name="l00065"></a>00065    <span class="keyword">private</span>:
 <a name="l00066"></a>00066     <a class="code" href="struct___n_p_p.html">NPP</a> npp_;
-<a name="l00067"></a>00067     NPObject* window_object_;
+<a name="l00067"></a>00067     <a class="code" href="struct_n_p_object.html">NPObject</a>* window_object_;
 <a name="l00068"></a>00068 
-<a name="l00069"></a>00069     <span class="keyword">static</span> NPIdentifier id_paint;
+<a name="l00069"></a>00069     <span class="keyword">static</span> <a class="code" href="npruntime_8h.html#a3ce51391e08bd3e24128c342b1d055b9">NPIdentifier</a> id_paint;
 <a name="l00070"></a>00070 
 <a name="l00071"></a>00071     <span class="keyword">static</span> std::map&lt;NPIdentifier, Method&gt;* method_table;
 <a name="l00072"></a>00072     <span class="keyword">static</span> std::map&lt;NPIdentifier, Property&gt;* property_table;
@@ -101,7 +102,7 @@
 <a name="l00076"></a>00076 
 <a name="l00077"></a>00077 <span class="preprocessor">#endif  // EXAMPLES_PI_GENERATOR_SCRIPTING_BRIDGE_H_</span>
 </pre></div></div>
-<hr class="footer"/><address style="text-align: right;"><small>Generated on Mon Nov 1 14:47:09 2010 for crml by&nbsp;
+<hr class="footer"/><address style="text-align: right;"><small>Generated on Mon Nov 1 15:47:12 2010 for crml by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
 </body>

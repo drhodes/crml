@@ -12,6 +12,7 @@
   <div class="tabs">
     <ul>
       <li><a href="main.html"><span>Main&nbsp;Page</span></a></li>
+      <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
@@ -40,27 +41,27 @@
 <a name="l00015"></a>00015         <span class="comment">// Log given message to javascript console.</span>
 <a name="l00016"></a><a class="code" href="jslog_8cc.html#a1d5b6de7ad081ba4f13d8d98e7d3ee8a">00016</a>         <span class="keywordtype">bool</span> <a class="code" href="log__macro_8cc.html#a812a69f313695f6da8820ae9ecb565ba">Log</a>(<a class="code" href="struct___n_p_p.html">NPP</a> npp, <span class="keyword">const</span> <span class="keywordtype">char</span>* msg, ...) {
 <a name="l00017"></a>00017                 <span class="keywordtype">bool</span> rv = <span class="keyword">false</span>;
-<a name="l00018"></a>00018                 NPObject* window = NULL;
+<a name="l00018"></a>00018                 <a class="code" href="struct_n_p_object.html">NPObject</a>* window = NULL;
 <a name="l00019"></a>00019                 <span class="keywordflow">if</span> (<a class="code" href="npapi_8h.html#a6b839d62e078f61fdf40486c64b1c520">NPERR_NO_ERROR</a> == <a class="code" href="npapi_8h.html#acce38523daea527eb7cb21a212277fd4">NPN_GetValue</a>(npp, <a class="code" href="npapi_8h.html#ac6ceb0585e9b642ef0ee915918ae07c5a09590385eb9871aee64e08e2753d188e">NPNVWindowNPObject</a>, &amp;window)) {
 <a name="l00020"></a>00020                         <span class="keyword">const</span> <span class="keywordtype">char</span> buffer[] = <span class="stringliteral">&quot;top.console&quot;</span>;
-<a name="l00021"></a>00021                         NPString console_stript = { 0 };
-<a name="l00022"></a>00022                         console_stript.UTF8Length = strlen(buffer);
-<a name="l00023"></a>00023                         console_stript.UTF8Characters = buffer;
-<a name="l00024"></a>00024                         NPVariant console;
-<a name="l00025"></a>00025                         <span class="keywordflow">if</span> (NPN_Evaluate(npp, window, &amp;console_stript, &amp;console)) {
-<a name="l00026"></a>00026                                 <span class="keywordflow">if</span> (NPVARIANT_IS_OBJECT(console)) {
+<a name="l00021"></a>00021                         <a class="code" href="struct___n_p_string.html">NPString</a> console_stript = { 0 };
+<a name="l00022"></a>00022                         console_stript.<a class="code" href="struct___n_p_string.html#a3f802a73c760b2a05173a3d63a56f972">UTF8Length</a> = strlen(buffer);
+<a name="l00023"></a>00023                         console_stript.<a class="code" href="struct___n_p_string.html#a5e6b1c34a19eb86eeb01558e8d09866f">UTF8Characters</a> = buffer;
+<a name="l00024"></a>00024                         <a class="code" href="struct___n_p_variant.html">NPVariant</a> console;
+<a name="l00025"></a>00025                         <span class="keywordflow">if</span> (<a class="code" href="npruntime_8h.html#a7666f07d00764582bede1b6d491a9ec7">NPN_Evaluate</a>(npp, window, &amp;console_stript, &amp;console)) {
+<a name="l00026"></a>00026                                 <span class="keywordflow">if</span> (<a class="code" href="npruntime_8h.html#a7538171cc9329477ee61ce4f78da7ca9">NPVARIANT_IS_OBJECT</a>(console)) {
 <a name="l00027"></a>00027                                         <span class="comment">// Convert the message to NPString;</span>
-<a name="l00028"></a>00028                                         NPVariant text;
-<a name="l00029"></a>00029                                         STRINGN_TO_NPVARIANT(msg, static_cast&lt;uint32_t&gt;(strlen(msg)),
+<a name="l00028"></a>00028                                         <a class="code" href="struct___n_p_variant.html">NPVariant</a> text;
+<a name="l00029"></a>00029                                         <a class="code" href="npruntime_8h.html#a828fc02de48b95f4b402051ad78cbf9d">STRINGN_TO_NPVARIANT</a>(msg, static_cast&lt;uint32_t&gt;(strlen(msg)),
 <a name="l00030"></a>00030                                                                                  text);
-<a name="l00031"></a>00031                                         NPVariant result;
-<a name="l00032"></a>00032                                         <span class="keywordflow">if</span> (NPN_Invoke(npp, NPVARIANT_TO_OBJECT(console),
-<a name="l00033"></a>00033                                                                    NPN_GetStringIdentifier(<span class="stringliteral">&quot;log&quot;</span>), &amp;text, 1, &amp;result)) {
-<a name="l00034"></a>00034                                                 NPN_ReleaseVariantValue(&amp;result);
+<a name="l00031"></a>00031                                         <a class="code" href="struct___n_p_variant.html">NPVariant</a> result;
+<a name="l00032"></a>00032                                         <span class="keywordflow">if</span> (<a class="code" href="npruntime_8h.html#a1db2edfd1bb75f09f0f2d2a576d7765e">NPN_Invoke</a>(npp, <a class="code" href="npruntime_8h.html#a31a6d36b090dea568b9e99ed5a60d7ea">NPVARIANT_TO_OBJECT</a>(console),
+<a name="l00033"></a>00033                                                                    <a class="code" href="npruntime_8h.html#ad5e91207290b739f1d4b74a95cf6bbbc">NPN_GetStringIdentifier</a>(<span class="stringliteral">&quot;log&quot;</span>), &amp;text, 1, &amp;result)) {
+<a name="l00034"></a>00034                                                 <a class="code" href="npruntime_8h.html#a5418cf42ed7f8adc71ab6c5505c8a808">NPN_ReleaseVariantValue</a>(&amp;result);
 <a name="l00035"></a>00035                                                 rv = <span class="keyword">true</span>;
 <a name="l00036"></a>00036                                         }
 <a name="l00037"></a>00037                                 }
-<a name="l00038"></a>00038                                 NPN_ReleaseVariantValue(&amp;console);
+<a name="l00038"></a>00038                                 <a class="code" href="npruntime_8h.html#a5418cf42ed7f8adc71ab6c5505c8a808">NPN_ReleaseVariantValue</a>(&amp;console);
 <a name="l00039"></a>00039                         }
 <a name="l00040"></a>00040                 }
 <a name="l00041"></a>00041                 <span class="keywordflow">return</span> rv;
@@ -68,7 +69,7 @@
 <a name="l00043"></a>00043 
 <a name="l00044"></a>00044 <span class="preprocessor">#endif</span>
 </pre></div></div>
-<hr class="footer"/><address style="text-align: right;"><small>Generated on Mon Nov 1 14:47:09 2010 for crml by&nbsp;
+<hr class="footer"/><address style="text-align: right;"><small>Generated on Mon Nov 1 15:47:12 2010 for crml by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
 </body>

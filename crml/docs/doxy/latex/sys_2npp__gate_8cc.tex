@@ -20,13 +20,13 @@ struct \hyperlink{struct_hello_world}{HelloWorld}
 \item 
 \hyperlink{npapi_8h_a56715bc92ac93f0447a05f852ce18828}{NPError} \hyperlink{sys_2npp__gate_8cc_a13cdb3ad1ae5ab428bd418ce64af269f}{NPP\_\-Destroy} (\hyperlink{struct___n_p_p}{NPP} instance, \hyperlink{struct___n_p_saved_data}{NPSavedData} $\ast$$\ast$save)
 \item 
-NPObject $\ast$ \hyperlink{sys_2npp__gate_8cc_ad6b92f15011abb6dde0ae16e86f46ed7}{NPP\_\-GetScriptableInstance} (\hyperlink{struct___n_p_p}{NPP} instance)
+\hyperlink{struct_n_p_object}{NPObject} $\ast$ \hyperlink{sys_2npp__gate_8cc_ad6b92f15011abb6dde0ae16e86f46ed7}{NPP\_\-GetScriptableInstance} (\hyperlink{struct___n_p_p}{NPP} instance)
 \item 
 \hyperlink{npapi_8h_a56715bc92ac93f0447a05f852ce18828}{NPError} \hyperlink{sys_2npp__gate_8cc_ab93893b6f6dcfa2b9e0f53b462badb0a}{NPP\_\-GetValue} (\hyperlink{struct___n_p_p}{NPP} instance, \hyperlink{npapi_8h_a1b56dde896277605195e0fad69cbca7d}{NPPVariable} variable, void $\ast$ret\_\-value)
 \item 
 \hyperlink{npapi_8h_a56715bc92ac93f0447a05f852ce18828}{NPError} \hyperlink{sys_2npp__gate_8cc_a352d8aac09e759465185ddd4eeea9df9}{NPP\_\-SetWindow} (\hyperlink{struct___n_p_p}{NPP} instance, \hyperlink{struct___n_p_window}{NPWindow} $\ast$window)
 \item 
-\hyperlink{npapi_8h_a56715bc92ac93f0447a05f852ce18828}{NPError} \hyperlink{sys_2npp__gate_8cc_a2e202c35d113ebeb05eb2175fc8d97cb}{InitializePluginFunctions} (NPPluginFuncs $\ast$plugin\_\-funcs)
+\hyperlink{npapi_8h_a56715bc92ac93f0447a05f852ce18828}{NPError} \hyperlink{sys_2npp__gate_8cc_a2e202c35d113ebeb05eb2175fc8d97cb}{InitializePluginFunctions} (\hyperlink{struct___n_p_plugin_funcs}{NPPluginFuncs} $\ast$plugin\_\-funcs)
 \end{DoxyCompactItemize}
 
 
@@ -34,7 +34,7 @@ NPObject $\ast$ \hyperlink{sys_2npp__gate_8cc_ad6b92f15011abb6dde0ae16e86f46ed7}
 \hypertarget{sys_2npp__gate_8cc_a2e202c35d113ebeb05eb2175fc8d97cb}{
 \index{sys/npp\_\-gate.cc@{sys/npp\_\-gate.cc}!InitializePluginFunctions@{InitializePluginFunctions}}
 \index{InitializePluginFunctions@{InitializePluginFunctions}!sys/npp_gate.cc@{sys/npp\_\-gate.cc}}
-\subsubsection[{InitializePluginFunctions}]{\setlength{\rightskip}{0pt plus 5cm}{\bf NPError} InitializePluginFunctions (NPPluginFuncs $\ast$ {\em plugin\_\-funcs})}}
+\subsubsection[{InitializePluginFunctions}]{\setlength{\rightskip}{0pt plus 5cm}{\bf NPError} InitializePluginFunctions ({\bf NPPluginFuncs} $\ast$ {\em plugin\_\-funcs})}}
 \label{sys_2npp__gate_8cc_a2e202c35d113ebeb05eb2175fc8d97cb}
 
 
@@ -52,7 +52,7 @@ Definition at line 53 of file npp\_\-gate.cc.
 \hypertarget{sys_2npp__gate_8cc_ad6b92f15011abb6dde0ae16e86f46ed7}{
 \index{sys/npp\_\-gate.cc@{sys/npp\_\-gate.cc}!NPP\_\-GetScriptableInstance@{NPP\_\-GetScriptableInstance}}
 \index{NPP\_\-GetScriptableInstance@{NPP\_\-GetScriptableInstance}!sys/npp_gate.cc@{sys/npp\_\-gate.cc}}
-\subsubsection[{NPP\_\-GetScriptableInstance}]{\setlength{\rightskip}{0pt plus 5cm}NPObject$\ast$ NPP\_\-GetScriptableInstance ({\bf NPP} {\em instance})}}
+\subsubsection[{NPP\_\-GetScriptableInstance}]{\setlength{\rightskip}{0pt plus 5cm}{\bf NPObject}$\ast$ NPP\_\-GetScriptableInstance ({\bf NPP} {\em instance})}}
 \label{sys_2npp__gate_8cc_ad6b92f15011abb6dde0ae16e86f46ed7}
 
 

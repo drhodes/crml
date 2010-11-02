@@ -6,16 +6,18 @@
 
 {\ttfamily \#include $<$scripting\_\-bridge.h$>$}
 
+Inheritance diagram for pi\_\-generator::ScriptingBridge:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2cm]{classpi__generator_1_1_scripting_bridge}
+\end{center}
+\end{figure}
 \subsection*{Public Types}
 \begin{DoxyCompactItemize}
 \item 
-typedef bool(ScriptingBridge::$\ast$ \hyperlink{classpi__generator_1_1_scripting_bridge_a48f5f7b0dfb3daabcdbfb3f7b667fd39}{Method} )(const NPVariant $\ast$args, uint32\_\-t arg\_\-count, NPVariant $\ast$result)
+typedef bool(ScriptingBridge::$\ast$ \hyperlink{classpi__generator_1_1_scripting_bridge_a48f5f7b0dfb3daabcdbfb3f7b667fd39}{Method} )(const \hyperlink{struct___n_p_variant}{NPVariant} $\ast$args, uint32\_\-t arg\_\-count, \hyperlink{struct___n_p_variant}{NPVariant} $\ast$result)
 \item 
-typedef bool(ScriptingBridge::$\ast$ \hyperlink{classpi__generator_1_1_scripting_bridge_abcd8cffa7f26f348e68cde316038245f}{Property} )(NPVariant $\ast$result)
-\item 
-typedef bool(ScriptingBridge::$\ast$ \hyperlink{classpi__generator_1_1_scripting_bridge_a48f5f7b0dfb3daabcdbfb3f7b667fd39}{Method} )(const NPVariant $\ast$args, uint32\_\-t arg\_\-count, NPVariant $\ast$result)
-\item 
-typedef bool(ScriptingBridge::$\ast$ \hyperlink{classpi__generator_1_1_scripting_bridge_abcd8cffa7f26f348e68cde316038245f}{Property} )(NPVariant $\ast$result)
+typedef bool(ScriptingBridge::$\ast$ \hyperlink{classpi__generator_1_1_scripting_bridge_abcd8cffa7f26f348e68cde316038245f}{Property} )(\hyperlink{struct___n_p_variant}{NPVariant} $\ast$result)
 \end{DoxyCompactItemize}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
@@ -26,55 +28,31 @@ virtual \hyperlink{classpi__generator_1_1_scripting_bridge_a605567080f40ddb9a6c2
 \item 
 virtual void \hyperlink{classpi__generator_1_1_scripting_bridge_a581ae88aa4acbefc30ae563452ab2fd5}{Invalidate} ()
 \item 
-virtual bool \hyperlink{classpi__generator_1_1_scripting_bridge_aaa99f91c8ced5df6fac0700516cdd058}{HasMethod} (NPIdentifier name)
+virtual bool \hyperlink{classpi__generator_1_1_scripting_bridge_aaa99f91c8ced5df6fac0700516cdd058}{HasMethod} (\hyperlink{npruntime_8h_a3ce51391e08bd3e24128c342b1d055b9}{NPIdentifier} name)
 \item 
-virtual bool \hyperlink{classpi__generator_1_1_scripting_bridge_a3518781037308ae1d63bcdf5cc77a3de}{Invoke} (NPIdentifier name, const NPVariant $\ast$args, uint32\_\-t arg\_\-count, NPVariant $\ast$result)
+virtual bool \hyperlink{classpi__generator_1_1_scripting_bridge_a3518781037308ae1d63bcdf5cc77a3de}{Invoke} (\hyperlink{npruntime_8h_a3ce51391e08bd3e24128c342b1d055b9}{NPIdentifier} name, const \hyperlink{struct___n_p_variant}{NPVariant} $\ast$args, uint32\_\-t arg\_\-count, \hyperlink{struct___n_p_variant}{NPVariant} $\ast$result)
 \item 
-virtual bool \hyperlink{classpi__generator_1_1_scripting_bridge_a0589fe559ec8b9297e37239233e238be}{InvokeDefault} (const NPVariant $\ast$args, uint32\_\-t arg\_\-count, NPVariant $\ast$result)
+virtual bool \hyperlink{classpi__generator_1_1_scripting_bridge_a0589fe559ec8b9297e37239233e238be}{InvokeDefault} (const \hyperlink{struct___n_p_variant}{NPVariant} $\ast$args, uint32\_\-t arg\_\-count, \hyperlink{struct___n_p_variant}{NPVariant} $\ast$result)
 \item 
-virtual bool \hyperlink{classpi__generator_1_1_scripting_bridge_a55f52d9e5e377367881e919db10b019f}{HasProperty} (NPIdentifier name)
+virtual bool \hyperlink{classpi__generator_1_1_scripting_bridge_a55f52d9e5e377367881e919db10b019f}{HasProperty} (\hyperlink{npruntime_8h_a3ce51391e08bd3e24128c342b1d055b9}{NPIdentifier} name)
 \item 
-virtual bool \hyperlink{classpi__generator_1_1_scripting_bridge_ab97693ce171c216783e79debb3b192cc}{GetProperty} (NPIdentifier name, NPVariant $\ast$result)
+virtual bool \hyperlink{classpi__generator_1_1_scripting_bridge_ab97693ce171c216783e79debb3b192cc}{GetProperty} (\hyperlink{npruntime_8h_a3ce51391e08bd3e24128c342b1d055b9}{NPIdentifier} name, \hyperlink{struct___n_p_variant}{NPVariant} $\ast$result)
 \item 
-virtual bool \hyperlink{classpi__generator_1_1_scripting_bridge_aa87ffdeb58a36a1e352814132d4a020a}{SetProperty} (NPIdentifier name, const NPVariant $\ast$value)
+virtual bool \hyperlink{classpi__generator_1_1_scripting_bridge_aa87ffdeb58a36a1e352814132d4a020a}{SetProperty} (\hyperlink{npruntime_8h_a3ce51391e08bd3e24128c342b1d055b9}{NPIdentifier} name, const \hyperlink{struct___n_p_variant}{NPVariant} $\ast$value)
 \item 
-virtual bool \hyperlink{classpi__generator_1_1_scripting_bridge_ab1a46993e1a36b9857d48776f7085aa2}{RemoveProperty} (NPIdentifier name)
+virtual bool \hyperlink{classpi__generator_1_1_scripting_bridge_ab1a46993e1a36b9857d48776f7085aa2}{RemoveProperty} (\hyperlink{npruntime_8h_a3ce51391e08bd3e24128c342b1d055b9}{NPIdentifier} name)
 \item 
-bool \hyperlink{classpi__generator_1_1_scripting_bridge_afcd2c9c3e990cae2d713e8bb5d84048d}{Paint} (const NPVariant $\ast$args, uint32\_\-t arg\_\-count, NPVariant $\ast$result)
-\item 
-\hyperlink{classpi__generator_1_1_scripting_bridge_abcc778b6a4c482dff1ed271d7e776e42}{ScriptingBridge} (\hyperlink{struct___n_p_p}{NPP} npp)
-\item 
-virtual \hyperlink{classpi__generator_1_1_scripting_bridge_a59851d3f9406541b0805b87b874a1a49}{$\sim$ScriptingBridge} ()
-\item 
-virtual void \hyperlink{classpi__generator_1_1_scripting_bridge_a7b991ca4653d4a447d6a3f8760261780}{Invalidate} ()
-\item 
-virtual bool \hyperlink{classpi__generator_1_1_scripting_bridge_a5da4e0d7d9a2fe59b4838a40503a5a2e}{HasMethod} (NPIdentifier name)
-\item 
-virtual bool \hyperlink{classpi__generator_1_1_scripting_bridge_aed0d146930d7db6a548993629bb775f6}{Invoke} (NPIdentifier name, const NPVariant $\ast$args, uint32\_\-t arg\_\-count, NPVariant $\ast$result)
-\item 
-virtual bool \hyperlink{classpi__generator_1_1_scripting_bridge_abe1c6a84817b0a53c83527cbdc118dba}{InvokeDefault} (const NPVariant $\ast$args, uint32\_\-t arg\_\-count, NPVariant $\ast$result)
-\item 
-virtual bool \hyperlink{classpi__generator_1_1_scripting_bridge_adbcb9a1bd7516d027a55aabd1ab60cf1}{HasProperty} (NPIdentifier name)
-\item 
-virtual bool \hyperlink{classpi__generator_1_1_scripting_bridge_a6c4717a5a7d7c24c697d129904d0e0bf}{GetProperty} (NPIdentifier name, NPVariant $\ast$result)
-\item 
-virtual bool \hyperlink{classpi__generator_1_1_scripting_bridge_a81c45706acaa62a4ba74cc2f0d0150c4}{SetProperty} (NPIdentifier name, const NPVariant $\ast$value)
-\item 
-virtual bool \hyperlink{classpi__generator_1_1_scripting_bridge_a5f317f9adabc7082079a919d1163cc09}{RemoveProperty} (NPIdentifier name)
-\item 
-bool \hyperlink{classpi__generator_1_1_scripting_bridge_afcd2c9c3e990cae2d713e8bb5d84048d}{Paint} (const NPVariant $\ast$args, uint32\_\-t arg\_\-count, NPVariant $\ast$result)
+bool \hyperlink{classpi__generator_1_1_scripting_bridge_afcd2c9c3e990cae2d713e8bb5d84048d}{Paint} (const \hyperlink{struct___n_p_variant}{NPVariant} $\ast$args, uint32\_\-t arg\_\-count, \hyperlink{struct___n_p_variant}{NPVariant} $\ast$result)
 \end{DoxyCompactItemize}
 \subsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 static bool \hyperlink{classpi__generator_1_1_scripting_bridge_a76184c7bc22d728d207e275b5f980d67}{InitializeIdentifiers} ()
-\item 
-static bool \hyperlink{classpi__generator_1_1_scripting_bridge_ab1274471c47d3f5d1a56f3a604e0efff}{InitializeIdentifiers} ()
 \end{DoxyCompactItemize}
 \subsection*{Static Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-static NPClass \hyperlink{classpi__generator_1_1_scripting_bridge_aed4a415c7f15933562413031d458792e}{np\_\-class}
+static \hyperlink{struct_n_p_class}{NPClass} \hyperlink{classpi__generator_1_1_scripting_bridge_a1756e8dff7625cda7697f3e9725ede25}{np\_\-class}
 \end{DoxyCompactItemize}
 
 
@@ -89,16 +67,7 @@ Definition at line 23 of file scripting\_\-bridge.h.
 \hypertarget{classpi__generator_1_1_scripting_bridge_a48f5f7b0dfb3daabcdbfb3f7b667fd39}{
 \index{pi\_\-generator::ScriptingBridge@{pi\_\-generator::ScriptingBridge}!Method@{Method}}
 \index{Method@{Method}!pi_generator::ScriptingBridge@{pi\_\-generator::ScriptingBridge}}
-\subsubsection[{Method}]{\setlength{\rightskip}{0pt plus 5cm}typedef bool(ScriptingBridge::$\ast$ {\bf pi\_\-generator::ScriptingBridge::Method})(const NPVariant $\ast$args, uint32\_\-t arg\_\-count, NPVariant $\ast$result)}}
-\label{classpi__generator_1_1_scripting_bridge_a48f5f7b0dfb3daabcdbfb3f7b667fd39}
-
-
-Definition at line 25 of file scripting\_\-bridge.h.
-
-\hypertarget{classpi__generator_1_1_scripting_bridge_a48f5f7b0dfb3daabcdbfb3f7b667fd39}{
-\index{pi\_\-generator::ScriptingBridge@{pi\_\-generator::ScriptingBridge}!Method@{Method}}
-\index{Method@{Method}!pi_generator::ScriptingBridge@{pi\_\-generator::ScriptingBridge}}
-\subsubsection[{Method}]{\setlength{\rightskip}{0pt plus 5cm}typedef bool(ScriptingBridge::$\ast$ {\bf pi\_\-generator::ScriptingBridge::Method})(const NPVariant $\ast$args, uint32\_\-t arg\_\-count, NPVariant $\ast$result)}}
+\subsubsection[{Method}]{\setlength{\rightskip}{0pt plus 5cm}typedef bool(ScriptingBridge::$\ast$ {\bf pi\_\-generator::ScriptingBridge::Method})(const {\bf NPVariant} $\ast$args, uint32\_\-t arg\_\-count, {\bf NPVariant} $\ast$result)}}
 \label{classpi__generator_1_1_scripting_bridge_a48f5f7b0dfb3daabcdbfb3f7b667fd39}
 
 
@@ -107,16 +76,7 @@ Definition at line 25 of file scripting\_\-bridge.h.
 \hypertarget{classpi__generator_1_1_scripting_bridge_abcd8cffa7f26f348e68cde316038245f}{
 \index{pi\_\-generator::ScriptingBridge@{pi\_\-generator::ScriptingBridge}!Property@{Property}}
 \index{Property@{Property}!pi_generator::ScriptingBridge@{pi\_\-generator::ScriptingBridge}}
-\subsubsection[{Property}]{\setlength{\rightskip}{0pt plus 5cm}typedef bool(ScriptingBridge::$\ast$ {\bf pi\_\-generator::ScriptingBridge::Property})(NPVariant $\ast$result)}}
-\label{classpi__generator_1_1_scripting_bridge_abcd8cffa7f26f348e68cde316038245f}
-
-
-Definition at line 28 of file scripting\_\-bridge.h.
-
-\hypertarget{classpi__generator_1_1_scripting_bridge_abcd8cffa7f26f348e68cde316038245f}{
-\index{pi\_\-generator::ScriptingBridge@{pi\_\-generator::ScriptingBridge}!Property@{Property}}
-\index{Property@{Property}!pi_generator::ScriptingBridge@{pi\_\-generator::ScriptingBridge}}
-\subsubsection[{Property}]{\setlength{\rightskip}{0pt plus 5cm}typedef bool(ScriptingBridge::$\ast$ {\bf pi\_\-generator::ScriptingBridge::Property})(NPVariant $\ast$result)}}
+\subsubsection[{Property}]{\setlength{\rightskip}{0pt plus 5cm}typedef bool(ScriptingBridge::$\ast$ {\bf pi\_\-generator::ScriptingBridge::Property})({\bf NPVariant} $\ast$result)}}
 \label{classpi__generator_1_1_scripting_bridge_abcd8cffa7f26f348e68cde316038245f}
 
 
@@ -143,70 +103,36 @@ Definition at line 30 of file scripting\_\-bridge.h.
 
 Definition at line 43 of file scripting\_\-bridge.cc.
 
-\hypertarget{classpi__generator_1_1_scripting_bridge_abcc778b6a4c482dff1ed271d7e776e42}{
-\index{pi\_\-generator::ScriptingBridge@{pi\_\-generator::ScriptingBridge}!ScriptingBridge@{ScriptingBridge}}
-\index{ScriptingBridge@{ScriptingBridge}!pi_generator::ScriptingBridge@{pi\_\-generator::ScriptingBridge}}
-\subsubsection[{ScriptingBridge}]{\setlength{\rightskip}{0pt plus 5cm}pi\_\-generator::ScriptingBridge::ScriptingBridge ({\bf NPP} {\em npp})\hspace{0.3cm}{\ttfamily  \mbox{[}inline, explicit\mbox{]}}}}
-\label{classpi__generator_1_1_scripting_bridge_abcc778b6a4c482dff1ed271d7e776e42}
-
-
-Definition at line 30 of file scripting\_\-bridge.h.
-
-\hypertarget{classpi__generator_1_1_scripting_bridge_a59851d3f9406541b0805b87b874a1a49}{
-\index{pi\_\-generator::ScriptingBridge@{pi\_\-generator::ScriptingBridge}!$\sim$ScriptingBridge@{$\sim$ScriptingBridge}}
-\index{$\sim$ScriptingBridge@{$\sim$ScriptingBridge}!pi_generator::ScriptingBridge@{pi\_\-generator::ScriptingBridge}}
-\subsubsection[{$\sim$ScriptingBridge}]{\setlength{\rightskip}{0pt plus 5cm}virtual pi\_\-generator::ScriptingBridge::$\sim$ScriptingBridge ()\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
-\label{classpi__generator_1_1_scripting_bridge_a59851d3f9406541b0805b87b874a1a49}
 
 
 \subsection{Member Function Documentation}
-\hypertarget{classpi__generator_1_1_scripting_bridge_a6c4717a5a7d7c24c697d129904d0e0bf}{
-\index{pi\_\-generator::ScriptingBridge@{pi\_\-generator::ScriptingBridge}!GetProperty@{GetProperty}}
-\index{GetProperty@{GetProperty}!pi_generator::ScriptingBridge@{pi\_\-generator::ScriptingBridge}}
-\subsubsection[{GetProperty}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool pi\_\-generator::ScriptingBridge::GetProperty (NPIdentifier {\em name}, \/  NPVariant $\ast$ {\em result})\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
-\label{classpi__generator_1_1_scripting_bridge_a6c4717a5a7d7c24c697d129904d0e0bf}
 \hypertarget{classpi__generator_1_1_scripting_bridge_ab97693ce171c216783e79debb3b192cc}{
 \index{pi\_\-generator::ScriptingBridge@{pi\_\-generator::ScriptingBridge}!GetProperty@{GetProperty}}
 \index{GetProperty@{GetProperty}!pi_generator::ScriptingBridge@{pi\_\-generator::ScriptingBridge}}
-\subsubsection[{GetProperty}]{\setlength{\rightskip}{0pt plus 5cm}bool pi\_\-generator::ScriptingBridge::GetProperty (NPIdentifier {\em name}, \/  NPVariant $\ast$ {\em result})\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\subsubsection[{GetProperty}]{\setlength{\rightskip}{0pt plus 5cm}bool pi\_\-generator::ScriptingBridge::GetProperty ({\bf NPIdentifier} {\em name}, \/  {\bf NPVariant} $\ast$ {\em result})\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
 \label{classpi__generator_1_1_scripting_bridge_ab97693ce171c216783e79debb3b192cc}
 
 
 Definition at line 64 of file scripting\_\-bridge.cc.
 
-\hypertarget{classpi__generator_1_1_scripting_bridge_a5da4e0d7d9a2fe59b4838a40503a5a2e}{
-\index{pi\_\-generator::ScriptingBridge@{pi\_\-generator::ScriptingBridge}!HasMethod@{HasMethod}}
-\index{HasMethod@{HasMethod}!pi_generator::ScriptingBridge@{pi\_\-generator::ScriptingBridge}}
-\subsubsection[{HasMethod}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool pi\_\-generator::ScriptingBridge::HasMethod (NPIdentifier {\em name})\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
-\label{classpi__generator_1_1_scripting_bridge_a5da4e0d7d9a2fe59b4838a40503a5a2e}
 \hypertarget{classpi__generator_1_1_scripting_bridge_aaa99f91c8ced5df6fac0700516cdd058}{
 \index{pi\_\-generator::ScriptingBridge@{pi\_\-generator::ScriptingBridge}!HasMethod@{HasMethod}}
 \index{HasMethod@{HasMethod}!pi_generator::ScriptingBridge@{pi\_\-generator::ScriptingBridge}}
-\subsubsection[{HasMethod}]{\setlength{\rightskip}{0pt plus 5cm}bool pi\_\-generator::ScriptingBridge::HasMethod (NPIdentifier {\em name})\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\subsubsection[{HasMethod}]{\setlength{\rightskip}{0pt plus 5cm}bool pi\_\-generator::ScriptingBridge::HasMethod ({\bf NPIdentifier} {\em name})\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
 \label{classpi__generator_1_1_scripting_bridge_aaa99f91c8ced5df6fac0700516cdd058}
 
 
 Definition at line 48 of file scripting\_\-bridge.cc.
 
-\hypertarget{classpi__generator_1_1_scripting_bridge_adbcb9a1bd7516d027a55aabd1ab60cf1}{
-\index{pi\_\-generator::ScriptingBridge@{pi\_\-generator::ScriptingBridge}!HasProperty@{HasProperty}}
-\index{HasProperty@{HasProperty}!pi_generator::ScriptingBridge@{pi\_\-generator::ScriptingBridge}}
-\subsubsection[{HasProperty}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool pi\_\-generator::ScriptingBridge::HasProperty (NPIdentifier {\em name})\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
-\label{classpi__generator_1_1_scripting_bridge_adbcb9a1bd7516d027a55aabd1ab60cf1}
 \hypertarget{classpi__generator_1_1_scripting_bridge_a55f52d9e5e377367881e919db10b019f}{
 \index{pi\_\-generator::ScriptingBridge@{pi\_\-generator::ScriptingBridge}!HasProperty@{HasProperty}}
 \index{HasProperty@{HasProperty}!pi_generator::ScriptingBridge@{pi\_\-generator::ScriptingBridge}}
-\subsubsection[{HasProperty}]{\setlength{\rightskip}{0pt plus 5cm}bool pi\_\-generator::ScriptingBridge::HasProperty (NPIdentifier {\em name})\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\subsubsection[{HasProperty}]{\setlength{\rightskip}{0pt plus 5cm}bool pi\_\-generator::ScriptingBridge::HasProperty ({\bf NPIdentifier} {\em name})\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
 \label{classpi__generator_1_1_scripting_bridge_a55f52d9e5e377367881e919db10b019f}
 
 
 Definition at line 56 of file scripting\_\-bridge.cc.
 
-\hypertarget{classpi__generator_1_1_scripting_bridge_ab1274471c47d3f5d1a56f3a604e0efff}{
-\index{pi\_\-generator::ScriptingBridge@{pi\_\-generator::ScriptingBridge}!InitializeIdentifiers@{InitializeIdentifiers}}
-\index{InitializeIdentifiers@{InitializeIdentifiers}!pi_generator::ScriptingBridge@{pi\_\-generator::ScriptingBridge}}
-\subsubsection[{InitializeIdentifiers}]{\setlength{\rightskip}{0pt plus 5cm}static bool pi\_\-generator::ScriptingBridge::InitializeIdentifiers ()\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
-\label{classpi__generator_1_1_scripting_bridge_ab1274471c47d3f5d1a56f3a604e0efff}
 \hypertarget{classpi__generator_1_1_scripting_bridge_a76184c7bc22d728d207e275b5f980d67}{
 \index{pi\_\-generator::ScriptingBridge@{pi\_\-generator::ScriptingBridge}!InitializeIdentifiers@{InitializeIdentifiers}}
 \index{InitializeIdentifiers@{InitializeIdentifiers}!pi_generator::ScriptingBridge@{pi\_\-generator::ScriptingBridge}}
@@ -216,11 +142,6 @@ Definition at line 56 of file scripting\_\-bridge.cc.
 
 Definition at line 22 of file scripting\_\-bridge.cc.
 
-\hypertarget{classpi__generator_1_1_scripting_bridge_a7b991ca4653d4a447d6a3f8760261780}{
-\index{pi\_\-generator::ScriptingBridge@{pi\_\-generator::ScriptingBridge}!Invalidate@{Invalidate}}
-\index{Invalidate@{Invalidate}!pi_generator::ScriptingBridge@{pi\_\-generator::ScriptingBridge}}
-\subsubsection[{Invalidate}]{\setlength{\rightskip}{0pt plus 5cm}virtual void pi\_\-generator::ScriptingBridge::Invalidate ()\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
-\label{classpi__generator_1_1_scripting_bridge_a7b991ca4653d4a447d6a3f8760261780}
 \hypertarget{classpi__generator_1_1_scripting_bridge_a581ae88aa4acbefc30ae563452ab2fd5}{
 \index{pi\_\-generator::ScriptingBridge@{pi\_\-generator::ScriptingBridge}!Invalidate@{Invalidate}}
 \index{Invalidate@{Invalidate}!pi_generator::ScriptingBridge@{pi\_\-generator::ScriptingBridge}}
@@ -230,29 +151,19 @@ Definition at line 22 of file scripting\_\-bridge.cc.
 
 Definition at line 110 of file scripting\_\-bridge.cc.
 
-\hypertarget{classpi__generator_1_1_scripting_bridge_aed0d146930d7db6a548993629bb775f6}{
-\index{pi\_\-generator::ScriptingBridge@{pi\_\-generator::ScriptingBridge}!Invoke@{Invoke}}
-\index{Invoke@{Invoke}!pi_generator::ScriptingBridge@{pi\_\-generator::ScriptingBridge}}
-\subsubsection[{Invoke}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool pi\_\-generator::ScriptingBridge::Invoke (NPIdentifier {\em name}, \/  const NPVariant $\ast$ {\em args}, \/  uint32\_\-t {\em arg\_\-count}, \/  NPVariant $\ast$ {\em result})\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
-\label{classpi__generator_1_1_scripting_bridge_aed0d146930d7db6a548993629bb775f6}
 \hypertarget{classpi__generator_1_1_scripting_bridge_a3518781037308ae1d63bcdf5cc77a3de}{
 \index{pi\_\-generator::ScriptingBridge@{pi\_\-generator::ScriptingBridge}!Invoke@{Invoke}}
 \index{Invoke@{Invoke}!pi_generator::ScriptingBridge@{pi\_\-generator::ScriptingBridge}}
-\subsubsection[{Invoke}]{\setlength{\rightskip}{0pt plus 5cm}bool pi\_\-generator::ScriptingBridge::Invoke (NPIdentifier {\em name}, \/  const NPVariant $\ast$ {\em args}, \/  uint32\_\-t {\em arg\_\-count}, \/  NPVariant $\ast$ {\em result})\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\subsubsection[{Invoke}]{\setlength{\rightskip}{0pt plus 5cm}bool pi\_\-generator::ScriptingBridge::Invoke ({\bf NPIdentifier} {\em name}, \/  const {\bf NPVariant} $\ast$ {\em args}, \/  uint32\_\-t {\em arg\_\-count}, \/  {\bf NPVariant} $\ast$ {\em result})\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
 \label{classpi__generator_1_1_scripting_bridge_a3518781037308ae1d63bcdf5cc77a3de}
 
 
 Definition at line 97 of file scripting\_\-bridge.cc.
 
-\hypertarget{classpi__generator_1_1_scripting_bridge_abe1c6a84817b0a53c83527cbdc118dba}{
-\index{pi\_\-generator::ScriptingBridge@{pi\_\-generator::ScriptingBridge}!InvokeDefault@{InvokeDefault}}
-\index{InvokeDefault@{InvokeDefault}!pi_generator::ScriptingBridge@{pi\_\-generator::ScriptingBridge}}
-\subsubsection[{InvokeDefault}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool pi\_\-generator::ScriptingBridge::InvokeDefault (const NPVariant $\ast$ {\em args}, \/  uint32\_\-t {\em arg\_\-count}, \/  NPVariant $\ast$ {\em result})\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
-\label{classpi__generator_1_1_scripting_bridge_abe1c6a84817b0a53c83527cbdc118dba}
 \hypertarget{classpi__generator_1_1_scripting_bridge_a0589fe559ec8b9297e37239233e238be}{
 \index{pi\_\-generator::ScriptingBridge@{pi\_\-generator::ScriptingBridge}!InvokeDefault@{InvokeDefault}}
 \index{InvokeDefault@{InvokeDefault}!pi_generator::ScriptingBridge@{pi\_\-generator::ScriptingBridge}}
-\subsubsection[{InvokeDefault}]{\setlength{\rightskip}{0pt plus 5cm}bool pi\_\-generator::ScriptingBridge::InvokeDefault (const NPVariant $\ast$ {\em args}, \/  uint32\_\-t {\em arg\_\-count}, \/  NPVariant $\ast$ {\em result})\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\subsubsection[{InvokeDefault}]{\setlength{\rightskip}{0pt plus 5cm}bool pi\_\-generator::ScriptingBridge::InvokeDefault (const {\bf NPVariant} $\ast$ {\em args}, \/  uint32\_\-t {\em arg\_\-count}, \/  {\bf NPVariant} $\ast$ {\em result})\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
 \label{classpi__generator_1_1_scripting_bridge_a0589fe559ec8b9297e37239233e238be}
 
 
@@ -261,40 +172,25 @@ Definition at line 89 of file scripting\_\-bridge.cc.
 \hypertarget{classpi__generator_1_1_scripting_bridge_afcd2c9c3e990cae2d713e8bb5d84048d}{
 \index{pi\_\-generator::ScriptingBridge@{pi\_\-generator::ScriptingBridge}!Paint@{Paint}}
 \index{Paint@{Paint}!pi_generator::ScriptingBridge@{pi\_\-generator::ScriptingBridge}}
-\subsubsection[{Paint}]{\setlength{\rightskip}{0pt plus 5cm}bool pi\_\-generator::ScriptingBridge::Paint (const NPVariant $\ast$ {\em args}, \/  uint32\_\-t {\em arg\_\-count}, \/  NPVariant $\ast$ {\em result})}}
-\label{classpi__generator_1_1_scripting_bridge_afcd2c9c3e990cae2d713e8bb5d84048d}
-\hypertarget{classpi__generator_1_1_scripting_bridge_afcd2c9c3e990cae2d713e8bb5d84048d}{
-\index{pi\_\-generator::ScriptingBridge@{pi\_\-generator::ScriptingBridge}!Paint@{Paint}}
-\index{Paint@{Paint}!pi_generator::ScriptingBridge@{pi\_\-generator::ScriptingBridge}}
-\subsubsection[{Paint}]{\setlength{\rightskip}{0pt plus 5cm}bool pi\_\-generator::ScriptingBridge::Paint (const NPVariant $\ast$ {\em args}, \/  uint32\_\-t {\em arg\_\-count}, \/  NPVariant $\ast$ {\em result})}}
+\subsubsection[{Paint}]{\setlength{\rightskip}{0pt plus 5cm}bool pi\_\-generator::ScriptingBridge::Paint (const {\bf NPVariant} $\ast$ {\em args}, \/  uint32\_\-t {\em arg\_\-count}, \/  {\bf NPVariant} $\ast$ {\em result})}}
 \label{classpi__generator_1_1_scripting_bridge_afcd2c9c3e990cae2d713e8bb5d84048d}
 
 
 Definition at line 114 of file scripting\_\-bridge.cc.
 
-\hypertarget{classpi__generator_1_1_scripting_bridge_a5f317f9adabc7082079a919d1163cc09}{
-\index{pi\_\-generator::ScriptingBridge@{pi\_\-generator::ScriptingBridge}!RemoveProperty@{RemoveProperty}}
-\index{RemoveProperty@{RemoveProperty}!pi_generator::ScriptingBridge@{pi\_\-generator::ScriptingBridge}}
-\subsubsection[{RemoveProperty}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool pi\_\-generator::ScriptingBridge::RemoveProperty (NPIdentifier {\em name})\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
-\label{classpi__generator_1_1_scripting_bridge_a5f317f9adabc7082079a919d1163cc09}
 \hypertarget{classpi__generator_1_1_scripting_bridge_ab1a46993e1a36b9857d48776f7085aa2}{
 \index{pi\_\-generator::ScriptingBridge@{pi\_\-generator::ScriptingBridge}!RemoveProperty@{RemoveProperty}}
 \index{RemoveProperty@{RemoveProperty}!pi_generator::ScriptingBridge@{pi\_\-generator::ScriptingBridge}}
-\subsubsection[{RemoveProperty}]{\setlength{\rightskip}{0pt plus 5cm}bool pi\_\-generator::ScriptingBridge::RemoveProperty (NPIdentifier {\em name})\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\subsubsection[{RemoveProperty}]{\setlength{\rightskip}{0pt plus 5cm}bool pi\_\-generator::ScriptingBridge::RemoveProperty ({\bf NPIdentifier} {\em name})\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
 \label{classpi__generator_1_1_scripting_bridge_ab1a46993e1a36b9857d48776f7085aa2}
 
 
 Definition at line 83 of file scripting\_\-bridge.cc.
 
-\hypertarget{classpi__generator_1_1_scripting_bridge_a81c45706acaa62a4ba74cc2f0d0150c4}{
-\index{pi\_\-generator::ScriptingBridge@{pi\_\-generator::ScriptingBridge}!SetProperty@{SetProperty}}
-\index{SetProperty@{SetProperty}!pi_generator::ScriptingBridge@{pi\_\-generator::ScriptingBridge}}
-\subsubsection[{SetProperty}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool pi\_\-generator::ScriptingBridge::SetProperty (NPIdentifier {\em name}, \/  const NPVariant $\ast$ {\em value})\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
-\label{classpi__generator_1_1_scripting_bridge_a81c45706acaa62a4ba74cc2f0d0150c4}
 \hypertarget{classpi__generator_1_1_scripting_bridge_aa87ffdeb58a36a1e352814132d4a020a}{
 \index{pi\_\-generator::ScriptingBridge@{pi\_\-generator::ScriptingBridge}!SetProperty@{SetProperty}}
 \index{SetProperty@{SetProperty}!pi_generator::ScriptingBridge@{pi\_\-generator::ScriptingBridge}}
-\subsubsection[{SetProperty}]{\setlength{\rightskip}{0pt plus 5cm}bool pi\_\-generator::ScriptingBridge::SetProperty (NPIdentifier {\em name}, \/  const NPVariant $\ast$ {\em value})\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\subsubsection[{SetProperty}]{\setlength{\rightskip}{0pt plus 5cm}bool pi\_\-generator::ScriptingBridge::SetProperty ({\bf NPIdentifier} {\em name}, \/  const {\bf NPVariant} $\ast$ {\em value})\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
 \label{classpi__generator_1_1_scripting_bridge_aa87ffdeb58a36a1e352814132d4a020a}
 
 
@@ -303,11 +199,11 @@ Definition at line 77 of file scripting\_\-bridge.cc.
 
 
 \subsection{Member Data Documentation}
-\hypertarget{classpi__generator_1_1_scripting_bridge_aed4a415c7f15933562413031d458792e}{
+\hypertarget{classpi__generator_1_1_scripting_bridge_a1756e8dff7625cda7697f3e9725ede25}{
 \index{pi\_\-generator::ScriptingBridge@{pi\_\-generator::ScriptingBridge}!np\_\-class@{np\_\-class}}
 \index{np\_\-class@{np\_\-class}!pi_generator::ScriptingBridge@{pi\_\-generator::ScriptingBridge}}
-\subsubsection[{np\_\-class}]{\setlength{\rightskip}{0pt plus 5cm}static NPClass {\bf pi\_\-generator::ScriptingBridge::np\_\-class}\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
-\label{classpi__generator_1_1_scripting_bridge_aed4a415c7f15933562413031d458792e}
+\subsubsection[{np\_\-class}]{\setlength{\rightskip}{0pt plus 5cm}{\bf NPClass} {\bf pi\_\-generator::ScriptingBridge::np\_\-class}\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{classpi__generator_1_1_scripting_bridge_a1756e8dff7625cda7697f3e9725ede25}
 {\bfseries Initial value:}
 \begin{DoxyCode}
  {
@@ -332,7 +228,6 @@ Definition at line 51 of file scripting\_\-bridge.h.
 
 The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
 \item 
-/home/derek/dev/cell-\/grid-\/game/nacl/crml/crml/core/\hyperlink{core_2scripting__bridge_8h}{scripting\_\-bridge.h}\item 
 /home/derek/dev/cell-\/grid-\/game/nacl/crml/crml/test/pi\_\-generator/\hyperlink{test_2pi__generator_2scripting__bridge_8h}{scripting\_\-bridge.h}\item 
 /home/derek/dev/cell-\/grid-\/game/nacl/crml/crml/core/\hyperlink{core_2scripting__bridge_8cc}{scripting\_\-bridge.cc}\item 
 /home/derek/dev/cell-\/grid-\/game/nacl/crml/crml/test/pi\_\-generator/\hyperlink{test_2pi__generator_2scripting__bridge_8cc}{scripting\_\-bridge.cc}\end{DoxyCompactItemize}

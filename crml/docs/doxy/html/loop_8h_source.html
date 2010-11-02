@@ -12,6 +12,7 @@
   <div class="tabs">
     <ul>
       <li><a href="main.html"><span>Main&nbsp;Page</span></a></li>
+      <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
@@ -29,9 +30,9 @@
 <a name="l00004"></a>00004 <span class="preprocessor">#include &lt;stdio.h&gt;</span>
 <a name="l00005"></a>00005 <span class="preprocessor">#include &lt;stdlib.h&gt;</span>
 <a name="l00006"></a>00006 <span class="preprocessor">#include &lt;pthread.h&gt;</span>
-<a name="l00007"></a>00007 <span class="preprocessor">#include &quot;<a class="code" href="plugin__object_8h.html">plugin_object.h</a>&quot;</span>
-<a name="l00008"></a>00008 <span class="preprocessor">#include &quot;<a class="code" href="clock_8h.html">clock.h</a>&quot;</span>
-<a name="l00009"></a>00009 <span class="preprocessor">#include &lt;sys/nacl_syscalls.h&gt;</span>
+<a name="l00007"></a>00007 <span class="preprocessor">#include &lt;<a class="code" href="plugin__object_8h.html">core/plugin_object.h</a>&gt;</span>
+<a name="l00008"></a>00008 <span class="preprocessor">#include &lt;<a class="code" href="clock_8h.html">sys/clock.h</a>&gt;</span>
+<a name="l00009"></a>00009 <span class="preprocessor">#include &lt;<a class="code" href="nacl__syscalls_8h.html">core/nacl_syscalls.h</a>&gt;</span>
 <a name="l00010"></a>00010 
 <a name="l00011"></a>00011 <span class="keyword">namespace </span>scm {
 <a name="l00012"></a><a class="code" href="namespacescm.html#aec9fbdb87d677e6e822d612ed3e3a20b">00012</a>         <span class="keyword">enum</span> <a class="code" href="namespacescm.html#aec9fbdb87d677e6e822d612ed3e3a20b">MainloopErr</a> {
@@ -49,7 +50,7 @@
 <a name="l00024"></a>00024                 <span class="keywordtype">void</span> <a class="code" href="classscm_1_1_mainloop.html#a7e332605f463847553999278a975d650">Go</a>();
 <a name="l00025"></a>00025                 <a class="code" href="namespacescm.html#aec9fbdb87d677e6e822d612ed3e3a20b">MainloopErr</a> <a class="code" href="classscm_1_1_mainloop.html#a47a4747a4529b29b2337942496bc4e61">SetFramesPerSecond</a>(<span class="keywordtype">double</span>);
 <a name="l00026"></a>00026                 <a class="code" href="namespacescm.html#aec9fbdb87d677e6e822d612ed3e3a20b">MainloopErr</a> <a class="code" href="classscm_1_1_mainloop.html#a3b4177ac538fb42bc7bed6bb5e84a6dc">Init</a>(<a class="code" href="class_plugin_object.html">PluginObject</a>*);
-<a name="l00027"></a>00027                 <a class="code" href="namespacescm.html#aec9fbdb87d677e6e822d612ed3e3a20b">MainloopErr</a> <a class="code" href="classscm_1_1_mainloop.html#ab4e2e2a9df321c2761d24690a503cc06">Init2D</a>(NPDevice*);
+<a name="l00027"></a>00027                 <a class="code" href="namespacescm.html#aec9fbdb87d677e6e822d612ed3e3a20b">MainloopErr</a> <a class="code" href="classscm_1_1_mainloop.html#ab4e2e2a9df321c2761d24690a503cc06">Init2D</a>(<a class="code" href="struct_n_p_device.html">NPDevice</a>*);
 <a name="l00028"></a>00028 
 <a name="l00029"></a>00029         <span class="keyword">private</span>:
 <a name="l00030"></a>00030                 <a class="code" href="classscm_1_1_clock.html">Clock</a> clock_;
@@ -60,13 +61,13 @@
 <a name="l00035"></a>00035                 pthread_t loop_;        
 <a name="l00036"></a>00036 
 <a name="l00037"></a>00037                 
-<a name="l00038"></a>00038                 NPDevice* device2d_;    
+<a name="l00038"></a>00038                 <a class="code" href="struct_n_p_device.html">NPDevice</a>* device2d_;    
 <a name="l00039"></a>00039         };
 <a name="l00040"></a>00040 } <span class="comment">//namespace scm</span>
 <a name="l00041"></a>00041 
 <a name="l00042"></a>00042 <span class="preprocessor">#endif</span>
 </pre></div></div>
-<hr class="footer"/><address style="text-align: right;"><small>Generated on Mon Nov 1 14:47:09 2010 for crml by&nbsp;
+<hr class="footer"/><address style="text-align: right;"><small>Generated on Mon Nov 1 15:47:12 2010 for crml by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
 </body>

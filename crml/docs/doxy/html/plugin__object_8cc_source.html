@@ -12,6 +12,7 @@
   <div class="tabs">
     <ul>
       <li><a href="main.html"><span>Main&nbsp;Page</span></a></li>
+      <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
@@ -23,596 +24,571 @@
       <li><a href="globals.html"><span>File&nbsp;Members</span></a></li>
     </ul>
   </div>
-<h1>/home/derek/dev/cell-grid-game/nacl/crml/crml/core/plugin_object.cc</h1><a href="plugin__object_8cc.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/*</span>
-<a name="l00002"></a>00002 <span class="comment"> * Copyright (C) 2006, 2007, 2008 Apple Inc. All rights reserved.</span>
-<a name="l00003"></a>00003 <span class="comment"> *</span>
-<a name="l00004"></a>00004 <span class="comment"> * Redistribution and use in source and binary forms, with or without</span>
-<a name="l00005"></a>00005 <span class="comment"> * modification, are permitted provided that the following conditions</span>
-<a name="l00006"></a>00006 <span class="comment"> * are met:</span>
-<a name="l00007"></a>00007 <span class="comment"> * 1. Redistributions of source code must retain the above copyright</span>
-<a name="l00008"></a>00008 <span class="comment"> *    notice, this list of conditions and the following disclaimer.</span>
-<a name="l00009"></a>00009 <span class="comment"> * 2. Redistributions in binary form must reproduce the above copyright</span>
-<a name="l00010"></a>00010 <span class="comment"> *    notice, this list of conditions and the following disclaimer in the</span>
-<a name="l00011"></a>00011 <span class="comment"> *    documentation and/or other materials provided with the distribution.</span>
-<a name="l00012"></a>00012 <span class="comment"> *</span>
-<a name="l00013"></a>00013 <span class="comment"> * THIS SOFTWARE IS PROVIDED BY APPLE INC. ``AS IS&#39;&#39; AND ANY</span>
-<a name="l00014"></a>00014 <span class="comment"> * EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE</span>
-<a name="l00015"></a>00015 <span class="comment"> * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR</span>
-<a name="l00016"></a>00016 <span class="comment"> * PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL APPLE INC. OR</span>
-<a name="l00017"></a>00017 <span class="comment"> * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,</span>
-<a name="l00018"></a>00018 <span class="comment"> * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,</span>
-<a name="l00019"></a>00019 <span class="comment"> * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR</span>
-<a name="l00020"></a>00020 <span class="comment"> * PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY</span>
-<a name="l00021"></a>00021 <span class="comment"> * OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT</span>
-<a name="l00022"></a>00022 <span class="comment"> * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE</span>
-<a name="l00023"></a>00023 <span class="comment"> * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</span>
-<a name="l00024"></a>00024 <span class="comment"> */</span>
-<a name="l00025"></a>00025 
-<a name="l00026"></a>00026 <span class="preprocessor">#include &quot;<a class="code" href="plugin__object_8h.html">plugin_object.h</a>&quot;</span>
-<a name="l00027"></a>00027 
-<a name="l00028"></a>00028 <span class="preprocessor">#include &lt;assert.h&gt;</span>
-<a name="l00029"></a>00029 <span class="preprocessor">#include &lt;math.h&gt;</span>
-<a name="l00030"></a>00030 <span class="preprocessor">#include &lt;stdio.h&gt;</span>
-<a name="l00031"></a>00031 <span class="preprocessor">#include &lt;stdlib.h&gt;</span>
-<a name="l00032"></a>00032 <span class="preprocessor">#include &lt;string.h&gt;</span>
-<a name="l00033"></a>00033 <span class="preprocessor">#include &lt;GLES2/gl2.h&gt;</span>
-<a name="l00034"></a>00034 <span class="preprocessor">#include &lt;iostream&gt;</span>
-<a name="l00035"></a>00035 
-<a name="l00036"></a>00036 <span class="preprocessor">#include &lt;limits&gt;</span>
-<a name="l00037"></a>00037 <span class="preprocessor">#include &lt;sstream&gt;</span>
-<a name="l00038"></a>00038 <span class="preprocessor">#include &lt;map&gt;</span>
+<h1>/home/derek/dev/cell-grid-game/nacl/crml/crml/core/plugin_object.cc</h1><a href="plugin__object_8cc.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">// see: crml/license/apple.copyright for legal</span>
+<a name="l00002"></a>00002 
+<a name="l00003"></a>00003 <span class="preprocessor">#include &quot;<a class="code" href="plugin__object_8h.html">plugin_object.h</a>&quot;</span>
+<a name="l00004"></a>00004 
+<a name="l00005"></a>00005 <span class="preprocessor">#include &lt;assert.h&gt;</span>
+<a name="l00006"></a>00006 <span class="preprocessor">#include &lt;math.h&gt;</span>
+<a name="l00007"></a>00007 <span class="preprocessor">#include &lt;stdio.h&gt;</span>
+<a name="l00008"></a>00008 <span class="preprocessor">#include &lt;stdlib.h&gt;</span>
+<a name="l00009"></a>00009 <span class="preprocessor">#include &lt;string.h&gt;</span>
+<a name="l00010"></a>00010 <span class="preprocessor">#include &lt;GLES2/gl2.h&gt;</span>
+<a name="l00011"></a>00011 <span class="preprocessor">#include &lt;iostream&gt;</span>
+<a name="l00012"></a>00012 
+<a name="l00013"></a>00013 <span class="preprocessor">#include &lt;limits&gt;</span>
+<a name="l00014"></a>00014 <span class="preprocessor">#include &lt;sstream&gt;</span>
+<a name="l00015"></a>00015 <span class="preprocessor">#include &lt;map&gt;</span>
+<a name="l00016"></a>00016 
+<a name="l00017"></a>00017 <span class="preprocessor">#include &lt;<a class="code" href="md5_8h.html">sys/md5.h</a>&gt;</span>
+<a name="l00018"></a>00018 <span class="preprocessor">#include &quot;test_object.h&quot;</span>
+<a name="l00019"></a>00019 <span class="preprocessor">#include &quot;<a class="code" href="npapi__extensions__private_8h.html">npapi_extensions_private.h</a>&quot;</span>
+<a name="l00020"></a>00020 
+<a name="l00021"></a>00021 <span class="preprocessor">#include &lt;<a class="code" href="hex__store_8cc.html">sys/hex_store.cc</a>&gt;</span>
+<a name="l00022"></a>00022 
+<a name="l00023"></a><a class="code" href="plugin__object_8h.html#a6bc4d2698dc5cfabc5b23f38cd107dcd">00023</a> <a class="code" href="struct___n_p_netscape_funcs.html">NPNetscapeFuncs</a>* <a class="code" href="plugin__object_8cc.html#a6bc4d2698dc5cfabc5b23f38cd107dcd">browser</a>;
+<a name="l00024"></a>00024 
+<a name="l00025"></a>00025 <span class="keyword">namespace </span>{
+<a name="l00026"></a>00026 <span class="comment">// need a good spot to init the main loop.</span>
+<a name="l00027"></a>00027 <span class="comment">// This is bad form, still searching for a good way to introduce this.</span>
+<a name="l00028"></a>00028 
+<a name="l00029"></a>00029 <span class="comment">//scm::Mainloop MAINLOOP;</span>
+<a name="l00030"></a>00030 <span class="comment">//std::map&lt;std::string, std::string&gt; HEX_STORE;</span>
+<a name="l00031"></a>00031 <a class="code" href="classscm_1_1_hex_store.html">scm::HexStore</a> HEX_STORE;
+<a name="l00032"></a>00032 
+<a name="l00033"></a>00033 <span class="comment">// Properties ------------------------------------------------------------------</span>
+<a name="l00034"></a>00034 <span class="keyword">enum</span> {
+<a name="l00035"></a>00035   ID_PROPERTY_PROPERTY = 0,
+<a name="l00036"></a>00036   <a class="code" href="core_2test__object_8cc.html#ac1500f44315b9cfb7aa526fcedf97e06">ID_PROPERTY_TEST_OBJECT</a>,
+<a name="l00037"></a>00037   NUM_PROPERTY_IDENTIFIERS
+<a name="l00038"></a>00038 };
 <a name="l00039"></a>00039 
-<a name="l00040"></a>00040 <span class="preprocessor">#include &quot;<a class="code" href="md5_8h.html">md5.h</a>&quot;</span>
-<a name="l00041"></a>00041 <span class="preprocessor">#include &quot;<a class="code" href="test_2test__object_8h.html">test_object.h</a>&quot;</span>
-<a name="l00042"></a>00042 <span class="preprocessor">#include &quot;<a class="code" href="npapi__extensions__private_8h.html">npapi_extensions_private.h</a>&quot;</span>
-<a name="l00043"></a>00043 
-<a name="l00044"></a>00044 <span class="preprocessor">#include &quot;<a class="code" href="hex__store_8cc.html">hex_store.cc</a>&quot;</span>
-<a name="l00045"></a>00045 
+<a name="l00040"></a>00040 <span class="keyword">static</span> <a class="code" href="npruntime_8h.html#a3ce51391e08bd3e24128c342b1d055b9">NPIdentifier</a> plugin_property_identifiers[NUM_PROPERTY_IDENTIFIERS];
+<a name="l00041"></a>00041 <span class="keyword">static</span> <span class="keyword">const</span> <a class="code" href="npruntime_8h.html#a066f20dfec6b18e91931750b4a7bd65d">NPUTF8</a>*
+<a name="l00042"></a>00042 plugin_property_identifier_names[NUM_PROPERTY_IDENTIFIERS] = {
+<a name="l00043"></a>00043   <span class="stringliteral">&quot;property&quot;</span>,
+<a name="l00044"></a>00044   <span class="stringliteral">&quot;testObject&quot;</span>,
+<a name="l00045"></a>00045 };
 <a name="l00046"></a>00046 
-<a name="l00047"></a><a class="code" href="plugin__object_8h.html#a6bc4d2698dc5cfabc5b23f38cd107dcd">00047</a> NPNetscapeFuncs* <a class="code" href="plugin__object_8cc.html#a6bc4d2698dc5cfabc5b23f38cd107dcd">browser</a>;
+<a name="l00047"></a>00047 <span class="comment">// Methods ---------------------------------------------------------------------</span>
 <a name="l00048"></a>00048 
-<a name="l00049"></a>00049 
-<a name="l00050"></a>00050 <span class="keyword">namespace </span>{
-<a name="l00051"></a>00051 <span class="comment">// need a good spot to init the main loop.</span>
-<a name="l00052"></a>00052 <span class="comment">// This is bad form, still searching for a good way to introduce this.</span>
-<a name="l00053"></a>00053 
-<a name="l00054"></a>00054 <span class="comment">//scm::Mainloop MAINLOOP;</span>
-<a name="l00055"></a>00055 <span class="comment">//std::map&lt;std::string, std::string&gt; HEX_STORE;</span>
-<a name="l00056"></a>00056 <a class="code" href="classscm_1_1_hex_store.html">scm::HexStore</a> HEX_STORE;
-<a name="l00057"></a>00057 
-<a name="l00058"></a>00058 <span class="comment">// Properties ------------------------------------------------------------------</span>
-<a name="l00059"></a>00059 <span class="keyword">enum</span> {
-<a name="l00060"></a>00060   ID_PROPERTY_PROPERTY = 0,
-<a name="l00061"></a>00061   <a class="code" href="sys_2test__object_8cc.html#ac1500f44315b9cfb7aa526fcedf97e06">ID_PROPERTY_TEST_OBJECT</a>,
-<a name="l00062"></a>00062   NUM_PROPERTY_IDENTIFIERS
-<a name="l00063"></a>00063 };
-<a name="l00064"></a>00064 
-<a name="l00065"></a>00065 <span class="keyword">static</span> NPIdentifier plugin_property_identifiers[NUM_PROPERTY_IDENTIFIERS];
-<a name="l00066"></a>00066 <span class="keyword">static</span> <span class="keyword">const</span> NPUTF8*
-<a name="l00067"></a>00067 plugin_property_identifier_names[NUM_PROPERTY_IDENTIFIERS] = {
-<a name="l00068"></a>00068   <span class="stringliteral">&quot;property&quot;</span>,
-<a name="l00069"></a>00069   <span class="stringliteral">&quot;testObject&quot;</span>,
-<a name="l00070"></a>00070 };
-<a name="l00071"></a>00071 
-<a name="l00072"></a>00072 <span class="comment">// Methods ---------------------------------------------------------------------</span>
-<a name="l00073"></a>00073 
-<a name="l00074"></a>00074 <span class="keyword">enum</span> {
-<a name="l00075"></a>00075   ID_TEST_GET_PROPERTY = 0,
-<a name="l00076"></a>00076   ID_SET_TEXT_BOX,
-<a name="l00077"></a>00077   ID_MODULE_READY,
-<a name="l00078"></a>00078   ID_REPORT_CHECKSUM,
-<a name="l00079"></a>00079   ID_IS_CHECKSUM_CHECK_SUCCESS,
-<a name="l00080"></a>00080   ID_IS_HELLOWORLD,
-<a name="l00081"></a>00081   ID_IS_FORTYTWO,
-<a name="l00082"></a>00082   ID_IS_STORE_HEX,
-<a name="l00083"></a>00083   ID_IS_APPEND_HEX,
-<a name="l00084"></a>00084   <a class="code" href="sys_2test__object_8cc.html#a93b9d38f88b25d82c4975ef2e0047d67">NUM_METHOD_IDENTIFIERS</a> = 9
-<a name="l00085"></a>00085 };
-<a name="l00086"></a>00086         
-<a name="l00087"></a>00087 <span class="keyword">static</span> NPIdentifier plugin_method_identifiers[<a class="code" href="sys_2test__object_8cc.html#a93b9d38f88b25d82c4975ef2e0047d67">NUM_METHOD_IDENTIFIERS</a>];
-<a name="l00088"></a>00088 <span class="keyword">static</span> <span class="keyword">const</span> NPUTF8* plugin_method_identifier_names[<a class="code" href="sys_2test__object_8cc.html#a93b9d38f88b25d82c4975ef2e0047d67">NUM_METHOD_IDENTIFIERS</a>] = {
-<a name="l00089"></a>00089   <span class="stringliteral">&quot;testGetProperty&quot;</span>,
-<a name="l00090"></a>00090   <span class="stringliteral">&quot;setTextBox&quot;</span>,
-<a name="l00091"></a>00091   <span class="stringliteral">&quot;moduleReady&quot;</span>,
-<a name="l00092"></a>00092   <span class="stringliteral">&quot;reportChecksum&quot;</span>,
-<a name="l00093"></a>00093   <span class="stringliteral">&quot;isChecksumCheckSuccess&quot;</span>,
-<a name="l00094"></a>00094   <span class="stringliteral">&quot;helloworld&quot;</span>,
-<a name="l00095"></a>00095   <span class="stringliteral">&quot;fortytwo&quot;</span>,
-<a name="l00096"></a>00096   <span class="stringliteral">&quot;store_hex&quot;</span>,
-<a name="l00097"></a>00097   <span class="stringliteral">&quot;append_hex&quot;</span>,
-<a name="l00098"></a>00098 };
+<a name="l00049"></a>00049 <span class="keyword">enum</span> {
+<a name="l00050"></a>00050   ID_TEST_GET_PROPERTY = 0,
+<a name="l00051"></a>00051   ID_SET_TEXT_BOX,
+<a name="l00052"></a>00052   ID_MODULE_READY,
+<a name="l00053"></a>00053   ID_REPORT_CHECKSUM,
+<a name="l00054"></a>00054   ID_IS_CHECKSUM_CHECK_SUCCESS,
+<a name="l00055"></a>00055   ID_IS_HELLOWORLD,
+<a name="l00056"></a>00056   ID_IS_FORTYTWO,
+<a name="l00057"></a>00057   ID_IS_STORE_HEX,
+<a name="l00058"></a>00058   ID_IS_APPEND_HEX,
+<a name="l00059"></a>00059   <a class="code" href="core_2test__object_8cc.html#a93b9d38f88b25d82c4975ef2e0047d67">NUM_METHOD_IDENTIFIERS</a> = 9
+<a name="l00060"></a>00060 };
+<a name="l00061"></a>00061         
+<a name="l00062"></a>00062 <span class="keyword">static</span> <a class="code" href="npruntime_8h.html#a3ce51391e08bd3e24128c342b1d055b9">NPIdentifier</a> plugin_method_identifiers[<a class="code" href="core_2test__object_8cc.html#a93b9d38f88b25d82c4975ef2e0047d67">NUM_METHOD_IDENTIFIERS</a>];
+<a name="l00063"></a>00063 <span class="keyword">static</span> <span class="keyword">const</span> <a class="code" href="npruntime_8h.html#a066f20dfec6b18e91931750b4a7bd65d">NPUTF8</a>* plugin_method_identifier_names[<a class="code" href="core_2test__object_8cc.html#a93b9d38f88b25d82c4975ef2e0047d67">NUM_METHOD_IDENTIFIERS</a>] = {
+<a name="l00064"></a>00064   <span class="stringliteral">&quot;testGetProperty&quot;</span>,
+<a name="l00065"></a>00065   <span class="stringliteral">&quot;setTextBox&quot;</span>,
+<a name="l00066"></a>00066   <span class="stringliteral">&quot;moduleReady&quot;</span>,
+<a name="l00067"></a>00067   <span class="stringliteral">&quot;reportChecksum&quot;</span>,
+<a name="l00068"></a>00068   <span class="stringliteral">&quot;isChecksumCheckSuccess&quot;</span>,
+<a name="l00069"></a>00069   <span class="stringliteral">&quot;helloworld&quot;</span>,
+<a name="l00070"></a>00070   <span class="stringliteral">&quot;fortytwo&quot;</span>,
+<a name="l00071"></a>00071   <span class="stringliteral">&quot;store_hex&quot;</span>,
+<a name="l00072"></a>00072   <span class="stringliteral">&quot;append_hex&quot;</span>,
+<a name="l00073"></a>00073 };
+<a name="l00074"></a>00074 
+<a name="l00075"></a>00075 <span class="keywordtype">void</span> EnsureIdentifiersInitialized() {
+<a name="l00076"></a>00076   printf(<span class="stringliteral">&quot;void EnsureIdentifiersInitialized() {\n&quot;</span>);
+<a name="l00077"></a>00077   <span class="keyword">static</span> <span class="keywordtype">bool</span> identifiers_initialized = <span class="keyword">false</span>;
+<a name="l00078"></a>00078   <span class="keywordflow">if</span> (identifiers_initialized)
+<a name="l00079"></a>00079     <span class="keywordflow">return</span>;
+<a name="l00080"></a>00080   
+<a name="l00081"></a>00081   browser-&gt;<a class="code" href="struct___n_p_netscape_funcs.html#acd52b8aad9b9c097d7ef87e48843f3b8">getstringidentifiers</a>(plugin_property_identifier_names,
+<a name="l00082"></a>00082                                 NUM_PROPERTY_IDENTIFIERS,
+<a name="l00083"></a>00083                                 plugin_property_identifiers);
+<a name="l00084"></a>00084   browser-&gt;<a class="code" href="struct___n_p_netscape_funcs.html#acd52b8aad9b9c097d7ef87e48843f3b8">getstringidentifiers</a>(plugin_method_identifier_names,
+<a name="l00085"></a>00085                                 <a class="code" href="core_2test__object_8cc.html#a93b9d38f88b25d82c4975ef2e0047d67">NUM_METHOD_IDENTIFIERS</a>,
+<a name="l00086"></a>00086                                 plugin_method_identifiers);
+<a name="l00087"></a>00087   identifiers_initialized = <span class="keyword">true</span>;
+<a name="l00088"></a>00088 }
+<a name="l00089"></a>00089 
+<a name="l00090"></a>00090 <span class="comment">// -----------------------------------------------------------------------------</span>
+<a name="l00091"></a>00091 <span class="comment">// Global prototype STORE.  need to fold this back into game.</span>
+<a name="l00092"></a>00092 std::string CreateStringFromNPVariant(<span class="keyword">const</span> <a class="code" href="struct___n_p_variant.html">NPVariant</a>&amp; variant) {
+<a name="l00093"></a>00093   printf(<span class="stringliteral">&quot;std::string CreateStringFromNPVariant(const NPVariant&amp; variant) {\n&quot;</span>);
+<a name="l00094"></a>00094   <span class="keywordflow">return</span> std::string(<a class="code" href="npruntime_8h.html#abc2f76997aa0da44d1ac81ed1c404090">NPVARIANT_TO_STRING</a>(variant).UTF8Characters,
+<a name="l00095"></a>00095                      <a class="code" href="npruntime_8h.html#abc2f76997aa0da44d1ac81ed1c404090">NPVARIANT_TO_STRING</a>(variant).UTF8Length);
+<a name="l00096"></a>00096 }
+<a name="l00097"></a>00097 
+<a name="l00098"></a>00098 
 <a name="l00099"></a>00099 
-<a name="l00100"></a>00100 <span class="keywordtype">void</span> EnsureIdentifiersInitialized() {
-<a name="l00101"></a>00101   printf(<span class="stringliteral">&quot;void EnsureIdentifiersInitialized() {\n&quot;</span>);
-<a name="l00102"></a>00102   <span class="keyword">static</span> <span class="keywordtype">bool</span> identifiers_initialized = <span class="keyword">false</span>;
-<a name="l00103"></a>00103   <span class="keywordflow">if</span> (identifiers_initialized)
-<a name="l00104"></a>00104     <span class="keywordflow">return</span>;
-<a name="l00105"></a>00105   
-<a name="l00106"></a>00106   <a class="code" href="plugin__object_8cc.html#a6bc4d2698dc5cfabc5b23f38cd107dcd">browser</a>-&gt;getstringidentifiers(plugin_property_identifier_names,
-<a name="l00107"></a>00107                                 NUM_PROPERTY_IDENTIFIERS,
-<a name="l00108"></a>00108                                 plugin_property_identifiers);
-<a name="l00109"></a>00109   <a class="code" href="plugin__object_8cc.html#a6bc4d2698dc5cfabc5b23f38cd107dcd">browser</a>-&gt;getstringidentifiers(plugin_method_identifier_names,
-<a name="l00110"></a>00110                                 <a class="code" href="sys_2test__object_8cc.html#a93b9d38f88b25d82c4975ef2e0047d67">NUM_METHOD_IDENTIFIERS</a>,
-<a name="l00111"></a>00111                                 plugin_method_identifiers);
-<a name="l00112"></a>00112   identifiers_initialized = <span class="keyword">true</span>;
-<a name="l00113"></a>00113 }
-<a name="l00114"></a>00114 
-<a name="l00115"></a>00115 <span class="comment">// -----------------------------------------------------------------------------</span>
-<a name="l00116"></a>00116 <span class="comment">// Global prototype STORE.  need to fold this back into game.</span>
-<a name="l00117"></a>00117 std::string CreateStringFromNPVariant(<span class="keyword">const</span> NPVariant&amp; variant) {
-<a name="l00118"></a>00118   printf(<span class="stringliteral">&quot;std::string CreateStringFromNPVariant(const NPVariant&amp; variant) {\n&quot;</span>);
-<a name="l00119"></a>00119   <span class="keywordflow">return</span> std::string(NPVARIANT_TO_STRING(variant).UTF8Characters,
-<a name="l00120"></a>00120                      NPVARIANT_TO_STRING(variant).UTF8Length);
-<a name="l00121"></a>00121 }
-<a name="l00122"></a>00122 
+<a name="l00100"></a>00100 <span class="keyword">static</span> <span class="keywordtype">bool</span> StoreHex(<span class="keyword">const</span> <a class="code" href="struct___n_p_variant.html">_NPVariant</a> key, <span class="keyword">const</span> <a class="code" href="struct___n_p_variant.html">_NPVariant</a> <a class="code" href="namespacehexencode.html#af6ad229512e9ff7deaa79163a3be884a">val</a>) {
+<a name="l00101"></a>00101   printf(<span class="stringliteral">&quot;static bool StoreHex(const _NPVariant key, const _NPVariant val) {      \n&quot;</span>);
+<a name="l00102"></a>00102   std::string s_key = CreateStringFromNPVariant(key);
+<a name="l00103"></a>00103   std::string s_val = CreateStringFromNPVariant(val);
+<a name="l00104"></a>00104 
+<a name="l00105"></a>00105   printf(<span class="stringliteral">&quot;----------------------------------\n&quot;</span>);
+<a name="l00106"></a>00106   printf(<span class="stringliteral">&quot;key: %s\n&quot;</span>, s_key.c_str());
+<a name="l00107"></a>00107   printf(<span class="stringliteral">&quot;len(val) == %d\n&quot;</span>, s_val.size());
+<a name="l00108"></a>00108                                         
+<a name="l00109"></a>00109   <span class="comment">// store a hex encoded value.</span>
+<a name="l00110"></a>00110   HEX_STORE.<a class="code" href="classscm_1_1_hex_store.html#aa1792118dbb32383976d6906c69c9e71">Store</a>(s_key, s_val);
+<a name="l00111"></a>00111   <span class="keywordflow">if</span> (!HEX_STORE.<a class="code" href="classscm_1_1_hex_store.html#ae8d894818fe0859462b63f2e34d08a33">Ok</a>())
+<a name="l00112"></a>00112     printf(<span class="stringliteral">&quot;HEXSTORE ERROR: %d\n&quot;</span>, HEX_STORE.<a class="code" href="classscm_1_1_hex_store.html#a85cbfdc7f9a41355db174d3b96382d79">Err</a>());
+<a name="l00113"></a>00113   <span class="keywordflow">return</span> <span class="keyword">true</span>;
+<a name="l00114"></a>00114 }
+<a name="l00115"></a>00115 
+<a name="l00116"></a>00116 <span class="keyword">static</span> <span class="keywordtype">bool</span> AppendHex(<span class="keyword">const</span> <a class="code" href="struct___n_p_variant.html">_NPVariant</a> key, <span class="keyword">const</span> <a class="code" href="struct___n_p_variant.html">_NPVariant</a> val) {
+<a name="l00117"></a>00117   printf(<span class="stringliteral">&quot;static bool AppendHex(const _NPVariant key, const _NPVariant val) {\n&quot;</span>);
+<a name="l00118"></a>00118   std::string s_key = CreateStringFromNPVariant(key);
+<a name="l00119"></a>00119   std::string s_val = CreateStringFromNPVariant(val);      
+<a name="l00120"></a>00120 
+<a name="l00121"></a>00121   printf(<span class="stringliteral">&quot;Appending Store ----------------------------------\n&quot;</span>);
+<a name="l00122"></a>00122   printf(<span class="stringliteral">&quot;key: %s\n&quot;</span>, s_key.c_str());
 <a name="l00123"></a>00123 
-<a name="l00124"></a>00124 
-<a name="l00125"></a>00125 <span class="keyword">static</span> <span class="keywordtype">bool</span> StoreHex(<span class="keyword">const</span> _NPVariant key, <span class="keyword">const</span> _NPVariant <a class="code" href="namespacehexencode.html#af6ad229512e9ff7deaa79163a3be884a">val</a>) {
-<a name="l00126"></a>00126   printf(<span class="stringliteral">&quot;static bool StoreHex(const _NPVariant key, const _NPVariant val) {      \n&quot;</span>);
-<a name="l00127"></a>00127   std::string s_key = CreateStringFromNPVariant(key);
-<a name="l00128"></a>00128   std::string s_val = CreateStringFromNPVariant(val);
-<a name="l00129"></a>00129 
-<a name="l00130"></a>00130   printf(<span class="stringliteral">&quot;----------------------------------\n&quot;</span>);
-<a name="l00131"></a>00131   printf(<span class="stringliteral">&quot;key: %s\n&quot;</span>, s_key.c_str());
-<a name="l00132"></a>00132   printf(<span class="stringliteral">&quot;len(val) == %d\n&quot;</span>, s_val.size());
-<a name="l00133"></a>00133                                         
-<a name="l00134"></a>00134   <span class="comment">// store a hex encoded value.</span>
-<a name="l00135"></a>00135   HEX_STORE.<a class="code" href="classscm_1_1_hex_store.html#aa1792118dbb32383976d6906c69c9e71">Store</a>(s_key, s_val);
-<a name="l00136"></a>00136   <span class="keywordflow">if</span> (!HEX_STORE.<a class="code" href="classscm_1_1_hex_store.html#ae8d894818fe0859462b63f2e34d08a33">Ok</a>())
-<a name="l00137"></a>00137     printf(<span class="stringliteral">&quot;HEXSTORE ERROR: %d\n&quot;</span>, HEX_STORE.<a class="code" href="classscm_1_1_hex_store.html#a85cbfdc7f9a41355db174d3b96382d79">Err</a>());
-<a name="l00138"></a>00138   <span class="keywordflow">return</span> <span class="keyword">true</span>;
-<a name="l00139"></a>00139 }
-<a name="l00140"></a>00140 
-<a name="l00141"></a>00141 <span class="keyword">static</span> <span class="keywordtype">bool</span> AppendHex(<span class="keyword">const</span> _NPVariant key, <span class="keyword">const</span> _NPVariant val) {
-<a name="l00142"></a>00142   printf(<span class="stringliteral">&quot;static bool AppendHex(const _NPVariant key, const _NPVariant val) {\n&quot;</span>);
-<a name="l00143"></a>00143   std::string s_key = CreateStringFromNPVariant(key);
-<a name="l00144"></a>00144   std::string s_val = CreateStringFromNPVariant(val);      
-<a name="l00145"></a>00145 
-<a name="l00146"></a>00146   printf(<span class="stringliteral">&quot;Appending Store ----------------------------------\n&quot;</span>);
-<a name="l00147"></a>00147   printf(<span class="stringliteral">&quot;key: %s\n&quot;</span>, s_key.c_str());
-<a name="l00148"></a>00148 
-<a name="l00149"></a>00149   HEX_STORE.<a class="code" href="classscm_1_1_hex_store.html#ac086449d331c2e0dd6eaf11a003ffe99">Append</a>(s_key, s_val);
-<a name="l00150"></a>00150 
-<a name="l00151"></a>00151   <span class="keywordflow">if</span> (HEX_STORE.<a class="code" href="classscm_1_1_hex_store.html#ae8d894818fe0859462b63f2e34d08a33">Ok</a>()){
-<a name="l00152"></a>00152     printf(<span class="stringliteral">&quot;len(val) == %d\n&quot;</span>, HEX_STORE.<a class="code" href="classscm_1_1_hex_store.html#a277a7c2220511ad3c0e447802589def1">ValLength</a>(s_key));
-<a name="l00153"></a>00153     printf(<span class="stringliteral">&quot;decoding: %s\n&quot;</span>, HEX_STORE.<a class="code" href="classscm_1_1_hex_store.html#a5e12c88428e17be9bb8f6c08ab107e57">ByteArray</a>(s_key));
-<a name="l00154"></a>00154   } <span class="keywordflow">else</span> {
-<a name="l00155"></a>00155     HEX_STORE.<a class="code" href="classscm_1_1_hex_store.html#ac98d4c0f37c642e6b45262ec1db62d80">ReportErr</a>();
-<a name="l00156"></a>00156   } 
-<a name="l00157"></a>00157   <span class="keywordflow">return</span> <span class="keyword">true</span>;
-<a name="l00158"></a>00158 }
-<a name="l00159"></a>00159 
+<a name="l00124"></a>00124   HEX_STORE.<a class="code" href="classscm_1_1_hex_store.html#ac086449d331c2e0dd6eaf11a003ffe99">Append</a>(s_key, s_val);
+<a name="l00125"></a>00125 
+<a name="l00126"></a>00126   <span class="keywordflow">if</span> (HEX_STORE.<a class="code" href="classscm_1_1_hex_store.html#ae8d894818fe0859462b63f2e34d08a33">Ok</a>()){
+<a name="l00127"></a>00127     printf(<span class="stringliteral">&quot;len(val) == %d\n&quot;</span>, HEX_STORE.<a class="code" href="classscm_1_1_hex_store.html#a277a7c2220511ad3c0e447802589def1">ValLength</a>(s_key));
+<a name="l00128"></a>00128     printf(<span class="stringliteral">&quot;decoding: %s\n&quot;</span>, HEX_STORE.<a class="code" href="classscm_1_1_hex_store.html#a5e12c88428e17be9bb8f6c08ab107e57">ByteArray</a>(s_key));
+<a name="l00129"></a>00129   } <span class="keywordflow">else</span> {
+<a name="l00130"></a>00130     HEX_STORE.<a class="code" href="classscm_1_1_hex_store.html#ac98d4c0f37c642e6b45262ec1db62d80">ReportErr</a>();
+<a name="l00131"></a>00131   } 
+<a name="l00132"></a>00132   <span class="keywordflow">return</span> <span class="keyword">true</span>;
+<a name="l00133"></a>00133 }
+<a name="l00134"></a>00134 
+<a name="l00135"></a>00135 
+<a name="l00136"></a>00136 <span class="keyword">static</span> <span class="keywordtype">bool</span> FortyTwo(<span class="keyword">const</span> <a class="code" href="struct___n_p_variant.html">_NPVariant</a> result) {
+<a name="l00137"></a>00137   printf(<span class="stringliteral">&quot;static bool FortyTwo(const _NPVariant result) {\n&quot;</span>);
+<a name="l00138"></a>00138   std::string s = CreateStringFromNPVariant(result);
+<a name="l00139"></a>00139   s += <span class="stringliteral">&quot;\n&quot;</span>;
+<a name="l00140"></a>00140   printf(s.c_str());
+<a name="l00141"></a>00141   <span class="keywordflow">return</span> <span class="keyword">true</span>;
+<a name="l00142"></a>00142 }
+<a name="l00143"></a>00143 
+<a name="l00144"></a>00144 <span class="comment">// This function creates a string in the browser&#39;s memory pool and then returns</span>
+<a name="l00145"></a>00145 <span class="comment">// a variable containing a pointer to that string.  The variable is later</span>
+<a name="l00146"></a>00146 <span class="comment">// returned back to the browser by the Invoke() function that called this.</span>
+<a name="l00147"></a>00147 <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="struct_hello_world.html">HelloWorld</a>(<a class="code" href="struct___n_p_variant.html">NPVariant</a> *result) {
+<a name="l00148"></a>00148   printf(<span class="stringliteral">&quot;static bool HelloWorld(NPVariant *result) {\n&quot;</span>);
+<a name="l00149"></a>00149   <span class="keywordflow">if</span> (result) {
+<a name="l00150"></a>00150     <span class="keyword">const</span> <span class="keywordtype">char</span> *msg = <span class="stringliteral">&quot;hello, world. soon to be img.&quot;</span>;
+<a name="l00151"></a>00151     <span class="keyword">const</span> <span class="keywordtype">int</span> msg_length = strlen(msg) + 1;
+<a name="l00152"></a>00152     <span class="comment">// Note: |msg_copy| will be freed later on by the browser, so it needs to</span>
+<a name="l00153"></a>00153     <span class="comment">// be allocated here with NPN_MemAlloc().</span>
+<a name="l00154"></a>00154     <span class="keywordtype">char</span> *msg_copy = <span class="keyword">reinterpret_cast&lt;</span><span class="keywordtype">char</span>*<span class="keyword">&gt;</span>(<a class="code" href="npapi_8h.html#a891dcc0692dd6f097659e5e2b7b555d2">NPN_MemAlloc</a>(msg_length));
+<a name="l00155"></a>00155     strncpy(msg_copy, msg, msg_length);
+<a name="l00156"></a>00156     <a class="code" href="npruntime_8h.html#a828fc02de48b95f4b402051ad78cbf9d">STRINGN_TO_NPVARIANT</a>(msg_copy, msg_length - 1, *result);
+<a name="l00157"></a>00157   }
+<a name="l00158"></a>00158   <span class="keywordflow">return</span> <span class="keyword">true</span>;
+<a name="l00159"></a>00159 }
 <a name="l00160"></a>00160 
-<a name="l00161"></a>00161 <span class="keyword">static</span> <span class="keywordtype">bool</span> FortyTwo(<span class="keyword">const</span> _NPVariant result) {
-<a name="l00162"></a>00162   printf(<span class="stringliteral">&quot;static bool FortyTwo(const _NPVariant result) {\n&quot;</span>);
-<a name="l00163"></a>00163   std::string s = CreateStringFromNPVariant(result);
-<a name="l00164"></a>00164   s += <span class="stringliteral">&quot;\n&quot;</span>;
-<a name="l00165"></a>00165   printf(s.c_str());
-<a name="l00166"></a>00166   <span class="keywordflow">return</span> <span class="keyword">true</span>;
-<a name="l00167"></a>00167 }
-<a name="l00168"></a>00168 
-<a name="l00169"></a>00169 <span class="comment">// This function creates a string in the browser&#39;s memory pool and then returns</span>
-<a name="l00170"></a>00170 <span class="comment">// a variable containing a pointer to that string.  The variable is later</span>
-<a name="l00171"></a>00171 <span class="comment">// returned back to the browser by the Invoke() function that called this.</span>
-<a name="l00172"></a>00172 <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="struct_hello_world.html">HelloWorld</a>(NPVariant *result) {
-<a name="l00173"></a>00173   printf(<span class="stringliteral">&quot;static bool HelloWorld(NPVariant *result) {\n&quot;</span>);
-<a name="l00174"></a>00174   <span class="keywordflow">if</span> (result) {
-<a name="l00175"></a>00175     <span class="keyword">const</span> <span class="keywordtype">char</span> *msg = <span class="stringliteral">&quot;hello, world. soon to be img.&quot;</span>;
-<a name="l00176"></a>00176     <span class="keyword">const</span> <span class="keywordtype">int</span> msg_length = strlen(msg) + 1;
-<a name="l00177"></a>00177     <span class="comment">// Note: |msg_copy| will be freed later on by the browser, so it needs to</span>
-<a name="l00178"></a>00178     <span class="comment">// be allocated here with NPN_MemAlloc().</span>
-<a name="l00179"></a>00179     <span class="keywordtype">char</span> *msg_copy = <span class="keyword">reinterpret_cast&lt;</span><span class="keywordtype">char</span>*<span class="keyword">&gt;</span>(<a class="code" href="npapi_8h.html#a891dcc0692dd6f097659e5e2b7b555d2">NPN_MemAlloc</a>(msg_length));
-<a name="l00180"></a>00180     strncpy(msg_copy, msg, msg_length);
-<a name="l00181"></a>00181     STRINGN_TO_NPVARIANT(msg_copy, msg_length - 1, *result);
-<a name="l00182"></a>00182   }
-<a name="l00183"></a>00183   <span class="keywordflow">return</span> <span class="keyword">true</span>;
-<a name="l00184"></a>00184 }
-<a name="l00185"></a>00185 
-<a name="l00186"></a>00186 <span class="comment">// Helper functions ------------------------------------------------------------</span>
-<a name="l00187"></a>00187 
-<a name="l00188"></a>00188 <span class="keywordtype">bool</span> TestGetProperty(<a class="code" href="class_plugin_object.html">PluginObject</a>* obj,
-<a name="l00189"></a>00189                      <span class="keyword">const</span> NPVariant* args, uint32_t arg_count,
-<a name="l00190"></a>00190                      NPVariant* result) {
-<a name="l00191"></a>00191   printf(<span class="stringliteral">&quot;bool TestGetProperty(PluginObject* obj,\n&quot;</span>);
-<a name="l00192"></a>00192   <span class="keywordflow">if</span> (arg_count == 0)
-<a name="l00193"></a>00193     <span class="keywordflow">return</span> <span class="keyword">false</span>;
-<a name="l00194"></a>00194 
-<a name="l00195"></a>00195   NPObject *object;
-<a name="l00196"></a>00196   <a class="code" href="plugin__object_8cc.html#a6bc4d2698dc5cfabc5b23f38cd107dcd">browser</a>-&gt;getvalue(obj-&gt;<a class="code" href="class_plugin_object.html#a1a051ee92618bae8134b4d273d1d9982">npp</a>(), <a class="code" href="npapi_8h.html#ac6ceb0585e9b642ef0ee915918ae07c5a09590385eb9871aee64e08e2753d188e">NPNVWindowNPObject</a>, &amp;object);
-<a name="l00197"></a>00197 
-<a name="l00198"></a>00198   <span class="keywordflow">for</span> (uint32_t i = 0; i &lt; arg_count; i++) {
-<a name="l00199"></a>00199     assert(NPVARIANT_IS_STRING(args[i]));
-<a name="l00200"></a>00200     std::string property_string = CreateStringFromNPVariant(args[i]);
-<a name="l00201"></a>00201     NPIdentifier property_identifier =
-<a name="l00202"></a>00202         <a class="code" href="plugin__object_8cc.html#a6bc4d2698dc5cfabc5b23f38cd107dcd">browser</a>-&gt;getstringidentifier(property_string.c_str());
-<a name="l00203"></a>00203 
-<a name="l00204"></a>00204     NPVariant variant;
-<a name="l00205"></a>00205     <span class="keywordtype">bool</span> retval = <a class="code" href="plugin__object_8cc.html#a6bc4d2698dc5cfabc5b23f38cd107dcd">browser</a>-&gt;getproperty(obj-&gt;<a class="code" href="class_plugin_object.html#a1a051ee92618bae8134b4d273d1d9982">npp</a>(), object, property_identifier,
-<a name="l00206"></a>00206                                        &amp;variant);
-<a name="l00207"></a>00207     <a class="code" href="plugin__object_8cc.html#a6bc4d2698dc5cfabc5b23f38cd107dcd">browser</a>-&gt;releaseobject(<span class="keywordtype">object</span>);
+<a name="l00161"></a>00161 <span class="comment">// Helper functions ------------------------------------------------------------</span>
+<a name="l00162"></a>00162 
+<a name="l00163"></a>00163 <span class="keywordtype">bool</span> TestGetProperty(<a class="code" href="class_plugin_object.html">PluginObject</a>* obj,
+<a name="l00164"></a>00164                      <span class="keyword">const</span> <a class="code" href="struct___n_p_variant.html">NPVariant</a>* args, uint32_t arg_count,
+<a name="l00165"></a>00165                      <a class="code" href="struct___n_p_variant.html">NPVariant</a>* result) {
+<a name="l00166"></a>00166   printf(<span class="stringliteral">&quot;bool TestGetProperty(PluginObject* obj,\n&quot;</span>);
+<a name="l00167"></a>00167   <span class="keywordflow">if</span> (arg_count == 0)
+<a name="l00168"></a>00168     <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00169"></a>00169 
+<a name="l00170"></a>00170   <a class="code" href="struct_n_p_object.html">NPObject</a> *object;
+<a name="l00171"></a>00171   browser-&gt;<a class="code" href="struct___n_p_netscape_funcs.html#a137b9d7552558dfddb1da2ba754ed073">getvalue</a>(obj-&gt;<a class="code" href="class_plugin_object.html#a1a051ee92618bae8134b4d273d1d9982">npp</a>(), <a class="code" href="npapi_8h.html#ac6ceb0585e9b642ef0ee915918ae07c5a09590385eb9871aee64e08e2753d188e">NPNVWindowNPObject</a>, &amp;object);
+<a name="l00172"></a>00172 
+<a name="l00173"></a>00173   <span class="keywordflow">for</span> (uint32_t i = 0; i &lt; arg_count; i++) {
+<a name="l00174"></a>00174     assert(<a class="code" href="npruntime_8h.html#a0b026a86c4682649b0c7e37ab3faaf49">NPVARIANT_IS_STRING</a>(args[i]));
+<a name="l00175"></a>00175     std::string property_string = CreateStringFromNPVariant(args[i]);
+<a name="l00176"></a>00176     <a class="code" href="npruntime_8h.html#a3ce51391e08bd3e24128c342b1d055b9">NPIdentifier</a> property_identifier =
+<a name="l00177"></a>00177         browser-&gt;<a class="code" href="struct___n_p_netscape_funcs.html#a60933fa78617d624dad58fbad07682e8">getstringidentifier</a>(property_string.c_str());
+<a name="l00178"></a>00178 
+<a name="l00179"></a>00179     <a class="code" href="struct___n_p_variant.html">NPVariant</a> variant;
+<a name="l00180"></a>00180     <span class="keywordtype">bool</span> retval = browser-&gt;<a class="code" href="struct___n_p_netscape_funcs.html#ac0f681694d72e58f5cd6c3cefee939ea">getproperty</a>(obj-&gt;<a class="code" href="class_plugin_object.html#a1a051ee92618bae8134b4d273d1d9982">npp</a>(), object, property_identifier,
+<a name="l00181"></a>00181                                        &amp;variant);
+<a name="l00182"></a>00182     browser-&gt;<a class="code" href="struct___n_p_netscape_funcs.html#a54de30bc5da955596a5d9b7e906ec379">releaseobject</a>(<span class="keywordtype">object</span>);
+<a name="l00183"></a>00183 
+<a name="l00184"></a>00184     <span class="keywordflow">if</span> (!retval)
+<a name="l00185"></a>00185       <span class="keywordflow">break</span>;
+<a name="l00186"></a>00186 
+<a name="l00187"></a>00187     <span class="keywordflow">if</span> (i + 1 &lt; arg_count) {
+<a name="l00188"></a>00188       assert(<a class="code" href="npruntime_8h.html#a7538171cc9329477ee61ce4f78da7ca9">NPVARIANT_IS_OBJECT</a>(variant));
+<a name="l00189"></a>00189       <span class="keywordtype">object</span> = <a class="code" href="npruntime_8h.html#a31a6d36b090dea568b9e99ed5a60d7ea">NPVARIANT_TO_OBJECT</a>(variant);
+<a name="l00190"></a>00190     } <span class="keywordflow">else</span> {
+<a name="l00191"></a>00191       *result = variant;
+<a name="l00192"></a>00192       <span class="keywordflow">return</span> <span class="keyword">true</span>;
+<a name="l00193"></a>00193     }
+<a name="l00194"></a>00194   }
+<a name="l00195"></a>00195 
+<a name="l00196"></a>00196   <a class="code" href="npruntime_8h.html#a535c2e8a27be98cec3eca18919438912">VOID_TO_NPVARIANT</a>(*result);
+<a name="l00197"></a>00197   <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00198"></a>00198 }
+<a name="l00199"></a>00199 
+<a name="l00200"></a>00200 <span class="comment">// Plugin class functions ------------------------------------------------------</span>
+<a name="l00201"></a>00201 
+<a name="l00202"></a>00202 <a class="code" href="struct_n_p_object.html">NPObject</a>* PluginAllocate(<a class="code" href="struct___n_p_p.html">NPP</a> npp, <a class="code" href="struct_n_p_class.html">NPClass</a>* the_class) {
+<a name="l00203"></a>00203   printf(<span class="stringliteral">&quot;NPObject* PluginAllocate(NPP npp, NPClass* the_class) {\n&quot;</span>);
+<a name="l00204"></a>00204   EnsureIdentifiersInitialized();
+<a name="l00205"></a>00205   <a class="code" href="class_plugin_object.html">PluginObject</a>* newInstance = <span class="keyword">new</span> <a class="code" href="class_plugin_object.html">PluginObject</a>(npp);
+<a name="l00206"></a>00206   <span class="keywordflow">return</span> <span class="keyword">reinterpret_cast&lt;</span><a class="code" href="struct_n_p_object.html">NPObject</a>*<span class="keyword">&gt;</span>(newInstance);
+<a name="l00207"></a>00207 }
 <a name="l00208"></a>00208 
-<a name="l00209"></a>00209     <span class="keywordflow">if</span> (!retval)
-<a name="l00210"></a>00210       <span class="keywordflow">break</span>;
-<a name="l00211"></a>00211 
-<a name="l00212"></a>00212     <span class="keywordflow">if</span> (i + 1 &lt; arg_count) {
-<a name="l00213"></a>00213       assert(NPVARIANT_IS_OBJECT(variant));
-<a name="l00214"></a>00214       <span class="keywordtype">object</span> = NPVARIANT_TO_OBJECT(variant);
-<a name="l00215"></a>00215     } <span class="keywordflow">else</span> {
-<a name="l00216"></a>00216       *result = variant;
-<a name="l00217"></a>00217       <span class="keywordflow">return</span> <span class="keyword">true</span>;
-<a name="l00218"></a>00218     }
-<a name="l00219"></a>00219   }
-<a name="l00220"></a>00220 
-<a name="l00221"></a>00221   VOID_TO_NPVARIANT(*result);
-<a name="l00222"></a>00222   <span class="keywordflow">return</span> <span class="keyword">false</span>;
-<a name="l00223"></a>00223 }
-<a name="l00224"></a>00224 
-<a name="l00225"></a>00225 <span class="comment">// Plugin class functions ------------------------------------------------------</span>
-<a name="l00226"></a>00226 
-<a name="l00227"></a>00227 NPObject* PluginAllocate(<a class="code" href="struct___n_p_p.html">NPP</a> npp, NPClass* the_class) {
-<a name="l00228"></a>00228   printf(<span class="stringliteral">&quot;NPObject* PluginAllocate(NPP npp, NPClass* the_class) {\n&quot;</span>);
-<a name="l00229"></a>00229   EnsureIdentifiersInitialized();
-<a name="l00230"></a>00230   <a class="code" href="class_plugin_object.html">PluginObject</a>* newInstance = <span class="keyword">new</span> <a class="code" href="class_plugin_object.html">PluginObject</a>(npp);
-<a name="l00231"></a>00231   <span class="keywordflow">return</span> <span class="keyword">reinterpret_cast&lt;</span>NPObject*<span class="keyword">&gt;</span>(newInstance);
-<a name="l00232"></a>00232 }
-<a name="l00233"></a>00233 
-<a name="l00234"></a>00234 <span class="keywordtype">void</span> PluginDeallocate(NPObject* header) {
-<a name="l00235"></a>00235   printf(<span class="stringliteral">&quot;void PluginDeallocate(NPObject* header) {\n&quot;</span>);
-<a name="l00236"></a>00236   <a class="code" href="class_plugin_object.html">PluginObject</a>* plugin = <span class="keyword">reinterpret_cast&lt;</span><a class="code" href="class_plugin_object.html">PluginObject</a>*<span class="keyword">&gt;</span>(header);
-<a name="l00237"></a>00237   <span class="keyword">delete</span> plugin;
-<a name="l00238"></a>00238 }
-<a name="l00239"></a>00239 
-<a name="l00240"></a>00240 <span class="keywordtype">void</span> PluginInvalidate(NPObject* obj) {
-<a name="l00241"></a>00241   printf(<span class="stringliteral">&quot;void PluginInvalidate(NPObject* obj) {\n&quot;</span>);
-<a name="l00242"></a>00242 }
-<a name="l00243"></a>00243 
-<a name="l00244"></a>00244 <span class="keywordtype">bool</span> PluginHasMethod(NPObject* obj, NPIdentifier name) {
-<a name="l00245"></a>00245   printf(<span class="stringliteral">&quot;bool PluginHasMethod(NPObject* obj, NPIdentifier name) {\n&quot;</span>);
-<a name="l00246"></a>00246   <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code" href="sys_2test__object_8cc.html#a93b9d38f88b25d82c4975ef2e0047d67">NUM_METHOD_IDENTIFIERS</a>; i++) {
-<a name="l00247"></a>00247     <span class="keywordflow">if</span> (name == plugin_method_identifiers[i])
-<a name="l00248"></a>00248       <span class="keywordflow">return</span> <span class="keyword">true</span>;
-<a name="l00249"></a>00249   }
-<a name="l00250"></a>00250   <span class="keywordflow">return</span> <span class="keyword">false</span>;
-<a name="l00251"></a>00251 }
+<a name="l00209"></a>00209 <span class="keywordtype">void</span> PluginDeallocate(<a class="code" href="struct_n_p_object.html">NPObject</a>* header) {
+<a name="l00210"></a>00210   printf(<span class="stringliteral">&quot;void PluginDeallocate(NPObject* header) {\n&quot;</span>);
+<a name="l00211"></a>00211   <a class="code" href="class_plugin_object.html">PluginObject</a>* plugin = <span class="keyword">reinterpret_cast&lt;</span><a class="code" href="class_plugin_object.html">PluginObject</a>*<span class="keyword">&gt;</span>(header);
+<a name="l00212"></a>00212   <span class="keyword">delete</span> plugin;
+<a name="l00213"></a>00213 }
+<a name="l00214"></a>00214 
+<a name="l00215"></a>00215 <span class="keywordtype">void</span> PluginInvalidate(<a class="code" href="struct_n_p_object.html">NPObject</a>* obj) {
+<a name="l00216"></a>00216   printf(<span class="stringliteral">&quot;void PluginInvalidate(NPObject* obj) {\n&quot;</span>);
+<a name="l00217"></a>00217 }
+<a name="l00218"></a>00218 
+<a name="l00219"></a>00219 <span class="keywordtype">bool</span> PluginHasMethod(<a class="code" href="struct_n_p_object.html">NPObject</a>* obj, <a class="code" href="npruntime_8h.html#a3ce51391e08bd3e24128c342b1d055b9">NPIdentifier</a> name) {
+<a name="l00220"></a>00220   printf(<span class="stringliteral">&quot;bool PluginHasMethod(NPObject* obj, NPIdentifier name) {\n&quot;</span>);
+<a name="l00221"></a>00221   <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code" href="core_2test__object_8cc.html#a93b9d38f88b25d82c4975ef2e0047d67">NUM_METHOD_IDENTIFIERS</a>; i++) {
+<a name="l00222"></a>00222     <span class="keywordflow">if</span> (name == plugin_method_identifiers[i])
+<a name="l00223"></a>00223       <span class="keywordflow">return</span> <span class="keyword">true</span>;
+<a name="l00224"></a>00224   }
+<a name="l00225"></a>00225   <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00226"></a>00226 }
+<a name="l00227"></a>00227 
+<a name="l00228"></a>00228 <span class="keywordtype">bool</span> PluginInvoke(<a class="code" href="struct_n_p_object.html">NPObject</a>* header,
+<a name="l00229"></a>00229                   <a class="code" href="npruntime_8h.html#a3ce51391e08bd3e24128c342b1d055b9">NPIdentifier</a> name,
+<a name="l00230"></a>00230                   <span class="keyword">const</span> <a class="code" href="struct___n_p_variant.html">NPVariant</a>* args, uint32_t arg_count,
+<a name="l00231"></a>00231                   <a class="code" href="struct___n_p_variant.html">NPVariant</a>* result) {
+<a name="l00232"></a>00232   printf(<span class="stringliteral">&quot;bool PluginInvoke(NPObject* header,\n&quot;</span>);
+<a name="l00233"></a>00233   <a class="code" href="class_plugin_object.html">PluginObject</a>* plugin = <span class="keyword">reinterpret_cast&lt;</span><a class="code" href="class_plugin_object.html">PluginObject</a>*<span class="keyword">&gt;</span>(header);
+<a name="l00234"></a>00234                 
+<a name="l00235"></a>00235   <span class="keywordflow">if</span> (name == plugin_method_identifiers[ID_TEST_GET_PROPERTY]) {
+<a name="l00236"></a>00236     <span class="keywordflow">return</span> TestGetProperty(plugin, args, arg_count, result);                    
+<a name="l00237"></a>00237   } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (name == plugin_method_identifiers[ID_SET_TEXT_BOX]) {
+<a name="l00238"></a>00238     <span class="keywordflow">if</span> (1 == arg_count &amp;&amp; <a class="code" href="npruntime_8h.html#a7538171cc9329477ee61ce4f78da7ca9">NPVARIANT_IS_OBJECT</a>(args[0])) {
+<a name="l00239"></a>00239       <span class="comment">//return event_handler-&gt;set_text_box(NPVARIANT_TO_OBJECT(args[0]));</span>
+<a name="l00240"></a>00240     }
+<a name="l00241"></a>00241 
+<a name="l00242"></a>00242   } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (name == plugin_method_identifiers[ID_MODULE_READY]) {
+<a name="l00243"></a>00243     <a class="code" href="npruntime_8h.html#af11e893e647eb90da4270dbb1e633f2d">INT32_TO_NPVARIANT</a>(1, *result);
+<a name="l00244"></a>00244     <span class="keywordflow">return</span> <span class="keyword">true</span>;
+<a name="l00245"></a>00245                         
+<a name="l00246"></a>00246   } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (name == plugin_method_identifiers[ID_REPORT_CHECKSUM]) {
+<a name="l00247"></a>00247     <span class="comment">//return event_handler-&gt;addText(plugin-&gt;ReportChecksum().c_str());</span>
+<a name="l00248"></a>00248                         
+<a name="l00249"></a>00249   } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (name == plugin_method_identifiers[ID_IS_CHECKSUM_CHECK_SUCCESS]) {
+<a name="l00250"></a>00250     <a class="code" href="npruntime_8h.html#aaa77ec2245aaf776f3e7a1e34b6607a0">BOOLEAN_TO_NPVARIANT</a>(plugin-&gt;<a class="code" href="class_plugin_object.html#a4f594d05bd890649ca0f87ce30f03d26">IsChecksumCheckSuccess</a>(), *result);
+<a name="l00251"></a>00251     <span class="keywordflow">return</span> <span class="keyword">true</span>;
 <a name="l00252"></a>00252 
-<a name="l00253"></a>00253 <span class="keywordtype">bool</span> PluginInvoke(NPObject* header,
-<a name="l00254"></a>00254                   NPIdentifier name,
-<a name="l00255"></a>00255                   <span class="keyword">const</span> NPVariant* args, uint32_t arg_count,
-<a name="l00256"></a>00256                   NPVariant* result) {
-<a name="l00257"></a>00257   printf(<span class="stringliteral">&quot;bool PluginInvoke(NPObject* header,\n&quot;</span>);
-<a name="l00258"></a>00258   <a class="code" href="class_plugin_object.html">PluginObject</a>* plugin = <span class="keyword">reinterpret_cast&lt;</span><a class="code" href="class_plugin_object.html">PluginObject</a>*<span class="keyword">&gt;</span>(header);
-<a name="l00259"></a>00259                 
-<a name="l00260"></a>00260   <span class="keywordflow">if</span> (name == plugin_method_identifiers[ID_TEST_GET_PROPERTY]) {
-<a name="l00261"></a>00261     <span class="keywordflow">return</span> TestGetProperty(plugin, args, arg_count, result);                    
-<a name="l00262"></a>00262   } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (name == plugin_method_identifiers[ID_SET_TEXT_BOX]) {
-<a name="l00263"></a>00263     <span class="keywordflow">if</span> (1 == arg_count &amp;&amp; NPVARIANT_IS_OBJECT(args[0])) {
-<a name="l00264"></a>00264       <span class="comment">//return event_handler-&gt;set_text_box(NPVARIANT_TO_OBJECT(args[0]));</span>
-<a name="l00265"></a>00265     }
-<a name="l00266"></a>00266 
-<a name="l00267"></a>00267   } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (name == plugin_method_identifiers[ID_MODULE_READY]) {
-<a name="l00268"></a>00268     INT32_TO_NPVARIANT(1, *result);
-<a name="l00269"></a>00269     <span class="keywordflow">return</span> <span class="keyword">true</span>;
-<a name="l00270"></a>00270                         
-<a name="l00271"></a>00271   } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (name == plugin_method_identifiers[ID_REPORT_CHECKSUM]) {
-<a name="l00272"></a>00272     <span class="comment">//return event_handler-&gt;addText(plugin-&gt;ReportChecksum().c_str());</span>
-<a name="l00273"></a>00273                         
-<a name="l00274"></a>00274   } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (name == plugin_method_identifiers[ID_IS_CHECKSUM_CHECK_SUCCESS]) {
-<a name="l00275"></a>00275     BOOLEAN_TO_NPVARIANT(plugin-&gt;<a class="code" href="class_plugin_object.html#a4f594d05bd890649ca0f87ce30f03d26">IsChecksumCheckSuccess</a>(), *result);
-<a name="l00276"></a>00276     <span class="keywordflow">return</span> <span class="keyword">true</span>;
-<a name="l00277"></a>00277 
-<a name="l00278"></a>00278   } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (name == plugin_method_identifiers[ID_IS_HELLOWORLD]) {
-<a name="l00279"></a>00279     <span class="keywordflow">return</span> <a class="code" href="struct_hello_world.html">HelloWorld</a>(result);
-<a name="l00280"></a>00280                         
-<a name="l00281"></a>00281   } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (name == plugin_method_identifiers[ID_IS_FORTYTWO]) {
-<a name="l00282"></a>00282     <span class="keywordflow">return</span> FortyTwo(args[0]);
-<a name="l00283"></a>00283 
-<a name="l00284"></a>00284   } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (name == plugin_method_identifiers[ID_IS_STORE_HEX]) {
-<a name="l00285"></a>00285     <span class="keywordflow">return</span> StoreHex(args[0], args[1]);
-<a name="l00286"></a>00286 
-<a name="l00287"></a>00287   } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (name == plugin_method_identifiers[ID_IS_APPEND_HEX]) {
-<a name="l00288"></a>00288     <span class="keywordflow">return</span> AppendHex(args[0], args[1]);
-<a name="l00289"></a>00289   }
-<a name="l00290"></a>00290 
-<a name="l00291"></a>00291   <span class="keywordflow">return</span> <span class="keyword">false</span>;
-<a name="l00292"></a>00292 }
-<a name="l00293"></a>00293 
-<a name="l00294"></a>00294 <span class="keywordtype">bool</span> PluginInvokeDefault(NPObject* obj,
-<a name="l00295"></a>00295                          <span class="keyword">const</span> NPVariant* args, uint32_t arg_count,
-<a name="l00296"></a>00296                          NPVariant* result) {
-<a name="l00297"></a>00297   printf(<span class="stringliteral">&quot;bool PluginInvokeDefault(NPObject* obj,\n&quot;</span>);
-<a name="l00298"></a>00298   INT32_TO_NPVARIANT(1, *result);
-<a name="l00299"></a>00299   <span class="keywordflow">return</span> <span class="keyword">true</span>;
-<a name="l00300"></a>00300 }
-<a name="l00301"></a>00301 
-<a name="l00302"></a>00302 <span class="keywordtype">bool</span> PluginHasProperty(NPObject* obj, NPIdentifier name) {
-<a name="l00303"></a>00303   printf(<span class="stringliteral">&quot;bool PluginHasProperty(NPObject* obj, NPIdentifier name) {\n&quot;</span>);
-<a name="l00304"></a>00304   <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; NUM_PROPERTY_IDENTIFIERS; i++) {
-<a name="l00305"></a>00305     <span class="keywordflow">if</span> (name == plugin_property_identifiers[i])
-<a name="l00306"></a>00306       <span class="keywordflow">return</span> <span class="keyword">true</span>;
-<a name="l00307"></a>00307   }
-<a name="l00308"></a>00308   <span class="keywordflow">return</span> <span class="keyword">false</span>;
-<a name="l00309"></a>00309 }
-<a name="l00310"></a>00310 
-<a name="l00311"></a>00311 <span class="keywordtype">bool</span> PluginGetProperty(NPObject* obj,
-<a name="l00312"></a>00312                        NPIdentifier name,
-<a name="l00313"></a>00313                        NPVariant* result) {
-<a name="l00314"></a>00314   printf(<span class="stringliteral">&quot;bool PluginGetProperty(NPObject* obj,\n&quot;</span>);
-<a name="l00315"></a>00315   <span class="keywordflow">return</span> <span class="keyword">false</span>;
-<a name="l00316"></a>00316 }
-<a name="l00317"></a>00317 
-<a name="l00318"></a>00318 <span class="keywordtype">bool</span> PluginSetProperty(NPObject* obj,
-<a name="l00319"></a>00319                        NPIdentifier name,
-<a name="l00320"></a>00320                        <span class="keyword">const</span> NPVariant* variant) {
-<a name="l00321"></a>00321   <span class="keywordflow">return</span> <span class="keyword">false</span>;
-<a name="l00322"></a>00322 }
-<a name="l00323"></a>00323 
-<a name="l00324"></a>00324 NPClass plugin_class = {
-<a name="l00325"></a>00325   NP_CLASS_STRUCT_VERSION,
-<a name="l00326"></a>00326   PluginAllocate,
-<a name="l00327"></a>00327   PluginDeallocate,
-<a name="l00328"></a>00328   PluginInvalidate,
-<a name="l00329"></a>00329   PluginHasMethod,
-<a name="l00330"></a>00330   PluginInvoke,
-<a name="l00331"></a>00331   PluginInvokeDefault,
-<a name="l00332"></a>00332   PluginHasProperty,
-<a name="l00333"></a>00333   PluginGetProperty,
-<a name="l00334"></a>00334   PluginSetProperty,
-<a name="l00335"></a>00335 };
-<a name="l00336"></a>00336 
-<a name="l00337"></a>00337 <span class="comment">// Bitmap painting -------------------------------------------------------------</span>
-<a name="l00338"></a>00338 <span class="comment">// Ugly gradient filled rectangle.</span>
-<a name="l00339"></a>00339 <span class="keywordtype">void</span> DrawSampleBitmap(NPDeviceContext2D* context, <span class="keywordtype">int</span> width, <span class="keywordtype">int</span> height) {
-<a name="l00340"></a>00340   printf(<span class="stringliteral">&quot;void DrawSampleBitmap(NPDeviceContext2D* context, int width, int height) {\n&quot;</span>);
-<a name="l00341"></a>00341   <span class="keywordtype">int</span> stride = context-&gt;stride;
-<a name="l00342"></a>00342   <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* buffer = <span class="keyword">reinterpret_cast&lt;</span><span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>*<span class="keyword">&gt;</span>(context-&gt;region);
-<a name="l00343"></a>00343   <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> kPixelStride = 4;
-<a name="l00344"></a>00344 
-<a name="l00345"></a>00345   <span class="keywordflow">if</span> (0 == height || 0 == width)
-<a name="l00346"></a>00346     <span class="keywordflow">return</span>;
-<a name="l00347"></a>00347 
-<a name="l00348"></a>00348   <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">float</span> kVStep = 1.0 / <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(height);
-<a name="l00349"></a>00349   <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">float</span> kHStep = 1.0 / <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(width);
-<a name="l00350"></a>00350   <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">float</span> kAlphaStep = 1.0 / <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(width + height);
-<a name="l00351"></a>00351   <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; height; ++i) {
-<a name="l00352"></a>00352     <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; width; ++j) {
-<a name="l00353"></a>00353       <span class="keywordtype">int</span> index = i * stride + j * kPixelStride;
-<a name="l00354"></a>00354       <span class="keywordtype">float</span> alpha = 1.0 - (i + j) * kAlphaStep;
-<a name="l00355"></a>00355       <span class="keywordtype">float</span> red = i * kVStep;
-<a name="l00356"></a>00356       <span class="keywordtype">float</span> green = j * kHStep;
-<a name="l00357"></a>00357       <span class="comment">// BGRA, premultiplied alpha.</span>
-<a name="l00358"></a>00358       buffer[index + 0] = 0x00;
-<a name="l00359"></a>00359       buffer[index + 1] = <span class="keyword">static_cast&lt;</span><span class="keywordtype">unsigned</span> <span class="keywordtype">char</span><span class="keyword">&gt;</span>(green * alpha * 255);
-<a name="l00360"></a>00360       buffer[index + 2] = <span class="keyword">static_cast&lt;</span><span class="keywordtype">unsigned</span> <span class="keywordtype">char</span><span class="keyword">&gt;</span>(red * alpha * 255);
-<a name="l00361"></a>00361       buffer[index + 3] = <span class="keyword">static_cast&lt;</span><span class="keywordtype">unsigned</span> <span class="keywordtype">char</span><span class="keyword">&gt;</span>(alpha * 255);
-<a name="l00362"></a>00362     }
-<a name="l00363"></a>00363   }
-<a name="l00364"></a>00364 }
-<a name="l00365"></a>00365 
-<a name="l00366"></a>00366 uint32_t HexStringToUInt(std::string hex_str) {
-<a name="l00367"></a>00367   printf(<span class="stringliteral">&quot;uint32_t HexStringToUInt(std::string hex_str) {\n&quot;</span>);
-<a name="l00368"></a>00368   <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> hex_base = 16;
-<a name="l00369"></a>00369   uint64_t res = strtoul(hex_str.c_str(), NULL, hex_base);
-<a name="l00370"></a>00370 <span class="preprocessor">#if __LP64__</span>
-<a name="l00371"></a>00371 <span class="preprocessor"></span>  <span class="comment">// Long is 64-bits, we have to handle under/overflow ourselves.  Test to see</span>
-<a name="l00372"></a>00372   <span class="comment">// if the result can fit into 32-bits (as signed or unsigned).</span>
-<a name="l00373"></a>00373   <span class="keywordflow">if</span> (static_cast&lt;int32_t&gt;(static_cast&lt;int64_t&gt;(res)) !=
-<a name="l00374"></a>00374       <span class="keyword">static_cast&lt;</span>int64_t<span class="keyword">&gt;</span>(res) &amp;&amp;
-<a name="l00375"></a>00375       static_cast&lt;uint32_t&gt;(res) != res) {
-<a name="l00376"></a>00376     res = kuint32max;
-<a name="l00377"></a>00377   }
-<a name="l00378"></a>00378 <span class="preprocessor">#endif</span>
-<a name="l00379"></a>00379 <span class="preprocessor"></span>  <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>uint32_t<span class="keyword">&gt;</span>(res);
-<a name="l00380"></a>00380 }
-<a name="l00381"></a>00381 
-<a name="l00382"></a>00382 std::string Get2DImageChecksum(<span class="keyword">const</span> NPDeviceContext2D* context) {
-<a name="l00383"></a>00383   printf(<span class="stringliteral">&quot;std::string Get2DImageChecksum(const NPDeviceContext2D* context) {\n&quot;</span>);
-<a name="l00384"></a>00384   <span class="keywordtype">int</span> row_count = context-&gt;dirty.bottom - context-&gt;dirty.top;
-<a name="l00385"></a>00385   <span class="keywordtype">int</span> stride = context-&gt;dirty.right - context-&gt;dirty.left;
-<a name="l00386"></a>00386   <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> kPixelStride = 4;
-<a name="l00387"></a>00387   <span class="keywordtype">size_t</span> length = row_count * stride * kPixelStride;
-<a name="l00388"></a>00388   <a class="code" href="struct_m_d5_digest__struct.html">MD5Digest</a> md5_result;   <span class="comment">// 128-bit digest</span>
-<a name="l00389"></a>00389   <a class="code" href="md5_8cc.html#a18b6419e0de0fdbfdaa95274d3d58ae1">MD5Sum</a>(context-&gt;region, length, &amp;md5_result);
-<a name="l00390"></a>00390   std::string hex_md5 = <a class="code" href="md5_8cc.html#a9aa89c86eb5b736794de5c9e069d332f">MD5DigestToBase16</a>(md5_result);
-<a name="l00391"></a>00391   <span class="comment">// Return the least significant 8 characters (i.e. 4 bytes)</span>
-<a name="l00392"></a>00392   <span class="comment">// of the 32 character hexadecimal result as an int.</span>
-<a name="l00393"></a>00393   <span class="keywordflow">return</span> hex_md5.substr(24);
-<a name="l00394"></a>00394 }
-<a name="l00395"></a>00395 
-<a name="l00396"></a>00396 <span class="keywordtype">void</span> <a class="code" href="pi__generator_8cc.html#a858fd4bec86251491336ccee9473e3a7">FlushCallback</a>(<a class="code" href="struct___n_p_p.html">NPP</a> instance, NPDeviceContext* context,
-<a name="l00397"></a>00397                    <a class="code" href="npapi_8h.html#a56715bc92ac93f0447a05f852ce18828">NPError</a> err, <span class="keywordtype">void</span>* user_data) {
-<a name="l00398"></a>00398   printf(<span class="stringliteral">&quot;void FlushCallback(NPP instance, NPDeviceContext* context,\n&quot;</span>);
-<a name="l00399"></a>00399 }
-<a name="l00400"></a>00400 
-<a name="l00401"></a>00401 NPExtensions* extensions = NULL;
-<a name="l00402"></a>00402 
+<a name="l00253"></a>00253   } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (name == plugin_method_identifiers[ID_IS_HELLOWORLD]) {
+<a name="l00254"></a>00254     <span class="keywordflow">return</span> <a class="code" href="struct_hello_world.html">HelloWorld</a>(result);
+<a name="l00255"></a>00255                         
+<a name="l00256"></a>00256   } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (name == plugin_method_identifiers[ID_IS_FORTYTWO]) {
+<a name="l00257"></a>00257     <span class="keywordflow">return</span> FortyTwo(args[0]);
+<a name="l00258"></a>00258 
+<a name="l00259"></a>00259   } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (name == plugin_method_identifiers[ID_IS_STORE_HEX]) {
+<a name="l00260"></a>00260     <span class="keywordflow">return</span> StoreHex(args[0], args[1]);
+<a name="l00261"></a>00261 
+<a name="l00262"></a>00262   } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (name == plugin_method_identifiers[ID_IS_APPEND_HEX]) {
+<a name="l00263"></a>00263     <span class="keywordflow">return</span> AppendHex(args[0], args[1]);
+<a name="l00264"></a>00264   }
+<a name="l00265"></a>00265 
+<a name="l00266"></a>00266   <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00267"></a>00267 }
+<a name="l00268"></a>00268 
+<a name="l00269"></a>00269 <span class="keywordtype">bool</span> PluginInvokeDefault(<a class="code" href="struct_n_p_object.html">NPObject</a>* obj,
+<a name="l00270"></a>00270                          <span class="keyword">const</span> <a class="code" href="struct___n_p_variant.html">NPVariant</a>* args, uint32_t arg_count,
+<a name="l00271"></a>00271                          <a class="code" href="struct___n_p_variant.html">NPVariant</a>* result) {
+<a name="l00272"></a>00272   printf(<span class="stringliteral">&quot;bool PluginInvokeDefault(NPObject* obj,\n&quot;</span>);
+<a name="l00273"></a>00273   <a class="code" href="npruntime_8h.html#af11e893e647eb90da4270dbb1e633f2d">INT32_TO_NPVARIANT</a>(1, *result);
+<a name="l00274"></a>00274   <span class="keywordflow">return</span> <span class="keyword">true</span>;
+<a name="l00275"></a>00275 }
+<a name="l00276"></a>00276 
+<a name="l00277"></a>00277 <span class="keywordtype">bool</span> PluginHasProperty(<a class="code" href="struct_n_p_object.html">NPObject</a>* obj, <a class="code" href="npruntime_8h.html#a3ce51391e08bd3e24128c342b1d055b9">NPIdentifier</a> name) {
+<a name="l00278"></a>00278   printf(<span class="stringliteral">&quot;bool PluginHasProperty(NPObject* obj, NPIdentifier name) {\n&quot;</span>);
+<a name="l00279"></a>00279   <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; NUM_PROPERTY_IDENTIFIERS; i++) {
+<a name="l00280"></a>00280     <span class="keywordflow">if</span> (name == plugin_property_identifiers[i])
+<a name="l00281"></a>00281       <span class="keywordflow">return</span> <span class="keyword">true</span>;
+<a name="l00282"></a>00282   }
+<a name="l00283"></a>00283   <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00284"></a>00284 }
+<a name="l00285"></a>00285 
+<a name="l00286"></a>00286 <span class="keywordtype">bool</span> PluginGetProperty(<a class="code" href="struct_n_p_object.html">NPObject</a>* obj,
+<a name="l00287"></a>00287                        <a class="code" href="npruntime_8h.html#a3ce51391e08bd3e24128c342b1d055b9">NPIdentifier</a> name,
+<a name="l00288"></a>00288                        <a class="code" href="struct___n_p_variant.html">NPVariant</a>* result) {
+<a name="l00289"></a>00289   printf(<span class="stringliteral">&quot;bool PluginGetProperty(NPObject* obj,\n&quot;</span>);
+<a name="l00290"></a>00290   <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00291"></a>00291 }
+<a name="l00292"></a>00292 
+<a name="l00293"></a>00293 <span class="keywordtype">bool</span> PluginSetProperty(<a class="code" href="struct_n_p_object.html">NPObject</a>* obj,
+<a name="l00294"></a>00294                        <a class="code" href="npruntime_8h.html#a3ce51391e08bd3e24128c342b1d055b9">NPIdentifier</a> name,
+<a name="l00295"></a>00295                        <span class="keyword">const</span> <a class="code" href="struct___n_p_variant.html">NPVariant</a>* variant) {
+<a name="l00296"></a>00296   <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00297"></a>00297 }
+<a name="l00298"></a>00298 
+<a name="l00299"></a>00299 <a class="code" href="struct_n_p_class.html">NPClass</a> plugin_class = {
+<a name="l00300"></a>00300   <a class="code" href="npruntime_8h.html#a6fca3735dfc4eb8d19ceb582cabd0645">NP_CLASS_STRUCT_VERSION</a>,
+<a name="l00301"></a>00301   PluginAllocate,
+<a name="l00302"></a>00302   PluginDeallocate,
+<a name="l00303"></a>00303   PluginInvalidate,
+<a name="l00304"></a>00304   PluginHasMethod,
+<a name="l00305"></a>00305   PluginInvoke,
+<a name="l00306"></a>00306   PluginInvokeDefault,
+<a name="l00307"></a>00307   PluginHasProperty,
+<a name="l00308"></a>00308   PluginGetProperty,
+<a name="l00309"></a>00309   PluginSetProperty,
+<a name="l00310"></a>00310 };
+<a name="l00311"></a>00311 
+<a name="l00312"></a>00312 <span class="comment">// Bitmap painting -------------------------------------------------------------</span>
+<a name="l00313"></a>00313 <span class="comment">// Ugly gradient filled rectangle.</span>
+<a name="l00314"></a>00314 <span class="keywordtype">void</span> DrawSampleBitmap(<a class="code" href="struct___n_p_device_context2_d.html">NPDeviceContext2D</a>* context, <span class="keywordtype">int</span> width, <span class="keywordtype">int</span> height) {
+<a name="l00315"></a>00315   printf(<span class="stringliteral">&quot;void DrawSampleBitmap(NPDeviceContext2D* context, int width, int height) {\n&quot;</span>);
+<a name="l00316"></a>00316   <span class="keywordtype">int</span> stride = context-&gt;<a class="code" href="struct___n_p_device_context2_d.html#acc18333c582d999cd4b41fac75dd7f10">stride</a>;
+<a name="l00317"></a>00317   <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* buffer = <span class="keyword">reinterpret_cast&lt;</span><span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>*<span class="keyword">&gt;</span>(context-&gt;<a class="code" href="struct___n_p_device_context2_d.html#a8ec3c876c329a4b94c6ac730d2e33885">region</a>);
+<a name="l00318"></a>00318   <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> kPixelStride = 4;
+<a name="l00319"></a>00319 
+<a name="l00320"></a>00320   <span class="keywordflow">if</span> (0 == height || 0 == width)
+<a name="l00321"></a>00321     <span class="keywordflow">return</span>;
+<a name="l00322"></a>00322 
+<a name="l00323"></a>00323   <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">float</span> kVStep = 1.0 / <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(height);
+<a name="l00324"></a>00324   <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">float</span> kHStep = 1.0 / <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(width);
+<a name="l00325"></a>00325   <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">float</span> kAlphaStep = 1.0 / <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(width + height);
+<a name="l00326"></a>00326   <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; height; ++i) {
+<a name="l00327"></a>00327     <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; width; ++j) {
+<a name="l00328"></a>00328       <span class="keywordtype">int</span> index = i * stride + j * kPixelStride;
+<a name="l00329"></a>00329       <span class="keywordtype">float</span> alpha = 1.0 - (i + j) * kAlphaStep;
+<a name="l00330"></a>00330       <span class="keywordtype">float</span> red = i * kVStep;
+<a name="l00331"></a>00331       <span class="keywordtype">float</span> green = j * kHStep;
+<a name="l00332"></a>00332       <span class="comment">// BGRA, premultiplied alpha.</span>
+<a name="l00333"></a>00333       buffer[index + 0] = 0x00;
+<a name="l00334"></a>00334       buffer[index + 1] = <span class="keyword">static_cast&lt;</span><span class="keywordtype">unsigned</span> <span class="keywordtype">char</span><span class="keyword">&gt;</span>(green * alpha * 255);
+<a name="l00335"></a>00335       buffer[index + 2] = <span class="keyword">static_cast&lt;</span><span class="keywordtype">unsigned</span> <span class="keywordtype">char</span><span class="keyword">&gt;</span>(red * alpha * 255);
+<a name="l00336"></a>00336       buffer[index + 3] = <span class="keyword">static_cast&lt;</span><span class="keywordtype">unsigned</span> <span class="keywordtype">char</span><span class="keyword">&gt;</span>(alpha * 255);
+<a name="l00337"></a>00337     }
+<a name="l00338"></a>00338   }
+<a name="l00339"></a>00339 }
+<a name="l00340"></a>00340 
+<a name="l00341"></a>00341 uint32_t HexStringToUInt(std::string hex_str) {
+<a name="l00342"></a>00342   printf(<span class="stringliteral">&quot;uint32_t HexStringToUInt(std::string hex_str) {\n&quot;</span>);
+<a name="l00343"></a>00343   <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> hex_base = 16;
+<a name="l00344"></a>00344   uint64_t res = strtoul(hex_str.c_str(), NULL, hex_base);
+<a name="l00345"></a>00345 <span class="preprocessor">#if __LP64__</span>
+<a name="l00346"></a>00346 <span class="preprocessor"></span>  <span class="comment">// Long is 64-bits, we have to handle under/overflow ourselves.  Test to see</span>
+<a name="l00347"></a>00347   <span class="comment">// if the result can fit into 32-bits (as signed or unsigned).</span>
+<a name="l00348"></a>00348   <span class="keywordflow">if</span> (static_cast&lt;int32_t&gt;(static_cast&lt;int64_t&gt;(res)) !=
+<a name="l00349"></a>00349       <span class="keyword">static_cast&lt;</span>int64_t<span class="keyword">&gt;</span>(res) &amp;&amp;
+<a name="l00350"></a>00350       static_cast&lt;uint32_t&gt;(res) != res) {
+<a name="l00351"></a>00351     res = kuint32max;
+<a name="l00352"></a>00352   }
+<a name="l00353"></a>00353 <span class="preprocessor">#endif</span>
+<a name="l00354"></a>00354 <span class="preprocessor"></span>  <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>uint32_t<span class="keyword">&gt;</span>(res);
+<a name="l00355"></a>00355 }
+<a name="l00356"></a>00356 
+<a name="l00357"></a>00357 std::string Get2DImageChecksum(<span class="keyword">const</span> <a class="code" href="struct___n_p_device_context2_d.html">NPDeviceContext2D</a>* context) {
+<a name="l00358"></a>00358   printf(<span class="stringliteral">&quot;std::string Get2DImageChecksum(const NPDeviceContext2D* context) {\n&quot;</span>);
+<a name="l00359"></a>00359   <span class="keywordtype">int</span> row_count = context-&gt;<a class="code" href="struct___n_p_device_context2_d.html#a078b2be40725ea8e4b1b2c500872f9af">dirty</a>.<a class="code" href="struct___n_p_device_context2_d.html#ab3eff9d7c9a0261a12cd1ac819e70d4c">bottom</a> - context-&gt;<a class="code" href="struct___n_p_device_context2_d.html#a078b2be40725ea8e4b1b2c500872f9af">dirty</a>.<a class="code" href="struct___n_p_device_context2_d.html#a1271a86a210f0290e00457984a518bf4">top</a>;
+<a name="l00360"></a>00360   <span class="keywordtype">int</span> stride = context-&gt;<a class="code" href="struct___n_p_device_context2_d.html#a078b2be40725ea8e4b1b2c500872f9af">dirty</a>.<a class="code" href="struct___n_p_device_context2_d.html#a9ad6524791eef11231d81588ddd2344f">right</a> - context-&gt;<a class="code" href="struct___n_p_device_context2_d.html#a078b2be40725ea8e4b1b2c500872f9af">dirty</a>.<a class="code" href="struct___n_p_device_context2_d.html#a45321ab6f6b7280f14e9f27472f6ff69">left</a>;
+<a name="l00361"></a>00361   <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> kPixelStride = 4;
+<a name="l00362"></a>00362   <span class="keywordtype">size_t</span> length = row_count * stride * kPixelStride;
+<a name="l00363"></a>00363   <a class="code" href="struct_m_d5_digest__struct.html">MD5Digest</a> md5_result;   <span class="comment">// 128-bit digest</span>
+<a name="l00364"></a>00364   <a class="code" href="md5_8cc.html#a18b6419e0de0fdbfdaa95274d3d58ae1">MD5Sum</a>(context-&gt;<a class="code" href="struct___n_p_device_context2_d.html#a8ec3c876c329a4b94c6ac730d2e33885">region</a>, length, &amp;md5_result);
+<a name="l00365"></a>00365   std::string hex_md5 = <a class="code" href="md5_8cc.html#a9aa89c86eb5b736794de5c9e069d332f">MD5DigestToBase16</a>(md5_result);
+<a name="l00366"></a>00366   <span class="comment">// Return the least significant 8 characters (i.e. 4 bytes)</span>
+<a name="l00367"></a>00367   <span class="comment">// of the 32 character hexadecimal result as an int.</span>
+<a name="l00368"></a>00368   <span class="keywordflow">return</span> hex_md5.substr(24);
+<a name="l00369"></a>00369 }
+<a name="l00370"></a>00370 
+<a name="l00371"></a>00371 <span class="keywordtype">void</span> <a class="code" href="pi__generator_8cc.html#a858fd4bec86251491336ccee9473e3a7">FlushCallback</a>(<a class="code" href="struct___n_p_p.html">NPP</a> instance, <a class="code" href="npapi__extensions_8h.html#a767de32383e08a9cfeb71079e60466bf">NPDeviceContext</a>* context,
+<a name="l00372"></a>00372                    <a class="code" href="npapi_8h.html#a56715bc92ac93f0447a05f852ce18828">NPError</a> err, <span class="keywordtype">void</span>* user_data) {
+<a name="l00373"></a>00373   printf(<span class="stringliteral">&quot;void FlushCallback(NPP instance, NPDeviceContext* context,\n&quot;</span>);
+<a name="l00374"></a>00374 }
+<a name="l00375"></a>00375 
+<a name="l00376"></a>00376 <a class="code" href="struct_n_p_n_extensions.html">NPExtensions</a>* extensions = NULL;
+<a name="l00377"></a>00377 
+<a name="l00378"></a>00378 
+<a name="l00379"></a>00379 <span class="comment">// Sine wave similar to one from simple_sources.cc</span>
+<a name="l00380"></a>00380 <span class="comment">// F is the desired frequency (e.g. 200), T is sample type (e.g. int16)</span>
+<a name="l00381"></a>00381 <span class="keyword">template</span> &lt;<span class="keywordtype">int</span> F, <span class="keyword">typename</span> T&gt; <span class="keywordtype">void</span> SineWaveCallback(
+<a name="l00382"></a>00382     <a class="code" href="struct___n_p_device_context_audio.html">NPDeviceContextAudio</a> *context) {
+<a name="l00383"></a>00383 
+<a name="l00384"></a>00384   <span class="keyword">const</span> <span class="keywordtype">size_t</span> n_samples  = context-&gt;<a class="code" href="struct___n_p_device_context_audio.html#a77a64d9efc16465139b00f0939cebb71">config</a>.<a class="code" href="struct___n_p_device_context_audio_config.html#a9845d796ed525af2eef523a8246d5fff">sampleFrameCount</a>;
+<a name="l00385"></a>00385   <span class="keyword">const</span> <span class="keywordtype">size_t</span> n_channels = context-&gt;<a class="code" href="struct___n_p_device_context_audio.html#a77a64d9efc16465139b00f0939cebb71">config</a>.<a class="code" href="struct___n_p_device_context_audio_config.html#adc7b8d1ae23a27b833dd9816ca76c9b2">outputChannelMap</a>;
+<a name="l00386"></a>00386   <span class="keyword">const</span> <span class="keywordtype">double</span> th = 2 * 3.141592653589 * F / context-&gt;<a class="code" href="struct___n_p_device_context_audio.html#a77a64d9efc16465139b00f0939cebb71">config</a>.<a class="code" href="struct___n_p_device_context_audio_config.html#ae8f165b45aa2bb33a84d4e62c320afef">sampleRate</a>;
+<a name="l00387"></a>00387   <span class="comment">// store time value to avoid clicks on buffer boundries</span>
+<a name="l00388"></a>00388   intptr_t t = (intptr_t)context-&gt;<a class="code" href="struct___n_p_device_context_audio.html#a77a64d9efc16465139b00f0939cebb71">config</a>.<a class="code" href="struct___n_p_device_context_audio_config.html#a02dc164c09c13d1a97adde1544a0a787">userData</a>;
+<a name="l00389"></a>00389 
+<a name="l00390"></a>00390   T* buf = reinterpret_cast&lt;T*&gt;(context-&gt;<a class="code" href="struct___n_p_device_context_audio.html#a059607d2ba7cc02d5cdc10fc7e4b2b89">outBuffer</a>);
+<a name="l00391"></a>00391   <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> sample = 0; sample &lt; n_samples; ++sample) {
+<a name="l00392"></a>00392     T value = <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(sin(th * t++) * std::numeric_limits&lt;T&gt;::max());
+<a name="l00393"></a>00393     <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> channel = 0; channel &lt; n_channels; ++channel) {
+<a name="l00394"></a>00394       *buf++ = value;
+<a name="l00395"></a>00395     }
+<a name="l00396"></a>00396   }
+<a name="l00397"></a>00397   context-&gt;<a class="code" href="struct___n_p_device_context_audio.html#a77a64d9efc16465139b00f0939cebb71">config</a>.<a class="code" href="struct___n_p_device_context_audio_config.html#a02dc164c09c13d1a97adde1544a0a787">userData</a> = <span class="keyword">reinterpret_cast&lt;</span><span class="keywordtype">void</span> *<span class="keyword">&gt;</span>(t);
+<a name="l00398"></a>00398 }
+<a name="l00399"></a>00399 
+<a name="l00400"></a>00400 <span class="keyword">const</span> int32_t kCommandBufferSize = 1024 * 1024;
+<a name="l00401"></a>00401 
+<a name="l00402"></a>00402 }  <span class="comment">// namespace</span>
 <a name="l00403"></a>00403 
-<a name="l00404"></a>00404 <span class="comment">// Sine wave similar to one from simple_sources.cc</span>
-<a name="l00405"></a>00405 <span class="comment">// F is the desired frequency (e.g. 200), T is sample type (e.g. int16)</span>
-<a name="l00406"></a>00406 <span class="keyword">template</span> &lt;<span class="keywordtype">int</span> F, <span class="keyword">typename</span> T&gt; <span class="keywordtype">void</span> SineWaveCallback(
-<a name="l00407"></a>00407     NPDeviceContextAudio *context) {
-<a name="l00408"></a>00408 
-<a name="l00409"></a>00409   <span class="keyword">const</span> <span class="keywordtype">size_t</span> n_samples  = context-&gt;config.sampleFrameCount;
-<a name="l00410"></a>00410   <span class="keyword">const</span> <span class="keywordtype">size_t</span> n_channels = context-&gt;config.outputChannelMap;
-<a name="l00411"></a>00411   <span class="keyword">const</span> <span class="keywordtype">double</span> th = 2 * 3.141592653589 * F / context-&gt;config.sampleRate;
-<a name="l00412"></a>00412   <span class="comment">// store time value to avoid clicks on buffer boundries</span>
-<a name="l00413"></a>00413   intptr_t t = (intptr_t)context-&gt;config.userData;
-<a name="l00414"></a>00414 
-<a name="l00415"></a>00415   T* buf = reinterpret_cast&lt;T*&gt;(context-&gt;outBuffer);
-<a name="l00416"></a>00416   <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> sample = 0; sample &lt; n_samples; ++sample) {
-<a name="l00417"></a>00417     T value = <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(sin(th * t++) * std::numeric_limits&lt;T&gt;::max());
-<a name="l00418"></a>00418     <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> channel = 0; channel &lt; n_channels; ++channel) {
-<a name="l00419"></a>00419       *buf++ = value;
-<a name="l00420"></a>00420     }
-<a name="l00421"></a>00421   }
-<a name="l00422"></a>00422   context-&gt;config.userData = <span class="keyword">reinterpret_cast&lt;</span><span class="keywordtype">void</span> *<span class="keyword">&gt;</span>(t);
-<a name="l00423"></a>00423 }
-<a name="l00424"></a>00424 
-<a name="l00425"></a>00425 <span class="keyword">const</span> int32_t kCommandBufferSize = 1024 * 1024;
-<a name="l00426"></a>00426 
-<a name="l00427"></a>00427 }  <span class="comment">// namespace</span>
-<a name="l00428"></a>00428 
+<a name="l00404"></a>00404 
+<a name="l00405"></a>00405 <span class="comment">// PluginObject ----------------------------------------------------------------</span>
+<a name="l00406"></a>00406 
+<a name="l00407"></a><a class="code" href="class_plugin_object.html#ab24118f5b174beacb1b7f652bbbcf78d">00407</a> <a class="code" href="class_plugin_object.html#ab24118f5b174beacb1b7f652bbbcf78d">PluginObject::PluginObject</a>(<a class="code" href="struct___n_p_p.html">NPP</a> npp)
+<a name="l00408"></a>00408     : npp_(npp),
+<a name="l00409"></a>00409       test_object_(browser-&gt;createobject(npp, <a class="code" href="core_2test__object_8cc.html#a3cb7b2a3ec8527e1e05d3004bb71816f">GetTestClass</a>())),
+<a name="l00410"></a>00410       device2d_(NULL),
+<a name="l00411"></a>00411       device3d_(NULL),
+<a name="l00412"></a>00412       pgl_context_(NULL),
+<a name="l00413"></a>00413       deviceaudio_(NULL) {
+<a name="l00414"></a>00414   memset(&amp;<a class="code" href="class_plugin_object.html#a29a7c72b105825ff135a29c9af9206f2">context_audio_</a>, 0, <span class="keyword">sizeof</span>(<a class="code" href="class_plugin_object.html#a29a7c72b105825ff135a29c9af9206f2">context_audio_</a>));
+<a name="l00415"></a>00415 }
+<a name="l00416"></a>00416 
+<a name="l00417"></a><a class="code" href="class_plugin_object.html#ab2a72410c84a20133db4dec8ca92b277">00417</a> <a class="code" href="class_plugin_object.html#ab2a72410c84a20133db4dec8ca92b277">PluginObject::~PluginObject</a>() {
+<a name="l00418"></a>00418   printf(<span class="stringliteral">&quot;PluginObject::~PluginObject() {\n&quot;</span>);
+<a name="l00419"></a>00419   <span class="comment">//if (pgl_context_)</span>
+<a name="l00420"></a>00420   <span class="comment">//Destroy3D();        </span>
+<a name="l00421"></a>00421   browser-&gt;<a class="code" href="struct___n_p_netscape_funcs.html#a54de30bc5da955596a5d9b7e906ec379">releaseobject</a>(<a class="code" href="class_plugin_object.html#aa643ef173ea31331094fbf809d87b70d">test_object_</a>);
+<a name="l00422"></a>00422 }
+<a name="l00423"></a>00423 
+<a name="l00424"></a>00424 <span class="comment">// static</span>
+<a name="l00425"></a><a class="code" href="class_plugin_object.html#a4b017230102036f1626af06df4864a95">00425</a> <a class="code" href="struct_n_p_class.html">NPClass</a>* <a class="code" href="class_plugin_object.html#a4b017230102036f1626af06df4864a95">PluginObject::GetPluginClass</a>() {
+<a name="l00426"></a>00426   printf(<span class="stringliteral">&quot;NPClass* PluginObject::GetPluginClass() {\n&quot;</span>);
+<a name="l00427"></a>00427   <span class="keywordflow">return</span> &amp;plugin_class;
+<a name="l00428"></a>00428 }
 <a name="l00429"></a>00429 
-<a name="l00430"></a>00430 <span class="comment">// PluginObject ----------------------------------------------------------------</span>
-<a name="l00431"></a>00431 
-<a name="l00432"></a><a class="code" href="class_plugin_object.html#ab24118f5b174beacb1b7f652bbbcf78d">00432</a> <a class="code" href="class_plugin_object.html#ab24118f5b174beacb1b7f652bbbcf78d">PluginObject::PluginObject</a>(<a class="code" href="struct___n_p_p.html">NPP</a> npp)
-<a name="l00433"></a>00433     : npp_(npp),
-<a name="l00434"></a>00434       test_object_(<a class="code" href="plugin__object_8cc.html#a6bc4d2698dc5cfabc5b23f38cd107dcd">browser</a>-&gt;createobject(npp, <a class="code" href="sys_2test__object_8cc.html#a3cb7b2a3ec8527e1e05d3004bb71816f">GetTestClass</a>())),
-<a name="l00435"></a>00435       device2d_(NULL),
-<a name="l00436"></a>00436       device3d_(NULL),
-<a name="l00437"></a>00437       pgl_context_(NULL),
-<a name="l00438"></a>00438       deviceaudio_(NULL) {
-<a name="l00439"></a>00439   memset(&amp;<a class="code" href="class_plugin_object.html#a29a7c72b105825ff135a29c9af9206f2">context_audio_</a>, 0, <span class="keyword">sizeof</span>(<a class="code" href="class_plugin_object.html#a29a7c72b105825ff135a29c9af9206f2">context_audio_</a>));
-<a name="l00440"></a>00440 }
-<a name="l00441"></a>00441 
-<a name="l00442"></a><a class="code" href="class_plugin_object.html#ab2a72410c84a20133db4dec8ca92b277">00442</a> <a class="code" href="class_plugin_object.html#ab2a72410c84a20133db4dec8ca92b277">PluginObject::~PluginObject</a>() {
-<a name="l00443"></a>00443   printf(<span class="stringliteral">&quot;PluginObject::~PluginObject() {\n&quot;</span>);
-<a name="l00444"></a>00444   <span class="comment">//if (pgl_context_)</span>
-<a name="l00445"></a>00445   <span class="comment">//Destroy3D();        </span>
-<a name="l00446"></a>00446   <a class="code" href="plugin__object_8cc.html#a6bc4d2698dc5cfabc5b23f38cd107dcd">browser</a>-&gt;releaseobject(<a class="code" href="class_plugin_object.html#aa643ef173ea31331094fbf809d87b70d">test_object_</a>);
-<a name="l00447"></a>00447 }
-<a name="l00448"></a>00448 
-<a name="l00449"></a>00449 <span class="comment">// static</span>
-<a name="l00450"></a><a class="code" href="class_plugin_object.html#a4b017230102036f1626af06df4864a95">00450</a> NPClass* <a class="code" href="class_plugin_object.html#a4b017230102036f1626af06df4864a95">PluginObject::GetPluginClass</a>() {
-<a name="l00451"></a>00451   printf(<span class="stringliteral">&quot;NPClass* PluginObject::GetPluginClass() {\n&quot;</span>);
-<a name="l00452"></a>00452   <span class="keywordflow">return</span> &amp;plugin_class;
-<a name="l00453"></a>00453 }
-<a name="l00454"></a>00454 
-<a name="l00455"></a>00455 <span class="keyword">namespace </span>{
-<a name="l00456"></a>00456 <span class="comment">/*</span>
-<a name="l00457"></a>00457 <span class="comment">  void Draw3DCallback(void* data) {</span>
-<a name="l00458"></a>00458 <span class="comment">  printf(&quot;void Draw3DCallback(void* data) {\n&quot;);</span>
-<a name="l00459"></a>00459 <span class="comment">  static_cast&lt;PluginObject*&gt;(data)-&gt;Draw3D();</span>
-<a name="l00460"></a>00460 <span class="comment">*/</span>
-<a name="l00461"></a>00461 }
-<a name="l00462"></a>00462 
+<a name="l00430"></a>00430 <span class="keyword">namespace </span>{
+<a name="l00431"></a>00431 <span class="comment">/*</span>
+<a name="l00432"></a>00432 <span class="comment">  void Draw3DCallback(void* data) {</span>
+<a name="l00433"></a>00433 <span class="comment">  printf(&quot;void Draw3DCallback(void* data) {\n&quot;);</span>
+<a name="l00434"></a>00434 <span class="comment">  static_cast&lt;PluginObject*&gt;(data)-&gt;Draw3D();</span>
+<a name="l00435"></a>00435 <span class="comment">*/</span>
+<a name="l00436"></a>00436 }
+<a name="l00437"></a>00437 
+<a name="l00438"></a>00438 
+<a name="l00439"></a><a class="code" href="class_plugin_object.html#a5e103c3aefcd2afb642c2414b92311ac">00439</a> <span class="keywordtype">void</span> <a class="code" href="class_plugin_object.html#a5e103c3aefcd2afb642c2414b92311ac">PluginObject::New</a>(<a class="code" href="npapi_8h.html#a6ab16d9f607aeb576061783638ae2973">NPMIMEType</a> pluginType,
+<a name="l00440"></a>00440                        int16_t argc,
+<a name="l00441"></a>00441                        <span class="keywordtype">char</span>* argn[],
+<a name="l00442"></a>00442                        <span class="keywordtype">char</span>* argv[]) {
+<a name="l00443"></a>00443   printf(<span class="stringliteral">&quot;void PluginObject::New(NPMIMEType pluginType,\n&quot;</span>);
+<a name="l00444"></a>00444   <span class="comment">// Default to 2D rendering.</span>
+<a name="l00445"></a>00445   <a class="code" href="class_plugin_object.html#a60f6c920af50735f647d1715d7a27384">dimensions_</a> = 2;
+<a name="l00446"></a>00446 
+<a name="l00447"></a>00447   <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; argc; ++i) {
+<a name="l00448"></a>00448     <span class="keywordflow">if</span> (strcmp(argn[i], <span class="stringliteral">&quot;dimensions&quot;</span>) == 0)
+<a name="l00449"></a>00449       <a class="code" href="class_plugin_object.html#a60f6c920af50735f647d1715d7a27384">dimensions_</a> = atoi(argv[i]);
+<a name="l00450"></a>00450   }
+<a name="l00451"></a>00451 
+<a name="l00452"></a>00452   <span class="keywordflow">if</span> (!extensions) {
+<a name="l00453"></a>00453     browser-&gt;<a class="code" href="struct___n_p_netscape_funcs.html#a137b9d7552558dfddb1da2ba754ed073">getvalue</a>(<a class="code" href="class_plugin_object.html#a73abf33dbc703aaab8c133b4fc16a6f4">npp_</a>, <a class="code" href="npapi__extensions_8h.html#af101125600c9189fbb293566ed8c0ef5">NPNVPepperExtensions</a>,
+<a name="l00454"></a>00454                       reinterpret_cast&lt;void*&gt;(&amp;extensions));
+<a name="l00455"></a>00455     <span class="comment">// CHECK(extensions);</span>
+<a name="l00456"></a>00456   }
+<a name="l00457"></a>00457   <a class="code" href="class_plugin_object.html#a32c9649b557037cc8fbbf95f8c126c15">device2d_</a> = extensions-&gt;acquireDevice(<a class="code" href="class_plugin_object.html#a73abf33dbc703aaab8c133b4fc16a6f4">npp_</a>, <a class="code" href="npapi__extensions_8h.html#aa2d69250c7545bbd1eae88eedb3d5ed3">NPPepper2DDevice</a>);
+<a name="l00458"></a>00458   <span class="keywordflow">if</span> (<a class="code" href="class_plugin_object.html#a32c9649b557037cc8fbbf95f8c126c15">device2d_</a> == NULL) {
+<a name="l00459"></a>00459     printf(<span class="stringliteral">&quot;Failed to acquire 2DDevice\n&quot;</span>);
+<a name="l00460"></a>00460     exit(1);
+<a name="l00461"></a>00461   }
+<a name="l00462"></a>00462   <span class="comment">//GAME.RegisterDevice2D(device2d_);</span>
 <a name="l00463"></a>00463 
-<a name="l00464"></a><a class="code" href="class_plugin_object.html#a5e103c3aefcd2afb642c2414b92311ac">00464</a> <span class="keywordtype">void</span> <a class="code" href="class_plugin_object.html#a5e103c3aefcd2afb642c2414b92311ac">PluginObject::New</a>(<a class="code" href="npapi_8h.html#a6ab16d9f607aeb576061783638ae2973">NPMIMEType</a> pluginType,
-<a name="l00465"></a>00465                        int16_t argc,
-<a name="l00466"></a>00466                        <span class="keywordtype">char</span>* argn[],
-<a name="l00467"></a>00467                        <span class="keywordtype">char</span>* argv[]) {
-<a name="l00468"></a>00468   printf(<span class="stringliteral">&quot;void PluginObject::New(NPMIMEType pluginType,\n&quot;</span>);
-<a name="l00469"></a>00469   <span class="comment">// Default to 2D rendering.</span>
-<a name="l00470"></a>00470   <a class="code" href="class_plugin_object.html#a60f6c920af50735f647d1715d7a27384">dimensions_</a> = 2;
-<a name="l00471"></a>00471 
-<a name="l00472"></a>00472   <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; argc; ++i) {
-<a name="l00473"></a>00473     <span class="keywordflow">if</span> (strcmp(argn[i], <span class="stringliteral">&quot;dimensions&quot;</span>) == 0)
-<a name="l00474"></a>00474       <a class="code" href="class_plugin_object.html#a60f6c920af50735f647d1715d7a27384">dimensions_</a> = atoi(argv[i]);
-<a name="l00475"></a>00475   }
+<a name="l00464"></a>00464   <a class="code" href="class_plugin_object.html#af2fd117655e58027408e3cde1f7283fb">device3d_</a> = extensions-&gt;acquireDevice(<a class="code" href="class_plugin_object.html#a73abf33dbc703aaab8c133b4fc16a6f4">npp_</a>, <a class="code" href="npapi__extensions_8h.html#a7f176c6b597f67ac34e2566fe5ff8fcd">NPPepper3DDevice</a>);
+<a name="l00465"></a>00465   <span class="keywordflow">if</span> (<a class="code" href="class_plugin_object.html#af2fd117655e58027408e3cde1f7283fb">device3d_</a> == NULL) {
+<a name="l00466"></a>00466     printf(<span class="stringliteral">&quot;Failed to acquire 3DDevice\n&quot;</span>);
+<a name="l00467"></a>00467     exit(1);
+<a name="l00468"></a>00468   }
+<a name="l00469"></a>00469 
+<a name="l00470"></a>00470   <a class="code" href="class_plugin_object.html#aec43fcb4f77ce50598bb1851b100d045">deviceaudio_</a> = extensions-&gt;acquireDevice(<a class="code" href="class_plugin_object.html#a73abf33dbc703aaab8c133b4fc16a6f4">npp_</a>, <a class="code" href="npapi__extensions_8h.html#a9ed8afab12f113f8a0d3fb567cf113f6">NPPepperAudioDevice</a>);
+<a name="l00471"></a>00471   <span class="keywordflow">if</span> (<a class="code" href="class_plugin_object.html#aec43fcb4f77ce50598bb1851b100d045">deviceaudio_</a> == NULL) {
+<a name="l00472"></a>00472     printf(<span class="stringliteral">&quot;Failed to acquire AudioDevice\n&quot;</span>);
+<a name="l00473"></a>00473     exit(1);
+<a name="l00474"></a>00474   }
+<a name="l00475"></a>00475 }
 <a name="l00476"></a>00476 
-<a name="l00477"></a>00477   <span class="keywordflow">if</span> (!extensions) {
-<a name="l00478"></a>00478     <a class="code" href="plugin__object_8cc.html#a6bc4d2698dc5cfabc5b23f38cd107dcd">browser</a>-&gt;getvalue(<a class="code" href="class_plugin_object.html#a73abf33dbc703aaab8c133b4fc16a6f4">npp_</a>, NPNVPepperExtensions,
-<a name="l00479"></a>00479                       reinterpret_cast&lt;void*&gt;(&amp;extensions));
-<a name="l00480"></a>00480     <span class="comment">// CHECK(extensions);</span>
-<a name="l00481"></a>00481   }
-<a name="l00482"></a>00482   <a class="code" href="class_plugin_object.html#a32c9649b557037cc8fbbf95f8c126c15">device2d_</a> = extensions-&gt;acquireDevice(<a class="code" href="class_plugin_object.html#a73abf33dbc703aaab8c133b4fc16a6f4">npp_</a>, NPPepper2DDevice);
-<a name="l00483"></a>00483   <span class="keywordflow">if</span> (<a class="code" href="class_plugin_object.html#a32c9649b557037cc8fbbf95f8c126c15">device2d_</a> == NULL) {
-<a name="l00484"></a>00484     printf(<span class="stringliteral">&quot;Failed to acquire 2DDevice\n&quot;</span>);
-<a name="l00485"></a>00485     exit(1);
-<a name="l00486"></a>00486   }
-<a name="l00487"></a>00487   <span class="comment">//GAME.RegisterDevice2D(device2d_);</span>
-<a name="l00488"></a>00488 
-<a name="l00489"></a>00489   <a class="code" href="class_plugin_object.html#af2fd117655e58027408e3cde1f7283fb">device3d_</a> = extensions-&gt;acquireDevice(<a class="code" href="class_plugin_object.html#a73abf33dbc703aaab8c133b4fc16a6f4">npp_</a>, NPPepper3DDevice);
-<a name="l00490"></a>00490   <span class="keywordflow">if</span> (<a class="code" href="class_plugin_object.html#af2fd117655e58027408e3cde1f7283fb">device3d_</a> == NULL) {
-<a name="l00491"></a>00491     printf(<span class="stringliteral">&quot;Failed to acquire 3DDevice\n&quot;</span>);
-<a name="l00492"></a>00492     exit(1);
-<a name="l00493"></a>00493   }
-<a name="l00494"></a>00494 
-<a name="l00495"></a>00495   <a class="code" href="class_plugin_object.html#aec43fcb4f77ce50598bb1851b100d045">deviceaudio_</a> = extensions-&gt;acquireDevice(<a class="code" href="class_plugin_object.html#a73abf33dbc703aaab8c133b4fc16a6f4">npp_</a>, NPPepperAudioDevice);
-<a name="l00496"></a>00496   <span class="keywordflow">if</span> (<a class="code" href="class_plugin_object.html#aec43fcb4f77ce50598bb1851b100d045">deviceaudio_</a> == NULL) {
-<a name="l00497"></a>00497     printf(<span class="stringliteral">&quot;Failed to acquire AudioDevice\n&quot;</span>);
-<a name="l00498"></a>00498     exit(1);
-<a name="l00499"></a>00499   }
-<a name="l00500"></a>00500 }
-<a name="l00501"></a>00501 
-<a name="l00502"></a><a class="code" href="class_plugin_object.html#ad121e4145b1f1cdcf878208919859e31">00502</a> NPDeviceContext2D* <a class="code" href="class_plugin_object.html#ad121e4145b1f1cdcf878208919859e31">PluginObject::GetContext2D</a>(){
-<a name="l00503"></a>00503   printf(<span class="stringliteral">&quot;NPDeviceContext2D* PluginObject::GetContext2d(){\n&quot;</span>);
-<a name="l00504"></a>00504   <span class="keywordflow">return</span> <a class="code" href="class_plugin_object.html#ac4e47e096e7046c00152e0979a120059">context2d_</a>;
-<a name="l00505"></a>00505 }
-<a name="l00506"></a>00506 
-<a name="l00507"></a><a class="code" href="class_plugin_object.html#a2a2774a67eadffc3f78d60e6c0559cf0">00507</a> <span class="keywordtype">void</span> <a class="code" href="class_plugin_object.html#a2a2774a67eadffc3f78d60e6c0559cf0">PluginObject::SetWindow</a>(<span class="keyword">const</span> <a class="code" href="struct___n_p_window.html">NPWindow</a>&amp; window) {
-<a name="l00508"></a>00508   printf(<span class="stringliteral">&quot;void PluginObject::SetWindow(const NPWindow&amp; window) {\n&quot;</span>);
-<a name="l00509"></a>00509   <a class="code" href="class_plugin_object.html#a2aa3a91e29c0c89a9c887aaba1f1b9d0">width_</a> = window.<a class="code" href="struct___n_p_window.html#a108a91a5fdc3e8130e0d40406612bd65">width</a>;
-<a name="l00510"></a>00510   <a class="code" href="class_plugin_object.html#af5872be14fbb29cf6cdf6df495766dd1">height_</a> = window.<a class="code" href="struct___n_p_window.html#a971f3f5aecbf2d5b0796bb0b6c4339c1">height</a>;
-<a name="l00511"></a>00511 
-<a name="l00512"></a>00512   <span class="keywordflow">if</span> (<a class="code" href="class_plugin_object.html#a60f6c920af50735f647d1715d7a27384">dimensions_</a> == 2) {
-<a name="l00513"></a>00513     NPDeviceContext2DConfig config;
-<a name="l00514"></a>00514     NPDeviceContext2D context;
-<a name="l00515"></a>00515     <a class="code" href="npapi_8h.html#a56715bc92ac93f0447a05f852ce18828">NPError</a> err = <a class="code" href="class_plugin_object.html#a32c9649b557037cc8fbbf95f8c126c15">device2d_</a>-&gt;initializeContext(<a class="code" href="class_plugin_object.html#a73abf33dbc703aaab8c133b4fc16a6f4">npp_</a>, &amp;config, &amp;context);
-<a name="l00516"></a>00516     <span class="keywordflow">if</span> (err != <a class="code" href="npapi_8h.html#a6b839d62e078f61fdf40486c64b1c520">NPERR_NO_ERROR</a>) {
-<a name="l00517"></a>00517       printf(<span class="stringliteral">&quot;Failed to initialize 2D context\n&quot;</span>);
-<a name="l00518"></a>00518       exit(1);
-<a name="l00519"></a>00519     }
-<a name="l00520"></a>00520 
-<a name="l00521"></a>00521     <a class="code" href="class_plugin_object.html#ac4e47e096e7046c00152e0979a120059">context2d_</a> = &amp;context;
-<a name="l00522"></a>00522     
-<a name="l00523"></a>00523     DrawSampleBitmap(&amp;context, window.<a class="code" href="struct___n_p_window.html#a108a91a5fdc3e8130e0d40406612bd65">width</a>, window.<a class="code" href="struct___n_p_window.html#a971f3f5aecbf2d5b0796bb0b6c4339c1">height</a>);    
-<a name="l00524"></a>00524     <a class="code" href="class_plugin_object.html#a1efe762777df7a3fc4b879d723598ef7">plugin2d_checksum_</a> = HexStringToUInt(Get2DImageChecksum(&amp;context));
-<a name="l00525"></a>00525     err = <a class="code" href="class_plugin_object.html#a32c9649b557037cc8fbbf95f8c126c15">device2d_</a>-&gt;getStateContext(<a class="code" href="class_plugin_object.html#a73abf33dbc703aaab8c133b4fc16a6f4">npp_</a>, &amp;context,
-<a name="l00526"></a>00526                                      <a class="code" href="npapi__extensions__private_8h.html#aeeda2c572374f53dc3f8a9f0ea7e3e93ace633cb64ebf7bf514a4cb41ec7c6b82">NPExtensionsReservedStateSharedMemoryChecksum</a>,
-<a name="l00527"></a>00527                                      reinterpret_cast&lt;intptr_t*&gt;(&amp;<a class="code" href="class_plugin_object.html#ac792c1966624836cbbadf26eaeae4e52">device2d_checksum_</a>));
-<a name="l00528"></a>00528     <span class="keywordflow">if</span> (err != <a class="code" href="npapi_8h.html#a6b839d62e078f61fdf40486c64b1c520">NPERR_NO_ERROR</a>) {
-<a name="l00529"></a>00529       printf(<span class="stringliteral">&quot;Failed to retrieve the 2D context checksum\n&quot;</span>);
-<a name="l00530"></a>00530       exit(1);
-<a name="l00531"></a>00531     }
-<a name="l00532"></a>00532 
-<a name="l00533"></a>00533     <span class="comment">// TODO(brettw) figure out why this cast is necessary, the functions seem</span>
-<a name="l00534"></a>00534     <span class="comment">// to match. Could be a calling convention mismatch?</span>
-<a name="l00535"></a>00535     <span class="comment">//NPDeviceFlushContextCallbackPtr callback =</span>
-<a name="l00536"></a>00536     <span class="comment">//reinterpret_cast&lt;NPDeviceFlushContextCallbackPtr&gt;(&amp;FlushCallback);</span>
-<a name="l00537"></a>00537     <span class="comment">//device2d_-&gt;flushContext(npp_, &amp;context, callback, NULL);</span>
-<a name="l00538"></a>00538     <a class="code" href="class_plugin_object.html#a32c9649b557037cc8fbbf95f8c126c15">device2d_</a>-&gt;flushContext(<a class="code" href="class_plugin_object.html#a73abf33dbc703aaab8c133b4fc16a6f4">npp_</a>, &amp;context, NULL, NULL);    
-<a name="l00539"></a>00539   }
-<a name="l00540"></a>00540   
-<a name="l00541"></a>00541   <span class="comment">// Audio is only produced on the 2d version, because we embed two in the page.</span>
-<a name="l00542"></a>00542   <span class="keywordflow">if</span> (<a class="code" href="class_plugin_object.html#a60f6c920af50735f647d1715d7a27384">dimensions_</a> == 2 &amp;&amp; !<a class="code" href="class_plugin_object.html#a29a7c72b105825ff135a29c9af9206f2">context_audio_</a>.config.callback) {
-<a name="l00543"></a>00543     NPDeviceContextAudioConfig cfg;
-<a name="l00544"></a>00544     cfg.sampleRate       = 44100;
-<a name="l00545"></a>00545     cfg.sampleType       = NPAudioSampleTypeInt16;
-<a name="l00546"></a>00546     cfg.outputChannelMap = NPAudioChannelStereo;
-<a name="l00547"></a>00547     cfg.inputChannelMap  = NPAudioChannelNone;
-<a name="l00548"></a>00548     cfg.sampleFrameCount = 1024;
-<a name="l00549"></a>00549     cfg.startThread      = 1;  <span class="comment">// Start a thread for the audio producer.</span>
-<a name="l00550"></a>00550     cfg.flags            = 0;
-<a name="l00551"></a>00551     cfg.callback         = 0; <span class="comment">//&amp;SineWaveCallback&lt;200, int16_t&gt;; </span>
-<a name="l00552"></a>00552     <a class="code" href="npapi_8h.html#a56715bc92ac93f0447a05f852ce18828">NPError</a> err = <a class="code" href="class_plugin_object.html#aec43fcb4f77ce50598bb1851b100d045">deviceaudio_</a>-&gt;initializeContext(<a class="code" href="class_plugin_object.html#a73abf33dbc703aaab8c133b4fc16a6f4">npp_</a>, &amp;cfg, &amp;<a class="code" href="class_plugin_object.html#a29a7c72b105825ff135a29c9af9206f2">context_audio_</a>);
-<a name="l00553"></a>00553 
-<a name="l00554"></a>00554 
-<a name="l00555"></a>00555     <span class="keywordflow">if</span> (err != <a class="code" href="npapi_8h.html#a6b839d62e078f61fdf40486c64b1c520">NPERR_NO_ERROR</a>) {
-<a name="l00556"></a>00556       printf(<span class="stringliteral">&quot;Failed to initialize audio context\n&quot;</span>);
-<a name="l00557"></a>00557       exit(1);
-<a name="l00558"></a>00558     }
-<a name="l00559"></a>00559   }
-<a name="l00560"></a>00560   <span class="comment">//GAME</span>
-<a name="l00561"></a>00561   
+<a name="l00477"></a><a class="code" href="class_plugin_object.html#ad121e4145b1f1cdcf878208919859e31">00477</a> <a class="code" href="struct___n_p_device_context2_d.html">NPDeviceContext2D</a>* <a class="code" href="class_plugin_object.html#ad121e4145b1f1cdcf878208919859e31">PluginObject::GetContext2D</a>(){
+<a name="l00478"></a>00478   printf(<span class="stringliteral">&quot;NPDeviceContext2D* PluginObject::GetContext2d(){\n&quot;</span>);
+<a name="l00479"></a>00479   <span class="keywordflow">return</span> <a class="code" href="class_plugin_object.html#ac4e47e096e7046c00152e0979a120059">context2d_</a>;
+<a name="l00480"></a>00480 }
+<a name="l00481"></a>00481 
+<a name="l00482"></a><a class="code" href="class_plugin_object.html#a2a2774a67eadffc3f78d60e6c0559cf0">00482</a> <span class="keywordtype">void</span> <a class="code" href="class_plugin_object.html#a2a2774a67eadffc3f78d60e6c0559cf0">PluginObject::SetWindow</a>(<span class="keyword">const</span> <a class="code" href="struct___n_p_window.html">NPWindow</a>&amp; window) {
+<a name="l00483"></a>00483   printf(<span class="stringliteral">&quot;void PluginObject::SetWindow(const NPWindow&amp; window) {\n&quot;</span>);
+<a name="l00484"></a>00484   <a class="code" href="class_plugin_object.html#a2aa3a91e29c0c89a9c887aaba1f1b9d0">width_</a> = window.<a class="code" href="struct___n_p_window.html#a108a91a5fdc3e8130e0d40406612bd65">width</a>;
+<a name="l00485"></a>00485   <a class="code" href="class_plugin_object.html#af5872be14fbb29cf6cdf6df495766dd1">height_</a> = window.<a class="code" href="struct___n_p_window.html#a971f3f5aecbf2d5b0796bb0b6c4339c1">height</a>;
+<a name="l00486"></a>00486 
+<a name="l00487"></a>00487   <span class="keywordflow">if</span> (<a class="code" href="class_plugin_object.html#a60f6c920af50735f647d1715d7a27384">dimensions_</a> == 2) {
+<a name="l00488"></a>00488     <a class="code" href="struct___n_p_device_context2_d_config.html">NPDeviceContext2DConfig</a> config;
+<a name="l00489"></a>00489     <a class="code" href="struct___n_p_device_context2_d.html">NPDeviceContext2D</a> context;
+<a name="l00490"></a>00490     <a class="code" href="npapi_8h.html#a56715bc92ac93f0447a05f852ce18828">NPError</a> err = <a class="code" href="class_plugin_object.html#a32c9649b557037cc8fbbf95f8c126c15">device2d_</a>-&gt;<a class="code" href="struct_n_p_device.html#ab2a7fb558580435d75ba659245c2933b">initializeContext</a>(<a class="code" href="class_plugin_object.html#a73abf33dbc703aaab8c133b4fc16a6f4">npp_</a>, &amp;config, &amp;context);
+<a name="l00491"></a>00491     <span class="keywordflow">if</span> (err != <a class="code" href="npapi_8h.html#a6b839d62e078f61fdf40486c64b1c520">NPERR_NO_ERROR</a>) {
+<a name="l00492"></a>00492       printf(<span class="stringliteral">&quot;Failed to initialize 2D context\n&quot;</span>);
+<a name="l00493"></a>00493       exit(1);
+<a name="l00494"></a>00494     }
+<a name="l00495"></a>00495 
+<a name="l00496"></a>00496     <a class="code" href="class_plugin_object.html#ac4e47e096e7046c00152e0979a120059">context2d_</a> = &amp;context;
+<a name="l00497"></a>00497     
+<a name="l00498"></a>00498     DrawSampleBitmap(&amp;context, window.<a class="code" href="struct___n_p_window.html#a108a91a5fdc3e8130e0d40406612bd65">width</a>, window.<a class="code" href="struct___n_p_window.html#a971f3f5aecbf2d5b0796bb0b6c4339c1">height</a>);    
+<a name="l00499"></a>00499     <a class="code" href="class_plugin_object.html#a1efe762777df7a3fc4b879d723598ef7">plugin2d_checksum_</a> = HexStringToUInt(Get2DImageChecksum(&amp;context));
+<a name="l00500"></a>00500     err = <a class="code" href="class_plugin_object.html#a32c9649b557037cc8fbbf95f8c126c15">device2d_</a>-&gt;<a class="code" href="struct_n_p_device.html#a87e416564b0860d3a51f494ee392466e">getStateContext</a>(<a class="code" href="class_plugin_object.html#a73abf33dbc703aaab8c133b4fc16a6f4">npp_</a>, &amp;context,
+<a name="l00501"></a>00501                                      <a class="code" href="npapi__extensions__private_8h.html#aeeda2c572374f53dc3f8a9f0ea7e3e93ace633cb64ebf7bf514a4cb41ec7c6b82">NPExtensionsReservedStateSharedMemoryChecksum</a>,
+<a name="l00502"></a>00502                                      reinterpret_cast&lt;intptr_t*&gt;(&amp;<a class="code" href="class_plugin_object.html#ac792c1966624836cbbadf26eaeae4e52">device2d_checksum_</a>));
+<a name="l00503"></a>00503     <span class="keywordflow">if</span> (err != <a class="code" href="npapi_8h.html#a6b839d62e078f61fdf40486c64b1c520">NPERR_NO_ERROR</a>) {
+<a name="l00504"></a>00504       printf(<span class="stringliteral">&quot;Failed to retrieve the 2D context checksum\n&quot;</span>);
+<a name="l00505"></a>00505       exit(1);
+<a name="l00506"></a>00506     }
+<a name="l00507"></a>00507 
+<a name="l00508"></a>00508     <span class="comment">// TODO(brettw) figure out why this cast is necessary, the functions seem</span>
+<a name="l00509"></a>00509     <span class="comment">// to match. Could be a calling convention mismatch?</span>
+<a name="l00510"></a>00510     <span class="comment">//NPDeviceFlushContextCallbackPtr callback =</span>
+<a name="l00511"></a>00511     <span class="comment">//reinterpret_cast&lt;NPDeviceFlushContextCallbackPtr&gt;(&amp;FlushCallback);</span>
+<a name="l00512"></a>00512     <span class="comment">//device2d_-&gt;flushContext(npp_, &amp;context, callback, NULL);</span>
+<a name="l00513"></a>00513     <a class="code" href="class_plugin_object.html#a32c9649b557037cc8fbbf95f8c126c15">device2d_</a>-&gt;<a class="code" href="struct_n_p_device.html#a2640def6763551de0f6311f8a45ea5f2">flushContext</a>(<a class="code" href="class_plugin_object.html#a73abf33dbc703aaab8c133b4fc16a6f4">npp_</a>, &amp;context, NULL, NULL);    
+<a name="l00514"></a>00514   }
+<a name="l00515"></a>00515   
+<a name="l00516"></a>00516   <span class="comment">// Audio is only produced on the 2d version, because we embed two in the page.</span>
+<a name="l00517"></a>00517   <span class="keywordflow">if</span> (<a class="code" href="class_plugin_object.html#a60f6c920af50735f647d1715d7a27384">dimensions_</a> == 2 &amp;&amp; !<a class="code" href="class_plugin_object.html#a29a7c72b105825ff135a29c9af9206f2">context_audio_</a>.<a class="code" href="struct___n_p_device_context_audio.html#a77a64d9efc16465139b00f0939cebb71">config</a>.<a class="code" href="struct___n_p_device_context_audio_config.html#a913925b7c8aceb040e26433e9b68b577">callback</a>) {
+<a name="l00518"></a>00518     <a class="code" href="struct___n_p_device_context_audio_config.html">NPDeviceContextAudioConfig</a> cfg;
+<a name="l00519"></a>00519     cfg.<a class="code" href="struct___n_p_device_context_audio_config.html#ae8f165b45aa2bb33a84d4e62c320afef">sampleRate</a>       = 44100;
+<a name="l00520"></a>00520     cfg.<a class="code" href="struct___n_p_device_context_audio_config.html#a72368bc2db5c560fcfcec9f048fe7e93">sampleType</a>       = <a class="code" href="npapi__extensions_8h.html#a14952ea320f0406921148fbab7d6d382a953f425b86e0259de99b2fc2f92684bd">NPAudioSampleTypeInt16</a>;
+<a name="l00521"></a>00521     cfg.<a class="code" href="struct___n_p_device_context_audio_config.html#adc7b8d1ae23a27b833dd9816ca76c9b2">outputChannelMap</a> = <a class="code" href="npapi__extensions_8h.html#ae176cc84f95555c7c38bf941de2dd3abaa27f740684141523d4b21cf3ad87946a">NPAudioChannelStereo</a>;
+<a name="l00522"></a>00522     cfg.<a class="code" href="struct___n_p_device_context_audio_config.html#a69c0328c3256924a80490c75b643cfd9">inputChannelMap</a>  = <a class="code" href="npapi__extensions_8h.html#ae176cc84f95555c7c38bf941de2dd3aba39032a87191ee2bcbbecbf37f1201f32">NPAudioChannelNone</a>;
+<a name="l00523"></a>00523     cfg.<a class="code" href="struct___n_p_device_context_audio_config.html#a9845d796ed525af2eef523a8246d5fff">sampleFrameCount</a> = 1024;
+<a name="l00524"></a>00524     cfg.<a class="code" href="struct___n_p_device_context_audio_config.html#a4456ec356a3d5da2b9d05d8de19868ee">startThread</a>      = 1;  <span class="comment">// Start a thread for the audio producer.</span>
+<a name="l00525"></a>00525     cfg.<a class="code" href="struct___n_p_device_context_audio_config.html#a50ce2ce4d00b584205cdfe725d43c760">flags</a>            = 0;
+<a name="l00526"></a>00526     cfg.<a class="code" href="struct___n_p_device_context_audio_config.html#a913925b7c8aceb040e26433e9b68b577">callback</a>         = 0; <span class="comment">//&amp;SineWaveCallback&lt;200, int16_t&gt;; </span>
+<a name="l00527"></a>00527     <a class="code" href="npapi_8h.html#a56715bc92ac93f0447a05f852ce18828">NPError</a> err = <a class="code" href="class_plugin_object.html#aec43fcb4f77ce50598bb1851b100d045">deviceaudio_</a>-&gt;<a class="code" href="struct_n_p_device.html#ab2a7fb558580435d75ba659245c2933b">initializeContext</a>(<a class="code" href="class_plugin_object.html#a73abf33dbc703aaab8c133b4fc16a6f4">npp_</a>, &amp;cfg, &amp;<a class="code" href="class_plugin_object.html#a29a7c72b105825ff135a29c9af9206f2">context_audio_</a>);
+<a name="l00528"></a>00528 
+<a name="l00529"></a>00529 
+<a name="l00530"></a>00530     <span class="keywordflow">if</span> (err != <a class="code" href="npapi_8h.html#a6b839d62e078f61fdf40486c64b1c520">NPERR_NO_ERROR</a>) {
+<a name="l00531"></a>00531       printf(<span class="stringliteral">&quot;Failed to initialize audio context\n&quot;</span>);
+<a name="l00532"></a>00532       exit(1);
+<a name="l00533"></a>00533     }
+<a name="l00534"></a>00534   }
+<a name="l00535"></a>00535   <span class="comment">//GAME</span>
+<a name="l00536"></a>00536   
+<a name="l00537"></a>00537 }
+<a name="l00538"></a>00538 
+<a name="l00539"></a><a class="code" href="class_plugin_object.html#a0678b6675237f65d7679a400759b5c29">00539</a> <a class="code" href="struct_n_p_device.html">NPDevice</a>* <a class="code" href="class_plugin_object.html#a0678b6675237f65d7679a400759b5c29">PluginObject::GetDevice2D</a>(){
+<a name="l00540"></a>00540   printf(<span class="stringliteral">&quot;NPDevice* PluginObject::GetDevice2D(){\n&quot;</span>);
+<a name="l00541"></a>00541   <span class="keywordflow">return</span> <a class="code" href="class_plugin_object.html#a32c9649b557037cc8fbbf95f8c126c15">device2d_</a>;
+<a name="l00542"></a>00542 }
+<a name="l00543"></a>00543 
+<a name="l00544"></a><a class="code" href="class_plugin_object.html#a4f594d05bd890649ca0f87ce30f03d26">00544</a> <span class="keywordtype">bool</span> <a class="code" href="class_plugin_object.html#a4f594d05bd890649ca0f87ce30f03d26">PluginObject::IsChecksumCheckSuccess</a>() {
+<a name="l00545"></a>00545   printf(<span class="stringliteral">&quot;bool PluginObject::IsChecksumCheckSuccess() {\n&quot;</span>);
+<a name="l00546"></a>00546   <span class="keywordflow">if</span> (<a class="code" href="class_plugin_object.html#ac792c1966624836cbbadf26eaeae4e52">device2d_checksum_</a> != <a class="code" href="class_plugin_object.html#a1efe762777df7a3fc4b879d723598ef7">plugin2d_checksum_</a>)
+<a name="l00547"></a>00547     <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00548"></a>00548   <span class="keywordflow">return</span> <span class="keyword">true</span>;
+<a name="l00549"></a>00549 }
+<a name="l00550"></a>00550 
+<a name="l00551"></a><a class="code" href="class_plugin_object.html#a0ab936e960c08282554224a4570540aa">00551</a> std::string <a class="code" href="class_plugin_object.html#a0ab936e960c08282554224a4570540aa">PluginObject::ReportChecksum</a>() {
+<a name="l00552"></a>00552   printf(<span class="stringliteral">&quot;std::string PluginObject::ReportChecksum() {\n&quot;</span>);
+<a name="l00553"></a>00553   std::ostringstream output;
+<a name="l00554"></a>00554   <span class="keywordflow">if</span> (<a class="code" href="class_plugin_object.html#ac792c1966624836cbbadf26eaeae4e52">device2d_checksum_</a> == <a class="code" href="class_plugin_object.html#a1efe762777df7a3fc4b879d723598ef7">plugin2d_checksum_</a>) {
+<a name="l00555"></a>00555     output &lt;&lt; <span class="stringliteral">&quot;Checksums matched\n&quot;</span>;
+<a name="l00556"></a>00556   } <span class="keywordflow">else</span> {
+<a name="l00557"></a>00557     output &lt;&lt; <span class="stringliteral">&quot;ERROR: Failed to match device and plugin checksums\n&quot;</span>;
+<a name="l00558"></a>00558   }
+<a name="l00559"></a>00559   output &lt;&lt; <span class="stringliteral">&quot;Device checksum:&quot;</span> &lt;&lt; <a class="code" href="class_plugin_object.html#ac792c1966624836cbbadf26eaeae4e52">device2d_checksum_</a> &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;
+<a name="l00560"></a>00560   output &lt;&lt; <span class="stringliteral">&quot;Plugin checksum:&quot;</span> &lt;&lt; <a class="code" href="class_plugin_object.html#a1efe762777df7a3fc4b879d723598ef7">plugin2d_checksum_</a> &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;
+<a name="l00561"></a>00561   <span class="keywordflow">return</span> output.str();
 <a name="l00562"></a>00562 }
 <a name="l00563"></a>00563 
-<a name="l00564"></a><a class="code" href="class_plugin_object.html#a0678b6675237f65d7679a400759b5c29">00564</a> NPDevice* <a class="code" href="class_plugin_object.html#a0678b6675237f65d7679a400759b5c29">PluginObject::GetDevice2D</a>(){
-<a name="l00565"></a>00565   printf(<span class="stringliteral">&quot;NPDevice* PluginObject::GetDevice2D(){\n&quot;</span>);
-<a name="l00566"></a>00566   <span class="keywordflow">return</span> <a class="code" href="class_plugin_object.html#a32c9649b557037cc8fbbf95f8c126c15">device2d_</a>;
-<a name="l00567"></a>00567 }
-<a name="l00568"></a>00568 
-<a name="l00569"></a><a class="code" href="class_plugin_object.html#a4f594d05bd890649ca0f87ce30f03d26">00569</a> <span class="keywordtype">bool</span> <a class="code" href="class_plugin_object.html#a4f594d05bd890649ca0f87ce30f03d26">PluginObject::IsChecksumCheckSuccess</a>() {
-<a name="l00570"></a>00570   printf(<span class="stringliteral">&quot;bool PluginObject::IsChecksumCheckSuccess() {\n&quot;</span>);
-<a name="l00571"></a>00571   <span class="keywordflow">if</span> (<a class="code" href="class_plugin_object.html#ac792c1966624836cbbadf26eaeae4e52">device2d_checksum_</a> != <a class="code" href="class_plugin_object.html#a1efe762777df7a3fc4b879d723598ef7">plugin2d_checksum_</a>)
-<a name="l00572"></a>00572     <span class="keywordflow">return</span> <span class="keyword">false</span>;
-<a name="l00573"></a>00573   <span class="keywordflow">return</span> <span class="keyword">true</span>;
-<a name="l00574"></a>00574 }
-<a name="l00575"></a>00575 
-<a name="l00576"></a><a class="code" href="class_plugin_object.html#a0ab936e960c08282554224a4570540aa">00576</a> std::string <a class="code" href="class_plugin_object.html#a0ab936e960c08282554224a4570540aa">PluginObject::ReportChecksum</a>() {
-<a name="l00577"></a>00577   printf(<span class="stringliteral">&quot;std::string PluginObject::ReportChecksum() {\n&quot;</span>);
-<a name="l00578"></a>00578   std::ostringstream output;
-<a name="l00579"></a>00579   <span class="keywordflow">if</span> (<a class="code" href="class_plugin_object.html#ac792c1966624836cbbadf26eaeae4e52">device2d_checksum_</a> == <a class="code" href="class_plugin_object.html#a1efe762777df7a3fc4b879d723598ef7">plugin2d_checksum_</a>) {
-<a name="l00580"></a>00580     output &lt;&lt; <span class="stringliteral">&quot;Checksums matched\n&quot;</span>;
-<a name="l00581"></a>00581   } <span class="keywordflow">else</span> {
-<a name="l00582"></a>00582     output &lt;&lt; <span class="stringliteral">&quot;ERROR: Failed to match device and plugin checksums\n&quot;</span>;
-<a name="l00583"></a>00583   }
-<a name="l00584"></a>00584   output &lt;&lt; <span class="stringliteral">&quot;Device checksum:&quot;</span> &lt;&lt; <a class="code" href="class_plugin_object.html#ac792c1966624836cbbadf26eaeae4e52">device2d_checksum_</a> &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;
-<a name="l00585"></a>00585   output &lt;&lt; <span class="stringliteral">&quot;Plugin checksum:&quot;</span> &lt;&lt; <a class="code" href="class_plugin_object.html#a1efe762777df7a3fc4b879d723598ef7">plugin2d_checksum_</a> &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;
-<a name="l00586"></a>00586   <span class="keywordflow">return</span> output.str();
-<a name="l00587"></a>00587 }
-<a name="l00588"></a>00588 
 </pre></div></div>
-<hr class="footer"/><address style="text-align: right;"><small>Generated on Mon Nov 1 14:47:09 2010 for crml by&nbsp;
+<hr class="footer"/><address style="text-align: right;"><small>Generated on Mon Nov 1 15:47:12 2010 for crml by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
 </body>

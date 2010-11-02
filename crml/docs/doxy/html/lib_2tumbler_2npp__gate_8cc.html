@@ -12,6 +12,7 @@
   <div class="tabs">
     <ul>
       <li><a href="main.html"><span>Main&nbsp;Page</span></a></li>
+      <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
@@ -37,11 +38,11 @@
 <tr><td colspan="2"><h2>Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="npapi_8h.html#a56715bc92ac93f0447a05f852ce18828">NPError</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="lib_2tumbler_2npp__gate_8cc.html#a1549c7141eb65cb6eca02d3cba8f48d1">NPP_New</a> (<a class="el" href="npapi_8h.html#a6ab16d9f607aeb576061783638ae2973">NPMIMEType</a> mime_type, <a class="el" href="struct___n_p_p.html">NPP</a> instance, uint16_t mode, int16_t argc, char *argn[], char *argv[], <a class="el" href="struct___n_p_saved_data.html">NPSavedData</a> *saved)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="npapi_8h.html#a56715bc92ac93f0447a05f852ce18828">NPError</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="lib_2tumbler_2npp__gate_8cc.html#a13cdb3ad1ae5ab428bd418ce64af269f">NPP_Destroy</a> (<a class="el" href="struct___n_p_p.html">NPP</a> instance, <a class="el" href="struct___n_p_saved_data.html">NPSavedData</a> **save)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">NPObject *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="lib_2tumbler_2npp__gate_8cc.html#ad6b92f15011abb6dde0ae16e86f46ed7">NPP_GetScriptableInstance</a> (<a class="el" href="struct___n_p_p.html">NPP</a> instance)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_n_p_object.html">NPObject</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="lib_2tumbler_2npp__gate_8cc.html#ad6b92f15011abb6dde0ae16e86f46ed7">NPP_GetScriptableInstance</a> (<a class="el" href="struct___n_p_p.html">NPP</a> instance)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="npapi_8h.html#a56715bc92ac93f0447a05f852ce18828">NPError</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="lib_2tumbler_2npp__gate_8cc.html#aae56cbb0b1b9e955b67b98f8178fbeef">NPP_GetValue</a> (<a class="el" href="struct___n_p_p.html">NPP</a> instance, <a class="el" href="npapi_8h.html#a1b56dde896277605195e0fad69cbca7d">NPPVariable</a> variable, void *value)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">int16_t&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="lib_2tumbler_2npp__gate_8cc.html#afc9809fb9d0ee0ed5666723b2db78161">NPP_HandleEvent</a> (<a class="el" href="struct___n_p_p.html">NPP</a> instance, void *event)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="npapi_8h.html#a56715bc92ac93f0447a05f852ce18828">NPError</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="lib_2tumbler_2npp__gate_8cc.html#a352d8aac09e759465185ddd4eeea9df9">NPP_SetWindow</a> (<a class="el" href="struct___n_p_p.html">NPP</a> instance, <a class="el" href="struct___n_p_window.html">NPWindow</a> *window)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="npapi_8h.html#a56715bc92ac93f0447a05f852ce18828">NPError</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="lib_2tumbler_2npp__gate_8cc.html#a2e202c35d113ebeb05eb2175fc8d97cb">InitializePluginFunctions</a> (NPPluginFuncs *plugin_funcs)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="npapi_8h.html#a56715bc92ac93f0447a05f852ce18828">NPError</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="lib_2tumbler_2npp__gate_8cc.html#a2e202c35d113ebeb05eb2175fc8d97cb">InitializePluginFunctions</a> (<a class="el" href="struct___n_p_plugin_funcs.html">NPPluginFuncs</a> *plugin_funcs)</td></tr>
 </table>
 <hr/><h2>Function Documentation</h2>
 <a class="anchor" id="a2e202c35d113ebeb05eb2175fc8d97cb"></a><!-- doxytag: member="npp_gate.cc::InitializePluginFunctions" ref="a2e202c35d113ebeb05eb2175fc8d97cb" args="(NPPluginFuncs *plugin_funcs)" -->
@@ -51,7 +52,7 @@
         <tr>
           <td class="memname"><a class="el" href="npapi_8h.html#a56715bc92ac93f0447a05f852ce18828">NPError</a> InitializePluginFunctions </td>
           <td>(</td>
-          <td class="paramtype">NPPluginFuncs *&nbsp;</td>
+          <td class="paramtype"><a class="el" href="struct___n_p_plugin_funcs.html">NPPluginFuncs</a> *&nbsp;</td>
           <td class="paramname"> <em>plugin_funcs</em></td>
           <td>&nbsp;)&nbsp;</td>
           <td></td>
@@ -98,7 +99,7 @@
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">NPObject* NPP_GetScriptableInstance </td>
+          <td class="memname"><a class="el" href="struct_n_p_object.html">NPObject</a>* NPP_GetScriptableInstance </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="struct___n_p_p.html">NPP</a>&nbsp;</td>
           <td class="paramname"> <em>instance</em></td>
@@ -266,7 +267,7 @@
 </div>
 </div>
 </div>
-<hr class="footer"/><address style="text-align: right;"><small>Generated on Mon Nov 1 14:47:09 2010 for crml by&nbsp;
+<hr class="footer"/><address style="text-align: right;"><small>Generated on Mon Nov 1 15:47:12 2010 for crml by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
 </body>

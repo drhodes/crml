@@ -12,6 +12,7 @@
   <div class="tabs">
     <ul>
       <li><a href="main.html"><span>Main&nbsp;Page</span></a></li>
+      <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
@@ -63,25 +64,25 @@
 <a name="l00038"></a>00038   <span class="keywordtype">bool</span> <a class="code" href="class_event_handler.html#a18771c6be120edf9d912a4003066b8b3">addText</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* cstr);
 <a name="l00039"></a>00039   <span class="keywordtype">int</span> <a class="code" href="class_event_handler.html#a2fcafd6f528017d8a814f9c384e2e057">handle</a>(<span class="keywordtype">void</span>* event);
 <a name="l00040"></a>00040   <span class="keywordtype">bool</span> <a class="code" href="class_event_handler.html#a2f334e3eb39be72751e342619489e695">is_text_box_set</a>();
-<a name="l00041"></a>00041   <span class="keywordtype">bool</span> <a class="code" href="class_event_handler.html#aa09c0b995aa6c774d4a33be13be0cbf2">set_text_box</a>(NPObject* text_box_object);
+<a name="l00041"></a>00041   <span class="keywordtype">bool</span> <a class="code" href="class_event_handler.html#aa09c0b995aa6c774d4a33be13be0cbf2">set_text_box</a>(<a class="code" href="struct_n_p_object.html">NPObject</a>* text_box_object);
 <a name="l00042"></a>00042         
 <a name="l00043"></a>00043   <span class="keywordtype">void</span> <a class="code" href="class_event_handler.html#a67d149352861c0a8fe603a14585d1003">Init</a>(<a class="code" href="classscm_1_1_event.html">scm::Event</a>*);
 <a name="l00044"></a>00044         
 <a name="l00045"></a>00045  <span class="keyword">private</span>:
 <a name="l00046"></a>00046   <span class="keyword">static</span> <span class="keywordtype">char</span>* string_duplicate(<span class="keyword">const</span> <span class="keywordtype">char</span>* cstr, <span class="keywordtype">size_t</span>* len);
-<a name="l00047"></a>00047   <span class="keyword">static</span> <span class="keywordtype">void</span> MakeNPVariant(<span class="keyword">const</span> <span class="keywordtype">char</span>* cstr, NPVariant* var);
+<a name="l00047"></a>00047   <span class="keyword">static</span> <span class="keywordtype">void</span> MakeNPVariant(<span class="keyword">const</span> <span class="keywordtype">char</span>* cstr, <a class="code" href="struct___n_p_variant.html">NPVariant</a>* var);
 <a name="l00048"></a>00048   std::string EventName(<span class="keywordtype">double</span> timestamp, int32_t type);
 <a name="l00049"></a>00049     
 <a name="l00050"></a>00050   <a class="code" href="classscm_1_1_event.html">scm::Event</a>* evt_sys_;
 <a name="l00051"></a>00051   <a class="code" href="struct___n_p_p.html">NPP</a> npp_;
-<a name="l00052"></a>00052   NPObject* text_box_;
+<a name="l00052"></a>00052   <a class="code" href="struct_n_p_object.html">NPObject</a>* text_box_;
 <a name="l00053"></a>00053 };
 <a name="l00054"></a>00054 
 <a name="l00055"></a>00055 <span class="keyword">extern</span> <a class="code" href="class_event_handler.html">EventHandler</a>* <a class="code" href="event__handler_8cc.html#a14a40b9369a5e965e0f9e27df41e3d4a">event_handler</a>;
 <a name="l00056"></a>00056 
 <a name="l00057"></a>00057 <span class="preprocessor">#endif  // NATIVE_CLIENT_TESTS_PEPPER_PLUGIN_EVENT_HANDLER_H_</span>
 </pre></div></div>
-<hr class="footer"/><address style="text-align: right;"><small>Generated on Mon Nov 1 14:47:09 2010 for crml by&nbsp;
+<hr class="footer"/><address style="text-align: right;"><small>Generated on Mon Nov 1 15:47:12 2010 for crml by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
 </body>

@@ -12,6 +12,7 @@
   <div class="tabs">
     <ul>
       <li><a href="main.html"><span>Main&nbsp;Page</span></a></li>
+      <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
@@ -96,12 +97,12 @@
 <a name="l00071"></a>00071 <span class="comment">// NPObject or NULL.</span>
 <a name="l00072"></a>00072 <span class="comment">// Declaration: local</span>
 <a name="l00073"></a>00073 <span class="comment">// Documentation URL: N/A (not actually an NPAPI function)</span>
-<a name="l00074"></a><a class="code" href="lib_2tumbler_2npp__gate_8cc.html#ad6b92f15011abb6dde0ae16e86f46ed7">00074</a> NPObject* <a class="code" href="lib_2tumbler_2npp__gate_8cc.html#ad6b92f15011abb6dde0ae16e86f46ed7">NPP_GetScriptableInstance</a>(<a class="code" href="struct___n_p_p.html">NPP</a> instance) {
+<a name="l00074"></a><a class="code" href="lib_2tumbler_2npp__gate_8cc.html#ad6b92f15011abb6dde0ae16e86f46ed7">00074</a> <a class="code" href="struct_n_p_object.html">NPObject</a>* <a class="code" href="lib_2tumbler_2npp__gate_8cc.html#ad6b92f15011abb6dde0ae16e86f46ed7">NPP_GetScriptableInstance</a>(<a class="code" href="struct___n_p_p.html">NPP</a> instance) {
 <a name="l00075"></a>00075   <span class="keywordflow">if</span> (instance == NULL) {
 <a name="l00076"></a>00076     <span class="keywordflow">return</span> NULL;
 <a name="l00077"></a>00077   }
 <a name="l00078"></a>00078 
-<a name="l00079"></a>00079   NPObject* <span class="keywordtype">object</span> = NULL;
+<a name="l00079"></a>00079   <a class="code" href="struct_n_p_object.html">NPObject</a>* <span class="keywordtype">object</span> = NULL;
 <a name="l00080"></a>00080   <a class="code" href="classtumbler_1_1_tumbler.html">Tumbler</a>* tumbler = <span class="keyword">static_cast&lt;</span><a class="code" href="classtumbler_1_1_tumbler.html">Tumbler</a>*<span class="keyword">&gt;</span>(instance-&gt;<a class="code" href="struct___n_p_p.html#aaa6688d5b2a25be78d23122713ba9669">pdata</a>);
 <a name="l00081"></a>00081   <span class="keywordflow">if</span> (tumbler) {
 <a name="l00082"></a>00082     <span class="keywordtype">object</span> = tumbler-&gt;<a class="code" href="classtumbler_1_1_tumbler.html#ad438453c62d1edcbdd5cb39a38143a0b">GetScriptableObject</a>();
@@ -114,10 +115,10 @@
 <a name="l00089"></a>00089 <span class="comment">// Documentation URL: https://developer.mozilla.org/en/NPP_GetValue</span>
 <a name="l00090"></a><a class="code" href="lib_2tumbler_2npp__gate_8cc.html#aae56cbb0b1b9e955b67b98f8178fbeef">00090</a> <a class="code" href="npapi_8h.html#a56715bc92ac93f0447a05f852ce18828">NPError</a> <a class="code" href="npapi_8h.html#a995de20595303d2ec0bc501f64248875">NPP_GetValue</a>(<a class="code" href="struct___n_p_p.html">NPP</a> instance, <a class="code" href="npapi_8h.html#a1b56dde896277605195e0fad69cbca7d">NPPVariable</a> variable, <span class="keywordtype">void</span> *value) {
 <a name="l00091"></a>00091   <span class="keywordflow">if</span> (<a class="code" href="npapi_8h.html#a1b56dde896277605195e0fad69cbca7da2e8132bf2930a8a89321f1caac78b11d">NPPVpluginScriptableNPObject</a> == variable) {
-<a name="l00092"></a>00092     NPObject* scriptable_object = <a class="code" href="lib_2tumbler_2npp__gate_8cc.html#ad6b92f15011abb6dde0ae16e86f46ed7">NPP_GetScriptableInstance</a>(instance);
+<a name="l00092"></a>00092     <a class="code" href="struct_n_p_object.html">NPObject</a>* scriptable_object = <a class="code" href="lib_2tumbler_2npp__gate_8cc.html#ad6b92f15011abb6dde0ae16e86f46ed7">NPP_GetScriptableInstance</a>(instance);
 <a name="l00093"></a>00093     <span class="keywordflow">if</span> (scriptable_object == NULL)
 <a name="l00094"></a>00094       <span class="keywordflow">return</span> <a class="code" href="npapi_8h.html#a70233755ff49571b6bd1215ae8bdbfd2">NPERR_INVALID_INSTANCE_ERROR</a>;
-<a name="l00095"></a>00095     *<span class="keyword">reinterpret_cast&lt;</span>NPObject**<span class="keyword">&gt;</span>(value) = scriptable_object;
+<a name="l00095"></a>00095     *<span class="keyword">reinterpret_cast&lt;</span><a class="code" href="struct_n_p_object.html">NPObject</a>**<span class="keyword">&gt;</span>(value) = scriptable_object;
 <a name="l00096"></a>00096     <span class="keywordflow">return</span> <a class="code" href="npapi_8h.html#a6b839d62e078f61fdf40486c64b1c520">NPERR_NO_ERROR</a>;
 <a name="l00097"></a>00097   }
 <a name="l00098"></a>00098   <span class="keywordflow">return</span> <a class="code" href="npapi_8h.html#ae14022d45651bae344ad36f21ab65519">NPERR_INVALID_PARAM</a>;
@@ -155,21 +156,21 @@
 <a name="l00130"></a>00130 <span class="comment">// of functions that have been implemented so that the browser can</span>
 <a name="l00131"></a>00131 <span class="comment">// communicate with the plugin.  This function populates that list,</span>
 <a name="l00132"></a>00132 <span class="comment">// |plugin_funcs|, with pointers to the functions.</span>
-<a name="l00133"></a><a class="code" href="lib_2tumbler_2npp__gate_8cc.html#a2e202c35d113ebeb05eb2175fc8d97cb">00133</a> <a class="code" href="npapi_8h.html#a56715bc92ac93f0447a05f852ce18828">NPError</a> <a class="code" href="lib_2tumbler_2npp__gate_8cc.html#a2e202c35d113ebeb05eb2175fc8d97cb">InitializePluginFunctions</a>(NPPluginFuncs* plugin_funcs) {
+<a name="l00133"></a><a class="code" href="lib_2tumbler_2npp__gate_8cc.html#a2e202c35d113ebeb05eb2175fc8d97cb">00133</a> <a class="code" href="npapi_8h.html#a56715bc92ac93f0447a05f852ce18828">NPError</a> <a class="code" href="lib_2tumbler_2npp__gate_8cc.html#a2e202c35d113ebeb05eb2175fc8d97cb">InitializePluginFunctions</a>(<a class="code" href="struct___n_p_plugin_funcs.html">NPPluginFuncs</a>* plugin_funcs) {
 <a name="l00134"></a>00134   memset(plugin_funcs, 0, <span class="keyword">sizeof</span>(*plugin_funcs));
-<a name="l00135"></a>00135   plugin_funcs-&gt;version = <a class="code" href="npapi_8h.html#afdf50945d150b57868936f4e4a1b50dc">NPVERS_HAS_PLUGIN_THREAD_ASYNC_CALL</a>;
-<a name="l00136"></a>00136   plugin_funcs-&gt;size = <span class="keyword">sizeof</span>(*plugin_funcs);
-<a name="l00137"></a>00137   plugin_funcs-&gt;newp = <a class="code" href="npapi_8h.html#a777d05edd2b732666f949f37a19cead7">NPP_New</a>;
-<a name="l00138"></a>00138   plugin_funcs-&gt;destroy = <a class="code" href="npapi_8h.html#a905945385e6f98640775f167d80c9475">NPP_Destroy</a>;
-<a name="l00139"></a>00139   plugin_funcs-&gt;setwindow = <a class="code" href="npapi_8h.html#ab6b2dce9b2edc3f564e2927fe5ecfd08">NPP_SetWindow</a>;
-<a name="l00140"></a>00140   plugin_funcs-&gt;event = <a class="code" href="npapi_8h.html#ac777bd3f9b9a7923c4ef755fa7f3e2fd">NPP_HandleEvent</a>;
-<a name="l00141"></a>00141   plugin_funcs-&gt;getvalue = <a class="code" href="npapi_8h.html#a995de20595303d2ec0bc501f64248875">NPP_GetValue</a>;
+<a name="l00135"></a>00135   plugin_funcs-&gt;<a class="code" href="struct___n_p_plugin_funcs.html#a86672b8f4c5e096d3858729fe12b97ae">version</a> = <a class="code" href="npapi_8h.html#afdf50945d150b57868936f4e4a1b50dc">NPVERS_HAS_PLUGIN_THREAD_ASYNC_CALL</a>;
+<a name="l00136"></a>00136   plugin_funcs-&gt;<a class="code" href="struct___n_p_plugin_funcs.html#ae56a05ff9615e602eeb6d750417b45ab">size</a> = <span class="keyword">sizeof</span>(*plugin_funcs);
+<a name="l00137"></a>00137   plugin_funcs-&gt;<a class="code" href="struct___n_p_plugin_funcs.html#a9aa4547435f9bffb2bc4174e5fac4155">newp</a> = <a class="code" href="npapi_8h.html#a777d05edd2b732666f949f37a19cead7">NPP_New</a>;
+<a name="l00138"></a>00138   plugin_funcs-&gt;<a class="code" href="struct___n_p_plugin_funcs.html#ae3b003906703936e083abbf151c689d3">destroy</a> = <a class="code" href="npapi_8h.html#a905945385e6f98640775f167d80c9475">NPP_Destroy</a>;
+<a name="l00139"></a>00139   plugin_funcs-&gt;<a class="code" href="struct___n_p_plugin_funcs.html#a6dd430e8402ff3904d58926dcb9b9243">setwindow</a> = <a class="code" href="npapi_8h.html#ab6b2dce9b2edc3f564e2927fe5ecfd08">NPP_SetWindow</a>;
+<a name="l00140"></a>00140   plugin_funcs-&gt;<a class="code" href="struct___n_p_plugin_funcs.html#a31a76dc9538baea794c00953c18ad2a9">event</a> = <a class="code" href="npapi_8h.html#ac777bd3f9b9a7923c4ef755fa7f3e2fd">NPP_HandleEvent</a>;
+<a name="l00141"></a>00141   plugin_funcs-&gt;<a class="code" href="struct___n_p_plugin_funcs.html#a15984d23dc460b1ec0c25505ddf00841">getvalue</a> = <a class="code" href="npapi_8h.html#a995de20595303d2ec0bc501f64248875">NPP_GetValue</a>;
 <a name="l00142"></a>00142   <span class="keywordflow">return</span> <a class="code" href="npapi_8h.html#a6b839d62e078f61fdf40486c64b1c520">NPERR_NO_ERROR</a>;
 <a name="l00143"></a>00143 }
 <a name="l00144"></a>00144 
 <a name="l00145"></a>00145 }  <span class="comment">// extern &quot;C&quot;</span>
 </pre></div></div>
-<hr class="footer"/><address style="text-align: right;"><small>Generated on Mon Nov 1 14:47:09 2010 for crml by&nbsp;
+<hr class="footer"/><address style="text-align: right;"><small>Generated on Mon Nov 1 15:47:12 2010 for crml by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
 </body>

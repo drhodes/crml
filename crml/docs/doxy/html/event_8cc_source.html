@@ -12,6 +12,7 @@
   <div class="tabs">
     <ul>
       <li><a href="main.html"><span>Main&nbsp;Page</span></a></li>
+      <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
@@ -62,21 +63,21 @@
 <a name="l00037"></a>00037 <span class="comment">     NPDeviceEvent device;</span>
 <a name="l00038"></a>00038 <span class="comment">*/</span>
 <a name="l00039"></a>00039 
-<a name="l00040"></a><a class="code" href="namespacescm.html#acb8f6b2f25d7c07de183bb8b8d518510">00040</a> <span class="keywordtype">void</span> <a class="code" href="namespacescm.html#acb8f6b2f25d7c07de183bb8b8d518510">appendMouseInfo</a>(std::stringstream* out, NPPepperEvent* e) {
+<a name="l00040"></a><a class="code" href="namespacescm.html#acb8f6b2f25d7c07de183bb8b8d518510">00040</a> <span class="keywordtype">void</span> <a class="code" href="namespacescm.html#acb8f6b2f25d7c07de183bb8b8d518510">appendMouseInfo</a>(std::stringstream* out, <a class="code" href="struct___n_p_pepper_event.html">NPPepperEvent</a>* e) {
 <a name="l00041"></a>00041   <span class="comment">// &gt;out&lt; | a pointer to stringstream, add some mouse info from --</span>
 <a name="l00042"></a>00042   <span class="comment">// &gt;e    | a pointer to a pepper event</span>
 <a name="l00043"></a>00043   
-<a name="l00044"></a>00044   *out &lt;&lt; <span class="stringliteral">&quot;Modifier: &quot;</span> &lt;&lt; e-&gt;u.mouse.modifier &lt;&lt; <span class="stringliteral">&quot;, &quot;</span>;
-<a name="l00045"></a>00045   *out &lt;&lt; <span class="stringliteral">&quot;Button: &quot;</span> &lt;&lt; e-&gt;u.mouse.button &lt;&lt; <span class="stringliteral">&quot;, &quot;</span>;
-<a name="l00046"></a>00046   *out &lt;&lt; <span class="stringliteral">&quot;&lt;&quot;</span> &lt;&lt; e-&gt;u.mouse.x &lt;&lt; <span class="stringliteral">&quot;, &quot;</span> &lt;&lt; e-&gt;u.mouse.y &lt;&lt; <span class="stringliteral">&quot;&gt;, &quot;</span>;
-<a name="l00047"></a>00047   *out &lt;&lt; <span class="stringliteral">&quot;ClickCount: &quot;</span> &lt;&lt; e-&gt;u.mouse.clickCount;
+<a name="l00044"></a>00044   *out &lt;&lt; <span class="stringliteral">&quot;Modifier: &quot;</span> &lt;&lt; e-&gt;<a class="code" href="struct___n_p_pepper_event.html#a0b3d13b8bf33be03ad0d9f710a54d423">u</a>.<a class="code" href="struct___n_p_pepper_event.html#aadfc1a87c80619b59daddc56bafe0574">mouse</a>.<a class="code" href="struct___n_p_mouse_event.html#acd6d4f0ca5929f06c5d14bab34afaf42">modifier</a> &lt;&lt; <span class="stringliteral">&quot;, &quot;</span>;
+<a name="l00045"></a>00045   *out &lt;&lt; <span class="stringliteral">&quot;Button: &quot;</span> &lt;&lt; e-&gt;<a class="code" href="struct___n_p_pepper_event.html#a0b3d13b8bf33be03ad0d9f710a54d423">u</a>.<a class="code" href="struct___n_p_pepper_event.html#aadfc1a87c80619b59daddc56bafe0574">mouse</a>.<a class="code" href="struct___n_p_mouse_event.html#a90ec6535781ec12980e249c2ff15abe4">button</a> &lt;&lt; <span class="stringliteral">&quot;, &quot;</span>;
+<a name="l00046"></a>00046   *out &lt;&lt; <span class="stringliteral">&quot;&lt;&quot;</span> &lt;&lt; e-&gt;<a class="code" href="struct___n_p_pepper_event.html#a0b3d13b8bf33be03ad0d9f710a54d423">u</a>.<a class="code" href="struct___n_p_pepper_event.html#aadfc1a87c80619b59daddc56bafe0574">mouse</a>.<a class="code" href="struct___n_p_mouse_event.html#a8d3fd458faf6af0179fd231ed40dd8b9">x</a> &lt;&lt; <span class="stringliteral">&quot;, &quot;</span> &lt;&lt; e-&gt;<a class="code" href="struct___n_p_pepper_event.html#a0b3d13b8bf33be03ad0d9f710a54d423">u</a>.<a class="code" href="struct___n_p_pepper_event.html#aadfc1a87c80619b59daddc56bafe0574">mouse</a>.<a class="code" href="struct___n_p_mouse_event.html#a2b4778764228e697f81345dccb6ec783">y</a> &lt;&lt; <span class="stringliteral">&quot;&gt;, &quot;</span>;
+<a name="l00047"></a>00047   *out &lt;&lt; <span class="stringliteral">&quot;ClickCount: &quot;</span> &lt;&lt; e-&gt;<a class="code" href="struct___n_p_pepper_event.html#a0b3d13b8bf33be03ad0d9f710a54d423">u</a>.<a class="code" href="struct___n_p_pepper_event.html#aadfc1a87c80619b59daddc56bafe0574">mouse</a>.<a class="code" href="struct___n_p_mouse_event.html#acafa461f9ccac3cf9ca2aee1859359de">clickCount</a>;
 <a name="l00048"></a>00048 }
 <a name="l00049"></a>00049 
-<a name="l00050"></a><a class="code" href="classscm_1_1_event.html#aaa7905956b3d789fa16cc7a73490dc5e">00050</a> NPPepperEvent* <a class="code" href="classscm_1_1_event.html#aaa7905956b3d789fa16cc7a73490dc5e">Event::PopEvent</a>() {
+<a name="l00050"></a><a class="code" href="classscm_1_1_event.html#aaa7905956b3d789fa16cc7a73490dc5e">00050</a> <a class="code" href="struct___n_p_pepper_event.html">NPPepperEvent</a>* <a class="code" href="classscm_1_1_event.html#aaa7905956b3d789fa16cc7a73490dc5e">Event::PopEvent</a>() {
 <a name="l00051"></a>00051   <span class="keywordflow">if</span> (queue_-&gt;empty()) {
 <a name="l00052"></a>00052     <span class="keywordflow">return</span> 0;
 <a name="l00053"></a>00053   }
-<a name="l00054"></a>00054   NPPepperEvent* <a class="code" href="namespacehexencode.html#af6ad229512e9ff7deaa79163a3be884a">val</a> = queue_-&gt;front();
+<a name="l00054"></a>00054   <a class="code" href="struct___n_p_pepper_event.html">NPPepperEvent</a>* <a class="code" href="namespacehexencode.html#af6ad229512e9ff7deaa79163a3be884a">val</a> = queue_-&gt;front();
 <a name="l00055"></a>00055   queue_-&gt;pop();
 <a name="l00056"></a>00056   <span class="keywordflow">return</span> val;
 <a name="l00057"></a>00057 }
@@ -87,7 +88,7 @@
 <a name="l00062"></a>00062     <a class="code" href="classscm_1_1_event.html#aaa7905956b3d789fa16cc7a73490dc5e">PopEvent</a>();
 <a name="l00063"></a>00063 }
 <a name="l00064"></a>00064 
-<a name="l00065"></a><a class="code" href="classscm_1_1_event.html#a1e1aa9fbe9b5e7e7c9b0ff8f0ba74cd2">00065</a> <span class="keywordtype">void</span> <a class="code" href="classscm_1_1_event.html#a1e1aa9fbe9b5e7e7c9b0ff8f0ba74cd2">Event::PushEvent</a>(NPPepperEvent* e) {
+<a name="l00065"></a><a class="code" href="classscm_1_1_event.html#a1e1aa9fbe9b5e7e7c9b0ff8f0ba74cd2">00065</a> <span class="keywordtype">void</span> <a class="code" href="classscm_1_1_event.html#a1e1aa9fbe9b5e7e7c9b0ff8f0ba74cd2">Event::PushEvent</a>(<a class="code" href="struct___n_p_pepper_event.html">NPPepperEvent</a>* e) {
 <a name="l00066"></a>00066   <span class="comment">// &gt; e    | a pointer to a pepper event is pushed onto queue_</span>
 <a name="l00067"></a>00067   <span class="comment">// &lt; void |</span>
 <a name="l00068"></a>00068   
@@ -96,57 +97,57 @@
 <a name="l00071"></a>00071 
 <a name="l00072"></a>00072   std::stringstream out;
 <a name="l00073"></a>00073   out &lt;&lt; <span class="stringliteral">&quot;handled Event: &quot;</span>;
-<a name="l00074"></a>00074   out &lt;&lt; e-&gt;type &lt;&lt; <span class="stringliteral">&quot; &quot;</span>;
+<a name="l00074"></a>00074   out &lt;&lt; e-&gt;<a class="code" href="struct___n_p_pepper_event.html#a12e186ade338a56a93d852bdad6f5c7a">type</a> &lt;&lt; <span class="stringliteral">&quot; &quot;</span>;
 <a name="l00075"></a>00075 
 <a name="l00076"></a>00076   queue_-&gt;push(e);
 <a name="l00077"></a>00077 
-<a name="l00078"></a>00078   <span class="keywordflow">switch</span> (e-&gt;type) {
-<a name="l00079"></a>00079     <span class="keywordflow">case</span> NPEventType_Undefined:
+<a name="l00078"></a>00078   <span class="keywordflow">switch</span> (e-&gt;<a class="code" href="struct___n_p_pepper_event.html#a12e186ade338a56a93d852bdad6f5c7a">type</a>) {
+<a name="l00079"></a>00079     <span class="keywordflow">case</span> <a class="code" href="npapi__extensions_8h.html#a42572ecedf094f156536d7d6d8e6c590a567e0b7911ebaf6cd306a9d07b169319">NPEventType_Undefined</a>:
 <a name="l00080"></a>00080       out &lt;&lt; <span class="stringliteral">&quot;Undefined&quot;</span>;
 <a name="l00081"></a>00081       <span class="keywordflow">break</span>;
-<a name="l00082"></a>00082     <span class="keywordflow">case</span> NPEventType_MouseDown:
+<a name="l00082"></a>00082     <span class="keywordflow">case</span> <a class="code" href="npapi__extensions_8h.html#a42572ecedf094f156536d7d6d8e6c590aafb7e97d5a9d7dec34402a346eabedd1">NPEventType_MouseDown</a>:
 <a name="l00083"></a>00083       out &lt;&lt; <span class="stringliteral">&quot;MouseDown&quot;</span> &lt;&lt; e &lt;&lt; <span class="stringliteral">&quot; | &quot;</span>;
 <a name="l00084"></a>00084       <a class="code" href="namespacescm.html#acb8f6b2f25d7c07de183bb8b8d518510">appendMouseInfo</a>(&amp;out, e);
 <a name="l00085"></a>00085       <span class="keywordflow">break</span>;
-<a name="l00086"></a>00086     <span class="keywordflow">case</span> NPEventType_MouseUp:
+<a name="l00086"></a>00086     <span class="keywordflow">case</span> <a class="code" href="npapi__extensions_8h.html#a42572ecedf094f156536d7d6d8e6c590a8ce3c82485c9538da1e422e1c0556168">NPEventType_MouseUp</a>:
 <a name="l00087"></a>00087       out &lt;&lt; <span class="stringliteral">&quot;MouseUp&quot;</span>;
 <a name="l00088"></a>00088       <a class="code" href="namespacescm.html#acb8f6b2f25d7c07de183bb8b8d518510">appendMouseInfo</a>(&amp;out, e);
 <a name="l00089"></a>00089       <span class="keywordflow">break</span>;
-<a name="l00090"></a>00090     <span class="keywordflow">case</span> NPEventType_MouseMove:
+<a name="l00090"></a>00090     <span class="keywordflow">case</span> <a class="code" href="npapi__extensions_8h.html#a42572ecedf094f156536d7d6d8e6c590a0f7bc51550d05d5699c78ca5eb996f1f">NPEventType_MouseMove</a>:
 <a name="l00091"></a>00091       out &lt;&lt; <span class="stringliteral">&quot;MouseMove&quot;</span>;
 <a name="l00092"></a>00092       <a class="code" href="namespacescm.html#acb8f6b2f25d7c07de183bb8b8d518510">appendMouseInfo</a>(&amp;out, e);
 <a name="l00093"></a>00093       <span class="keywordflow">break</span>;
-<a name="l00094"></a>00094     <span class="keywordflow">case</span> NPEventType_MouseEnter:
+<a name="l00094"></a>00094     <span class="keywordflow">case</span> <a class="code" href="npapi__extensions_8h.html#a42572ecedf094f156536d7d6d8e6c590ae29e9f84d6ee6899a416d0c5e8b2a329">NPEventType_MouseEnter</a>:
 <a name="l00095"></a>00095       out &lt;&lt; <span class="stringliteral">&quot;MouseEnter&quot;</span>;
 <a name="l00096"></a>00096       <a class="code" href="namespacescm.html#acb8f6b2f25d7c07de183bb8b8d518510">appendMouseInfo</a>(&amp;out, e);
 <a name="l00097"></a>00097       <span class="keywordflow">break</span>;
-<a name="l00098"></a>00098     <span class="keywordflow">case</span> NPEventType_MouseLeave:
+<a name="l00098"></a>00098     <span class="keywordflow">case</span> <a class="code" href="npapi__extensions_8h.html#a42572ecedf094f156536d7d6d8e6c590a0743a1ea69036db69a5a32fb24125e90">NPEventType_MouseLeave</a>:
 <a name="l00099"></a>00099       out &lt;&lt; <span class="stringliteral">&quot;MouseLeave&quot;</span>;
 <a name="l00100"></a>00100       <a class="code" href="namespacescm.html#acb8f6b2f25d7c07de183bb8b8d518510">appendMouseInfo</a>(&amp;out, e);
 <a name="l00101"></a>00101       <span class="keywordflow">break</span>;
-<a name="l00102"></a>00102     <span class="keywordflow">case</span> NPEventType_MouseWheel:
+<a name="l00102"></a>00102     <span class="keywordflow">case</span> <a class="code" href="npapi__extensions_8h.html#a42572ecedf094f156536d7d6d8e6c590a1683c205fb4f0b29da9d50b6379dad64">NPEventType_MouseWheel</a>:
 <a name="l00103"></a>00103       out &lt;&lt; <span class="stringliteral">&quot;MouseWheel&quot;</span>;
 <a name="l00104"></a>00104       <a class="code" href="namespacescm.html#acb8f6b2f25d7c07de183bb8b8d518510">appendMouseInfo</a>(&amp;out, e);
 <a name="l00105"></a>00105       <span class="keywordflow">break</span>;
-<a name="l00106"></a>00106     <span class="keywordflow">case</span> NPEventType_RawKeyDown:
+<a name="l00106"></a>00106     <span class="keywordflow">case</span> <a class="code" href="npapi__extensions_8h.html#a42572ecedf094f156536d7d6d8e6c590aba7337b396b7b4d8fd60498fcc3b8d89">NPEventType_RawKeyDown</a>:
 <a name="l00107"></a>00107       out &lt;&lt; <span class="stringliteral">&quot;RawKeyDown&quot;</span>;
 <a name="l00108"></a>00108       <span class="keywordflow">break</span>;
-<a name="l00109"></a>00109     <span class="keywordflow">case</span> NPEventType_KeyDown:
+<a name="l00109"></a>00109     <span class="keywordflow">case</span> <a class="code" href="npapi__extensions_8h.html#a42572ecedf094f156536d7d6d8e6c590a508199f3c8ad17467df53622fba60bd9">NPEventType_KeyDown</a>:
 <a name="l00110"></a>00110       out &lt;&lt; <span class="stringliteral">&quot;KeyDown&quot;</span>;
 <a name="l00111"></a>00111       <span class="keywordflow">break</span>;
-<a name="l00112"></a>00112     <span class="keywordflow">case</span> NPEventType_KeyUp:
+<a name="l00112"></a>00112     <span class="keywordflow">case</span> <a class="code" href="npapi__extensions_8h.html#a42572ecedf094f156536d7d6d8e6c590a05aa87a120196887d6c86f444932034a">NPEventType_KeyUp</a>:
 <a name="l00113"></a>00113       out &lt;&lt; <span class="stringliteral">&quot;KeyUp&quot;</span>;
 <a name="l00114"></a>00114       <span class="keywordflow">break</span>;
-<a name="l00115"></a>00115     <span class="keywordflow">case</span> NPEventType_Char:
+<a name="l00115"></a>00115     <span class="keywordflow">case</span> <a class="code" href="npapi__extensions_8h.html#a42572ecedf094f156536d7d6d8e6c590aae4c909eab3d58f96df3873d136c77c5">NPEventType_Char</a>:
 <a name="l00116"></a>00116       out &lt;&lt; <span class="stringliteral">&quot;Char&quot;</span>;
 <a name="l00117"></a>00117       <span class="keywordflow">break</span>;
-<a name="l00118"></a>00118     <span class="keywordflow">case</span> NPEventType_Minimize:
+<a name="l00118"></a>00118     <span class="keywordflow">case</span> <a class="code" href="npapi__extensions_8h.html#a42572ecedf094f156536d7d6d8e6c590a909d25300a912a43aff48901ae92feb2">NPEventType_Minimize</a>:
 <a name="l00119"></a>00119       out &lt;&lt; <span class="stringliteral">&quot;Minimize&quot;</span>;
 <a name="l00120"></a>00120       <span class="keywordflow">break</span>;
-<a name="l00121"></a>00121     <span class="keywordflow">case</span> NPEventType_Focus:
+<a name="l00121"></a>00121     <span class="keywordflow">case</span> <a class="code" href="npapi__extensions_8h.html#a42572ecedf094f156536d7d6d8e6c590addf7f0ccdbe96be3d21377509bb22708">NPEventType_Focus</a>:
 <a name="l00122"></a>00122       out &lt;&lt; <span class="stringliteral">&quot;Focus&quot;</span>;
 <a name="l00123"></a>00123       <span class="keywordflow">break</span>;
-<a name="l00124"></a>00124     <span class="keywordflow">case</span> NPEventType_Device:
+<a name="l00124"></a>00124     <span class="keywordflow">case</span> <a class="code" href="npapi__extensions_8h.html#a42572ecedf094f156536d7d6d8e6c590a661e9784ac1b112acb54d5ac5f7614a1">NPEventType_Device</a>:
 <a name="l00125"></a>00125       out &lt;&lt; <span class="stringliteral">&quot;Device&quot;</span>;
 <a name="l00126"></a>00126       <span class="keywordflow">break</span>;
 <a name="l00127"></a>00127   }
@@ -157,7 +158,7 @@
 <a name="l00132"></a>00132 
 <a name="l00133"></a>00133 <span class="preprocessor">#endif</span>
 </pre></div></div>
-<hr class="footer"/><address style="text-align: right;"><small>Generated on Mon Nov 1 14:47:09 2010 for crml by&nbsp;
+<hr class="footer"/><address style="text-align: right;"><small>Generated on Mon Nov 1 15:47:12 2010 for crml by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
 </body>
