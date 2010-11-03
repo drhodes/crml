@@ -16,6 +16,7 @@ $(OBJ): %.o: %.cc
 .PHONY: clean mrproper
 
 clean:
+	@rm *~
 	@rm -rf $(OBJ)
 
 mrproper: clean

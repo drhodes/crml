@@ -77,6 +77,7 @@ clean:
 
 mrproper: clean
 	@(	cd ./src/sys && $(MAKE) $@ && \
+		cd ../core && $(MAKE) $@ && \
 		cd ../win && $(MAKE) $@ && \
 		cd ../net && $(MAKE) $@ && \
 		cd ../gfx && $(MAKE) $@ && \
