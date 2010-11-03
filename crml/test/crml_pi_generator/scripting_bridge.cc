@@ -3,7 +3,6 @@
 // be found in the LICENSE file.
 
 #include "examples/pi_generator/scripting_bridge.h"
-
 #include "examples/pi_generator/pi_generator.h"
 
 namespace pi_generator {

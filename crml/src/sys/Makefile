@@ -11,7 +11,7 @@ libcrml_sys.a: $(OBJ)
 	$(AR) $(ARFLAGS) $(LIBNAME) $(OBJ)
 
 $(OBJ): %.o: %.cc
-	$(CPP) -fPIC -o $@ -c $< $(CFLAGS)
+	$(CPP) -m32 -o $@ -c $< $(CFLAGS)
 
 .PHONY: clean mrproper
 

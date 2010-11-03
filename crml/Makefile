@@ -14,13 +14,12 @@ LINKFLAGS = -lgoogle_nacl_imc \
 			-llua \
 			-losg
 
+INCLUDES =	-I$(NACLPORTS_ROOT) \
+			-I$(NACL_SDK_ROOT)
+
 export CC     = nacl-gcc
 export CPP    = nacl-g++
 export CFLAGS =	-Wall -Wno-long-long -pthread -DXP_UNIX -Werror -std=gnu++0x -m32 \
-				-I$(NACLPORTS_ROOT) \
-				-I$(NACL_SDK_ROOT) \
-				-I$(CRML_ROOT) \
-				-L$(CRML_ROOT) \
 				-enable-static \
 				-enable-shared=no \
 				$(DEBUGFLAGS) $(BUILDFLAGS)
@@ -39,6 +38,8 @@ export DESTLIBDIR = $(DESTDIR)/lib
 export DESTINCDIR = $(DESTDIR)/include
 
 all: crml_sys crml_core # crml-win crml-net crml-gfx crml-aud
+
+-include $(NACLPORTS_ROOT)/common_build_scripts/nacl_build.mk
 
 crml_sys:
 	@(mkdir -p ./build)

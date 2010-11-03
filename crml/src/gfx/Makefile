@@ -1,13 +1,13 @@
 SRC       = $(wildcard *.cpp)
 OBJ       = $(SRC:.cpp=.o)
 
-LIB     = crml-aud.a
+LIB     = libcrml_gfx.a
 LIBNAME = $(LIBPATH)/$(LIB)
 INSTALL = 
 
 all: $(LIB)
 
-libcrml-aud.a: $(OBJ) $(OBJVORBIS)
+libcrml_gfx.a: $(OBJ) $(OBJVORBIS)
 	$(AR) $(ARFLAGS) $(LIBNAME) $(OBJ) $(OBJVORBIS)
 
 $(OBJ): %.o: %.cpp

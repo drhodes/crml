@@ -1,2 +1,0 @@
-#nacl-gcc hello.cc -L./ libcrml-sys.a -lstdc++
-gcc hello.cc  -L./ libcrml-sys.a -lstdc++
