@@ -69,7 +69,8 @@ crml-core:
 
 clean:
 	@(	cd  ./src/sys && $(MAKE) $@ && \
-		cd ../core && $(MAKE) $@ ) 
+		cd ../core && $(MAKE) $@ && \
+		cd ../../build && rm -f *.a$ ) 
 #&& \
 #		cd ../win && $(MAKE) $@ && \
 		cd ../net && $(MAKE) $@ && \
