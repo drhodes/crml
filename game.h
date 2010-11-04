@@ -15,29 +15,32 @@ extern "C" {
 #include "./plugin_object.h"
 #include "./hex_store.h"
 #include "./error_macro.cc"
+#include "./error.h"
 
 namespace scm {
   ERR_(GAME_NULL_PLUGIN);
   ERR_(GAME_NULL_EVENTHANDLER);
   ERR_(GAME_NULL_DISPLAY);
+  ERR_(GAME_NULL_CONTEXT_2D);
   ERR_(GAME_NULL_NPP);
   ERR_(GAME_OK);
   ERR_(GAME_UNKNOWN);
-  ERR_(GAME_NUM_ER);
+  ERR_(GAME_NULL_CONTEXT_BUFFER);
 
-  class Game : public PluginObject {
+  class Game:
+  public PluginObject, public Error {
    public:
-    explicit Game(NPP npp)
-        : PluginObject(npp) {
-      err_ = GAME_OK;
+    explicit Game(NPP npp) : PluginObject(npp), Error(GAME_OK) {
+      ClassName("Game");
     }
-    Game();
     ~Game();
-    
+
+    //void Init();
     void RegisterDevice2D();
     void RegisterEvent(EventHandler* eh);
     void RegisterHexStore();
     void RegisterPlugin(PluginObject* po);
+    void RegisterContext2D(NPDeviceContext2D* ctx);
 
     void RegisterLua();
     void LuaClose();
@@ -45,14 +48,12 @@ namespace scm {
     void SetWindow(const NPWindow& npw);
     void Wipe();
     void DrawSampleBitmap();
+    void DrawTrashMe();
 
-    bool Ok();  // Is the object in a OK state?
-    std::string Err();  // What is the error?
-    void ReportErr();
-
-   private:
-    std::string err_;
-   
+    void DrawSampleBitmap2(NPDeviceContext2D* context, int width, int height);
+    
+    virtual bool Ok();  // Is the object in a OK state?
+   private:    
     lua_State* lua_;
     Event* event_;
     unsigned int* pixels_;
@@ -60,8 +61,8 @@ namespace scm {
 
     EventHandler* event_handler_;
     NPDevice* device2d_;
-    int width_;
-    int height_;
+    //int width_;
+    //int height_;
     NPP npp_;
     PluginObject* plugin_;
     NPDeviceContext2D* context2d_;

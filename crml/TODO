@@ -1,0 +1,52 @@
+need to organize the source
+
+
+Initialize moving parts from javascript.
+
+Can the C++ elements generate the javascript interfaces.
+
+
+(?) Figure out how to pull images from the browser.
+	audio
+	video?
+
+(?) Need to identify 
+
+(?) Will these things be stored in the browser cache?
+(?) will they get stale?
+
+(?) Get a solid architecture hammered out ???	
+
+
+
+(v) embed lua
+	ok, but need to work up a scripting console
+	like quake ~?
+	
+	options for including lua code since runtime filesystem
+	access isn't allowed? 
+
+	Probably just pass it down into map<string filename.lua, string filecontents>
+    And then from there interpret?
+
+	
+	build time script that transformms lua source into
+	C code, something like
+	
+	-- file1.lua
+	def addone(x)
+		return x+1
+	end
+	
+	...
+	
+	string file1 = "def func(x) return x+1; end;"
+	Because white space is insignicant this will work!
+	so replace new line with semicolons and save out
+	as file1_lua.cc	
+
+	need to watch out for escape chars.
+	maybe there are literal quotes ``.
+
+	
+	
