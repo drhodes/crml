@@ -16,25 +16,25 @@ class \hyperlink{classtumbler_1_1_tumbler}{Tumbler}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \hyperlink{namespacetumbler_ab219f1f08239d2675431fd3e3299b71d}{Invalidate} (\hyperlink{struct_n_p_object}{NPObject} $\ast$object)
+void \hyperlink{namespacetumbler_ab219f1f08239d2675431fd3e3299b71d}{Invalidate} (NPObject $\ast$object)
 \item 
-bool \hyperlink{namespacetumbler_a0440bebe4c3872dbed8390142035d1d1}{HasMethod} (\hyperlink{struct_n_p_object}{NPObject} $\ast$object, \hyperlink{npruntime_8h_a3ce51391e08bd3e24128c342b1d055b9}{NPIdentifier} name)
+bool \hyperlink{namespacetumbler_a0440bebe4c3872dbed8390142035d1d1}{HasMethod} (NPObject $\ast$object, NPIdentifier name)
 \item 
-bool \hyperlink{namespacetumbler_a1336a275c5d007684384b01b032dec56}{Invoke} (\hyperlink{struct_n_p_object}{NPObject} $\ast$object, \hyperlink{npruntime_8h_a3ce51391e08bd3e24128c342b1d055b9}{NPIdentifier} name, const \hyperlink{struct___n_p_variant}{NPVariant} $\ast$args, uint32\_\-t arg\_\-count, \hyperlink{struct___n_p_variant}{NPVariant} $\ast$result)
+bool \hyperlink{namespacetumbler_a1336a275c5d007684384b01b032dec56}{Invoke} (NPObject $\ast$object, NPIdentifier name, const NPVariant $\ast$args, uint32\_\-t arg\_\-count, NPVariant $\ast$result)
 \item 
-bool \hyperlink{namespacetumbler_a35b1cc267fcf3e0beed6b9e45caa65ef}{InvokeDefault} (\hyperlink{struct_n_p_object}{NPObject} $\ast$object, const \hyperlink{struct___n_p_variant}{NPVariant} $\ast$args, uint32\_\-t arg\_\-count, \hyperlink{struct___n_p_variant}{NPVariant} $\ast$result)
+bool \hyperlink{namespacetumbler_a35b1cc267fcf3e0beed6b9e45caa65ef}{InvokeDefault} (NPObject $\ast$object, const NPVariant $\ast$args, uint32\_\-t arg\_\-count, NPVariant $\ast$result)
 \item 
-bool \hyperlink{namespacetumbler_a2f2417690297eb874bfa76c0d125a64e}{HasProperty} (\hyperlink{struct_n_p_object}{NPObject} $\ast$object, \hyperlink{npruntime_8h_a3ce51391e08bd3e24128c342b1d055b9}{NPIdentifier} name)
+bool \hyperlink{namespacetumbler_a2f2417690297eb874bfa76c0d125a64e}{HasProperty} (NPObject $\ast$object, NPIdentifier name)
 \item 
-bool \hyperlink{namespacetumbler_a41d6ba518f6ce31f8fafc12eb9dd044c}{GetProperty} (\hyperlink{struct_n_p_object}{NPObject} $\ast$object, \hyperlink{npruntime_8h_a3ce51391e08bd3e24128c342b1d055b9}{NPIdentifier} name, \hyperlink{struct___n_p_variant}{NPVariant} $\ast$result)
+bool \hyperlink{namespacetumbler_a41d6ba518f6ce31f8fafc12eb9dd044c}{GetProperty} (NPObject $\ast$object, NPIdentifier name, NPVariant $\ast$result)
 \item 
-bool \hyperlink{namespacetumbler_a036219547d706a1d483feb048bcacc00}{SetProperty} (\hyperlink{struct_n_p_object}{NPObject} $\ast$object, \hyperlink{npruntime_8h_a3ce51391e08bd3e24128c342b1d055b9}{NPIdentifier} name, const \hyperlink{struct___n_p_variant}{NPVariant} $\ast$value)
+bool \hyperlink{namespacetumbler_a036219547d706a1d483feb048bcacc00}{SetProperty} (NPObject $\ast$object, NPIdentifier name, const NPVariant $\ast$value)
 \item 
-bool \hyperlink{namespacetumbler_a4b3edf30d857d6821ff31c7676cae983}{RemoveProperty} (\hyperlink{struct_n_p_object}{NPObject} $\ast$object, \hyperlink{npruntime_8h_a3ce51391e08bd3e24128c342b1d055b9}{NPIdentifier} name)
+bool \hyperlink{namespacetumbler_a4b3edf30d857d6821ff31c7676cae983}{RemoveProperty} (NPObject $\ast$object, NPIdentifier name)
 \item 
-\hyperlink{struct_n_p_object}{NPObject} $\ast$ \hyperlink{namespacetumbler_a133c46b3658a35f597bf5806a58c433e}{Allocate} (\hyperlink{struct___n_p_p}{NPP} npp, \hyperlink{struct_n_p_class}{NPClass} $\ast$npclass)
+NPObject $\ast$ \hyperlink{namespacetumbler_a133c46b3658a35f597bf5806a58c433e}{Allocate} (NPP npp, NPClass $\ast$npclass)
 \item 
-void \hyperlink{namespacetumbler_a6e665bba23bf978176f39f24fd07d501}{Deallocate} (\hyperlink{struct_n_p_object}{NPObject} $\ast$object)
+void \hyperlink{namespacetumbler_a6e665bba23bf978176f39f24fd07d501}{Deallocate} (NPObject $\ast$object)
 \end{DoxyCompactItemize}
 
 
@@ -42,7 +42,7 @@ void \hyperlink{namespacetumbler_a6e665bba23bf978176f39f24fd07d501}{Deallocate} 
 \hypertarget{namespacetumbler_a133c46b3658a35f597bf5806a58c433e}{
 \index{tumbler@{tumbler}!Allocate@{Allocate}}
 \index{Allocate@{Allocate}!tumbler@{tumbler}}
-\subsubsection[{Allocate}]{\setlength{\rightskip}{0pt plus 5cm}{\bf NPObject}$\ast$ tumbler::Allocate ({\bf NPP} {\em npp}, \/  {\bf NPClass} $\ast$ {\em npclass})}}
+\subsubsection[{Allocate}]{\setlength{\rightskip}{0pt plus 5cm}NPObject$\ast$ tumbler::Allocate (NPP {\em npp}, \/  NPClass $\ast$ {\em npclass})}}
 \label{namespacetumbler_a133c46b3658a35f597bf5806a58c433e}
 
 
@@ -51,7 +51,7 @@ Definition at line 296 of file scripting\_\-bridge.cc.
 \hypertarget{namespacetumbler_a6e665bba23bf978176f39f24fd07d501}{
 \index{tumbler@{tumbler}!Deallocate@{Deallocate}}
 \index{Deallocate@{Deallocate}!tumbler@{tumbler}}
-\subsubsection[{Deallocate}]{\setlength{\rightskip}{0pt plus 5cm}void tumbler::Deallocate ({\bf NPObject} $\ast$ {\em object})}}
+\subsubsection[{Deallocate}]{\setlength{\rightskip}{0pt plus 5cm}void tumbler::Deallocate (NPObject $\ast$ {\em object})}}
 \label{namespacetumbler_a6e665bba23bf978176f39f24fd07d501}
 
 
@@ -60,7 +60,7 @@ Definition at line 303 of file scripting\_\-bridge.cc.
 \hypertarget{namespacetumbler_a41d6ba518f6ce31f8fafc12eb9dd044c}{
 \index{tumbler@{tumbler}!GetProperty@{GetProperty}}
 \index{GetProperty@{GetProperty}!tumbler@{tumbler}}
-\subsubsection[{GetProperty}]{\setlength{\rightskip}{0pt plus 5cm}bool tumbler::GetProperty ({\bf NPObject} $\ast$ {\em object}, \/  {\bf NPIdentifier} {\em name}, \/  {\bf NPVariant} $\ast$ {\em result})}}
+\subsubsection[{GetProperty}]{\setlength{\rightskip}{0pt plus 5cm}bool tumbler::GetProperty (NPObject $\ast$ {\em object}, \/  NPIdentifier {\em name}, \/  NPVariant $\ast$ {\em result})}}
 \label{namespacetumbler_a41d6ba518f6ce31f8fafc12eb9dd044c}
 
 
@@ -69,7 +69,7 @@ Definition at line 272 of file scripting\_\-bridge.cc.
 \hypertarget{namespacetumbler_a0440bebe4c3872dbed8390142035d1d1}{
 \index{tumbler@{tumbler}!HasMethod@{HasMethod}}
 \index{HasMethod@{HasMethod}!tumbler@{tumbler}}
-\subsubsection[{HasMethod}]{\setlength{\rightskip}{0pt plus 5cm}bool tumbler::HasMethod ({\bf NPObject} $\ast$ {\em object}, \/  {\bf NPIdentifier} {\em name})}}
+\subsubsection[{HasMethod}]{\setlength{\rightskip}{0pt plus 5cm}bool tumbler::HasMethod (NPObject $\ast$ {\em object}, \/  NPIdentifier {\em name})}}
 \label{namespacetumbler_a0440bebe4c3872dbed8390142035d1d1}
 
 
@@ -78,7 +78,7 @@ Definition at line 233 of file scripting\_\-bridge.cc.
 \hypertarget{namespacetumbler_a2f2417690297eb874bfa76c0d125a64e}{
 \index{tumbler@{tumbler}!HasProperty@{HasProperty}}
 \index{HasProperty@{HasProperty}!tumbler@{tumbler}}
-\subsubsection[{HasProperty}]{\setlength{\rightskip}{0pt plus 5cm}bool tumbler::HasProperty ({\bf NPObject} $\ast$ {\em object}, \/  {\bf NPIdentifier} {\em name})}}
+\subsubsection[{HasProperty}]{\setlength{\rightskip}{0pt plus 5cm}bool tumbler::HasProperty (NPObject $\ast$ {\em object}, \/  NPIdentifier {\em name})}}
 \label{namespacetumbler_a2f2417690297eb874bfa76c0d125a64e}
 
 
@@ -87,7 +87,7 @@ Definition at line 263 of file scripting\_\-bridge.cc.
 \hypertarget{namespacetumbler_ab219f1f08239d2675431fd3e3299b71d}{
 \index{tumbler@{tumbler}!Invalidate@{Invalidate}}
 \index{Invalidate@{Invalidate}!tumbler@{tumbler}}
-\subsubsection[{Invalidate}]{\setlength{\rightskip}{0pt plus 5cm}void tumbler::Invalidate ({\bf NPObject} $\ast$ {\em object})}}
+\subsubsection[{Invalidate}]{\setlength{\rightskip}{0pt plus 5cm}void tumbler::Invalidate (NPObject $\ast$ {\em object})}}
 \label{namespacetumbler_ab219f1f08239d2675431fd3e3299b71d}
 
 
@@ -96,7 +96,7 @@ Definition at line 226 of file scripting\_\-bridge.cc.
 \hypertarget{namespacetumbler_a1336a275c5d007684384b01b032dec56}{
 \index{tumbler@{tumbler}!Invoke@{Invoke}}
 \index{Invoke@{Invoke}!tumbler@{tumbler}}
-\subsubsection[{Invoke}]{\setlength{\rightskip}{0pt plus 5cm}bool tumbler::Invoke ({\bf NPObject} $\ast$ {\em object}, \/  {\bf NPIdentifier} {\em name}, \/  const {\bf NPVariant} $\ast$ {\em args}, \/  uint32\_\-t {\em arg\_\-count}, \/  {\bf NPVariant} $\ast$ {\em result})}}
+\subsubsection[{Invoke}]{\setlength{\rightskip}{0pt plus 5cm}bool tumbler::Invoke (NPObject $\ast$ {\em object}, \/  NPIdentifier {\em name}, \/  const NPVariant $\ast$ {\em args}, \/  uint32\_\-t {\em arg\_\-count}, \/  NPVariant $\ast$ {\em result})}}
 \label{namespacetumbler_a1336a275c5d007684384b01b032dec56}
 
 
@@ -105,7 +105,7 @@ Definition at line 240 of file scripting\_\-bridge.cc.
 \hypertarget{namespacetumbler_a35b1cc267fcf3e0beed6b9e45caa65ef}{
 \index{tumbler@{tumbler}!InvokeDefault@{InvokeDefault}}
 \index{InvokeDefault@{InvokeDefault}!tumbler@{tumbler}}
-\subsubsection[{InvokeDefault}]{\setlength{\rightskip}{0pt plus 5cm}bool tumbler::InvokeDefault ({\bf NPObject} $\ast$ {\em object}, \/  const {\bf NPVariant} $\ast$ {\em args}, \/  uint32\_\-t {\em arg\_\-count}, \/  {\bf NPVariant} $\ast$ {\em result})}}
+\subsubsection[{InvokeDefault}]{\setlength{\rightskip}{0pt plus 5cm}bool tumbler::InvokeDefault (NPObject $\ast$ {\em object}, \/  const NPVariant $\ast$ {\em args}, \/  uint32\_\-t {\em arg\_\-count}, \/  NPVariant $\ast$ {\em result})}}
 \label{namespacetumbler_a35b1cc267fcf3e0beed6b9e45caa65ef}
 
 
@@ -114,7 +114,7 @@ Definition at line 253 of file scripting\_\-bridge.cc.
 \hypertarget{namespacetumbler_a4b3edf30d857d6821ff31c7676cae983}{
 \index{tumbler@{tumbler}!RemoveProperty@{RemoveProperty}}
 \index{RemoveProperty@{RemoveProperty}!tumbler@{tumbler}}
-\subsubsection[{RemoveProperty}]{\setlength{\rightskip}{0pt plus 5cm}bool tumbler::RemoveProperty ({\bf NPObject} $\ast$ {\em object}, \/  {\bf NPIdentifier} {\em name})}}
+\subsubsection[{RemoveProperty}]{\setlength{\rightskip}{0pt plus 5cm}bool tumbler::RemoveProperty (NPObject $\ast$ {\em object}, \/  NPIdentifier {\em name})}}
 \label{namespacetumbler_a4b3edf30d857d6821ff31c7676cae983}
 
 
@@ -123,7 +123,7 @@ Definition at line 289 of file scripting\_\-bridge.cc.
 \hypertarget{namespacetumbler_a036219547d706a1d483feb048bcacc00}{
 \index{tumbler@{tumbler}!SetProperty@{SetProperty}}
 \index{SetProperty@{SetProperty}!tumbler@{tumbler}}
-\subsubsection[{SetProperty}]{\setlength{\rightskip}{0pt plus 5cm}bool tumbler::SetProperty ({\bf NPObject} $\ast$ {\em object}, \/  {\bf NPIdentifier} {\em name}, \/  const {\bf NPVariant} $\ast$ {\em value})}}
+\subsubsection[{SetProperty}]{\setlength{\rightskip}{0pt plus 5cm}bool tumbler::SetProperty (NPObject $\ast$ {\em object}, \/  NPIdentifier {\em name}, \/  const NPVariant $\ast$ {\em value})}}
 \label{namespacetumbler_a036219547d706a1d483feb048bcacc00}
 
 

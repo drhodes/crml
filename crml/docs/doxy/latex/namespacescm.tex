@@ -12,8 +12,6 @@ class \hyperlink{classscm_1_1_clock}{Clock}
 class \hyperlink{classscm_1_1_error}{Error}
 \item 
 class \hyperlink{classscm_1_1_hex_store}{HexStore}
-\item 
-class \hyperlink{classscm_1_1_mainloop}{Mainloop}
 \end{DoxyCompactItemize}
 \subsection*{Typedefs}
 \begin{DoxyCompactItemize}
@@ -28,17 +26,11 @@ typedef std::map$<$ std::string, std::string $>$ \hyperlink{namespacescm_a4d40b5
 enum \hyperlink{namespacescm_a705760e217d94addc2f8f8102f624d61}{HexStoreErr} \{ \hyperlink{namespacescm_a705760e217d94addc2f8f8102f624d61a646922e14c685ecf838b9a5f8621ef55}{HEXSTORE\_\-OK}, 
 \hyperlink{namespacescm_a705760e217d94addc2f8f8102f624d61a723d79af0e48a083e3dd825655a3ddc2}{HEXSTORE\_\-KEY\_\-ERROR}
  \}
-\item 
-enum \hyperlink{namespacescm_aec9fbdb87d677e6e822d612ed3e3a20b}{MainloopErr} \{ \hyperlink{namespacescm_aec9fbdb87d677e6e822d612ed3e3a20ba91150b31dd282f971b18d0ef72bb638a}{InitFails} =  0, 
-\hyperlink{namespacescm_aec9fbdb87d677e6e822d612ed3e3a20bad024311d624d288f051d63b370c3950b}{InitSucceeds} =  1, 
-\hyperlink{namespacescm_aec9fbdb87d677e6e822d612ed3e3a20ba570ef772c888e789b7a21cae1c4b6d09}{Bad2DDevice} =  2, 
-\hyperlink{namespacescm_aec9fbdb87d677e6e822d612ed3e3a20ba8fcbd9be601bd53af341478a63e75743}{NegativeFPS} =  3
- \}
 \end{DoxyCompactItemize}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \hyperlink{namespacescm_acb8f6b2f25d7c07de183bb8b8d518510}{appendMouseInfo} (std::stringstream $\ast$out, \hyperlink{struct___n_p_pepper_event}{NPPepperEvent} $\ast$e)
+void \hyperlink{namespacescm_acb8f6b2f25d7c07de183bb8b8d518510}{appendMouseInfo} (std::stringstream $\ast$out, NPPepperEvent $\ast$e)
 \item 
 \hyperlink{namespacescm_adbb7998a18f4d5b55f2d9af9146e27e9}{ERR\_\-} (EVENT\_\-INIT\_\-FAILED)
 \item 
@@ -95,44 +87,13 @@ HEXSTORE\_\-KEY\_\-ERROR}
 
 Definition at line 14 of file hex\_\-store.h.
 
-\hypertarget{namespacescm_aec9fbdb87d677e6e822d612ed3e3a20b}{
-\index{scm@{scm}!MainloopErr@{MainloopErr}}
-\index{MainloopErr@{MainloopErr}!scm@{scm}}
-\subsubsection[{MainloopErr}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf scm::MainloopErr}}}
-\label{namespacescm_aec9fbdb87d677e6e822d612ed3e3a20b}
-\begin{Desc}
-\item[Enumerator: ]\par
-\begin{description}
-\index{InitFails@{InitFails}!scm@{scm}}\index{scm@{scm}!InitFails@{InitFails}}\item[{\em 
-\hypertarget{namespacescm_aec9fbdb87d677e6e822d612ed3e3a20ba91150b31dd282f971b18d0ef72bb638a}{
-InitFails}
-\label{namespacescm_aec9fbdb87d677e6e822d612ed3e3a20ba91150b31dd282f971b18d0ef72bb638a}
-}]\index{InitSucceeds@{InitSucceeds}!scm@{scm}}\index{scm@{scm}!InitSucceeds@{InitSucceeds}}\item[{\em 
-\hypertarget{namespacescm_aec9fbdb87d677e6e822d612ed3e3a20bad024311d624d288f051d63b370c3950b}{
-InitSucceeds}
-\label{namespacescm_aec9fbdb87d677e6e822d612ed3e3a20bad024311d624d288f051d63b370c3950b}
-}]\index{Bad2DDevice@{Bad2DDevice}!scm@{scm}}\index{scm@{scm}!Bad2DDevice@{Bad2DDevice}}\item[{\em 
-\hypertarget{namespacescm_aec9fbdb87d677e6e822d612ed3e3a20ba570ef772c888e789b7a21cae1c4b6d09}{
-Bad2DDevice}
-\label{namespacescm_aec9fbdb87d677e6e822d612ed3e3a20ba570ef772c888e789b7a21cae1c4b6d09}
-}]\index{NegativeFPS@{NegativeFPS}!scm@{scm}}\index{scm@{scm}!NegativeFPS@{NegativeFPS}}\item[{\em 
-\hypertarget{namespacescm_aec9fbdb87d677e6e822d612ed3e3a20ba8fcbd9be601bd53af341478a63e75743}{
-NegativeFPS}
-\label{namespacescm_aec9fbdb87d677e6e822d612ed3e3a20ba8fcbd9be601bd53af341478a63e75743}
-}]\end{description}
-\end{Desc}
-
-
-
-Definition at line 12 of file loop.h.
-
 
 
 \subsection{Function Documentation}
 \hypertarget{namespacescm_acb8f6b2f25d7c07de183bb8b8d518510}{
 \index{scm@{scm}!appendMouseInfo@{appendMouseInfo}}
 \index{appendMouseInfo@{appendMouseInfo}!scm@{scm}}
-\subsubsection[{appendMouseInfo}]{\setlength{\rightskip}{0pt plus 5cm}void scm::appendMouseInfo (std::stringstream $\ast$ {\em out}, \/  {\bf NPPepperEvent} $\ast$ {\em e})}}
+\subsubsection[{appendMouseInfo}]{\setlength{\rightskip}{0pt plus 5cm}void scm::appendMouseInfo (std::stringstream $\ast$ {\em out}, \/  NPPepperEvent $\ast$ {\em e})}}
 \label{namespacescm_acb8f6b2f25d7c07de183bb8b8d518510}
 
 

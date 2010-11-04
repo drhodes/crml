@@ -2,10 +2,10 @@
 // Use of this source code is governed by a BSD-style license that can
 // be found in the LICENSE file.
 
-#include "examples/pi_generator/scripting_bridge.h"
-#include "examples/pi_generator/pi_generator.h"
+#include <crml-core.h>
+#include "./pi_generator.h"
 
-namespace pi_generator {
+namespace bridge {
 
 NPIdentifier ScriptingBridge::id_paint;
 
@@ -22,16 +22,19 @@ bool ScriptingBridge::InitializeIdentifiers() {
   id_paint = NPN_GetStringIdentifier("paint");
 
   method_table =
-    new(std::nothrow) std::map<NPIdentifier, Method>;
+      new(std::nothrow) std::map<NPIdentifier, Method>;
   if (method_table == NULL) {
     return false;
   }
-  method_table->insert(
-    std::pair<NPIdentifier, Method>(id_paint,
-                                    &ScriptingBridge::Paint));
-
+  
+  AddMethod("paint", &ScriptingBridge::Paint, id_paint);
+  
+  //method_table->insert(
+  // std::pair<NPIdentifier, Method>(id_paint, &ScriptingBridge::Paint));
+  //  method_table[id_paint] = &ScriptingBridge::Paint;
+  
   property_table =
-    new(std::nothrow) std::map<NPIdentifier, Property>;
+      new(std::nothrow) std::map<NPIdentifier, Property>;
   if (property_table == NULL) {
     return false;
   }
@@ -39,8 +42,30 @@ bool ScriptingBridge::InitializeIdentifiers() {
   return true;
 }
 
+bool ScriptingBridge::AddMethod(std::string meth_name, Method meth, NPIdentifier meth_id){
+  meth_id = NPN_GetStringIdentifier(meth_name.c_str());  
+  method_table->insert(
+      std::pair<NPIdentifier, Method>(meth_id, meth));
+  //  method_table[id_paint] = &ScriptingBridge::Paint; 
+  return true;
+}
+
+
 ScriptingBridge::~ScriptingBridge() {
 }
+
+
+bool ScriptingBridge::Paint( const NPVariant* args,
+                             uint32_t arg_count,
+                             NPVariant* result) {
+  PiGenerator* pi_generator = static_cast<PiGenerator*>(npp_->pdata);
+  if (pi_generator) {
+    DOUBLE_TO_NPVARIANT(pi_generator->pi(), *result);
+    return pi_generator->Paint();
+  }
+  return false;
+}
+
 
 // Class-specific implementation of HasMethod, used by the C-style one
 // below.
@@ -110,16 +135,6 @@ void ScriptingBridge::Invalidate() {
   // Not implemented.
 }
 
-bool ScriptingBridge::Paint(const NPVariant* args,
-                            uint32_t arg_count,
-                            NPVariant* result) {
-  PiGenerator* pi_generator = static_cast<PiGenerator*>(npp_->pdata);
-  if (pi_generator) {
-    DOUBLE_TO_NPVARIANT(pi_generator->pi(), *result);
-    return pi_generator->Paint();
-  }
-  return false;
-}
 
 // Called by the browser when a plugin is being destroyed to clean up any
 // remaining instances of NPClass.
@@ -211,16 +226,16 @@ void Deallocate(NPObject* object) {
 // can call on this plugin object.  The browser can use the methods in this
 // class to discover the rest of the plugin's interface.
 // Documentation URL: https://developer.mozilla.org/en/NPClass
-NPClass pi_generator::ScriptingBridge::np_class = {
+NPClass bridge::ScriptingBridge::np_class = {
   NP_CLASS_STRUCT_VERSION,
-  pi_generator::Allocate,
-  pi_generator::Deallocate,
-  pi_generator::Invalidate,
-  pi_generator::HasMethod,
-  pi_generator::Invoke,
-  pi_generator::InvokeDefault,
-  pi_generator::HasProperty,
-  pi_generator::GetProperty,
-  pi_generator::SetProperty,
-  pi_generator::RemoveProperty
+  bridge::Allocate,
+  bridge::Deallocate,
+  bridge::Invalidate,
+  bridge::HasMethod,
+  bridge::Invoke,
+  bridge::InvokeDefault,
+  bridge::HasProperty,
+  bridge::GetProperty,
+  bridge::SetProperty,
+  bridge::RemoveProperty
 };

@@ -3,10 +3,10 @@
 #ifndef CORE_HPP_
 #define CORE_HPP_
 
-#include <ppapi/cpp/instance.h>
-#include <ppapi/cpp/module.h>
-#include <ppapi/cpp/scriptable_object.h>
-#include <ppapi/cpp/var.h>
+//#include <ppapi/cpp/instance.h>
+//#include <ppapi/cpp/module.h>
+//#include <ppapi/cpp/scriptable_object.h>
+//#include <ppapi/cpp/var.h>
 
 namespace crml {
   /// \brief The Core object which wires all subsystems

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
-<title>crml: /home/derek/dev/cell-grid-game/nacl/crml/crml/test/hello_world/hello_world.cc Source File</title>
+<title>crml: /home/derek/dev/crml/crml/test/hello_world/hello_world.cc Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -12,7 +12,6 @@
   <div class="tabs">
     <ul>
       <li><a href="main.html"><span>Main&nbsp;Page</span></a></li>
-      <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
@@ -24,7 +23,7 @@
       <li><a href="globals.html"><span>File&nbsp;Members</span></a></li>
     </ul>
   </div>
-<h1>/home/derek/dev/cell-grid-game/nacl/crml/crml/test/hello_world/hello_world.cc</h1><a href="hello__world_8cc.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">// Copyright 2008 The Native Client Authors. All rights reserved.</span>
+<h1>/home/derek/dev/crml/crml/test/hello_world/hello_world.cc</h1><a href="hello__world_8cc.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">// Copyright 2008 The Native Client Authors. All rights reserved.</span>
 <a name="l00002"></a>00002 <span class="comment">// Use of this source code is governed by a BSD-style license that can</span>
 <a name="l00003"></a>00003 <span class="comment">// be found in the LICENSE file.</span>
 <a name="l00004"></a>00004 
@@ -63,7 +62,7 @@
 <a name="l00037"></a>00037 <span class="comment">// This function returns a pointer to some constant memory holding the string</span>
 <a name="l00038"></a>00038 <span class="comment">// &quot;hello, world.&quot;.  The ScriptableObject that called this function then returns</span>
 <a name="l00039"></a>00039 <span class="comment">// the result back to the browser as a JavaScript value</span>
-<a name="l00040"></a>00040 std::string <a class="code" href="struct_hello_world.html">HelloWorld</a>() {
+<a name="l00040"></a>00040 std::string HelloWorld() {
 <a name="l00041"></a>00041   <span class="keyword">const</span> <span class="keywordtype">char</span> *msg = <span class="stringliteral">&quot;hello, world.&quot;</span>;
 <a name="l00042"></a>00042   <span class="keywordflow">return</span> msg;
 <a name="l00043"></a>00043 }
@@ -108,7 +107,7 @@
 <a name="l00082"></a>00082   }
 <a name="l00083"></a>00083   std::string method_name = method.AsString();
 <a name="l00084"></a>00084   <span class="keywordflow">if</span> (method_name == kHelloWorldMethodId)
-<a name="l00085"></a>00085     <span class="keywordflow">return</span> pp::Var(<a class="code" href="struct_hello_world.html">HelloWorld</a>());
+<a name="l00085"></a>00085     <span class="keywordflow">return</span> pp::Var(HelloWorld());
 <a name="l00086"></a>00086   <span class="keywordflow">else</span> <span class="keywordflow">if</span> (method_name == kFortyTwoMethodId)
 <a name="l00087"></a>00087     <span class="keywordflow">return</span> pp::Var(FortyTwo());
 <a name="l00088"></a>00088   <span class="keywordflow">return</span> pp::Var();
@@ -162,7 +161,7 @@
 <a name="l00136"></a>00136 }
 <a name="l00137"></a>00137 }  <span class="comment">// namespace pp</span>
 </pre></div></div>
-<hr class="footer"/><address style="text-align: right;"><small>Generated on Mon Nov 1 15:47:12 2010 for crml by&nbsp;
+<hr class="footer"/><address style="text-align: right;"><small>Generated on Thu Nov 4 13:14:12 2010 for crml by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
 </body>

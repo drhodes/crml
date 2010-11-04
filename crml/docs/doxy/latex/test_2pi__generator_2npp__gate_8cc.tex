@@ -1,6 +1,6 @@
 \hypertarget{test_2pi__generator_2npp__gate_8cc}{
-\section{/home/derek/dev/cell-\/grid-\/game/nacl/crml/crml/test/pi\_\-generator/npp\_\-gate.cc File Reference}
-\label{test_2pi__generator_2npp__gate_8cc}\index{/home/derek/dev/cell-\/grid-\/game/nacl/crml/crml/test/pi\_\-generator/npp\_\-gate.cc@{/home/derek/dev/cell-\/grid-\/game/nacl/crml/crml/test/pi\_\-generator/npp\_\-gate.cc}}
+\section{/home/derek/dev/crml/crml/test/pi\_\-generator/npp\_\-gate.cc File Reference}
+\label{test_2pi__generator_2npp__gate_8cc}\index{/home/derek/dev/crml/crml/test/pi\_\-generator/npp\_\-gate.cc@{/home/derek/dev/crml/crml/test/pi\_\-generator/npp\_\-gate.cc}}
 }
 {\ttfamily \#include $<$assert.h$>$}\par
 {\ttfamily \#include $<$stdio.h$>$}\par
@@ -12,19 +12,19 @@
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{npapi_8h_a56715bc92ac93f0447a05f852ce18828}{NPError} \hyperlink{test_2pi__generator_2npp__gate_8cc_a1549c7141eb65cb6eca02d3cba8f48d1}{NPP\_\-New} (\hyperlink{npapi_8h_a6ab16d9f607aeb576061783638ae2973}{NPMIMEType} mime\_\-type, \hyperlink{struct___n_p_p}{NPP} instance, uint16\_\-t mode, int16\_\-t argc, char $\ast$argn\mbox{[}$\,$\mbox{]}, char $\ast$argv\mbox{[}$\,$\mbox{]}, \hyperlink{struct___n_p_saved_data}{NPSavedData} $\ast$saved)
+NPError \hyperlink{test_2pi__generator_2npp__gate_8cc_a1549c7141eb65cb6eca02d3cba8f48d1}{NPP\_\-New} (NPMIMEType mime\_\-type, NPP instance, uint16\_\-t mode, int16\_\-t argc, char $\ast$argn\mbox{[}$\,$\mbox{]}, char $\ast$argv\mbox{[}$\,$\mbox{]}, NPSavedData $\ast$saved)
 \item 
-\hyperlink{npapi_8h_a56715bc92ac93f0447a05f852ce18828}{NPError} \hyperlink{test_2pi__generator_2npp__gate_8cc_a13cdb3ad1ae5ab428bd418ce64af269f}{NPP\_\-Destroy} (\hyperlink{struct___n_p_p}{NPP} instance, \hyperlink{struct___n_p_saved_data}{NPSavedData} $\ast$$\ast$save)
+NPError \hyperlink{test_2pi__generator_2npp__gate_8cc_a13cdb3ad1ae5ab428bd418ce64af269f}{NPP\_\-Destroy} (NPP instance, NPSavedData $\ast$$\ast$save)
 \item 
-\hyperlink{struct_n_p_object}{NPObject} $\ast$ \hyperlink{test_2pi__generator_2npp__gate_8cc_ad6b92f15011abb6dde0ae16e86f46ed7}{NPP\_\-GetScriptableInstance} (\hyperlink{struct___n_p_p}{NPP} instance)
+NPObject $\ast$ \hyperlink{test_2pi__generator_2npp__gate_8cc_ad6b92f15011abb6dde0ae16e86f46ed7}{NPP\_\-GetScriptableInstance} (NPP instance)
 \item 
-\hyperlink{npapi_8h_a56715bc92ac93f0447a05f852ce18828}{NPError} \hyperlink{test_2pi__generator_2npp__gate_8cc_aae56cbb0b1b9e955b67b98f8178fbeef}{NPP\_\-GetValue} (\hyperlink{struct___n_p_p}{NPP} instance, \hyperlink{npapi_8h_a1b56dde896277605195e0fad69cbca7d}{NPPVariable} variable, void $\ast$value)
+NPError \hyperlink{test_2pi__generator_2npp__gate_8cc_aae56cbb0b1b9e955b67b98f8178fbeef}{NPP\_\-GetValue} (NPP instance, NPPVariable variable, void $\ast$value)
 \item 
-int16\_\-t \hyperlink{test_2pi__generator_2npp__gate_8cc_afc9809fb9d0ee0ed5666723b2db78161}{NPP\_\-HandleEvent} (\hyperlink{struct___n_p_p}{NPP} instance, void $\ast$event)
+int16\_\-t \hyperlink{test_2pi__generator_2npp__gate_8cc_afc9809fb9d0ee0ed5666723b2db78161}{NPP\_\-HandleEvent} (NPP instance, void $\ast$event)
 \item 
-\hyperlink{npapi_8h_a56715bc92ac93f0447a05f852ce18828}{NPError} \hyperlink{test_2pi__generator_2npp__gate_8cc_a352d8aac09e759465185ddd4eeea9df9}{NPP\_\-SetWindow} (\hyperlink{struct___n_p_p}{NPP} instance, \hyperlink{struct___n_p_window}{NPWindow} $\ast$window)
+NPError \hyperlink{test_2pi__generator_2npp__gate_8cc_a352d8aac09e759465185ddd4eeea9df9}{NPP\_\-SetWindow} (NPP instance, NPWindow $\ast$window)
 \item 
-\hyperlink{npapi_8h_a56715bc92ac93f0447a05f852ce18828}{NPError} \hyperlink{test_2pi__generator_2npp__gate_8cc_a2e202c35d113ebeb05eb2175fc8d97cb}{InitializePluginFunctions} (\hyperlink{struct___n_p_plugin_funcs}{NPPluginFuncs} $\ast$plugin\_\-funcs)
+NPError \hyperlink{test_2pi__generator_2npp__gate_8cc_a2e202c35d113ebeb05eb2175fc8d97cb}{InitializePluginFunctions} (NPPluginFuncs $\ast$plugin\_\-funcs)
 \end{DoxyCompactItemize}
 
 
@@ -32,7 +32,7 @@ int16\_\-t \hyperlink{test_2pi__generator_2npp__gate_8cc_afc9809fb9d0ee0ed566672
 \hypertarget{test_2pi__generator_2npp__gate_8cc_a2e202c35d113ebeb05eb2175fc8d97cb}{
 \index{test/pi\_\-generator/npp\_\-gate.cc@{test/pi\_\-generator/npp\_\-gate.cc}!InitializePluginFunctions@{InitializePluginFunctions}}
 \index{InitializePluginFunctions@{InitializePluginFunctions}!test/pi_generator/npp_gate.cc@{test/pi\_\-generator/npp\_\-gate.cc}}
-\subsubsection[{InitializePluginFunctions}]{\setlength{\rightskip}{0pt plus 5cm}{\bf NPError} InitializePluginFunctions ({\bf NPPluginFuncs} $\ast$ {\em plugin\_\-funcs})}}
+\subsubsection[{InitializePluginFunctions}]{\setlength{\rightskip}{0pt plus 5cm}NPError InitializePluginFunctions (NPPluginFuncs $\ast$ {\em plugin\_\-funcs})}}
 \label{test_2pi__generator_2npp__gate_8cc_a2e202c35d113ebeb05eb2175fc8d97cb}
 
 
@@ -41,7 +41,7 @@ Definition at line 133 of file npp\_\-gate.cc.
 \hypertarget{test_2pi__generator_2npp__gate_8cc_a13cdb3ad1ae5ab428bd418ce64af269f}{
 \index{test/pi\_\-generator/npp\_\-gate.cc@{test/pi\_\-generator/npp\_\-gate.cc}!NPP\_\-Destroy@{NPP\_\-Destroy}}
 \index{NPP\_\-Destroy@{NPP\_\-Destroy}!test/pi_generator/npp_gate.cc@{test/pi\_\-generator/npp\_\-gate.cc}}
-\subsubsection[{NPP\_\-Destroy}]{\setlength{\rightskip}{0pt plus 5cm}{\bf NPError} NPP\_\-Destroy ({\bf NPP} {\em instance}, \/  {\bf NPSavedData} $\ast$$\ast$ {\em save})}}
+\subsubsection[{NPP\_\-Destroy}]{\setlength{\rightskip}{0pt plus 5cm}NPError NPP\_\-Destroy (NPP {\em instance}, \/  NPSavedData $\ast$$\ast$ {\em save})}}
 \label{test_2pi__generator_2npp__gate_8cc_a13cdb3ad1ae5ab428bd418ce64af269f}
 
 
@@ -50,7 +50,7 @@ Definition at line 55 of file npp\_\-gate.cc.
 \hypertarget{test_2pi__generator_2npp__gate_8cc_ad6b92f15011abb6dde0ae16e86f46ed7}{
 \index{test/pi\_\-generator/npp\_\-gate.cc@{test/pi\_\-generator/npp\_\-gate.cc}!NPP\_\-GetScriptableInstance@{NPP\_\-GetScriptableInstance}}
 \index{NPP\_\-GetScriptableInstance@{NPP\_\-GetScriptableInstance}!test/pi_generator/npp_gate.cc@{test/pi\_\-generator/npp\_\-gate.cc}}
-\subsubsection[{NPP\_\-GetScriptableInstance}]{\setlength{\rightskip}{0pt plus 5cm}{\bf NPObject}$\ast$ NPP\_\-GetScriptableInstance ({\bf NPP} {\em instance})}}
+\subsubsection[{NPP\_\-GetScriptableInstance}]{\setlength{\rightskip}{0pt plus 5cm}NPObject$\ast$ NPP\_\-GetScriptableInstance (NPP {\em instance})}}
 \label{test_2pi__generator_2npp__gate_8cc_ad6b92f15011abb6dde0ae16e86f46ed7}
 
 
@@ -59,7 +59,7 @@ Definition at line 74 of file npp\_\-gate.cc.
 \hypertarget{test_2pi__generator_2npp__gate_8cc_aae56cbb0b1b9e955b67b98f8178fbeef}{
 \index{test/pi\_\-generator/npp\_\-gate.cc@{test/pi\_\-generator/npp\_\-gate.cc}!NPP\_\-GetValue@{NPP\_\-GetValue}}
 \index{NPP\_\-GetValue@{NPP\_\-GetValue}!test/pi_generator/npp_gate.cc@{test/pi\_\-generator/npp\_\-gate.cc}}
-\subsubsection[{NPP\_\-GetValue}]{\setlength{\rightskip}{0pt plus 5cm}{\bf NPError} NPP\_\-GetValue ({\bf NPP} {\em instance}, \/  {\bf NPPVariable} {\em variable}, \/  void $\ast$ {\em value})}}
+\subsubsection[{NPP\_\-GetValue}]{\setlength{\rightskip}{0pt plus 5cm}NPError NPP\_\-GetValue (NPP {\em instance}, \/  NPPVariable {\em variable}, \/  void $\ast$ {\em value})}}
 \label{test_2pi__generator_2npp__gate_8cc_aae56cbb0b1b9e955b67b98f8178fbeef}
 
 
@@ -68,7 +68,7 @@ Definition at line 90 of file npp\_\-gate.cc.
 \hypertarget{test_2pi__generator_2npp__gate_8cc_afc9809fb9d0ee0ed5666723b2db78161}{
 \index{test/pi\_\-generator/npp\_\-gate.cc@{test/pi\_\-generator/npp\_\-gate.cc}!NPP\_\-HandleEvent@{NPP\_\-HandleEvent}}
 \index{NPP\_\-HandleEvent@{NPP\_\-HandleEvent}!test/pi_generator/npp_gate.cc@{test/pi\_\-generator/npp\_\-gate.cc}}
-\subsubsection[{NPP\_\-HandleEvent}]{\setlength{\rightskip}{0pt plus 5cm}int16\_\-t NPP\_\-HandleEvent ({\bf NPP} {\em instance}, \/  void $\ast$ {\em event})}}
+\subsubsection[{NPP\_\-HandleEvent}]{\setlength{\rightskip}{0pt plus 5cm}int16\_\-t NPP\_\-HandleEvent (NPP {\em instance}, \/  void $\ast$ {\em event})}}
 \label{test_2pi__generator_2npp__gate_8cc_afc9809fb9d0ee0ed5666723b2db78161}
 
 
@@ -77,7 +77,7 @@ Definition at line 106 of file npp\_\-gate.cc.
 \hypertarget{test_2pi__generator_2npp__gate_8cc_a1549c7141eb65cb6eca02d3cba8f48d1}{
 \index{test/pi\_\-generator/npp\_\-gate.cc@{test/pi\_\-generator/npp\_\-gate.cc}!NPP\_\-New@{NPP\_\-New}}
 \index{NPP\_\-New@{NPP\_\-New}!test/pi_generator/npp_gate.cc@{test/pi\_\-generator/npp\_\-gate.cc}}
-\subsubsection[{NPP\_\-New}]{\setlength{\rightskip}{0pt plus 5cm}{\bf NPError} NPP\_\-New ({\bf NPMIMEType} {\em mime\_\-type}, \/  {\bf NPP} {\em instance}, \/  uint16\_\-t {\em mode}, \/  int16\_\-t {\em argc}, \/  char $\ast$ {\em argn}\mbox{[}$\,$\mbox{]}, \/  char $\ast$ {\em argv}\mbox{[}$\,$\mbox{]}, \/  {\bf NPSavedData} $\ast$ {\em saved})}}
+\subsubsection[{NPP\_\-New}]{\setlength{\rightskip}{0pt plus 5cm}NPError NPP\_\-New (NPMIMEType {\em mime\_\-type}, \/  NPP {\em instance}, \/  uint16\_\-t {\em mode}, \/  int16\_\-t {\em argc}, \/  char $\ast$ {\em argn}\mbox{[}$\,$\mbox{]}, \/  char $\ast$ {\em argv}\mbox{[}$\,$\mbox{]}, \/  NPSavedData $\ast$ {\em saved})}}
 \label{test_2pi__generator_2npp__gate_8cc_a1549c7141eb65cb6eca02d3cba8f48d1}
 
 
@@ -86,7 +86,7 @@ Definition at line 25 of file npp\_\-gate.cc.
 \hypertarget{test_2pi__generator_2npp__gate_8cc_a352d8aac09e759465185ddd4eeea9df9}{
 \index{test/pi\_\-generator/npp\_\-gate.cc@{test/pi\_\-generator/npp\_\-gate.cc}!NPP\_\-SetWindow@{NPP\_\-SetWindow}}
 \index{NPP\_\-SetWindow@{NPP\_\-SetWindow}!test/pi_generator/npp_gate.cc@{test/pi\_\-generator/npp\_\-gate.cc}}
-\subsubsection[{NPP\_\-SetWindow}]{\setlength{\rightskip}{0pt plus 5cm}{\bf NPError} NPP\_\-SetWindow ({\bf NPP} {\em instance}, \/  {\bf NPWindow} $\ast$ {\em window})}}
+\subsubsection[{NPP\_\-SetWindow}]{\setlength{\rightskip}{0pt plus 5cm}NPError NPP\_\-SetWindow (NPP {\em instance}, \/  NPWindow $\ast$ {\em window})}}
 \label{test_2pi__generator_2npp__gate_8cc_a352d8aac09e759465185ddd4eeea9df9}
 
 

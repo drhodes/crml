@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
-<title>crml: /home/derek/dev/cell-grid-game/nacl/crml/crml/lib/tumbler/scripting_bridge.h Source File</title>
+<title>crml: /home/derek/dev/crml/crml/lib/tumbler/scripting_bridge.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -12,7 +12,6 @@
   <div class="tabs">
     <ul>
       <li><a href="main.html"><span>Main&nbsp;Page</span></a></li>
-      <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
@@ -24,7 +23,7 @@
       <li><a href="globals.html"><span>File&nbsp;Members</span></a></li>
     </ul>
   </div>
-<h1>/home/derek/dev/cell-grid-game/nacl/crml/crml/lib/tumbler/scripting_bridge.h</h1><a href="lib_2tumbler_2scripting__bridge_8h.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">// Copyright 2010 The Native Client SDK Authors. All rights reserved.</span>
+<h1>/home/derek/dev/crml/crml/lib/tumbler/scripting_bridge.h</h1><a href="lib_2tumbler_2scripting__bridge_8h.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">// Copyright 2010 The Native Client SDK Authors. All rights reserved.</span>
 <a name="l00002"></a>00002 <span class="comment">// Use of this source code is governed by a BSD-style license that can</span>
 <a name="l00003"></a>00003 <span class="comment">// be found in the LICENSE file.</span>
 <a name="l00004"></a>00004 
@@ -46,35 +45,35 @@
 <a name="l00020"></a>00020 
 <a name="l00021"></a>00021 <span class="comment">// This class represents the Pepper3D object that gets exposed to the browser</span>
 <a name="l00022"></a>00022 <span class="comment">// code.</span>
-<a name="l00023"></a><a class="code" href="classtumbler_1_1_scripting_bridge.html">00023</a> <span class="keyword">class </span><a class="code" href="classtumbler_1_1_scripting_bridge.html">ScriptingBridge</a> : <span class="keyword">public</span> <a class="code" href="struct_n_p_object.html">NPObject</a> {
+<a name="l00023"></a><a class="code" href="classtumbler_1_1_scripting_bridge.html">00023</a> <span class="keyword">class </span><a class="code" href="classtumbler_1_1_scripting_bridge.html">ScriptingBridge</a> : <span class="keyword">public</span> NPObject {
 <a name="l00024"></a>00024  <span class="keyword">public</span>:
-<a name="l00025"></a><a class="code" href="classtumbler_1_1_scripting_bridge.html#addb1badb0e891b38c6d90767342b5bb3">00025</a>   <span class="keyword">typedef</span> bool (<a class="code" href="classtumbler_1_1_scripting_bridge.html">ScriptingBridge</a>::*<a class="code" href="classtumbler_1_1_scripting_bridge.html#addb1badb0e891b38c6d90767342b5bb3">Method</a>)(<span class="keyword">const</span> <a class="code" href="struct___n_p_variant.html">NPVariant</a>* args,
+<a name="l00025"></a><a class="code" href="classtumbler_1_1_scripting_bridge.html#addb1badb0e891b38c6d90767342b5bb3">00025</a>   <span class="keyword">typedef</span> bool (<a class="code" href="classtumbler_1_1_scripting_bridge.html">ScriptingBridge</a>::*<a class="code" href="classtumbler_1_1_scripting_bridge.html#addb1badb0e891b38c6d90767342b5bb3">Method</a>)(<span class="keyword">const</span> NPVariant* args,
 <a name="l00026"></a>00026                                           uint32_t arg_count,
-<a name="l00027"></a>00027                                           <a class="code" href="struct___n_p_variant.html">NPVariant</a>* result);
-<a name="l00028"></a><a class="code" href="classtumbler_1_1_scripting_bridge.html#ad7507ce0e5c8f49fde790c743447f3c3">00028</a>   <span class="keyword">typedef</span> bool (<a class="code" href="classtumbler_1_1_scripting_bridge.html">ScriptingBridge</a>::*<a class="code" href="classtumbler_1_1_scripting_bridge.html#ad7507ce0e5c8f49fde790c743447f3c3">Property</a>)(<a class="code" href="struct___n_p_variant.html">NPVariant</a>* result);
+<a name="l00027"></a>00027                                           NPVariant* result);
+<a name="l00028"></a><a class="code" href="classtumbler_1_1_scripting_bridge.html#ad7507ce0e5c8f49fde790c743447f3c3">00028</a>   <span class="keyword">typedef</span> bool (<a class="code" href="classtumbler_1_1_scripting_bridge.html">ScriptingBridge</a>::*<a class="code" href="classtumbler_1_1_scripting_bridge.html#ad7507ce0e5c8f49fde790c743447f3c3">Property</a>)(NPVariant* result);
 <a name="l00029"></a>00029 
-<a name="l00030"></a>00030   <span class="keyword">explicit</span> <a class="code" href="classtumbler_1_1_scripting_bridge.html#aa7abb8784b22a793d795e872841b4bac">ScriptingBridge</a>(<a class="code" href="struct___n_p_p.html">NPP</a> npp);
-<a name="l00031"></a>00031   <span class="keyword">virtual</span> <a class="code" href="classtumbler_1_1_scripting_bridge.html#abe0d3eec9a772e0bc7f906cbc432d58d">~ScriptingBridge</a>();
+<a name="l00030"></a>00030   <span class="keyword">explicit</span> <a class="code" href="classtumbler_1_1_scripting_bridge.html#ae743ff1b8ffce6889a86a73500fd0da1">ScriptingBridge</a>(NPP npp);
+<a name="l00031"></a>00031   <span class="keyword">virtual</span> <a class="code" href="classtumbler_1_1_scripting_bridge.html#ae6c311b5f9ffa0a578c7d8e41fa9c23c">~ScriptingBridge</a>();
 <a name="l00032"></a>00032 
 <a name="l00033"></a>00033   <span class="comment">// These methods represent the NPObject implementation.  The browser calls</span>
 <a name="l00034"></a>00034   <span class="comment">// these methods by calling functions in the |np_class| struct.</span>
-<a name="l00035"></a>00035   <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classtumbler_1_1_scripting_bridge.html#a79ca9287d682b30670932c235ce025b4">Invalidate</a>();
-<a name="l00036"></a>00036   <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classtumbler_1_1_scripting_bridge.html#acd4789c8a9668e86ad02949ac7e88481">HasMethod</a>(<a class="code" href="npruntime_8h.html#a3ce51391e08bd3e24128c342b1d055b9">NPIdentifier</a> name);
-<a name="l00037"></a>00037   <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classtumbler_1_1_scripting_bridge.html#a70638ad7da4726fb8ccbc6f49868fafc">Invoke</a>(<a class="code" href="npruntime_8h.html#a3ce51391e08bd3e24128c342b1d055b9">NPIdentifier</a> name,
-<a name="l00038"></a>00038                       <span class="keyword">const</span> <a class="code" href="struct___n_p_variant.html">NPVariant</a>* args,
+<a name="l00035"></a>00035   <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classtumbler_1_1_scripting_bridge.html#af00ea5a26438b33f976734a3432dfa9b">Invalidate</a>();
+<a name="l00036"></a>00036   <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classtumbler_1_1_scripting_bridge.html#a1d614bb3696baef7c46332426ab7a0dc">HasMethod</a>(NPIdentifier name);
+<a name="l00037"></a>00037   <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classtumbler_1_1_scripting_bridge.html#ad18d2af321b2cba1235876cf281295df">Invoke</a>(NPIdentifier name,
+<a name="l00038"></a>00038                       <span class="keyword">const</span> NPVariant* args,
 <a name="l00039"></a>00039                       uint32_t arg_count,
-<a name="l00040"></a>00040                       <a class="code" href="struct___n_p_variant.html">NPVariant</a>* result);
-<a name="l00041"></a>00041   <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classtumbler_1_1_scripting_bridge.html#abc3713f16c739bb1c547def1afc5c93c">InvokeDefault</a>(<span class="keyword">const</span> <a class="code" href="struct___n_p_variant.html">NPVariant</a>* args,
+<a name="l00040"></a>00040                       NPVariant* result);
+<a name="l00041"></a>00041   <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classtumbler_1_1_scripting_bridge.html#a2cee828951db15b4cce1074e934c4f97">InvokeDefault</a>(<span class="keyword">const</span> NPVariant* args,
 <a name="l00042"></a>00042                              uint32_t arg_count,
-<a name="l00043"></a>00043                              <a class="code" href="struct___n_p_variant.html">NPVariant</a>* result);
-<a name="l00044"></a>00044   <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classtumbler_1_1_scripting_bridge.html#af5fea670d935111ef96b2ecc3adc8576">HasProperty</a>(<a class="code" href="npruntime_8h.html#a3ce51391e08bd3e24128c342b1d055b9">NPIdentifier</a> name);
-<a name="l00045"></a>00045   <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classtumbler_1_1_scripting_bridge.html#a7f8c653d8a5cb632eae37e1d59459c31">GetProperty</a>(<a class="code" href="npruntime_8h.html#a3ce51391e08bd3e24128c342b1d055b9">NPIdentifier</a> name, <a class="code" href="struct___n_p_variant.html">NPVariant</a>* result);
-<a name="l00046"></a>00046   <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classtumbler_1_1_scripting_bridge.html#a841486a4fe8e3245dd8d1711e2c72dd3">SetProperty</a>(<a class="code" href="npruntime_8h.html#a3ce51391e08bd3e24128c342b1d055b9">NPIdentifier</a> name, <span class="keyword">const</span> <a class="code" href="struct___n_p_variant.html">NPVariant</a>* value);
-<a name="l00047"></a>00047   <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classtumbler_1_1_scripting_bridge.html#a58c45c6be183d37e0fa26de95b4410a1">RemoveProperty</a>(<a class="code" href="npruntime_8h.html#a3ce51391e08bd3e24128c342b1d055b9">NPIdentifier</a> name);
+<a name="l00043"></a>00043                              NPVariant* result);
+<a name="l00044"></a>00044   <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classtumbler_1_1_scripting_bridge.html#aeed261c756896802f26632acfceba1d7">HasProperty</a>(NPIdentifier name);
+<a name="l00045"></a>00045   <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classtumbler_1_1_scripting_bridge.html#afef889fc2ff5ccabefb713cf7ad5e056">GetProperty</a>(NPIdentifier name, NPVariant* result);
+<a name="l00046"></a>00046   <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classtumbler_1_1_scripting_bridge.html#ae73ff0ec0f70dfcd0e22534c8281f3e3">SetProperty</a>(NPIdentifier name, <span class="keyword">const</span> NPVariant* value);
+<a name="l00047"></a>00047   <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classtumbler_1_1_scripting_bridge.html#a861437163b8291eb7b302ce8f778022d">RemoveProperty</a>(NPIdentifier name);
 <a name="l00048"></a>00048 
-<a name="l00049"></a>00049   <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="classtumbler_1_1_scripting_bridge.html#a9653f59bae05d24f2f319a2764a7ce61">InitializeIdentifiers</a>();
+<a name="l00049"></a>00049   <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="classtumbler_1_1_scripting_bridge.html#a05f2a65b751d12e6aeaa00bfd91ef83f">InitializeIdentifiers</a>();
 <a name="l00050"></a>00050 
-<a name="l00051"></a><a class="code" href="classtumbler_1_1_scripting_bridge.html#a4cd00d35febde2739ee85287f39981ac">00051</a>   <span class="keyword">static</span> <a class="code" href="struct_n_p_class.html">NPClass</a> <a class="code" href="classtumbler_1_1_scripting_bridge.html#a4cd00d35febde2739ee85287f39981ac">np_class</a>;
+<a name="l00051"></a><a class="code" href="classtumbler_1_1_scripting_bridge.html#a4fcbbbaf7a6d91a2766066fa2cb2236b">00051</a>   <span class="keyword">static</span> NPClass <a class="code" href="classtumbler_1_1_scripting_bridge.html#a4fcbbbaf7a6d91a2766066fa2cb2236b">np_class</a>;
 <a name="l00052"></a>00052 
 <a name="l00053"></a>00053   <span class="comment">// These methods are exposed via the scripting bridge to the browser.</span>
 <a name="l00054"></a>00054   <span class="comment">// Each one is mapped to a string id, which is the name of the method that</span>
@@ -87,22 +86,22 @@
 <a name="l00061"></a>00061 
 <a name="l00062"></a>00062   <span class="comment">// Fills in |result| with an array containing four values, which represents</span>
 <a name="l00063"></a>00063   <span class="comment">// the camera orientation as a quaternion.</span>
-<a name="l00064"></a>00064   <span class="keywordtype">bool</span> <a class="code" href="classtumbler_1_1_scripting_bridge.html#ace2d208ee47d10881e48945a1b9deb1e">GetCameraOrientation</a>(<span class="keyword">const</span> <a class="code" href="struct___n_p_variant.html">NPVariant</a>* args,
+<a name="l00064"></a>00064   <span class="keywordtype">bool</span> <a class="code" href="classtumbler_1_1_scripting_bridge.html#a95b4a3ee287861d23021bfae7b7c1b08">GetCameraOrientation</a>(<span class="keyword">const</span> NPVariant* args,
 <a name="l00065"></a>00065                             uint32_t arg_count,
-<a name="l00066"></a>00066                             <a class="code" href="struct___n_p_variant.html">NPVariant</a>* result);
+<a name="l00066"></a>00066                             NPVariant* result);
 <a name="l00067"></a>00067 
 <a name="l00068"></a>00068   <span class="comment">// Assumes that |arg_count| is 1, and |args| is a pointer to a 4-element</span>
 <a name="l00069"></a>00069   <span class="comment">// array of numbers.  The elements can be either integers or doubles.  Other</span>
 <a name="l00070"></a>00070   <span class="comment">// types are not handled.</span>
-<a name="l00071"></a>00071   <span class="keywordtype">bool</span> <a class="code" href="classtumbler_1_1_scripting_bridge.html#a9e3ffd7304dc607ddecad7cb8774009a">SetCameraOrientation</a>(<span class="keyword">const</span> <a class="code" href="struct___n_p_variant.html">NPVariant</a>* args,
+<a name="l00071"></a>00071   <span class="keywordtype">bool</span> <a class="code" href="classtumbler_1_1_scripting_bridge.html#a9e581cb6e3f5ee07dbd818f0ee3dbb4d">SetCameraOrientation</a>(<span class="keyword">const</span> NPVariant* args,
 <a name="l00072"></a>00072                             uint32_t arg_count,
-<a name="l00073"></a>00073                             <a class="code" href="struct___n_p_variant.html">NPVariant</a>* value);
+<a name="l00073"></a>00073                             NPVariant* value);
 <a name="l00074"></a>00074  <span class="keyword">private</span>:
-<a name="l00075"></a>00075   <a class="code" href="struct___n_p_p.html">NPP</a> npp_;
-<a name="l00076"></a>00076   <a class="code" href="struct_n_p_object.html">NPObject</a>* window_object_;
+<a name="l00075"></a>00075   NPP npp_;
+<a name="l00076"></a>00076   NPObject* window_object_;
 <a name="l00077"></a>00077 
-<a name="l00078"></a>00078   <span class="keyword">static</span> <a class="code" href="npruntime_8h.html#a3ce51391e08bd3e24128c342b1d055b9">NPIdentifier</a> id_get_camera_orientation;
-<a name="l00079"></a>00079   <span class="keyword">static</span> <a class="code" href="npruntime_8h.html#a3ce51391e08bd3e24128c342b1d055b9">NPIdentifier</a> id_set_camera_orientation;
+<a name="l00078"></a>00078   <span class="keyword">static</span> NPIdentifier id_get_camera_orientation;
+<a name="l00079"></a>00079   <span class="keyword">static</span> NPIdentifier id_set_camera_orientation;
 <a name="l00080"></a>00080 
 <a name="l00081"></a>00081   <span class="keyword">static</span> std::map&lt;NPIdentifier, Method&gt;* method_table;
 <a name="l00082"></a>00082   <span class="keyword">static</span> std::map&lt;NPIdentifier, Property&gt;* property_table;
@@ -112,7 +111,7 @@
 <a name="l00086"></a>00086 
 <a name="l00087"></a>00087 <span class="preprocessor">#endif  // EXAMPLES_TUMBLER_SCRIPTING_BRIDGE_H_</span>
 </pre></div></div>
-<hr class="footer"/><address style="text-align: right;"><small>Generated on Mon Nov 1 15:47:12 2010 for crml by&nbsp;
+<hr class="footer"/><address style="text-align: right;"><small>Generated on Thu Nov 4 13:14:12 2010 for crml by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
 </body>

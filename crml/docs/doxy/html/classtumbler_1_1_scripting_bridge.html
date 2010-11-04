@@ -12,7 +12,6 @@
   <div class="tabs">
     <ul>
       <li><a href="main.html"><span>Main&nbsp;Page</span></a></li>
-      <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
@@ -29,41 +28,31 @@
   </div>
 </div>
 <div class="contents">
-<h1>tumbler::ScriptingBridge Class Reference</h1><!-- doxytag: class="tumbler::ScriptingBridge" --><!-- doxytag: inherits="NPObject" -->
+<h1>tumbler::ScriptingBridge Class Reference</h1><!-- doxytag: class="tumbler::ScriptingBridge" -->
 <p><code>#include &lt;<a class="el" href="lib_2tumbler_2scripting__bridge_8h_source.html">scripting_bridge.h</a>&gt;</code></p>
-<div class="dynheader">
-Inheritance diagram for tumbler::ScriptingBridge:</div>
-<div class="dynsection">
- <div class="center">
-  <img src="classtumbler_1_1_scripting_bridge.png" usemap="#tumbler::ScriptingBridge_map" alt=""/>
-  <map id="tumbler::ScriptingBridge_map" name="tumbler::ScriptingBridge_map">
-<area href="struct_n_p_object.html" alt="NPObject" shape="rect" coords="0,0,146,24"/>
-</map>
- </div>
-</div>
 
 <p><a href="classtumbler_1_1_scripting_bridge-members.html">List of all members.</a></p>
 <table border="0" cellpadding="0" cellspacing="0">
 <tr><td colspan="2"><h2>Public Types</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">typedef bool(ScriptingBridge::*&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtumbler_1_1_scripting_bridge.html#addb1badb0e891b38c6d90767342b5bb3">Method</a> )(const <a class="el" href="struct___n_p_variant.html">NPVariant</a> *args, uint32_t arg_count, <a class="el" href="struct___n_p_variant.html">NPVariant</a> *result)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">typedef bool(ScriptingBridge::*&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtumbler_1_1_scripting_bridge.html#ad7507ce0e5c8f49fde790c743447f3c3">Property</a> )(<a class="el" href="struct___n_p_variant.html">NPVariant</a> *result)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef bool(ScriptingBridge::*&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtumbler_1_1_scripting_bridge.html#addb1badb0e891b38c6d90767342b5bb3">Method</a> )(const NPVariant *args, uint32_t arg_count, NPVariant *result)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef bool(ScriptingBridge::*&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtumbler_1_1_scripting_bridge.html#ad7507ce0e5c8f49fde790c743447f3c3">Property</a> )(NPVariant *result)</td></tr>
 <tr><td colspan="2"><h2>Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtumbler_1_1_scripting_bridge.html#aa7abb8784b22a793d795e872841b4bac">ScriptingBridge</a> (<a class="el" href="struct___n_p_p.html">NPP</a> npp)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtumbler_1_1_scripting_bridge.html#abe0d3eec9a772e0bc7f906cbc432d58d">~ScriptingBridge</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtumbler_1_1_scripting_bridge.html#a79ca9287d682b30670932c235ce025b4">Invalidate</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtumbler_1_1_scripting_bridge.html#acd4789c8a9668e86ad02949ac7e88481">HasMethod</a> (<a class="el" href="npruntime_8h.html#a3ce51391e08bd3e24128c342b1d055b9">NPIdentifier</a> name)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtumbler_1_1_scripting_bridge.html#a70638ad7da4726fb8ccbc6f49868fafc">Invoke</a> (<a class="el" href="npruntime_8h.html#a3ce51391e08bd3e24128c342b1d055b9">NPIdentifier</a> name, const <a class="el" href="struct___n_p_variant.html">NPVariant</a> *args, uint32_t arg_count, <a class="el" href="struct___n_p_variant.html">NPVariant</a> *result)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtumbler_1_1_scripting_bridge.html#abc3713f16c739bb1c547def1afc5c93c">InvokeDefault</a> (const <a class="el" href="struct___n_p_variant.html">NPVariant</a> *args, uint32_t arg_count, <a class="el" href="struct___n_p_variant.html">NPVariant</a> *result)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtumbler_1_1_scripting_bridge.html#af5fea670d935111ef96b2ecc3adc8576">HasProperty</a> (<a class="el" href="npruntime_8h.html#a3ce51391e08bd3e24128c342b1d055b9">NPIdentifier</a> name)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtumbler_1_1_scripting_bridge.html#a7f8c653d8a5cb632eae37e1d59459c31">GetProperty</a> (<a class="el" href="npruntime_8h.html#a3ce51391e08bd3e24128c342b1d055b9">NPIdentifier</a> name, <a class="el" href="struct___n_p_variant.html">NPVariant</a> *result)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtumbler_1_1_scripting_bridge.html#a841486a4fe8e3245dd8d1711e2c72dd3">SetProperty</a> (<a class="el" href="npruntime_8h.html#a3ce51391e08bd3e24128c342b1d055b9">NPIdentifier</a> name, const <a class="el" href="struct___n_p_variant.html">NPVariant</a> *value)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtumbler_1_1_scripting_bridge.html#a58c45c6be183d37e0fa26de95b4410a1">RemoveProperty</a> (<a class="el" href="npruntime_8h.html#a3ce51391e08bd3e24128c342b1d055b9">NPIdentifier</a> name)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtumbler_1_1_scripting_bridge.html#ace2d208ee47d10881e48945a1b9deb1e">GetCameraOrientation</a> (const <a class="el" href="struct___n_p_variant.html">NPVariant</a> *args, uint32_t arg_count, <a class="el" href="struct___n_p_variant.html">NPVariant</a> *result)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtumbler_1_1_scripting_bridge.html#a9e3ffd7304dc607ddecad7cb8774009a">SetCameraOrientation</a> (const <a class="el" href="struct___n_p_variant.html">NPVariant</a> *args, uint32_t arg_count, <a class="el" href="struct___n_p_variant.html">NPVariant</a> *value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtumbler_1_1_scripting_bridge.html#ae743ff1b8ffce6889a86a73500fd0da1">ScriptingBridge</a> (NPP npp)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtumbler_1_1_scripting_bridge.html#ae6c311b5f9ffa0a578c7d8e41fa9c23c">~ScriptingBridge</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtumbler_1_1_scripting_bridge.html#af00ea5a26438b33f976734a3432dfa9b">Invalidate</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtumbler_1_1_scripting_bridge.html#a1d614bb3696baef7c46332426ab7a0dc">HasMethod</a> (NPIdentifier name)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtumbler_1_1_scripting_bridge.html#ad18d2af321b2cba1235876cf281295df">Invoke</a> (NPIdentifier name, const NPVariant *args, uint32_t arg_count, NPVariant *result)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtumbler_1_1_scripting_bridge.html#a2cee828951db15b4cce1074e934c4f97">InvokeDefault</a> (const NPVariant *args, uint32_t arg_count, NPVariant *result)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtumbler_1_1_scripting_bridge.html#aeed261c756896802f26632acfceba1d7">HasProperty</a> (NPIdentifier name)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtumbler_1_1_scripting_bridge.html#afef889fc2ff5ccabefb713cf7ad5e056">GetProperty</a> (NPIdentifier name, NPVariant *result)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtumbler_1_1_scripting_bridge.html#ae73ff0ec0f70dfcd0e22534c8281f3e3">SetProperty</a> (NPIdentifier name, const NPVariant *value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtumbler_1_1_scripting_bridge.html#a861437163b8291eb7b302ce8f778022d">RemoveProperty</a> (NPIdentifier name)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtumbler_1_1_scripting_bridge.html#a95b4a3ee287861d23021bfae7b7c1b08">GetCameraOrientation</a> (const NPVariant *args, uint32_t arg_count, NPVariant *result)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtumbler_1_1_scripting_bridge.html#a9e581cb6e3f5ee07dbd818f0ee3dbb4d">SetCameraOrientation</a> (const NPVariant *args, uint32_t arg_count, NPVariant *value)</td></tr>
 <tr><td colspan="2"><h2>Static Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">static bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtumbler_1_1_scripting_bridge.html#a9653f59bae05d24f2f319a2764a7ce61">InitializeIdentifiers</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtumbler_1_1_scripting_bridge.html#a05f2a65b751d12e6aeaa00bfd91ef83f">InitializeIdentifiers</a> ()</td></tr>
 <tr><td colspan="2"><h2>Static Public Attributes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">static <a class="el" href="struct_n_p_class.html">NPClass</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtumbler_1_1_scripting_bridge.html#a4cd00d35febde2739ee85287f39981ac">np_class</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static NPClass&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtumbler_1_1_scripting_bridge.html#a4fcbbbaf7a6d91a2766066fa2cb2236b">np_class</a></td></tr>
 </table>
 <hr/><a name="_details"></a><h2>Detailed Description</h2>
 
@@ -74,7 +63,7 @@ Inheritance diagram for tumbler::ScriptingBridge:</div>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">typedef bool(ScriptingBridge::* <a class="el" href="classtumbler_1_1_scripting_bridge.html#addb1badb0e891b38c6d90767342b5bb3">tumbler::ScriptingBridge::Method</a>)(const <a class="el" href="struct___n_p_variant.html">NPVariant</a> *args, uint32_t arg_count, <a class="el" href="struct___n_p_variant.html">NPVariant</a> *result)</td>
+          <td class="memname">typedef bool(ScriptingBridge::* <a class="el" href="classtumbler_1_1_scripting_bridge.html#addb1badb0e891b38c6d90767342b5bb3">tumbler::ScriptingBridge::Method</a>)(const NPVariant *args, uint32_t arg_count, NPVariant *result)</td>
         </tr>
       </table>
 </div>
@@ -89,7 +78,7 @@ Inheritance diagram for tumbler::ScriptingBridge:</div>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">typedef bool(ScriptingBridge::* <a class="el" href="classtumbler_1_1_scripting_bridge.html#ad7507ce0e5c8f49fde790c743447f3c3">tumbler::ScriptingBridge::Property</a>)(<a class="el" href="struct___n_p_variant.html">NPVariant</a> *result)</td>
+          <td class="memname">typedef bool(ScriptingBridge::* <a class="el" href="classtumbler_1_1_scripting_bridge.html#ad7507ce0e5c8f49fde790c743447f3c3">tumbler::ScriptingBridge::Property</a>)(NPVariant *result)</td>
         </tr>
       </table>
 </div>
@@ -100,14 +89,14 @@ Inheritance diagram for tumbler::ScriptingBridge:</div>
 </div>
 </div>
 <hr/><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="aa7abb8784b22a793d795e872841b4bac"></a><!-- doxytag: member="tumbler::ScriptingBridge::ScriptingBridge" ref="aa7abb8784b22a793d795e872841b4bac" args="(NPP npp)" -->
+<a class="anchor" id="ae743ff1b8ffce6889a86a73500fd0da1"></a><!-- doxytag: member="tumbler::ScriptingBridge::ScriptingBridge" ref="ae743ff1b8ffce6889a86a73500fd0da1" args="(NPP npp)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">tumbler::ScriptingBridge::ScriptingBridge </td>
+          <td class="memname">ScriptingBridge::ScriptingBridge </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="struct___n_p_p.html">NPP</a>&nbsp;</td>
+          <td class="paramtype">NPP&nbsp;</td>
           <td class="paramname"> <em>npp</em></td>
           <td>&nbsp;)&nbsp;</td>
           <td><code> [explicit]</code></td>
@@ -120,12 +109,12 @@ Inheritance diagram for tumbler::ScriptingBridge:</div>
 
 </div>
 </div>
-<a class="anchor" id="abe0d3eec9a772e0bc7f906cbc432d58d"></a><!-- doxytag: member="tumbler::ScriptingBridge::~ScriptingBridge" ref="abe0d3eec9a772e0bc7f906cbc432d58d" args="()" -->
+<a class="anchor" id="ae6c311b5f9ffa0a578c7d8e41fa9c23c"></a><!-- doxytag: member="tumbler::ScriptingBridge::~ScriptingBridge" ref="ae6c311b5f9ffa0a578c7d8e41fa9c23c" args="()" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">tumbler::ScriptingBridge::~ScriptingBridge </td>
+          <td class="memname">ScriptingBridge::~ScriptingBridge </td>
           <td>(</td>
           <td class="paramname"></td>
           <td>&nbsp;)&nbsp;</td>
@@ -140,14 +129,14 @@ Inheritance diagram for tumbler::ScriptingBridge:</div>
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="ace2d208ee47d10881e48945a1b9deb1e"></a><!-- doxytag: member="tumbler::ScriptingBridge::GetCameraOrientation" ref="ace2d208ee47d10881e48945a1b9deb1e" args="(const NPVariant *args, uint32_t arg_count, NPVariant *result)" -->
+<a class="anchor" id="a95b4a3ee287861d23021bfae7b7c1b08"></a><!-- doxytag: member="tumbler::ScriptingBridge::GetCameraOrientation" ref="a95b4a3ee287861d23021bfae7b7c1b08" args="(const NPVariant *args, uint32_t arg_count, NPVariant *result)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool tumbler::ScriptingBridge::GetCameraOrientation </td>
+          <td class="memname">bool ScriptingBridge::GetCameraOrientation </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="struct___n_p_variant.html">NPVariant</a> *&nbsp;</td>
+          <td class="paramtype">const NPVariant *&nbsp;</td>
           <td class="paramname"> <em>args</em>, </td>
         </tr>
         <tr>
@@ -159,7 +148,7 @@ Inheritance diagram for tumbler::ScriptingBridge:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="struct___n_p_variant.html">NPVariant</a> *&nbsp;</td>
+          <td class="paramtype">NPVariant *&nbsp;</td>
           <td class="paramname"> <em>result</em></td><td>&nbsp;</td>
         </tr>
         <tr>
@@ -175,20 +164,20 @@ Inheritance diagram for tumbler::ScriptingBridge:</div>
 
 </div>
 </div>
-<a class="anchor" id="a7f8c653d8a5cb632eae37e1d59459c31"></a><!-- doxytag: member="tumbler::ScriptingBridge::GetProperty" ref="a7f8c653d8a5cb632eae37e1d59459c31" args="(NPIdentifier name, NPVariant *result)" -->
+<a class="anchor" id="afef889fc2ff5ccabefb713cf7ad5e056"></a><!-- doxytag: member="tumbler::ScriptingBridge::GetProperty" ref="afef889fc2ff5ccabefb713cf7ad5e056" args="(NPIdentifier name, NPVariant *result)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool tumbler::ScriptingBridge::GetProperty </td>
+          <td class="memname">bool ScriptingBridge::GetProperty </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="npruntime_8h.html#a3ce51391e08bd3e24128c342b1d055b9">NPIdentifier</a>&nbsp;</td>
+          <td class="paramtype">NPIdentifier&nbsp;</td>
           <td class="paramname"> <em>name</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="struct___n_p_variant.html">NPVariant</a> *&nbsp;</td>
+          <td class="paramtype">NPVariant *&nbsp;</td>
           <td class="paramname"> <em>result</em></td><td>&nbsp;</td>
         </tr>
         <tr>
@@ -204,14 +193,14 @@ Inheritance diagram for tumbler::ScriptingBridge:</div>
 
 </div>
 </div>
-<a class="anchor" id="acd4789c8a9668e86ad02949ac7e88481"></a><!-- doxytag: member="tumbler::ScriptingBridge::HasMethod" ref="acd4789c8a9668e86ad02949ac7e88481" args="(NPIdentifier name)" -->
+<a class="anchor" id="a1d614bb3696baef7c46332426ab7a0dc"></a><!-- doxytag: member="tumbler::ScriptingBridge::HasMethod" ref="a1d614bb3696baef7c46332426ab7a0dc" args="(NPIdentifier name)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool tumbler::ScriptingBridge::HasMethod </td>
+          <td class="memname">bool ScriptingBridge::HasMethod </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="npruntime_8h.html#a3ce51391e08bd3e24128c342b1d055b9">NPIdentifier</a>&nbsp;</td>
+          <td class="paramtype">NPIdentifier&nbsp;</td>
           <td class="paramname"> <em>name</em></td>
           <td>&nbsp;)&nbsp;</td>
           <td><code> [virtual]</code></td>
@@ -224,14 +213,14 @@ Inheritance diagram for tumbler::ScriptingBridge:</div>
 
 </div>
 </div>
-<a class="anchor" id="af5fea670d935111ef96b2ecc3adc8576"></a><!-- doxytag: member="tumbler::ScriptingBridge::HasProperty" ref="af5fea670d935111ef96b2ecc3adc8576" args="(NPIdentifier name)" -->
+<a class="anchor" id="aeed261c756896802f26632acfceba1d7"></a><!-- doxytag: member="tumbler::ScriptingBridge::HasProperty" ref="aeed261c756896802f26632acfceba1d7" args="(NPIdentifier name)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool tumbler::ScriptingBridge::HasProperty </td>
+          <td class="memname">bool ScriptingBridge::HasProperty </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="npruntime_8h.html#a3ce51391e08bd3e24128c342b1d055b9">NPIdentifier</a>&nbsp;</td>
+          <td class="paramtype">NPIdentifier&nbsp;</td>
           <td class="paramname"> <em>name</em></td>
           <td>&nbsp;)&nbsp;</td>
           <td><code> [virtual]</code></td>
@@ -244,12 +233,12 @@ Inheritance diagram for tumbler::ScriptingBridge:</div>
 
 </div>
 </div>
-<a class="anchor" id="a9653f59bae05d24f2f319a2764a7ce61"></a><!-- doxytag: member="tumbler::ScriptingBridge::InitializeIdentifiers" ref="a9653f59bae05d24f2f319a2764a7ce61" args="()" -->
+<a class="anchor" id="a05f2a65b751d12e6aeaa00bfd91ef83f"></a><!-- doxytag: member="tumbler::ScriptingBridge::InitializeIdentifiers" ref="a05f2a65b751d12e6aeaa00bfd91ef83f" args="()" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool tumbler::ScriptingBridge::InitializeIdentifiers </td>
+          <td class="memname">bool ScriptingBridge::InitializeIdentifiers </td>
           <td>(</td>
           <td class="paramname"></td>
           <td>&nbsp;)&nbsp;</td>
@@ -263,12 +252,12 @@ Inheritance diagram for tumbler::ScriptingBridge:</div>
 
 </div>
 </div>
-<a class="anchor" id="a79ca9287d682b30670932c235ce025b4"></a><!-- doxytag: member="tumbler::ScriptingBridge::Invalidate" ref="a79ca9287d682b30670932c235ce025b4" args="()" -->
+<a class="anchor" id="af00ea5a26438b33f976734a3432dfa9b"></a><!-- doxytag: member="tumbler::ScriptingBridge::Invalidate" ref="af00ea5a26438b33f976734a3432dfa9b" args="()" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void tumbler::ScriptingBridge::Invalidate </td>
+          <td class="memname">void ScriptingBridge::Invalidate </td>
           <td>(</td>
           <td class="paramname"></td>
           <td>&nbsp;)&nbsp;</td>
@@ -282,20 +271,20 @@ Inheritance diagram for tumbler::ScriptingBridge:</div>
 
 </div>
 </div>
-<a class="anchor" id="a70638ad7da4726fb8ccbc6f49868fafc"></a><!-- doxytag: member="tumbler::ScriptingBridge::Invoke" ref="a70638ad7da4726fb8ccbc6f49868fafc" args="(NPIdentifier name, const NPVariant *args, uint32_t arg_count, NPVariant *result)" -->
+<a class="anchor" id="ad18d2af321b2cba1235876cf281295df"></a><!-- doxytag: member="tumbler::ScriptingBridge::Invoke" ref="ad18d2af321b2cba1235876cf281295df" args="(NPIdentifier name, const NPVariant *args, uint32_t arg_count, NPVariant *result)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool tumbler::ScriptingBridge::Invoke </td>
+          <td class="memname">bool ScriptingBridge::Invoke </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="npruntime_8h.html#a3ce51391e08bd3e24128c342b1d055b9">NPIdentifier</a>&nbsp;</td>
+          <td class="paramtype">NPIdentifier&nbsp;</td>
           <td class="paramname"> <em>name</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="struct___n_p_variant.html">NPVariant</a> *&nbsp;</td>
+          <td class="paramtype">const NPVariant *&nbsp;</td>
           <td class="paramname"> <em>args</em>, </td>
         </tr>
         <tr>
@@ -307,7 +296,7 @@ Inheritance diagram for tumbler::ScriptingBridge:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="struct___n_p_variant.html">NPVariant</a> *&nbsp;</td>
+          <td class="paramtype">NPVariant *&nbsp;</td>
           <td class="paramname"> <em>result</em></td><td>&nbsp;</td>
         </tr>
         <tr>
@@ -323,14 +312,14 @@ Inheritance diagram for tumbler::ScriptingBridge:</div>
 
 </div>
 </div>
-<a class="anchor" id="abc3713f16c739bb1c547def1afc5c93c"></a><!-- doxytag: member="tumbler::ScriptingBridge::InvokeDefault" ref="abc3713f16c739bb1c547def1afc5c93c" args="(const NPVariant *args, uint32_t arg_count, NPVariant *result)" -->
+<a class="anchor" id="a2cee828951db15b4cce1074e934c4f97"></a><!-- doxytag: member="tumbler::ScriptingBridge::InvokeDefault" ref="a2cee828951db15b4cce1074e934c4f97" args="(const NPVariant *args, uint32_t arg_count, NPVariant *result)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool tumbler::ScriptingBridge::InvokeDefault </td>
+          <td class="memname">bool ScriptingBridge::InvokeDefault </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="struct___n_p_variant.html">NPVariant</a> *&nbsp;</td>
+          <td class="paramtype">const NPVariant *&nbsp;</td>
           <td class="paramname"> <em>args</em>, </td>
         </tr>
         <tr>
@@ -342,7 +331,7 @@ Inheritance diagram for tumbler::ScriptingBridge:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="struct___n_p_variant.html">NPVariant</a> *&nbsp;</td>
+          <td class="paramtype">NPVariant *&nbsp;</td>
           <td class="paramname"> <em>result</em></td><td>&nbsp;</td>
         </tr>
         <tr>
@@ -358,14 +347,14 @@ Inheritance diagram for tumbler::ScriptingBridge:</div>
 
 </div>
 </div>
-<a class="anchor" id="a58c45c6be183d37e0fa26de95b4410a1"></a><!-- doxytag: member="tumbler::ScriptingBridge::RemoveProperty" ref="a58c45c6be183d37e0fa26de95b4410a1" args="(NPIdentifier name)" -->
+<a class="anchor" id="a861437163b8291eb7b302ce8f778022d"></a><!-- doxytag: member="tumbler::ScriptingBridge::RemoveProperty" ref="a861437163b8291eb7b302ce8f778022d" args="(NPIdentifier name)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool tumbler::ScriptingBridge::RemoveProperty </td>
+          <td class="memname">bool ScriptingBridge::RemoveProperty </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="npruntime_8h.html#a3ce51391e08bd3e24128c342b1d055b9">NPIdentifier</a>&nbsp;</td>
+          <td class="paramtype">NPIdentifier&nbsp;</td>
           <td class="paramname"> <em>name</em></td>
           <td>&nbsp;)&nbsp;</td>
           <td><code> [virtual]</code></td>
@@ -378,14 +367,14 @@ Inheritance diagram for tumbler::ScriptingBridge:</div>
 
 </div>
 </div>
-<a class="anchor" id="a9e3ffd7304dc607ddecad7cb8774009a"></a><!-- doxytag: member="tumbler::ScriptingBridge::SetCameraOrientation" ref="a9e3ffd7304dc607ddecad7cb8774009a" args="(const NPVariant *args, uint32_t arg_count, NPVariant *value)" -->
+<a class="anchor" id="a9e581cb6e3f5ee07dbd818f0ee3dbb4d"></a><!-- doxytag: member="tumbler::ScriptingBridge::SetCameraOrientation" ref="a9e581cb6e3f5ee07dbd818f0ee3dbb4d" args="(const NPVariant *args, uint32_t arg_count, NPVariant *value)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool tumbler::ScriptingBridge::SetCameraOrientation </td>
+          <td class="memname">bool ScriptingBridge::SetCameraOrientation </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="struct___n_p_variant.html">NPVariant</a> *&nbsp;</td>
+          <td class="paramtype">const NPVariant *&nbsp;</td>
           <td class="paramname"> <em>args</em>, </td>
         </tr>
         <tr>
@@ -397,7 +386,7 @@ Inheritance diagram for tumbler::ScriptingBridge:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="struct___n_p_variant.html">NPVariant</a> *&nbsp;</td>
+          <td class="paramtype">NPVariant *&nbsp;</td>
           <td class="paramname"> <em>value</em></td><td>&nbsp;</td>
         </tr>
         <tr>
@@ -413,20 +402,20 @@ Inheritance diagram for tumbler::ScriptingBridge:</div>
 
 </div>
 </div>
-<a class="anchor" id="a841486a4fe8e3245dd8d1711e2c72dd3"></a><!-- doxytag: member="tumbler::ScriptingBridge::SetProperty" ref="a841486a4fe8e3245dd8d1711e2c72dd3" args="(NPIdentifier name, const NPVariant *value)" -->
+<a class="anchor" id="ae73ff0ec0f70dfcd0e22534c8281f3e3"></a><!-- doxytag: member="tumbler::ScriptingBridge::SetProperty" ref="ae73ff0ec0f70dfcd0e22534c8281f3e3" args="(NPIdentifier name, const NPVariant *value)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool tumbler::ScriptingBridge::SetProperty </td>
+          <td class="memname">bool ScriptingBridge::SetProperty </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="npruntime_8h.html#a3ce51391e08bd3e24128c342b1d055b9">NPIdentifier</a>&nbsp;</td>
+          <td class="paramtype">NPIdentifier&nbsp;</td>
           <td class="paramname"> <em>name</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="struct___n_p_variant.html">NPVariant</a> *&nbsp;</td>
+          <td class="paramtype">const NPVariant *&nbsp;</td>
           <td class="paramname"> <em>value</em></td><td>&nbsp;</td>
         </tr>
         <tr>
@@ -443,18 +432,18 @@ Inheritance diagram for tumbler::ScriptingBridge:</div>
 </div>
 </div>
 <hr/><h2>Member Data Documentation</h2>
-<a class="anchor" id="a4cd00d35febde2739ee85287f39981ac"></a><!-- doxytag: member="tumbler::ScriptingBridge::np_class" ref="a4cd00d35febde2739ee85287f39981ac" args="" -->
+<a class="anchor" id="a4fcbbbaf7a6d91a2766066fa2cb2236b"></a><!-- doxytag: member="tumbler::ScriptingBridge::np_class" ref="a4fcbbbaf7a6d91a2766066fa2cb2236b" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="struct_n_p_class.html">NPClass</a> <a class="el" href="classtumbler_1_1_scripting_bridge.html#a4cd00d35febde2739ee85287f39981ac">tumbler::ScriptingBridge::np_class</a><code> [static]</code></td>
+          <td class="memname">NPClass <a class="el" href="classtumbler_1_1_scripting_bridge.html#a4fcbbbaf7a6d91a2766066fa2cb2236b">ScriptingBridge::np_class</a><code> [static]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 <b>Initial value:</b><div class="fragment"><pre class="fragment"> {
-  <a class="code" href="npruntime_8h.html#a6fca3735dfc4eb8d19ceb582cabd0645">NP_CLASS_STRUCT_VERSION</a>,
+  NP_CLASS_STRUCT_VERSION,
   <a class="code" href="namespacetumbler.html#a133c46b3658a35f597bf5806a58c433e">tumbler::Allocate</a>,
   <a class="code" href="namespacetumbler.html#a6e665bba23bf978176f39f24fd07d501">tumbler::Deallocate</a>,
   <a class="code" href="namespacetumbler.html#ab219f1f08239d2675431fd3e3299b71d">tumbler::Invalidate</a>,
@@ -472,11 +461,11 @@ Inheritance diagram for tumbler::ScriptingBridge:</div>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>/home/derek/dev/cell-grid-game/nacl/crml/crml/lib/tumbler/<a class="el" href="lib_2tumbler_2scripting__bridge_8h_source.html">scripting_bridge.h</a></li>
-<li>/home/derek/dev/cell-grid-game/nacl/crml/crml/lib/tumbler/<a class="el" href="lib_2tumbler_2scripting__bridge_8cc_source.html">scripting_bridge.cc</a></li>
+<li>/home/derek/dev/crml/crml/lib/tumbler/<a class="el" href="lib_2tumbler_2scripting__bridge_8h_source.html">scripting_bridge.h</a></li>
+<li>/home/derek/dev/crml/crml/lib/tumbler/<a class="el" href="lib_2tumbler_2scripting__bridge_8cc_source.html">scripting_bridge.cc</a></li>
 </ul>
 </div>
-<hr class="footer"/><address style="text-align: right;"><small>Generated on Mon Nov 1 15:47:12 2010 for crml by&nbsp;
+<hr class="footer"/><address style="text-align: right;"><small>Generated on Thu Nov 4 13:14:12 2010 for crml by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
 </body>

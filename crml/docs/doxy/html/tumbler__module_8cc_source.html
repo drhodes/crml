@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
-<title>crml: /home/derek/dev/cell-grid-game/nacl/crml/crml/lib/tumbler/tumbler_module.cc Source File</title>
+<title>crml: /home/derek/dev/crml/crml/lib/tumbler/tumbler_module.cc Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -12,7 +12,6 @@
   <div class="tabs">
     <ul>
       <li><a href="main.html"><span>Main&nbsp;Page</span></a></li>
-      <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
@@ -24,7 +23,7 @@
       <li><a href="globals.html"><span>File&nbsp;Members</span></a></li>
     </ul>
   </div>
-<h1>/home/derek/dev/cell-grid-game/nacl/crml/crml/lib/tumbler/tumbler_module.cc</h1><a href="tumbler__module_8cc.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">// Copyright 2010 The Native Client SDK Authors. All rights reserved.</span>
+<h1>/home/derek/dev/crml/crml/lib/tumbler/tumbler_module.cc</h1><a href="tumbler__module_8cc.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">// Copyright 2010 The Native Client SDK Authors. All rights reserved.</span>
 <a name="l00002"></a>00002 <span class="comment">// Use of this source code is governed by a BSD-style license that can</span>
 <a name="l00003"></a>00003 <span class="comment">// be found in the LICENSE file.</span>
 <a name="l00004"></a>00004 
@@ -39,8 +38,8 @@
 <a name="l00013"></a>00013 <span class="comment">// Populates |plugin_funcs| by calling InitializePluginFunctions.</span>
 <a name="l00014"></a>00014 <span class="comment">// Declaration: npupp.h</span>
 <a name="l00015"></a>00015 <span class="comment">// Documentation URL: N/A</span>
-<a name="l00016"></a><a class="code" href="tumbler__module_8cc.html#aa631aaa3f49647f85b9817ed948f340c">00016</a> <a class="code" href="npapi_8h.html#a56715bc92ac93f0447a05f852ce18828">NPError</a> <a class="code" href="tumbler__module_8cc.html#aa631aaa3f49647f85b9817ed948f340c">NP_GetEntryPoints</a>(<a class="code" href="struct___n_p_plugin_funcs.html">NPPluginFuncs</a>* plugin_funcs) {
-<a name="l00017"></a>00017   <span class="keyword">extern</span> <a class="code" href="npapi_8h.html#a56715bc92ac93f0447a05f852ce18828">NPError</a> <a class="code" href="lib_2tumbler_2npp__gate_8cc.html#a2e202c35d113ebeb05eb2175fc8d97cb">InitializePluginFunctions</a>(<a class="code" href="struct___n_p_plugin_funcs.html">NPPluginFuncs</a>* plugin_funcs);
+<a name="l00016"></a><a class="code" href="tumbler__module_8cc.html#aa631aaa3f49647f85b9817ed948f340c">00016</a> NPError <a class="code" href="tumbler__module_8cc.html#aa631aaa3f49647f85b9817ed948f340c">NP_GetEntryPoints</a>(NPPluginFuncs* plugin_funcs) {
+<a name="l00017"></a>00017   <span class="keyword">extern</span> NPError <a class="code" href="lib_2tumbler_2npp__gate_8cc.html#a2e202c35d113ebeb05eb2175fc8d97cb">InitializePluginFunctions</a>(NPPluginFuncs* plugin_funcs);
 <a name="l00018"></a>00018   <span class="keywordflow">return</span> <a class="code" href="lib_2tumbler_2npp__gate_8cc.html#a2e202c35d113ebeb05eb2175fc8d97cb">InitializePluginFunctions</a>(plugin_funcs);
 <a name="l00019"></a>00019 }
 <a name="l00020"></a>00020 
@@ -59,10 +58,10 @@
 <a name="l00033"></a>00033 <span class="comment">// returns an NPError if anything went wrong.</span>
 <a name="l00034"></a>00034 <span class="comment">// Declaration: npupp.h</span>
 <a name="l00035"></a>00035 <span class="comment">// Documentation URL: https://developer.mozilla.org/en/NP_Initialize</span>
-<a name="l00036"></a><a class="code" href="tumbler__module_8cc.html#abc037ec5ccb59e80235bcc131a82b920">00036</a> <a class="code" href="npapi_8h.html#a56715bc92ac93f0447a05f852ce18828">NPError</a> <a class="code" href="tumbler__module_8cc.html#abc037ec5ccb59e80235bcc131a82b920">NP_Initialize</a>(<a class="code" href="struct___n_p_netscape_funcs.html">NPNetscapeFuncs</a>* browser_functions,
-<a name="l00037"></a>00037                       <a class="code" href="struct___n_p_plugin_funcs.html">NPPluginFuncs</a>* plugin_functions) {
-<a name="l00038"></a>00038   <a class="code" href="npapi_8h.html#a56715bc92ac93f0447a05f852ce18828">NPError</a> np_err = <a class="code" href="tumbler__module_8cc.html#aa631aaa3f49647f85b9817ed948f340c">NP_GetEntryPoints</a>(plugin_functions);
-<a name="l00039"></a>00039   <span class="keywordflow">if</span> (<a class="code" href="npapi_8h.html#a6b839d62e078f61fdf40486c64b1c520">NPERR_NO_ERROR</a> == np_err)
+<a name="l00036"></a><a class="code" href="tumbler__module_8cc.html#abc037ec5ccb59e80235bcc131a82b920">00036</a> NPError <a class="code" href="tumbler__module_8cc.html#abc037ec5ccb59e80235bcc131a82b920">NP_Initialize</a>(NPNetscapeFuncs* browser_functions,
+<a name="l00037"></a>00037                       NPPluginFuncs* plugin_functions) {
+<a name="l00038"></a>00038   NPError np_err = <a class="code" href="tumbler__module_8cc.html#aa631aaa3f49647f85b9817ed948f340c">NP_GetEntryPoints</a>(plugin_functions);
+<a name="l00039"></a>00039   <span class="keywordflow">if</span> (NPERR_NO_ERROR == np_err)
 <a name="l00040"></a>00040     pglInitialize();
 <a name="l00041"></a>00041   <span class="keywordflow">return</span> np_err;
 <a name="l00042"></a>00042 }
@@ -71,14 +70,14 @@
 <a name="l00045"></a>00045 <span class="comment">// browser.  Should clean up anything allocated by NP_Initialize.</span>
 <a name="l00046"></a>00046 <span class="comment">// Declaration: npupp.h</span>
 <a name="l00047"></a>00047 <span class="comment">// Documentation URL: https://developer.mozilla.org/en/NP_Shutdown</span>
-<a name="l00048"></a><a class="code" href="tumbler__module_8cc.html#a9cdbd9dd6d80e5960347a6d591328b7f">00048</a> <a class="code" href="npapi_8h.html#a56715bc92ac93f0447a05f852ce18828">NPError</a> <a class="code" href="tumbler__module_8cc.html#a9cdbd9dd6d80e5960347a6d591328b7f">NP_Shutdown</a>() {
+<a name="l00048"></a><a class="code" href="tumbler__module_8cc.html#a9cdbd9dd6d80e5960347a6d591328b7f">00048</a> NPError <a class="code" href="tumbler__module_8cc.html#a9cdbd9dd6d80e5960347a6d591328b7f">NP_Shutdown</a>() {
 <a name="l00049"></a>00049   pglTerminate();
-<a name="l00050"></a>00050   <span class="keywordflow">return</span> <a class="code" href="npapi_8h.html#a6b839d62e078f61fdf40486c64b1c520">NPERR_NO_ERROR</a>;
+<a name="l00050"></a>00050   <span class="keywordflow">return</span> NPERR_NO_ERROR;
 <a name="l00051"></a>00051 }
 <a name="l00052"></a>00052 
 <a name="l00053"></a>00053 }  <span class="comment">// extern &quot;C&quot;</span>
 </pre></div></div>
-<hr class="footer"/><address style="text-align: right;"><small>Generated on Mon Nov 1 15:47:12 2010 for crml by&nbsp;
+<hr class="footer"/><address style="text-align: right;"><small>Generated on Thu Nov 4 13:14:12 2010 for crml by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
 </body>

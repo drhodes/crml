@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
-<title>crml: /home/derek/dev/cell-grid-game/nacl/crml/crml/core/core.h Source File</title>
+<title>crml: /home/derek/dev/crml/crml/src/core/core.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -12,7 +12,6 @@
   <div class="tabs">
     <ul>
       <li><a href="main.html"><span>Main&nbsp;Page</span></a></li>
-      <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
@@ -24,31 +23,31 @@
       <li><a href="globals.html"><span>File&nbsp;Members</span></a></li>
     </ul>
   </div>
-<h1>/home/derek/dev/cell-grid-game/nacl/crml/crml/core/core.h</h1><a href="core_8h.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">// Copyright 2010 &lt;Derek A. Rhodes&gt;</span>
+<h1>/home/derek/dev/crml/crml/src/core/core.h</h1><a href="core_8h.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">// Copyright 2010 &lt;Derek A. Rhodes&gt;</span>
 <a name="l00002"></a>00002 
 <a name="l00003"></a>00003 <span class="preprocessor">#ifndef CORE_HPP_</span>
 <a name="l00004"></a>00004 <span class="preprocessor"></span><span class="preprocessor">#define CORE_HPP_</span>
 <a name="l00005"></a>00005 <span class="preprocessor"></span>
-<a name="l00006"></a><a class="code" href="namespacecrml.html">00006</a> <span class="keyword">namespace </span>crml {
-<a name="l00009"></a><a class="code" href="classcrml_1_1_core.html">00009</a>   <span class="keyword">class </span><a class="code" href="classcrml_1_1_core.html" title="The Core object which wires all subsystems and maintains an open channel with javascript...">Core</a> {
-<a name="l00010"></a>00010    <span class="keyword">public</span>:
-<a name="l00011"></a>00011     <a class="code" href="classcrml_1_1_core.html#a114b61db0d73f1661af6541697480ec7">Core</a>();
-<a name="l00012"></a>00012     <a class="code" href="classcrml_1_1_core.html#ac7d8f9cf90da2e7443a4d029aff56e1b">~Core</a>();
-<a name="l00013"></a>00013     
-<a name="l00015"></a>00015     <a class="code" href="classcrml_1_1_core.html#a9ecaf3f48d06f7f51be8f67767c7d3a3" title="Initialize an event system.">InitEvent</a>();
-<a name="l00016"></a>00016     
-<a name="l00017"></a>00017    <span class="keyword">private</span>:
-<a name="l00018"></a>00018         
-<a name="l00019"></a>00019   };
-<a name="l00020"></a>00020   
-<a name="l00021"></a>00021 }       <span class="comment">// namespace crml</span>
-<a name="l00022"></a>00022 <span class="preprocessor">#endif  // CORE_HPP_</span>
-<a name="l00023"></a>00023 <span class="preprocessor"></span>
-<a name="l00024"></a>00024 
-<a name="l00025"></a>00025 
-<a name="l00026"></a>00026 
-<a name="l00027"></a>00027 
-<a name="l00028"></a>00028 
+<a name="l00006"></a>00006 <span class="comment">//#include &lt;ppapi/cpp/instance.h&gt;</span>
+<a name="l00007"></a>00007 <span class="comment">//#include &lt;ppapi/cpp/module.h&gt;</span>
+<a name="l00008"></a>00008 <span class="comment">//#include &lt;ppapi/cpp/scriptable_object.h&gt;</span>
+<a name="l00009"></a>00009 <span class="comment">//#include &lt;ppapi/cpp/var.h&gt;</span>
+<a name="l00010"></a>00010 
+<a name="l00011"></a><a class="code" href="namespacecrml.html">00011</a> <span class="keyword">namespace </span>crml {
+<a name="l00014"></a><a class="code" href="classcrml_1_1_core.html">00014</a>   <span class="keyword">class </span><a class="code" href="classcrml_1_1_core.html" title="The Core object which wires all subsystems and maintains an open channel with javascript...">Core</a> {
+<a name="l00015"></a>00015    <span class="keyword">public</span>:
+<a name="l00016"></a>00016     <a class="code" href="classcrml_1_1_core.html#a114b61db0d73f1661af6541697480ec7">Core</a>();
+<a name="l00017"></a>00017     <a class="code" href="classcrml_1_1_core.html#ac7d8f9cf90da2e7443a4d029aff56e1b">~Core</a>();
+<a name="l00018"></a>00018     
+<a name="l00020"></a>00020     <span class="keywordtype">void</span> <a class="code" href="classcrml_1_1_core.html#abd19dcc900bcca0b9ad0cf3a831329f9" title="Initialize an event system.">InitEvent</a>();
+<a name="l00021"></a>00021     
+<a name="l00022"></a>00022    <span class="keyword">private</span>:
+<a name="l00023"></a>00023         
+<a name="l00024"></a>00024   };
+<a name="l00025"></a>00025   
+<a name="l00026"></a>00026 }       <span class="comment">// namespace crml</span>
+<a name="l00027"></a>00027 <span class="preprocessor">#endif  // CORE_HPP_</span>
+<a name="l00028"></a>00028 <span class="preprocessor"></span>
 <a name="l00029"></a>00029 
 <a name="l00030"></a>00030 
 <a name="l00031"></a>00031 
@@ -62,8 +61,13 @@
 <a name="l00039"></a>00039 
 <a name="l00040"></a>00040 
 <a name="l00041"></a>00041 
+<a name="l00042"></a>00042 
+<a name="l00043"></a>00043 
+<a name="l00044"></a>00044 
+<a name="l00045"></a>00045 
+<a name="l00046"></a>00046 
 </pre></div></div>
-<hr class="footer"/><address style="text-align: right;"><small>Generated on Mon Nov 1 15:47:12 2010 for crml by&nbsp;
+<hr class="footer"/><address style="text-align: right;"><small>Generated on Thu Nov 4 13:14:12 2010 for crml by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
 </body>

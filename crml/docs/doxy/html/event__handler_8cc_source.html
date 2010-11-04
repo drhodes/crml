@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
-<title>crml: /home/derek/dev/cell-grid-game/nacl/crml/crml/evt/event_handler.cc Source File</title>
+<title>crml: /home/derek/dev/crml/crml/src/evt/event_handler.cc Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -12,7 +12,6 @@
   <div class="tabs">
     <ul>
       <li><a href="main.html"><span>Main&nbsp;Page</span></a></li>
-      <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
@@ -24,7 +23,7 @@
       <li><a href="globals.html"><span>File&nbsp;Members</span></a></li>
     </ul>
   </div>
-<h1>/home/derek/dev/cell-grid-game/nacl/crml/crml/evt/event_handler.cc</h1><a href="event__handler_8cc.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/*</span>
+<h1>/home/derek/dev/crml/crml/src/evt/event_handler.cc</h1><a href="event__handler_8cc.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/*</span>
 <a name="l00002"></a>00002 <span class="comment"> * Copyright (C) 2006, 2007, 2008 Apple Inc. All rights reserved.</span>
 <a name="l00003"></a>00003 <span class="comment"> *</span>
 <a name="l00004"></a>00004 <span class="comment"> * Redistribution and use in source and binary forms, with or without</span>
@@ -56,8 +55,8 @@
 <a name="l00030"></a>00030 <span class="preprocessor">#include &lt;string.h&gt;</span>
 <a name="l00031"></a>00031 <span class="preprocessor">#include &lt;string&gt;</span>
 <a name="l00032"></a>00032 
-<a name="l00033"></a>00033 <span class="preprocessor">#include &quot;<a class="code" href="nacl__macros_8h.html">./nacl_macros.h</a>&quot;</span>
-<a name="l00034"></a>00034 <span class="preprocessor">#include &quot;<a class="code" href="plugin__object_8h.html">./plugin_object.h</a>&quot;</span>
+<a name="l00033"></a>00033 <span class="preprocessor">#include &quot;./nacl_macros.h&quot;</span>
+<a name="l00034"></a>00034 <span class="preprocessor">#include &quot;./plugin_object.h&quot;</span>
 <a name="l00035"></a>00035 
 <a name="l00036"></a>00036 <span class="comment">// Utility methods.</span>
 <a name="l00037"></a><a class="code" href="event__handler_8cc.html#a5f190ba181385e77587f72228512217e">00037</a> std::string <a class="code" href="event__handler_8cc.html#a5f190ba181385e77587f72228512217e">DoubleToString</a>(<span class="keywordtype">double</span> d) {
@@ -80,7 +79,7 @@
 <a name="l00054"></a><a class="code" href="event__handler_8h.html#a14a40b9369a5e965e0f9e27df41e3d4a">00054</a> <a class="code" href="class_event_handler.html">EventHandler</a>* <a class="code" href="event__handler_8cc.html#a14a40b9369a5e965e0f9e27df41e3d4a">event_handler</a> = NULL;
 <a name="l00055"></a>00055 
 <a name="l00056"></a>00056 <span class="comment">// EventHandler ----------------------------------------------------------------</span>
-<a name="l00057"></a><a class="code" href="class_event_handler.html#a6b7f9af8b5c3c4128047d35467ca0da0">00057</a> <a class="code" href="class_event_handler.html#a6b7f9af8b5c3c4128047d35467ca0da0">EventHandler::EventHandler</a>(<a class="code" href="struct___n_p_p.html">NPP</a> npp)
+<a name="l00057"></a><a class="code" href="class_event_handler.html#a6b7f9af8b5c3c4128047d35467ca0da0">00057</a> <a class="code" href="class_event_handler.html#a6b7f9af8b5c3c4128047d35467ca0da0">EventHandler::EventHandler</a>(NPP npp)
 <a name="l00058"></a>00058     : npp_(npp),
 <a name="l00059"></a>00059       text_box_(NULL) {
 <a name="l00060"></a>00060 }
@@ -97,111 +96,111 @@
 <a name="l00071"></a><a class="code" href="class_event_handler.html#a18771c6be120edf9d912a4003066b8b3">00071</a> <span class="keywordtype">bool</span> <a class="code" href="class_event_handler.html#a18771c6be120edf9d912a4003066b8b3">EventHandler::addText</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* cstr) {
 <a name="l00072"></a>00072   <span class="keywordflow">if</span> (text_box_ == NULL)
 <a name="l00073"></a>00073     <span class="keywordflow">return</span> <span class="keyword">false</span>;
-<a name="l00074"></a>00074   <a class="code" href="struct___n_p_variant.html">NPVariant</a> variant;
+<a name="l00074"></a>00074   NPVariant variant;
 <a name="l00075"></a>00075   <span class="comment">// Create a a string variant to be set for the innerText.</span>
 <a name="l00076"></a>00076   MakeNPVariant(cstr, &amp;variant);
 <a name="l00077"></a>00077   <span class="comment">// Report the string to the div.</span>
-<a name="l00078"></a>00078   <a class="code" href="struct___n_p_variant.html">NPVariant</a> result;
-<a name="l00079"></a>00079   <a class="code" href="plugin__object_8cc.html#a6bc4d2698dc5cfabc5b23f38cd107dcd">browser</a>-&gt;<a class="code" href="struct___n_p_netscape_funcs.html#a5635ae6c76d3886e8a016b6a4cbc8fb9">invokeDefault</a>(npp_, text_box_, &amp;variant, 1, &amp;result);
+<a name="l00078"></a>00078   NPVariant result;
+<a name="l00079"></a>00079   browser-&gt;invokeDefault(npp_, text_box_, &amp;variant, 1, &amp;result);
 <a name="l00080"></a>00080   <span class="comment">// Release the variant.</span>
-<a name="l00081"></a>00081   <a class="code" href="plugin__object_8cc.html#a6bc4d2698dc5cfabc5b23f38cd107dcd">browser</a>-&gt;<a class="code" href="struct___n_p_netscape_funcs.html#a50af16220fecfff27b2ddeefd48d9637">releasevariantvalue</a>(&amp;variant);
-<a name="l00082"></a>00082   <a class="code" href="plugin__object_8cc.html#a6bc4d2698dc5cfabc5b23f38cd107dcd">browser</a>-&gt;<a class="code" href="struct___n_p_netscape_funcs.html#a50af16220fecfff27b2ddeefd48d9637">releasevariantvalue</a>(&amp;result);
+<a name="l00081"></a>00081   browser-&gt;releasevariantvalue(&amp;variant);
+<a name="l00082"></a>00082   browser-&gt;releasevariantvalue(&amp;result);
 <a name="l00083"></a>00083   <span class="keywordflow">return</span> <span class="keyword">true</span>;
 <a name="l00084"></a>00084 }
 <a name="l00085"></a>00085 
 <a name="l00086"></a>00086 std::string EventHandler::EventName(<span class="keywordtype">double</span> timestamp, int32_t type) {
 <a name="l00087"></a>00087   std::string str = <a class="code" href="event__handler_8cc.html#a5f190ba181385e77587f72228512217e">DoubleToString</a>(timestamp) + <span class="stringliteral">&quot;: &quot;</span>;
 <a name="l00088"></a>00088   <span class="keywordflow">switch</span> (type) {
-<a name="l00089"></a>00089     <span class="keywordflow">case</span> <a class="code" href="npapi__extensions_8h.html#a42572ecedf094f156536d7d6d8e6c590aafb7e97d5a9d7dec34402a346eabedd1">NPEventType_MouseDown</a>:
+<a name="l00089"></a>00089     <span class="keywordflow">case</span> NPEventType_MouseDown:
 <a name="l00090"></a>00090       <span class="keywordflow">return</span> str + <span class="stringliteral">&quot;MouseDown&quot;</span>;
-<a name="l00091"></a>00091     <span class="keywordflow">case</span> <a class="code" href="npapi__extensions_8h.html#a42572ecedf094f156536d7d6d8e6c590a8ce3c82485c9538da1e422e1c0556168">NPEventType_MouseUp</a>:
+<a name="l00091"></a>00091     <span class="keywordflow">case</span> NPEventType_MouseUp:
 <a name="l00092"></a>00092       <span class="keywordflow">return</span> str + <span class="stringliteral">&quot;MouseUp&quot;</span>;
-<a name="l00093"></a>00093     <span class="keywordflow">case</span> <a class="code" href="npapi__extensions_8h.html#a42572ecedf094f156536d7d6d8e6c590a0f7bc51550d05d5699c78ca5eb996f1f">NPEventType_MouseMove</a>:
+<a name="l00093"></a>00093     <span class="keywordflow">case</span> NPEventType_MouseMove:
 <a name="l00094"></a>00094       <span class="keywordflow">return</span> str + <span class="stringliteral">&quot;MouseMove&quot;</span>;
-<a name="l00095"></a>00095     <span class="keywordflow">case</span> <a class="code" href="npapi__extensions_8h.html#a42572ecedf094f156536d7d6d8e6c590ae29e9f84d6ee6899a416d0c5e8b2a329">NPEventType_MouseEnter</a>:
+<a name="l00095"></a>00095     <span class="keywordflow">case</span> NPEventType_MouseEnter:
 <a name="l00096"></a>00096       <span class="keywordflow">return</span> str + <span class="stringliteral">&quot;MouseEnter&quot;</span>;
-<a name="l00097"></a>00097     <span class="keywordflow">case</span> <a class="code" href="npapi__extensions_8h.html#a42572ecedf094f156536d7d6d8e6c590a0743a1ea69036db69a5a32fb24125e90">NPEventType_MouseLeave</a>:
+<a name="l00097"></a>00097     <span class="keywordflow">case</span> NPEventType_MouseLeave:
 <a name="l00098"></a>00098       <span class="keywordflow">return</span> str + <span class="stringliteral">&quot;MouseLeave&quot;</span>;
-<a name="l00099"></a>00099     <span class="keywordflow">case</span> <a class="code" href="npapi__extensions_8h.html#a42572ecedf094f156536d7d6d8e6c590a1683c205fb4f0b29da9d50b6379dad64">NPEventType_MouseWheel</a>:
+<a name="l00099"></a>00099     <span class="keywordflow">case</span> NPEventType_MouseWheel:
 <a name="l00100"></a>00100       <span class="keywordflow">return</span> str + <span class="stringliteral">&quot;MouseWheel&quot;</span>;
-<a name="l00101"></a>00101     <span class="keywordflow">case</span> <a class="code" href="npapi__extensions_8h.html#a42572ecedf094f156536d7d6d8e6c590aba7337b396b7b4d8fd60498fcc3b8d89">NPEventType_RawKeyDown</a>:
+<a name="l00101"></a>00101     <span class="keywordflow">case</span> NPEventType_RawKeyDown:
 <a name="l00102"></a>00102       <span class="keywordflow">return</span> str + <span class="stringliteral">&quot;RawKeyDown&quot;</span>;
-<a name="l00103"></a>00103     <span class="keywordflow">case</span> <a class="code" href="npapi__extensions_8h.html#a42572ecedf094f156536d7d6d8e6c590a508199f3c8ad17467df53622fba60bd9">NPEventType_KeyDown</a>:
+<a name="l00103"></a>00103     <span class="keywordflow">case</span> NPEventType_KeyDown:
 <a name="l00104"></a>00104       <span class="keywordflow">return</span> str + <span class="stringliteral">&quot;KeyDown&quot;</span>;
-<a name="l00105"></a>00105     <span class="keywordflow">case</span> <a class="code" href="npapi__extensions_8h.html#a42572ecedf094f156536d7d6d8e6c590a05aa87a120196887d6c86f444932034a">NPEventType_KeyUp</a>:
+<a name="l00105"></a>00105     <span class="keywordflow">case</span> NPEventType_KeyUp:
 <a name="l00106"></a>00106       <span class="keywordflow">return</span> str + <span class="stringliteral">&quot;KeyUp&quot;</span>;
-<a name="l00107"></a>00107     <span class="keywordflow">case</span> <a class="code" href="npapi__extensions_8h.html#a42572ecedf094f156536d7d6d8e6c590aae4c909eab3d58f96df3873d136c77c5">NPEventType_Char</a>:
+<a name="l00107"></a>00107     <span class="keywordflow">case</span> NPEventType_Char:
 <a name="l00108"></a>00108       <span class="keywordflow">return</span> str + <span class="stringliteral">&quot;Char&quot;</span>;
-<a name="l00109"></a>00109     <span class="keywordflow">case</span> <a class="code" href="npapi__extensions_8h.html#a42572ecedf094f156536d7d6d8e6c590a909d25300a912a43aff48901ae92feb2">NPEventType_Minimize</a>:
+<a name="l00109"></a>00109     <span class="keywordflow">case</span> NPEventType_Minimize:
 <a name="l00110"></a>00110       <span class="keywordflow">return</span> str + <span class="stringliteral">&quot;Minimize&quot;</span>;
-<a name="l00111"></a>00111     <span class="keywordflow">case</span> <a class="code" href="npapi__extensions_8h.html#a42572ecedf094f156536d7d6d8e6c590addf7f0ccdbe96be3d21377509bb22708">NPEventType_Focus</a>:
+<a name="l00111"></a>00111     <span class="keywordflow">case</span> NPEventType_Focus:
 <a name="l00112"></a>00112       <span class="keywordflow">return</span> str + <span class="stringliteral">&quot;Focus&quot;</span>;
-<a name="l00113"></a>00113     <span class="keywordflow">case</span> <a class="code" href="npapi__extensions_8h.html#a42572ecedf094f156536d7d6d8e6c590a661e9784ac1b112acb54d5ac5f7614a1">NPEventType_Device</a>:
+<a name="l00113"></a>00113     <span class="keywordflow">case</span> NPEventType_Device:
 <a name="l00114"></a>00114       <span class="keywordflow">return</span> str + <span class="stringliteral">&quot;Device&quot;</span>;
-<a name="l00115"></a>00115     <span class="keywordflow">case</span> <a class="code" href="npapi__extensions_8h.html#a42572ecedf094f156536d7d6d8e6c590a567e0b7911ebaf6cd306a9d07b169319">NPEventType_Undefined</a>:
+<a name="l00115"></a>00115     <span class="keywordflow">case</span> NPEventType_Undefined:
 <a name="l00116"></a>00116     <span class="keywordflow">default</span>:
 <a name="l00117"></a>00117       <span class="keywordflow">return</span> str + <span class="stringliteral">&quot;Undefined&quot;</span>;
 <a name="l00118"></a>00118   }
 <a name="l00119"></a>00119 }
 <a name="l00120"></a>00120 
 <a name="l00121"></a><a class="code" href="class_event_handler.html#a2fcafd6f528017d8a814f9c384e2e057">00121</a> <span class="keywordtype">int</span> <a class="code" href="class_event_handler.html#a2fcafd6f528017d8a814f9c384e2e057">EventHandler::handle</a>(<span class="keywordtype">void</span>* event) {
-<a name="l00122"></a>00122   <a class="code" href="struct___n_p_pepper_event.html">NPPepperEvent</a>* npevent = <span class="keyword">reinterpret_cast&lt;</span><a class="code" href="struct___n_p_pepper_event.html">NPPepperEvent</a>*<span class="keyword">&gt;</span>(event);
-<a name="l00123"></a>00123   std::string str = EventName(npevent-&gt;<a class="code" href="struct___n_p_pepper_event.html#a1792505a7022b4d29d567c7ba474aa8c">timeStampSeconds</a>, npevent-&gt;<a class="code" href="struct___n_p_pepper_event.html#a12e186ade338a56a93d852bdad6f5c7a">type</a>);
+<a name="l00122"></a>00122   NPPepperEvent* npevent = <span class="keyword">reinterpret_cast&lt;</span>NPPepperEvent*<span class="keyword">&gt;</span>(event);
+<a name="l00123"></a>00123   std::string str = EventName(npevent-&gt;timeStampSeconds, npevent-&gt;type);
 <a name="l00124"></a>00124 
 <a name="l00125"></a>00125   this-&gt;evt_sys_-&gt;<a class="code" href="classscm_1_1_event.html#a1e1aa9fbe9b5e7e7c9b0ff8f0ba74cd2">PushEvent</a>(npevent);
 <a name="l00126"></a>00126 
 <a name="l00127"></a>00127   <span class="comment">// the rest of this will be gone.</span>
 <a name="l00128"></a>00128   <span class="keywordflow">return</span> 1;
-<a name="l00129"></a>00129   <span class="keywordflow">switch</span> (npevent-&gt;<a class="code" href="struct___n_p_pepper_event.html#a12e186ade338a56a93d852bdad6f5c7a">type</a>) {
-<a name="l00130"></a>00130     <span class="keywordflow">case</span> <a class="code" href="npapi__extensions_8h.html#a42572ecedf094f156536d7d6d8e6c590aafb7e97d5a9d7dec34402a346eabedd1">NPEventType_MouseDown</a>:
-<a name="l00131"></a>00131     <span class="keywordflow">case</span> <a class="code" href="npapi__extensions_8h.html#a42572ecedf094f156536d7d6d8e6c590a8ce3c82485c9538da1e422e1c0556168">NPEventType_MouseUp</a>:
-<a name="l00132"></a>00132     <span class="keywordflow">case</span> <a class="code" href="npapi__extensions_8h.html#a42572ecedf094f156536d7d6d8e6c590a0f7bc51550d05d5699c78ca5eb996f1f">NPEventType_MouseMove</a>:
-<a name="l00133"></a>00133     <span class="keywordflow">case</span> <a class="code" href="npapi__extensions_8h.html#a42572ecedf094f156536d7d6d8e6c590ae29e9f84d6ee6899a416d0c5e8b2a329">NPEventType_MouseEnter</a>:
-<a name="l00134"></a>00134     <span class="keywordflow">case</span> <a class="code" href="npapi__extensions_8h.html#a42572ecedf094f156536d7d6d8e6c590a0743a1ea69036db69a5a32fb24125e90">NPEventType_MouseLeave</a>:
+<a name="l00129"></a>00129   <span class="keywordflow">switch</span> (npevent-&gt;type) {
+<a name="l00130"></a>00130     <span class="keywordflow">case</span> NPEventType_MouseDown:
+<a name="l00131"></a>00131     <span class="keywordflow">case</span> NPEventType_MouseUp:
+<a name="l00132"></a>00132     <span class="keywordflow">case</span> NPEventType_MouseMove:
+<a name="l00133"></a>00133     <span class="keywordflow">case</span> NPEventType_MouseEnter:
+<a name="l00134"></a>00134     <span class="keywordflow">case</span> NPEventType_MouseLeave:
 <a name="l00135"></a>00135       str += <a class="code" href="event__handler_8cc.html#ad4a3ea987e137fd1e3ac1bfcab392249">StringPrintf</a>(<span class="stringliteral">&quot;: mod %x, but: %x, x: %d, y: %d, click: %d&quot;</span>,
-<a name="l00136"></a>00136                           npevent-&gt;<a class="code" href="struct___n_p_pepper_event.html#a0b3d13b8bf33be03ad0d9f710a54d423">u</a>.<a class="code" href="struct___n_p_pepper_event.html#aadfc1a87c80619b59daddc56bafe0574">mouse</a>.<a class="code" href="struct___n_p_mouse_event.html#acd6d4f0ca5929f06c5d14bab34afaf42">modifier</a>,
-<a name="l00137"></a>00137                           npevent-&gt;<a class="code" href="struct___n_p_pepper_event.html#a0b3d13b8bf33be03ad0d9f710a54d423">u</a>.<a class="code" href="struct___n_p_pepper_event.html#aadfc1a87c80619b59daddc56bafe0574">mouse</a>.<a class="code" href="struct___n_p_mouse_event.html#a90ec6535781ec12980e249c2ff15abe4">button</a>,
-<a name="l00138"></a>00138                           npevent-&gt;<a class="code" href="struct___n_p_pepper_event.html#a0b3d13b8bf33be03ad0d9f710a54d423">u</a>.<a class="code" href="struct___n_p_pepper_event.html#aadfc1a87c80619b59daddc56bafe0574">mouse</a>.<a class="code" href="struct___n_p_mouse_event.html#a8d3fd458faf6af0179fd231ed40dd8b9">x</a>,
-<a name="l00139"></a>00139                           npevent-&gt;<a class="code" href="struct___n_p_pepper_event.html#a0b3d13b8bf33be03ad0d9f710a54d423">u</a>.<a class="code" href="struct___n_p_pepper_event.html#aadfc1a87c80619b59daddc56bafe0574">mouse</a>.<a class="code" href="struct___n_p_mouse_event.html#a2b4778764228e697f81345dccb6ec783">y</a>,
-<a name="l00140"></a>00140                           npevent-&gt;<a class="code" href="struct___n_p_pepper_event.html#a0b3d13b8bf33be03ad0d9f710a54d423">u</a>.<a class="code" href="struct___n_p_pepper_event.html#aadfc1a87c80619b59daddc56bafe0574">mouse</a>.<a class="code" href="struct___n_p_mouse_event.html#acafa461f9ccac3cf9ca2aee1859359de">clickCount</a>);
+<a name="l00136"></a>00136                           npevent-&gt;u.mouse.modifier,
+<a name="l00137"></a>00137                           npevent-&gt;u.mouse.button,
+<a name="l00138"></a>00138                           npevent-&gt;u.mouse.x,
+<a name="l00139"></a>00139                           npevent-&gt;u.mouse.y,
+<a name="l00140"></a>00140                           npevent-&gt;u.mouse.clickCount);
 <a name="l00141"></a>00141       <span class="keywordflow">break</span>;
-<a name="l00142"></a>00142     <span class="keywordflow">case</span> <a class="code" href="npapi__extensions_8h.html#a42572ecedf094f156536d7d6d8e6c590a1683c205fb4f0b29da9d50b6379dad64">NPEventType_MouseWheel</a>:
+<a name="l00142"></a>00142     <span class="keywordflow">case</span> NPEventType_MouseWheel:
 <a name="l00143"></a>00143       str += <a class="code" href="event__handler_8cc.html#ad4a3ea987e137fd1e3ac1bfcab392249">StringPrintf</a>(<span class="stringliteral">&quot;: mod %x, dx: %f, dy: %f, wtx: %f, wty: %d: sbp %d&quot;</span>,
-<a name="l00144"></a>00144                           npevent-&gt;<a class="code" href="struct___n_p_pepper_event.html#a0b3d13b8bf33be03ad0d9f710a54d423">u</a>.<a class="code" href="struct___n_p_pepper_event.html#a8ed6a3d4515f83b58e79c6780a28827f">wheel</a>.<a class="code" href="struct___n_p_mouse_wheel_event.html#aebfe75b9fd698e72eded59a431cb6976">modifier</a>,
-<a name="l00145"></a>00145                           npevent-&gt;<a class="code" href="struct___n_p_pepper_event.html#a0b3d13b8bf33be03ad0d9f710a54d423">u</a>.<a class="code" href="struct___n_p_pepper_event.html#a8ed6a3d4515f83b58e79c6780a28827f">wheel</a>.<a class="code" href="struct___n_p_mouse_wheel_event.html#acb1f05cb87caff0e49ba2d7f131f0222">deltaX</a>,
-<a name="l00146"></a>00146                           npevent-&gt;<a class="code" href="struct___n_p_pepper_event.html#a0b3d13b8bf33be03ad0d9f710a54d423">u</a>.<a class="code" href="struct___n_p_pepper_event.html#a8ed6a3d4515f83b58e79c6780a28827f">wheel</a>.<a class="code" href="struct___n_p_mouse_wheel_event.html#a57c3e96087783814df9687807b474b2b">deltaY</a>,
-<a name="l00147"></a>00147                           npevent-&gt;<a class="code" href="struct___n_p_pepper_event.html#a0b3d13b8bf33be03ad0d9f710a54d423">u</a>.<a class="code" href="struct___n_p_pepper_event.html#a8ed6a3d4515f83b58e79c6780a28827f">wheel</a>.<a class="code" href="struct___n_p_mouse_wheel_event.html#af31de66fa204cc6541fafca99055218c">wheelTicksX</a>,
-<a name="l00148"></a>00148                           npevent-&gt;<a class="code" href="struct___n_p_pepper_event.html#a0b3d13b8bf33be03ad0d9f710a54d423">u</a>.<a class="code" href="struct___n_p_pepper_event.html#a8ed6a3d4515f83b58e79c6780a28827f">wheel</a>.<a class="code" href="struct___n_p_mouse_wheel_event.html#a49f5b57beb96322c9a3a13e5e064184d">wheelTicksY</a>,
-<a name="l00149"></a>00149                           npevent-&gt;<a class="code" href="struct___n_p_pepper_event.html#a0b3d13b8bf33be03ad0d9f710a54d423">u</a>.<a class="code" href="struct___n_p_pepper_event.html#a8ed6a3d4515f83b58e79c6780a28827f">wheel</a>.<a class="code" href="struct___n_p_mouse_wheel_event.html#aa790a7baeea6d6a73ae416855b037875">scrollByPage</a>);
+<a name="l00144"></a>00144                           npevent-&gt;u.wheel.modifier,
+<a name="l00145"></a>00145                           npevent-&gt;u.wheel.deltaX,
+<a name="l00146"></a>00146                           npevent-&gt;u.wheel.deltaY,
+<a name="l00147"></a>00147                           npevent-&gt;u.wheel.wheelTicksX,
+<a name="l00148"></a>00148                           npevent-&gt;u.wheel.wheelTicksY,
+<a name="l00149"></a>00149                           npevent-&gt;u.wheel.scrollByPage);
 <a name="l00150"></a>00150       <span class="keywordflow">break</span>;
-<a name="l00151"></a>00151     <span class="keywordflow">case</span> <a class="code" href="npapi__extensions_8h.html#a42572ecedf094f156536d7d6d8e6c590aba7337b396b7b4d8fd60498fcc3b8d89">NPEventType_RawKeyDown</a>:
-<a name="l00152"></a>00152     <span class="keywordflow">case</span> <a class="code" href="npapi__extensions_8h.html#a42572ecedf094f156536d7d6d8e6c590a508199f3c8ad17467df53622fba60bd9">NPEventType_KeyDown</a>:
-<a name="l00153"></a>00153     <span class="keywordflow">case</span> <a class="code" href="npapi__extensions_8h.html#a42572ecedf094f156536d7d6d8e6c590a05aa87a120196887d6c86f444932034a">NPEventType_KeyUp</a>:
+<a name="l00151"></a>00151     <span class="keywordflow">case</span> NPEventType_RawKeyDown:
+<a name="l00152"></a>00152     <span class="keywordflow">case</span> NPEventType_KeyDown:
+<a name="l00153"></a>00153     <span class="keywordflow">case</span> NPEventType_KeyUp:
 <a name="l00154"></a>00154       str += <a class="code" href="event__handler_8cc.html#ad4a3ea987e137fd1e3ac1bfcab392249">StringPrintf</a>(<span class="stringliteral">&quot;: mod %x, key: %x&quot;</span>,
-<a name="l00155"></a>00155                           npevent-&gt;<a class="code" href="struct___n_p_pepper_event.html#a0b3d13b8bf33be03ad0d9f710a54d423">u</a>.<a class="code" href="struct___n_p_pepper_event.html#a2892f0885f8c7e8bed5500472fb16b88">key</a>.<a class="code" href="struct___n_p_key_event.html#a3495aa4058a75498f442ab300b30c36d">modifier</a>,
-<a name="l00156"></a>00156                           npevent-&gt;<a class="code" href="struct___n_p_pepper_event.html#a0b3d13b8bf33be03ad0d9f710a54d423">u</a>.<a class="code" href="struct___n_p_pepper_event.html#a2892f0885f8c7e8bed5500472fb16b88">key</a>.<a class="code" href="struct___n_p_key_event.html#a69797b62fafa508f0a351eb470fd8404">normalizedKeyCode</a>);
+<a name="l00155"></a>00155                           npevent-&gt;u.key.modifier,
+<a name="l00156"></a>00156                           npevent-&gt;u.key.normalizedKeyCode);
 <a name="l00157"></a>00157       <span class="keywordflow">break</span>;
-<a name="l00158"></a>00158     <span class="keywordflow">case</span> <a class="code" href="npapi__extensions_8h.html#a42572ecedf094f156536d7d6d8e6c590aae4c909eab3d58f96df3873d136c77c5">NPEventType_Char</a>:
+<a name="l00158"></a>00158     <span class="keywordflow">case</span> NPEventType_Char:
 <a name="l00159"></a>00159       str += <a class="code" href="event__handler_8cc.html#ad4a3ea987e137fd1e3ac1bfcab392249">StringPrintf</a>(<span class="stringliteral">&quot;: mod %x, text: &quot;</span>,
-<a name="l00160"></a>00160                           npevent-&gt;<a class="code" href="struct___n_p_pepper_event.html#a0b3d13b8bf33be03ad0d9f710a54d423">u</a>.<a class="code" href="struct___n_p_pepper_event.html#afc0494334dc72989113311fa74a638ec">character</a>.<a class="code" href="struct___n_p_character_event.html#a5061717ac03715283f03a68d4fc39299">modifier</a>);
+<a name="l00160"></a>00160                           npevent-&gt;u.character.modifier);
 <a name="l00161"></a>00161       <span class="keywordtype">size_t</span> i;
-<a name="l00162"></a>00162       <span class="keywordflow">for</span> (i = 0; i &lt; <a class="code" href="nacl__macros_8h.html#ae4c39134b9463bd7ba877e0d812fdf6b">NACL_ARRAY_SIZE</a>(npevent-&gt;<a class="code" href="struct___n_p_pepper_event.html#a0b3d13b8bf33be03ad0d9f710a54d423">u</a>.<a class="code" href="struct___n_p_pepper_event.html#afc0494334dc72989113311fa74a638ec">character</a>.<a class="code" href="struct___n_p_character_event.html#a0ab545dd1b8e1cabcb01bcca0ab4b058">text</a>); ++i) {
-<a name="l00163"></a>00163         str += <a class="code" href="event__handler_8cc.html#ad4a3ea987e137fd1e3ac1bfcab392249">StringPrintf</a>(<span class="stringliteral">&quot;%x &quot;</span>, npevent-&gt;<a class="code" href="struct___n_p_pepper_event.html#a0b3d13b8bf33be03ad0d9f710a54d423">u</a>.<a class="code" href="struct___n_p_pepper_event.html#afc0494334dc72989113311fa74a638ec">character</a>.<a class="code" href="struct___n_p_character_event.html#a0ab545dd1b8e1cabcb01bcca0ab4b058">text</a>[i]);
+<a name="l00162"></a>00162       <span class="keywordflow">for</span> (i = 0; i &lt; NACL_ARRAY_SIZE(npevent-&gt;u.character.text); ++i) {
+<a name="l00163"></a>00163         str += <a class="code" href="event__handler_8cc.html#ad4a3ea987e137fd1e3ac1bfcab392249">StringPrintf</a>(<span class="stringliteral">&quot;%x &quot;</span>, npevent-&gt;u.character.text[i]);
 <a name="l00164"></a>00164       }
 <a name="l00165"></a>00165       str += <span class="stringliteral">&quot;, unmod: &quot;</span>;
 <a name="l00166"></a>00166       <span class="keywordflow">for</span> (i = 0;
-<a name="l00167"></a>00167            i &lt; <a class="code" href="nacl__macros_8h.html#ae4c39134b9463bd7ba877e0d812fdf6b">NACL_ARRAY_SIZE</a>(npevent-&gt;<a class="code" href="struct___n_p_pepper_event.html#a0b3d13b8bf33be03ad0d9f710a54d423">u</a>.<a class="code" href="struct___n_p_pepper_event.html#afc0494334dc72989113311fa74a638ec">character</a>.<a class="code" href="struct___n_p_character_event.html#aeee174e5d5a95049110b4b17c6e57cd3">unmodifiedText</a>);
+<a name="l00167"></a>00167            i &lt; NACL_ARRAY_SIZE(npevent-&gt;u.character.unmodifiedText);
 <a name="l00168"></a>00168            ++i) {
-<a name="l00169"></a>00169         str += <a class="code" href="event__handler_8cc.html#ad4a3ea987e137fd1e3ac1bfcab392249">StringPrintf</a>(<span class="stringliteral">&quot;%x &quot;</span>, npevent-&gt;<a class="code" href="struct___n_p_pepper_event.html#a0b3d13b8bf33be03ad0d9f710a54d423">u</a>.<a class="code" href="struct___n_p_pepper_event.html#afc0494334dc72989113311fa74a638ec">character</a>.<a class="code" href="struct___n_p_character_event.html#aeee174e5d5a95049110b4b17c6e57cd3">unmodifiedText</a>[i]);
+<a name="l00169"></a>00169         str += <a class="code" href="event__handler_8cc.html#ad4a3ea987e137fd1e3ac1bfcab392249">StringPrintf</a>(<span class="stringliteral">&quot;%x &quot;</span>, npevent-&gt;u.character.unmodifiedText[i]);
 <a name="l00170"></a>00170       }
 <a name="l00171"></a>00171       <span class="keywordflow">break</span>;
 <a name="l00172"></a>00172 
-<a name="l00173"></a>00173     <span class="keywordflow">case</span> <a class="code" href="npapi__extensions_8h.html#a42572ecedf094f156536d7d6d8e6c590a909d25300a912a43aff48901ae92feb2">NPEventType_Minimize</a>:
-<a name="l00174"></a>00174     <span class="keywordflow">case</span> <a class="code" href="npapi__extensions_8h.html#a42572ecedf094f156536d7d6d8e6c590addf7f0ccdbe96be3d21377509bb22708">NPEventType_Focus</a>:
-<a name="l00175"></a>00175     <span class="keywordflow">case</span> <a class="code" href="npapi__extensions_8h.html#a42572ecedf094f156536d7d6d8e6c590a661e9784ac1b112acb54d5ac5f7614a1">NPEventType_Device</a>:
+<a name="l00173"></a>00173     <span class="keywordflow">case</span> NPEventType_Minimize:
+<a name="l00174"></a>00174     <span class="keywordflow">case</span> NPEventType_Focus:
+<a name="l00175"></a>00175     <span class="keywordflow">case</span> NPEventType_Device:
 <a name="l00176"></a>00176       <span class="keywordflow">break</span>;
 <a name="l00177"></a>00177 
-<a name="l00178"></a>00178     <span class="keywordflow">case</span> <a class="code" href="npapi__extensions_8h.html#a42572ecedf094f156536d7d6d8e6c590a567e0b7911ebaf6cd306a9d07b169319">NPEventType_Undefined</a>:
+<a name="l00178"></a>00178     <span class="keywordflow">case</span> NPEventType_Undefined:
 <a name="l00179"></a>00179     <span class="keywordflow">default</span>:
 <a name="l00180"></a>00180       <span class="keywordflow">break</span>;
 <a name="l00181"></a>00181   }
@@ -216,10 +215,10 @@
 <a name="l00190"></a>00190   <span class="keywordflow">return</span> <span class="keyword">false</span>;
 <a name="l00191"></a>00191 }
 <a name="l00192"></a>00192 
-<a name="l00193"></a><a class="code" href="class_event_handler.html#aa09c0b995aa6c774d4a33be13be0cbf2">00193</a> <span class="keywordtype">bool</span> <a class="code" href="class_event_handler.html#aa09c0b995aa6c774d4a33be13be0cbf2">EventHandler::set_text_box</a>(<a class="code" href="struct_n_p_object.html">NPObject</a>* text_box_object) {
+<a name="l00193"></a><a class="code" href="class_event_handler.html#aa09c0b995aa6c774d4a33be13be0cbf2">00193</a> <span class="keywordtype">bool</span> <a class="code" href="class_event_handler.html#aa09c0b995aa6c774d4a33be13be0cbf2">EventHandler::set_text_box</a>(NPObject* text_box_object) {
 <a name="l00194"></a>00194   text_box_ = text_box_object;
 <a name="l00195"></a>00195   <span class="comment">// Keep a reference to the text box update object.</span>
-<a name="l00196"></a>00196   <a class="code" href="plugin__object_8cc.html#a6bc4d2698dc5cfabc5b23f38cd107dcd">browser</a>-&gt;<a class="code" href="struct___n_p_netscape_funcs.html#a8bfc6725884dc636d136276a5514f972">retainobject</a>(text_box_object);
+<a name="l00196"></a>00196   browser-&gt;retainobject(text_box_object);
 <a name="l00197"></a>00197   <span class="comment">// Announce that we are alive.</span>
 <a name="l00198"></a>00198   <a class="code" href="class_event_handler.html#a18771c6be120edf9d912a4003066b8b3">addText</a>(<span class="stringliteral">&quot;Set the callback for text\n&quot;</span>);
 <a name="l00199"></a>00199   <span class="keywordflow">return</span> <span class="keyword">true</span>;
@@ -227,7 +226,7 @@
 <a name="l00201"></a>00201 
 <a name="l00202"></a>00202 <span class="keywordtype">char</span>* EventHandler::string_duplicate(<span class="keyword">const</span> <span class="keywordtype">char</span>* cstr, <span class="keywordtype">size_t</span>* len) {
 <a name="l00203"></a>00203   *len = strlen(cstr);
-<a name="l00204"></a>00204   <span class="keywordtype">char</span>* str = <span class="keyword">reinterpret_cast&lt;</span><span class="keywordtype">char</span>*<span class="keyword">&gt;</span>(<a class="code" href="plugin__object_8cc.html#a6bc4d2698dc5cfabc5b23f38cd107dcd">browser</a>-&gt;<a class="code" href="struct___n_p_netscape_funcs.html#a5097004a4e957a8a19b8dab5b621d6a5">memalloc</a>(*len + 1));
+<a name="l00204"></a>00204   <span class="keywordtype">char</span>* str = <span class="keyword">reinterpret_cast&lt;</span><span class="keywordtype">char</span>*<span class="keyword">&gt;</span>(browser-&gt;memalloc(*len + 1));
 <a name="l00205"></a>00205   <span class="keywordflow">if</span> (NULL == str) {
 <a name="l00206"></a>00206     *len = 0;
 <a name="l00207"></a>00207     <span class="keywordflow">return</span> NULL;
@@ -236,21 +235,21 @@
 <a name="l00210"></a>00210   <span class="keywordflow">return</span> str;
 <a name="l00211"></a>00211 }
 <a name="l00212"></a>00212 
-<a name="l00213"></a>00213 <span class="keywordtype">void</span> EventHandler::MakeNPVariant(<span class="keyword">const</span> <span class="keywordtype">char</span>* cstr, <a class="code" href="struct___n_p_variant.html">NPVariant</a>* var) {
+<a name="l00213"></a>00213 <span class="keywordtype">void</span> EventHandler::MakeNPVariant(<span class="keyword">const</span> <span class="keywordtype">char</span>* cstr, NPVariant* var) {
 <a name="l00214"></a>00214   <span class="keywordflow">if</span> (NULL == cstr) {
-<a name="l00215"></a>00215     <a class="code" href="npruntime_8h.html#a828fc02de48b95f4b402051ad78cbf9d">STRINGN_TO_NPVARIANT</a>(NULL, 0, *var);
+<a name="l00215"></a>00215     STRINGN_TO_NPVARIANT(NULL, 0, *var);
 <a name="l00216"></a>00216     <span class="keywordflow">return</span>;
 <a name="l00217"></a>00217   }
 <a name="l00218"></a>00218   <span class="keywordtype">size_t</span> len;
 <a name="l00219"></a>00219   <span class="keywordtype">char</span>* name = string_duplicate(cstr, &amp;len);
 <a name="l00220"></a>00220   <span class="keywordflow">if</span> (NULL == name) {
-<a name="l00221"></a>00221     <a class="code" href="npruntime_8h.html#a828fc02de48b95f4b402051ad78cbf9d">STRINGN_TO_NPVARIANT</a>(NULL, 0, *var);
+<a name="l00221"></a>00221     STRINGN_TO_NPVARIANT(NULL, 0, *var);
 <a name="l00222"></a>00222     <span class="keywordflow">return</span>;
 <a name="l00223"></a>00223   }
-<a name="l00224"></a>00224   <a class="code" href="npruntime_8h.html#a828fc02de48b95f4b402051ad78cbf9d">STRINGN_TO_NPVARIANT</a>(name, len, *var);
+<a name="l00224"></a>00224   STRINGN_TO_NPVARIANT(name, len, *var);
 <a name="l00225"></a>00225 }
 </pre></div></div>
-<hr class="footer"/><address style="text-align: right;"><small>Generated on Mon Nov 1 15:47:12 2010 for crml by&nbsp;
+<hr class="footer"/><address style="text-align: right;"><small>Generated on Thu Nov 4 13:14:12 2010 for crml by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
 </body>

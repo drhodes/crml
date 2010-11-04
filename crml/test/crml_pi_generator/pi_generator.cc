@@ -2,7 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can
 // be found in the LICENSE file.
 
-#include "examples/pi_generator/pi_generator.h"
+#include "./pi_generator.h"
 
 #include <assert.h>
 #include <math.h>
@@ -15,11 +15,12 @@
 #include <nacl/npapi_extensions.h>
 #include <nacl/npruntime.h>
 
-#include "examples/pi_generator/scripting_bridge.h"
+//#include "./scripting_bridge.h"
+#include <crml-core.h>
 
 extern NPDevice* NPN_AcquireDevice(NPP instance, NPDeviceID device);
 
-using pi_generator::ScriptingBridge;
+using bridge::ScriptingBridge;
 
 // This is called by the brower when the 2D context has been flushed to the
 // browser window.
@@ -27,17 +28,17 @@ void FlushCallback(NPP instance, NPDeviceContext* context,
                    NPError err, void* user_data) {
 }
 
-namespace pi_generator {
+namespace bridge {
 
 PiGenerator::PiGenerator(NPP npp)
-    : npp_(npp),
-      scriptable_object_(NULL),
+    : ScriptingBridge(npp),
       window_(NULL),
+      scriptable_object_(NULL),
       device2d_(NULL),
       quit_(false),
       thread_(0),
-      pi_(0.0) {
-  ScriptingBridge::InitializeIdentifiers();
+      pi_(0.0) {  
+  InitializeIdentifiers();
 }
 
 PiGenerator::~PiGenerator() {
@@ -84,6 +85,19 @@ bool PiGenerator::Paint() {
   }
   return false;
 }
+
+bool ScriptingBridge::Paint( const NPVariant* args,
+                             uint32_t arg_count,
+                             NPVariant* result) {
+  PiGenerator* pi_generator = static_cast<PiGenerator*>(npp_->pdata);
+  if (pi_generator) {
+    DOUBLE_TO_NPVARIANT(pi_generator->pi(), *result);
+    return pi_generator->Paint();
+  }
+  return false;
+} 
+
+
 
 void PiGenerator::CreateContext() {
   if (IsContextValid())
@@ -142,4 +156,4 @@ void* PiGenerator::pi(void* param) {
   return 0;
 }
 
-}  // namespace pi_generator
+}  // namespace bridge

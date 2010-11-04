@@ -1,0 +1,421 @@
+\hypertarget{classbridge_1_1_scripting_bridge}{
+\section{bridge::ScriptingBridge Class Reference}
+\label{classbridge_1_1_scripting_bridge}\index{bridge::ScriptingBridge@{bridge::ScriptingBridge}}
+}
+
+
+{\ttfamily \#include $<$scripting\_\-bridge.h$>$}
+
+Inheritance diagram for bridge::ScriptingBridge:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2cm]{classbridge_1_1_scripting_bridge}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef bool(ScriptingBridge::$\ast$ \hyperlink{classbridge_1_1_scripting_bridge_aa2d60d52b4e91aa7659850b73f393727}{Method} )(const NPVariant $\ast$args, uint32\_\-t arg\_\-count, NPVariant $\ast$result)
+\item 
+typedef bool(ScriptingBridge::$\ast$ \hyperlink{classbridge_1_1_scripting_bridge_a9063ac1ad0b4e1a439e954e7a505057d}{Property} )(NPVariant $\ast$result)
+\item 
+typedef bool(ScriptingBridge::$\ast$ \hyperlink{classbridge_1_1_scripting_bridge_aa2d60d52b4e91aa7659850b73f393727}{Method} )(const NPVariant $\ast$args, uint32\_\-t arg\_\-count, NPVariant $\ast$result)
+\item 
+typedef bool(ScriptingBridge::$\ast$ \hyperlink{classbridge_1_1_scripting_bridge_a9063ac1ad0b4e1a439e954e7a505057d}{Property} )(NPVariant $\ast$result)
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classbridge_1_1_scripting_bridge_a9f6cceea3738d76e33f47ba8ad5f72d9}{ScriptingBridge} (NPP npp)
+\item 
+virtual \hyperlink{classbridge_1_1_scripting_bridge_ae6c311b5f9ffa0a578c7d8e41fa9c23c}{$\sim$ScriptingBridge} ()
+\item 
+virtual void \hyperlink{classbridge_1_1_scripting_bridge_af00ea5a26438b33f976734a3432dfa9b}{Invalidate} ()
+\item 
+bool \hyperlink{classbridge_1_1_scripting_bridge_aa5f733424325e07c884397e3f301f01c}{AddMethod} (std::string, \hyperlink{classbridge_1_1_scripting_bridge_aa2d60d52b4e91aa7659850b73f393727}{Method}, NPIdentifier)
+\item 
+virtual bool \hyperlink{classbridge_1_1_scripting_bridge_a1d614bb3696baef7c46332426ab7a0dc}{HasMethod} (NPIdentifier name)
+\item 
+virtual bool \hyperlink{classbridge_1_1_scripting_bridge_ad18d2af321b2cba1235876cf281295df}{Invoke} (NPIdentifier name, const NPVariant $\ast$args, uint32\_\-t arg\_\-count, NPVariant $\ast$result)
+\item 
+virtual bool \hyperlink{classbridge_1_1_scripting_bridge_a2cee828951db15b4cce1074e934c4f97}{InvokeDefault} (const NPVariant $\ast$args, uint32\_\-t arg\_\-count, NPVariant $\ast$result)
+\item 
+virtual bool \hyperlink{classbridge_1_1_scripting_bridge_aeed261c756896802f26632acfceba1d7}{HasProperty} (NPIdentifier name)
+\item 
+virtual bool \hyperlink{classbridge_1_1_scripting_bridge_afef889fc2ff5ccabefb713cf7ad5e056}{GetProperty} (NPIdentifier name, NPVariant $\ast$result)
+\item 
+virtual bool \hyperlink{classbridge_1_1_scripting_bridge_ae73ff0ec0f70dfcd0e22534c8281f3e3}{SetProperty} (NPIdentifier name, const NPVariant $\ast$value)
+\item 
+virtual bool \hyperlink{classbridge_1_1_scripting_bridge_a861437163b8291eb7b302ce8f778022d}{RemoveProperty} (NPIdentifier name)
+\item 
+bool \hyperlink{classbridge_1_1_scripting_bridge_a05f2a65b751d12e6aeaa00bfd91ef83f}{InitializeIdentifiers} ()
+\item 
+bool \hyperlink{classbridge_1_1_scripting_bridge_abfdee6fdc6c4f0cc6007425a14e8384e}{Paint} (const NPVariant $\ast$args, uint32\_\-t arg\_\-count, NPVariant $\ast$result)
+\item 
+\hyperlink{classbridge_1_1_scripting_bridge_a9f6cceea3738d76e33f47ba8ad5f72d9}{ScriptingBridge} (NPP npp)
+\item 
+virtual \hyperlink{classbridge_1_1_scripting_bridge_ac47a1623f245bd55f96ea8cb007b24cb}{$\sim$ScriptingBridge} ()
+\item 
+virtual void \hyperlink{classbridge_1_1_scripting_bridge_a956430a5ae42b3e30c3e1b4655322061}{Invalidate} ()
+\item 
+bool \hyperlink{classbridge_1_1_scripting_bridge_a24f9e87d1beed97f7231010636d5af55}{AddMethod} (std::string, \hyperlink{classbridge_1_1_scripting_bridge_aa2d60d52b4e91aa7659850b73f393727}{Method}, NPIdentifier)
+\item 
+virtual bool \hyperlink{classbridge_1_1_scripting_bridge_af968e6487c5cc9e2566118634c0ab561}{HasMethod} (NPIdentifier name)
+\item 
+virtual bool \hyperlink{classbridge_1_1_scripting_bridge_a84f78dde38b524b61e72afebf7210483}{Invoke} (NPIdentifier name, const NPVariant $\ast$args, uint32\_\-t arg\_\-count, NPVariant $\ast$result)
+\item 
+virtual bool \hyperlink{classbridge_1_1_scripting_bridge_aec42e4cce5b1ff9187d98b88b07d11d3}{InvokeDefault} (const NPVariant $\ast$args, uint32\_\-t arg\_\-count, NPVariant $\ast$result)
+\item 
+virtual bool \hyperlink{classbridge_1_1_scripting_bridge_ad2cb9f2b860ba05a86c10f0824699e33}{HasProperty} (NPIdentifier name)
+\item 
+virtual bool \hyperlink{classbridge_1_1_scripting_bridge_aa7f5844674672f5872137ffee032427e}{GetProperty} (NPIdentifier name, NPVariant $\ast$result)
+\item 
+virtual bool \hyperlink{classbridge_1_1_scripting_bridge_a918981b30a60d961232e693e7ac15652}{SetProperty} (NPIdentifier name, const NPVariant $\ast$value)
+\item 
+virtual bool \hyperlink{classbridge_1_1_scripting_bridge_aeda2f5f7f5669003d573cdc2f3dc8fe8}{RemoveProperty} (NPIdentifier name)
+\item 
+bool \hyperlink{classbridge_1_1_scripting_bridge_a86ef6533d8f6ed9573890f017c6084d9}{InitializeIdentifiers} ()
+\item 
+bool \hyperlink{classbridge_1_1_scripting_bridge_a44eeaa7c1de524f8df7f218c1b53233b}{Paint} (const NPVariant $\ast$args, uint32\_\-t arg\_\-count, NPVariant $\ast$result)
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static NPClass \hyperlink{classbridge_1_1_scripting_bridge_a7a3e8318e9e315a116729cebceac5fd9}{np\_\-class}
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+NPP \hyperlink{classbridge_1_1_scripting_bridge_a122d088702ccb290a91a0cb1c507fbbe}{npp\_\-}
+\item 
+NPObject $\ast$ \hyperlink{classbridge_1_1_scripting_bridge_a59bc10d2500b138998dc973aee38039e}{window\_\-object\_\-}
+\end{DoxyCompactItemize}
+\subsection*{Static Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static NPIdentifier \hyperlink{classbridge_1_1_scripting_bridge_af9fe1c1d57b6fb113b2e0da63128807d}{id\_\-paint}
+\item 
+static std::map$<$ NPIdentifier, \hyperlink{classbridge_1_1_scripting_bridge_aa2d60d52b4e91aa7659850b73f393727}{Method} $>$ $\ast$ \hyperlink{classbridge_1_1_scripting_bridge_a1057c4c6b923babcbc62a5732d2c3235}{method\_\-table}
+\item 
+static std::map$<$ NPIdentifier, \hyperlink{classbridge_1_1_scripting_bridge_a9063ac1ad0b4e1a439e954e7a505057d}{Property} $>$ $\ast$ \hyperlink{classbridge_1_1_scripting_bridge_a84c8336a6ba799945dfe31358d389a62}{property\_\-table}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 13 of file scripting\_\-bridge.h.
+
+
+
+\subsection{Member Typedef Documentation}
+\hypertarget{classbridge_1_1_scripting_bridge_aa2d60d52b4e91aa7659850b73f393727}{
+\index{bridge::ScriptingBridge@{bridge::ScriptingBridge}!Method@{Method}}
+\index{Method@{Method}!bridge::ScriptingBridge@{bridge::ScriptingBridge}}
+\subsubsection[{Method}]{\setlength{\rightskip}{0pt plus 5cm}typedef bool(ScriptingBridge::$\ast$ {\bf bridge::ScriptingBridge::Method})(const NPVariant $\ast$args, uint32\_\-t arg\_\-count, NPVariant $\ast$result)}}
+\label{classbridge_1_1_scripting_bridge_aa2d60d52b4e91aa7659850b73f393727}
+
+
+Definition at line 15 of file scripting\_\-bridge.h.
+
+\hypertarget{classbridge_1_1_scripting_bridge_aa2d60d52b4e91aa7659850b73f393727}{
+\index{bridge::ScriptingBridge@{bridge::ScriptingBridge}!Method@{Method}}
+\index{Method@{Method}!bridge::ScriptingBridge@{bridge::ScriptingBridge}}
+\subsubsection[{Method}]{\setlength{\rightskip}{0pt plus 5cm}typedef bool(ScriptingBridge::$\ast$ {\bf bridge::ScriptingBridge::Method})(const NPVariant $\ast$args, uint32\_\-t arg\_\-count, NPVariant $\ast$result)}}
+\label{classbridge_1_1_scripting_bridge_aa2d60d52b4e91aa7659850b73f393727}
+
+
+Definition at line 15 of file scripting\_\-bridge.h.
+
+\hypertarget{classbridge_1_1_scripting_bridge_a9063ac1ad0b4e1a439e954e7a505057d}{
+\index{bridge::ScriptingBridge@{bridge::ScriptingBridge}!Property@{Property}}
+\index{Property@{Property}!bridge::ScriptingBridge@{bridge::ScriptingBridge}}
+\subsubsection[{Property}]{\setlength{\rightskip}{0pt plus 5cm}typedef bool(ScriptingBridge::$\ast$ {\bf bridge::ScriptingBridge::Property})(NPVariant $\ast$result)}}
+\label{classbridge_1_1_scripting_bridge_a9063ac1ad0b4e1a439e954e7a505057d}
+
+
+Definition at line 19 of file scripting\_\-bridge.h.
+
+\hypertarget{classbridge_1_1_scripting_bridge_a9063ac1ad0b4e1a439e954e7a505057d}{
+\index{bridge::ScriptingBridge@{bridge::ScriptingBridge}!Property@{Property}}
+\index{Property@{Property}!bridge::ScriptingBridge@{bridge::ScriptingBridge}}
+\subsubsection[{Property}]{\setlength{\rightskip}{0pt plus 5cm}typedef bool(ScriptingBridge::$\ast$ {\bf bridge::ScriptingBridge::Property})(NPVariant $\ast$result)}}
+\label{classbridge_1_1_scripting_bridge_a9063ac1ad0b4e1a439e954e7a505057d}
+
+
+Definition at line 19 of file scripting\_\-bridge.h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classbridge_1_1_scripting_bridge_a9f6cceea3738d76e33f47ba8ad5f72d9}{
+\index{bridge::ScriptingBridge@{bridge::ScriptingBridge}!ScriptingBridge@{ScriptingBridge}}
+\index{ScriptingBridge@{ScriptingBridge}!bridge::ScriptingBridge@{bridge::ScriptingBridge}}
+\subsubsection[{ScriptingBridge}]{\setlength{\rightskip}{0pt plus 5cm}bridge::ScriptingBridge::ScriptingBridge (NPP {\em npp})\hspace{0.3cm}{\ttfamily  \mbox{[}inline, explicit\mbox{]}}}}
+\label{classbridge_1_1_scripting_bridge_a9f6cceea3738d76e33f47ba8ad5f72d9}
+
+
+Definition at line 21 of file scripting\_\-bridge.h.
+
+\hypertarget{classbridge_1_1_scripting_bridge_ae6c311b5f9ffa0a578c7d8e41fa9c23c}{
+\index{bridge::ScriptingBridge@{bridge::ScriptingBridge}!$\sim$ScriptingBridge@{$\sim$ScriptingBridge}}
+\index{$\sim$ScriptingBridge@{$\sim$ScriptingBridge}!bridge::ScriptingBridge@{bridge::ScriptingBridge}}
+\subsubsection[{$\sim$ScriptingBridge}]{\setlength{\rightskip}{0pt plus 5cm}ScriptingBridge::$\sim$ScriptingBridge ()\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classbridge_1_1_scripting_bridge_ae6c311b5f9ffa0a578c7d8e41fa9c23c}
+
+
+Definition at line 54 of file scripting\_\-bridge.cc.
+
+\hypertarget{classbridge_1_1_scripting_bridge_a9f6cceea3738d76e33f47ba8ad5f72d9}{
+\index{bridge::ScriptingBridge@{bridge::ScriptingBridge}!ScriptingBridge@{ScriptingBridge}}
+\index{ScriptingBridge@{ScriptingBridge}!bridge::ScriptingBridge@{bridge::ScriptingBridge}}
+\subsubsection[{ScriptingBridge}]{\setlength{\rightskip}{0pt plus 5cm}bridge::ScriptingBridge::ScriptingBridge (NPP {\em npp})\hspace{0.3cm}{\ttfamily  \mbox{[}inline, explicit\mbox{]}}}}
+\label{classbridge_1_1_scripting_bridge_a9f6cceea3738d76e33f47ba8ad5f72d9}
+
+
+Definition at line 21 of file scripting\_\-bridge.h.
+
+\hypertarget{classbridge_1_1_scripting_bridge_ac47a1623f245bd55f96ea8cb007b24cb}{
+\index{bridge::ScriptingBridge@{bridge::ScriptingBridge}!$\sim$ScriptingBridge@{$\sim$ScriptingBridge}}
+\index{$\sim$ScriptingBridge@{$\sim$ScriptingBridge}!bridge::ScriptingBridge@{bridge::ScriptingBridge}}
+\subsubsection[{$\sim$ScriptingBridge}]{\setlength{\rightskip}{0pt plus 5cm}virtual bridge::ScriptingBridge::$\sim$ScriptingBridge ()\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classbridge_1_1_scripting_bridge_ac47a1623f245bd55f96ea8cb007b24cb}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classbridge_1_1_scripting_bridge_a24f9e87d1beed97f7231010636d5af55}{
+\index{bridge::ScriptingBridge@{bridge::ScriptingBridge}!AddMethod@{AddMethod}}
+\index{AddMethod@{AddMethod}!bridge::ScriptingBridge@{bridge::ScriptingBridge}}
+\subsubsection[{AddMethod}]{\setlength{\rightskip}{0pt plus 5cm}bool bridge::ScriptingBridge::AddMethod (std::string, \/  {\bf Method}, \/  NPIdentifier)}}
+\label{classbridge_1_1_scripting_bridge_a24f9e87d1beed97f7231010636d5af55}
+\hypertarget{classbridge_1_1_scripting_bridge_aa5f733424325e07c884397e3f301f01c}{
+\index{bridge::ScriptingBridge@{bridge::ScriptingBridge}!AddMethod@{AddMethod}}
+\index{AddMethod@{AddMethod}!bridge::ScriptingBridge@{bridge::ScriptingBridge}}
+\subsubsection[{AddMethod}]{\setlength{\rightskip}{0pt plus 5cm}bool ScriptingBridge::AddMethod (std::string {\em meth\_\-name}, \/  {\bf Method} {\em meth}, \/  NPIdentifier {\em meth\_\-id})}}
+\label{classbridge_1_1_scripting_bridge_aa5f733424325e07c884397e3f301f01c}
+
+
+Definition at line 45 of file scripting\_\-bridge.cc.
+
+\hypertarget{classbridge_1_1_scripting_bridge_aa7f5844674672f5872137ffee032427e}{
+\index{bridge::ScriptingBridge@{bridge::ScriptingBridge}!GetProperty@{GetProperty}}
+\index{GetProperty@{GetProperty}!bridge::ScriptingBridge@{bridge::ScriptingBridge}}
+\subsubsection[{GetProperty}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool bridge::ScriptingBridge::GetProperty (NPIdentifier {\em name}, \/  NPVariant $\ast$ {\em result})\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classbridge_1_1_scripting_bridge_aa7f5844674672f5872137ffee032427e}
+\hypertarget{classbridge_1_1_scripting_bridge_afef889fc2ff5ccabefb713cf7ad5e056}{
+\index{bridge::ScriptingBridge@{bridge::ScriptingBridge}!GetProperty@{GetProperty}}
+\index{GetProperty@{GetProperty}!bridge::ScriptingBridge@{bridge::ScriptingBridge}}
+\subsubsection[{GetProperty}]{\setlength{\rightskip}{0pt plus 5cm}bool ScriptingBridge::GetProperty (NPIdentifier {\em name}, \/  NPVariant $\ast$ {\em result})\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classbridge_1_1_scripting_bridge_afef889fc2ff5ccabefb713cf7ad5e056}
+
+
+Definition at line 88 of file scripting\_\-bridge.cc.
+
+\hypertarget{classbridge_1_1_scripting_bridge_af968e6487c5cc9e2566118634c0ab561}{
+\index{bridge::ScriptingBridge@{bridge::ScriptingBridge}!HasMethod@{HasMethod}}
+\index{HasMethod@{HasMethod}!bridge::ScriptingBridge@{bridge::ScriptingBridge}}
+\subsubsection[{HasMethod}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool bridge::ScriptingBridge::HasMethod (NPIdentifier {\em name})\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classbridge_1_1_scripting_bridge_af968e6487c5cc9e2566118634c0ab561}
+\hypertarget{classbridge_1_1_scripting_bridge_a1d614bb3696baef7c46332426ab7a0dc}{
+\index{bridge::ScriptingBridge@{bridge::ScriptingBridge}!HasMethod@{HasMethod}}
+\index{HasMethod@{HasMethod}!bridge::ScriptingBridge@{bridge::ScriptingBridge}}
+\subsubsection[{HasMethod}]{\setlength{\rightskip}{0pt plus 5cm}bool ScriptingBridge::HasMethod (NPIdentifier {\em name})\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classbridge_1_1_scripting_bridge_a1d614bb3696baef7c46332426ab7a0dc}
+
+
+Definition at line 72 of file scripting\_\-bridge.cc.
+
+\hypertarget{classbridge_1_1_scripting_bridge_ad2cb9f2b860ba05a86c10f0824699e33}{
+\index{bridge::ScriptingBridge@{bridge::ScriptingBridge}!HasProperty@{HasProperty}}
+\index{HasProperty@{HasProperty}!bridge::ScriptingBridge@{bridge::ScriptingBridge}}
+\subsubsection[{HasProperty}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool bridge::ScriptingBridge::HasProperty (NPIdentifier {\em name})\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classbridge_1_1_scripting_bridge_ad2cb9f2b860ba05a86c10f0824699e33}
+\hypertarget{classbridge_1_1_scripting_bridge_aeed261c756896802f26632acfceba1d7}{
+\index{bridge::ScriptingBridge@{bridge::ScriptingBridge}!HasProperty@{HasProperty}}
+\index{HasProperty@{HasProperty}!bridge::ScriptingBridge@{bridge::ScriptingBridge}}
+\subsubsection[{HasProperty}]{\setlength{\rightskip}{0pt plus 5cm}bool ScriptingBridge::HasProperty (NPIdentifier {\em name})\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classbridge_1_1_scripting_bridge_aeed261c756896802f26632acfceba1d7}
+
+
+Definition at line 80 of file scripting\_\-bridge.cc.
+
+\hypertarget{classbridge_1_1_scripting_bridge_a86ef6533d8f6ed9573890f017c6084d9}{
+\index{bridge::ScriptingBridge@{bridge::ScriptingBridge}!InitializeIdentifiers@{InitializeIdentifiers}}
+\index{InitializeIdentifiers@{InitializeIdentifiers}!bridge::ScriptingBridge@{bridge::ScriptingBridge}}
+\subsubsection[{InitializeIdentifiers}]{\setlength{\rightskip}{0pt plus 5cm}bool bridge::ScriptingBridge::InitializeIdentifiers ()}}
+\label{classbridge_1_1_scripting_bridge_a86ef6533d8f6ed9573890f017c6084d9}
+\hypertarget{classbridge_1_1_scripting_bridge_a05f2a65b751d12e6aeaa00bfd91ef83f}{
+\index{bridge::ScriptingBridge@{bridge::ScriptingBridge}!InitializeIdentifiers@{InitializeIdentifiers}}
+\index{InitializeIdentifiers@{InitializeIdentifiers}!bridge::ScriptingBridge@{bridge::ScriptingBridge}}
+\subsubsection[{InitializeIdentifiers}]{\setlength{\rightskip}{0pt plus 5cm}bool ScriptingBridge::InitializeIdentifiers ()}}
+\label{classbridge_1_1_scripting_bridge_a05f2a65b751d12e6aeaa00bfd91ef83f}
+
+
+Definition at line 21 of file scripting\_\-bridge.cc.
+
+\hypertarget{classbridge_1_1_scripting_bridge_a956430a5ae42b3e30c3e1b4655322061}{
+\index{bridge::ScriptingBridge@{bridge::ScriptingBridge}!Invalidate@{Invalidate}}
+\index{Invalidate@{Invalidate}!bridge::ScriptingBridge@{bridge::ScriptingBridge}}
+\subsubsection[{Invalidate}]{\setlength{\rightskip}{0pt plus 5cm}virtual void bridge::ScriptingBridge::Invalidate ()\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classbridge_1_1_scripting_bridge_a956430a5ae42b3e30c3e1b4655322061}
+\hypertarget{classbridge_1_1_scripting_bridge_af00ea5a26438b33f976734a3432dfa9b}{
+\index{bridge::ScriptingBridge@{bridge::ScriptingBridge}!Invalidate@{Invalidate}}
+\index{Invalidate@{Invalidate}!bridge::ScriptingBridge@{bridge::ScriptingBridge}}
+\subsubsection[{Invalidate}]{\setlength{\rightskip}{0pt plus 5cm}void ScriptingBridge::Invalidate ()\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classbridge_1_1_scripting_bridge_af00ea5a26438b33f976734a3432dfa9b}
+
+
+Definition at line 134 of file scripting\_\-bridge.cc.
+
+\hypertarget{classbridge_1_1_scripting_bridge_a84f78dde38b524b61e72afebf7210483}{
+\index{bridge::ScriptingBridge@{bridge::ScriptingBridge}!Invoke@{Invoke}}
+\index{Invoke@{Invoke}!bridge::ScriptingBridge@{bridge::ScriptingBridge}}
+\subsubsection[{Invoke}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool bridge::ScriptingBridge::Invoke (NPIdentifier {\em name}, \/  const NPVariant $\ast$ {\em args}, \/  uint32\_\-t {\em arg\_\-count}, \/  NPVariant $\ast$ {\em result})\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classbridge_1_1_scripting_bridge_a84f78dde38b524b61e72afebf7210483}
+\hypertarget{classbridge_1_1_scripting_bridge_ad18d2af321b2cba1235876cf281295df}{
+\index{bridge::ScriptingBridge@{bridge::ScriptingBridge}!Invoke@{Invoke}}
+\index{Invoke@{Invoke}!bridge::ScriptingBridge@{bridge::ScriptingBridge}}
+\subsubsection[{Invoke}]{\setlength{\rightskip}{0pt plus 5cm}bool ScriptingBridge::Invoke (NPIdentifier {\em name}, \/  const NPVariant $\ast$ {\em args}, \/  uint32\_\-t {\em arg\_\-count}, \/  NPVariant $\ast$ {\em result})\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classbridge_1_1_scripting_bridge_ad18d2af321b2cba1235876cf281295df}
+
+
+Definition at line 121 of file scripting\_\-bridge.cc.
+
+\hypertarget{classbridge_1_1_scripting_bridge_aec42e4cce5b1ff9187d98b88b07d11d3}{
+\index{bridge::ScriptingBridge@{bridge::ScriptingBridge}!InvokeDefault@{InvokeDefault}}
+\index{InvokeDefault@{InvokeDefault}!bridge::ScriptingBridge@{bridge::ScriptingBridge}}
+\subsubsection[{InvokeDefault}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool bridge::ScriptingBridge::InvokeDefault (const NPVariant $\ast$ {\em args}, \/  uint32\_\-t {\em arg\_\-count}, \/  NPVariant $\ast$ {\em result})\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classbridge_1_1_scripting_bridge_aec42e4cce5b1ff9187d98b88b07d11d3}
+\hypertarget{classbridge_1_1_scripting_bridge_a2cee828951db15b4cce1074e934c4f97}{
+\index{bridge::ScriptingBridge@{bridge::ScriptingBridge}!InvokeDefault@{InvokeDefault}}
+\index{InvokeDefault@{InvokeDefault}!bridge::ScriptingBridge@{bridge::ScriptingBridge}}
+\subsubsection[{InvokeDefault}]{\setlength{\rightskip}{0pt plus 5cm}bool ScriptingBridge::InvokeDefault (const NPVariant $\ast$ {\em args}, \/  uint32\_\-t {\em arg\_\-count}, \/  NPVariant $\ast$ {\em result})\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classbridge_1_1_scripting_bridge_a2cee828951db15b4cce1074e934c4f97}
+
+
+Definition at line 113 of file scripting\_\-bridge.cc.
+
+\hypertarget{classbridge_1_1_scripting_bridge_a44eeaa7c1de524f8df7f218c1b53233b}{
+\index{bridge::ScriptingBridge@{bridge::ScriptingBridge}!Paint@{Paint}}
+\index{Paint@{Paint}!bridge::ScriptingBridge@{bridge::ScriptingBridge}}
+\subsubsection[{Paint}]{\setlength{\rightskip}{0pt plus 5cm}bool bridge::ScriptingBridge::Paint (const NPVariant $\ast$ {\em args}, \/  uint32\_\-t {\em arg\_\-count}, \/  NPVariant $\ast$ {\em result})}}
+\label{classbridge_1_1_scripting_bridge_a44eeaa7c1de524f8df7f218c1b53233b}
+\hypertarget{classbridge_1_1_scripting_bridge_abfdee6fdc6c4f0cc6007425a14e8384e}{
+\index{bridge::ScriptingBridge@{bridge::ScriptingBridge}!Paint@{Paint}}
+\index{Paint@{Paint}!bridge::ScriptingBridge@{bridge::ScriptingBridge}}
+\subsubsection[{Paint}]{\setlength{\rightskip}{0pt plus 5cm}bool ScriptingBridge::Paint (const NPVariant $\ast$ {\em args}, \/  uint32\_\-t {\em arg\_\-count}, \/  NPVariant $\ast$ {\em result})}}
+\label{classbridge_1_1_scripting_bridge_abfdee6fdc6c4f0cc6007425a14e8384e}
+
+
+Definition at line 89 of file pi\_\-generator.cc.
+
+\hypertarget{classbridge_1_1_scripting_bridge_aeda2f5f7f5669003d573cdc2f3dc8fe8}{
+\index{bridge::ScriptingBridge@{bridge::ScriptingBridge}!RemoveProperty@{RemoveProperty}}
+\index{RemoveProperty@{RemoveProperty}!bridge::ScriptingBridge@{bridge::ScriptingBridge}}
+\subsubsection[{RemoveProperty}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool bridge::ScriptingBridge::RemoveProperty (NPIdentifier {\em name})\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classbridge_1_1_scripting_bridge_aeda2f5f7f5669003d573cdc2f3dc8fe8}
+\hypertarget{classbridge_1_1_scripting_bridge_a861437163b8291eb7b302ce8f778022d}{
+\index{bridge::ScriptingBridge@{bridge::ScriptingBridge}!RemoveProperty@{RemoveProperty}}
+\index{RemoveProperty@{RemoveProperty}!bridge::ScriptingBridge@{bridge::ScriptingBridge}}
+\subsubsection[{RemoveProperty}]{\setlength{\rightskip}{0pt plus 5cm}bool ScriptingBridge::RemoveProperty (NPIdentifier {\em name})\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classbridge_1_1_scripting_bridge_a861437163b8291eb7b302ce8f778022d}
+
+
+Definition at line 107 of file scripting\_\-bridge.cc.
+
+\hypertarget{classbridge_1_1_scripting_bridge_a918981b30a60d961232e693e7ac15652}{
+\index{bridge::ScriptingBridge@{bridge::ScriptingBridge}!SetProperty@{SetProperty}}
+\index{SetProperty@{SetProperty}!bridge::ScriptingBridge@{bridge::ScriptingBridge}}
+\subsubsection[{SetProperty}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool bridge::ScriptingBridge::SetProperty (NPIdentifier {\em name}, \/  const NPVariant $\ast$ {\em value})\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classbridge_1_1_scripting_bridge_a918981b30a60d961232e693e7ac15652}
+\hypertarget{classbridge_1_1_scripting_bridge_ae73ff0ec0f70dfcd0e22534c8281f3e3}{
+\index{bridge::ScriptingBridge@{bridge::ScriptingBridge}!SetProperty@{SetProperty}}
+\index{SetProperty@{SetProperty}!bridge::ScriptingBridge@{bridge::ScriptingBridge}}
+\subsubsection[{SetProperty}]{\setlength{\rightskip}{0pt plus 5cm}bool ScriptingBridge::SetProperty (NPIdentifier {\em name}, \/  const NPVariant $\ast$ {\em value})\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classbridge_1_1_scripting_bridge_ae73ff0ec0f70dfcd0e22534c8281f3e3}
+
+
+Definition at line 101 of file scripting\_\-bridge.cc.
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classbridge_1_1_scripting_bridge_af9fe1c1d57b6fb113b2e0da63128807d}{
+\index{bridge::ScriptingBridge@{bridge::ScriptingBridge}!id\_\-paint@{id\_\-paint}}
+\index{id\_\-paint@{id\_\-paint}!bridge::ScriptingBridge@{bridge::ScriptingBridge}}
+\subsubsection[{id\_\-paint}]{\setlength{\rightskip}{0pt plus 5cm}static NPIdentifier {\bf ScriptingBridge::id\_\-paint}\hspace{0.3cm}{\ttfamily  \mbox{[}static, protected\mbox{]}}}}
+\label{classbridge_1_1_scripting_bridge_af9fe1c1d57b6fb113b2e0da63128807d}
+
+
+Definition at line 64 of file scripting\_\-bridge.h.
+
+\hypertarget{classbridge_1_1_scripting_bridge_a1057c4c6b923babcbc62a5732d2c3235}{
+\index{bridge::ScriptingBridge@{bridge::ScriptingBridge}!method\_\-table@{method\_\-table}}
+\index{method\_\-table@{method\_\-table}!bridge::ScriptingBridge@{bridge::ScriptingBridge}}
+\subsubsection[{method\_\-table}]{\setlength{\rightskip}{0pt plus 5cm}static std::map$<$ NPIdentifier, {\bf Method} $>$ $\ast$ {\bf ScriptingBridge::method\_\-table}\hspace{0.3cm}{\ttfamily  \mbox{[}static, protected\mbox{]}}}}
+\label{classbridge_1_1_scripting_bridge_a1057c4c6b923babcbc62a5732d2c3235}
+
+
+Definition at line 65 of file scripting\_\-bridge.h.
+
+\hypertarget{classbridge_1_1_scripting_bridge_a7a3e8318e9e315a116729cebceac5fd9}{
+\index{bridge::ScriptingBridge@{bridge::ScriptingBridge}!np\_\-class@{np\_\-class}}
+\index{np\_\-class@{np\_\-class}!bridge::ScriptingBridge@{bridge::ScriptingBridge}}
+\subsubsection[{np\_\-class}]{\setlength{\rightskip}{0pt plus 5cm}static NPClass {\bf ScriptingBridge::np\_\-class}\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{classbridge_1_1_scripting_bridge_a7a3e8318e9e315a116729cebceac5fd9}
+{\bfseries Initial value:}
+\begin{DoxyCode}
+ {
+  NP_CLASS_STRUCT_VERSION,
+  bridge::Allocate,
+  bridge::Deallocate,
+  bridge::Invalidate,
+  bridge::HasMethod,
+  bridge::Invoke,
+  bridge::InvokeDefault,
+  bridge::HasProperty,
+  bridge::GetProperty,
+  bridge::SetProperty,
+  bridge::RemoveProperty
+}
+\end{DoxyCode}
+
+
+Definition at line 45 of file scripting\_\-bridge.h.
+
+\hypertarget{classbridge_1_1_scripting_bridge_a122d088702ccb290a91a0cb1c507fbbe}{
+\index{bridge::ScriptingBridge@{bridge::ScriptingBridge}!npp\_\-@{npp\_\-}}
+\index{npp\_\-@{npp\_\-}!bridge::ScriptingBridge@{bridge::ScriptingBridge}}
+\subsubsection[{npp\_\-}]{\setlength{\rightskip}{0pt plus 5cm}NPP {\bf ScriptingBridge::npp\_\-}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{classbridge_1_1_scripting_bridge_a122d088702ccb290a91a0cb1c507fbbe}
+
+
+Definition at line 60 of file scripting\_\-bridge.h.
+
+\hypertarget{classbridge_1_1_scripting_bridge_a84c8336a6ba799945dfe31358d389a62}{
+\index{bridge::ScriptingBridge@{bridge::ScriptingBridge}!property\_\-table@{property\_\-table}}
+\index{property\_\-table@{property\_\-table}!bridge::ScriptingBridge@{bridge::ScriptingBridge}}
+\subsubsection[{property\_\-table}]{\setlength{\rightskip}{0pt plus 5cm}static std::map$<$ NPIdentifier, {\bf Property} $>$ $\ast$ {\bf ScriptingBridge::property\_\-table}\hspace{0.3cm}{\ttfamily  \mbox{[}static, protected\mbox{]}}}}
+\label{classbridge_1_1_scripting_bridge_a84c8336a6ba799945dfe31358d389a62}
+
+
+Definition at line 66 of file scripting\_\-bridge.h.
+
+\hypertarget{classbridge_1_1_scripting_bridge_a59bc10d2500b138998dc973aee38039e}{
+\index{bridge::ScriptingBridge@{bridge::ScriptingBridge}!window\_\-object\_\-@{window\_\-object\_\-}}
+\index{window\_\-object\_\-@{window\_\-object\_\-}!bridge::ScriptingBridge@{bridge::ScriptingBridge}}
+\subsubsection[{window\_\-object\_\-}]{\setlength{\rightskip}{0pt plus 5cm}NPObject $\ast$ {\bf ScriptingBridge::window\_\-object\_\-}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{classbridge_1_1_scripting_bridge_a59bc10d2500b138998dc973aee38039e}
+
+
+Definition at line 61 of file scripting\_\-bridge.h.
+
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+/home/derek/dev/crml/crml/src/core/\hyperlink{src_2core_2scripting__bridge_8h}{scripting\_\-bridge.h}\item 
+/home/derek/dev/crml/crml/test/crml\_\-pi\_\-generator/\hyperlink{test_2crml__pi__generator_2scripting__bridge_8h}{scripting\_\-bridge.h}\item 
+/home/derek/dev/crml/crml/src/core/\hyperlink{src_2core_2scripting__bridge_8cc}{scripting\_\-bridge.cc}\item 
+/home/derek/dev/crml/crml/test/crml\_\-pi\_\-generator/\hyperlink{crml__pi__generator_2pi__generator_8cc}{pi\_\-generator.cc}\item 
+/home/derek/dev/crml/crml/test/crml\_\-pi\_\-generator/\hyperlink{test_2crml__pi__generator_2scripting__bridge_8cc}{scripting\_\-bridge.cc}\end{DoxyCompactItemize}

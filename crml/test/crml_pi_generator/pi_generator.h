@@ -8,15 +8,19 @@
 #include <pthread.h>
 #include <nacl/nacl_npapi.h>
 #include <nacl/npapi_extensions.h>
+//#include "./scripting_bridge.h"
+#include <crml-core.h>
+
 #include <map>
 
-namespace pi_generator {
-  class PiGenerator {
+namespace bridge {
+  class PiGenerator : public ScriptingBridge {
    public:
-    explicit PiGenerator(NPP npp);
+    PiGenerator(NPP npp);    
     ~PiGenerator();
-
+    
     NPObject* GetScriptableObject();
+
     NPError SetWindow(NPWindow* window);
     bool Paint();
     bool quit() const {
@@ -35,20 +39,17 @@ namespace pi_generator {
       return window_ ? window_->height : 0;
     }
 
-   private:
+   protected:
     // Create and initialize the 2D context used for drawing.
     void CreateContext();
-
     // Destroy the 2D drawing context.
     void DestroyContext();
     bool IsContextValid() {
       return device2d_ != NULL;
     }
 
-    NPP       npp_;
-    NPObject* scriptable_object_;  // strong reference
-
     NPWindow* window_;
+    NPObject* scriptable_object_;  // strong reference
     NPDevice* device2d_;  // The PINPAPI 2D device.
     NPDeviceContext2D context2d_;  // The PINPAPI 2D drawing context.
 
@@ -59,6 +60,6 @@ namespace pi_generator {
     static void* pi(void* param);
   };
 
-}  // namespace pi_generator
+}  // namespace bridge
 
 #endif  // EXAMPLES_PI_GENERATOR_H_

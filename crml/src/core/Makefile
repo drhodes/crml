@@ -1,13 +1,13 @@
 SRC       = $(wildcard *.cc)
 OBJ       = $(SRC:.cc=.o)
 
-LIB     = libcrml_core.a
+LIB     = libcrml-core.a
 LIBNAME = $(LIBPATH)/$(LIB)
 INSTALL = 
 
 all: $(LIB)
 
-libcrml_core.a: $(OBJ)
+libcrml-core.a: $(OBJ)
 	$(AR) $(ARFLAGS) $(LIBNAME) $(OBJ)
 
 $(OBJ): %.o: %.cc

@@ -9,14 +9,12 @@
 #include <nacl/npupp.h>
 #include <new>
 
-#include "examples/pi_generator/pi_generator.h"
+#include "pi_generator.h"
 
-using pi_generator::PiGenerator;
-
+using bridge::PiGenerator;
 // This file implements functions that the plugin is expected to implement so
 // that the browser can all them.  All of them are required to be implemented
 // regardless of whether this is a trusted or untrusted build of the module.
-
 
 // Called after NP_Initialize with a Plugin Instance Pointer and context
 // information for the plugin instance that is being allocated.
@@ -29,18 +27,19 @@ NPError NPP_New(NPMIMEType mime_type,
                 char* argn[],
                 char* argv[],
                 NPSavedData* saved) {
+  
   extern void InitializePepperExtensions(NPP instance);
   if (instance == NULL) {
     return NPERR_INVALID_INSTANCE_ERROR;
   }
-
+  
   InitializePepperExtensions(instance);
-
+  
   PiGenerator* pi_generator = new(std::nothrow) PiGenerator(instance);
   if (pi_generator == NULL) {
     return NPERR_OUT_OF_MEMORY_ERROR;
   }
-
+  
   instance->pdata = pi_generator;
   return NPERR_NO_ERROR;
 }
@@ -115,9 +114,11 @@ NPError NPP_SetWindow(NPP instance, NPWindow* window) {
   if (instance == NULL) {
     return NPERR_INVALID_INSTANCE_ERROR;
   }
+
   if (window == NULL) {
     return NPERR_GENERIC_ERROR;
   }
+  
   PiGenerator* pi_generator = static_cast<PiGenerator*>(instance->pdata);
   if (pi_generator != NULL) {
     return pi_generator->SetWindow(window);
@@ -141,5 +142,7 @@ NPError InitializePluginFunctions(NPPluginFuncs* plugin_funcs) {
   plugin_funcs->getvalue = NPP_GetValue;
   return NPERR_NO_ERROR;
 }
+
+
 
 }  // extern "C"

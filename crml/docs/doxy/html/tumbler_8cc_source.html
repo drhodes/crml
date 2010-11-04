@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
-<title>crml: /home/derek/dev/cell-grid-game/nacl/crml/crml/lib/tumbler/tumbler.cc Source File</title>
+<title>crml: /home/derek/dev/crml/crml/lib/tumbler/tumbler.cc Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -12,7 +12,6 @@
   <div class="tabs">
     <ul>
       <li><a href="main.html"><span>Main&nbsp;Page</span></a></li>
-      <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
@@ -24,7 +23,7 @@
       <li><a href="globals.html"><span>File&nbsp;Members</span></a></li>
     </ul>
   </div>
-<h1>/home/derek/dev/cell-grid-game/nacl/crml/crml/lib/tumbler/tumbler.cc</h1><a href="tumbler_8cc.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">// Copyright 2010 The Native Client SDK Authors. All rights reserved.</span>
+<h1>/home/derek/dev/crml/crml/lib/tumbler/tumbler.cc</h1><a href="tumbler_8cc.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">// Copyright 2010 The Native Client SDK Authors. All rights reserved.</span>
 <a name="l00002"></a>00002 <span class="comment">// Use of this source code is governed by a BSD-style license that can</span>
 <a name="l00003"></a>00003 <span class="comment">// be found in the LICENSE file.</span>
 <a name="l00004"></a>00004 
@@ -36,7 +35,7 @@
 <a name="l00010"></a>00010 <span class="preprocessor">#include &quot;examples/tumbler/cube.h&quot;</span>
 <a name="l00011"></a>00011 <span class="preprocessor">#include &quot;examples/tumbler/scripting_bridge.h&quot;</span>
 <a name="l00012"></a>00012 
-<a name="l00013"></a>00013 <span class="keyword">extern</span> <a class="code" href="struct_n_p_device.html">NPDevice</a>* <a class="code" href="lib_2tumbler_2npn__bridge_8cc.html#af6ca8d586b1bc4be36e2a870354c019b">NPN_AcquireDevice</a>(<a class="code" href="struct___n_p_p.html">NPP</a> instance, <a class="code" href="npapi__extensions_8h.html#af06c24765f895a9b7ac2af96d8db1e61">NPDeviceID</a> device);
+<a name="l00013"></a>00013 <span class="keyword">extern</span> NPDevice* <a class="code" href="lib_2tumbler_2npn__bridge_8cc.html#af6ca8d586b1bc4be36e2a870354c019b">NPN_AcquireDevice</a>(NPP instance, NPDeviceID device);
 <a name="l00014"></a>00014 
 <a name="l00015"></a>00015 <span class="keyword">namespace </span>{
 <a name="l00016"></a>00016 
@@ -47,7 +46,7 @@
 <a name="l00021"></a>00021 }
 <a name="l00022"></a>00022 
 <a name="l00023"></a>00023 <span class="comment">// Called by the browser when the 3D context needs to get repainted.</span>
-<a name="l00024"></a>00024 <span class="keywordtype">void</span> Repaint3DCallback(<a class="code" href="struct___n_p_p.html">NPP</a> instance, <a class="code" href="struct___n_p_device_context3_d.html">NPDeviceContext3D</a>* context) {
+<a name="l00024"></a>00024 <span class="keywordtype">void</span> Repaint3DCallback(NPP instance, NPDeviceContext3D* context) {
 <a name="l00025"></a>00025   <a class="code" href="structtumbler_1_1_tumbler_context3_d.html">tumbler::TumblerContext3D</a>* tumbler_context =
 <a name="l00026"></a>00026       <span class="keyword">static_cast&lt;</span><a class="code" href="structtumbler_1_1_tumbler_context3_d.html">tumbler::TumblerContext3D</a>*<span class="keyword">&gt;</span>(context);
 <a name="l00027"></a>00027   <span class="keyword">reinterpret_cast&lt;</span><a class="code" href="classtumbler_1_1_tumbler.html">tumbler::Tumbler</a>*<span class="keyword">&gt;</span>(tumbler_context-&gt;<a class="code" href="structtumbler_1_1_tumbler_context3_d.html#a1274a5b24b002c4e264bc7ee9298e85d">user_data_</a>)-&gt;DrawSelf();
@@ -61,19 +60,19 @@
 <a name="l00035"></a>00035 
 <a name="l00036"></a>00036 <span class="keyword">static</span> <span class="keyword">const</span> int32_t kCommandBufferSize = 1024 * 1024;
 <a name="l00037"></a>00037 
-<a name="l00038"></a><a class="code" href="classtumbler_1_1_tumbler.html#a4f5dd0baa068ccb8214b0e477f7cd94b">00038</a> <a class="code" href="classtumbler_1_1_tumbler.html#a4f5dd0baa068ccb8214b0e477f7cd94b">Tumbler::Tumbler</a>(<a class="code" href="struct___n_p_p.html">NPP</a> npp)
+<a name="l00038"></a><a class="code" href="classtumbler_1_1_tumbler.html#a4f5dd0baa068ccb8214b0e477f7cd94b">00038</a> <a class="code" href="classtumbler_1_1_tumbler.html#a4f5dd0baa068ccb8214b0e477f7cd94b">Tumbler::Tumbler</a>(NPP npp)
 <a name="l00039"></a>00039     : npp_(npp),
 <a name="l00040"></a>00040       scriptable_object_(NULL),
 <a name="l00041"></a>00041       device3d_(NULL),
 <a name="l00042"></a>00042       pgl_context_(NULL),
 <a name="l00043"></a>00043       cube_(NULL) {
 <a name="l00044"></a>00044   memset(&amp;context3d_, 0, <span class="keyword">sizeof</span>(context3d_));
-<a name="l00045"></a>00045   <a class="code" href="classtumbler_1_1_scripting_bridge.html#a9653f59bae05d24f2f319a2764a7ce61">ScriptingBridge::InitializeIdentifiers</a>();
+<a name="l00045"></a>00045   <a class="code" href="classtumbler_1_1_scripting_bridge.html#a05f2a65b751d12e6aeaa00bfd91ef83f">ScriptingBridge::InitializeIdentifiers</a>();
 <a name="l00046"></a>00046 }
 <a name="l00047"></a>00047 
 <a name="l00048"></a><a class="code" href="classtumbler_1_1_tumbler.html#a80349e180aa825c15d63bada00c6e9a8">00048</a> <a class="code" href="classtumbler_1_1_tumbler.html#a80349e180aa825c15d63bada00c6e9a8">Tumbler::~Tumbler</a>() {
 <a name="l00049"></a>00049   <span class="keywordflow">if</span> (scriptable_object_) {
-<a name="l00050"></a>00050     <a class="code" href="npruntime_8h.html#aaeac7d9dbf64dec5017327bb14d55277">NPN_ReleaseObject</a>(scriptable_object_);
+<a name="l00050"></a>00050     NPN_ReleaseObject(scriptable_object_);
 <a name="l00051"></a>00051   }
 <a name="l00052"></a>00052   <span class="comment">// Destroy the cube view while GL context is current.</span>
 <a name="l00053"></a>00053   pglMakeCurrent(pgl_context_);
@@ -83,34 +82,34 @@
 <a name="l00057"></a>00057   DestroyContext();
 <a name="l00058"></a>00058 }
 <a name="l00059"></a>00059 
-<a name="l00060"></a><a class="code" href="classtumbler_1_1_tumbler.html#ad438453c62d1edcbdd5cb39a38143a0b">00060</a> <a class="code" href="struct_n_p_object.html">NPObject</a>* <a class="code" href="classtumbler_1_1_tumbler.html#ad438453c62d1edcbdd5cb39a38143a0b">Tumbler::GetScriptableObject</a>() {
+<a name="l00060"></a><a class="code" href="classtumbler_1_1_tumbler.html#ad438453c62d1edcbdd5cb39a38143a0b">00060</a> NPObject* <a class="code" href="classtumbler_1_1_tumbler.html#ad438453c62d1edcbdd5cb39a38143a0b">Tumbler::GetScriptableObject</a>() {
 <a name="l00061"></a>00061   <span class="keywordflow">if</span> (scriptable_object_ == NULL) {
 <a name="l00062"></a>00062     scriptable_object_ =
-<a name="l00063"></a>00063       <a class="code" href="npruntime_8h.html#a6811d13755a9ee725d6c2eb3ddd97136">NPN_CreateObject</a>(npp_, &amp;<a class="code" href="classtumbler_1_1_scripting_bridge.html#a4cd00d35febde2739ee85287f39981ac">ScriptingBridge::np_class</a>);
+<a name="l00063"></a>00063       NPN_CreateObject(npp_, &amp;<a class="code" href="classtumbler_1_1_scripting_bridge.html#a4fcbbbaf7a6d91a2766066fa2cb2236b">ScriptingBridge::np_class</a>);
 <a name="l00064"></a>00064   }
 <a name="l00065"></a>00065   <span class="keywordflow">if</span> (scriptable_object_) {
-<a name="l00066"></a>00066     <a class="code" href="npruntime_8h.html#a66a59b84090e736a6798733af5c12cf2">NPN_RetainObject</a>(scriptable_object_);
+<a name="l00066"></a>00066     NPN_RetainObject(scriptable_object_);
 <a name="l00067"></a>00067   }
 <a name="l00068"></a>00068   <span class="keywordflow">return</span> scriptable_object_;
 <a name="l00069"></a>00069 }
 <a name="l00070"></a>00070 
-<a name="l00071"></a><a class="code" href="classtumbler_1_1_tumbler.html#a6aba2f3cfa10be35c0a789924343b1b0">00071</a> <a class="code" href="npapi_8h.html#a56715bc92ac93f0447a05f852ce18828">NPError</a> <a class="code" href="classtumbler_1_1_tumbler.html#a6aba2f3cfa10be35c0a789924343b1b0">Tumbler::SetWindow</a>(<span class="keyword">const</span> <a class="code" href="struct___n_p_window.html">NPWindow</a>&amp; window) {
+<a name="l00071"></a><a class="code" href="classtumbler_1_1_tumbler.html#a6aba2f3cfa10be35c0a789924343b1b0">00071</a> NPError <a class="code" href="classtumbler_1_1_tumbler.html#a6aba2f3cfa10be35c0a789924343b1b0">Tumbler::SetWindow</a>(<span class="keyword">const</span> NPWindow&amp; window) {
 <a name="l00072"></a>00072   <span class="keywordflow">if</span> (!pgl_context_) {
 <a name="l00073"></a>00073     CreateContext();
 <a name="l00074"></a>00074   }
 <a name="l00075"></a>00075   <span class="keywordflow">if</span> (!pglMakeCurrent(pgl_context_))
-<a name="l00076"></a>00076     <span class="keywordflow">return</span> <a class="code" href="npapi_8h.html#a70233755ff49571b6bd1215ae8bdbfd2">NPERR_INVALID_INSTANCE_ERROR</a>;
+<a name="l00076"></a>00076     <span class="keywordflow">return</span> NPERR_INVALID_INSTANCE_ERROR;
 <a name="l00077"></a>00077   <span class="keywordflow">if</span> (cube_ == NULL) {
 <a name="l00078"></a>00078     cube_ = <span class="keyword">new</span> <a class="code" href="classtumbler_1_1_cube.html">Cube</a>();
 <a name="l00079"></a>00079     cube_-&gt;<a class="code" href="classtumbler_1_1_cube.html#a62b97b480f8cbccf49cfe650c19590ec">PrepareOpenGL</a>();
 <a name="l00080"></a>00080   }
-<a name="l00081"></a>00081   cube_-&gt;<a class="code" href="classtumbler_1_1_cube.html#aa618965575cca4ce046576220d7e45d7">Resize</a>(window.<a class="code" href="struct___n_p_window.html#a108a91a5fdc3e8130e0d40406612bd65">width</a>, window.<a class="code" href="struct___n_p_window.html#a971f3f5aecbf2d5b0796bb0b6c4339c1">height</a>);
+<a name="l00081"></a>00081   cube_-&gt;<a class="code" href="classtumbler_1_1_cube.html#aa618965575cca4ce046576220d7e45d7">Resize</a>(window.width, window.height);
 <a name="l00082"></a>00082   <a class="code" href="classtumbler_1_1_tumbler.html#ab721f5f95ce020ce6680033771ed4577">PostRedrawNotification</a>();
-<a name="l00083"></a>00083   <span class="keywordflow">return</span> <a class="code" href="npapi_8h.html#a6b839d62e078f61fdf40486c64b1c520">NPERR_NO_ERROR</a>;
+<a name="l00083"></a>00083   <span class="keywordflow">return</span> NPERR_NO_ERROR;
 <a name="l00084"></a>00084 }
 <a name="l00085"></a>00085 
 <a name="l00086"></a><a class="code" href="classtumbler_1_1_tumbler.html#ab721f5f95ce020ce6680033771ed4577">00086</a> <span class="keywordtype">void</span> <a class="code" href="classtumbler_1_1_tumbler.html#ab721f5f95ce020ce6680033771ed4577">Tumbler::PostRedrawNotification</a>() {
-<a name="l00087"></a>00087   <a class="code" href="npapi_8h.html#ace7bc5dcf35b36af93000e7f37c1b2ad">NPN_PluginThreadAsyncCall</a>(npp_, Draw3DCallback, <span class="keyword">this</span>);
+<a name="l00087"></a>00087   NPN_PluginThreadAsyncCall(npp_, Draw3DCallback, <span class="keyword">this</span>);
 <a name="l00088"></a>00088 }
 <a name="l00089"></a>00089 
 <a name="l00090"></a><a class="code" href="classtumbler_1_1_tumbler.html#a8da0b0b0e85708487c55f6ca5c999da1">00090</a> <span class="keywordtype">bool</span> <a class="code" href="classtumbler_1_1_tumbler.html#a8da0b0b0e85708487c55f6ca5c999da1">Tumbler::DrawSelf</a>() {
@@ -153,13 +152,13 @@
 <a name="l00127"></a>00127   <span class="keywordflow">if</span> (pgl_context_ != NULL)
 <a name="l00128"></a>00128     <span class="keywordflow">return</span>;
 <a name="l00129"></a>00129   <span class="comment">// Create and initialize a 3D context.</span>
-<a name="l00130"></a>00130   device3d_ = <a class="code" href="lib_2tumbler_2npn__bridge_8cc.html#af6ca8d586b1bc4be36e2a870354c019b">NPN_AcquireDevice</a>(npp_, <a class="code" href="npapi__extensions_8h.html#a7f176c6b597f67ac34e2566fe5ff8fcd">NPPepper3DDevice</a>);
+<a name="l00130"></a>00130   device3d_ = <a class="code" href="lib_2tumbler_2npn__bridge_8cc.html#af6ca8d586b1bc4be36e2a870354c019b">NPN_AcquireDevice</a>(npp_, NPPepper3DDevice);
 <a name="l00131"></a>00131   assert(NULL != device3d_);
-<a name="l00132"></a>00132   <a class="code" href="struct___n_p_device_context3_d_config.html">NPDeviceContext3DConfig</a> config;
-<a name="l00133"></a>00133   config.<a class="code" href="struct___n_p_device_context3_d_config.html#a0075edbd3e0c70d8db09dc0270c9bc76">commandBufferSize</a> = kCommandBufferSize;
-<a name="l00134"></a>00134   context3d_.<a class="code" href="struct___n_p_device_context3_d.html#af5ba5d8f7cf171c710986a37dce757c8">repaintCallback</a> = Repaint3DCallback;
+<a name="l00132"></a>00132   NPDeviceContext3DConfig config;
+<a name="l00133"></a>00133   config.commandBufferSize = kCommandBufferSize;
+<a name="l00134"></a>00134   context3d_.repaintCallback = Repaint3DCallback;
 <a name="l00135"></a>00135   context3d_.<a class="code" href="structtumbler_1_1_tumbler_context3_d.html#a1274a5b24b002c4e264bc7ee9298e85d">user_data_</a> = <span class="keyword">reinterpret_cast&lt;</span><span class="keywordtype">void</span>*<span class="keyword">&gt;</span>(<span class="keyword">this</span>);
-<a name="l00136"></a>00136   device3d_-&gt;<a class="code" href="struct_n_p_device.html#ab2a7fb558580435d75ba659245c2933b">initializeContext</a>(npp_, &amp;config, &amp;context3d_);
+<a name="l00136"></a>00136   device3d_-&gt;initializeContext(npp_, &amp;config, &amp;context3d_);
 <a name="l00137"></a>00137 
 <a name="l00138"></a>00138   <span class="comment">// Create a PGL context.</span>
 <a name="l00139"></a>00139   pgl_context_ = pglCreateContext(npp_, device3d_, &amp;context3d_);
@@ -171,12 +170,12 @@
 <a name="l00145"></a>00145   pglDestroyContext(pgl_context_);
 <a name="l00146"></a>00146   pgl_context_ = NULL;
 <a name="l00147"></a>00147 
-<a name="l00148"></a>00148   device3d_-&gt;<a class="code" href="struct_n_p_device.html#a041234ca1d9cabfd58473ad825765175">destroyContext</a>(npp_, &amp;context3d_);
+<a name="l00148"></a>00148   device3d_-&gt;destroyContext(npp_, &amp;context3d_);
 <a name="l00149"></a>00149 }
 <a name="l00150"></a>00150 
 <a name="l00151"></a>00151 }  <span class="comment">// namespace pinpapi_bridge</span>
 </pre></div></div>
-<hr class="footer"/><address style="text-align: right;"><small>Generated on Mon Nov 1 15:47:12 2010 for crml by&nbsp;
+<hr class="footer"/><address style="text-align: right;"><small>Generated on Thu Nov 4 13:14:12 2010 for crml by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
 </body>
