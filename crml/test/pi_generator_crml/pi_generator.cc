@@ -18,7 +18,7 @@
 //#include "./scripting_bridge.h"
 #include <crml-core.h>
 
-extern NPDevice* NPN_AcquireDevice(NPP instance, NPDeviceID device);
+//extern NPDevice* NPN_AcquireDevice(NPP instance, NPDeviceID device);
 
 using bridge::ScriptingBridge;
 
@@ -31,14 +31,9 @@ void FlushCallback(NPP instance, NPDeviceContext* context,
 namespace bridge {
 
 PiGenerator::PiGenerator(NPP npp)
-    : ScriptingBridge(npp),
-      window_(NULL),
-      scriptable_object_(NULL),
-      device2d_(NULL),
+    : ScriptingBridge(npp),      
       quit_(false),
-      thread_(0),
-      pi_(0.0) {  
-  InitializeIdentifiers();
+      pi_(0.0) {
 }
 
 PiGenerator::~PiGenerator() {
@@ -52,35 +47,24 @@ PiGenerator::~PiGenerator() {
   DestroyContext();
 }
 
-NPObject* PiGenerator::GetScriptableObject() {
-  if (scriptable_object_ == NULL) {
-    scriptable_object_ =
-      NPN_CreateObject(npp_, &ScriptingBridge::np_class);
-  }
-  if (scriptable_object_) {
-    NPN_RetainObject(scriptable_object_);
-  }
-  return scriptable_object_;
-}
-
-NPError PiGenerator::SetWindow(NPWindow* window) {
-  if (!window)
-    return NPERR_NO_ERROR;
-  if (!IsContextValid())
-    CreateContext();
-  if (!IsContextValid())
-    return NPERR_GENERIC_ERROR;
-  // Clear the 2D drawing context.
-  pthread_create(&thread_, NULL, pi, this);
-  window_ = window;
-  return Paint() ? NPERR_NO_ERROR : NPERR_GENERIC_ERROR;
-}
-
 bool PiGenerator::Paint() {
   if (IsContextValid()) {
+    uint32_t* pixel_bits = static_cast<uint32_t*>(pixels());
+
+    printf("  if (IsContextValid()) {\n");
+    int count = 0;
+    int max = width() * height() -1 ;
+    while (1){
+      pixel_bits[count] = rand();
+      if (count > max)
+        break;
+      count += 1;
+    }
+    
     NPDeviceFlushContextCallbackPtr callback =
         reinterpret_cast<NPDeviceFlushContextCallbackPtr>(&FlushCallback);
     device2d_->flushContext(npp_, &context2d_, callback, NULL);
+    printf("device2d_->flushContext(npp_, &context2d_, callback, NULL);\n");
     return true;
   }
   return false;
@@ -89,26 +73,22 @@ bool PiGenerator::Paint() {
 bool ScriptingBridge::Paint( const NPVariant* args,
                              uint32_t arg_count,
                              NPVariant* result) {
+  printf("bool ScriptingBridge::Paint( const NPVariant* args,\n");
   PiGenerator* pi_generator = static_cast<PiGenerator*>(npp_->pdata);
   if (pi_generator) {
+    printf("Should be seeing painting here\n");
     DOUBLE_TO_NPVARIANT(pi_generator->pi(), *result);
+    printf("Should be seeing painting here\n");    
     return pi_generator->Paint();
   }
   return false;
 } 
 
-
-
-void PiGenerator::CreateContext() {
-  if (IsContextValid())
-    return;
-  device2d_ = NPN_AcquireDevice(npp_, NPPepper2DDevice);
-  assert(IsContextValid());
-  memset(&context2d_, 0, sizeof(context2d_));
-  NPDeviceContext2DConfig config;
-  NPError init_err = device2d_->initializeContext(npp_, &config, &context2d_);
-  assert(NPERR_NO_ERROR == init_err);
-}
+//void PiGenerator::DerivedSetup(){
+  //pthread_create(&thread_, NULL, pi, this);
+  //window_ = window;
+  //return Paint() ? NPERR_NO_ERROR : NPERR_GENERIC_ERROR;
+//}
 
 void PiGenerator::DestroyContext() {
   if (!IsContextValid())
@@ -116,12 +96,14 @@ void PiGenerator::DestroyContext() {
   device2d_->destroyContext(npp_, &context2d_);
 }
 
-// pi() estimates Pi using Monte Carlo method and it is executed by a separate
-// thread created in SetWindow(). pi() puts kMaxPointCount points inside the
-// square whose length of each side is 1.0, and calculates the ratio of the
-// number of points put inside the inscribed quadrant divided by the total
-// number of random points to get Pi/4.
+/// pi() estimates Pi using Monte Carlo method and it is executed by a separate
+/// thread created in SetWindow(). pi() puts kMaxPointCount points inside the
+/// square whose length of each side is 1.0, and calculates the ratio of the
+/// number of points put inside the inscribed quadrant divided by the total
+/// number of random points to get Pi/4.
 void* PiGenerator::pi(void* param) {
+  printf("void* PiGenerator::pi(void* param) {\n");
+  
   const int kMaxPointCount = 1000000000;  // The total number of points to put.
   const uint32_t kOpaqueColorMask = 0xff000000;  // Opaque pixels.
   const uint32_t kRedMask = 0xff0000;

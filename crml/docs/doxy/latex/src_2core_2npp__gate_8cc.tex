@@ -1,0 +1,94 @@
+\hypertarget{src_2core_2npp__gate_8cc}{
+\section{/home/derek/dev/crml/crml/src/core/npp\_\-gate.cc File Reference}
+\label{src_2core_2npp__gate_8cc}\index{/home/derek/dev/crml/crml/src/core/npp\_\-gate.cc@{/home/derek/dev/crml/crml/src/core/npp\_\-gate.cc}}
+}
+{\ttfamily \#include $<$assert.h$>$}\par
+{\ttfamily \#include $<$stdio.h$>$}\par
+{\ttfamily \#include $<$string.h$>$}\par
+{\ttfamily \#include $<$nacl/npapi\_\-extensions.h$>$}\par
+{\ttfamily \#include $<$nacl/npupp.h$>$}\par
+{\ttfamily \#include $<$new$>$}\par
+{\ttfamily \#include \char`\"{}scripting\_\-bridge.h\char`\"{}}\par
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+NPError \hyperlink{src_2core_2npp__gate_8cc_a1549c7141eb65cb6eca02d3cba8f48d1}{NPP\_\-New} (NPMIMEType mime\_\-type, NPP instance, uint16\_\-t mode, int16\_\-t argc, char $\ast$argn\mbox{[}$\,$\mbox{]}, char $\ast$argv\mbox{[}$\,$\mbox{]}, NPSavedData $\ast$saved)
+\item 
+NPError \hyperlink{src_2core_2npp__gate_8cc_a13cdb3ad1ae5ab428bd418ce64af269f}{NPP\_\-Destroy} (NPP instance, NPSavedData $\ast$$\ast$save)
+\item 
+NPObject $\ast$ \hyperlink{src_2core_2npp__gate_8cc_ad6b92f15011abb6dde0ae16e86f46ed7}{NPP\_\-GetScriptableInstance} (NPP instance)
+\item 
+NPError \hyperlink{src_2core_2npp__gate_8cc_aae56cbb0b1b9e955b67b98f8178fbeef}{NPP\_\-GetValue} (NPP instance, NPPVariable variable, void $\ast$value)
+\item 
+int16\_\-t \hyperlink{src_2core_2npp__gate_8cc_afc9809fb9d0ee0ed5666723b2db78161}{NPP\_\-HandleEvent} (NPP instance, void $\ast$event)
+\item 
+NPError \hyperlink{src_2core_2npp__gate_8cc_a352d8aac09e759465185ddd4eeea9df9}{NPP\_\-SetWindow} (NPP instance, NPWindow $\ast$window)
+\item 
+NPError \hyperlink{src_2core_2npp__gate_8cc_a2e202c35d113ebeb05eb2175fc8d97cb}{InitializePluginFunctions} (NPPluginFuncs $\ast$plugin\_\-funcs)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{src_2core_2npp__gate_8cc_a2e202c35d113ebeb05eb2175fc8d97cb}{
+\index{src/core/npp\_\-gate.cc@{src/core/npp\_\-gate.cc}!InitializePluginFunctions@{InitializePluginFunctions}}
+\index{InitializePluginFunctions@{InitializePluginFunctions}!src/core/npp_gate.cc@{src/core/npp\_\-gate.cc}}
+\subsubsection[{InitializePluginFunctions}]{\setlength{\rightskip}{0pt plus 5cm}NPError InitializePluginFunctions (NPPluginFuncs $\ast$ {\em plugin\_\-funcs})}}
+\label{src_2core_2npp__gate_8cc_a2e202c35d113ebeb05eb2175fc8d97cb}
+
+
+Definition at line 150 of file npp\_\-gate.cc.
+
+\hypertarget{src_2core_2npp__gate_8cc_a13cdb3ad1ae5ab428bd418ce64af269f}{
+\index{src/core/npp\_\-gate.cc@{src/core/npp\_\-gate.cc}!NPP\_\-Destroy@{NPP\_\-Destroy}}
+\index{NPP\_\-Destroy@{NPP\_\-Destroy}!src/core/npp_gate.cc@{src/core/npp\_\-gate.cc}}
+\subsubsection[{NPP\_\-Destroy}]{\setlength{\rightskip}{0pt plus 5cm}NPError NPP\_\-Destroy (NPP {\em instance}, \/  NPSavedData $\ast$$\ast$ {\em save})}}
+\label{src_2core_2npp__gate_8cc_a13cdb3ad1ae5ab428bd418ce64af269f}
+
+
+Definition at line 54 of file npp\_\-gate.cc.
+
+\hypertarget{src_2core_2npp__gate_8cc_ad6b92f15011abb6dde0ae16e86f46ed7}{
+\index{src/core/npp\_\-gate.cc@{src/core/npp\_\-gate.cc}!NPP\_\-GetScriptableInstance@{NPP\_\-GetScriptableInstance}}
+\index{NPP\_\-GetScriptableInstance@{NPP\_\-GetScriptableInstance}!src/core/npp_gate.cc@{src/core/npp\_\-gate.cc}}
+\subsubsection[{NPP\_\-GetScriptableInstance}]{\setlength{\rightskip}{0pt plus 5cm}NPObject$\ast$ NPP\_\-GetScriptableInstance (NPP {\em instance})}}
+\label{src_2core_2npp__gate_8cc_ad6b92f15011abb6dde0ae16e86f46ed7}
+
+
+Definition at line 74 of file npp\_\-gate.cc.
+
+\hypertarget{src_2core_2npp__gate_8cc_aae56cbb0b1b9e955b67b98f8178fbeef}{
+\index{src/core/npp\_\-gate.cc@{src/core/npp\_\-gate.cc}!NPP\_\-GetValue@{NPP\_\-GetValue}}
+\index{NPP\_\-GetValue@{NPP\_\-GetValue}!src/core/npp_gate.cc@{src/core/npp\_\-gate.cc}}
+\subsubsection[{NPP\_\-GetValue}]{\setlength{\rightskip}{0pt plus 5cm}NPError NPP\_\-GetValue (NPP {\em instance}, \/  NPPVariable {\em variable}, \/  void $\ast$ {\em value})}}
+\label{src_2core_2npp__gate_8cc_aae56cbb0b1b9e955b67b98f8178fbeef}
+
+
+Definition at line 91 of file npp\_\-gate.cc.
+
+\hypertarget{src_2core_2npp__gate_8cc_afc9809fb9d0ee0ed5666723b2db78161}{
+\index{src/core/npp\_\-gate.cc@{src/core/npp\_\-gate.cc}!NPP\_\-HandleEvent@{NPP\_\-HandleEvent}}
+\index{NPP\_\-HandleEvent@{NPP\_\-HandleEvent}!src/core/npp_gate.cc@{src/core/npp\_\-gate.cc}}
+\subsubsection[{NPP\_\-HandleEvent}]{\setlength{\rightskip}{0pt plus 5cm}int16\_\-t NPP\_\-HandleEvent (NPP {\em instance}, \/  void $\ast$ {\em event})}}
+\label{src_2core_2npp__gate_8cc_afc9809fb9d0ee0ed5666723b2db78161}
+
+
+Definition at line 108 of file npp\_\-gate.cc.
+
+\hypertarget{src_2core_2npp__gate_8cc_a1549c7141eb65cb6eca02d3cba8f48d1}{
+\index{src/core/npp\_\-gate.cc@{src/core/npp\_\-gate.cc}!NPP\_\-New@{NPP\_\-New}}
+\index{NPP\_\-New@{NPP\_\-New}!src/core/npp_gate.cc@{src/core/npp\_\-gate.cc}}
+\subsubsection[{NPP\_\-New}]{\setlength{\rightskip}{0pt plus 5cm}NPError NPP\_\-New (NPMIMEType {\em mime\_\-type}, \/  NPP {\em instance}, \/  uint16\_\-t {\em mode}, \/  int16\_\-t {\em argc}, \/  char $\ast$ {\em argn}\mbox{[}$\,$\mbox{]}, \/  char $\ast$ {\em argv}\mbox{[}$\,$\mbox{]}, \/  NPSavedData $\ast$ {\em saved})}}
+\label{src_2core_2npp__gate_8cc_a1549c7141eb65cb6eca02d3cba8f48d1}
+
+
+Definition at line 23 of file npp\_\-gate.cc.
+
+\hypertarget{src_2core_2npp__gate_8cc_a352d8aac09e759465185ddd4eeea9df9}{
+\index{src/core/npp\_\-gate.cc@{src/core/npp\_\-gate.cc}!NPP\_\-SetWindow@{NPP\_\-SetWindow}}
+\index{NPP\_\-SetWindow@{NPP\_\-SetWindow}!src/core/npp_gate.cc@{src/core/npp\_\-gate.cc}}
+\subsubsection[{NPP\_\-SetWindow}]{\setlength{\rightskip}{0pt plus 5cm}NPError NPP\_\-SetWindow (NPP {\em instance}, \/  NPWindow $\ast$ {\em window})}}
+\label{src_2core_2npp__gate_8cc_a352d8aac09e759465185ddd4eeea9df9}
+
+
+Definition at line 126 of file npp\_\-gate.cc.
+

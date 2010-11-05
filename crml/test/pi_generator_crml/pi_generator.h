@@ -19,10 +19,9 @@ namespace bridge {
     PiGenerator(NPP npp);    
     ~PiGenerator();
     
-    NPObject* GetScriptableObject();
-
-    NPError SetWindow(NPWindow* window);
     bool Paint();
+    //void DerivedSetup();
+    
     bool quit() const {
       return quit_;
     }
@@ -39,22 +38,16 @@ namespace bridge {
       return window_ ? window_->height : 0;
     }
 
-   protected:
+    
+   protected:   
     // Create and initialize the 2D context used for drawing.
     void CreateContext();
+
     // Destroy the 2D drawing context.
     void DestroyContext();
-    bool IsContextValid() {
-      return device2d_ != NULL;
-    }
 
-    NPWindow* window_;
-    NPObject* scriptable_object_;  // strong reference
-    NPDevice* device2d_;  // The PINPAPI 2D device.
-    NPDeviceContext2D context2d_;  // The PINPAPI 2D drawing context.
-
+    //NPWindow* window_;
     bool quit_;
-    pthread_t thread_;
     double pi_;
 
     static void* pi(void* param);

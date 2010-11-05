@@ -1,0 +1,237 @@
+\hypertarget{classtumbler_1_1_scripting_bridge}{
+\section{tumbler::ScriptingBridge Class Reference}
+\label{classtumbler_1_1_scripting_bridge}\index{tumbler::ScriptingBridge@{tumbler::ScriptingBridge}}
+}
+
+
+{\ttfamily \#include $<$scripting\_\-bridge.h$>$}
+
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef bool(ScriptingBridge::$\ast$ \hyperlink{classtumbler_1_1_scripting_bridge_addb1badb0e891b38c6d90767342b5bb3}{Method} )(const NPVariant $\ast$args, uint32\_\-t arg\_\-count, NPVariant $\ast$result)
+\item 
+typedef bool(ScriptingBridge::$\ast$ \hyperlink{classtumbler_1_1_scripting_bridge_ad7507ce0e5c8f49fde790c743447f3c3}{Property} )(NPVariant $\ast$result)
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classtumbler_1_1_scripting_bridge_ae743ff1b8ffce6889a86a73500fd0da1}{ScriptingBridge} (NPP npp)
+\item 
+virtual \hyperlink{classtumbler_1_1_scripting_bridge_ae6c311b5f9ffa0a578c7d8e41fa9c23c}{$\sim$ScriptingBridge} ()
+\item 
+virtual void \hyperlink{classtumbler_1_1_scripting_bridge_af00ea5a26438b33f976734a3432dfa9b}{Invalidate} ()
+\item 
+virtual bool \hyperlink{classtumbler_1_1_scripting_bridge_a1d614bb3696baef7c46332426ab7a0dc}{HasMethod} (NPIdentifier name)
+\item 
+virtual bool \hyperlink{classtumbler_1_1_scripting_bridge_ad18d2af321b2cba1235876cf281295df}{Invoke} (NPIdentifier name, const NPVariant $\ast$args, uint32\_\-t arg\_\-count, NPVariant $\ast$result)
+\item 
+virtual bool \hyperlink{classtumbler_1_1_scripting_bridge_a2cee828951db15b4cce1074e934c4f97}{InvokeDefault} (const NPVariant $\ast$args, uint32\_\-t arg\_\-count, NPVariant $\ast$result)
+\item 
+virtual bool \hyperlink{classtumbler_1_1_scripting_bridge_aeed261c756896802f26632acfceba1d7}{HasProperty} (NPIdentifier name)
+\item 
+virtual bool \hyperlink{classtumbler_1_1_scripting_bridge_afef889fc2ff5ccabefb713cf7ad5e056}{GetProperty} (NPIdentifier name, NPVariant $\ast$result)
+\item 
+virtual bool \hyperlink{classtumbler_1_1_scripting_bridge_ae73ff0ec0f70dfcd0e22534c8281f3e3}{SetProperty} (NPIdentifier name, const NPVariant $\ast$value)
+\item 
+virtual bool \hyperlink{classtumbler_1_1_scripting_bridge_a861437163b8291eb7b302ce8f778022d}{RemoveProperty} (NPIdentifier name)
+\item 
+bool \hyperlink{classtumbler_1_1_scripting_bridge_a95b4a3ee287861d23021bfae7b7c1b08}{GetCameraOrientation} (const NPVariant $\ast$args, uint32\_\-t arg\_\-count, NPVariant $\ast$result)
+\item 
+bool \hyperlink{classtumbler_1_1_scripting_bridge_a9e581cb6e3f5ee07dbd818f0ee3dbb4d}{SetCameraOrientation} (const NPVariant $\ast$args, uint32\_\-t arg\_\-count, NPVariant $\ast$value)
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static bool \hyperlink{classtumbler_1_1_scripting_bridge_a05f2a65b751d12e6aeaa00bfd91ef83f}{InitializeIdentifiers} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static NPClass \hyperlink{classtumbler_1_1_scripting_bridge_a4fcbbbaf7a6d91a2766066fa2cb2236b}{np\_\-class}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 23 of file scripting\_\-bridge.h.
+
+
+
+\subsection{Member Typedef Documentation}
+\hypertarget{classtumbler_1_1_scripting_bridge_addb1badb0e891b38c6d90767342b5bb3}{
+\index{tumbler::ScriptingBridge@{tumbler::ScriptingBridge}!Method@{Method}}
+\index{Method@{Method}!tumbler::ScriptingBridge@{tumbler::ScriptingBridge}}
+\subsubsection[{Method}]{\setlength{\rightskip}{0pt plus 5cm}typedef bool(ScriptingBridge::$\ast$ {\bf tumbler::ScriptingBridge::Method})(const NPVariant $\ast$args, uint32\_\-t arg\_\-count, NPVariant $\ast$result)}}
+\label{classtumbler_1_1_scripting_bridge_addb1badb0e891b38c6d90767342b5bb3}
+
+
+Definition at line 25 of file scripting\_\-bridge.h.
+
+\hypertarget{classtumbler_1_1_scripting_bridge_ad7507ce0e5c8f49fde790c743447f3c3}{
+\index{tumbler::ScriptingBridge@{tumbler::ScriptingBridge}!Property@{Property}}
+\index{Property@{Property}!tumbler::ScriptingBridge@{tumbler::ScriptingBridge}}
+\subsubsection[{Property}]{\setlength{\rightskip}{0pt plus 5cm}typedef bool(ScriptingBridge::$\ast$ {\bf tumbler::ScriptingBridge::Property})(NPVariant $\ast$result)}}
+\label{classtumbler_1_1_scripting_bridge_ad7507ce0e5c8f49fde790c743447f3c3}
+
+
+Definition at line 28 of file scripting\_\-bridge.h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classtumbler_1_1_scripting_bridge_ae743ff1b8ffce6889a86a73500fd0da1}{
+\index{tumbler::ScriptingBridge@{tumbler::ScriptingBridge}!ScriptingBridge@{ScriptingBridge}}
+\index{ScriptingBridge@{ScriptingBridge}!tumbler::ScriptingBridge@{tumbler::ScriptingBridge}}
+\subsubsection[{ScriptingBridge}]{\setlength{\rightskip}{0pt plus 5cm}ScriptingBridge::ScriptingBridge (NPP {\em npp})\hspace{0.3cm}{\ttfamily  \mbox{[}explicit\mbox{]}}}}
+\label{classtumbler_1_1_scripting_bridge_ae743ff1b8ffce6889a86a73500fd0da1}
+
+
+Definition at line 54 of file scripting\_\-bridge.cc.
+
+\hypertarget{classtumbler_1_1_scripting_bridge_ae6c311b5f9ffa0a578c7d8e41fa9c23c}{
+\index{tumbler::ScriptingBridge@{tumbler::ScriptingBridge}!$\sim$ScriptingBridge@{$\sim$ScriptingBridge}}
+\index{$\sim$ScriptingBridge@{$\sim$ScriptingBridge}!tumbler::ScriptingBridge@{tumbler::ScriptingBridge}}
+\subsubsection[{$\sim$ScriptingBridge}]{\setlength{\rightskip}{0pt plus 5cm}ScriptingBridge::$\sim$ScriptingBridge ()\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classtumbler_1_1_scripting_bridge_ae6c311b5f9ffa0a578c7d8e41fa9c23c}
+
+
+Definition at line 60 of file scripting\_\-bridge.cc.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classtumbler_1_1_scripting_bridge_a95b4a3ee287861d23021bfae7b7c1b08}{
+\index{tumbler::ScriptingBridge@{tumbler::ScriptingBridge}!GetCameraOrientation@{GetCameraOrientation}}
+\index{GetCameraOrientation@{GetCameraOrientation}!tumbler::ScriptingBridge@{tumbler::ScriptingBridge}}
+\subsubsection[{GetCameraOrientation}]{\setlength{\rightskip}{0pt plus 5cm}bool ScriptingBridge::GetCameraOrientation (const NPVariant $\ast$ {\em args}, \/  uint32\_\-t {\em arg\_\-count}, \/  NPVariant $\ast$ {\em result})}}
+\label{classtumbler_1_1_scripting_bridge_a95b4a3ee287861d23021bfae7b7c1b08}
+
+
+Definition at line 133 of file scripting\_\-bridge.cc.
+
+\hypertarget{classtumbler_1_1_scripting_bridge_afef889fc2ff5ccabefb713cf7ad5e056}{
+\index{tumbler::ScriptingBridge@{tumbler::ScriptingBridge}!GetProperty@{GetProperty}}
+\index{GetProperty@{GetProperty}!tumbler::ScriptingBridge@{tumbler::ScriptingBridge}}
+\subsubsection[{GetProperty}]{\setlength{\rightskip}{0pt plus 5cm}bool ScriptingBridge::GetProperty (NPIdentifier {\em name}, \/  NPVariant $\ast$ {\em result})\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classtumbler_1_1_scripting_bridge_afef889fc2ff5ccabefb713cf7ad5e056}
+
+
+Definition at line 84 of file scripting\_\-bridge.cc.
+
+\hypertarget{classtumbler_1_1_scripting_bridge_a1d614bb3696baef7c46332426ab7a0dc}{
+\index{tumbler::ScriptingBridge@{tumbler::ScriptingBridge}!HasMethod@{HasMethod}}
+\index{HasMethod@{HasMethod}!tumbler::ScriptingBridge@{tumbler::ScriptingBridge}}
+\subsubsection[{HasMethod}]{\setlength{\rightskip}{0pt plus 5cm}bool ScriptingBridge::HasMethod (NPIdentifier {\em name})\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classtumbler_1_1_scripting_bridge_a1d614bb3696baef7c46332426ab7a0dc}
+
+
+Definition at line 68 of file scripting\_\-bridge.cc.
+
+\hypertarget{classtumbler_1_1_scripting_bridge_aeed261c756896802f26632acfceba1d7}{
+\index{tumbler::ScriptingBridge@{tumbler::ScriptingBridge}!HasProperty@{HasProperty}}
+\index{HasProperty@{HasProperty}!tumbler::ScriptingBridge@{tumbler::ScriptingBridge}}
+\subsubsection[{HasProperty}]{\setlength{\rightskip}{0pt plus 5cm}bool ScriptingBridge::HasProperty (NPIdentifier {\em name})\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classtumbler_1_1_scripting_bridge_aeed261c756896802f26632acfceba1d7}
+
+
+Definition at line 76 of file scripting\_\-bridge.cc.
+
+\hypertarget{classtumbler_1_1_scripting_bridge_a05f2a65b751d12e6aeaa00bfd91ef83f}{
+\index{tumbler::ScriptingBridge@{tumbler::ScriptingBridge}!InitializeIdentifiers@{InitializeIdentifiers}}
+\index{InitializeIdentifiers@{InitializeIdentifiers}!tumbler::ScriptingBridge@{tumbler::ScriptingBridge}}
+\subsubsection[{InitializeIdentifiers}]{\setlength{\rightskip}{0pt plus 5cm}bool ScriptingBridge::InitializeIdentifiers ()\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{classtumbler_1_1_scripting_bridge_a05f2a65b751d12e6aeaa00bfd91ef83f}
+
+
+Definition at line 28 of file scripting\_\-bridge.cc.
+
+\hypertarget{classtumbler_1_1_scripting_bridge_af00ea5a26438b33f976734a3432dfa9b}{
+\index{tumbler::ScriptingBridge@{tumbler::ScriptingBridge}!Invalidate@{Invalidate}}
+\index{Invalidate@{Invalidate}!tumbler::ScriptingBridge@{tumbler::ScriptingBridge}}
+\subsubsection[{Invalidate}]{\setlength{\rightskip}{0pt plus 5cm}void ScriptingBridge::Invalidate ()\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classtumbler_1_1_scripting_bridge_af00ea5a26438b33f976734a3432dfa9b}
+
+
+Definition at line 129 of file scripting\_\-bridge.cc.
+
+\hypertarget{classtumbler_1_1_scripting_bridge_ad18d2af321b2cba1235876cf281295df}{
+\index{tumbler::ScriptingBridge@{tumbler::ScriptingBridge}!Invoke@{Invoke}}
+\index{Invoke@{Invoke}!tumbler::ScriptingBridge@{tumbler::ScriptingBridge}}
+\subsubsection[{Invoke}]{\setlength{\rightskip}{0pt plus 5cm}bool ScriptingBridge::Invoke (NPIdentifier {\em name}, \/  const NPVariant $\ast$ {\em args}, \/  uint32\_\-t {\em arg\_\-count}, \/  NPVariant $\ast$ {\em result})\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classtumbler_1_1_scripting_bridge_ad18d2af321b2cba1235876cf281295df}
+
+
+Definition at line 118 of file scripting\_\-bridge.cc.
+
+\hypertarget{classtumbler_1_1_scripting_bridge_a2cee828951db15b4cce1074e934c4f97}{
+\index{tumbler::ScriptingBridge@{tumbler::ScriptingBridge}!InvokeDefault@{InvokeDefault}}
+\index{InvokeDefault@{InvokeDefault}!tumbler::ScriptingBridge@{tumbler::ScriptingBridge}}
+\subsubsection[{InvokeDefault}]{\setlength{\rightskip}{0pt plus 5cm}bool ScriptingBridge::InvokeDefault (const NPVariant $\ast$ {\em args}, \/  uint32\_\-t {\em arg\_\-count}, \/  NPVariant $\ast$ {\em result})\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classtumbler_1_1_scripting_bridge_a2cee828951db15b4cce1074e934c4f97}
+
+
+Definition at line 110 of file scripting\_\-bridge.cc.
+
+\hypertarget{classtumbler_1_1_scripting_bridge_a861437163b8291eb7b302ce8f778022d}{
+\index{tumbler::ScriptingBridge@{tumbler::ScriptingBridge}!RemoveProperty@{RemoveProperty}}
+\index{RemoveProperty@{RemoveProperty}!tumbler::ScriptingBridge@{tumbler::ScriptingBridge}}
+\subsubsection[{RemoveProperty}]{\setlength{\rightskip}{0pt plus 5cm}bool ScriptingBridge::RemoveProperty (NPIdentifier {\em name})\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classtumbler_1_1_scripting_bridge_a861437163b8291eb7b302ce8f778022d}
+
+
+Definition at line 104 of file scripting\_\-bridge.cc.
+
+\hypertarget{classtumbler_1_1_scripting_bridge_a9e581cb6e3f5ee07dbd818f0ee3dbb4d}{
+\index{tumbler::ScriptingBridge@{tumbler::ScriptingBridge}!SetCameraOrientation@{SetCameraOrientation}}
+\index{SetCameraOrientation@{SetCameraOrientation}!tumbler::ScriptingBridge@{tumbler::ScriptingBridge}}
+\subsubsection[{SetCameraOrientation}]{\setlength{\rightskip}{0pt plus 5cm}bool ScriptingBridge::SetCameraOrientation (const NPVariant $\ast$ {\em args}, \/  uint32\_\-t {\em arg\_\-count}, \/  NPVariant $\ast$ {\em value})}}
+\label{classtumbler_1_1_scripting_bridge_a9e581cb6e3f5ee07dbd818f0ee3dbb4d}
+
+
+Definition at line 171 of file scripting\_\-bridge.cc.
+
+\hypertarget{classtumbler_1_1_scripting_bridge_ae73ff0ec0f70dfcd0e22534c8281f3e3}{
+\index{tumbler::ScriptingBridge@{tumbler::ScriptingBridge}!SetProperty@{SetProperty}}
+\index{SetProperty@{SetProperty}!tumbler::ScriptingBridge@{tumbler::ScriptingBridge}}
+\subsubsection[{SetProperty}]{\setlength{\rightskip}{0pt plus 5cm}bool ScriptingBridge::SetProperty (NPIdentifier {\em name}, \/  const NPVariant $\ast$ {\em value})\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classtumbler_1_1_scripting_bridge_ae73ff0ec0f70dfcd0e22534c8281f3e3}
+
+
+Definition at line 98 of file scripting\_\-bridge.cc.
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classtumbler_1_1_scripting_bridge_a4fcbbbaf7a6d91a2766066fa2cb2236b}{
+\index{tumbler::ScriptingBridge@{tumbler::ScriptingBridge}!np\_\-class@{np\_\-class}}
+\index{np\_\-class@{np\_\-class}!tumbler::ScriptingBridge@{tumbler::ScriptingBridge}}
+\subsubsection[{np\_\-class}]{\setlength{\rightskip}{0pt plus 5cm}NPClass {\bf ScriptingBridge::np\_\-class}\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{classtumbler_1_1_scripting_bridge_a4fcbbbaf7a6d91a2766066fa2cb2236b}
+{\bfseries Initial value:}
+\begin{DoxyCode}
+ {
+  NP_CLASS_STRUCT_VERSION,
+  tumbler::Allocate,
+  tumbler::Deallocate,
+  tumbler::Invalidate,
+  tumbler::HasMethod,
+  tumbler::Invoke,
+  tumbler::InvokeDefault,
+  tumbler::HasProperty,
+  tumbler::GetProperty,
+  tumbler::SetProperty,
+  tumbler::RemoveProperty
+}
+\end{DoxyCode}
+
+
+Definition at line 51 of file scripting\_\-bridge.h.
+
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+/home/derek/dev/crml/crml/lib/tumbler/\hyperlink{lib_2tumbler_2scripting__bridge_8h}{scripting\_\-bridge.h}\item 
+/home/derek/dev/crml/crml/lib/tumbler/\hyperlink{lib_2tumbler_2scripting__bridge_8cc}{scripting\_\-bridge.cc}\end{DoxyCompactItemize}

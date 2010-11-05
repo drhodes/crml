@@ -3,7 +3,11 @@
 // be found in the LICENSE file.
 
 #include "./scripting_bridge.h"
+#include <assert.h>
+#include <string.h>
 //#include "./pi_generator.h"
+
+extern NPDevice* NPN_AcquireDevice(NPP instance, NPDeviceID device);
 
 namespace bridge {
 
@@ -17,8 +21,65 @@ std::map<NPIdentifier, ScriptingBridge::Method>*
 std::map<NPIdentifier, ScriptingBridge::Property>*
     ScriptingBridge::property_table;
 
+NPObject* ScriptingBridge::GetScriptableObject() {
+  printf("++ NPObject* ScriptingBridge::GetScriptableObject() {\n");
+  if (scriptable_object_ == NULL) {
+    scriptable_object_ =
+        NPN_CreateObject(npp_, &ScriptingBridge::np_class);
+  }
+  if (scriptable_object_) {
+    NPN_RetainObject(scriptable_object_);
+  }
+  return scriptable_object_;
+}
+
+/// Describe this problem.
+/// AFter the 2D "drawing context" comment below
+/// the issue is that stuff needs to go back to pi_generator.cc
+/// but the question is what to call that function? If it's Set Window
+/// then maybe it's called from outside.
+
+/// Find out where SetWindow is being called from.  find a way to execute
+/// the last three lines.  A pure virtual function declared in ScriptingBridge
+/// maybe called 2DInit ?  It starts a thread,
+/// What is pi?  these questions and more to be answered after dinner.
+
+/// ALSO
+/// Move initializer lists from pi_generator.h?cc to scripting_bridge.cc
+/// some of them should be declared here because there's two copies of
+/// some properties.
+
+NPError ScriptingBridge::SetWindow(NPWindow* window) {
+  printf("++ NPError ScriptingBridge::SetWindow(NPWindow* window) {\n");
+  if (!window)
+    return NPERR_NO_ERROR;
+  if (!IsContextValid())
+    CreateContext();
+  if (!IsContextValid())
+    return NPERR_GENERIC_ERROR;
+  // Clear the 2D drawing context.
+  //pthread_create(&thread_, NULL, pi, this);
+  window_ = window;
+  // return Paint() ? NPERR_NO_ERROR : NPERR_GENERIC_ERROR;
+  return NPERR_NO_ERROR;
+}
+
+void ScriptingBridge::CreateContext() {
+  printf("++ void ScriptingBridge::CreateContext() {\n");
+  if (IsContextValid())
+    return;
+  device2d_ = NPN_AcquireDevice(npp_, NPPepper2DDevice);
+  assert(IsContextValid());
+  memset(&context2d_, 0, sizeof(context2d_));
+  NPDeviceContext2DConfig config;
+  NPError init_err = device2d_->initializeContext(npp_, &config, &context2d_);
+  assert(NPERR_NO_ERROR == init_err);
+}
+
+
 // Sets up method_table and property_table.
 bool ScriptingBridge::InitializeIdentifiers() {
+  printf("++ bool ScriptingBridge::InitializeIdentifiers() {\n");
   id_paint = NPN_GetStringIdentifier("paint");
 
   method_table =
@@ -29,10 +90,6 @@ bool ScriptingBridge::InitializeIdentifiers() {
   
   AddMethod("paint", &ScriptingBridge::Paint, id_paint);
   
-  //method_table->insert(
-  // std::pair<NPIdentifier, Method>(id_paint, &ScriptingBridge::Paint));
-  //  method_table[id_paint] = &ScriptingBridge::Paint;
-  
   property_table =
       new(std::nothrow) std::map<NPIdentifier, Property>;
   if (property_table == NULL) {
@@ -42,7 +99,13 @@ bool ScriptingBridge::InitializeIdentifiers() {
   return true;
 }
 
+
+/// Adds a method to the bridge, it will be visible to javascript.
+/// \param meth_name The name of the method to be exposed
+/// \param meth A function pointer to the function to be called and associated with the meth_name
+/// \return a bool to indicate success or failure
 bool ScriptingBridge::AddMethod(std::string meth_name, Method meth, NPIdentifier meth_id){
+  printf("++ bool ScriptingBridge::AddMethod(std::string meth_name, Method meth, NPIdentifier meth_id){\n");
   meth_id = NPN_GetStringIdentifier(meth_name.c_str());  
   method_table->insert(
       std::pair<NPIdentifier, Method>(meth_id, meth));
@@ -52,6 +115,7 @@ bool ScriptingBridge::AddMethod(std::string meth_name, Method meth, NPIdentifier
 
 
 ScriptingBridge::~ScriptingBridge() {
+  printf("++ ScriptingBridge::~ScriptingBridge() {\n");
 }
 
 /*
@@ -70,6 +134,7 @@ bool ScriptingBridge::Paint( const NPVariant* args,
 // Class-specific implementation of HasMethod, used by the C-style one
 // below.
 bool ScriptingBridge::HasMethod(NPIdentifier name) {
+  //printf("++ bool ScriptingBridge::HasMethod(NPIdentifier name) {\n");
   std::map<NPIdentifier, Method>::iterator i;
   i = method_table->find(name);
   return i != method_table->end();
@@ -78,6 +143,7 @@ bool ScriptingBridge::HasMethod(NPIdentifier name) {
 // Class-specific implementation of HasProperty, used by the C-style one
 // below.
 bool ScriptingBridge::HasProperty(NPIdentifier name) {
+  //printf("++ bool ScriptingBridge::HasProperty(NPIdentifier name) {\n");
   std::map<NPIdentifier, Property>::iterator i;
   i = property_table->find(name);
   return i != property_table->end();
@@ -86,6 +152,7 @@ bool ScriptingBridge::HasProperty(NPIdentifier name) {
 // Class-specific implementation of GetProperty, used by the C-style one
 // below.
 bool ScriptingBridge::GetProperty(NPIdentifier name, NPVariant *result) {
+  printf("++ bool ScriptingBridge::GetProperty(NPIdentifier name, NPVariant *result) {\n");
   VOID_TO_NPVARIANT(*result);
 
   std::map<NPIdentifier, Property>::iterator i;
@@ -99,12 +166,14 @@ bool ScriptingBridge::GetProperty(NPIdentifier name, NPVariant *result) {
 // Class-specific implementation of SetProperty, used by the C-style one
 // below.
 bool ScriptingBridge::SetProperty(NPIdentifier name, const NPVariant* value) {
+  printf("++ bool ScriptingBridge::SetProperty(NPIdentifier name, const NPVariant* value) {\n");
   return false;  // Not implemented.
 }
 
 // Class-specific implementation of RemoveProperty, used by the C-style one
 // below.
 bool ScriptingBridge::RemoveProperty(NPIdentifier name) {
+  printf("++ bool ScriptingBridge::RemoveProperty(NPIdentifier name) {\n");
   return false;  // Not implemented.
 }
 
@@ -113,6 +182,7 @@ bool ScriptingBridge::RemoveProperty(NPIdentifier name) {
 bool ScriptingBridge::InvokeDefault(const NPVariant* args,
                                     uint32_t arg_count,
                                     NPVariant* result) {
+  printf("++ bool ScriptingBridge::InvokeDefault(const NPVariant* args,\n");
   return false;  // Not implemented.
 }
 
@@ -121,6 +191,7 @@ bool ScriptingBridge::InvokeDefault(const NPVariant* args,
 bool ScriptingBridge::Invoke(NPIdentifier name,
                              const NPVariant* args, uint32_t arg_count,
                              NPVariant* result) {
+  //printf("++ bool ScriptingBridge::Invoke(NPIdentifier name,\n");
   std::map<NPIdentifier, Method>::iterator i;
   i = method_table->find(name);
   if (i != method_table->end()) {
@@ -132,6 +203,7 @@ bool ScriptingBridge::Invoke(NPIdentifier name,
 // Class-specific implementation of Invalidate, used by the C-style one
 // below.
 void ScriptingBridge::Invalidate() {
+  printf("++ void ScriptingBridge::Invalidate() {\n");
   // Not implemented.
 }
 
@@ -140,6 +212,7 @@ void ScriptingBridge::Invalidate() {
 // remaining instances of NPClass.
 // Documentation URL: https://developer.mozilla.org/en/NPClass
 void Invalidate(NPObject* object) {
+  printf("++ void Invalidate(NPObject* object) {\n");
   return static_cast<ScriptingBridge*>(object)->Invalidate();
 }
 
@@ -147,6 +220,7 @@ void Invalidate(NPObject* object) {
 // Called by NPN_HasMethod, declared in npruntime.h
 // Documentation URL: https://developer.mozilla.org/en/NPClass
 bool HasMethod(NPObject* object, NPIdentifier name) {
+  //printf("++ bool HasMethod(NPObject* object, NPIdentifier name) {\n");
   return static_cast<ScriptingBridge*>(object)->HasMethod(name);
 }
 
@@ -156,6 +230,7 @@ bool HasMethod(NPObject* object, NPIdentifier name) {
 bool Invoke(NPObject* object, NPIdentifier name,
             const NPVariant* args, uint32_t arg_count,
             NPVariant* result) {
+  //printf("++ bool Invoke(NPObject* object, NPIdentifier name,\n");
   return static_cast<ScriptingBridge*>(object)->Invoke(
       name, args, arg_count, result);
 }
@@ -166,8 +241,8 @@ bool Invoke(NPObject* object, NPIdentifier name,
 // tell the browser we don't have this method.
 // Called by NPN_InvokeDefault, declared in npruntime.h
 // Documentation URL: https://developer.mozilla.org/en/NPClass
-bool InvokeDefault(NPObject* object, const NPVariant* args, uint32_t arg_count,
-                   NPVariant* result) {
+bool InvokeDefault(NPObject* object, const NPVariant* args, uint32_t arg_count, NPVariant* result) {
+  printf("++ bool InvokeDefault(NPObject* object, const NPVariant* args, uint32_t arg_count, NPVariant* result) {\n");
   return static_cast<ScriptingBridge*>(object)->InvokeDefault(
       args, arg_count, result);
 }
@@ -177,6 +252,7 @@ bool InvokeDefault(NPObject* object, const NPVariant* args, uint32_t arg_count,
 // Called by NPN_HasProperty, declared in npruntime.h
 // Documentation URL: https://developer.mozilla.org/en/NPClass
 bool HasProperty(NPObject* object, NPIdentifier name) {
+  //printf("++ bool HasProperty(NPObject* object, NPIdentifier name) {\n");
   return static_cast<ScriptingBridge*>(object)->HasProperty(name);
 }
 
@@ -186,6 +262,7 @@ bool HasProperty(NPObject* object, NPIdentifier name) {
 // Called by NPN_GetProperty, declared in npruntime.h
 // Documentation URL: https://developer.mozilla.org/en/NPClass
 bool GetProperty(NPObject* object, NPIdentifier name, NPVariant* result) {
+  printf("++ bool GetProperty(NPObject* object, NPIdentifier name, NPVariant* result) {\n");
   return static_cast<ScriptingBridge*>(object)->GetProperty(name, result);
 }
 
@@ -195,6 +272,7 @@ bool GetProperty(NPObject* object, NPIdentifier name, NPVariant* result) {
 // Called by NPN_SetProperty, declared in npruntime.h
 // Documentation URL: https://developer.mozilla.org/en/NPClass
 bool SetProperty(NPObject* object, NPIdentifier name, const NPVariant* value) {
+  printf("++ bool SetProperty(NPObject* object, NPIdentifier name, const NPVariant* value) {\n");
   return static_cast<ScriptingBridge*>(object)->SetProperty(name, value);
 }
 
@@ -203,6 +281,7 @@ bool SetProperty(NPObject* object, NPIdentifier name, const NPVariant* value) {
 // Called by NPN_RemoveProperty, declared in npruntime.h
 // Documentation URL: https://developer.mozilla.org/en/NPClass
 bool RemoveProperty(NPObject* object, NPIdentifier name) {
+  printf("++ bool RemoveProperty(NPObject* object, NPIdentifier name) {\n");
   return static_cast<ScriptingBridge*>(object)->RemoveProperty(name);
 }
 
@@ -210,6 +289,7 @@ bool RemoveProperty(NPObject* object, NPIdentifier name) {
 // Called by NPN_CreateObject, declared in npruntime.h
 // Documentation URL: https://developer.mozilla.org/en/NPClass
 NPObject* Allocate(NPP npp, NPClass* npclass) {
+  printf("++ NPObject* Allocate(NPP npp, NPClass* npclass) {\n");
   return new ScriptingBridge(npp);
 }
 
@@ -217,15 +297,19 @@ NPObject* Allocate(NPP npp, NPClass* npclass) {
 // Called by NPN_ReleaseObject, declared in npruntime.h
 // Documentation URL: https://developer.mozilla.org/en/NPClass
 void Deallocate(NPObject* object) {
+  printf("++ void Deallocate(NPObject* object) {\n");
   delete static_cast<ScriptingBridge*>(object);
 }
 
-}  // namespace pi_generator
+}  // namespace bridge
+
+
 
 // Represents a class's interface, so that the browser knows what functions it
 // can call on this plugin object.  The browser can use the methods in this
 // class to discover the rest of the plugin's interface.
 // Documentation URL: https://developer.mozilla.org/en/NPClass
+
 NPClass bridge::ScriptingBridge::np_class = {
   NP_CLASS_STRUCT_VERSION,
   bridge::Allocate,
@@ -239,3 +323,4 @@ NPClass bridge::ScriptingBridge::np_class = {
   bridge::SetProperty,
   bridge::RemoveProperty
 };
+

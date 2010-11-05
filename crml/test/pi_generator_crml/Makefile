@@ -8,10 +8,10 @@
 
 .PHONY: all clean
 
-CCFILES =	npp_gate.cc	\
-			pi_generator.cc \
+CCFILES =	pi_generator.cc \
 			pi_generator_module.cc \
 
+#npp_gate.cc	\
 #npn_bridge.cc \
 #scripting_bridge.cc
 

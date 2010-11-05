@@ -1,0 +1,48 @@
+\hypertarget{crml__hello__world_2pi__generator_8cc}{
+\section{/home/derek/dev/crml/crml/test/crml\_\-hello\_\-world/pi\_\-generator.cc File Reference}
+\label{crml__hello__world_2pi__generator_8cc}\index{/home/derek/dev/crml/crml/test/crml\_\-hello\_\-world/pi\_\-generator.cc@{/home/derek/dev/crml/crml/test/crml\_\-hello\_\-world/pi\_\-generator.cc}}
+}
+{\ttfamily \#include \char`\"{}examples/pi\_\-generator/pi\_\-generator.h\char`\"{}}\par
+{\ttfamily \#include $<$assert.h$>$}\par
+{\ttfamily \#include $<$math.h$>$}\par
+{\ttfamily \#include $<$stdio.h$>$}\par
+{\ttfamily \#include $<$stdlib.h$>$}\par
+{\ttfamily \#include $<$string.h$>$}\par
+{\ttfamily \#include $<$nacl/nacl\_\-imc.h$>$}\par
+{\ttfamily \#include $<$nacl/nacl\_\-npapi.h$>$}\par
+{\ttfamily \#include $<$nacl/npapi\_\-extensions.h$>$}\par
+{\ttfamily \#include $<$nacl/npruntime.h$>$}\par
+{\ttfamily \#include \char`\"{}examples/pi\_\-generator/scripting\_\-bridge.h\char`\"{}}\par
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \hyperlink{namespacepi__generator}{pi\_\-generator}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+NPDevice $\ast$ \hyperlink{crml__hello__world_2pi__generator_8cc_af6ca8d586b1bc4be36e2a870354c019b}{NPN\_\-AcquireDevice} (NPP instance, NPDeviceID device)
+\item 
+void \hyperlink{crml__hello__world_2pi__generator_8cc_a858fd4bec86251491336ccee9473e3a7}{FlushCallback} (NPP instance, NPDeviceContext $\ast$context, NPError err, void $\ast$user\_\-data)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{crml__hello__world_2pi__generator_8cc_a858fd4bec86251491336ccee9473e3a7}{
+\index{crml\_\-hello\_\-world/pi\_\-generator.cc@{crml\_\-hello\_\-world/pi\_\-generator.cc}!FlushCallback@{FlushCallback}}
+\index{FlushCallback@{FlushCallback}!crml_hello_world/pi_generator.cc@{crml\_\-hello\_\-world/pi\_\-generator.cc}}
+\subsubsection[{FlushCallback}]{\setlength{\rightskip}{0pt plus 5cm}void FlushCallback (NPP {\em instance}, \/  NPDeviceContext $\ast$ {\em context}, \/  NPError {\em err}, \/  void $\ast$ {\em user\_\-data})}}
+\label{crml__hello__world_2pi__generator_8cc_a858fd4bec86251491336ccee9473e3a7}
+
+
+Definition at line 26 of file pi\_\-generator.cc.
+
+\hypertarget{crml__hello__world_2pi__generator_8cc_af6ca8d586b1bc4be36e2a870354c019b}{
+\index{crml\_\-hello\_\-world/pi\_\-generator.cc@{crml\_\-hello\_\-world/pi\_\-generator.cc}!NPN\_\-AcquireDevice@{NPN\_\-AcquireDevice}}
+\index{NPN\_\-AcquireDevice@{NPN\_\-AcquireDevice}!crml_hello_world/pi_generator.cc@{crml\_\-hello\_\-world/pi\_\-generator.cc}}
+\subsubsection[{NPN\_\-AcquireDevice}]{\setlength{\rightskip}{0pt plus 5cm}NPDevice$\ast$ NPN\_\-AcquireDevice (NPP {\em instance}, \/  NPDeviceID {\em device})}}
+\label{crml__hello__world_2pi__generator_8cc_af6ca8d586b1bc4be36e2a870354c019b}
+
+
+Definition at line 31 of file npn\_\-bridge.cc.
+

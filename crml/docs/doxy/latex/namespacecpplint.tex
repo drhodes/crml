@@ -1,0 +1,369 @@
+\hypertarget{namespacecpplint}{
+\section{cpplint Namespace Reference}
+\label{namespacecpplint}\index{cpplint@{cpplint}}
+}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacecpplint_a9713059a1f275ecb548f18733306791d}{CloseExpression}
+\item 
+def \hyperlink{namespacecpplint_ac9cdecc582bc833c2eb7ac6eed6d2624}{CheckForCopyright}
+\item 
+def \hyperlink{namespacecpplint_a8eedb7313093d59b41bd7c5b19c2ddaf}{GetHeaderGuardCPPVariable}
+\item 
+def \hyperlink{namespacecpplint_a6ecd551d11dde0a916ef4a6317b70585}{CheckForHeaderGuard}
+\item 
+def \hyperlink{namespacecpplint_a04dd8f7483533a2ec7df687c180e9d22}{CheckForUnicodeReplacementCharacters}
+\item 
+def \hyperlink{namespacecpplint_a84408591ac7ff7e427560a252360070b}{CheckForNewlineAtEOF}
+\item 
+def \hyperlink{namespacecpplint_ae319b3dce42ad005bcddfd3d4df9656d}{CheckForMultilineCommentsAndStrings}
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+string \hyperlink{namespacecpplint_afefe1ab8eeab7350e1a7d96d41c86fb8}{\_\-USAGE}
+\item 
+list \hyperlink{namespacecpplint_a7a498bc09903cee9029cccc023641ede}{\_\-ERROR\_\-CATEGORIES}
+\item 
+list \hyperlink{namespacecpplint_a40307223380a2e065996f7113e2f8f4c}{\_\-DEFAULT\_\-FILTERS} = \mbox{[} '-\/build/include\_\-alpha' \mbox{]}
+\item 
+tuple \hyperlink{namespacecpplint_a76f8ec9e9e1ea46197f611bd5a995962}{\_\-STL\_\-HEADERS}
+\item 
+tuple \hyperlink{namespacecpplint_a8b16f3827d7722217dd3a2f50f24087d}{\_\-CPP\_\-HEADERS}
+\item 
+list \hyperlink{namespacecpplint_aab5915e25e8ef5ed9d9c223a5183d6bc}{\_\-CHECK\_\-MACROS}
+\item 
+tuple \hyperlink{namespacecpplint_ad966b15edc61d0e0fa98cf4ce1a0135a}{\_\-CHECK\_\-REPLACEMENT} = dict(\mbox{[}(m, \{\}) for m in \hyperlink{namespacecpplint_aab5915e25e8ef5ed9d9c223a5183d6bc}{\_\-CHECK\_\-MACROS}\mbox{]})
+\item 
+int \hyperlink{namespacecpplint_a6703b407df0f07ff6162c225070ddc9e}{\_\-C\_\-SYS\_\-HEADER} = 1
+\item 
+int \hyperlink{namespacecpplint_a89c3b71932122fc90afd2f47c07574f4}{\_\-CPP\_\-SYS\_\-HEADER} = 2
+\item 
+int \hyperlink{namespacecpplint_a5d6aba92ab2575ff645a1aacad5b5216}{\_\-LIKELY\_\-MY\_\-HEADER} = 3
+\item 
+int \hyperlink{namespacecpplint_a40cf12907322271bf94416a9fe602d96}{\_\-POSSIBLE\_\-MY\_\-HEADER} = 4
+\item 
+int \hyperlink{namespacecpplint_ace812856f1cd6c6b4375ab5c92294323}{\_\-OTHER\_\-HEADER} = 5
+\item 
+dictionary \hyperlink{namespacecpplint_a3eea0656ee957fff7d4511579c92d250}{\_\-regexp\_\-compile\_\-cache} = \{\}
+\item 
+tuple \hyperlink{namespacecpplint_af6a02614cf018ab890ede0b3a936ba6e}{\_\-RE\_\-SUPPRESSION} = re.compile(r'$\backslash$bNOLINT$\backslash$b($\backslash$(\mbox{[}$^\wedge$)\mbox{]}$\ast$$\backslash$))
+\item 
+tuple \hyperlink{namespacecpplint_a8559d5bdf881337b323a7253a71a5fed}{elided} = \_\-RE\_\-PATTERN\_\-CLEANSE\_\-LINE\_\-ESCAPES.sub('', \hyperlink{namespacecpplint_a8559d5bdf881337b323a7253a71a5fed}{elided})
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{namespacecpplint_ac9cdecc582bc833c2eb7ac6eed6d2624}{
+\index{cpplint@{cpplint}!CheckForCopyright@{CheckForCopyright}}
+\index{CheckForCopyright@{CheckForCopyright}!cpplint@{cpplint}}
+\subsubsection[{CheckForCopyright}]{\setlength{\rightskip}{0pt plus 5cm}def cpplint::CheckForCopyright ( {\em filename}, \/   {\em lines}, \/   {\em error})}}
+\label{namespacecpplint_ac9cdecc582bc833c2eb7ac6eed6d2624}
+\begin{DoxyVerb}Logs an error if no Copyright message appears at the top of the file.\end{DoxyVerb}
+ 
+
+Definition at line 1005 of file cpplint.py.
+
+\hypertarget{namespacecpplint_a6ecd551d11dde0a916ef4a6317b70585}{
+\index{cpplint@{cpplint}!CheckForHeaderGuard@{CheckForHeaderGuard}}
+\index{CheckForHeaderGuard@{CheckForHeaderGuard}!cpplint@{cpplint}}
+\subsubsection[{CheckForHeaderGuard}]{\setlength{\rightskip}{0pt plus 5cm}def cpplint::CheckForHeaderGuard ( {\em filename}, \/   {\em lines}, \/   {\em error})}}
+\label{namespacecpplint_a6ecd551d11dde0a916ef4a6317b70585}
+\begin{DoxyVerb}Checks that the file contains a header guard.
+
+Logs an error if no #ifndef header guard is present.  For other
+headers, checks that the full pathname is used.
+
+Args:
+  filename: The name of the C++ header file.
+  lines: An array of strings, each representing a line of the file.
+  error: The function to call with any errors found.
+\end{DoxyVerb}
+ 
+
+Definition at line 1038 of file cpplint.py.
+
+\hypertarget{namespacecpplint_ae319b3dce42ad005bcddfd3d4df9656d}{
+\index{cpplint@{cpplint}!CheckForMultilineCommentsAndStrings@{CheckForMultilineCommentsAndStrings}}
+\index{CheckForMultilineCommentsAndStrings@{CheckForMultilineCommentsAndStrings}!cpplint@{cpplint}}
+\subsubsection[{CheckForMultilineCommentsAndStrings}]{\setlength{\rightskip}{0pt plus 5cm}def cpplint::CheckForMultilineCommentsAndStrings ( {\em filename}, \/   {\em clean\_\-lines}, \/   {\em linenum}, \/   {\em error})}}
+\label{namespacecpplint_ae319b3dce42ad005bcddfd3d4df9656d}
+\begin{DoxyVerb}Logs an error if we see /* ... */ or "..." that extend past one line.
+
+/* ... */ comments are legit inside macros, for one line.
+Otherwise, we prefer // comments, so it's ok to warn about the
+other.  Likewise, it's ok for strings to extend across multiple
+lines, as long as a line continuation character (backslash)
+terminates each line. Although not currently prohibited by the C++
+style guide, it's ugly and unnecessary. We don't do well with either
+in this lint program, so we warn about both.
+
+Args:
+  filename: The name of the current file.
+  clean_lines: A CleansedLines instance containing the file.
+  linenum: The number of the line to check.
+  error: The function to call with any errors found.
+\end{DoxyVerb}
+ 
+
+Definition at line 1138 of file cpplint.py.
+
+\hypertarget{namespacecpplint_a84408591ac7ff7e427560a252360070b}{
+\index{cpplint@{cpplint}!CheckForNewlineAtEOF@{CheckForNewlineAtEOF}}
+\index{CheckForNewlineAtEOF@{CheckForNewlineAtEOF}!cpplint@{cpplint}}
+\subsubsection[{CheckForNewlineAtEOF}]{\setlength{\rightskip}{0pt plus 5cm}def cpplint::CheckForNewlineAtEOF ( {\em filename}, \/   {\em lines}, \/   {\em error})}}
+\label{namespacecpplint_a84408591ac7ff7e427560a252360070b}
+\begin{DoxyVerb}Logs an error if there is no newline char at the end of the file.
+
+Args:
+  filename: The name of the current file.
+  lines: An array of strings, each representing a line of the file.
+  error: The function to call with any errors found.
+\end{DoxyVerb}
+ 
+
+Definition at line 1120 of file cpplint.py.
+
+\hypertarget{namespacecpplint_a04dd8f7483533a2ec7df687c180e9d22}{
+\index{cpplint@{cpplint}!CheckForUnicodeReplacementCharacters@{CheckForUnicodeReplacementCharacters}}
+\index{CheckForUnicodeReplacementCharacters@{CheckForUnicodeReplacementCharacters}!cpplint@{cpplint}}
+\subsubsection[{CheckForUnicodeReplacementCharacters}]{\setlength{\rightskip}{0pt plus 5cm}def cpplint::CheckForUnicodeReplacementCharacters ( {\em filename}, \/   {\em lines}, \/   {\em error})}}
+\label{namespacecpplint_a04dd8f7483533a2ec7df687c180e9d22}
+\begin{DoxyVerb}Logs an error for each line containing Unicode replacement characters.
+
+These indicate that either the file contained invalid UTF-8 (likely)
+or Unicode replacement characters (which it shouldn't).  Note that
+it's possible for this to throw off line numbering if the invalid
+UTF-8 occurred adjacent to a newline.
+
+Args:
+  filename: The name of the current file.
+  lines: An array of strings, each representing a line of the file.
+  error: The function to call with any errors found.
+\end{DoxyVerb}
+ 
+
+Definition at line 1101 of file cpplint.py.
+
+\hypertarget{namespacecpplint_a9713059a1f275ecb548f18733306791d}{
+\index{cpplint@{cpplint}!CloseExpression@{CloseExpression}}
+\index{CloseExpression@{CloseExpression}!cpplint@{cpplint}}
+\subsubsection[{CloseExpression}]{\setlength{\rightskip}{0pt plus 5cm}def cpplint::CloseExpression ( {\em clean\_\-lines}, \/   {\em linenum}, \/   {\em pos})}}
+\label{namespacecpplint_a9713059a1f275ecb548f18733306791d}
+\begin{DoxyVerb}If input points to ( or { or [, finds the position that closes it.
+
+If lines[linenum][pos] points to a '(' or '{' or '[', finds the the
+linenum/pos that correspond to the closing of the expression.
+
+Args:
+  clean_lines: A CleansedLines instance containing the file.
+  linenum: The number of the line to check.
+  pos: A position on the line.
+
+Returns:
+  A tuple (line, linenum, pos) pointer *past* the closing brace, or
+  (line, len(lines), -1) if we never find a close.  Note we ignore
+  strings and comments when matching; and the line we return is the
+  'cleansed' line at linenum.
+\end{DoxyVerb}
+ 
+
+Definition at line 966 of file cpplint.py.
+
+\hypertarget{namespacecpplint_a8eedb7313093d59b41bd7c5b19c2ddaf}{
+\index{cpplint@{cpplint}!GetHeaderGuardCPPVariable@{GetHeaderGuardCPPVariable}}
+\index{GetHeaderGuardCPPVariable@{GetHeaderGuardCPPVariable}!cpplint@{cpplint}}
+\subsubsection[{GetHeaderGuardCPPVariable}]{\setlength{\rightskip}{0pt plus 5cm}def cpplint::GetHeaderGuardCPPVariable ( {\em filename})}}
+\label{namespacecpplint_a8eedb7313093d59b41bd7c5b19c2ddaf}
+\begin{DoxyVerb}Returns the CPP variable that should be used as a header guard.
+
+Args:
+  filename: The name of a C++ header file.
+
+Returns:
+  The CPP variable that should be used as a header guard in the
+  named file.
+
+\end{DoxyVerb}
+ 
+
+Definition at line 1018 of file cpplint.py.
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{namespacecpplint_a6703b407df0f07ff6162c225070ddc9e}{
+\index{cpplint@{cpplint}!\_\-C\_\-SYS\_\-HEADER@{\_\-C\_\-SYS\_\-HEADER}}
+\index{\_\-C\_\-SYS\_\-HEADER@{\_\-C\_\-SYS\_\-HEADER}!cpplint@{cpplint}}
+\subsubsection[{\_\-C\_\-SYS\_\-HEADER}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf cpplint::\_\-C\_\-SYS\_\-HEADER} = 1}}
+\label{namespacecpplint_a6703b407df0f07ff6162c225070ddc9e}
+
+
+Definition at line 283 of file cpplint.py.
+
+\hypertarget{namespacecpplint_aab5915e25e8ef5ed9d9c223a5183d6bc}{
+\index{cpplint@{cpplint}!\_\-CHECK\_\-MACROS@{\_\-CHECK\_\-MACROS}}
+\index{\_\-CHECK\_\-MACROS@{\_\-CHECK\_\-MACROS}!cpplint@{cpplint}}
+\subsubsection[{\_\-CHECK\_\-MACROS}]{\setlength{\rightskip}{0pt plus 5cm}list {\bf cpplint::\_\-CHECK\_\-MACROS}}}
+\label{namespacecpplint_aab5915e25e8ef5ed9d9c223a5183d6bc}
+{\bfseries Initial value:}
+\begin{DoxyCode}
+[
+    'DCHECK', 'CHECK',
+    'EXPECT_TRUE_M', 'EXPECT_TRUE',
+    'ASSERT_TRUE_M', 'ASSERT_TRUE',
+    'EXPECT_FALSE_M', 'EXPECT_FALSE',
+    'ASSERT_FALSE_M', 'ASSERT_FALSE',
+    ]
+\end{DoxyCode}
+
+
+Definition at line 251 of file cpplint.py.
+
+\hypertarget{namespacecpplint_ad966b15edc61d0e0fa98cf4ce1a0135a}{
+\index{cpplint@{cpplint}!\_\-CHECK\_\-REPLACEMENT@{\_\-CHECK\_\-REPLACEMENT}}
+\index{\_\-CHECK\_\-REPLACEMENT@{\_\-CHECK\_\-REPLACEMENT}!cpplint@{cpplint}}
+\subsubsection[{\_\-CHECK\_\-REPLACEMENT}]{\setlength{\rightskip}{0pt plus 5cm}tuple {\bf cpplint::\_\-CHECK\_\-REPLACEMENT} = dict(\mbox{[}(m, \{\}) for m in {\bf \_\-CHECK\_\-MACROS}\mbox{]})}}
+\label{namespacecpplint_ad966b15edc61d0e0fa98cf4ce1a0135a}
+
+
+Definition at line 260 of file cpplint.py.
+
+\hypertarget{namespacecpplint_a8b16f3827d7722217dd3a2f50f24087d}{
+\index{cpplint@{cpplint}!\_\-CPP\_\-HEADERS@{\_\-CPP\_\-HEADERS}}
+\index{\_\-CPP\_\-HEADERS@{\_\-CPP\_\-HEADERS}!cpplint@{cpplint}}
+\subsubsection[{\_\-CPP\_\-HEADERS}]{\setlength{\rightskip}{0pt plus 5cm}tuple {\bf cpplint::\_\-CPP\_\-HEADERS}}}
+\label{namespacecpplint_a8b16f3827d7722217dd3a2f50f24087d}
+{\bfseries Initial value:}
+\begin{DoxyCode}
+frozenset([
+    'algo.h', 'builtinbuf.h', 'bvector.h', 'cassert', 'cctype',
+    'cerrno', 'cfloat', 'ciso646', 'climits', 'clocale', 'cmath',
+    'complex', 'complex.h', 'csetjmp', 'csignal', 'cstdarg', 'cstddef',
+    'cstdio', 'cstdlib', 'cstring', 'ctime', 'cwchar', 'cwctype',
+    'defalloc.h', 'deque.h', 'editbuf.h', 'exception', 'fstream',
+    'fstream.h', 'hashtable.h', 'heap.h', 'indstream.h', 'iomanip',
+    'iomanip.h', 'ios', 'iosfwd', 'iostream', 'iostream.h', 'istream.h',
+    'iterator.h', 'limits', 'map.h', 'multimap.h', 'multiset.h',
+    'numeric', 'ostream.h', 'parsestream.h', 'pfstream.h', 'PlotFile.h',
+    'procbuf.h', 'pthread_alloc.h', 'rope', 'rope.h', 'ropeimpl.h',
+    'SFile.h', 'slist', 'slist.h', 'stack.h', 'stdexcept',
+    'stdiostream.h', 'streambuf.h', 'stream.h', 'strfile.h', 'string',
+    'strstream', 'strstream.h', 'tempbuf.h', 'tree.h', 'typeinfo', 'valarray',
+    ])
+\end{DoxyCode}
+
+
+Definition at line 231 of file cpplint.py.
+
+\hypertarget{namespacecpplint_a89c3b71932122fc90afd2f47c07574f4}{
+\index{cpplint@{cpplint}!\_\-CPP\_\-SYS\_\-HEADER@{\_\-CPP\_\-SYS\_\-HEADER}}
+\index{\_\-CPP\_\-SYS\_\-HEADER@{\_\-CPP\_\-SYS\_\-HEADER}!cpplint@{cpplint}}
+\subsubsection[{\_\-CPP\_\-SYS\_\-HEADER}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf cpplint::\_\-CPP\_\-SYS\_\-HEADER} = 2}}
+\label{namespacecpplint_a89c3b71932122fc90afd2f47c07574f4}
+
+
+Definition at line 284 of file cpplint.py.
+
+\hypertarget{namespacecpplint_a40307223380a2e065996f7113e2f8f4c}{
+\index{cpplint@{cpplint}!\_\-DEFAULT\_\-FILTERS@{\_\-DEFAULT\_\-FILTERS}}
+\index{\_\-DEFAULT\_\-FILTERS@{\_\-DEFAULT\_\-FILTERS}!cpplint@{cpplint}}
+\subsubsection[{\_\-DEFAULT\_\-FILTERS}]{\setlength{\rightskip}{0pt plus 5cm}list {\bf cpplint::\_\-DEFAULT\_\-FILTERS} = \mbox{[} '-\/build/include\_\-alpha' \mbox{]}}}
+\label{namespacecpplint_a40307223380a2e065996f7113e2f8f4c}
+
+
+Definition at line 213 of file cpplint.py.
+
+\hypertarget{namespacecpplint_a7a498bc09903cee9029cccc023641ede}{
+\index{cpplint@{cpplint}!\_\-ERROR\_\-CATEGORIES@{\_\-ERROR\_\-CATEGORIES}}
+\index{\_\-ERROR\_\-CATEGORIES@{\_\-ERROR\_\-CATEGORIES}!cpplint@{cpplint}}
+\subsubsection[{\_\-ERROR\_\-CATEGORIES}]{\setlength{\rightskip}{0pt plus 5cm}list {\bf cpplint::\_\-ERROR\_\-CATEGORIES}}}
+\label{namespacecpplint_a7a498bc09903cee9029cccc023641ede}
+
+
+Definition at line 149 of file cpplint.py.
+
+\hypertarget{namespacecpplint_a5d6aba92ab2575ff645a1aacad5b5216}{
+\index{cpplint@{cpplint}!\_\-LIKELY\_\-MY\_\-HEADER@{\_\-LIKELY\_\-MY\_\-HEADER}}
+\index{\_\-LIKELY\_\-MY\_\-HEADER@{\_\-LIKELY\_\-MY\_\-HEADER}!cpplint@{cpplint}}
+\subsubsection[{\_\-LIKELY\_\-MY\_\-HEADER}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf cpplint::\_\-LIKELY\_\-MY\_\-HEADER} = 3}}
+\label{namespacecpplint_a5d6aba92ab2575ff645a1aacad5b5216}
+
+
+Definition at line 285 of file cpplint.py.
+
+\hypertarget{namespacecpplint_ace812856f1cd6c6b4375ab5c92294323}{
+\index{cpplint@{cpplint}!\_\-OTHER\_\-HEADER@{\_\-OTHER\_\-HEADER}}
+\index{\_\-OTHER\_\-HEADER@{\_\-OTHER\_\-HEADER}!cpplint@{cpplint}}
+\subsubsection[{\_\-OTHER\_\-HEADER}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf cpplint::\_\-OTHER\_\-HEADER} = 5}}
+\label{namespacecpplint_ace812856f1cd6c6b4375ab5c92294323}
+
+
+Definition at line 287 of file cpplint.py.
+
+\hypertarget{namespacecpplint_a40cf12907322271bf94416a9fe602d96}{
+\index{cpplint@{cpplint}!\_\-POSSIBLE\_\-MY\_\-HEADER@{\_\-POSSIBLE\_\-MY\_\-HEADER}}
+\index{\_\-POSSIBLE\_\-MY\_\-HEADER@{\_\-POSSIBLE\_\-MY\_\-HEADER}!cpplint@{cpplint}}
+\subsubsection[{\_\-POSSIBLE\_\-MY\_\-HEADER}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf cpplint::\_\-POSSIBLE\_\-MY\_\-HEADER} = 4}}
+\label{namespacecpplint_a40cf12907322271bf94416a9fe602d96}
+
+
+Definition at line 286 of file cpplint.py.
+
+\hypertarget{namespacecpplint_af6a02614cf018ab890ede0b3a936ba6e}{
+\index{cpplint@{cpplint}!\_\-RE\_\-SUPPRESSION@{\_\-RE\_\-SUPPRESSION}}
+\index{\_\-RE\_\-SUPPRESSION@{\_\-RE\_\-SUPPRESSION}!cpplint@{cpplint}}
+\subsubsection[{\_\-RE\_\-SUPPRESSION}]{\setlength{\rightskip}{0pt plus 5cm}tuple {\bf cpplint::\_\-RE\_\-SUPPRESSION} = re.compile(r'$\backslash$bNOLINT$\backslash$b($\backslash$(\mbox{[}$^\wedge$)\mbox{]}$\ast$$\backslash$))}}
+\label{namespacecpplint_af6a02614cf018ab890ede0b3a936ba6e}
+
+
+Definition at line 293 of file cpplint.py.
+
+\hypertarget{namespacecpplint_a3eea0656ee957fff7d4511579c92d250}{
+\index{cpplint@{cpplint}!\_\-regexp\_\-compile\_\-cache@{\_\-regexp\_\-compile\_\-cache}}
+\index{\_\-regexp\_\-compile\_\-cache@{\_\-regexp\_\-compile\_\-cache}!cpplint@{cpplint}}
+\subsubsection[{\_\-regexp\_\-compile\_\-cache}]{\setlength{\rightskip}{0pt plus 5cm}dictionary {\bf cpplint::\_\-regexp\_\-compile\_\-cache} = \{\}}}
+\label{namespacecpplint_a3eea0656ee957fff7d4511579c92d250}
+
+
+Definition at line 290 of file cpplint.py.
+
+\hypertarget{namespacecpplint_a76f8ec9e9e1ea46197f611bd5a995962}{
+\index{cpplint@{cpplint}!\_\-STL\_\-HEADERS@{\_\-STL\_\-HEADERS}}
+\index{\_\-STL\_\-HEADERS@{\_\-STL\_\-HEADERS}!cpplint@{cpplint}}
+\subsubsection[{\_\-STL\_\-HEADERS}]{\setlength{\rightskip}{0pt plus 5cm}tuple {\bf cpplint::\_\-STL\_\-HEADERS}}}
+\label{namespacecpplint_a76f8ec9e9e1ea46197f611bd5a995962}
+{\bfseries Initial value:}
+\begin{DoxyCode}
+frozenset([
+    'algobase.h', 'algorithm', 'alloc.h', 'bitset', 'deque', 'exception',
+    'function.h', 'functional', 'hash_map', 'hash_map.h', 'hash_set',
+    'hash_set.h', 'iterator', 'list', 'list.h', 'map', 'memory', 'new',
+    'pair.h', 'pthread_alloc', 'queue', 'set', 'set.h', 'sstream', 'stack',
+    'stl_alloc.h', 'stl_relops.h', 'type_traits.h',
+    'utility', 'vector', 'vector.h',
+    ])
+\end{DoxyCode}
+
+
+Definition at line 220 of file cpplint.py.
+
+\hypertarget{namespacecpplint_afefe1ab8eeab7350e1a7d96d41c86fb8}{
+\index{cpplint@{cpplint}!\_\-USAGE@{\_\-USAGE}}
+\index{\_\-USAGE@{\_\-USAGE}!cpplint@{cpplint}}
+\subsubsection[{\_\-USAGE}]{\setlength{\rightskip}{0pt plus 5cm}string {\bf cpplint::\_\-USAGE}}}
+\label{namespacecpplint_afefe1ab8eeab7350e1a7d96d41c86fb8}
+
+
+Definition at line 93 of file cpplint.py.
+
+\hypertarget{namespacecpplint_a8559d5bdf881337b323a7253a71a5fed}{
+\index{cpplint@{cpplint}!elided@{elided}}
+\index{elided@{elided}!cpplint@{cpplint}}
+\subsubsection[{elided}]{\setlength{\rightskip}{0pt plus 5cm}tuple {\bf cpplint::elided} = \_\-RE\_\-PATTERN\_\-CLEANSE\_\-LINE\_\-ESCAPES.sub('', {\bf elided})}}
+\label{namespacecpplint_a8559d5bdf881337b323a7253a71a5fed}
+
+
+Definition at line 960 of file cpplint.py.
+

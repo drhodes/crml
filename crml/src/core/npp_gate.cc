@@ -9,9 +9,9 @@
 #include <nacl/npupp.h>
 #include <new>
 
-#include "pi_generator.h"
+#include "scripting_bridge.h"
 
-using bridge::PiGenerator;
+using bridge::ScriptingBridge;
 // This file implements functions that the plugin is expected to implement so
 // that the browser can all them.  All of them are required to be implemented
 // regardless of whether this is a trusted or untrusted build of the module.
@@ -27,7 +27,7 @@ NPError NPP_New(NPMIMEType mime_type,
                 char* argn[],
                 char* argv[],
                 NPSavedData* saved) {
-  
+  printf("++ NPError NPP_New(NPMIMEType mime_type,\n");  
   extern void InitializePepperExtensions(NPP instance);
   if (instance == NULL) {
     return NPERR_INVALID_INSTANCE_ERROR;
@@ -35,12 +35,12 @@ NPError NPP_New(NPMIMEType mime_type,
   
   InitializePepperExtensions(instance);
   
-  PiGenerator* pi_generator = new(std::nothrow) PiGenerator(instance);
-  if (pi_generator == NULL) {
+  ScriptingBridge* sb = new(std::nothrow) ScriptingBridge(instance);
+  if (sb == NULL) {
     return NPERR_OUT_OF_MEMORY_ERROR;
   }
   
-  instance->pdata = pi_generator;
+  instance->pdata = sb;
   return NPERR_NO_ERROR;
 }
 
@@ -52,13 +52,14 @@ NPError NPP_New(NPMIMEType mime_type,
 // Declaration: npapi.h
 // Documentation URL: https://developer.mozilla.org/en/NPP_Destroy
 NPError NPP_Destroy(NPP instance, NPSavedData** save) {
+  printf("++ NPError NPP_Destroy(NPP instance, NPSavedData** save) {\n");
   if (instance == NULL) {
     return NPERR_INVALID_INSTANCE_ERROR;
   }
 
-  PiGenerator* pi_generator = static_cast<PiGenerator*>(instance->pdata);
-  if (pi_generator != NULL) {
-    delete pi_generator;
+  ScriptingBridge* sb = static_cast<ScriptingBridge*>(instance->pdata);
+  if (sb != NULL) {
+    delete sb;
   }
   return NPERR_NO_ERROR;
 }
@@ -71,14 +72,15 @@ NPError NPP_Destroy(NPP instance, NPSavedData** save) {
 // Declaration: local
 // Documentation URL: N/A (not actually an NPAPI function)
 NPObject* NPP_GetScriptableInstance(NPP instance) {
+  printf("++ NPObject* NPP_GetScriptableInstance(NPP instance) {\n");
   if (instance == NULL) {
     return NULL;
   }
 
   NPObject* object = NULL;
-  PiGenerator* pi_generator = static_cast<PiGenerator*>(instance->pdata);
-  if (pi_generator) {
-    object = pi_generator->GetScriptableObject();
+  ScriptingBridge* sb = static_cast<ScriptingBridge*>(instance->pdata);
+  if (sb) {
+    object = sb->GetScriptableObject();
   }
   return object;
 }
@@ -87,6 +89,7 @@ NPObject* NPP_GetScriptableInstance(NPP instance) {
 // Declaration: npapi.h
 // Documentation URL: https://developer.mozilla.org/en/NPP_GetValue
 NPError NPP_GetValue(NPP instance, NPPVariable variable, void *value) {
+  printf("++ NPError NPP_GetValue(NPP instance, NPPVariable variable, void *value) {\n");
   if (NPPVpluginScriptableNPObject == variable) {
     NPObject* scriptable_object = NPP_GetScriptableInstance(instance);
     if (scriptable_object == NULL)
@@ -103,6 +106,16 @@ NPError NPP_GetValue(NPP instance, NPPVariable variable, void *value) {
 // Declaration: npapi.h
 // Documentation URL: https://developer.mozilla.org/en/NPP_HandleEvent
 int16_t NPP_HandleEvent(NPP instance, void* event) {
+  printf("++ int16_t NPP_HandleEvent(NPP instance, void* event) {\n");
+  if (instance == NULL) {
+    return NULL;
+  }
+  //NPObject* object = NULL;
+  ScriptingBridge* sb = static_cast<ScriptingBridge*>(instance->pdata);
+  if (sb) {
+    printf("== Handling Event in npp_gate.cc\n");
+  }
+
   return 0;
 }
 
@@ -111,6 +124,7 @@ int16_t NPP_HandleEvent(NPP instance, void* event) {
 // Declaration: npapi.h
 // Documentation URL: https://developer.mozilla.org/en/NPP_SetWindow
 NPError NPP_SetWindow(NPP instance, NPWindow* window) {
+  printf("++ NPError NPP_SetWindow(NPP instance, NPWindow* window) {\n");
   if (instance == NULL) {
     return NPERR_INVALID_INSTANCE_ERROR;
   }
@@ -119,12 +133,17 @@ NPError NPP_SetWindow(NPP instance, NPWindow* window) {
     return NPERR_GENERIC_ERROR;
   }
   
-  PiGenerator* pi_generator = static_cast<PiGenerator*>(instance->pdata);
-  if (pi_generator != NULL) {
-    return pi_generator->SetWindow(window);
+  ScriptingBridge* sb = static_cast<ScriptingBridge*>(instance->pdata);
+  if (sb != NULL) {
+    printf("-- ScriptingBridge is not null\n");
+    return sb->SetWindow(window);
   }
+  printf("!! ScriptingBridge is null\n");
   return NPERR_GENERIC_ERROR;
 }
+
+
+
 
 extern "C" {
 // When the browser calls NP_Initialize the plugin needs to return a list
@@ -132,6 +151,8 @@ extern "C" {
 // communicate with the plugin.  This function populates that list,
 // |plugin_funcs|, with pointers to the functions.
 NPError InitializePluginFunctions(NPPluginFuncs* plugin_funcs) {
+  printf("\n\n\n------------------------------------------------------\n");
+  printf("++ NPError InitializePluginFunctions(NPPluginFuncs* plugin_funcs) {\n");
   memset(plugin_funcs, 0, sizeof(*plugin_funcs));
   plugin_funcs->version = NPVERS_HAS_PLUGIN_THREAD_ASYNC_CALL;
   plugin_funcs->size = sizeof(*plugin_funcs);

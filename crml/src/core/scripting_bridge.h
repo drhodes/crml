@@ -8,6 +8,8 @@
 #include <map>
 #include <string>
 #include <nacl/nacl_npapi.h>
+#include <nacl/nacl_npapi.h>
+#include <nacl/npapi_extensions.h>
 
 namespace bridge {
   class ScriptingBridge : public NPObject {
@@ -18,13 +20,26 @@ namespace bridge {
 
     typedef bool (ScriptingBridge::*Property)( NPVariant* result);
     
-    explicit ScriptingBridge(NPP npp) : npp_(npp){};
+    explicit ScriptingBridge(NPP npp)
+        : npp_(npp),
+        scriptable_object_(NULL),
+        device2d_(NULL),
+        thread_(0),
+        window_(NULL)
+        {
+          InitializeIdentifiers();
+        }
+
     virtual ~ScriptingBridge();
 
+    NPObject* GetScriptableObject();     
+    NPError SetWindow(NPWindow* window);
+    
     // These methods represent the NPObject implementation.  The browser calls
     // these methods by calling functions in the |np_class| struct.
     virtual void Invalidate();
     bool AddMethod(std::string, Method, NPIdentifier);
+    void CreateContext();
     
     virtual bool HasMethod(NPIdentifier name);
     virtual bool Invoke(NPIdentifier name,
@@ -39,6 +54,10 @@ namespace bridge {
     virtual bool SetProperty(NPIdentifier name, const NPVariant* value);
     virtual bool RemoveProperty(NPIdentifier name);
 
+    /// 
+    ///
+    //virtual void DerivedSetup();
+    
     // static bool InitializeIdentifiers();
     bool InitializeIdentifiers();
 
@@ -56,11 +75,20 @@ namespace bridge {
     // Draws the quarter-circle image representing the stochasitc PI generator.
     bool Paint(const NPVariant* args, uint32_t arg_count, NPVariant* result);
 
+    bool IsContextValid() {
+      return device2d_ != NULL;
+    }
+    
    protected:
     NPP npp_;
     NPObject* window_object_;
-    //NPWindow* window_object_;    
+    NPObject* scriptable_object_;  // strong reference
+    NPDevice* device2d_;  // The PINPAPI 2D device.
+    pthread_t thread_;
 
+    NPWindow* window_;    
+    NPDeviceContext2D context2d_;  // The PINPAPI 2D drawing context.
+    
     static NPIdentifier id_paint;
     static std::map<NPIdentifier, Method>* method_table;
     static std::map<NPIdentifier, Property>* property_table;

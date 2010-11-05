@@ -1,0 +1,49 @@
+\hypertarget{src_2core_2scripting__bridge_8cc}{
+\section{/home/derek/dev/crml/crml/src/core/scripting\_\-bridge.cc File Reference}
+\label{src_2core_2scripting__bridge_8cc}\index{/home/derek/dev/crml/crml/src/core/scripting\_\-bridge.cc@{/home/derek/dev/crml/crml/src/core/scripting\_\-bridge.cc}}
+}
+{\ttfamily \#include \char`\"{}./scripting\_\-bridge.h\char`\"{}}\par
+{\ttfamily \#include $<$assert.h$>$}\par
+{\ttfamily \#include $<$string.h$>$}\par
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \hyperlink{namespacebridge}{bridge}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+NPDevice $\ast$ \hyperlink{src_2core_2scripting__bridge_8cc_af6ca8d586b1bc4be36e2a870354c019b}{NPN\_\-AcquireDevice} (NPP instance, NPDeviceID device)
+\item 
+void \hyperlink{namespacebridge_a5f416ee5de0e9e087f534db44feaae50}{bridge::Invalidate} (NPObject $\ast$object)
+\item 
+bool \hyperlink{namespacebridge_a7c2e2883ad7956550e796e9c302f52af}{bridge::HasMethod} (NPObject $\ast$object, NPIdentifier name)
+\item 
+bool \hyperlink{namespacebridge_a97317adbb62abc1208a12dc477848ae9}{bridge::Invoke} (NPObject $\ast$object, NPIdentifier name, const NPVariant $\ast$args, uint32\_\-t arg\_\-count, NPVariant $\ast$result)
+\item 
+bool \hyperlink{namespacebridge_abb680eea58acf1fbd1c8f90da763b6eb}{bridge::InvokeDefault} (NPObject $\ast$object, const NPVariant $\ast$args, uint32\_\-t arg\_\-count, NPVariant $\ast$result)
+\item 
+bool \hyperlink{namespacebridge_a1f13aed843891d4bb1f74a128c8a01a6}{bridge::HasProperty} (NPObject $\ast$object, NPIdentifier name)
+\item 
+bool \hyperlink{namespacebridge_a11a494eb8aee0e3358e49c0a07180cd5}{bridge::GetProperty} (NPObject $\ast$object, NPIdentifier name, NPVariant $\ast$result)
+\item 
+bool \hyperlink{namespacebridge_a3a8e9ff89a4e1fee4909b714d917d846}{bridge::SetProperty} (NPObject $\ast$object, NPIdentifier name, const NPVariant $\ast$value)
+\item 
+bool \hyperlink{namespacebridge_a1f8e83225badcdeba8cb594151ef4f7d}{bridge::RemoveProperty} (NPObject $\ast$object, NPIdentifier name)
+\item 
+NPObject $\ast$ \hyperlink{namespacebridge_ae58f18af3f934ea07927cad4684a2268}{bridge::Allocate} (NPP npp, NPClass $\ast$npclass)
+\item 
+void \hyperlink{namespacebridge_a86398e4bdb21e998ec4253665b85a921}{bridge::Deallocate} (NPObject $\ast$object)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{src_2core_2scripting__bridge_8cc_af6ca8d586b1bc4be36e2a870354c019b}{
+\index{src/core/scripting\_\-bridge.cc@{src/core/scripting\_\-bridge.cc}!NPN\_\-AcquireDevice@{NPN\_\-AcquireDevice}}
+\index{NPN\_\-AcquireDevice@{NPN\_\-AcquireDevice}!src/core/scripting_bridge.cc@{src/core/scripting\_\-bridge.cc}}
+\subsubsection[{NPN\_\-AcquireDevice}]{\setlength{\rightskip}{0pt plus 5cm}NPDevice$\ast$ NPN\_\-AcquireDevice (NPP {\em instance}, \/  NPDeviceID {\em device})}}
+\label{src_2core_2scripting__bridge_8cc_af6ca8d586b1bc4be36e2a870354c019b}
+
+
+Definition at line 31 of file npn\_\-bridge.cc.
+
