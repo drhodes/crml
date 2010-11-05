@@ -5,18 +5,21 @@
 #include <string>
 #include "./error_macro.cc"
 
-namespace scm {
+namespace crml {
   class Error {
    public:
     Error(ErrString es);
-    //virtual ~Error()=0;
     
-    // Are we in an OK state?
+    /// Are we in an OK state?
     virtual bool Ok()=0;
 
-    // What is the error?
-    ErrString Err();
+    /// How about creating a stack, and popping them all on err?
+    /// make a convenient function SetOk().
 
+    
+    /// \return the current error?
+    ErrString Err();
+    
     // set the err_ string
     void Err(ErrString es);
     void ReportErr();
@@ -31,5 +34,5 @@ namespace scm {
     std::string class_name_;   
   };
 
-}  // namespace scm
+}       // namespace crml
 #endif  // ERROR_H_                                      

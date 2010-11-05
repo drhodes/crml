@@ -4,7 +4,7 @@
 
 #include <string>
 
-namespace scm {
+namespace crml {
 
 typedef const std::string ErrString;
 
@@ -12,5 +12,5 @@ typedef const std::string ErrString;
 // const std::string ERROR_CODE = std::string("ERROR_CODE");
 #define ERR_(x) const std::string (x) = std::string(#x);
 
-}       // namespace scm
+}       // namespace crml
 #endif  // ERR_CC

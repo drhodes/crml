@@ -9,7 +9,7 @@
 #include "./error_macro.cc"
 #include "./error.h"
 
-namespace scm {
+namespace crml {
 Error::Error(ErrString es){
   err_ = es;
 }
@@ -20,7 +20,7 @@ ErrString Error::Err(){
 
 // set the err_ string
 // die trying if err_ is not Ok();
-void Error::Err(scm::ErrString es){
+void Error::Err(ErrString es){
   if (!Ok()) {
     printf("Setting the error string while in an error state!\n");
     ReportErr();
@@ -38,5 +38,5 @@ void Error::SetReportErr(ErrString es){
 }
 
 
-}       // namespace scm
+}       // namespace crml
 #endif  // ERROR_CC
