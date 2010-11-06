@@ -10,7 +10,7 @@
 #include <nacl/nacl_npapi.h>
 #include <nacl/npapi_extensions.h>
 
-namespace bridge {
+namespace crml {
   class ScriptingBridge : public NPObject {
    public:
     typedef bool (ScriptingBridge::*Method)(const NPVariant* args,

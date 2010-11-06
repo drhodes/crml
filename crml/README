@@ -4,7 +4,7 @@ CRML - Chrome Media Library
 A game library for google native client.
 
 Aims to target a very specific configuration of interop between
-javascript and NaCl, one where most everything happens in the binary.
+javascript and NaCl, one where most everything happens in the nexe.
 
 binary resources are encoded and passed to the nexe and stored in a
 moc filesystem, which is really just a map<string filename, string filebytes>

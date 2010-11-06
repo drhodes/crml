@@ -8,7 +8,7 @@
 
 extern NPDevice* NPN_AcquireDevice(NPP instance, NPDeviceID device);
 
-namespace bridge {
+namespace crml {
 
 NPIdentifier ScriptingBridge::id_paint;
 
@@ -295,17 +295,17 @@ void Deallocate(NPObject* object) {
 // class to discover the rest of the plugin's interface.
 // Documentation URL: https://developer.mozilla.org/en/NPClass
 
-NPClass bridge::ScriptingBridge::np_class = {
+NPClass crml::ScriptingBridge::np_class = {
   NP_CLASS_STRUCT_VERSION,
-  bridge::Allocate,
-  bridge::Deallocate,
-  bridge::Invalidate,
-  bridge::HasMethod,
-  bridge::Invoke,
-  bridge::InvokeDefault,
-  bridge::HasProperty,
-  bridge::GetProperty,
-  bridge::SetProperty,
-  bridge::RemoveProperty
+  crml::Allocate,
+  crml::Deallocate,
+  crml::Invalidate,
+  crml::HasMethod,
+  crml::Invoke,
+  crml::InvokeDefault,
+  crml::HasProperty,
+  crml::GetProperty,
+  crml::SetProperty,
+  crml::RemoveProperty
 };
 

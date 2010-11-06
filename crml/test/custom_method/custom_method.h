@@ -9,7 +9,7 @@
 #include <crml-core.h>
 #include <crml-win.h>
 
-namespace bridge {
+namespace crml {
   ERR_(PIGENERATOR_ON);
   
   class PiGenerator : public ScriptingBridge {
@@ -43,5 +43,5 @@ namespace bridge {
     double pi_;
   };
 
-}       // namespace bridge
+}       // namespace crml
 #endif  // CUSTOM_METHOD_H_

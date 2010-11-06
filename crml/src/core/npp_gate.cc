@@ -11,7 +11,7 @@
 
 #include "scripting_bridge.h"
 
-using bridge::ScriptingBridge;
+using crml::ScriptingBridge;
 // This file implements functions that the plugin is expected to implement so
 // that the browser can all them.  All of them are required to be implemented
 // regardless of whether this is a trusted or untrusted build of the module.

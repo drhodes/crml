@@ -6,7 +6,7 @@
 
 #include "./custom_method.h"
 
-using bridge::ScriptingBridge;
+using crml::ScriptingBridge;
 
 /// This is called by the brower when the 2D context has been flushed to the
 /// browser window.
@@ -14,7 +14,7 @@ void FlushCallback(NPP instance, NPDeviceContext* context,
                    NPError err, void* user_data) {
 }
 
-namespace bridge {
+namespace crml {
 /*
 PiGenerator::PiGenerator(NPP npp)    
     : ScriptingBridge(npp),     
@@ -34,14 +34,7 @@ PiGenerator::~PiGenerator() {
 }
 */
 
-bool PiGenerator::Paint() {
-  /*
-  crml::Display dsp;
-  if (!dsp.Ok()){
-    printf("Hey!-----------------------------------------------------------------------------\n");
-  }
-  */
-  
+bool PiGenerator::Paint() { 
   if (IsContextValid()) {    
     uint32_t* pixel_bits = static_cast<uint32_t*>(pixels());
 
@@ -82,4 +75,4 @@ void PiGenerator::DestroyContext() {
   device2d_->destroyContext(npp_, &context2d_);
 }
 */
-}  // namespace bridge
+}  // namespace crml
