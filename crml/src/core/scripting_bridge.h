@@ -8,7 +8,6 @@
 #include <map>
 #include <string>
 #include <nacl/nacl_npapi.h>
-#include <nacl/nacl_npapi.h>
 #include <nacl/npapi_extensions.h>
 
 namespace bridge {

@@ -1,6 +1,9 @@
 cd /home/derek/dev/crml/crml/test/pi_generator_crml
 make clean
 
+cd /home/derek/dev/crml/crml/test/custom_method
+make clean
+
 cd /home/derek/dev/crml/crml
 make clean
 

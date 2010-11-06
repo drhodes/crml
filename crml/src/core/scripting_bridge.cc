@@ -5,7 +5,6 @@
 #include "./scripting_bridge.h"
 #include <assert.h>
 #include <string.h>
-//#include "./pi_generator.h"
 
 extern NPDevice* NPN_AcquireDevice(NPP instance, NPDeviceID device);
 
@@ -109,7 +108,6 @@ bool ScriptingBridge::AddMethod(std::string meth_name, Method meth, NPIdentifier
   meth_id = NPN_GetStringIdentifier(meth_name.c_str());  
   method_table->insert(
       std::pair<NPIdentifier, Method>(meth_id, meth));
-  //  method_table[id_paint] = &ScriptingBridge::Paint; 
   return true;
 }
 
@@ -117,19 +115,6 @@ bool ScriptingBridge::AddMethod(std::string meth_name, Method meth, NPIdentifier
 ScriptingBridge::~ScriptingBridge() {
   printf("++ ScriptingBridge::~ScriptingBridge() {\n");
 }
-
-/*
-bool ScriptingBridge::Paint( const NPVariant* args,
-                             uint32_t arg_count,
-                             NPVariant* result) {
-  PiGenerator* pi_generator = static_cast<PiGenerator*>(npp_->pdata);
-  if (pi_generator) {
-    DOUBLE_TO_NPVARIANT(pi_generator->pi(), *result);
-    return pi_generator->Paint();
-  }
-  return false;
-}
-*/
 
 // Class-specific implementation of HasMethod, used by the C-style one
 // below.

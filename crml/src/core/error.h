@@ -13,14 +13,13 @@ namespace crml {
     /// Are we in an OK state?
     virtual bool Ok()=0;
 
-    /// How about creating a stack, and popping them all on err?
-    /// make a convenient function SetOk().
-
-    
-    /// \return the current error?
+    // How about creating a stack, and popping them all on err?
+    // make a convenient function SetOk().
+   
+    /// \return the current error
     ErrString Err();
     
-    // set the err_ string
+    /// set the err_ string
     void Err(ErrString es);
     void ReportErr();
     void SetReportErr(ErrString es);

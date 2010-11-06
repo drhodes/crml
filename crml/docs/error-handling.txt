@@ -1,0 +1,31 @@
+Following google's guidelines for C++, exceptions are not used.
+
+Dealing with error codes in C++ can be heinous.
+
+foo number_crunch(int bar, Error* err){ ... return bar; }
+                           ^^^^^^^^^^
+                           has nothing to do with number_crunch
+
+Error number_crunch(int* bar){ ... return err; }
+^^^^^
+has nothing to do with number_crunch.  And the value is
+"passed" by noodling with a pointer.  Further, we can't
+return multiple values.
+
+But luckily, class instances persist state.  Take advantage
+of that.
+
+Here's the idea:  Everything inherits from this Error class.
+
+  class Error {
+    ErrString Err();
+    void Err(ErrString es);
+    void ReportErr();
+    void SetReportErr(ErrString es);
+    ...
+   private:
+    std::string err_;
+    ...
+  };
+
+How about a stack for proper unwinding?
