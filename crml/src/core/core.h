@@ -28,10 +28,11 @@ namespace crml {
     explicit Core() : Error(CORE_OK) {
       ClassName("Core");      
     }    
-
+     
     ~Core();
     
     void CreateContext();
+    void Redraw();
     
     /// \return a context2D, be careful.
     NPDeviceContext2D GetContext2D();
