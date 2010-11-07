@@ -11,7 +11,6 @@
 
 #include "scripting_bridge.h"
 #include "core.h"
-//#include "error.h"
 
 using crml::ScriptingBridge;
 // This file implements functions that the plugin is expected to implement so
@@ -113,7 +112,7 @@ NPError NPP_GetValue(NPP instance, NPPVariable variable, void *value) {
 // ignored.
 // Declaration: npapi.h
 // Documentation URL: https://developer.mozilla.org/en/NPP_HandleEvent
-int16_t NPP_HandleEvent(NPP instance, void* event) {
+int16_t NPP_HandleEvent(NPP instance, void* event) { 
   printf("++ int16_t NPP_HandleEvent(NPP instance, void* event) {\n");
   if (instance == NULL) {
     return NULL;

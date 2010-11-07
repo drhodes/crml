@@ -7,7 +7,11 @@
 #include "../core/npn_bridge.cc"
 
 namespace crml {
-//extern NPDevice* NPN_AcquireDevice(NPP instance, NPDeviceID device);
+
+void FlushCallback(NPP instance, NPDeviceContext* context,
+                   NPError err, void* user_data) {
+}
+
 
 Display::~Display(){}
 
@@ -16,54 +20,43 @@ bool Display::Ok(){
   return Err() == DISPLAY_OK;
 }
 
-
-    /*
-    void Display::DestroyContext() {
-      if (!IsContextValid())
-        return;
-      device2d_->destroyContext(npp_, &context2d_);
-    */
-
-
-/*
-NPError Display::SetWindow(NPWindow* window) {
-  printf("++ NPError ScriptingBridge::SetWindow(NPWindow* window) {\n");
-  if (!window)
-    return NPERR_NO_ERROR;
-  if (!IsContextValid())
-    CreateContext();
-  if (!IsContextValid())
-    return NPERR_GENERIC_ERROR;
-  // Clear the 2D drawing context.
-  //pthread_create(&thread_, NULL, pi, this);
-  window_ = window;
-  // return Paint() ? NPERR_NO_ERROR : NPERR_GENERIC_ERROR;
-  return NPERR_NO_ERROR;
-}
-*/
-
-void Display::CreateContext() {
-  /*
-  ReportErr();
-  Core::device2d_ = NPN_AcquireDevice(Core::npp_, NPPepper2DDevice);
-  if (Core::device2d_ == 0) {
-    SetReportErr(DISPLAY_ACQUIRE_DEVICE_FAILED);
-    return;
-  } else { ReportErr(); }
- 
-  memset(&Core::context2d_, 0, sizeof(Core::context2d_));
-
-  NPDeviceContext2DConfig config;
-  NPError init_err = Core::device2d_->initializeContext(Core::npp_, &config, &Core::context2d_);
-
-  if (NPERR_NO_ERROR == init_err){
-    SetReportErr(DISPLAY_CREATE_CONTEXT_FAILED);
-    return;
+uint32_t* Display::Pixels(){  
+  uint32_t* pixel_bits = static_cast<uint32_t*>(Core::context2d_.region);
+  if (pixel_bits == 0) {
+    SetReportErr(DISPLAY_NULL_REGION);
+    return 0;
   }
-  */    
   Err(DISPLAY_OK);
+  return pixel_bits;
 }
 
+int Display::Height(){
+  if (Core::window_ == 0) {
+    SetReportErr(DISPLAY_NULL_WINDOW);
+    return -1;
+  }
+  Err(DISPLAY_OK);
+  return Core::window_->height;
+}
+
+int Display::Width(){
+  if (Core::window_ == 0) {
+    SetReportErr(DISPLAY_NULL_WINDOW);
+    return -1;
+  }
+  Err(DISPLAY_OK);
+  return Core::window_->width;
+}
+
+void Display::Redraw(){
+  NPDeviceFlushContextCallbackPtr callback =
+      reinterpret_cast<NPDeviceFlushContextCallbackPtr>(&FlushCallback);
+
+  Core::device2d_->flushContext(Core::npp_, &Core::context2d_, callback, NULL);
+}
+
+
+  
 
 }       // namespace crml
 #endif  // DISPLAY_CC

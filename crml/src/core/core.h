@@ -30,6 +30,7 @@ namespace crml {
     }    
      
     ~Core();
+    void CoreInit();
     
     void CreateContext();
     void Redraw();

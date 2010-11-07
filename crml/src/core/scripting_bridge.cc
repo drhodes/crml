@@ -102,6 +102,7 @@ bool ScriptingBridge::InitializeIdentifiers() {
   }
   
   AddMethod("paint", &ScriptingBridge::Paint);
+  //AddMethod("paint", &Core::CoreInit);
   
   property_table =
       new(std::nothrow) std::map<NPIdentifier, Property>;

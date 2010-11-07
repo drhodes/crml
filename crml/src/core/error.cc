@@ -35,16 +35,26 @@ void Error::Err(ErrString es){
 }
 
 /// \brief Report an error to stdout.
-void Error::ReportErr(){
-  printf("!! %s: Error > %s\n", class_name_.c_str(), err_.c_str());
+void Error::ReportErr(){  
+  if (!Ok())
+    printf("!! %s: Error > %s\n", class_name_.c_str(), err_.c_str());
+  else
+    printf("!! %s: -OK!-  > %s\n", class_name_.c_str(), err_.c_str());
 }
+
+
+void Error::Check(){
+  if (!Ok()) {
+    ReportErr();
+  }        
+}
+
 
 /// \brief Convenience function, set the error string and report it.
 void Error::SetReportErr(ErrString es){
   Err(es);
   ReportErr();  
 }
-
 
 }       // namespace crml
 #endif  // ERROR_CC

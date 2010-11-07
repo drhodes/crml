@@ -6,38 +6,40 @@
 
 #include "./custom_method.h"
 
-
 namespace crml {
 
-Core core;
+Display dsp;
 
-bool PiGenerator::Paint() {   
-  uint32_t* pixel_bits = static_cast<uint32_t*>(Core::context2d_.region);
-  printf("  if (IsContextValid()) {\n");
+void Noise() {
+  /// Grab an array of pixels.
+  uint32_t* pixel_bits = dsp.Pixels();  
+  dsp.Check();
   
-  if (pixel_bits == NULL){
-  }
-     
-  int count = 0;  
-  int max = (Core::window_->width * Core::window_->height) -1 ;  
-  while (1){
+  int num_pixels = dsp.Height() * dsp.Width();
+  dsp.Check();
+  
+  for (int count=0; count < num_pixels; count++){
     pixel_bits[count] = rand();
-    if (count > max)
-      break;
-    count += 1;
   }
+  
+  dsp.Redraw();
+}
 
-  core.Redraw();
+bool CrmlInit( const NPVariant* args, uint32_t arg_count, NPVariant* result) {
+  Noise();
   return true;
 }
 
-
-bool ScriptingBridge::Paint( const NPVariant* args, uint32_t arg_count, NPVariant* result) {  
+bool ScriptingBridge::Paint( const NPVariant* args, uint32_t arg_count, NPVariant* result) {
+  /*
   PiGenerator* pi_generator = static_cast<PiGenerator*>(Core::npp_->pdata);
   
   if (pi_generator) {
     pi_generator->Paint();
   }  
   return false;
+  */
+  Noise();
+  return true;
 } 
 }  // namespace crml

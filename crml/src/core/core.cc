@@ -4,8 +4,6 @@
 
 #include "core.h"
 
-
-
 namespace crml {
 
 NPDeviceContext2D Core::context2d_;
@@ -13,21 +11,23 @@ NPDevice* Core::device2d_ = 0;  // The PINPAPI 2D device.
 NPP Core::npp_ = 0;
 NPWindow* Core::window_ = 0;
 
+/*
 void FlushCallback(NPP instance, NPDeviceContext* context,
                    NPError err, void* user_data) {
 }
+*/
 
 Core::~Core(){}
 
 
-
+/*
 void Core::Redraw(){
   NPDeviceFlushContextCallbackPtr callback =
       reinterpret_cast<NPDeviceFlushContextCallbackPtr>(&FlushCallback);
 
   Core::device2d_->flushContext(Core::npp_, &Core::context2d_, callback, NULL);
 }
-
+*/
 
 
 /// Initialize an event system
