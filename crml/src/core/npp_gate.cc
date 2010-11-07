@@ -10,6 +10,8 @@
 #include <new>
 
 #include "scripting_bridge.h"
+#include "core.h"
+//#include "error.h"
 
 using crml::ScriptingBridge;
 // This file implements functions that the plugin is expected to implement so
@@ -27,6 +29,9 @@ NPError NPP_New(NPMIMEType mime_type,
                 char* argn[],
                 char* argv[],
                 NPSavedData* saved) {
+  // !!
+  crml::Error::DebugOn();
+  
   printf("++ NPError NPP_New(NPMIMEType mime_type,\n");  
   extern void InitializePepperExtensions(NPP instance);
   if (instance == NULL) {
@@ -36,11 +41,14 @@ NPError NPP_New(NPMIMEType mime_type,
   InitializePepperExtensions(instance);
   
   ScriptingBridge* sb = new(std::nothrow) ScriptingBridge(instance);
+  crml::Core::npp_ = instance;
+  
   if (sb == NULL) {
     return NPERR_OUT_OF_MEMORY_ERROR;
   }
-  
+
   instance->pdata = sb;
+  
   return NPERR_NO_ERROR;
 }
 
@@ -136,7 +144,8 @@ NPError NPP_SetWindow(NPP instance, NPWindow* window) {
   ScriptingBridge* sb = static_cast<ScriptingBridge*>(instance->pdata);
   if (sb != NULL) {
     printf("-- ScriptingBridge is not null\n");
-    return sb->SetWindow(window);
+    crml::Core::window_ = window;
+    return sb->SetWindow(window);  
   }
   printf("!! ScriptingBridge is null\n");
   return NPERR_GENERIC_ERROR;
@@ -154,6 +163,7 @@ NPError InitializePluginFunctions(NPPluginFuncs* plugin_funcs) {
   printf("\n\n\n------------------------------------------------------\n");
   printf("++ NPError InitializePluginFunctions(NPPluginFuncs* plugin_funcs) {\n");
   memset(plugin_funcs, 0, sizeof(*plugin_funcs));
+  
   plugin_funcs->version = NPVERS_HAS_PLUGIN_THREAD_ASYNC_CALL;
   plugin_funcs->size = sizeof(*plugin_funcs);
   plugin_funcs->newp = NPP_New;

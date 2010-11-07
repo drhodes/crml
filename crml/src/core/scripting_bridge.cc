@@ -5,12 +5,13 @@
 #include "./scripting_bridge.h"
 #include <assert.h>
 #include <string.h>
+#include "./core.h"
 
 extern NPDevice* NPN_AcquireDevice(NPP instance, NPDeviceID device);
 
 namespace crml {
 
-NPIdentifier ScriptingBridge::id_paint;
+//NPIdentifier ScriptingBridge::id_paint;
 
 // Method table for use by HasMethod and Invoke.
 std::map<NPIdentifier, ScriptingBridge::Method>*
@@ -50,28 +51,41 @@ NPObject* ScriptingBridge::GetScriptableObject() {
 
 NPError ScriptingBridge::SetWindow(NPWindow* window) {
   printf("++ NPError ScriptingBridge::SetWindow(NPWindow* window) {\n");
+  /*
   if (!window)
     return NPERR_NO_ERROR;
   if (!IsContextValid())
-    CreateContext();
+  */
+  CreateContext();
+  /*
   if (!IsContextValid())
     return NPERR_GENERIC_ERROR;
+  */
   // Clear the 2D drawing context.
   //pthread_create(&thread_, NULL, pi, this);
   window_ = window;
+  Core::window_ = window;  
   // return Paint() ? NPERR_NO_ERROR : NPERR_GENERIC_ERROR;
   return NPERR_NO_ERROR;
 }
 
 void ScriptingBridge::CreateContext() {
+  /*
   printf("++ void ScriptingBridge::CreateContext() {\n");
   if (IsContextValid())
     return;
-  device2d_ = NPN_AcquireDevice(npp_, NPPepper2DDevice);
-  assert(IsContextValid());
-  memset(&context2d_, 0, sizeof(context2d_));
+  */
+  Core::device2d_ = NPN_AcquireDevice(Core::npp_, NPPepper2DDevice);
+  
+  //assert(IsContextValid());
+  
+  printf("++ void ScriptingBridge::CreateContext() {\n");  
+  memset(&Core::context2d_, 0, sizeof(Core::context2d_));
+  printf("++ sizeof context2s is %d\n", sizeof(Core::context2d_));
+  printf("++ void ScriptingBridge::CreateContext() {\n");
+  
   NPDeviceContext2DConfig config;
-  NPError init_err = device2d_->initializeContext(npp_, &config, &context2d_);
+  NPError init_err = Core::device2d_->initializeContext(Core::npp_, &config, &Core::context2d_);
   assert(NPERR_NO_ERROR == init_err);
 }
 
@@ -79,7 +93,7 @@ void ScriptingBridge::CreateContext() {
 // Sets up method_table and property_table.
 bool ScriptingBridge::InitializeIdentifiers() {
   printf("++ bool ScriptingBridge::InitializeIdentifiers() {\n");
-  id_paint = NPN_GetStringIdentifier("paint");
+  //id_paint = NPN_GetStringIdentifier("paint");
 
   method_table =
       new(std::nothrow) std::map<NPIdentifier, Method>;
@@ -87,7 +101,7 @@ bool ScriptingBridge::InitializeIdentifiers() {
     return false;
   }
   
-  AddMethod("paint", &ScriptingBridge::Paint, id_paint);
+  AddMethod("paint", &ScriptingBridge::Paint);
   
   property_table =
       new(std::nothrow) std::map<NPIdentifier, Property>;
@@ -98,19 +112,17 @@ bool ScriptingBridge::InitializeIdentifiers() {
   return true;
 }
 
-
 /// Adds a method to the bridge, it will be visible to javascript.
 /// \param meth_name The name of the method to be exposed
 /// \param meth A function pointer to the function to be called and associated with the meth_name
 /// \return a bool to indicate success or failure
-bool ScriptingBridge::AddMethod(std::string meth_name, Method meth, NPIdentifier meth_id){
+bool ScriptingBridge::AddMethod(std::string meth_name, Method meth){
   printf("++ bool ScriptingBridge::AddMethod(std::string meth_name, Method meth, NPIdentifier meth_id){\n");
-  meth_id = NPN_GetStringIdentifier(meth_name.c_str());  
+  NPIdentifier meth_id = NPN_GetStringIdentifier(meth_name.c_str());  
   method_table->insert(
       std::pair<NPIdentifier, Method>(meth_id, meth));
   return true;
 }
-
 
 ScriptingBridge::~ScriptingBridge() {
   printf("++ ScriptingBridge::~ScriptingBridge() {\n");
@@ -162,7 +174,7 @@ bool ScriptingBridge::RemoveProperty(NPIdentifier name) {
   return false;  // Not implemented.
 }
 
-// Class-specific implementation of InvokeDefault, used by the C-style one
+// Class-specific implementation of IndicavokeDefault, used by the C-style one
 // below.
 bool ScriptingBridge::InvokeDefault(const NPVariant* args,
                                     uint32_t arg_count,
@@ -286,9 +298,7 @@ void Deallocate(NPObject* object) {
   delete static_cast<ScriptingBridge*>(object);
 }
 
-}  // namespace bridge
-
-
+}  // namespace crml
 
 // Represents a class's interface, so that the browser knows what functions it
 // can call on this plugin object.  The browser can use the methods in this

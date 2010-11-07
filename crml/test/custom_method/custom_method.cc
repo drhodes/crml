@@ -15,64 +15,49 @@ void FlushCallback(NPP instance, NPDeviceContext* context,
 }
 
 namespace crml {
-/*
-PiGenerator::PiGenerator(NPP npp)    
-    : ScriptingBridge(npp),     
-      quit_(false),
-      pi_(0.0) {
+bool PiGenerator::Paint() {
+  //if (IsContextValid()) {    
+  //uint32_t* pixel_bits = static_cast<uint32_t*>(pixels());
+  uint32_t* pixel_bits = static_cast<uint32_t*>(Core::context2d_.region);
+  printf("  if (IsContextValid()) {\n");
+
+  if (pixel_bits == NULL)
+    printf("PIXEL_BITS is null \n");
+  printf("PIXEL_BITS is not null \n");
+  
+  int count = 0;
+  
+  int max = Core::window_->width * Core::window_->height -1 ;
+  printf("%d\n", max);
+  printf("PIXEL_BITS is not null2 \n");
+  
+  while (1){
+    pixel_bits[count] = rand();
+    if (count > max)
+      break;
+    count += 1;
+  }
+
+
+
+  NPDeviceFlushContextCallbackPtr callback =
+      reinterpret_cast<NPDeviceFlushContextCallbackPtr>(&FlushCallback);
+
+  Core::device2d_->flushContext(Core::npp_, &Core::context2d_, callback, NULL);
+
+  //printf("device2d_->flushContext(npp_, &context2d_, callback, NULL);\n");
+  return true;
 }
 
-PiGenerator::~PiGenerator() {
-  quit_ = true;
-  if (thread_) {
-    pthread_join(thread_, NULL);
-  }
-  if (scriptable_object_) {
-    NPN_ReleaseObject(scriptable_object_);
-  }
-  DestroyContext();
-}
-*/
 
-bool PiGenerator::Paint() { 
-  if (IsContextValid()) {    
-    uint32_t* pixel_bits = static_cast<uint32_t*>(pixels());
-
-    printf("  if (IsContextValid()) {\n");
-    int count = 0;
-    int max = width() * height() -1 ;
-    while (1){
-      pixel_bits[count] = rand();
-      if (count > max)
-        break;
-      count += 1;
-    }
-
-    NPDeviceFlushContextCallbackPtr callback =
-        reinterpret_cast<NPDeviceFlushContextCallbackPtr>(&FlushCallback);
-    device2d_->flushContext(npp_, &context2d_, callback, NULL);
-    printf("device2d_->flushContext(npp_, &context2d_, callback, NULL);\n");
-    
-    return true;
-  }
-  return false;
-}
-
-bool ScriptingBridge::Paint( const NPVariant* args,
-                             uint32_t arg_count,
-                             NPVariant* result) {  
+bool ScriptingBridge::Paint( const NPVariant* args, uint32_t arg_count, NPVariant* result) {  
   printf("bool ScriptingBridge::Paint( const NPVariant* args,\n");
-  PiGenerator* pi_generator = static_cast<PiGenerator*>(npp_->pdata);
+  PiGenerator* pi_generator = static_cast<PiGenerator*>(Core::npp_->pdata);
+  printf("bool ScriptingBridge::Paint( const NPVariant* args,\n");
+  
   if (pi_generator) {
     pi_generator->Paint();
   }  
   return false;
 } 
-/*
-void PiGenerator::DestroyContext() {
-  if (!IsContextValid())
-    return;
-  device2d_->destroyContext(npp_, &context2d_);
-}
-*/
 }  // namespace crml

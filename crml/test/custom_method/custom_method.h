@@ -18,6 +18,8 @@ namespace crml {
     ~PiGenerator();
     
     bool Paint();
+    bool Paint1( const NPVariant* args, uint32_t arg_count, NPVariant* result);
+
     //void DerivedSetup();
     
     bool quit() const {

@@ -9,6 +9,8 @@
 #include "./error.h"
 
 namespace crml {
+bool Error::DEBUG = false;
+
 Error::Error(ErrString es){
   err_ = es;
 }
@@ -26,6 +28,9 @@ void Error::Err(ErrString es){
     printf("Setting the error string while in an error state!\n");
     ReportErr();
   }
+  if (DEBUG == true){
+    ReportErr();
+  }  
   err_ = es;
 }
 

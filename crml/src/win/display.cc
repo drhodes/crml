@@ -43,6 +43,7 @@ NPError Display::SetWindow(NPWindow* window) {
 */
 
 void Display::CreateContext() {
+  /*
   ReportErr();
   Core::device2d_ = NPN_AcquireDevice(Core::npp_, NPPepper2DDevice);
   if (Core::device2d_ == 0) {
@@ -59,7 +60,7 @@ void Display::CreateContext() {
     SetReportErr(DISPLAY_CREATE_CONTEXT_FAILED);
     return;
   }
-    
+  */    
   Err(DISPLAY_OK);
 }
 

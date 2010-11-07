@@ -8,6 +8,10 @@
 namespace crml {
   class Error {
    public:
+    static bool DEBUG;
+    static void DebugOn(){ DEBUG = true; }
+    static void DebugOff(){ DEBUG = false; }
+    
     Error(ErrString es);
     
     /// Are we in an OK state?

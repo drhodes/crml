@@ -20,10 +20,10 @@ namespace crml {
   //------------------------------------------------------------------
   class Core : public Error { 
    public:
-    static NPDeviceContext2D* context2d_;
+    static NPDeviceContext2D context2d_;
     static NPDevice* device2d_;  // The PINPAPI 2D device.
     static NPP npp_;
-
+    static NPWindow* window_;    
     
     explicit Core() : Error(CORE_OK) {
       ClassName("Core");      
