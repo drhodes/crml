@@ -4,3 +4,4 @@ ccc
 *nexe
 ./zap
 ./ccc
+./backup-with-rsync
