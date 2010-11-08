@@ -2,5 +2,5 @@
 *.o
 ccc
 *nexe
-./ccc
-./backup-with-rsync
+./ccc*
+./backup-with-rsync*

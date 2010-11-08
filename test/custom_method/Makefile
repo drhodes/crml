@@ -15,11 +15,12 @@ NACL_SDK_ROOT = ../..
 
 CFLAGS = -Wall -Wno-long-long -pthread -DXP_UNIX -Werror
 INCLUDES =	-I $(NACL_SDK_ROOT) \
-			-I $(NACL_SDK_ROOT)src/toolchain/linux_x86/nacl64/include \
+			-I $(NACL_SDK_ROOT)/src/toolchain/linux_x86/nacl64/include \
 			-I ../../include \
-			-I /home/derek/dev/crml/crml/src
+			-I ../../src 
+#-I /home/derek/dev/crml/crml/src
 
-LDFLAGS =	-L /home/derek/dev/crml/crml/build \
+LDFLAGS =	-L /home/derek/dev/crml/build \
 			-l google_nacl_imc \
 			-l google_nacl_npruntime \
 			-l pthread \
