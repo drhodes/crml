@@ -55,7 +55,6 @@ NPError NPAPI NP_GetEntryPoints(NPPluginFuncs* plugin_funcs) {
   return NPERR_NO_ERROR;
 }
 
-
 NPError NPP_New(NPMIMEType pluginType,
                 NPP instance,
                 uint16_t mode,

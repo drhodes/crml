@@ -28,6 +28,7 @@ namespace crml {
       ClassName("Core");
       self_ = 0;
     }    
+
     
     ~Core();
     void CoreInit();    

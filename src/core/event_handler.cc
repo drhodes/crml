@@ -9,6 +9,7 @@
 
 #include "nacl_macros.h"
 #include "plugin_object.h"
+#include "core.h"
 
 // Utility methods.
 std::string DoubleToString(double d) {
@@ -91,6 +92,8 @@ std::string EventHandler::EventName(double timestamp, int32_t type) {
 }
 
 int EventHandler::handle(void* event) {
+  crml::Core::self_->ReportErr();
+
   NPPepperEvent* npevent = reinterpret_cast<NPPepperEvent*>(event);
   std::string str = EventName(npevent->timeStampSeconds, npevent->type);
   switch (npevent->type) {
