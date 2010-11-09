@@ -4,11 +4,13 @@
 #define CORE_H_
 
 #include "error.h"
-#include <nacl/npapi_extensions.h>
-#include <nacl/nacl_npapi.h>
+//#include <nacl/npapi_extensions.h>
+//#include <nacl/nacl_npapi.h>
 #include <string.h>
 #include <assert.h>
 #include <stdlib.h>
+
+#include "./plugin_object.h"
 
 namespace crml { 
   /// error codestrings.
@@ -18,20 +20,17 @@ namespace crml {
   /// \brief The Core object which wires all subsystems
   /// and maintains an open channel with javascript.
   //------------------------------------------------------------------
-  class Core : public Error { 
+  class Core : public Error, PluginObject { 
    public:
-    static NPDeviceContext2D context2d_;
-    static NPDevice* device2d_;  // The PINPAPI 2D device.
-    static NPP npp_;
-    static NPWindow* window_;    
+    static Core* self_;
     
-    explicit Core() : Error(CORE_OK) {
-      ClassName("Core");      
+    explicit Core(NPP_t* npp) : Error(CORE_OK), PluginObject(npp) {
+      ClassName("Core");
+      self_ = 0;
     }    
-     
-    ~Core();
-    void CoreInit();
     
+    ~Core();
+    void CoreInit();    
     void CreateContext();
     void Redraw();
     
@@ -40,10 +39,7 @@ namespace crml {
 
     virtual bool Ok();  // Is the object in a OK state?
    private:    
-  };
-
-
-  
+  };  
 }       // namespace crml
 #endif  // CORE_H_
 

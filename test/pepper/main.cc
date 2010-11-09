@@ -1,48 +1,5 @@
-/*
- IMPORTANT:  This Apple software is supplied to you by Apple Computer, Inc.
- ("Apple") in consideration of your agreement to the following terms, and
- your use, installation, modification or redistribution of this Apple software
- constitutes acceptance of these terms.  If you do not agree with these terms,
- please do not use, install, modify or redistribute this Apple software.
-
- In consideration of your agreement to abide by the following terms, and
- subject to these terms, Apple grants you a personal, non-exclusive license,
- under Apple's copyrights in this original Apple software
- (the "Apple Software"), to use, reproduce, modify and redistribute the Apple
- Software, with or without modifications, in source and/or binary forms;
- provided that if you redistribute the Apple Software in its entirety and
- without modifications, you must retain this notice and the following text and
- disclaimers in all such redistributions of the Apple Software.  Neither the
- name, trademarks, service marks or logos of Apple Computer, Inc. may be used
- to endorse or promote products derived from the Apple Software without
- specific prior written permission from Apple. Except as expressly stated in
- this notice, no other rights or licenses, express or implied, are granted by
- Apple herein, including but not limited to any patent rights that may be
- infringed by your derivative works or by other works in which the Apple
- Software may be incorporated.
-
- The Apple Software is provided by Apple on an "AS IS" basis.  APPLE MAKES NO
- WARRANTIES, EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION THE IMPLIED
- WARRANTIES OF NON-INFRINGEMENT, MERCHANTABILITY AND FITNESS FOR A PARTICULAR
- PURPOSE, REGARDING THE APPLE SOFTWARE OR ITS USE AND OPERATION ALONE OR IN
- COMBINATION WITH YOUR PRODUCTS.
-
- IN NO EVENT SHALL APPLE BE LIABLE FOR ANY SPECIAL, INDIRECT, INCIDENTAL OR
- CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
- SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
- INTERRUPTION) ARISING IN ANY WAY OUT OF THE USE, REPRODUCTION, MODIFICATION
- AND/OR DISTRIBUTION OF THE APPLE SOFTWARE, HOWEVER CAUSED AND WHETHER UNDER
- THEORY OF CONTRACT, TORT (INCLUDING NEGLIGENCE), STRICT LIABILITY OR
- OTHERWISE, EVEN IF APPLE HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- */
-
-#include <stdlib.h>
-#include <stdio.h>
-#include <nacl/nacl_npapi.h>
-#include <pgl/pgl.h>
-
-#include "plugin_object.h"
-#include "event_handler.h"
+// include apple.copyright
+#include <crml-core.h>
 
 #ifdef WIN32
 #define NPAPI WINAPI
@@ -69,6 +26,7 @@ char* NP_GetMIMEDescription();
 
 NPError NPAPI NP_Initialize(NPNetscapeFuncs* browser_funcs,
                             NPPluginFuncs* plugin_funcs) {
+  printf("NPError NPAPI NP_Initialize(NPNetscapeFuncs* browser_funcs,\n");
   browser = browser_funcs;
   pglInitialize();
   return NP_GetEntryPoints(plugin_funcs);
@@ -77,6 +35,7 @@ NPError NPAPI NP_Initialize(NPNetscapeFuncs* browser_funcs,
 // Entrypoints -----------------------------------------------------------------
 
 NPError NPAPI NP_GetEntryPoints(NPPluginFuncs* plugin_funcs) {
+  printf("NPError NPAPI NP_GetEntryPoints(NPPluginFuncs* plugin_funcs) {\n");
   plugin_funcs->version = 11;
   plugin_funcs->size = sizeof(plugin_funcs);
   plugin_funcs->newp = NPP_New;
@@ -96,11 +55,13 @@ NPError NPAPI NP_GetEntryPoints(NPPluginFuncs* plugin_funcs) {
   return NPERR_NO_ERROR;
 }
 
+
 NPError NPP_New(NPMIMEType pluginType,
                 NPP instance,
                 uint16_t mode,
                 int16_t argc, char* argn[], char* argv[],
                 NPSavedData* saved) {
+  printf("NPError NPP_New(NPMIMEType pluginType,\n");
   if (browser->version >= 14) {
     PluginObject* obj = reinterpret_cast<PluginObject*>(
         browser->createobject(instance, PluginObject::GetPluginClass()));
@@ -113,15 +74,16 @@ NPError NPP_New(NPMIMEType pluginType,
 }
 
 NPError NPP_Destroy(NPP instance, NPSavedData** save) {
+  printf("NPError NPP_Destroy(NPP instance, NPSavedData** save) {\n");
   PluginObject* obj = static_cast<PluginObject*>(instance->pdata);
   if (obj)
-    NPN_ReleaseObject(obj->header());
-
+    NPN_ReleaseObject(obj->header());  
   fflush(stdout);
   return NPERR_NO_ERROR;
 }
 
 NPError NPP_SetWindow(NPP instance, NPWindow* window) {
+  printf("NPError NPP_SetWindow(NPP instance, NPWindow* window) {\n");
   PluginObject* obj = static_cast<PluginObject*>(instance->pdata);
   if (obj)
     obj->SetWindow(*window);
@@ -133,15 +95,18 @@ NPError NPP_NewStream(NPP instance,
                       NPStream* stream,
                       NPBool seekable,
                       uint16_t* stype) {
+  printf("NPError NPP_NewStream(NPP instance,\n");
   *stype = NP_ASFILEONLY;
   return NPERR_NO_ERROR;
 }
 
 NPError NPP_DestroyStream(NPP instance, NPStream* stream, NPReason reason) {
+  printf("NPError NPP_DestroyStream(NPP instance, NPStream* stream, NPReason reason) {\n");
   return NPERR_NO_ERROR;
 }
 
 void NPP_StreamAsFile(NPP instance, NPStream* stream, const char* fname) {
+  printf("void NPP_StreamAsFile(NPP instance, NPStream* stream, const char* fname) {\n");
 }
 
 int32_t NPP_Write(NPP instance,
@@ -149,17 +114,22 @@ int32_t NPP_Write(NPP instance,
                 int32_t offset,
                 int32_t len,
                 void* buffer) {
+  printf("int32_t NPP_Write(NPP instance,\n");
   return 0;
 }
 
 int32_t NPP_WriteReady(NPP instance, NPStream* stream) {
+  printf("int32_t NPP_WriteReady(NPP instance, NPStream* stream) {\n");
   return 0;
 }
 
 void NPP_Print(NPP instance, NPPrint* platformPrint) {
+  printf("void NPP_Print(NPP instance, NPPrint* platformPrint) {\n");
 }
 
 int16_t NPP_HandleEvent(NPP instance, void* event) {
+  printf("int16_t NPP_HandleEvent(NPP instance, void* event) {\n");  
+  crml::Core::self_->Check();
   return event_handler->handle(event);
 }
 
@@ -167,10 +137,12 @@ void NPP_URLNotify(NPP instance,
                    const char* url,
                    NPReason reason,
                    void* notify_data) {
+  printf("void NPP_URLNotify(NPP instance,\n");
   // PluginObject* obj = static_cast<PluginObject*>(instance->pdata);
 }
 
 NPError NPP_GetValue(NPP instance, NPPVariable variable, void* value) {
+  printf("NPError NPP_GetValue(NPP instance, NPPVariable variable, void* value) {\n");
   NPError err = NPERR_NO_ERROR;
 
   switch (variable) {
@@ -215,13 +187,16 @@ NPError NPP_GetValue(NPP instance, NPPVariable variable, void* value) {
 }
 
 NPError NPP_SetValue(NPP instance, NPNVariable variable, void* value) {
+  printf("NPError NPP_SetValue(NPP instance, NPNVariable variable, void* value) {\n");
   return NPERR_GENERIC_ERROR;
 }
 
 NPError NP_GetValue(void* instance, NPPVariable variable, void* value) {
+  printf("NPError NP_GetValue(void* instance, NPPVariable variable, void* value) {\n");
   return NPP_GetValue(reinterpret_cast<NPP>(instance), variable, value);
 }
 
 char* NP_GetMIMEDescription() {
+  printf("char* NP_GetMIMEDescription() {\n");
   return const_cast<char*>("pepper-application/x-pepper-test-plugin;");
 }

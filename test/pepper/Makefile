@@ -2,21 +2,13 @@
 # Use of this source code is governed by a BSD-style license that can
 # be found in the LICENSE file.
 
-# Makefile for the Life example.
-
-NACLPORTS_ROOT = /home/derek/dev/naclports/src
-NACL_SDK_ROOT = ~/dev/nacl_sdk
+NACLPORTS_ROOT	= ~/dev/naclports/src
+NACL_SDK_ROOT	= ~/dev/nacl_sdk
+CRML_ROOT		= ../../
 
 CCFILES =	main.cc \
-			event_handler.cc \
-			gles2_demo_cc.cc \
-			main.cc \
-			md5.cc \
-			plugin_object.cc \
-			test_object.cc
 
 OBJECTS_X86_32 = $(CCFILES:%.cc=%_x86_32.o)
-OBJECTS_X86_64 = $(CCFILES:%.cc=%_x86_64.o)
 
 CFLAGS =	-Wall \
 			-enable-static \
@@ -24,30 +16,29 @@ CFLAGS =	-Wall \
 			-pthread \
 			-DXP_UNIX # -Werror #-std=c++0
 
-INCLUDES =	-I$(NACLPORTS_ROOT) \
-			-I$(NACL_SDK_ROOT)
+INCLUDES =	-I $(NACL_SDK_ROOT) \
+			-I $(CRML_ROOT)/include
 
-LDFLAGS =	-lgoogle_nacl_imc \
-			-lgoogle_nacl_npruntime \
-			-lgoogle_nacl_pgl \
-			-lgoogle_nacl_gpu \
-			-lpthread \
-			-lsrpc
+LDFLAGS =	-L $(CRML_ROOT)/build \
+			-l crml-core \
+			-l google_nacl_imc \
+			-l google_nacl_npruntime \
+			-l google_nacl_pgl \
+			-l google_nacl_gpu \
+			-l pthread \
+			-l srpc \
 
 OPT_FLAGS = -O2
 
 # The check_variables target is in nacl_build.mk.
-all: check_variables pplugin_x86_32.nexe # life_x86_64.nexe
+all: check_variables pplugin_x86_32.nexe 
 
 # nacl_build.mk has rules to build .o files from .cc files.
+
 -include $(NACLPORTS_ROOT)/common_build_scripts/nacl_build.mk
 
 pplugin_x86_32.nexe: $(OBJECTS_X86_32)
 	$(CPP) $^ $(LDFLAGS) -m32 -o $@
 
-pplugin_x86_64.nexe: $(OBJECTS_X86_64)
-	$(CPP) $^ $(LDFLAGS) -m64 -o $@
-
 clean:
-	-$(RM) $(OBJECTS_X86_32) $(OBJECTS_X86_64) \
-		pplugin_x86_32.nexe pplugin_x86_64.nexe
+	-$(RM) $(OBJECTS_X86_32) pplugin_x86_32.nexe 
