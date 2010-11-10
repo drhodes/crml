@@ -4,57 +4,66 @@
 #define DISPLAY_CC
 
 #include "./display.h"
-#include "../core/npn_bridge.cc"
 
 namespace crml {
-
 void FlushCallback(NPP instance, NPDeviceContext* context,
                    NPError err, void* user_data) {
 }
 
-
 Display::~Display(){}
 
 /// Is the display OK?
-bool Display::Ok(){
+bool Display::Ok(){ 
   return Err() == DISPLAY_OK;
 }
 
-uint32_t* Display::Pixels(){  
-  uint32_t* pixel_bits = static_cast<uint32_t*>(Core::context2d_.region);
-  if (pixel_bits == 0) {
-    SetReportErr(DISPLAY_NULL_REGION);
-    return 0;
-  }
-  Err(DISPLAY_OK);
-  return pixel_bits;
+uint32_t* Display::Pixels(){
+    NPDeviceContext2DConfig config;
+    NPDeviceContext2D context;
+
+    NPDevice* device2d = Core::self_->Device2d();    
+    if (Core::self_->Ok()){    
+      NPError err = device2d->initializeContext(Core::self_->Npp(), &config, &context);
+      if (err != NPERR_NO_ERROR) {
+        printf("Failed to initialize 2D context\n");
+        exit(1);
+      }
+    }
+    
+    uint32_t* pixel_bits = static_cast<uint32_t*>(context.region);
+    if (pixel_bits == 0) {
+      SetReportErr(DISPLAY_NULL_REGION);
+      return 0;
+    }
+    
+    return pixel_bits;
 }
 
 int Display::Height(){
-  if (Core::window_ == 0) {
-    SetReportErr(DISPLAY_NULL_WINDOW);
-    return -1;
+  if (!Core::self_->Ok()) {     
+    Core::self_->ReportErr();
+    SetReportErr(DISPLAY_CANT_GET_HEIGHT);
+    return -1;        
   }
-  Err(DISPLAY_OK);
-  return Core::window_->height;
+  return Core::self_->Height();
 }
 
 int Display::Width(){
-  if (Core::window_ == 0) {
-    SetReportErr(DISPLAY_NULL_WINDOW);
-    return -1;
+  if (!Core::self_->Ok()) {     
+    Core::self_->ReportErr();
+    SetReportErr(DISPLAY_CANT_GET_WIDTH);
+    return -1;        
   }
-  Err(DISPLAY_OK);
-  return Core::window_->width;
+  return Core::self_->Width();
 }
 
+/*
 void Display::Redraw(){
   NPDeviceFlushContextCallbackPtr callback =
       reinterpret_cast<NPDeviceFlushContextCallbackPtr>(&FlushCallback);
-
   Core::device2d_->flushContext(Core::npp_, &Core::context2d_, callback, NULL);
 }
-
+*/
 
   
 

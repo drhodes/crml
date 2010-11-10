@@ -52,8 +52,8 @@ class PluginObject {
   void Initialize3D();
   void Destroy3D();
   void Draw3D();
-
- private:
+  
+ public: // <- Had to chance from private to public.  Don't want to inherit.
   bool InitializeCommandBuffer();
 
   NPObject header_;
@@ -76,7 +76,7 @@ class PluginObject {
 
   int width_;
   int height_;
-
+  
  private:
   PluginObject(const PluginObject&);
   void operator=(const PluginObject&);

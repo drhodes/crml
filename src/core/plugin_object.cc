@@ -118,23 +118,24 @@ bool TestGetProperty(PluginObject* obj,
 // Plugin class functions ------------------------------------------------------
 
 NPObject* PluginAllocate(NPP npp, NPClass* the_class) {
+  
   EnsureIdentifiersInitialized();
   PluginObject* newInstance = new PluginObject(npp);
-  printf("ASDFASDFASDFASDF\n");
-  crml::Core::self_ = new crml::Core(npp);
-  crml::Core::self_->ReportErr();
   return reinterpret_cast<NPObject*>(newInstance);
 }
 
 void PluginDeallocate(NPObject* header) {
+  
   PluginObject* plugin = reinterpret_cast<PluginObject*>(header);
   delete plugin;
 }
 
 void PluginInvalidate(NPObject* obj) {
+  
 }
 
 bool PluginHasMethod(NPObject* obj, NPIdentifier name) {
+  
   for (int i = 0; i < NUM_METHOD_IDENTIFIERS; i++) {
     if (name == plugin_method_identifiers[i])
       return true;
@@ -146,6 +147,7 @@ bool PluginInvoke(NPObject* header,
                   NPIdentifier name,
                   const NPVariant* args, uint32_t arg_count,
                   NPVariant* result) {
+  
   PluginObject* plugin = reinterpret_cast<PluginObject*>(header);
   if (name == plugin_method_identifiers[ID_TEST_GET_PROPERTY]) {
     return TestGetProperty(plugin, args, arg_count, result);
@@ -169,11 +171,13 @@ bool PluginInvoke(NPObject* header,
 bool PluginInvokeDefault(NPObject* obj,
                          const NPVariant* args, uint32_t arg_count,
                          NPVariant* result) {
+  
   INT32_TO_NPVARIANT(1, *result);
   return true;
 }
 
 bool PluginHasProperty(NPObject* obj, NPIdentifier name) {
+  
   for (int i = 0; i < NUM_PROPERTY_IDENTIFIERS; i++) {
     if (name == plugin_property_identifiers[i])
       return true;

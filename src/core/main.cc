@@ -1,18 +1,12 @@
 // include apple.copyright
-/*
 #include <stdlib.h>
 #include <stdio.h>
 #include <nacl/nacl_npapi.h>
 #include <pgl/pgl.h>
 
-#include "plugin_object.h"
-#include "event_handler.h"
-#include "core.h"
-*/
-
-#include <crml-core.h>
-//#include <crml-win.h>
-
+#include "./plugin_object.h"
+#include "./event_handler.h"
+#include "./core.h"
 
 #ifdef WIN32
 #define NPAPI WINAPI
@@ -78,7 +72,6 @@ NPError NPP_New(NPMIMEType pluginType,
     PluginObject* obj = reinterpret_cast<PluginObject*>(
         browser->createobject(instance, PluginObject::GetPluginClass()));
     instance->pdata = obj;
-    
     event_handler = new EventHandler(instance);
     obj->New(pluginType, argc, argn, argv);
   }
@@ -98,20 +91,8 @@ NPError NPP_Destroy(NPP instance, NPSavedData** save) {
 NPError NPP_SetWindow(NPP instance, NPWindow* window) {
   printf("NPError NPP_SetWindow(NPP instance, NPWindow* window) {\n");
   PluginObject* obj = static_cast<PluginObject*>(instance->pdata);
-  if (obj){
+  if (obj)
     obj->SetWindow(*window);
-
-    /*  Danger Will Robinson DANGER DANGER DANGER.
-        
-        This is really awful, but it works.
-     */
-    
-    crml::Core::self_->SetPlugin(obj);
-    crml::Core::self_->Check();
-    crml::Core::self_->ReportErr();
-    crml::Core::self_->__MainLoop__();
-  }
-  
   return NPERR_NO_ERROR;
 }
 
@@ -153,7 +134,8 @@ void NPP_Print(NPP instance, NPPrint* platformPrint) {
 }
 
 int16_t NPP_HandleEvent(NPP instance, void* event) {
-  printf("int16_t NPP_HandleEvent(NPP instance, void* event) {\n");  
+  printf("int16_t NPP_HandleEvent(NPP instance, void* event) {\n");
+  //if (crml::Core::self_)
   //crml::Core::self_->Check();
   return event_handler->handle(event);
 }
@@ -225,3 +207,4 @@ char* NP_GetMIMEDescription() {
   printf("char* NP_GetMIMEDescription() {\n");
   return const_cast<char*>("pepper-application/x-pepper-test-plugin;");
 }
+

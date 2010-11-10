@@ -6,7 +6,7 @@ NACLPORTS_ROOT	= ~/dev/naclports/src
 NACL_SDK_ROOT	= ~/dev/nacl_sdk
 CRML_ROOT		= ../../
 
-CCFILES =	main.cc \
+CCFILES =	main.cc game.cc
 
 OBJECTS_X86_32 = $(CCFILES:%.cc=%_x86_32.o)
 
@@ -20,6 +20,7 @@ INCLUDES =	-I $(NACL_SDK_ROOT) \
 			-I $(CRML_ROOT)/include
 
 LDFLAGS =	-L $(CRML_ROOT)/build \
+			-l crml-win \
 			-l crml-core \
 			-l google_nacl_imc \
 			-l google_nacl_npruntime \

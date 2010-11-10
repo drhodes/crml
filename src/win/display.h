@@ -4,7 +4,6 @@
 #define DISPLAY_H_
 
 #include "../core/core.h"
-#include "../core/error.h"
 
 namespace crml {
   ERR_(DISPLAY_OK);
@@ -12,17 +11,18 @@ namespace crml {
   ERR_(DISPLAY_ACQUIRE_DEVICE_FAILED);
   ERR_(DISPLAY_NULL_REGION);
   ERR_(DISPLAY_NULL_WINDOW);
+  ERR_(DISPLAY_CANT_GET_HEIGHT);
+  ERR_(DISPLAY_CANT_GET_WIDTH);
   
   //------------------------------------------------------------------
   class Display : public Error {
    public:
     explicit Display() : Error(DISPLAY_OK) {
-      ClassName("Display");
+      ClassName("Display");      
     }    
     
-    ~Display();    
-
-
+    ~Display();
+    
     // \return A pointer, Core::context2d_.region
     uint32_t* Pixels();
     int Height();

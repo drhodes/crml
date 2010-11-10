@@ -1,6 +1,6 @@
 NACLPORTS_ROOT = /home/derek/dev/naclports/src
 NACL_SDK_ROOT = /home/derek/dev/nacl_sdk
-CRML_ROOT = /home/derek/dev/crml/crml/src
+CRML_ROOT = /home/derek/dev/crml/src
 
 DEBUGFLAGS = -O2 #-DNDEBUG
 
@@ -11,8 +11,9 @@ LINKFLAGS = -lgoogle_nacl_imc \
 			-lgoogle_nacl_gpu \
 			-lpthread \
 			-lsrpc \
-			-llua \
 			-losg
+
+#-llua \
 
 INCLUDES =	-I$(NACLPORTS_ROOT) \
 			-I$(NACL_SDK_ROOT)
@@ -37,7 +38,7 @@ export DESTDIR    = ../../build
 export DESTLIBDIR = $(DESTDIR)/lib
 export DESTINCDIR = $(DESTDIR)/include
 
-all: crml-core # crml-win # crml-net crml-gfx crml-aud crml-sys
+all: crml-core crml-win # crml-net crml-gfx crml-aud crml-sys
 
 -include $(NACLPORTS_ROOT)/common_build_scripts/nacl_build.mk
 
