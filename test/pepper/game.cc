@@ -5,14 +5,14 @@
 
 using namespace crml;
 
-void Core::MainLoop() {  
+void Core::MainLoop() {
+  Core* core = Core::self_;
   Display dsp;
   dsp.ReportErr();
-
-  Clock timer1;
-  Clock timer2;
+  
+  Clock timer1, timer2;
   int frame = 0;
-  int fps = 60;
+  int fps = 2;
   
   while (1){
     timer1.Reset();
@@ -24,7 +24,8 @@ void Core::MainLoop() {
 
     usleep( (1e6 * 1/fps) - timer1.ElapsedMicro() );
     frame += 1;
-    Core::self_->ReportErr();
+
+    core->ReportErr();
   }
   
   //Image img1("gopher.png"); 

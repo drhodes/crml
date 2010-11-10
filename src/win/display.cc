@@ -56,12 +56,11 @@ int Display::Width(){
   }
   return Core::self_->Width();
 }
-
 /*
 void Display::Redraw(){
   NPDeviceFlushContextCallbackPtr callback =
       reinterpret_cast<NPDeviceFlushContextCallbackPtr>(&FlushCallback);
-  Core::device2d_->flushContext(Core::npp_, &Core::context2d_, callback, NULL);
+  Core::device2d_->flushContext( Core::self_->Npp(), &Core::context2d_, callback, NULL);
 }
 */
 

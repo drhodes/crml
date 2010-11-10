@@ -1,4 +1,5 @@
 // Copyright 2010 <Derek A. Rhodes>
+
 #ifndef CORE_CC
 #define CORE_CC
 
@@ -6,15 +7,10 @@
 
 namespace crml {
 
-// NPDeviceContext2D Core::context2d_;
-// NPDevice* Core::device2d_ = 0;  // The PINPAPI 2D device.
-// Core::npp_ = 0;
-
 Core* Core::self_ = new Core;  // The PINPAPI 2D device.
 
-
-// this hack is necessary for calling the Go method.
-// c++0x <thread> isn't working atm.
+// this hack is necessary for calling the __MainLoop__ method.
+// c++0x <thread> isn't working for me atm.
 static void* execute_go(void* ctx) {
   Core::self_->MainLoop();      
   return NULL;
@@ -22,7 +18,6 @@ static void* execute_go(void* ctx) {
 
 void Core::__MainLoop__(){
   pthread_create(&loop_, NULL, execute_go, this);
-  //self_->MainLoop();
 }
 
 // Pluggin Getters.
@@ -77,12 +72,9 @@ void Core::SetPlugin(PluginObject* plugin){
 
 Core::~Core(){}
 
-
 bool Core::Ok() {
   return Err() == CORE_OK;
 }
-
-
 
 }       // namespace crml
 #endif  // CORE_CC
