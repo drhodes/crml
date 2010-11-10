@@ -66,6 +66,7 @@ namespace crml {
     virtual bool Ok();  // Is the object in a OK state?
    private:
     PluginObject* plugin_;
+    pthread_t loop_;	
   };  
 }       // namespace crml
 #endif  // CORE_H_

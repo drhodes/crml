@@ -1,22 +1,21 @@
-SRC       = $(wildcard *.cc)
-OBJ       = $(SRC:.cc=.o)
+SRC		= $(wildcard *.cc)
+OBJ		= $(SRC:.cc=.o)
 
-LIB     = libcrml_sys.a
+LIB     = libcrml-sys.a
 LIBNAME = $(LIBPATH)/$(LIB)
 INSTALL = 
 
 all: $(LIB)
 
-libcrml_sys.a: $(OBJ)
+libcrml-sys.a: $(OBJ)
 	$(AR) $(ARFLAGS) $(LIBNAME) $(OBJ)
 
 $(OBJ): %.o: %.cc
-	$(CPP) -m32 -o $@ -c $< $(CFLAGS)
+	$(CPP) -o $@ -c $< $(CFLAGS)
 
 .PHONY: clean mrproper
 
 clean:
-	@rm -f *~
 	@rm -rf $(OBJ)
 
 mrproper: clean

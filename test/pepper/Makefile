@@ -22,12 +22,14 @@ INCLUDES =	-I $(NACL_SDK_ROOT) \
 LDFLAGS =	-L $(CRML_ROOT)/build \
 			-l crml-win \
 			-l crml-core \
+			-l crml-sys \
 			-l google_nacl_imc \
 			-l google_nacl_npruntime \
 			-l google_nacl_pgl \
 			-l google_nacl_gpu \
 			-l pthread \
 			-l srpc \
+			-l osg \
 
 OPT_FLAGS = -O2
 

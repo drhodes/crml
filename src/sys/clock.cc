@@ -2,6 +2,7 @@
 
 #ifndef CLOCK_CC
 #define CLOCK_CC
+
 /* thin wrapper for
    nacl_sdk/toolchain/linux_x86/nacl64/usr/include/osg/Timer
 */
@@ -9,7 +10,7 @@
 #include <time.h>
 #include "./clock.h"
 
-namespace scm {
+namespace crml {
 
 Clock::Clock() {
   Reset();

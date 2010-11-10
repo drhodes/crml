@@ -12,10 +12,17 @@ namespace crml {
 
 Core* Core::self_ = new Core;  // The PINPAPI 2D device.
 
+
+// this hack is necessary for calling the Go method.
+// c++0x <thread> isn't working atm.
+static void* execute_go(void* ctx) {
+  Core::self_->MainLoop();      
+  return NULL;
+}
+
 void Core::__MainLoop__(){
-  //SetReportErr(CORE_MAINLOOP_STARTED);
-  self_->MainLoop();
-  //SetReportErr(CORE_MAINLOOP_STOPPED);
+  pthread_create(&loop_, NULL, execute_go, this);
+  //self_->MainLoop();
 }
 
 // Pluggin Getters.

@@ -38,7 +38,7 @@ export DESTDIR    = ../../build
 export DESTLIBDIR = $(DESTDIR)/lib
 export DESTINCDIR = $(DESTDIR)/include
 
-all: crml-core crml-win # crml-net crml-gfx crml-aud crml-sys
+all: crml-core crml-win crml-sys # crml-net crml-gfx crml-aud 
 
 -include $(NACLPORTS_ROOT)/common_build_scripts/nacl_build.mk
 
@@ -72,6 +72,7 @@ clean:
 	@(	cd  ./src/sys && $(MAKE) $@ && \
 		cd ../core && $(MAKE) $@ && \
 		cd ../win && $(MAKE) $@ && \
+		cd ../sys && $(MAKE) $@ && \
 		cd ../../build && rm -f *.a$ ) 
 #&& \
 #		cd ../win && $(MAKE) $@ && \
