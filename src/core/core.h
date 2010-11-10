@@ -20,9 +20,6 @@ namespace crml {
   ERR_(CORE_NULL_DEVICE_2D);
   ERR_(CORE_NULL_DEVICE_3D);
   ERR_(CORE_NULL_DEVICE_AUDIO);
-  //  ERR_(CORE_MAINLOOP_STARTED);
-  //  ERR_(CORE_MAINLOOP_STOPPED);
-  
   
   /// \brief The Core object which wires all subsystems
   /// and maintains an open channel with javascript.

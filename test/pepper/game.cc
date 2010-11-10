@@ -8,6 +8,7 @@ using namespace crml;
 void Core::MainLoop() {
   Core* core = Core::self_;
   Display dsp;
+  //dsp.Pixels();
   dsp.ReportErr();
   
   Clock timer1, timer2;
