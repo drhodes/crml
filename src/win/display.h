@@ -18,7 +18,7 @@ namespace crml {
   class Display : public Error {
    public:
     explicit Display() : Error(DISPLAY_OK) {
-      ClassName("Display");      
+      ClassName("Display");
     }    
     
     ~Display();
@@ -29,11 +29,14 @@ namespace crml {
     int Width();
     
     void Redraw();
-    
+    void Init();
     
     /// Satisfies Event.
     virtual bool Ok();  // Is the object in a OK state?    
    private:
+    NPDeviceContext2D context_;
+    NPDevice* device2d_;
+    
     void CreateContext();
     void DestroyContext();
     

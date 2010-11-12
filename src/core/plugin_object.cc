@@ -46,7 +46,8 @@ enum {
   ID_MODULE_READY,
   ID_REPORT_CHECKSUM,
   ID_IS_CHECKSUM_CHECK_SUCCESS,
-  NUM_METHOD_IDENTIFIERS
+  ID_MAIN_LOOP,
+  NUM_METHOD_IDENTIFIERS = 6,
 };
 
 static NPIdentifier plugin_method_identifiers[NUM_METHOD_IDENTIFIERS];
@@ -56,6 +57,7 @@ static const NPUTF8* plugin_method_identifier_names[NUM_METHOD_IDENTIFIERS] = {
   "moduleReady",
   "reportChecksum",
   "isChecksumCheckSuccess",
+  "MainLoop",
 };
 
 void EnsureIdentifiersInitialized() {
@@ -163,8 +165,11 @@ bool PluginInvoke(NPObject* header,
   } else if (name == plugin_method_identifiers[ID_IS_CHECKSUM_CHECK_SUCCESS]) {
     BOOLEAN_TO_NPVARIANT(plugin->IsChecksumCheckSuccess(), *result);
     return true;
+  } else if (name == plugin_method_identifiers[ID_MAIN_LOOP]) {
+    crml::Core::self_->MainLoop();
+    // and here we will spin until the game is done.
+    return true;
   }
-
   return false;
 }
 

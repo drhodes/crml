@@ -1,5 +1,6 @@
 
-
+* Thu Nov 11 17:17:30 EST 2010 -- invoke main loop from javascript.
+! Thu Nov 11 17:17:06 EST 2010 -- can't access npp from different thread. DOH!
 * Wed Nov 10 12:02:05 EST 2010 -- setup a threaded loop and worry about crashes
 * Wed Nov 10 11:54:57 EST 2010 -- remove the 3d code from the html
 

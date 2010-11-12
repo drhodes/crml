@@ -108,8 +108,10 @@ NPError NPP_SetWindow(NPP instance, NPWindow* window) {
     
     crml::Core::self_->SetPlugin(obj);
     crml::Core::self_->Check();
-    crml::Core::self_->ReportErr();
-    crml::Core::self_->__MainLoop__();
+    //crml::Core::self_->FirstRun();
+    /*
+    crml::Core::self_->MainLoop();
+    */
   }
   
   return NPERR_NO_ERROR;

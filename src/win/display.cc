@@ -56,15 +56,39 @@ int Display::Width(){
   }
   return Core::self_->Width();
 }
-/*
+
+void Display::Init(){  
+  NPDeviceContext2DConfig config;
+  NPDevice* device2d = Core::self_->Device2d();
+  
+  if (Core::self_->Ok()){    
+    NPError err = device2d->initializeContext(Core::self_->Npp(), &config, &context_);
+    if (err != NPERR_NO_ERROR) {
+      printf("Failed to initialize 2D context\n");
+    }
+  }
+  device2d_ = device2d;
+}
+
+
 void Display::Redraw(){
+  /*
+  NPDeviceContext2DConfig config;
+  NPDeviceContext2D context;
+  
+  NPDevice* device2d = Core::self_->Device2d();    
+  if (Core::self_->Ok()){    
+    NPError err = device2d->initializeContext(Core::self_->Npp(), &config, &context);
+    if (err != NPERR_NO_ERROR) {
+      printf("Failed to initialize 2D context\n");
+      //exit(1);
+    }
+  }
+  */
   NPDeviceFlushContextCallbackPtr callback =
       reinterpret_cast<NPDeviceFlushContextCallbackPtr>(&FlushCallback);
-  Core::device2d_->flushContext( Core::self_->Npp(), &Core::context2d_, callback, NULL);
+  device2d_->flushContext( Core::self_->Npp(), &context_, callback, NULL);
 }
-*/
-
-  
 
 }       // namespace crml
 #endif  // DISPLAY_CC

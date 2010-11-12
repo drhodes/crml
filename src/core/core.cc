@@ -11,14 +11,18 @@ Core* Core::self_ = new Core;  // The PINPAPI 2D device.
 
 // this hack is necessary for calling the __MainLoop__ method.
 // c++0x <thread> isn't working for me atm.
+
+/*
 static void* execute_go(void* ctx) {
   Core::self_->MainLoop();      
   return NULL;
 }
 
+
 void Core::__MainLoop__(){
   pthread_create(&loop_, NULL, execute_go, this);
 }
+*/
 
 // Pluggin Getters.
 NPObject Core::Header() {

@@ -1,5 +1,16 @@
 var nacllib = new NaclLib("nacl_module", "status", 1000);
 
+
+function StartGame() {
+    var plugin_obj_2d = document.getElementById("plugin_2d");
+    if (plugin_obj_2d != null){
+        //updateInterval = setInterval("plugin_obj_2d.MainLoop()", 30);
+        updateInterval = setInterval("MainLoop()", 1);
+    }
+}
+
+
+
 // we use a custom detector for whether a module is ready or not
 nacllib.numModulesReady = function(modules) {
   var count = 0;
@@ -42,3 +53,11 @@ nacllib.test = function() {
   // Return success.
   return "";
 };
+
+var plugin_obj_2d = document.getElementById("plugin_2d");
+MainLoop = function() {
+    plugin_obj_2d.MainLoop();
+}
+
+
+StartGame();
