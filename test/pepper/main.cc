@@ -101,9 +101,10 @@ NPError NPP_SetWindow(NPP instance, NPWindow* window) {
   if (obj){
     obj->SetWindow(*window);
 
-    /*  Danger Will Robinson DANGER DANGER DANGER.
-        
+    /*  Danger Will Robinson DANGER DANGER DANGER.      
         This is really awful, but it works.
+        Need to figure out a better way to do this when the next
+        sdk is released.
      */
     
     crml::Core::self_->SetPlugin(obj);
@@ -156,7 +157,7 @@ void NPP_Print(NPP instance, NPPrint* platformPrint) {
 
 int16_t NPP_HandleEvent(NPP instance, void* event) {
   printf("int16_t NPP_HandleEvent(NPP instance, void* event) {\n");  
-  //crml::Core::self_->Check();
+  crml::Core::self_->Check();
   return event_handler->handle(event);
 }
 
