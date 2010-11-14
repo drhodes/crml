@@ -92,10 +92,10 @@ std::string EventHandler::EventName(double timestamp, int32_t type) {
 }
 
 int EventHandler::handle(void* event) {
-  crml::Core::self_->ReportErr();
-
   NPPepperEvent* npevent = reinterpret_cast<NPPepperEvent*>(event);
   std::string str = EventName(npevent->timeStampSeconds, npevent->type);
+  printf("Their event type is: %d\n", int(npevent->type));
+  
   switch (npevent->type) {
     case NPEventType_MouseDown:
     case NPEventType_MouseUp:

@@ -10,33 +10,32 @@
 #include <queue>
 #include <string>
 
-#include "./error.h"
-#include "./event_handler.h"
-#include "./error_macro.cc"
+#include "../core/error.h"
+#include "../core/event_handler.h"
 
-namespace scm {  
+namespace crml {  
   ERR_(EVENT_INIT_FAILED);
   ERR_(EVENT_OK);
-
-  class Event : public Error {
-   public:
+  
+  class Event: public Error {
+   public:       
     explicit Event() : Error(EVENT_OK) {
       ClassName("Event");
-      queue_ = new std::queue<NPPepperEvent*>;
+      Init();
     }    
     ~Event();
-        
+
+    static void PushEvent(void*);
+    
     void Init();
-    void PushEvent(NPPepperEvent* evt);
     bool Empty();
     void Drain();
-    NPPepperEvent* PopEvent();
+    NPPepperEvent PopEvent();
+    bool GetEvent(NPPepperEvent* e);
 
-    virtual bool Ok();  // Is the object in a OK state?
+    virtual bool Ok(); // for error interface
    private:
-    std::queue<NPPepperEvent*>* queue_;
+    static std::queue<NPPepperEvent> queue_;
   };
-
-
 }  // namespace scm
 #endif  // EVENT_H_

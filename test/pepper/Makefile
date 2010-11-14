@@ -23,6 +23,7 @@ LDFLAGS =	-L $(CRML_ROOT)/build \
 			-l crml-win \
 			-l crml-core \
 			-l crml-sys \
+			-l crml-evt \
 			-l google_nacl_imc \
 			-l google_nacl_npruntime \
 			-l google_nacl_pgl \

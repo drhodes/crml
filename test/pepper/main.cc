@@ -11,6 +11,7 @@
 */
 
 #include <crml-core.h>
+#include <crml-evt.h>
 //#include <crml-win.h>
 
 
@@ -158,6 +159,7 @@ void NPP_Print(NPP instance, NPPrint* platformPrint) {
 int16_t NPP_HandleEvent(NPP instance, void* event) {
   printf("int16_t NPP_HandleEvent(NPP instance, void* event) {\n");  
   crml::Core::self_->Check();
+  crml::Event::PushEvent(event);
   return event_handler->handle(event);
 }
 

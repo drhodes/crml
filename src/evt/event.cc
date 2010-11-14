@@ -5,26 +5,25 @@
 
 #include <assert.h>
 #include <sstream>
+#include <string.h>
+#include "./event.h"
 
-#include "./log_macro.cc"
+namespace crml {
+std::queue<NPPepperEvent> Event::queue_;
 
-namespace scm {
+Event::~Event() {  
+}
 
 bool Event::Ok() {
   return Err() == EVENT_OK;
 }
 
-Event::~Event() {
-  delete queue_;
-}
-
 void Event::Init() {
-  Err(EVENT_OK);
-  Log(":) Init Event");
+
 }
 
 bool Event::Empty() {
-  return queue_->empty();
+  return queue_.empty();
 }
 
 /*
@@ -47,33 +46,31 @@ void appendMouseInfo(std::stringstream* out, NPPepperEvent* e) {
   *out << "ClickCount: " << e->u.mouse.clickCount;
 }
 
-NPPepperEvent* Event::PopEvent() {
-  if (queue_->empty()) {
-    return 0;
-  }
-  NPPepperEvent* val = queue_->front();
-  queue_->pop();
+NPPepperEvent Event::PopEvent() {  
+  NPPepperEvent val = queue_.front();
+  queue_.pop();
   return val;
 }
 
-void Event::Drain() {
-  Log("Draining");
-  while (!Empty())
-    PopEvent();
+bool Event::GetEvent(NPPepperEvent* e){
+  if (!Empty()){
+    *e = PopEvent();
+    return true;
+  }
+  return false;
 }
 
-void Event::PushEvent(NPPepperEvent* e) {
-  // > e    | a pointer to a pepper event is pushed onto queue_
-  // < void |
-  
-  assert(e != NULL);
-  assert(queue_ != NULL);
 
+
+void Event::PushEvent(void* event) {
+  NPPepperEvent* e = reinterpret_cast<NPPepperEvent*>(event);  
+  assert(e != NULL);
+ 
+  Event::queue_.push(*e);
+  /*
   std::stringstream out;
   out << "handled Event: ";
   out << e->type << " ";
-
-  queue_->push(e);
 
   switch (e->type) {
     case NPEventType_Undefined:
@@ -125,8 +122,7 @@ void Event::PushEvent(NPPepperEvent* e) {
       out << "Device";
       break;
   }
-  Log(out.str());
-
+  */
 }
 }  // namespace scm
 
