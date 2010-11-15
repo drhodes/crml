@@ -6,7 +6,7 @@ NACLPORTS_ROOT	= ~/dev/naclports/src
 NACL_SDK_ROOT	= ~/dev/nacl_sdk
 CRML_ROOT		= ../../
 
-CCFILES =	main.cc game.cc
+CCFILES =	main.cc game.cc square.cc
 
 OBJECTS_X86_32 = $(CCFILES:%.cc=%_x86_32.o)
 
@@ -14,6 +14,7 @@ CFLAGS =	-Wall \
 			-enable-static \
 			-Wno-long-long \
 			-pthread \
+			-std=c++0x \
 			-DXP_UNIX # -Werror #-std=c++0
 
 INCLUDES =	-I $(NACL_SDK_ROOT) \

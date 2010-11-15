@@ -3,9 +3,12 @@
 #include <crml-sys.h>
 #include <crml-evt.h>
 
-using namespace crml;
+#include "./square.h"
 
-Core core = *Core::self_;
+using namespace crml;
+#define NUMSQUARES 5000
+
+//Core core = *Core::self_;
 Event evt;
 Display dsp;
 Clock timer1, timer2;
@@ -16,49 +19,66 @@ bool firstrun = true;
 NPPepperEvent e;
 int x = 1;
 int y = 1;
+Square sqs[NUMSQUARES];
 
+// move this off to color.h in the lib under gfx.
+inline uint32_t MakeRGBA(uint32_t r, uint32_t g, uint32_t b, uint32_t a) {
+  return (((a) << 24) | ((r) << 16) | ((g) << 8) | (b));
+}
 
-void FirstRun() {
+void RunOnce() {
     dsp.Init();
     pixels_ = dsp.Pixels();
+
     firstrun = false;    
 }
 
 void Core::MainLoop() {
+    if (firstrun) {
+    RunOnce();
+    for(int i=0; i<NUMSQUARES; i++){
+      sqs[i] = Square();
+      sqs[i].Randomize(timer1.ElapsedNano());
+      usleep(1);
+    }   
+  }
 
-  if (firstrun) {
-    FirstRun();  
-  }              
-  // change the js calling code of this function to call as many times as possible.
-  // if timer1.Elapsed is greater than the framespan run the frame.
-  // else just return.
+  if (timer1.ElapsedMilli() < 32){
+    return;
+  }
   
-  // timer1.Reset();  
+  timer1.Reset();
+ 
+
   while(evt.GetEvent(&e)) {
     switch(e.type) {
-      case NPEventType_MouseMove:
-        printf("ASDF\n");
+      case NPEventType_MouseDown:
         x = e.u.mouse.x;
-        y = e.u.mouse.y;        
+        y = e.u.mouse.y;
+        for(int i=0; i<NUMSQUARES; i++){
+          sqs[i].X(x);
+          sqs[i].Y(y);
+        }
+        break;
     }
   }
-    
-  //printf("fps: %f\n", frame / timer2.ElapsedSec() );
-  //printf("in ur loops eating ur cycles\n");  
-  //usleep( (1e6 * 1/fps) - timer1.ElapsedMicro() );
+      
+  //dsp.Wipe(MakeRGBA(frame%100,frame%200,frame%255,255));
+  dsp.Wipe();
 
-  int numpix = dsp.Width() * dsp.Height();
-  
-  if (dsp.Ok()) {
-    for (int i = 0; i < numpix; i++) {
-      if (i % x == 0) continue;
-      if (i % y == 0) continue;
-      pixels_[i] = frame*i*i;
+  for(int i=0; i<NUMSQUARES; i++){
+    sqs[i].Draw(pixels_, dsp.Width(), dsp.Height());
+    sqs[i].Move(dsp.Width(), dsp.Height());
+    if (frame%10 == 0){      
+      sqs[i].Flick(timer1.ElapsedNano());
     }
   }
+
+  if (frame%100 == 0){      
+    printf("Flick!\n");
+  }  
   
-  frame += 1;
-  //printf("frame: %d\n", frame);
+  frame += 1;    
   dsp.Redraw();
 }
   

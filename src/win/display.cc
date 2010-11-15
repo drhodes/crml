@@ -68,8 +68,26 @@ void Display::Init(){
     }
   }
   device2d_ = device2d;
+
+  pixels_ = static_cast<uint32_t*>(context_.region);  
 }
 
+
+void Display::Wipe(){
+  //memset( pixel_[], 0, Width()*Height() );
+  int size= Height() * Width();
+
+  for (int i = 0; i < size; i++) {
+    pixels_[i] = 0;
+  }
+}
+
+void Display::Wipe(uint32_t color){
+  int size= Height() * Width();
+  for (int i = 0; i < size; i++) {
+    pixels_[i] = color;
+  }
+}
 
 void Display::Redraw(){
   /*

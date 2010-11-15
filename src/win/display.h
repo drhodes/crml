@@ -27,15 +27,20 @@ namespace crml {
     uint32_t* Pixels();
     int Height();
     int Width();
+
     
     void Redraw();
     void Init();
+    void Wipe();
+    void Wipe(uint32_t color);
     
     /// Satisfies Event.
     virtual bool Ok();  // Is the object in a OK state?    
    private:
     NPDeviceContext2D context_;
     NPDevice* device2d_;
+    uint32_t* pixels_;
+
     
     void CreateContext();
     void DestroyContext();
