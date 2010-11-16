@@ -87,8 +87,9 @@ void Square::Draw(uint32_t* pixels_, int width, int height){
   for(int i=y_; i<y_+radius_*2; i++){
     if(i > height) continue;    
     for(int j=x_; j<x_+radius_*2; j++){      
-      if(j > width) continue;       
-      pixels_[i*width + j] = color_;
+      if(j > width) continue;
+      pixels_[i*width + j] |= color_;
+      pixels_[i*width + j] += color_;
     }
   }
 }
