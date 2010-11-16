@@ -7,6 +7,8 @@ NACL_SDK_ROOT	= ~/dev/nacl_sdk
 CRML_ROOT		= ../../
 
 CCFILES =	main.cc game.cc square.cc
+MEDIA_BLOB = ./media/media-blob.a
+MEDIA_HEADER = ./media/media-blob.h
 
 OBJECTS_X86_32 = $(CCFILES:%.cc=%_x86_32.o)
 
@@ -43,7 +45,9 @@ all: check_variables pplugin_x86_32.nexe
 -include $(NACLPORTS_ROOT)/common_build_scripts/nacl_build.mk
 
 pplugin_x86_32.nexe: $(OBJECTS_X86_32)
+	@cd ./media && make && cd ..
 	$(CPP) $^ $(LDFLAGS) -m32 -o $@
 
 clean:
-	-$(RM) $(OBJECTS_X86_32) pplugin_x86_32.nexe 
+	-$(RM) $(OBJECTS_X86_32) pplugin_x86_32.nexe
+	cd ./media && make clean
