@@ -4,6 +4,8 @@
 #define DISPLAY_H_
 
 #include "../core/core.h"
+#include <ft2build.h>
+#include FT_FREETYPE_H
 
 namespace crml {
   ERR_(DISPLAY_OK);
@@ -33,6 +35,10 @@ namespace crml {
     void Init();
     void Wipe();
     void Wipe(uint32_t color);
+
+    void FontDraw(FT_Bitmap*, int, int);
+    
+
     
     /// Satisfies Event.
     virtual bool Ok();  // Is the object in a OK state?    

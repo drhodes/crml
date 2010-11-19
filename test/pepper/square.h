@@ -24,6 +24,7 @@ namespace crml {
     void Move(int width, int height);
     void Randomize(int s);
     void Flick(int s);
+    void Stop();
     
    private:
     int x_, y_;

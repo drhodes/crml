@@ -8,9 +8,9 @@ CRML_ROOT		= ../../
 
 CCFILES =	main.cc game.cc square.cc
 MEDIA_BLOB = ./media/media-blob.a
-MEDIA_HEADER = ./media/media-blob.h
+MEDIA_HEADER = ./media
 
-OBJECTS_X86_32 = $(CCFILES:%.cc=%_x86_32.o)
+OBJECTS_X86_32 = $(CCFILES:%.cc=%_x86_32.o) 
 
 CFLAGS =	-Wall \
 			-enable-static \
@@ -20,20 +20,25 @@ CFLAGS =	-Wall \
 			-DXP_UNIX # -Werror #-std=c++0
 
 INCLUDES =	-I $(NACL_SDK_ROOT) \
-			-I $(CRML_ROOT)/include
+			-I $(CRML_ROOT)/include \
+			-I $(NACLPORTS_ROOT)/include \
+			-I $(MEDIA_HEADER)
 
 LDFLAGS =	-L $(CRML_ROOT)/build \
 			-l crml-win \
 			-l crml-core \
 			-l crml-sys \
 			-l crml-evt \
+			-l osg \
+			-l png \
+			-l freetype \
+			-l z \
 			-l google_nacl_imc \
 			-l google_nacl_npruntime \
 			-l google_nacl_pgl \
 			-l google_nacl_gpu \
 			-l pthread \
 			-l srpc \
-			-l osg \
 
 OPT_FLAGS = -O2
 
@@ -46,7 +51,7 @@ all: check_variables pplugin_x86_32.nexe
 
 pplugin_x86_32.nexe: $(OBJECTS_X86_32)
 	@cd ./media && make && cd ..
-	$(CPP) $^ $(LDFLAGS) -m32 -o $@
+	$(CPP) $^ $(LDFLAGS) $(MEDIA_BLOB) -m32 -o $@
 
 clean:
 	-$(RM) $(OBJECTS_X86_32) pplugin_x86_32.nexe

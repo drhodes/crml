@@ -25,7 +25,7 @@ int RandInt(int s, int n){ // unbelievable.
 void Square::Randomize(int s){
   x_ = 100 + RandInt(s, 200);
   y_ = 100 + RandInt(s, 200);
-  radius_ = 0 + RandInt(s,50);
+  radius_ = 0 + RandInt(s,20);
   angle_ = 0 ;
   speed_ = -5 + RandInt(s,3);
   color_ = 345546 + RandInt(s,10000000);
@@ -38,6 +38,10 @@ void Square::Flick(int s){
   dydt_ += -1 + RandInt(s, 3);
 }
 
+void Square::Stop(){
+  dxdt_ = 0;
+  dydt_ = 0;
+}
 
 int Square::X(){
   return x_;
@@ -85,11 +89,12 @@ void Square::Move(int width, int height){
 
 void Square::Draw(uint32_t* pixels_, int width, int height){
   for(int i=y_; i<y_+radius_*2; i++){
-    if(i > height) continue;    
+    if(i > height) continue;
     for(int j=x_; j<x_+radius_*2; j++){      
       if(j > width) continue;
-      pixels_[i*width + j] |= color_;
-      pixels_[i*width + j] += color_;
+      pixels_[i*width + j] = color_;
+      //pixels_[i*width + j] |= color_;
+      //pixels_[i*width + j] += color_;
     }
   }
 }

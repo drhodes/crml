@@ -1,6 +1,5 @@
 var nacllib = new NaclLib("nacl_module", "status", 1000);
 
-
 function StartGame() {
     var plugin_obj_2d = document.getElementById("plugin_2d");
     if (plugin_obj_2d != null){
@@ -8,8 +7,6 @@ function StartGame() {
         updateInterval = setInterval("MainLoop()", 0);
     }
 }
-
-
 
 // we use a custom detector for whether a module is ready or not
 nacllib.numModulesReady = function(modules) {
@@ -55,9 +52,11 @@ nacllib.test = function() {
 };
 
 var plugin_obj_2d = document.getElementById("plugin_2d");
-MainLoop = function() {
-    plugin_obj_2d.MainLoop();
-}
 
+MainLoop = function() {
+    try {
+        plugin_obj_2d.MainLoop();
+    } catch(e){}
+}
 
 StartGame();

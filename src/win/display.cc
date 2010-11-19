@@ -10,6 +10,10 @@ void FlushCallback(NPP instance, NPDeviceContext* context,
                    NPError err, void* user_data) {
 }
 
+inline uint32_t MakeRGBA(uint32_t r, uint32_t g, uint32_t b, uint32_t a) {
+  return  (a << 24) | (r << 16) | (g << 8) | b ;
+}
+
 Display::~Display(){}
 
 /// Is the display OK?
@@ -47,6 +51,19 @@ int Display::Height(){
   }
   return Core::self_->Height();
 }
+
+
+void Display::FontDraw(FT_Bitmap* bm, int left, int top){  
+  int row = top * Width() + left;
+    
+  for(int i=0; i<bm->rows; i++){
+    for(int j=0; j<bm->width; j++){  
+      pixels_[row + j] = MakeRGBA(0,0,0,bm->buffer[i*bm->pitch+j]);
+    }
+    row = (top+i-1) * Width() + left;
+  }  
+}
+
 
 int Display::Width(){
   if (!Core::self_->Ok()) {     
