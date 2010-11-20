@@ -1,22 +1,22 @@
-SRC       = $(wildcard *.cpp)
-OBJ       = $(SRC:.cpp=.o)
+SRC       = $(wildcard *.cc)
+OBJ       = $(SRC:.cc=.o)
 
-LIB     = libcrml_gfx.a
+LIB     = libcrml-gfx.a
 LIBNAME = $(LIBPATH)/$(LIB)
 INSTALL = 
 
 all: $(LIB)
 
-libcrml_gfx.a: $(OBJ) $(OBJVORBIS)
-	$(AR) $(ARFLAGS) $(LIBNAME) $(OBJ) $(OBJVORBIS)
+libcrml-gfx.a: $(OBJ)
+	$(AR) $(ARFLAGS) $(LIBNAME) $(OBJ)
 
-$(OBJ): %.o: %.cpp
+$(OBJ): %.o: %.cc
 	$(CPP) -o $@ -c $< $(CFLAGS)
 
 .PHONY: clean mrproper
 
 clean:
-	@rm -rf $(OBJ) $(OBJVORBIS)
+	@rm -rf $(OBJ)
 
 mrproper: clean
 	@rm -rf $(LIBNAME)

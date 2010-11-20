@@ -29,6 +29,7 @@ LDFLAGS =	-L $(CRML_ROOT)/build \
 			-l crml-core \
 			-l crml-sys \
 			-l crml-evt \
+			-l crml-gfx \
 			-l osg \
 			-l png \
 			-l freetype \
@@ -43,14 +44,13 @@ LDFLAGS =	-L $(CRML_ROOT)/build \
 OPT_FLAGS = -O2
 
 # The check_variables target is in nacl_build.mk.
-all: check_variables pplugin_x86_32.nexe 
+all:	check_variables \
+		pplugin_x86_32.nexe \
 
 # nacl_build.mk has rules to build .o files from .cc files.
-
 -include $(NACLPORTS_ROOT)/common_build_scripts/nacl_build.mk
 
 pplugin_x86_32.nexe: $(OBJECTS_X86_32)
-	@cd ./media && make && cd ..
 	$(CPP) $^ $(LDFLAGS) $(MEDIA_BLOB) -m32 -o $@
 
 clean:

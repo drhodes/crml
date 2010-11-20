@@ -1,2 +1,6 @@
-#include "../gfx/gles2_demo_cc.h"
-#include "../gfx/PngImage.h"
+#include "../gfx/color.h"
+#include "../gfx/drawer.h"
+#include "../gfx/font.h"
+#include "../gfx/layer.h"
+#include "../gfx/mover.h"
+#include "../gfx/vector.h"

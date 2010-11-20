@@ -1,4 +1,20 @@
 
+
+/* Transparency parameters */
+#define PNG_ALPHA     -2         /* Use alpha channel in PNG file, if there is one */
+#define PNG_SOLID     -1         /* No transparency                                */
+#define PNG_STENCIL    0         /* Sets alpha to 0 for r=g=b=0, 1 otherwise       */
+
+typedef struct
+{
+    unsigned int Width;
+    unsigned int Height;
+    unsigned int Depth;
+    unsigned int Alpha;
+} pngInfo;
+
+
+
 void png_read_istream(png_structp png_ptr, png_bytep data, png_size_t length) {
   std::istream *stream = (std::istream*)png_get_io_ptr(png_ptr); //Get pointer to istream
   stream->read((char*)data,length); //Read requested amount of data  
@@ -43,17 +59,17 @@ void readPNGStream(std::istream& fin){
 
   // png_read_info is toast.
   png_read_info(png, info);
-
-  return;
+  
+  //return;
   png_get_IHDR(png, info, &width, &height, &depth, &color, NULL, NULL, NULL);
 
 
   if (pinfo != NULL) {
     pinfo->Width  = width;
     pinfo->Height = height;
-    pinfo->Depth  = depth;
+    pinfo->Depth  = depth;    
   }
-
+    
   // png default to big endian, so we'll need to swap bytes if on a little endian machine.
   // if (depth>8 && getCpuByteOrder()==osg::LittleEndian)
   png_set_swap(png);
@@ -79,7 +95,6 @@ void readPNGStream(std::istream& fin){
   if (depth < 8)
     png_set_packing(png);
   
-
   /*--GAMMA--*/
   //    checkForGammaEnv();
   double screenGamma = 2.2 / 1.0;
@@ -126,4 +141,5 @@ void readPNGStream(std::istream& fin){
   int internalFormat = pixelFormat;
 
   png_destroy_read_struct(&png, &info, &endinfo);
+  printf("WOW!\n");
 }  

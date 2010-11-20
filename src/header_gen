@@ -2,7 +2,7 @@
 import os
 
 for d in ["aud", "core", "evt", "gfx", 
-          "net", "sys", "util", "web", "win"]:
+          "net", "sys", "util", "web", "win", "lua"]:
     fname = "./include/crml-%s.h" % d
     outfile = open(fname, 'w')
     files = map(str.strip, os.popen("ls %s | grep h$" % d).readlines())
