@@ -5,29 +5,30 @@
 #define SQUARE_H_
 
 #include <crml-core.h>
+#include <crml-gfx.h>
 
 namespace crml {
-  class Square {
-   public:
-    Square();
+  class Square: public Drawer, public Mover {    
+   public:    
+    explicit Square(): Drawer(), Mover() {
+      Randomize(4);
+    }
     ~Square();
     
-    int X();
-    void X(int x);
-    int Y();
-    void Y(int y);
+    void SetColor(int x);
+    //void Draw(uint32_t* pixels_, int width, int height);
     
-    void Color(int x);
-    void Draw(uint32_t* pixels_, int width, int height);
     void Speed(int s);
     void Heading(int angle); // 0 degrees on the x axis;
-    void Move(int width, int height);
     void Randomize(int s);
     void Flick(int s);
     void Stop();
+
+    void Step(int width, int height);
+    void OldDraw(uint32_t* pixels_, int width, int height);
     
-   private:
-    int x_, y_;
+    virtual void Draw(Layer& l);    
+   private:    
     int dxdt_, dydt_;
     int speed_;
     int angle_;

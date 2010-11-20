@@ -13,7 +13,7 @@ namespace crml {
     Drawer();
     ~Drawer();
 
-    void virtual Draw(Layer l) = 0;
+    virtual void Draw(Layer& l) = 0;
     
    private:
 

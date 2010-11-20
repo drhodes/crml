@@ -122,7 +122,7 @@ void readPNGStream(std::istream& fin){
   png_read_end(png, endinfo);
   
   GLenum pixelFormat = 0;
-  GLenum dataType = depth<=8?GL_UNSIGNED_BYTE:GL_UNSIGNED_SHORT;
+  //GLenum dataType = depth<=8?GL_UNSIGNED_BYTE:GL_UNSIGNED_SHORT;
   switch(color)
   {
     case(PNG_SOLID): pixelFormat = GL_LUMINANCE; break;
@@ -138,7 +138,7 @@ void readPNGStream(std::istream& fin){
   if (pixelFormat == GL_RGB && png_get_channels(png, info) == 4)
     pixelFormat = GL_RGBA;
   
-  int internalFormat = pixelFormat;
+  //int internalFormat = pixelFormat;
 
   png_destroy_read_struct(&png, &info, &endinfo);
   printf("WOW!\n");

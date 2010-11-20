@@ -4,8 +4,6 @@
 #define CORE_H_
 
 #include "error.h"
-//#include <nacl/npapi_extensions.h>
-//#include <nacl/nacl_npapi.h>
 #include <string.h>
 #include <assert.h>
 #include <stdlib.h>

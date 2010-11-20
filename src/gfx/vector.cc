@@ -8,12 +8,22 @@
 
 namespace crml {
 
+Vector::Vector() {
+  x_ = 0;
+  y_ = 0;     
+}
+
 Vector::Vector(int x, int y) {
   x_ = x;
-  y_ = y;
-     
+  y_ = y;     
 }
+
 Vector::~Vector() {
+}
+
+void Vector::XY(int x, int y) {
+  x_ = x;
+  y_ = y;
 }
 
 int Vector::X() {

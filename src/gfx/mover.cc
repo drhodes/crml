@@ -7,9 +7,9 @@
 
 namespace crml {
 
-Mover::Mover(){
-  pos_.X(0);
-  pos_.Y(0);
+Mover::Mover() : Vector() {
+  X(0);
+  Y(0);
 }
 
 Mover::~Mover(){
@@ -17,11 +17,13 @@ Mover::~Mover(){
 }
 
 void Mover::Move(Vector v){
-  
+  X(v.X());
+  Y(v.Y());
 }
 
-void Mover::RelMove(Vector v){
-  
+void Mover::MoveRel(Vector v){
+  X(X() + v.X());
+  Y(Y() + v.Y());
 }
   
 }       // namespace crml

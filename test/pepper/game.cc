@@ -36,7 +36,6 @@ int x = 1;
 int y = 1;
 Square sqs[NUMSQUARES];
 
-//Font fnt;
 
 FT_Library library;   // handle to library     
 FT_Face face;         // handle to face object 
@@ -79,9 +78,11 @@ void Core::MainLoop() {
     }
   }
 
+  /*
   if (timer1.ElapsedMilli() < 30){
     return;
   }
+  */
   
   timer1.Reset();
   dsp.Wipe();
@@ -159,15 +160,20 @@ void Core::MainLoop() {
  
   //printf(txt__hello_txt_gz);
   */
+
+  Vector p;
   
   while(evt.GetEvent(&e)) {
     switch(e.type) {
       case NPEventType_MouseDown:
         x = e.u.mouse.x;
         y = e.u.mouse.y;
+        p.XY(x, y);            
+            
         for(int i=0; i<NUMSQUARES; i++){
-          sqs[i].X(x);
-          sqs[i].Y(y);
+          sqs[i].Move(p);
+          
+          //sqs[i].Y(y);
         }
         break;
       case NPEventType_KeyDown:
@@ -186,8 +192,8 @@ void Core::MainLoop() {
   }  
 
   for(int i=0; i<NUMSQUARES; i++){
-    sqs[i].Draw(pixels_, dsp.Width(), dsp.Height());
-    sqs[i].Move(dsp.Width(), dsp.Height());
+    sqs[i].OldDraw(pixels_, dsp.Width(), dsp.Height());
+    sqs[i].Step(dsp.Width(), dsp.Height());
     if (frame%10 == 0){
       sqs[i].Flick(timer1.ElapsedNano());
     }

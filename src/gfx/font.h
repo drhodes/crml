@@ -3,6 +3,10 @@
 #ifndef FONT_H_
 #define FONT_H_
 
+#include <ft2build.h>
+#include FT_FREETYPE_H
+
+#include "./font.h"
 #include "./color.h"
 #include <string>
 
@@ -10,7 +14,6 @@ namespace crml {
 
   class Font {
    public:
-    //Font(FT_Library lib, FT_Face face);
     Font(char* filedata);
     ~Font();
 

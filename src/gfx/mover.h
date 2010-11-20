@@ -5,18 +5,14 @@
 
 #include "./vector.h"
 
-namespace crml {
-  
-  class Mover {
+namespace crml {  
+  class Mover : public Vector {
    public:
     Mover();
     ~Mover();
     
     void Move(Vector v);
-    void RelMove(Vector v);
-
-   private:
-    Vector pos_;
+    void MoveRel(Vector v);   
   };
     
 }       // namespace crml
