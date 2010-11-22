@@ -36,9 +36,8 @@ int x = 1;
 int y = 1;
 Square sqs[NUMSQUARES];
 
-
-FT_Library library;   // handle to library     
-FT_Face face;         // handle to face object 
+//FT_Library library;   // handle to library     
+//FT_Face face;         // handle to face object 
 
 // move this off to color.h in the lib under gfx.
 inline uint32_t MakeRGBA(uint32_t r, uint32_t g, uint32_t b, uint32_t a) {
@@ -59,7 +58,7 @@ void RunOnce() {
   std::string str2(img__doodle_png, sizeof(img__doodle_png)-1);
   printf("bin: img__doodle_png\n");
   printf("md5: %s\n", MD5String(str2).c_str()); 
-  printf("md5: %s\n", MD5String(str2).c_str()); 
+  //printf("md5: %s\n", MD5String(str2).c_str()); 
   
   std::stringstream ss (std::stringstream::in | std::stringstream::out);
   ss << str2;
@@ -187,11 +186,11 @@ void Core::MainLoop() {
     }
   }
 
-  if (frame%100 == 0){      
+  if (frame%100 == 0) {      
     //printf("Flick!\n");
   }  
 
-  for(int i=0; i<NUMSQUARES; i++){
+  for(int i=0; i<NUMSQUARES; i++) {
     sqs[i].OldDraw(pixels_, dsp.Width(), dsp.Height());
     sqs[i].Step(dsp.Width(), dsp.Height());
     if (frame%10 == 0){

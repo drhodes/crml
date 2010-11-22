@@ -17,7 +17,6 @@ namespace crml {
     Font(char* filedata);
     ~Font();
 
-
     void Size(int s);
     int Size();
     void Text(std::string t);

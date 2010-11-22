@@ -139,7 +139,6 @@ void readPNGStream(std::istream& fin){
     pixelFormat = GL_RGBA;
   
   //int internalFormat = pixelFormat;
-
   png_destroy_read_struct(&png, &info, &endinfo);
   printf("WOW!\n");
 }  
