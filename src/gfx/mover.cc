@@ -21,6 +21,18 @@ void Mover::Move(Vector v){
   Y(v.Y());
 }
 
+void Mover::Move(int x, int y){
+  X(x);
+  Y(y);
+}
+
+
+void Mover::MoveRel(int x, int y){
+  X(X() + x);
+  Y(Y() + y);
+}
+
+
 void Mover::MoveRel(Vector v){
   X(X() + v.X());
   Y(Y() + v.Y());

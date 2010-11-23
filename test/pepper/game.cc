@@ -7,9 +7,6 @@
 #include <osg/GL>
 #include <osg/Endian>
 
-#include <ft2build.h>
-#include FT_FREETYPE_H
-
 #include <sstream>
 #include <iostream>
 
@@ -20,7 +17,7 @@
 #include "osg-png-ripoff.cc"
 
 using namespace crml;
-#define NUMSQUARES 100
+#define NUMSQUARES 1000
 
 Event evt;
 Display dsp;
@@ -35,14 +32,7 @@ NPPepperEvent e;
 int x = 1;
 int y = 1;
 Square sqs[NUMSQUARES];
-
-//FT_Library library;   // handle to library     
-//FT_Face face;         // handle to face object 
-
-// move this off to color.h in the lib under gfx.
-inline uint32_t MakeRGBA(uint32_t r, uint32_t g, uint32_t b, uint32_t a) {
-  return (a << 24) | (r << 16) | (g << 8) | b ;
-}
+LayerGroup lg;
 
 void RunOnce() {
   dsp.Init();
@@ -64,32 +54,99 @@ void RunOnce() {
   ss << str2;
 
   readPNGStream(ss);
-  while (timer2.ElapsedSec() < 1){}
+  
+  for(int i=0; i<NUMSQUARES; i++){
+    sqs[i] = Square();
+    sqs[i].Randomize(timer1.ElapsedNano());
+    usleep(1);
+  }
+  
+  lg.AddTop("clouds");
+  lg.AddTop("stars");
+  lg.AddBottom("background");  
+  lg.Check();  
 }
 
 void Core::MainLoop() {
   if (firstrun) {
-    RunOnce();
-    for(int i=0; i<NUMSQUARES; i++){
-      sqs[i] = Square();
-      sqs[i].Randomize(timer1.ElapsedNano());
-      usleep(1);
-    }
+    RunOnce();    
   }
 
-  /*
   if (timer1.ElapsedMilli() < 30){
     return;
   }
-  */
   
   timer1.Reset();
   dsp.Wipe();
+    
+  Layer* clouds = lg.GetLayer("clouds");
+  clouds->Move(10,10);
+  
+  Text txt(txt__hello_txt, incon, 70);
+  txt.Move(40,40);  
+  clouds->Draw(txt);
+  
+  txt.Move(50,50);
+  clouds->Draw(txt);
+    
+  //dsp.Draw(lg);
+  Vector p;
+  
+  while(evt.GetEvent(&e)) {
+    switch(e.type) {
+      case NPEventType_MouseDown:
+        x = e.u.mouse.x;
+        y = e.u.mouse.y;
+        p.XY(x, y);            
+        
+        for(int i=0; i<NUMSQUARES; i++){
+          sqs[i].Move(p);
+          
+          //sqs[i].Y(y);
+        }
+        break;
+      case NPEventType_KeyDown:
+        //printf("%d\n", int(e.u.key.normalizedKeyCode));
+        if (e.u.key.normalizedKeyCode == 40){          
+          for(int i=0; i<NUMSQUARES; i++){
+            sqs[i].Stop();
+          }
+        }          
+        break;        
+    }
+  }
+  
+  
+  for(int i=0; i<NUMSQUARES; i++) {
+    sqs[i].OldDraw(pixels_, dsp.Width(), dsp.Height());
+    sqs[i].Step(dsp.Width(), dsp.Height());
+    sqs[i].Flick(timer1.ElapsedNano());    
+  }
+  
+  frame += 1;  
+  dsp.Redraw();
+  if ( frame > 1000 ){
+    frame = 1;
+    timer2.Reset();
+  }  
+}
 
-  //Text txt1("Hello", incon);
-  //dsp.Draw(txt1);
+
+
+//Image img1("gopher.png"); 
+//Coord c1(0, 0);
+//Sprite spr1(img1, c1);
   
-  
+//while(Core::Running()){
+//dsp.ShowAt(c1, spr1);    
+//c1.MoveX(1);
+//}
+
+
+
+
+
+
   //
   /*
   FT_Error error;
@@ -159,59 +216,3 @@ void Core::MainLoop() {
  
   //printf(txt__hello_txt_gz);
   */
-
-  Vector p;
-  
-  while(evt.GetEvent(&e)) {
-    switch(e.type) {
-      case NPEventType_MouseDown:
-        x = e.u.mouse.x;
-        y = e.u.mouse.y;
-        p.XY(x, y);            
-            
-        for(int i=0; i<NUMSQUARES; i++){
-          sqs[i].Move(p);
-          
-          //sqs[i].Y(y);
-        }
-        break;
-      case NPEventType_KeyDown:
-        //printf("%d\n", int(e.u.key.normalizedKeyCode));
-        if (e.u.key.normalizedKeyCode == 40){          
-          for(int i=0; i<NUMSQUARES; i++){
-            sqs[i].Stop();
-          }
-        }          
-        break;        
-    }
-  }
-
-  if (frame%100 == 0) {      
-    //printf("Flick!\n");
-  }  
-
-  for(int i=0; i<NUMSQUARES; i++) {
-    sqs[i].OldDraw(pixels_, dsp.Width(), dsp.Height());
-    sqs[i].Step(dsp.Width(), dsp.Height());
-    if (frame%10 == 0){
-      sqs[i].Flick(timer1.ElapsedNano());
-    }
-  }
-  
-  frame += 1;  
-  dsp.Redraw();
-  if ( frame > 1000 ){
-    frame = 1;
-    timer2.Reset();
-  }  
-}
-  
-//Image img1("gopher.png"); 
-//Coord c1(0, 0);
-//Sprite spr1(img1, c1);
-  
-//while(Core::Running()){
-//dsp.ShowAt(c1, spr1);    
-//c1.MoveX(1);
-//}
-

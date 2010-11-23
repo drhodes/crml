@@ -12,7 +12,9 @@ namespace crml {
     ~Mover();
     
     void Move(Vector v);
-    void MoveRel(Vector v);   
+    void MoveRel(Vector v);
+    void Move(int x, int y);
+    void MoveRel(int x, int y);   
   };
     
 }       // namespace crml

@@ -52,7 +52,7 @@ int Display::Height(){
   return Core::self_->Height();
 }
 
-
+/*
 void Display::FontDraw(FT_Bitmap* bm, int left, int top){  
   int row = top * Width() + left;
     
@@ -63,7 +63,11 @@ void Display::FontDraw(FT_Bitmap* bm, int left, int top){
     row = (top+i-1) * Width() + left;
   }  
 }
+*/
 
+void Display::Draw(Drawer& dwr){
+
+}
 
 int Display::Width(){
   if (!Core::self_->Ok()) {     
@@ -127,13 +131,3 @@ void Display::Redraw(){
 
 }       // namespace crml
 #endif  // DISPLAY_CC
-
-
-
-
-
-
-
-
-
-

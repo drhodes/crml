@@ -19,19 +19,19 @@ int RandInt(int s, int n){ // unbelievable.
 }
 
 void Square::Randomize(int s){
-  X(100 + RandInt(s, 200));
-  Y(100 + RandInt(s, 200));
-  radius_ = 0 + RandInt(s,20);
+  X(100 + RandInt(s+1, 200));
+  Y(100 + RandInt(s+2, 200));
+  radius_ = 0 + RandInt(s+3,20);
   angle_ = 0 ;
-  speed_ = -5 + RandInt(s,3);
-  SetColor(345546 + RandInt(s,10000000));
+  speed_ = -5 + RandInt(s+5,3);
+  SetColor(345345 + RandInt(s+6,10000000));
   dxdt_ = -5 + RandInt(s+45,10);
-  dydt_ = -5 + RandInt(s,10);
+  dydt_ = -5 + RandInt(s+1,10);
 }
 
-void Square::Flick(int s){
-  dxdt_ += -1 + RandInt(s, 3);
-  dydt_ += -1 + RandInt(s, 3);
+void Square::Flick(int s){ 
+  dxdt_ += RandInt(s-1, 2);
+  dydt_ += RandInt(s+1, 2);
 }
 
 void Square::Stop(){

@@ -6,12 +6,8 @@
 #include "./drawer.h"
 
 namespace crml {
-Drawer::Drawer(){
- 
-}
 
-Drawer::~Drawer(){
-  
+Drawer::~Drawer(){  
 }
 
  

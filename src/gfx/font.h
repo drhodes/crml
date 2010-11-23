@@ -6,13 +6,22 @@
 #include <ft2build.h>
 #include FT_FREETYPE_H
 
+#include "../core/error.h"
 #include "./font.h"
 #include "./color.h"
+#include "./mover.h"
+#include "./drawer.h"
+#include "./layer.h"
 #include <string>
 
 namespace crml {
-
-  class Font {
+  ERR_(FONT_OK);
+  ERR_(FONT_INIT_FAILED);
+  ERR_(FONT_NEW_MEMORY_FAILED);
+  ERR_(FONT_SET_CHAR_SIZE_FAILED);
+  ERR_(FONT_SET_PIXEL_SIZE_FAILED);
+  
+  class Font : public Error {
    public:
     Font(char* filedata);
     ~Font();
@@ -21,10 +30,13 @@ namespace crml {
     int Size();
     void Text(std::string t);
     void SetColor(Color c);
-           
+
+    // inherited virtual
+    bool Ok();
+    
    private:
-    FT_Library library_;   // handle to library     
-    FT_Face face_;         // handle to face object 
+    FT_Library library_;
+    FT_Face face_;      
 
     int size_;
     std::string text_;

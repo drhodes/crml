@@ -4,8 +4,7 @@
 #define DISPLAY_H_
 
 #include "../core/core.h"
-#include <ft2build.h>
-#include FT_FREETYPE_H
+#include "../gfx/drawer.h"
 
 namespace crml {
   ERR_(DISPLAY_OK);
@@ -36,8 +35,8 @@ namespace crml {
     void Wipe();
     void Wipe(uint32_t color);
 
-    void FontDraw(FT_Bitmap*, int, int);
-    
+    //void FontDraw(FT_Bitmap*, int, int);
+    void Draw(Drawer&);
 
     
     /// Satisfies Event.

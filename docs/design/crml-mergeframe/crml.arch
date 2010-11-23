@@ -1,0 +1,73 @@
+construct crml {
+  package aud {
+  }
+  package core {
+    module core{
+      class Core(Error){
+        
+      }
+    }    
+  }
+  package evt {
+  }
+  package gfx {
+    module Mover{
+      class Mover(Vector){
+      }
+    }
+
+    module Vector{
+      class Vector(){
+      }
+    }
+
+    module Text{
+      class Text(Error, Mover, Drawer){
+      }
+    }
+
+    module Drawer{
+      class Drawer(){
+      }
+    }
+
+    module Layer{
+      class Layer(Mover){
+      }
+    }
+
+    module Color{
+      class Color(){
+      }
+    }
+
+    module Font{
+      class Font(){
+      }
+    }
+  }
+  
+  package header_gen {
+  }
+  package include {
+  }
+  package lua {
+  }
+  package net {
+  }
+  package sys {
+    module Clock{
+      class Clock(){
+      }
+    }    
+  }
+  
+  package util {
+  }
+  package web {
+  }
+  package win {
+  }
+}
+
+/* -*- c -*- */

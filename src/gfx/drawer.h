@@ -3,21 +3,21 @@
 #ifndef DRAWER_H_
 #define DRAWER_H_
 
-#include "./vector.h"
-#include "./layer.h"
 #include "./mover.h"
 
 namespace crml {
-  class Drawer {
+  class Drawer: public Mover {
    public:
-    Drawer();
-    ~Drawer();
+    explicit Drawer() : Mover() {
+    }
 
-    virtual void Draw(Layer& l) = 0;
+    void Resize(int width, int height);      
+    ~Drawer();
     
    private:
 
-  }; 
+  };
+  
 }       // namespace crml
 #endif  // DRAWER_H_
 

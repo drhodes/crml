@@ -8,9 +8,9 @@
 #include <crml-gfx.h>
 
 namespace crml {
-  class Square: public Drawer, public Mover {    
+  class Square: public Drawer {    
    public:    
-    explicit Square(): Drawer(), Mover() {
+    explicit Square(): Drawer() {
       Randomize(4);
     }
     ~Square();
