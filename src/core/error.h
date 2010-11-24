@@ -28,7 +28,6 @@ namespace crml {
     void ReportErr();
     void SetReportErr(ErrString es);
     void Check();
-
     
     void ClassName(std::string cn){
       class_name_ = cn;

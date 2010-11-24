@@ -3,6 +3,8 @@
 #ifndef VECTOR_H_
 #define VECTOR_H_
 
+#include <math.h>
+
 namespace crml {
   
   class Vector {
@@ -17,7 +19,8 @@ namespace crml {
     int Y();
     void Y(int y);
     int Length();
-         
+    int Distance(Vector* other);                  
+    
    private:
     int x_, y_;
   };

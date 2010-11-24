@@ -16,7 +16,7 @@ Text::Text(char*, Font& fnt, int height) :
 Text::~Text(){  
 }
 
-void Text::Draw(Layer& lyr){
+void Text::Draw(){
   //void Display::FontDraw(FT_Bitmap* bm, int left, int top){
   /*
   int row = top * Width() + left;

@@ -11,8 +11,10 @@ namespace crml {
     explicit Drawer() : Mover() {
     }
 
-    void Resize(int width, int height);      
+    void Resize(int width, int height);
     ~Drawer();
+    
+    
     
    private:
 

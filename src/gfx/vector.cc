@@ -4,7 +4,6 @@
 #define VECTOR_CC
 
 #include "./vector.h"
-#include <math.h>
 
 namespace crml {
 
@@ -40,6 +39,13 @@ int Vector::Y() {
 
 void Vector::Y(int y) {
   y_ = y;
+}
+
+int Vector::Distance(Vector* other){
+  // consider the quake optimization.
+  return sqrt((this->x_ - other->x_)*(this->x_ - other->x_) +
+              (this->y_ - other->y_)*(this->y_ - other->y_));
+  
 }
 
 int Vector::Length() {

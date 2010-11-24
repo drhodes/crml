@@ -46,16 +46,3 @@ namespace crml {
   };  
 }       // namespace crml
 #endif  // FONT_H_
-
-
-
-
-
-
-
-
-
-
-
-
-

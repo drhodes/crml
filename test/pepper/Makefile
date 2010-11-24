@@ -22,9 +22,10 @@ CFLAGS =	-Wall \
 INCLUDES =	-I $(NACL_SDK_ROOT) \
 			-I $(CRML_ROOT)/include \
 			-I $(NACLPORTS_ROOT)/include \
-			-I $(MEDIA_HEADER)
+			-I $(MEDIA_HEADER) \
 
 LDFLAGS =	-L $(CRML_ROOT)/build \
+			-L $(CRML_ROOT)/third-party \
 			-l crml-win \
 			-l crml-core \
 			-l crml-sys \

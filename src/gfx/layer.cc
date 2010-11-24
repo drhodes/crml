@@ -4,7 +4,6 @@
 #define LAYER_CC
 
 #include "./layer.h"
-#include "./drawer.h"
 
 namespace crml {
 
