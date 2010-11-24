@@ -31,7 +31,8 @@ namespace crml {
   ERR_(QUADTREE_OK);
   ERR_(QUADTREE_TRYING_TO_INIT_LIVE_TREE);
   ERR_(QUADTREE_FOUND_EMPTY_BIN);
-  
+  ERR_(QUADTREE_NULL_DRAWER);
+    
   //------------------------------------------------------------------
   class Quadtree : public Error {    
    public:
@@ -41,9 +42,9 @@ namespace crml {
     }
     
     ~Quadtree();
-
+    void MinFromBin(Drawer* dwr, Bin& bin);
     void InsertDrawer(Drawer* dwr);
-    int FindClosest(Drawer* dwr){   
+    void FindClosest(Drawer* dwr);
     void Init();
     
    private:

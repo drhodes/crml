@@ -32,10 +32,11 @@ void Quadtree::MinFromBin(Drawer* dwr, Bin& bin) {
   Bin::iterator it;
 
   if (bin.empty()){
-    SetErrReport(QUADTREE_FOUND_EMPTY_BIN);
+
+    SetReportErr(QUADTREE_FOUND_EMPTY_BIN);
     // This shouldn't happen because the bin should have been
     // deleted if it is empty.
-    return 0;
+    return;
   }
   
   // look at all the elements in this bin
@@ -52,17 +53,16 @@ void Quadtree::MinFromBin(Drawer* dwr, Bin& bin) {
 
 void Quadtree::FindClosest(Drawer* dwr){
   closest_dwr_ = 0;
-  Drawer* tmp_dwr, *tq1, *tq2, *tq3, *tq4;
+  //Drawer* tmp_dwr, *tq1, *tq2, *tq3, *tq4;
 
   if (dwr == 0) {
-    SetErrReport(QUADTREE_NULL_DRAWER);
-    return 0;
+    SetReportErr(QUADTREE_NULL_DRAWER);
   }
   
   // look at all the elements in this bin
   // pick the closest one.  
-  MinFromBin(dwr, &bin_);
-  tmp_dwr = closest_dwr_;
+  //MinFromBin(dwr, &bin_);
+  //tmp_dwr = closest_dwr_;
   
   // look at all the elements on each quadrant's bin.
   // pick the closest one.
@@ -70,9 +70,8 @@ void Quadtree::FindClosest(Drawer* dwr){
   ///////////////////////////////////////////////////////////////////
   //////////////////////////////////////////////////////////////////
   // RETHINK THIS WHOLE THING.
-  
 
-  
+  /*
   if (tree_->q1) {
     MinFromBin(dwr, &tree_->q1.bin);
     tq1 = closest_dwr_;
@@ -89,6 +88,7 @@ void Quadtree::FindClosest(Drawer* dwr){
     MinFromBin(dwr, &tree_->q4.bin);
     tq4 = closest_dwr_;
   }
+  */
   
   // if dwr is closer to an element in this bin keep a reference to it.
   // we have found the closest point.
@@ -100,8 +100,8 @@ void Quadtree::FindClosest(Drawer* dwr){
 
 void Quadtree::InsertDrawer(Drawer* dwr){
   if (size_ == 0) {
-    tree_->bin.insert(dwr);
-    size_ += 1;
+    //tree_->bin.insert(dwr);
+    //size_ += 1;
   }
 }
 
