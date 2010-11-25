@@ -20,6 +20,7 @@ GLuint g_vbo = 0;
 GLsizei g_texCoordOffset = 0;
 int g_angle = 0;
 
+
 void CheckGLError(const char* func_name, int line_no) {
 #ifndef NDEBUG
   GLenum error = GL_NO_ERROR;
@@ -31,6 +32,7 @@ void CheckGLError(const char* func_name, int line_no) {
 }
 
 GLuint LoadShader(GLenum type, const char* shaderSrc) {
+  printf("gles2_demo_cc.cc -> GLuint LoadShader(GLenum type, const char* shaderSrc) {\n");
   CheckGLError("LoadShader", __LINE__);
   GLuint shader = glCreateShader(type);
   if (shader == 0) {
@@ -56,6 +58,7 @@ GLuint LoadShader(GLenum type, const char* shaderSrc) {
 }
 
 void InitShaders() {
+  printf("gles2_demo_cc.cc -> void InitShaders() {\n");
   static const char* vShaderStr =
     "uniform mat4 worldMatrix;\n"
     "attribute vec3 g_Position;\n"
@@ -138,6 +141,7 @@ void InitShaders() {
 }
 
 GLuint CreateCheckerboardTexture() {
+  printf("gles2_demo_cc.cc -> GLuint CreateCheckerboardTexture() {\n");
   CheckGLError("CreateCheckerboardTexture", __LINE__);
   static unsigned char pixels[] = {
     255, 255, 255,
@@ -162,6 +166,7 @@ GLuint CreateCheckerboardTexture() {
 }  // anonymous namespace.
 
 void GLFromCPPInit() {
+  printf("gles2_demo_cc.cc -> void GLFromCPPInit() {\n");
   CheckGLError("GLFromCPPInit", __LINE__);
   glClearColor(0.f, 0.f, .7f, 1.f);
   g_texture = CreateCheckerboardTexture();
@@ -170,6 +175,7 @@ void GLFromCPPInit() {
 }
 
 void GLFromCPPDraw() {
+  printf("gles2_demo_cc.cc -> void GLFromCPPDraw() {\n");
   const float kPi = 3.1415926535897932384626433832795f;
 
   CheckGLError("GLFromCPPDraw", __LINE__);
