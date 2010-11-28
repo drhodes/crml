@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/openvg/!svn/ver/355/trunk/ri_package/lib
+END
+glut.h
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/openvg/!svn/ver/355/trunk/ri_package/lib/glut.h
+END
+libOpenVG-dbg.lib
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/openvg/!svn/ver/355/trunk/ri_package/lib/libOpenVG-dbg.lib
+END
+glut32.lib
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/openvg/!svn/ver/355/trunk/ri_package/lib/glut32.lib
+END
+libOpenVG.lib
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/openvg/!svn/ver/355/trunk/ri_package/lib/libOpenVG.lib
+END

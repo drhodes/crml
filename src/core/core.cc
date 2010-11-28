@@ -48,7 +48,6 @@ NPDevice* Core::Device3d(){
   return plugin_->device2d_;  
 }
 
-PGLContext Core::PglContext(){ return plugin_->pgl_context_; }
 NPDevice* Core::DeviceAudio(){ 
   if (plugin_->deviceaudio_ == 0){
     SetReportErr(CORE_NULL_DEVICE_AUDIO);
@@ -57,6 +56,7 @@ NPDevice* Core::DeviceAudio(){
   return plugin_->deviceaudio_;    
 }
 
+PGLContext Core::PglContext(){ return plugin_->pgl_context_; }
 NPDeviceContext3D Core::Context3d() { return plugin_->context3d_; }
 NPDeviceContextAudio Core::ContextAudio() { return plugin_->context_audio_; }
 unsigned int Core::Device2dChecksum() { return plugin_->device2d_checksum_; }
@@ -75,6 +75,11 @@ void Core::SetPlugin(PluginObject* plugin){
 }
 
 Core::~Core(){}
+
+void Core::Alert(std::string msg){
+  printf("%s\n", msg.c_str());
+}
+
 
 bool Core::Ok() {
   return Err() == CORE_OK;

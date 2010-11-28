@@ -90,6 +90,10 @@ void Display::Init(){
   }
   device2d_ = device2d;
 
+  device3d_ = Core::self_->Device3d();
+  pgl_context_ = Core::self_->PglContext();
+  context3d_ = Core::self_->Context3d();
+  
   pixels_ = static_cast<uint32_t*>(context_.region);  
 }
 
@@ -111,23 +115,15 @@ void Display::Wipe(uint32_t color){
 }
 
 void Display::Redraw(){
-  /*
-  NPDeviceContext2DConfig config;
-  NPDeviceContext2D context;
-  
-  NPDevice* device2d = Core::self_->Device2d();    
-  if (Core::self_->Ok()){    
-    NPError err = device2d->initializeContext(Core::self_->Npp(), &config, &context);
-    if (err != NPERR_NO_ERROR) {
-      printf("Failed to initialize 2D context\n");
-      //exit(1);
-    }
-  }
-  */
   NPDeviceFlushContextCallbackPtr callback =
       reinterpret_cast<NPDeviceFlushContextCallbackPtr>(&FlushCallback);
   device2d_->flushContext( Core::self_->Npp(), &context_, callback, NULL);
 }
+
+void Display::Draw3D(){
+  Core::Alert("Drawing from Display::Draw3d");
+}
+
 
 }       // namespace crml
 #endif  // DISPLAY_CC

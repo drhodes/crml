@@ -39,7 +39,8 @@ extern "C" {
 // Plugin entry points
 
 NPError NPAPI NP_Initialize(NPNetscapeFuncs* browser_funcs,
-                            NPPluginFuncs* plugin_funcs) {  
+                            NPPluginFuncs* plugin_funcs) {
+  printf("main.cc -> NPError NPAPI NP_Initialize(NPNetscapeFuncs* browser_funcs,\n");
   browser = browser_funcs;
   pglInitialize();
   return NP_GetEntryPoints(plugin_funcs);
@@ -48,6 +49,7 @@ NPError NPAPI NP_Initialize(NPNetscapeFuncs* browser_funcs,
 // Entrypoints -----------------------------------------------------------------
 
 NPError NPAPI NP_GetEntryPoints(NPPluginFuncs* plugin_funcs) {
+  printf("main.cc -> NPError NPAPI NP_GetEntryPoints(NPPluginFuncs* plugin_funcs) {\n");
   plugin_funcs->version = 11;
   plugin_funcs->size = sizeof(plugin_funcs);
   plugin_funcs->newp = NPP_New;

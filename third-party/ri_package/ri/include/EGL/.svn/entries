@@ -1,0 +1,40 @@
+8
+
+dir
+363
+https://cvs.khronos.org/svn/openvg/trunk/ri_package/ri/include/EGL
+https://cvs.khronos.org/svn/openvg
+
+
+
+2007-02-28T14:32:33.548339Z
+338
+jussi@hybrid.fi
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+d30d3694-b905-0410-9753-f17efdbc9d8a
+
+egl.h
+file
+
+
+
+
+2007-03-05T14:24:54.000000Z
+61bb50f3691a4e5495bbee8f41d0f651
+2007-02-28T14:32:33.548339Z
+338
+jussi@hybrid.fi
+

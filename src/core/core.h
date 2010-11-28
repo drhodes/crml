@@ -37,7 +37,7 @@ namespace crml {
 
     void MainLoop();
     void __MainLoop__();
-
+    void Main3D();
     
     // Pluggin Getters.
     NPObject Header();
@@ -54,6 +54,8 @@ namespace crml {
     int Width();
     int Height();
 
+    static void Alert(std::string msg);
+    
     
     /// \return a context2D, be careful.
     NPDeviceContext2D GetContext2D();

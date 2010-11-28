@@ -5,6 +5,7 @@
 
 #include "../core/core.h"
 #include "../gfx/drawer.h"
+#include <GLES2/gl2.h>
 
 namespace crml {
   ERR_(DISPLAY_OK);
@@ -37,7 +38,7 @@ namespace crml {
 
     //void FontDraw(FT_Bitmap*, int, int);
     void Draw(Drawer&);
-
+    void Draw3D();
     
     /// Satisfies Event.
     virtual bool Ok();  // Is the object in a OK state?    
@@ -46,6 +47,9 @@ namespace crml {
     NPDevice* device2d_;
     uint32_t* pixels_;
 
+    NPDevice* device3d_;
+    PGLContext pgl_context_;
+    NPDeviceContext3D context3d_;
     
     void CreateContext();
     void DestroyContext();

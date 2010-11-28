@@ -20,7 +20,6 @@ GLuint g_vbo = 0;
 GLsizei g_texCoordOffset = 0;
 int g_angle = 0;
 
-
 void CheckGLError(const char* func_name, int line_no) {
 #ifndef NDEBUG
   GLenum error = GL_NO_ERROR;
@@ -76,7 +75,8 @@ void InitShaders() {
     "varying vec2 texCoord;\n"
     "void main()\n"
     "{\n"
-    "  gl_FragColor = texture2D(tex, texCoord);\n"
+
+      "  gl_FragColor = texture2D(tex, texCoord);\n"
     "}\n";
 
   CheckGLError("InitShaders", __LINE__);
@@ -90,14 +90,18 @@ void InitShaders() {
   }
   glAttachShader(programObject, vertexShader);
   glAttachShader(programObject, fragmentShader);
+
   // Bind g_Position to attribute 0
   // Bind g_TexCoord0 to attribute 1
   glBindAttribLocation(programObject, 0, "g_Position");
   glBindAttribLocation(programObject, 1, "g_TexCoord0");
+
   // Link the program
   glLinkProgram(programObject);
+
   // Check the link status
   GLint linked;
+
   glGetProgramiv(programObject, GL_LINK_STATUS, &linked);
   if (linked == 0) {
     char buffer[1024];
@@ -108,6 +112,7 @@ void InitShaders() {
     glDeleteProgram(programObject);
     return;
   }
+  
   g_programObject = programObject;
   g_worldMatrixLoc = glGetUniformLocation(g_programObject, "worldMatrix");
   g_textureLoc = glGetUniformLocation(g_programObject, "tex");
@@ -185,20 +190,21 @@ void GLFromCPPDraw() {
   GLfloat rot_matrix[16];
   GLfloat cos_angle = cosf(static_cast<GLfloat>(g_angle) * kPi / 180.0f);
   GLfloat sin_angle = sinf(static_cast<GLfloat>(g_angle) * kPi / 180.0f);
-  // OpenGL matrices are column-major
+
+  // OpenGL matrices are column-major  
   rot_matrix[0] = cos_angle;
-  rot_matrix[1] = sin_angle;
+  rot_matrix[1] = 0.0f;
   rot_matrix[2] = 0.0f;
   rot_matrix[3] = 0.0f;
 
-  rot_matrix[4] = -sin_angle;
+  rot_matrix[4] = 0.0f;
   rot_matrix[5] = cos_angle;
-  rot_matrix[6] = 0.0f;
+  rot_matrix[6] = sin_angle;
   rot_matrix[7] = 0.0f;
 
   rot_matrix[8] = 0.0f;
-  rot_matrix[9] = 0.0f;
-  rot_matrix[10] = 1.0f;
+  rot_matrix[9] = cos_angle;
+  rot_matrix[10] = cos_angle;
   rot_matrix[11] = 0.0f;
 
   rot_matrix[12] = 0.0f;
@@ -213,6 +219,7 @@ void GLFromCPPDraw() {
   // Use the program object
   glUseProgram(g_programObject);
   CheckGLError("GLFromCPPDraw", __LINE__);
+  
   // Set up the model matrix
   glUniformMatrix4fv(g_worldMatrixLoc, 1, GL_FALSE, rot_matrix);
 
@@ -224,13 +231,17 @@ void GLFromCPPDraw() {
   glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 0,
                         reinterpret_cast<const void*>(g_texCoordOffset));
   CheckGLError("GLFromCPPDraw", __LINE__);
+
   // Bind the texture to texture unit 0
   glBindTexture(GL_TEXTURE_2D, g_texture);
   CheckGLError("GLFromCPPDraw", __LINE__);
+
   // Point the uniform sampler to texture unit 0
   glUniform1i(g_textureLoc, 0);
   CheckGLError("GLFromCPPDraw", __LINE__);
+
   glDrawArrays(GL_TRIANGLES, 0, 6);
   CheckGLError("GLFromCPPDraw", __LINE__);
+
   glFlush();
 }

@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/openvg/!svn/ver/354/trunk/ri_package/bin/win32
+END
+libOpenVG.dll
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/openvg/!svn/ver/354/trunk/ri_package/bin/win32/libOpenVG.dll
+END
+tiger-dbg.exe
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/openvg/!svn/ver/354/trunk/ri_package/bin/win32/tiger-dbg.exe
+END
+libOpenVG-dbg.dll
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/openvg/!svn/ver/354/trunk/ri_package/bin/win32/libOpenVG-dbg.dll
+END
+glut32.dll
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/openvg/!svn/ver/354/trunk/ri_package/bin/win32/glut32.dll
+END
+tiger.exe
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/openvg/!svn/ver/354/trunk/ri_package/bin/win32/tiger.exe
+END

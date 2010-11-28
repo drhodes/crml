@@ -9,9 +9,9 @@
 #include "./error.h"
 
 namespace crml {
-bool Error::DEBUG = false;
+bool Error::DEBUG = true;
 
-Error::Error(ErrString es){
+Error::Error(ErrString es){  
   err_ = es;
 }
 
@@ -30,16 +30,16 @@ void Error::Err(ErrString es){
   }
   if (DEBUG == true){
     ReportErr();
-  }  
+  }
   err_ = es;
 }
 
 /// \brief Report an error to stdout.
 void Error::ReportErr(){  
-  if (!Ok())
+  if (!Ok())    
     printf("!! %s: Error > %s\n", class_name_.c_str(), err_.c_str());
   else
-    printf("!! %s: -OK!-  > %s\n", class_name_.c_str(), err_.c_str());
+    printf("!! %s: -OK!- > %s\n", class_name_.c_str(), err_.c_str());
 }
 
 

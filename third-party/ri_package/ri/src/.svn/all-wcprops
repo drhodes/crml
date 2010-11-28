@@ -1,0 +1,107 @@
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/openvg/!svn/ver/337/trunk/ri_package/ri/src
+END
+riPixelPipe.h
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/openvg/!svn/ver/334/trunk/ri_package/ri/src/riPixelPipe.h
+END
+riApi.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/openvg/!svn/ver/321/trunk/ri_package/ri/src/riApi.cpp
+END
+riImage.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/openvg/!svn/ver/326/trunk/ri_package/ri/src/riImage.cpp
+END
+riArray.h
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/openvg/!svn/ver/322/trunk/ri_package/ri/src/riArray.h
+END
+riContext.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/openvg/!svn/ver/323/trunk/ri_package/ri/src/riContext.cpp
+END
+riMiniEGL.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/openvg/!svn/ver/330/trunk/ri_package/ri/src/riMiniEGL.cpp
+END
+riDefs.h
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/openvg/!svn/ver/325/trunk/ri_package/ri/src/riDefs.h
+END
+riImage.h
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/openvg/!svn/ver/327/trunk/ri_package/ri/src/riImage.h
+END
+riContext.h
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/openvg/!svn/ver/324/trunk/ri_package/ri/src/riContext.h
+END
+riMath.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/openvg/!svn/ver/328/trunk/ri_package/ri/src/riMath.cpp
+END
+riRasterizer.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/openvg/!svn/ver/335/trunk/ri_package/ri/src/riRasterizer.cpp
+END
+riPath.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/openvg/!svn/ver/331/trunk/ri_package/ri/src/riPath.cpp
+END
+riMath.h
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/openvg/!svn/ver/329/trunk/ri_package/ri/src/riMath.h
+END
+riPixelPipe.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/openvg/!svn/ver/333/trunk/ri_package/ri/src/riPixelPipe.cpp
+END
+riRasterizer.h
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/openvg/!svn/ver/336/trunk/ri_package/ri/src/riRasterizer.h
+END
+riPath.h
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/openvg/!svn/ver/332/trunk/ri_package/ri/src/riPath.h
+END
+riVGU.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/openvg/!svn/ver/337/trunk/ri_package/ri/src/riVGU.cpp
+END
