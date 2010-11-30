@@ -17,6 +17,12 @@ Vector::Vector(int x, int y) {
   y_ = y;     
 }
 
+
+Vector::Vector(const Vector& v){
+  x_ = v.x_;
+  y_ = v.y_;      
+}
+
 Vector::~Vector() {
 }
 

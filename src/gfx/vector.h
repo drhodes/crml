@@ -11,6 +11,7 @@ namespace crml {
    public:
     Vector();
     Vector(int, int);
+    Vector(const Vector&);
     ~Vector();
 
     void XY(int x, int y);    

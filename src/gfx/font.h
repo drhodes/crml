@@ -9,7 +9,6 @@
 #include "../core/error.h"
 #include "./font.h"
 #include "./color.h"
-#include "./mover.h"
 #include "./drawer.h"
 #include "./layer.h"
 #include <string>

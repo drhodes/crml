@@ -10,26 +10,28 @@ namespace crml {
 SpaceHash::~SpaceHash(){
 }
 
-void SpaceHash::Add(Mover mov){
+void SpaceHash::Add(Rect r){
   // this Aligns the bucket to a grid
-  Vector v = mov.Align(resolution_);
+  /*
+  Vector v = r.Align(resolution_);
   std::pair<int, int> key(v.X(), v.Y());
 
   if (space_.count(key) == 0) {
-    std::list<Mover> lst;
+    std::list<Rect> lst;
     space_[key] = lst;
   }  
-  space_[key].push_back(mov);  
+  space_[key].push_back(mov);
+  */
 }  
 
-void SpaceHash::Delete(Mover mov){
+void SpaceHash::Delete(Rect r){
   /*
   Vector v = mov.Align(resolution_);
   std::pair<int, int> key(v.X(), v.Y());
 
   
   if (space_.count(key) == 0) {
-    std::list<Mover> lst;
+    std::list<Rect> lst;
     space_[key] = lst;
   }  
   */  

@@ -4,7 +4,7 @@
 #define SPACEHASH_H_
 
 #include "../core/error.h"
-#include "mover.h"
+#include "rect.h"
 #include "vector.h"
 
 #include <map>
@@ -13,7 +13,7 @@
 namespace crml {
   ERR_(SPACEHASH_OK);
 
-  typedef std::map<std::pair<int, int>, std::list<Mover>> SpaceMap;
+  typedef std::map<std::pair<int, int>, std::list<Rect>> SpaceMap;
   
   class SpaceHash: public Error {
    public:
@@ -24,9 +24,9 @@ namespace crml {
     }
     
     ~SpaceHash();    
-    void Add(Mover);
-    void Delete(Mover);
-    void GetBuckets(Mover);
+    void Add(Rect);
+    void Delete(Rect);
+    void GetBuckets(Rect);
 
     bool Ok();
    private:    

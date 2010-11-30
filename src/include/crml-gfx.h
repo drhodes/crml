@@ -3,7 +3,7 @@
 #include "../gfx/font.h"
 #include "../gfx/layer_group.h"
 #include "../gfx/layer.h"
-#include "../gfx/mover.h"
+#include "../gfx/rect.h"
 #include "../gfx/space_hash.h"
 #include "../gfx/text.h"
 #include "../gfx/vector.h"

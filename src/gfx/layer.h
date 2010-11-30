@@ -4,15 +4,15 @@
 #define LAYER_H_
 
 #include "../core/error.h"
-#include "./mover.h"
+#include "./rect.h"
 #include "./drawer.h"
 
 namespace crml {
   ERR_(LAYER_OK);
   
-  class Layer : public Error, public Mover {    
+  class Layer : public Error, public Rect {    
    public:
-    explicit Layer() : Error(LAYER_OK), Mover() {
+    explicit Layer() : Error(LAYER_OK), Rect() {
       ClassName("Layer");
     }    
     ~Layer();

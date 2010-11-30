@@ -6,16 +6,12 @@
 #include "./mover.h"
 
 namespace crml {
-  class Drawer: public Mover {
+  class Drawer: public Rect {
    public:
-    explicit Drawer() : Mover() {
+    explicit Drawer() : Rect() {
     }
 
-    void Resize(int width, int height);
-    ~Drawer();
-    
-    
-    
+    ~Drawer();        
    private:
 
   };
