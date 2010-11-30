@@ -6,7 +6,7 @@ NACLPORTS_ROOT	= ~/dev/naclports/src
 NACL_SDK_ROOT	= ~/dev/nacl_sdk
 CRML_ROOT		= ../../
 
-CCFILES =	main.cc game.cc square.cc
+CCFILES =	main.cc game.cc 
 MEDIA_BLOB = ./media/media-blob.a
 MEDIA_HEADER = ./media
 

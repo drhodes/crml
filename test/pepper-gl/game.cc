@@ -10,7 +10,6 @@
 #include <sstream>
 #include <iostream>
 
-#include "./square.h"
 #include <media-blob.h>
 #include <png.h>
 #include <zlib.h>
@@ -31,7 +30,6 @@ bool firstrun = true;
 NPPepperEvent e;
 int x = 1;
 int y = 1;
-Square sqs[NUMSQUARES];
 LayerGroup lg;
 SpaceHash sh(16);
 
@@ -60,7 +58,6 @@ void RunOnce() {
   lg.AddTop("stars");
   lg.AddBottom("background");  
   lg.Check();
-
 }
 
 void Core::Main3D(){
@@ -101,26 +98,16 @@ void Core::Main3D(){
       case NPEventType_MouseDown:
         x = e.u.mouse.x;
         y = e.u.mouse.y;
-        p.XY(x, y);            
-        
-        for(int i=0; i<NUMSQUARES; i++){
-          sqs[i].Move(p);
-          
-          //sqs[i].Y(y);
-        }
+        p.XY(x, y);                    
         break;
-      case NPEventType_KeyDown:
-        //printf("%d\n", int(e.u.key.normalizedKeyCode));
+      case NPEventType_KeyDown: 
         if (e.u.key.normalizedKeyCode == 40){          
-          for(int i=0; i<NUMSQUARES; i++){
-            sqs[i].Stop();
-          }
         }          
-        break;        
+        break;
     }
   }
-
 }
+
 
 
 

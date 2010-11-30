@@ -3,7 +3,8 @@
 #ifndef DRAWER_H_
 #define DRAWER_H_
 
-#include "./mover.h"
+#include "./rect.h"
+
 
 namespace crml {
   class Drawer: public Rect {
