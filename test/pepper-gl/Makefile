@@ -56,4 +56,3 @@ pplugin_x86_32.nexe: $(OBJECTS_X86_32)
 
 clean:
 	-$(RM) $(OBJECTS_X86_32) pplugin_x86_32.nexe
-	cd ./media && make clean

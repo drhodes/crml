@@ -4,6 +4,6 @@
 #include "../gfx/layer_group.h"
 #include "../gfx/layer.h"
 #include "../gfx/mover.h"
-#include "../gfx/quadtree.h"
+#include "../gfx/space_hash.h"
 #include "../gfx/text.h"
 #include "../gfx/vector.h"

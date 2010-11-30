@@ -52,5 +52,11 @@ int Vector::Length() {
   return sqrt(x_*x_ + y_*y_);
 }
 
+Vector Vector::Align(int res){
+  Vector v(X()-(X()%res), Y()-(Y()%res));
+  return v;
+}
+
+
 }       // namespace crml
 #endif  // VECTOR_CC

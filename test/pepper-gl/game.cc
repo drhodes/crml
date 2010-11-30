@@ -33,6 +33,7 @@ int x = 1;
 int y = 1;
 Square sqs[NUMSQUARES];
 LayerGroup lg;
+SpaceHash sh(16);
 
 void RunOnce() {
   Error::DebugOn();
@@ -75,12 +76,11 @@ void Core::Main3D(){
   glViewport(0, 0, dsp.Width(), dsp.Height());
   GLFromCPPDraw();  
   //pglSwapBuffers();
-
   
   //pglMakeCurrent(NULL);
   //return;
-
   
+   
   timer1.Reset();
   dsp.Wipe();
     

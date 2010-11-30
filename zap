@@ -6,6 +6,8 @@ HOME=`pwd`
 cd $HOME && cd ./test/pi_generator_crml && make clean
 cd $HOME && cd ./test/custom_method && make clean
 cd $HOME && cd ./test/pepper && make clean
+cd $HOME && cd ./test/pepper-gl && make clean
+cd $HOME && cd ./test/pepper-gl/media && make clean
 
 cd $HOME && cd ./docs/doxy && rm -rf html latex
 #cd $HOME && cd ./test/pepper/media && make clean && make

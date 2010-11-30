@@ -20,6 +20,7 @@ namespace crml {
     void Y(int y);
     int Length();
     int Distance(Vector* other);                  
+    Vector Align(int resolution);
     
    private:
     int x_, y_;
