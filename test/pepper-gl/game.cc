@@ -71,16 +71,12 @@ void Core::Main3D(){
   }
 
   glViewport(0, 0, dsp.Width(), dsp.Height());
-  GLFromCPPDraw();  
-  //pglSwapBuffers();
+  GLFromCPPDraw();
+   
   
   //pglMakeCurrent(NULL);
   //return;
-
-  for(int i = -100; i < 1000; i++){
-    sh.Add(Rect(i,i, i+(i%10)+20, i+(i%20)+40));
-  }
-      
+        
   timer1.Reset();
   dsp.Wipe();
     

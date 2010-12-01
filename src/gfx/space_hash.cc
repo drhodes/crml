@@ -5,6 +5,9 @@
 
 #include <stdio.h>
 #include "./space_hash.h"
+#include <algorithm>
+#include <utility> 
+
 namespace crml {
 
 SpaceHash::~SpaceHash(){
@@ -40,27 +43,43 @@ void SpaceHash::Add(Rect& r){
     for (int x = tl.X(); x <= br.X(); x += res_){
       std::pair<int, int> key(x, y);
       
-      if (space_.count(key) == 0) {
-        space_[key] = std::vector<Rect*>();
+      if (space_.count(key) == 0) {        
+        space_[key] = std::set<Rect*>();
       }
-      space_[key].push_back(&r);
+      space_[key].insert(&r);
 
       if (bucketmap_.count(r.Id()) == 0) {
         bucketmap_[r.Id()] = std::vector<IntPair>();
       }
-      bucketmap_[r.Id()].push_back(key);            
+      bucketmap_[r.Id()].push_back(key);
     }
   }
 }  
 
-void SpaceHash::Delete(Rect& r){
+void SpaceHash::Delete(Rect& r){  
   std::vector<IntPair> bm = bucketmap_[r.Id()];
   std::vector<IntPair>::iterator it;
+
   for (it = bm.begin(); it < bm.end(); it++) {
     bucketmap_[r.Id()].erase(it);
-  }
+  }  
 }
+
+std::set<Rect*> SpaceHash::GetNeighbors(Rect& r){
+  // get a vector of all the buckets a rect is in.
+  std::vector<IntPair> bm = bucketmap_[r.Id()];
+
+  // get the intersection of all those buckets
+  std::set<Rect*> inter;
   
+  for (uint i = 0; i < bm.size(); i++) {    
+    std::set_union(inter.begin(), inter.end(),
+                   space_[bm[i]].begin(), space_[bm[i]].end(),
+                   std::inserter(inter, inter.begin()) );
+  }    
+  return inter;
+}
+
 bool SpaceHash::Ok(){
   return Err() == SPACEHASH_OK;
 }

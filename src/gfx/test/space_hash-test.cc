@@ -3,16 +3,23 @@
 
 using namespace crml;
 
+#define EQ( _V1_, _V2_, _MSG_ ) if(_V1_==_V2_){printf("passes> %s\n",_MSG_);}else{printf("fails!! %s\n",_MSG_);}
+
 int main(){
   SpaceHash sh(64);
 
-  Rect r(34,34,103,100);
-  Rect r2(-234,-34,103,300);
+  Rect r(0,0,100,100);
+  Rect r2(20,20,100,100);
+
+  EQ(r.Id(), 0, "id is 0");
+  EQ(r2.Id(), 1, "id is 1");
  
-  printf("r.Id(): %d\n", r.Id());  
   sh.Add(r);
   sh.Add(r2);
-  printf("r.Id(): %d\n", r.Id());
+
+  EQ(sh.GetNeighbors(r).size(), 2, "right number of neighbors");
+  EQ(r.Id(), 0, "id is 0");
+  
   printf("BucketCount(r): %d\n", sh.BucketCount(r));
   sh.Delete(r);
   printf("r.Id(): %d\n", r.Id());
@@ -34,15 +41,7 @@ int main(){
   sh.Delete(r2);
   printf("BucketCount(r2): %d\n", sh.BucketCount(r2));
 
-  /*
-  int count = 0;
-  while(1){
-    Rect r3(count, count*2, count*3, count*4);
-    sh.Add(r3);
-    count += 1;
-    printf("r3.Id(): %d\n", r3.Id());
-    printf("BucketCount(r3): %d\n", sh.BucketCount(r3));
-  }
-  */  
+  EQ(sh.GetNeighbors(r).size(), 0, "right number of neighbors");
+
   return 0;
 }

@@ -9,14 +9,15 @@
 
 #include <map>
 #include <vector>
+#include <set>
 
 namespace crml {
   ERR_(SPACEHASH_OK);
 
   typedef std::pair<int, int> IntPair;
-  typedef std::map<IntPair, std::vector<Rect*> > SpaceMap;
+  typedef std::map<IntPair, std::set<Rect*> > SpaceMap;
   typedef std::map<int, std::vector<IntPair> > RectIdBucketMap;
-      
+       
   class SpaceHash: public Error {
    public:
     explicit SpaceHash(int resolution):
@@ -29,7 +30,8 @@ namespace crml {
     void Add(Rect&);
     void Delete(Rect&);
     void GetBuckets(Rect&);
-
+    std::set<Rect*> GetNeighbors(Rect&);
+        
     int BucketCount(Rect& r);    
     Vector AlignTopLeft(Rect& r);
     Vector AlignBottomRight(Rect& r);

@@ -12,6 +12,10 @@
 
 namespace {
 
+/* when this is integrated into the display object
+   these globals should be static members?
+*/
+
 GLuint g_texture = 0;
 int g_textureLoc = -1;
 GLuint g_programObject = 0;
@@ -152,7 +156,7 @@ GLuint CreateCheckerboardTexture() {
     255, 255, 255,
     0,   0,   0,
     0,   0,   0,
-    255, 255, 255,
+    0, 255, 255,
   };
   GLuint texture;
   glGenTextures(1, &texture);
