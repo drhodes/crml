@@ -31,7 +31,7 @@ NPPepperEvent e;
 int x = 1;
 int y = 1;
 LayerGroup lg;
-SpaceHash sh(16);
+SpaceHash sh(32);
 
 void RunOnce() {
   Error::DebugOn();
@@ -76,8 +76,11 @@ void Core::Main3D(){
   
   //pglMakeCurrent(NULL);
   //return;
-  
-   
+
+  for(int i = -100; i < 1000; i++){
+    sh.Add(Rect(i,i, i+(i%10)+20, i+(i%20)+40));
+  }
+      
   timer1.Reset();
   dsp.Wipe();
     

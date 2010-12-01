@@ -8,30 +8,40 @@
 #include "vector.h"
 
 #include <map>
-#include <list>
+#include <vector>
 
 namespace crml {
   ERR_(SPACEHASH_OK);
 
-  typedef std::map<std::pair<int, int>, std::list<Rect>> SpaceMap;
-  
+  typedef std::pair<int, int> IntPair;
+  typedef std::map<IntPair, std::vector<Rect*> > SpaceMap;
+  typedef std::map<int, std::vector<IntPair> > RectIdBucketMap;
+      
   class SpaceHash: public Error {
    public:
     explicit SpaceHash(int resolution):
     Error(SPACEHASH_OK) {
       ClassName("SpaceHash");
-      resolution_ = resolution;
+      res_ = resolution;
     }
     
     ~SpaceHash();    
-    void Add(Rect);
-    void Delete(Rect);
-    void GetBuckets(Rect);
+    void Add(Rect&);
+    void Delete(Rect&);
+    void GetBuckets(Rect&);
 
+    int BucketCount(Rect& r);    
+    Vector AlignTopLeft(Rect& r);
+    Vector AlignBottomRight(Rect& r);
+    
     bool Ok();
-   private:    
+   private:
     SpaceMap space_;
-    int resolution_;    
+
+    // RectID -> BucketList, for quick deletion of rects.
+    RectIdBucketMap bucketmap_;
+    
+    int res_; // bucket resolution.    
   };
   
 }       // namespace crml

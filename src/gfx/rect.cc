@@ -6,25 +6,28 @@
 #include "./rect.h"
 
 namespace crml {
+int Rect::ID__ = 0;
 
-Rect::Rect(){
+Rect::Rect() : id__(ID__++) {
   topleft_ = Vector(0, 0);
   bottomright_ = Vector(0, 0);
 }
 
-Rect::Rect(int x1, int y1, int x2, int y2){
+Rect::Rect(int x1, int y1, int x2, int y2) : id__(ID__++) {
   topleft_ = Vector(x1, y1);
   bottomright_ = Vector(x2, y2);
 }
 
-Rect::Rect(Vector v1, Vector v2){
+Rect::Rect(Vector v1, Vector v2) : id__(ID__++) {
   topleft_ = v1;
   bottomright_ = v2;
 }
 
+// may be able to scrap this copy constructor.
 Rect::Rect(const Rect& r) {
   topleft_ = r.topleft_;
   bottomright_ = r.bottomright_;
+  id__ = ID__++;
 }
 
 void Rect::StretchLeft(int n){
@@ -87,18 +90,19 @@ void Rect::MoveRel(Vector v){
   bottomright_.Y(bottomright_.Y() + v.Y());
 }
 
+const Vector Rect::TopLeft(){
+  return topleft_;
+}
+
+const Vector Rect::BottomRight(){
+  return bottomright_;
+}
+
+int Rect::Id() {
+  return id__;
+}
+
+
+
 }       // namespace crml
 #endif  // RECT_CC
-
-
-
-
-
-
-
-
-
-
-
-
-

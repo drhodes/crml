@@ -20,7 +20,6 @@ namespace crml {
   ERR_(CORE_NULL_DEVICE_AUDIO);
   
   /// \brief The Core object which wires all subsystems
-  /// and maintains an open channel with javascript.
   //------------------------------------------------------------------
   class Core : public Error { 
    public:

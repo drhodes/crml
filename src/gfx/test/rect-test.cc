@@ -9,8 +9,7 @@ namespace crml {
   
   class Rect {
    public:
-    static int ID__;
-    
+   
     Rect();
     Rect(int, int, int, int);
     Rect(Vector, Vector);
@@ -30,19 +29,18 @@ namespace crml {
     int Bottom();
     int Left();
     int Right();
-
-    int Id();
-      
+    
     const Vector TopLeft();
     const Vector BottomRight();      
    private:
+    static int ID;
     
     int id__; // memory management helper.
     Vector topleft_, bottomright_;           
   };
 
   //static initializer.
-  //int ID = 0;
+  int ID = 0;
   
 }       // namespace crml
 #endif  // RECT_H_
