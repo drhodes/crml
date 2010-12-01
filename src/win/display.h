@@ -53,7 +53,7 @@ namespace crml {
     
     void CreateContext();
     void DestroyContext();
-    
+        
   };
 }       // namespace crml
 #endif  // DISPLAY_HPP_

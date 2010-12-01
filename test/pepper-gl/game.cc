@@ -13,6 +13,7 @@
 #include <media-blob.h>
 #include <png.h>
 #include <zlib.h>
+#include "./gles2_demo_cc.cc"
 #include "osg-png-ripoff.cc"
 
 using namespace crml;
@@ -60,23 +61,24 @@ void RunOnce() {
   lg.Check();
 }
 
+void PutTriangle(){
+  
+}
+
 void Core::Main3D(){
   if (firstrun) {
     RunOnce();    
   }
 
   printf("Hello from game\n");
-  if (timer1.ElapsedMilli() < 10){
+
+  if (timer1.ElapsedMilli() < 30){
     return;
   }
 
   glViewport(0, 0, dsp.Width(), dsp.Height());
   GLFromCPPDraw();
-   
-  
-  //pglMakeCurrent(NULL);
-  //return;
-        
+         
   timer1.Reset();
   dsp.Wipe();
     
