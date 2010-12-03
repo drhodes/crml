@@ -2,7 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-#include "gles2_demo_cc.h"
+// #include "gles2_demo_cc.h"
 
 #include <math.h>
 #include <stdio.h>
@@ -138,6 +138,7 @@ void InitShaders() {
     0.0, 0.0,
     1.0, 0.0,
   };
+   
   g_texCoordOffset = sizeof(vertices);
   glBufferData(GL_ARRAY_BUFFER,
                sizeof(vertices) + sizeof(texCoords),
@@ -148,6 +149,7 @@ void InitShaders() {
                   sizeof(texCoords), texCoords);
   CheckGLError("InitShaders", __LINE__);
 }
+
 
 GLuint CreateCheckerboardTexture() {
   printf("gles2_demo_cc.cc -> GLuint CreateCheckerboardTexture() {\n");
@@ -172,6 +174,11 @@ GLuint CreateCheckerboardTexture() {
   return texture;
 }
 
+
+
+
+
+
 }  // anonymous namespace.
 
 void GLFromCPPInit() {
@@ -182,6 +189,8 @@ void GLFromCPPInit() {
   InitShaders();
   CheckGLError("GLFromCPPInit", __LINE__);
 }
+
+
 
 void GLFromCPPDraw() {
   printf("gles2_demo_cc.cc -> void GLFromCPPDraw() {\n");
@@ -245,7 +254,10 @@ void GLFromCPPDraw() {
   CheckGLError("GLFromCPPDraw", __LINE__);
 
   glDrawArrays(GL_TRIANGLES, 0, 6);
+  
   CheckGLError("GLFromCPPDraw", __LINE__);
 
   glFlush();
 }
+
+

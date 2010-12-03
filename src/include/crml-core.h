@@ -1,7 +1,6 @@
 #include "../core/core.h"
 #include "../core/error.h"
 #include "../core/event_handler.h"
-#include "../core/gles2_demo_cc.h"
 #include "../core/md5.h"
 #include "../core/nacl_macros.h"
 #include "../core/npapi_extensions_private.h"

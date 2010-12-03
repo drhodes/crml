@@ -17,7 +17,6 @@
 #include "osg-png-ripoff.cc"
 
 using namespace crml;
-#define NUMSQUARES 1000
 
 Event evt;
 Display dsp;
@@ -35,34 +34,17 @@ LayerGroup lg;
 SpaceHash sh(32);
 
 void RunOnce() {
-  Error::DebugOn();
-  
-  dsp.Init();
-  //pixels_ = dsp.Pixels();
   firstrun = false;
+  
+  Error::DebugOn(); 
+  dsp.Init();
 
-  /*
-  std::string str1(txt__hello_txt);
-  printf("txt: %s\n", str1.c_str()-1);
-  printf("md5: %s\n", MD5String(str1).c_str());
-  
-  std::string str2(img__doodle_png, sizeof(img__doodle_png)-1);
-  printf("bin: img__doodle_png\n");
-  printf("md5: %s\n", MD5String(str2).c_str()); 
-  //printf("md5: %s\n", MD5String(str2).c_str()); 
-  
-  std::stringstream ss (std::stringstream::in | std::stringstream::out);
-  ss << str2;
-  readPNGStream(ss);
-  */    
   lg.AddTop("clouds");
   lg.AddTop("stars");
   lg.AddBottom("background");  
   lg.Check();
-}
 
-void PutTriangle(){
-  
+  GLFromCPPInit();    
 }
 
 void Core::Main3D(){
@@ -70,15 +52,16 @@ void Core::Main3D(){
     RunOnce();    
   }
 
-  printf("Hello from game\n");
+  glViewport(0, 0, dsp.Width(), dsp.Height());
+  GLFromCPPDraw();
 
+  
+  printf("Hello from game\n");
+  
   if (timer1.ElapsedMilli() < 30){
     return;
   }
-
-  glViewport(0, 0, dsp.Width(), dsp.Height());
-  GLFromCPPDraw();
-         
+          
   timer1.Reset();
   dsp.Wipe();
     
@@ -108,8 +91,6 @@ void Core::Main3D(){
     }
   }
 }
-
-
 
 
 void Core::MainLoop() {    

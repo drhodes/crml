@@ -62,7 +62,7 @@ static const NPUTF8* plugin_method_identifier_names[NUM_METHOD_IDENTIFIERS] = {
 
 void EnsureIdentifiersInitialized() {
   printf("plugin_object.cc -> void EnsureIdentifiersInitialized() {\n");
-  static bool identifiers_initialized = false;
+7  static bool identifiers_initialized = false;
   if (identifiers_initialized)
     return;
 
