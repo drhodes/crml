@@ -7,8 +7,12 @@
 #include <math.h>
 #include <stdio.h>
 #include <GLES2/gl2.h>
-
+//#include "./media/media-blob.h"
 #include <string>
+#include <vector>
+#include <cstring>
+#include <iostream>
+#include <sstream>
 
 namespace {
 
@@ -34,6 +38,64 @@ void CheckGLError(const char* func_name, int line_no) {
 #endif
 }
 
+
+std::vector<std::string> &split(const std::string &s, char delim, std::vector<std::string> &elems) {
+  std::stringstream ss(s);
+  std::string item;
+  while(std::getline(ss, item, delim)) {
+    elems.push_back(item);
+  }
+  return elems;
+}
+
+std::vector<std::string> split(const std::string &s, char delim) {
+  std::vector<std::string> elems;
+  return split(s, delim, elems);
+}
+
+
+GLuint LoadShaderFromStash(GLenum type, const char* stash){
+  CheckGLError("LoadShader", __LINE__);
+  GLuint shader = glCreateShader(type);
+  if (shader == 0) {
+    return 0;
+  }
+  
+  std::string s(stash);//txt__gl_v_shader);
+  std::vector<std::string> strvec = split(s, '\n');
+  
+  char** cstr = new char*[strvec.size()];
+  
+  // for each string, allocate memory in the character array and copy
+  for (unsigned long i=0; i<strvec.size(); i++) {
+    strvec[i] = strvec[i] + "\n";
+    printf("%s", strvec[i].c_str());
+    cstr[i] = new char[strvec[i].size()+1];
+    strncpy(cstr[i], strvec[i].c_str(), strvec[i].size());
+  }
+
+  const char* final = (const char*)cstr;
+  
+  glShaderSource(shader, 1, &final, NULL);
+  
+  // Compile the shader
+  glCompileShader(shader);
+  // Check the compile status
+  GLint value;
+  glGetShaderiv(shader, GL_COMPILE_STATUS, &value);
+  if (value == 0) {
+    char buffer[1024];
+    GLsizei length = 0;
+    glGetShaderInfoLog(shader, sizeof(buffer), &length, buffer);
+    std::string log(buffer, length);
+    printf("Error compiling shader: %s\n", log.c_str());
+    glDeleteShader(shader);
+    return 0;
+  }
+  return shader;
+}
+  
+
 GLuint LoadShader(GLenum type, const char* shaderSrc) {
   printf("gles2_demo_cc.cc -> GLuint LoadShader(GLenum type, const char* shaderSrc) {\n");
   CheckGLError("LoadShader", __LINE__);
@@ -41,8 +103,11 @@ GLuint LoadShader(GLenum type, const char* shaderSrc) {
   if (shader == 0) {
     return 0;
   }
+  
   // Load the shader source
-  glShaderSource(shader, 1, &shaderSrc, NULL);
+  
+  glShaderSource(shader, 1, &shaderSrc, NULL);   
+  
   // Compile the shader
   glCompileShader(shader);
   // Check the compile status
@@ -63,29 +128,35 @@ GLuint LoadShader(GLenum type, const char* shaderSrc) {
 void InitShaders() {
   printf("gles2_demo_cc.cc -> void InitShaders() {\n");
   static const char* vShaderStr =
-    "uniform mat4 worldMatrix;\n"
-    "attribute vec3 g_Position;\n"
-    "attribute vec2 g_TexCoord0;\n"
-    "varying vec2 texCoord;\n"
-    "void main()\n"
-    "{\n"
-    "   gl_Position = worldMatrix *\n"
-    "                 vec4(g_Position.x, g_Position.y, g_Position.z, 1.0);\n"
-    "   texCoord = g_TexCoord0;\n"
-    "}\n";
+      "uniform mat4 worldMatrix;\n"
+      "attribute vec3 g_Position;\n"
+      "attribute vec2 g_TexCoord0;\n"
+      "varying vec2 texCoord;\n"
+      "void main()\n"
+      "{\n"
+      "   gl_Position = worldMatrix *\n"
+      "                 vec4(g_Position.x, g_Position.y, g_Position.z, 1.0);\n"
+      "   texCoord = g_TexCoord0;\n"
+      "}\n";
+  
   static const char* fShaderStr =
-    "precision mediump float;\n"
-    "uniform sampler2D tex;\n"
-    "varying vec2 texCoord;\n"
-    "void main()\n"
-    "{\n"
-
+      "precision mediump float;\n"
+      "uniform sampler2D tex;\n"
+      "varying vec2 texCoord;\n"
+      "void main()\n"
+      "{\n"
       "  gl_FragColor = texture2D(tex, texCoord);\n"
-    "}\n";
-
+      "}\n";
+  
   CheckGLError("InitShaders", __LINE__);
   GLuint vertexShader = LoadShader(GL_VERTEX_SHADER, vShaderStr);
   GLuint fragmentShader = LoadShader(GL_FRAGMENT_SHADER, fShaderStr);
+
+  //
+  // START BACK HERE !!!
+  //
+  
+  //GLuint fragmentShader = LoadShaderFromStash(GL_FRAGMENT_SHADER, txt__gl_f_shader);
   // Create the program object
   GLuint programObject = glCreateProgram();
   if (programObject == 0) {
@@ -173,8 +244,6 @@ GLuint CreateCheckerboardTexture() {
   CheckGLError("CreateCheckerboardTexture", __LINE__);
   return texture;
 }
-
-
 
 
 

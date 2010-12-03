@@ -54,7 +54,6 @@ void Core::Main3D(){
 
   glViewport(0, 0, dsp.Width(), dsp.Height());
   GLFromCPPDraw();
-
   
   printf("Hello from game\n");
   
