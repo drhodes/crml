@@ -36,7 +36,7 @@ SpaceHash sh(32);
 void RunOnce() {
   firstrun = false;
   
-  Error::DebugOn(); 
+  Error::DebugOff(); 
   dsp.Init();
 
   lg.AddTop("clouds");
@@ -44,7 +44,10 @@ void RunOnce() {
   lg.AddBottom("background");  
   lg.Check();
 
-  GLFromCPPInit();    
+  GLFromCPPInit();  
+  TgaLoader tga;
+  tga.LoadFromStash(img__munch_tga, sizeof(img__munch_tga));
+  printf("Image Type %d\n", tga.GetImageType());
 }
 
 void Core::Main3D(){
@@ -52,11 +55,12 @@ void Core::Main3D(){
     RunOnce();    
   }
 
+  
+
+  
   glViewport(0, 0, dsp.Width(), dsp.Height());
   GLFromCPPDraw();
-  
-  printf("Hello from game\n");
-  
+    
   if (timer1.ElapsedMilli() < 30){
     return;
   }

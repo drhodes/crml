@@ -38,46 +38,15 @@ void CheckGLError(const char* func_name, int line_no) {
 #endif
 }
 
-
-std::vector<std::string> &split(const std::string &s, char delim, std::vector<std::string> &elems) {
-  std::stringstream ss(s);
-  std::string item;
-  while(std::getline(ss, item, delim)) {
-    elems.push_back(item);
-  }
-  return elems;
-}
-
-std::vector<std::string> split(const std::string &s, char delim) {
-  std::vector<std::string> elems;
-  return split(s, delim, elems);
-}
-
-
-GLuint LoadShaderFromStash(GLenum type, const char* stash){
+GLuint LoadShaderFromStash(GLenum type, const char* stash){   
   CheckGLError("LoadShader", __LINE__);
   GLuint shader = glCreateShader(type);
   if (shader == 0) {
     return 0;
   }
   
-  std::string s(stash);//txt__gl_v_shader);
-  std::vector<std::string> strvec = split(s, '\n');
-  
-  char** cstr = new char*[strvec.size()];
-  
-  // for each string, allocate memory in the character array and copy
-  for (unsigned long i=0; i<strvec.size(); i++) {
-    strvec[i] = strvec[i] + "\n";
-    printf("%s", strvec[i].c_str());
-    cstr[i] = new char[strvec[i].size()+1];
-    strncpy(cstr[i], strvec[i].c_str(), strvec[i].size());
-  }
-
-  const char* final = (const char*)cstr;
-  
-  glShaderSource(shader, 1, &final, NULL);
-  
+  glShaderSource(shader, 1, &stash, NULL);
+   
   // Compile the shader
   glCompileShader(shader);
   // Check the compile status
@@ -97,7 +66,7 @@ GLuint LoadShaderFromStash(GLenum type, const char* stash){
   
 
 GLuint LoadShader(GLenum type, const char* shaderSrc) {
-  printf("gles2_demo_cc.cc -> GLuint LoadShader(GLenum type, const char* shaderSrc) {\n");
+  //printf("gles2_demo_cc.cc -> GLuint LoadShader(GLenum type, const char* shaderSrc) {\n");
   CheckGLError("LoadShader", __LINE__);
   GLuint shader = glCreateShader(type);
   if (shader == 0) {
@@ -126,49 +95,27 @@ GLuint LoadShader(GLenum type, const char* shaderSrc) {
 }
 
 void InitShaders() {
-  printf("gles2_demo_cc.cc -> void InitShaders() {\n");
-  static const char* vShaderStr =
-      "uniform mat4 worldMatrix;\n"
-      "attribute vec3 g_Position;\n"
-      "attribute vec2 g_TexCoord0;\n"
-      "varying vec2 texCoord;\n"
-      "void main()\n"
-      "{\n"
-      "   gl_Position = worldMatrix *\n"
-      "                 vec4(g_Position.x, g_Position.y, g_Position.z, 1.0);\n"
-      "   texCoord = g_TexCoord0;\n"
-      "}\n";
-  
-  static const char* fShaderStr =
-      "precision mediump float;\n"
-      "uniform sampler2D tex;\n"
-      "varying vec2 texCoord;\n"
-      "void main()\n"
-      "{\n"
-      "  gl_FragColor = texture2D(tex, texCoord);\n"
-      "}\n";
-  
-  CheckGLError("InitShaders", __LINE__);
-  GLuint vertexShader = LoadShader(GL_VERTEX_SHADER, vShaderStr);
-  GLuint fragmentShader = LoadShader(GL_FRAGMENT_SHADER, fShaderStr);
+  //printf("gles2_demo_cc.cc -> void InitShaders() {\n");
 
-  //
-  // START BACK HERE !!!
-  //
-  
-  //GLuint fragmentShader = LoadShaderFromStash(GL_FRAGMENT_SHADER, txt__gl_f_shader);
+  CheckGLError("InitShaders", __LINE__);
+
+  GLuint vertexShader = LoadShaderFromStash(GL_VERTEX_SHADER, txt__gl_v_shader);
+  GLuint fragmentShader = LoadShaderFromStash(GL_FRAGMENT_SHADER, txt__gl_f_shader);
+
   // Create the program object
   GLuint programObject = glCreateProgram();
   if (programObject == 0) {
     printf("Creating program failed\n");
     return;
   }
+  
   glAttachShader(programObject, vertexShader);
   glAttachShader(programObject, fragmentShader);
 
   // Bind g_Position to attribute 0
-  // Bind g_TexCoord0 to attribute 1
   glBindAttribLocation(programObject, 0, "g_Position");
+
+  // Bind g_TexCoord0 to attribute 1
   glBindAttribLocation(programObject, 1, "g_TexCoord0");
 
   // Link the program
@@ -194,12 +141,12 @@ void InitShaders() {
   glGenBuffers(1, &g_vbo);
   glBindBuffer(GL_ARRAY_BUFFER, g_vbo);
   static float vertices[] = {
-      0.25,  0.75, 0.0,
-     -0.75,  0.75, 0.0,
-     -0.75, -0.25, 0.0,
-      0.25,  0.75, 0.0,
-     -0.75, -0.25, 0.0,
-      0.25, -0.25, 0.0,
+    //0.25,  1.0, 0.0,
+    //-0.75,  0.75, 0.0,
+    //-0.75, -0.25, 0.0,
+    0.25,  0.75, 0.0,
+    -0.75, -0.25, 0.0,
+    0.25, -0.25, 0.0,
   };
   static float texCoords[] = {
     1.0, 1.0,
@@ -221,16 +168,16 @@ void InitShaders() {
   CheckGLError("InitShaders", __LINE__);
 }
 
-
 GLuint CreateCheckerboardTexture() {
-  printf("gles2_demo_cc.cc -> GLuint CreateCheckerboardTexture() {\n");
+  //printf("gles2_demo_cc.cc -> GLuint CreateCheckerboardTexture() {\n");
   CheckGLError("CreateCheckerboardTexture", __LINE__);
-  static unsigned char pixels[] = {
-    255, 255, 255,
-    0,   0,   0,
-    0,   0,   0,
-    0, 255, 255,
+  static unsigned char texels[] = {
+    255, 0, 0,
+    0, 255, 0,
+    0, 0, 255,
+    123, 123, 123,
   };
+  
   GLuint texture;
   glGenTextures(1, &texture);
   glBindTexture(GL_TEXTURE_2D, texture);
@@ -240,12 +187,10 @@ GLuint CreateCheckerboardTexture() {
   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
   glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
   glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, 2, 2, 0, GL_RGB, GL_UNSIGNED_BYTE,
-               pixels);
+               texels);
   CheckGLError("CreateCheckerboardTexture", __LINE__);
   return texture;
 }
-
-
 
 
 }  // anonymous namespace.
@@ -259,15 +204,14 @@ void GLFromCPPInit() {
   CheckGLError("GLFromCPPInit", __LINE__);
 }
 
-
-
 void GLFromCPPDraw() {
-  printf("gles2_demo_cc.cc -> void GLFromCPPDraw() {\n");
+  //printf("gles2_demo_cc.cc -> void GLFromCPPDraw() {\n");
   const float kPi = 3.1415926535897932384626433832795f;
 
   CheckGLError("GLFromCPPDraw", __LINE__);
   // TODO(kbr): base the angle on time rather than on ticks
   g_angle = (g_angle + 1) % 360;
+  //g_angle = 0;//(g_angle + 1) % 360;`
   // Rotate about the Z axis
   GLfloat rot_matrix[16];
   GLfloat cos_angle = cosf(static_cast<GLfloat>(g_angle) * kPi / 180.0f);
@@ -278,7 +222,7 @@ void GLFromCPPDraw() {
   rot_matrix[1] = 0.0f;
   rot_matrix[2] = 0.0f;
   rot_matrix[3] = 0.0f;
-
+  
   rot_matrix[4] = 0.0f;
   rot_matrix[5] = cos_angle;
   rot_matrix[6] = sin_angle;
@@ -288,12 +232,12 @@ void GLFromCPPDraw() {
   rot_matrix[9] = cos_angle;
   rot_matrix[10] = cos_angle;
   rot_matrix[11] = 0.0f;
-
+  
   rot_matrix[12] = 0.0f;
   rot_matrix[13] = 0.0f;
   rot_matrix[14] = 0.0f;
   rot_matrix[15] = 1.0f;
-
+  
   // Note: the viewport is automatically set up to cover the entire Canvas.
   // Clear the color buffer
   glClear(GL_COLOR_BUFFER_BIT);
@@ -313,19 +257,20 @@ void GLFromCPPDraw() {
   glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 0,
                         reinterpret_cast<const void*>(g_texCoordOffset));
   CheckGLError("GLFromCPPDraw", __LINE__);
-
+  
   // Bind the texture to texture unit 0
   glBindTexture(GL_TEXTURE_2D, g_texture);
   CheckGLError("GLFromCPPDraw", __LINE__);
-
+  
   // Point the uniform sampler to texture unit 0
   glUniform1i(g_textureLoc, 0);
   CheckGLError("GLFromCPPDraw", __LINE__);
-
+  
   glDrawArrays(GL_TRIANGLES, 0, 6);
+  //glDrawArrays(GL_TRIANGLES, 0, 3);
   
   CheckGLError("GLFromCPPDraw", __LINE__);
-
+  
   glFlush();
 }
 

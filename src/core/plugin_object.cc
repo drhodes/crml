@@ -61,7 +61,7 @@ static const NPUTF8* plugin_method_identifier_names[NUM_METHOD_IDENTIFIERS] = {
 };
 
 void EnsureIdentifiersInitialized() {
-  printf("plugin_object.cc -> void EnsureIdentifiersInitialized() {\n");
+  //////printf("plugin_object.cc -> void EnsureIdentifiersInitialized() {\n");
   static bool identifiers_initialized = false;
   if (identifiers_initialized)
     return;
@@ -78,7 +78,7 @@ void EnsureIdentifiersInitialized() {
 // Helper functions ------------------------------------------------------------
 
 std::string CreateStringFromNPVariant(const NPVariant& variant) {
-  printf("pluggin_object.cc -> std::string CreateStringFromNPVariant(const NPVariant& variant) {\n");
+  ////printf("pluggin_object.cc -> std::string CreateStringFromNPVariant(const NPVariant& variant) {\n");
   return std::string(NPVARIANT_TO_STRING(variant).UTF8Characters,
                      NPVARIANT_TO_STRING(variant).UTF8Length);
 }
@@ -122,25 +122,25 @@ bool TestGetProperty(PluginObject* obj,
 // Plugin class functions ------------------------------------------------------
 
 NPObject* PluginAllocate(NPP npp, NPClass* the_class) {
-  printf("pluggin_object.cc -> NPObject* PluginAllocate(NPP npp, NPClass* the_class) {\n");  
+  ////printf("pluggin_object.cc -> NPObject* PluginAllocate(NPP npp, NPClass* the_class) {\n");  
   EnsureIdentifiersInitialized();
   PluginObject* newInstance = new PluginObject(npp);
   return reinterpret_cast<NPObject*>(newInstance);
 }
 
 void PluginDeallocate(NPObject* header) {
-  printf("pluggin_object.cc -> void PluginDeallocate(NPObject* header) {\n");  
+  ////printf("pluggin_object.cc -> void PluginDeallocate(NPObject* header) {\n");  
   PluginObject* plugin = reinterpret_cast<PluginObject*>(header);
   delete plugin;
 }
 
 void PluginInvalidate(NPObject* obj) {
-  printf("pluggin_object.cc -> void PluginInvalidate(NPObject* obj) {\n");
+  ////printf("pluggin_object.cc -> void PluginInvalidate(NPObject* obj) {\n");
   
 }
 
 bool PluginHasMethod(NPObject* obj, NPIdentifier name) {
-  printf("pluggin_object.cc -> bool PluginHasMethod(NPObject* obj, NPIdentifier name) {\n");  
+  ////printf("pluggin_object.cc -> bool PluginHasMethod(NPObject* obj, NPIdentifier name) {\n");  
   for (int i = 0; i < NUM_METHOD_IDENTIFIERS; i++) {
     if (name == plugin_method_identifiers[i])
       return true;
@@ -152,7 +152,7 @@ bool PluginInvoke(NPObject* header,
                   NPIdentifier name,
                   const NPVariant* args, uint32_t arg_count,
                   NPVariant* result) {
-  printf("pluggin_object.cc -> bool PluginInvoke(NPObject* header,\n");  
+  ////printf("pluggin_object.cc -> bool PluginInvoke(NPObject* header,\n");  
   PluginObject* plugin = reinterpret_cast<PluginObject*>(header);
   
   if (name == plugin_method_identifiers[ID_TEST_GET_PROPERTY]) {
@@ -180,14 +180,14 @@ bool PluginInvoke(NPObject* header,
 bool PluginInvokeDefault(NPObject* obj,
                          const NPVariant* args, uint32_t arg_count,
                          NPVariant* result) {
-  printf("pluggin_object.cc -> bool PluginInvokeDefault(NPObject* obj,\n");
+  ////printf("pluggin_object.cc -> bool PluginInvokeDefault(NPObject* obj,\n");
   
   INT32_TO_NPVARIANT(1, *result);
   return true;
 }
 
 bool PluginHasProperty(NPObject* obj, NPIdentifier name) {
-  printf("pluggin_object.cc -> bool PluginHasProperty(NPObject* obj, NPIdentifier name) {\n");
+  ////printf("pluggin_object.cc -> bool PluginHasProperty(NPObject* obj, NPIdentifier name) {\n");
   
   for (int i = 0; i < NUM_PROPERTY_IDENTIFIERS; i++) {
     if (name == plugin_property_identifiers[i])
@@ -199,14 +199,14 @@ bool PluginHasProperty(NPObject* obj, NPIdentifier name) {
 bool PluginGetProperty(NPObject* obj,
                        NPIdentifier name,
                        NPVariant* result) {
-  printf("pluggin_object.cc -> bool PluginGetProperty(NPObject* obj,\n");
+  ////printf("pluggin_object.cc -> bool PluginGetProperty(NPObject* obj,\n");
   return false;
 }
 
 bool PluginSetProperty(NPObject* obj,
                        NPIdentifier name,
                        const NPVariant* variant) {
-  printf("pluggin_object.cc -> bool PluginSetProperty(NPObject* obj,\n");
+  ////printf("pluggin_object.cc -> bool PluginSetProperty(NPObject* obj,\n");
   return false;
 }
 
@@ -227,7 +227,7 @@ NPClass plugin_class = {
 
 // Ugly gradient filled rectangle.
 void DrawSampleBitmap(NPDeviceContext2D* context, int width, int height) {
-  printf("pluggin_object.cc -> void DrawSampleBitmap(NPDeviceContext2D* context, int width, int height) {\n");
+  ////printf("pluggin_object.cc -> void DrawSampleBitmap(NPDeviceContext2D* context, int width, int height) {\n");
   int stride = context->stride;
   unsigned char* buffer = reinterpret_cast<unsigned char*>(context->region);
   static const int kPixelStride = 4;
@@ -254,7 +254,7 @@ void DrawSampleBitmap(NPDeviceContext2D* context, int width, int height) {
 }
 
 uint32_t HexStringToUInt(std::string hex_str) {
-  printf("pluggin_object.cc -> uint32_t HexStringToUInt(std::string hex_str) {\n");
+  ////printf("pluggin_object.cc -> uint32_t HexStringToUInt(std::string hex_str) {\n");
   static const int hex_base = 16;
   uint64_t res = strtoul(hex_str.c_str(), NULL, hex_base);
 #if __LP64__
@@ -270,7 +270,7 @@ uint32_t HexStringToUInt(std::string hex_str) {
 }
 
 std::string Get2DImageChecksum(const NPDeviceContext2D* context) {
-  printf("pluggin_object.cc -> std::string Get2DImageChecksum(const NPDeviceContext2D* context) {\n");
+  ////printf("pluggin_object.cc -> std::string Get2DImageChecksum(const NPDeviceContext2D* context) {\n");
   int row_count = context->dirty.bottom - context->dirty.top;
   int stride = context->dirty.right - context->dirty.left;
   static const int kPixelStride = 4;
@@ -329,7 +329,7 @@ PluginObject::PluginObject(NPP npp)
 }
 
 PluginObject::~PluginObject() {
-  printf("pluggin_object.cc -> PluginObject::~PluginObject() {\n");
+  ////printf("pluggin_object.cc -> PluginObject::~PluginObject() {\n");
   if (pgl_context_)
     Destroy3D();
 
@@ -338,15 +338,15 @@ PluginObject::~PluginObject() {
 
 // static
 NPClass* PluginObject::GetPluginClass() {
-  printf("pluggin_object.cc -> NPClass* PluginObject::GetPluginClass() {\n");
+  ////printf("pluggin_object.cc -> NPClass* PluginObject::GetPluginClass() {\n");
   return &plugin_class;
 }
 
 namespace {
 void Draw3DCallback(void* data) {
-  printf("pluggin_object.cc -> void Draw3DCallback(void* data) {\n");
-  crml::Core::Alert("This is where the custom draw call is invoked");
-  crml::Core::self_->Alert("custom draw from a singleton");
+  ////printf("pluggin_object.cc -> void Draw3DCallback(void* data) {\n");
+  //crml::Core::Alert("This is where the custom draw call is invoked");
+  //crml::Core::self_->Alert("custom draw from a singleton");
   static_cast<PluginObject*>(data)->Draw3D();
 }
 }
@@ -355,7 +355,7 @@ void PluginObject::New(NPMIMEType pluginType,
                        int16_t argc,
                        char* argn[],
                        char* argv[]) {
-  printf("pluggin_object.cc -> void PluginObject::New(NPMIMEType pluginType,\n");
+  ////printf("pluggin_object.cc -> void PluginObject::New(NPMIMEType pluginType,\n");
   // Default to 2D rendering.
   dimensions_ = 2;
 
@@ -371,25 +371,25 @@ void PluginObject::New(NPMIMEType pluginType,
   }
   device2d_ = extensions->acquireDevice(npp_, NPPepper2DDevice);
   if (device2d_ == NULL) {
-    printf("Failed to acquire 2DDevice\n");
+    ////printf("Failed to acquire 2DDevice\n");
     exit(1);
   }
 
   device3d_ = extensions->acquireDevice(npp_, NPPepper3DDevice);
   if (device3d_ == NULL) {
-    printf("Failed to acquire 3DDevice\n");
+    ////printf("Failed to acquire 3DDevice\n");
     exit(1);
   }
 
   deviceaudio_ = extensions->acquireDevice(npp_, NPPepperAudioDevice);
   if (deviceaudio_ == NULL) {
-    printf("Failed to acquire AudioDevice\n");
+    ////printf("Failed to acquire AudioDevice\n");
     exit(1);
   }
 }
 
 void PluginObject::SetWindow(const NPWindow& window) {
-  printf("pluggin_object.cc -> void PluginObject::SetWindow(const NPWindow& window) {\n");
+  ////printf("pluggin_object.cc -> void PluginObject::SetWindow(const NPWindow& window) {\n");
   width_ = window.width;
   height_ = window.height;
 
@@ -398,7 +398,7 @@ void PluginObject::SetWindow(const NPWindow& window) {
     NPDeviceContext2D context;
     NPError err = device2d_->initializeContext(npp_, &config, &context);
     if (err != NPERR_NO_ERROR) {
-      printf("Failed to initialize 2D context\n");
+      ////printf("Failed to initialize 2D context\n");
       exit(1);
     }
 
@@ -409,7 +409,7 @@ void PluginObject::SetWindow(const NPWindow& window) {
         NPExtensionsReservedStateSharedMemoryChecksum,
         reinterpret_cast<intptr_t*>(&device2d_checksum_));
     if (err != NPERR_NO_ERROR) {
-      printf("Failed to retrieve the 2D context checksum\n");
+      ////printf("Failed to retrieve the 2D context checksum\n");
       exit(1);
     }
 
@@ -441,7 +441,7 @@ void PluginObject::SetWindow(const NPWindow& window) {
     cfg.callback         = &SineWaveCallback<200, int16_t>;
     NPError err = deviceaudio_->initializeContext(npp_, &cfg, &context_audio_);
     if (err != NPERR_NO_ERROR) {
-      printf("Failed to initialize audio context\n");
+      ////printf("Failed to initialize audio context\n");
       exit(1);
     }
   }
@@ -449,14 +449,14 @@ void PluginObject::SetWindow(const NPWindow& window) {
 }
 
 bool PluginObject::IsChecksumCheckSuccess() {
-  printf("pluggin_object.cc -> bool PluginObject::IsChecksumCheckSuccess() {\n");
+  //////printf("pluggin_object.cc -> bool PluginObject::IsChecksumCheckSuccess() {\n");
   if (device2d_checksum_ != plugin2d_checksum_)
     return false;
   return true;
 }
 
 std::string PluginObject::ReportChecksum() {
-  printf("pluggin_object.cc -> std::string PluginObject::ReportChecksum() {\n");
+  //////printf("pluggin_object.cc -> std::string PluginObject::ReportChecksum() {\n");
   std::ostringstream output;
   if (device2d_checksum_ == plugin2d_checksum_) {
     output << "Checksums matched\n";
@@ -469,13 +469,13 @@ std::string PluginObject::ReportChecksum() {
 }
 
 void PluginObject::Initialize3D() {
-  printf("pluggin_object.cc -> void PluginObject::Initialize3D() {\n");
+  //////printf("pluggin_object.cc -> void PluginObject::Initialize3D() {\n");
   // Initialize a 3D context.
   NPDeviceContext3DConfig config;
   config.commandBufferSize = kCommandBufferSize;
   NPError err = device3d_->initializeContext(npp_, &config, &context3d_);
   if (err != NPERR_NO_ERROR) {
-    printf("Failed to initialize 3D context\n");
+    //////printf("Failed to initialize 3D context\n");
     exit(1);
   }
 
@@ -490,7 +490,7 @@ void PluginObject::Initialize3D() {
 }
 
 void PluginObject::Destroy3D() {
-  printf("pluggin_object.cc -> void PluginObject::Destroy3D() {\n");
+  //////printf("pluggin_object.cc -> void PluginObject::Destroy3D() {\n");
   // Destroy the PGL context.
   pglDestroyContext(pgl_context_);
   pgl_context_ = NULL;
@@ -500,7 +500,7 @@ void PluginObject::Destroy3D() {
 }
 
 void PluginObject::Draw3D() {
-  printf("pluggin_object.cc -> void PluginObject::Draw3D() {\n");
+  //////printf("pluggin_object.cc -> void PluginObject::Draw3D() {\n");
   if (!pglMakeCurrent(pgl_context_) && pglGetError() == PGL_CONTEXT_LOST) {
     Destroy3D();
     Initialize3D();

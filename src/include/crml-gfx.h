@@ -6,4 +6,5 @@
 #include "../gfx/rect.h"
 #include "../gfx/space_hash.h"
 #include "../gfx/text.h"
+#include "../gfx/tga_loader.h"
 #include "../gfx/vector.h"
