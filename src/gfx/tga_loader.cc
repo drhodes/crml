@@ -6,6 +6,7 @@
 #include "../core/error.h"
 #include "./tga_loader.h"
 #include "./utility.cc"
+#include <assert.h>
 
 namespace crml {
 
@@ -28,7 +29,7 @@ void TgaLoader::LoadFromStash(char* src, int32 len){
   printf("stash_: %s\n", stash_.c_str());
   printf("Header length is?: %d\n", stash_.size());
    
-  uint32 headerLen = 18;
+  uint32 headerLen = header_len_;
   // if the entire file is smaller than a well formed header
   if (stash_.size() < headerLen) { 
     SetReportErr(TGALOADER_INVALID_HEADER); 
@@ -37,6 +38,8 @@ void TgaLoader::LoadFromStash(char* src, int32 len){
    
   LoadHeader();
   LoadImageSpec();
+  FillImageId();
+  FillImageData();
 }
 
 // Header
@@ -105,17 +108,39 @@ void TgaLoader::LoadColorMapSpec(){
   for(int i=offset; i<offset+fieldlen; i++){
     color_map_spec_.push_back(uint8(stash_[i]));
   }
+
+  // 2 bytes: offset into the color map table
+  color_map_offset_ = glue2bytes( uint8(color_map_spec_[1]),
+                                  uint8(color_map_spec_[0]));
+  DebugNum(color_map_offset_, "color_map_offset_");
+  
+  // 2 bytes: color map length, number of entries
+  color_map_length_ = glue2bytes( uint8(color_map_spec_[3]),
+                                  uint8(color_map_spec_[2]));
+  DebugNum(color_map_length_, "color_map_length_");
+  
+  // 1 byte: Color map entry size, number of bits per pixel
+  color_map_pixel_size_ = uint8(color_map_spec_[4]);
+  DebugNum(color_map_pixel_size_, "color_map_pixel_size_");
 }
+
 
 TgaImageType TgaLoader::GetImageType(){
   switch (image_type_) {
     case 0:
       SetReportErr(TGALOADER_IMAGEDATA_NOT_FOUND);
       return TgaNoData;
-    case 1: return TgaUncompressedColorMappedImage;
-    case 2: return TgaUncompressedTrueColorImage;
-    case 3: return TgaUncompressedBWImage;
-
+    case 1:
+      SetReportErr(TGALOADER_COLORMAPS_NOT_YET_SUPPORTED);
+      return TgaUncompressedColorMappedImage;
+      
+    case 2:
+      return TgaUncompressedTrueColorImage;
+      
+    case 3:
+      SetReportErr(TGALOADER_BLACK_AND_WHITE_NOT_YET_SUPPORTED);
+      return TgaUncompressedBWImage;
+      
       // nacl modules should be gzipped on the wire anyways.
       // so tga RLE compression not supported, yet :).
     case 9:
@@ -162,9 +187,76 @@ uint8 TgaLoader::Descriptor(){
   return image_descriptor_;
 }
 
+
+// Image id bytes optional field containing identifying information
+void TgaLoader::FillImageId(){
+  DebugNum(id_length_, "id_length_");
+  uint8 offset = header_len_;
+  uint8 fieldlen = id_length_;
+
+  for(int i=offset; i<offset+fieldlen; i++){
+    //DebugNum(stash_[i], "filling image");
+    image_spec_.push_back(uint8(stash_[i]));
+  }
+}
+
+//From color map specification fieldColor map dataLook-up table containing color map data
+void TgaLoader::FillColorMapData(){
+  /*
+  DebugNum(id_length_, "id_length_");
+  uint8 offset = header_len_ +
+  uint8 fieldlen = id_length_;
+  
+  for(int i=offset; i<offset+fieldlen; i++){
+    DebugNum(stash_[i], "filling image");
+    image_spec_.push_back(uint8(stash_[i]));
+  }
+  */
+}
+
+void TgaLoader::FillImageData(){
+  DebugNum(id_length_, "id_length_");
+  uint8 offset = header_len_ + id_length_ + color_map_length_;
+
+  // need to address this magic 3 when supporting formats with
+  // different bit maps.
+  uint32 fieldlen = width_ * height_ * (depth_ / 8); 
+
+  int count = 1;
+  for(uint32 i=offset; i<offset+fieldlen; i++){
+    //DebugNum(uint8(stash_[i]), "filling image data");
+    image_data_.push_back(uint8(stash_[i]));
+    count++;
+  } 
+}
+
 std::vector<Color> TgaLoader::PixelVector(){
-  std::vector<Color> s;
-  return s;
+  std::vector<Color> pixels;
+  uint8 bpp = depth_ / 8;
+  uint8 r=0, g=0, b=0, a=0;      
+
+  // tga pixel ordering [ B G R A ]
+  
+  int count = 0;
+  for (uint32 i=0; i < image_data_.size(); i++){
+    switch (count){
+      case 0: b=image_data_[i]; break;
+      case 1: g=image_data_[i]; break;
+      case 2: r=image_data_[i]; break;
+      case 3: a=image_data_[i]; break;
+    }
+    count++;
+    if (count == bpp){
+      if (bpp == 3)
+        pixels.push_back(Color(r,g,b));
+      if (bpp == 4)
+        pixels.push_back(Color(r,g,b,a));
+      count = 0;
+    }
+  }
+
+  assert(pixels.size() == image_data_.size() / bpp);  
+  return pixels;
 }
 
 //void TgaLoader::ColorMapLength(){
@@ -173,6 +265,5 @@ std::vector<Color> TgaLoader::PixelVector(){
 bool TgaLoader::Ok(){
   return Err() == TGALOADER_OK;
 }
-
 }       // namespace crml
 #endif  // TGALOADER_CC

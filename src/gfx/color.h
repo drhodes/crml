@@ -3,33 +3,37 @@
 #ifndef COLOR_H_
 #define COLOR_H_
 
+#include "../core/crmlint.h"
+#include <string>
+
 namespace crml {
 
   class Color {
    public:
     Color();
-    Color(int, int, int, int);
-    Color(int, int, int);
+    Color(uint8, uint8, uint8, uint8);
+    Color(uint8, uint8, uint8);
     
-    void Red(int);
-    int Red();
-    void Blue(int);
-    int Blue();
-    void Green(int);
-    int Green();     
-    void Alpha(int);
-    int Alpha();
+    void Red(uint8);
+    uint8 Red();
+    void Blue(uint8);
+    uint8 Blue();
+    void Green(uint8);
+    uint8 Green();     
+    void Alpha(uint8);
+    uint8 Alpha();
     
     // rotation around the $color axis.
     // experiment.
-    void RotateRed(int);
-    void RotateBlue(int);
-    void RotateGreen(int);
+    void RotateRed(uint8);
+    void RotateBlue(uint8);
+    void RotateGreen(uint8);
     
-    void ScalarAdd(int);    
+    void ScalarAdd(uint8);    
 
+    std::string Show();
    private:
-    int r_, g_, b_, a_;
+    uint8 r_, g_, b_, a_;
     
   };
   

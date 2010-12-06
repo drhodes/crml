@@ -46,13 +46,13 @@ void RunOnce() {
 
   GLFromCPPInit();  
   TgaLoader tga;
-  tga.LoadFromStash(img__munch_tga, sizeof(img__munch_tga));
-  // printf("Image Type %d\n", tga.GetImageType());
-  // tga.GetImageType();
+  tga.LoadFromStash(img__rainbow4_tga, sizeof(img__rainbow4_tga));
+  tga.PixelVector();  
 }
 
 void Core::Main3D(){
   if (firstrun) {
+    firstrun=false;
     RunOnce();    
   }
    
