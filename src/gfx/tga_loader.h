@@ -5,6 +5,7 @@
 
 #include "../core/crmlint.h"
 #include "../core/error.h"
+#include "./color.h"
 #include <stdio.h>
 #include <vector>
 
@@ -64,8 +65,13 @@ namespace crml {
 
     int8 ColorMapLength(); 
 
+    std::vector<Color> PixelVector();
+    
     bool Ok();
 
+
+
+    
    private:
     std::string stash_;
     uint8 id_length_;          // Length of the image id field

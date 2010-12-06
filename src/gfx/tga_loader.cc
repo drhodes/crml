@@ -60,11 +60,6 @@ void TgaLoader::LoadImageType(){
   image_type_ = uint8(stash_[2]);
 }
 
-
-void DebugNum(int x, std::string msg){
-  printf("%s: %d\n", msg.c_str(), x);
-}
-
 void TgaLoader::LoadImageSpec(){
   uint8 offset = 8;
   uint8 fieldlen = 10;
@@ -77,7 +72,6 @@ void TgaLoader::LoadImageSpec(){
   // for displays where origin is at the lower left 
   x_ = glue2bytes( image_spec_[1],
                    image_spec_[0] );  
-
   DebugNum(x_, "x");
   
   // Y-origin (2 bytes): as for X-origin
@@ -88,7 +82,6 @@ void TgaLoader::LoadImageSpec(){
   // Image width (2 bytes): width in pixels
   width_ = glue2bytes( uint8(image_spec_[5]),
                        uint8(image_spec_[4]));  
-
   DebugNum(width_, "width_");
   
   // Image height (2 bytes): height in pixels
@@ -167,6 +160,11 @@ uint8 TgaLoader::Depth(){
 
 uint8 TgaLoader::Descriptor(){
   return image_descriptor_;
+}
+
+std::vector<Color> TgaLoader::PixelVector(){
+  std::vector<Color> s;
+  return s;
 }
 
 //void TgaLoader::ColorMapLength(){
