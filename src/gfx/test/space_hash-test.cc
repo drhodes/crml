@@ -20,26 +20,26 @@ int main(){
   EQ(sh.GetNeighbors(r).size(), 2, "right number of neighbors");
   EQ(r.Id(), 0, "id is 0");
   
-  printf("BucketCount(r): %d\n", sh.BucketCount(r));
+  //printf("BucketCount(r): %d\n", sh.BucketCount(r));
   sh.Delete(r);
-  printf("r.Id(): %d\n", r.Id());
-  printf("BucketCount(r): %d\n", sh.BucketCount(r));
+  //printf("r.Id(): %d\n", r.Id());
+  //printf("BucketCount(r): %d\n", sh.BucketCount(r));
   r.MoveRel(10,10);
   sh.Add(r);
-  printf("BucketCount(r): %d\n", sh.BucketCount(r));
+  //printf("BucketCount(r): %d\n", sh.BucketCount(r));
   sh.Delete(r);
-  printf("BucketCount(r): %d\n", sh.BucketCount(r));
-  printf("r2.Id(): %d\n", r2.Id());  
-  printf("r2.Id(): %d\n", r2.Id());
-  printf("BucketCount(r2): %d\n", sh.BucketCount(r2));
+  //printf("BucketCount(r): %d\n", sh.BucketCount(r));
+  //printf("r2.Id(): %d\n", r2.Id());  
+  //printf("r2.Id(): %d\n", r2.Id());
+  //printf("BucketCount(r2): %d\n", sh.BucketCount(r2));
   sh.Delete(r2);
-  printf("r2.Id(): %d\n", r2.Id());
-  printf("BucketCount(r2): %d\n", sh.BucketCount(r2));
+  //printf("r2.Id(): %d\n", r2.Id());
+  //printf("BucketCount(r2): %d\n", sh.BucketCount(r2));
   r2.MoveRel(10,10);
   sh.Add(r2);
-  printf("BucketCount(r2): %d\n", sh.BucketCount(r2));
+  //printf("BucketCount(r2): %d\n", sh.BucketCount(r2));
   sh.Delete(r2);
-  printf("BucketCount(r2): %d\n", sh.BucketCount(r2));
+  //printf("BucketCount(r2): %d\n", sh.BucketCount(r2));
 
   EQ(sh.GetNeighbors(r).size(), 0, "right number of neighbors");
 

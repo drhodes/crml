@@ -49,15 +49,20 @@ void Vector::Y(int y) {
 
 int Vector::Distance(Vector* other){
   // consider the quake optimization.
-  return sqrt((this->x_ - other->x_)*(this->x_ - other->x_) +
-              (this->y_ - other->y_)*(this->y_ - other->y_));
-  
+  return sqrt((x_ - other->x_)*(x_ - other->x_) +
+              (y_ - other->y_)*(y_ - other->y_));  
 }
 
 int Vector::Length() {
   return sqrt(x_*x_ + y_*y_);
 }
 
+
+
+
+
+// given a grid with spacing <res>
+// floor x and y to the closest grid intersection.
 Vector Vector::Align(int res){
   Vector v(X()-(X()%res), Y()-(Y()%res));
   return v;

@@ -1,0 +1,11 @@
+rm -f /home/derek/.cache/google-chrome/Cache/*
+rm -f /home/derek/.cache/google-chrome/Default/Cache/*
+rm -f /home/derek/.cache/google-chrome/Media\ Cache/*
+rm -f /home/derek/.cache/chromium/Cache/*
+cd /home/derek/dev/crml/test/pepper-gl
+make clean
+make -j5
+sleep .7
+cd -
+#/opt/google/chrome/chrome --enable-accelerated-compositing --enable-nacl --user-data-dir=$HOME/nacl-chrome-profile
+/opt/google/chrome/chrome --enable-nacl --user-data-dir=/tmp/ http://localhost:5103/pepper-gl/pepper_plugin.html

@@ -55,26 +55,31 @@ namespace crml {
 
     // (2 bytes): absolute coordinate of lower-left corner
     // for displays where origin is at the lower left
-    int16 XOrigin();    
-    int16 YOrigin();
-    int16 Width();      // width in pixels
-    int16 Height();     // height in pixels
+    uint16 XOrigin();    
+    uint16 YOrigin();
+    uint16 Width();      // width in pixels
+    uint16 Height();     // height in pixels
     uint8 Depth();      // bits per pixel
     uint8 Descriptor(); // bits 3-0 give the alpha channel depth, bits 5-4 give direction
 
     int8 ColorMapLength(); 
 
     bool Ok();
+
    private:
     std::string stash_;
     uint8 id_length_;          // Length of the image id field
     uint8 color_map_type_;     // Is a color map included?
     uint8 image_type_;          // compression and color types
-
-    // little endien
+      
     std::vector<uint8> color_map_spec_;  // describes the color map
-    std::vector<uint8> image_spec_;     // image dimensions and format
 
+    std::vector<uint8> image_spec_;     // image dimensions and format
+    uint16 x_, y_;
+    uint16 width_, height_;
+    uint8 depth_;
+    uint8 image_descriptor_;
+    
     std::vector<uint8> image_id_;        // Optional field containing identifying information
     std::vector<uint8> color_map_data_;  // Look-up table containing color map data
     std::vector<uint8> image_data_;      // Stored according to the image descriptor

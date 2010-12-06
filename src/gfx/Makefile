@@ -17,6 +17,7 @@ $(OBJ): %.o: %.cc
 
 clean:
 	@rm -rf $(OBJ)
+	@(cd ./test && $(MAKE) $@)
 
 mrproper: clean
 	@rm -rf $(LIBNAME)

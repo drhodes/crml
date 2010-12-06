@@ -16,8 +16,14 @@ LDFLAGS =	-L $(CRML_ROOT)/build \
 			-l crml-core \
 			-l crml-gfx \
 
-OPT_FLAGS = -O2
+OPTFLAG = -O3
 
 all:
-	nacl-g++ -O3 space_hash-test.cc $(LDFLAGS) -o space_hash-test
-	@sel_ldr *test$
+	nacl-g++ $(OPTFLAG) space_hash-test.cc $(LDFLAGS) -o space_hash-testbin
+	nacl-g++ $(OPTFLAG) utility-test.cc $(LDFLAGS) -o utility-testbin
+
+	@sel_ldr ./space_hash-testbin
+	@sel_ldr ./utility-testbin
+
+clean:
+	@rm -f ./*testbin

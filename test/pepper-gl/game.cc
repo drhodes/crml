@@ -47,17 +47,15 @@ void RunOnce() {
   GLFromCPPInit();  
   TgaLoader tga;
   tga.LoadFromStash(img__munch_tga, sizeof(img__munch_tga));
-  printf("Image Type %d\n", tga.GetImageType());
+  // printf("Image Type %d\n", tga.GetImageType());
+  // tga.GetImageType();
 }
 
 void Core::Main3D(){
   if (firstrun) {
     RunOnce();    
   }
-
-  
-
-  
+   
   glViewport(0, 0, dsp.Width(), dsp.Height());
   GLFromCPPDraw();
     
