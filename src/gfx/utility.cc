@@ -21,5 +21,5 @@ uint16 glue2bytes(uint8 a, uint8 b){
 }
 
 void DebugNum(int x, std::string msg){
-  printf("%s: %d\n", msg.c_str(), x);
+  //printf("%s: %d\n", msg.c_str(), x);
 }

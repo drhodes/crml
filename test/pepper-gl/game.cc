@@ -46,8 +46,7 @@ void RunOnce() {
 
   GLFromCPPInit();  
   TgaLoader tga;
-  tga.LoadFromStash(img__rainbow4_tga, sizeof(img__rainbow4_tga));
-  tga.PixelVector();  
+  tga.LoadFromStash(img__rainbow4_tga, sizeof(img__rainbow4_tga));  
 }
 
 void Core::Main3D(){

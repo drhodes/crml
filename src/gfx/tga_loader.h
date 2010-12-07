@@ -24,15 +24,16 @@ namespace crml {
     TgaNoColorMapPresent = 0,
     TgaColorMapPresent = 1
   };
-     
+
+  ERR_(TGALOADER_OK);    
   ERR_(TGALOADER_NO_DATA);
-  ERR_(TGALOADER_OK);
   ERR_(TGALOADER_INVALID_HEADER);
   ERR_(TGALOADER_COMPRESSION_NOT_SUPPORTED);
   ERR_(TGALOADER_IMAGETYPE_UNDEFINED);
   ERR_(TGALOADER_IMAGEDATA_NOT_FOUND);
   ERR_(TGALOADER_BLACK_AND_WHITE_NOT_YET_SUPPORTED);
   ERR_(TGALOADER_COLORMAPS_NOT_YET_SUPPORTED);
+  ERR_(TGALOADER_CORRUPT_PIXELS);
   
   class TgaLoader: public Error {
    public:
@@ -66,8 +67,12 @@ namespace crml {
     uint16 Width();      // width in pixels
     uint16 Height();     // height in pixels
     uint8 Depth();       // bits per pixel
-    uint8 Descriptor();  // bits 3-0 give the alpha channel depth, bits 5-4 give direction
 
+    // Still need to implement image wide alpha channel.
+    // This isn't a stub but the loader doesn't look at any alpha information except
+    // the 4th byte of each pixel.
+    uint8 Descriptor();  // bits 3-0 give the alpha channel depth, bits 5-4 give direction
+      
     int8 ColorMapLength(); 
 
     void FillImageId();
@@ -79,7 +84,6 @@ namespace crml {
     bool Ok();
     
    private:
-
     
     std::string stash_;
     uint8 id_length_;       // Length of the image id field
