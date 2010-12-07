@@ -4,3 +4,8 @@ ccc
 *nexe
 ./ccc*
 ./backup-with-rsync*
+.deps
+.libs
++*#
++.#*
+*.stamp
