@@ -1,9 +1,10 @@
-CaRaMeL
-CRML - Chrome Media Library
+Caramel
+=======
 
-A game library for google native client.
+A game library for google's native client.
+------------------------------------------
 
-
+not ready yet.
 
 
 
