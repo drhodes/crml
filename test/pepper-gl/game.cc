@@ -14,7 +14,6 @@
 #include <png.h>
 #include <zlib.h>
 #include "./gles2_demo_cc.cc"
-#include "osg-png-ripoff.cc"
 
 using namespace crml;
 
@@ -34,19 +33,46 @@ LayerGroup lg;
 SpaceHash sh(32);
 
 void RunOnce() {
-  firstrun = false;
-  
+  firstrun = false;  
   Error::DebugOff(); 
   dsp.Init();
-
+  glViewport(0, 0, dsp.Width(), dsp.Height());
+  
   lg.AddTop("clouds");
   lg.AddTop("stars");
   lg.AddBottom("background");  
   lg.Check();
 
-  GLFromCPPInit();  
   TgaLoader tga;
-  tga.LoadFromStash(img__rainbow4_tga, sizeof(img__rainbow4_tga));  
+  //tga.LoadFromStash(img__munch_tga, sizeof(img__munch_tga));
+  tga.LoadFromStash(img__gopher_tga, sizeof(img__gopher_tga));
+  //tga.LoadFromStash(img__rainbow4_tga, sizeof(img__rainbow4_tga));  
+  
+  std::vector<Color> pixels = tga.PixelVector();
+  
+  uint8* texels;
+  texels = (uint8*) (malloc (pixels.size()*4));
+  uint8* first = texels;
+  
+  printf("num pixels: %d\n", pixels.size()*4);  
+  
+  tga.GetImageType();
+
+  for (uint32 i=0; i < pixels.size(); i++){
+    *texels++ = pixels[i].Red();
+    *texels++ = pixels[i].Green();
+    *texels++ = pixels[i].Blue();
+    *texels++ = pixels[i].Alpha();
+  }
+  texels = first;
+  
+  printf("W: %d\n", tga.Width());
+  printf("h: %d\n", tga.Height());
+  
+  GLFromCPPInit(texels, tga.Width(), tga.Height());
+  delete texels;
+
+  
 }
 
 void Core::Main3D(){
@@ -54,16 +80,14 @@ void Core::Main3D(){
     firstrun=false;
     RunOnce();    
   }
-   
-  glViewport(0, 0, dsp.Width(), dsp.Height());
   GLFromCPPDraw();
-    
-  if (timer1.ElapsedMilli() < 30){
+
+  /*
+  if (timer1.ElapsedMilli() < 2){
     return;
-  }
-          
+  }  
   timer1.Reset();
-  dsp.Wipe();
+  */
     
   Layer* clouds = lg.GetLayer("clouds");
   clouds->Move(10,10);
@@ -90,6 +114,13 @@ void Core::Main3D(){
         break;
     }
   }
+
+  if(timer2.ElapsedSec() > 1){
+    printf("Framerate: %d\n", frame);
+    frame = 0;
+    timer2.Reset();
+  }
+  frame += 1;  
 }
 
 

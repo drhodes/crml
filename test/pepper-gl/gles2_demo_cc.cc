@@ -73,12 +73,12 @@ GLuint LoadShader(GLenum type, const char* shaderSrc) {
     return 0;
   }
   
-  // Load the shader source
-  
+  // Load the shader source  
   glShaderSource(shader, 1, &shaderSrc, NULL);   
   
   // Compile the shader
   glCompileShader(shader);
+  
   // Check the compile status
   GLint value;
   glGetShaderiv(shader, GL_COMPILE_STATUS, &value);
@@ -91,6 +91,7 @@ GLuint LoadShader(GLenum type, const char* shaderSrc) {
     glDeleteShader(shader);
     return 0;
   }
+  
   return shader;
 }
 
@@ -140,42 +141,63 @@ void InitShaders() {
   g_textureLoc = glGetUniformLocation(g_programObject, "tex");
   glGenBuffers(1, &g_vbo);
   glBindBuffer(GL_ARRAY_BUFFER, g_vbo);
+  /*
   static float vertices[] = {
-    //0.25,  1.0, 0.0,
-    //-0.75,  0.75, 0.0,
-    //-0.75, -0.25, 0.0,
+    0.25,  .75, 0.0,
+    -0.75,  0.75, 0.0,
+    -0.75, -0.25, 0.0,
     0.25,  0.75, 0.0,
     -0.75, -0.25, 0.0,
     0.25, -0.25, 0.0,
   };
-  static float texCoords[] = {
-    1.0, 1.0,
-    0.0, 1.0,
-    0.0, 0.0,
-    1.0, 1.0,
-    0.0, 0.0,
-    1.0, 0.0,
+  */
+  static float vertices[] = {
+    0, 0, 0,
+    1, 0, 0,
+    1, 1, 0,
+    
+    0, 0, 0,
+    1, 1, 0,
+    0, 1, 0,
   };
-   
+
+  static float texCoords[] = {
+    0, 0,
+    1, 0,
+    1, 1,
+    
+    0, 0,
+    1, 1,
+    0, 1
+  };
+  
   g_texCoordOffset = sizeof(vertices);
-  glBufferData(GL_ARRAY_BUFFER,
-               sizeof(vertices) + sizeof(texCoords),
-               NULL,
-               GL_STATIC_DRAW);
-  glBufferSubData(GL_ARRAY_BUFFER, 0, sizeof(vertices), vertices);
-  glBufferSubData(GL_ARRAY_BUFFER, g_texCoordOffset,
-                  sizeof(texCoords), texCoords);
+  glBufferData( GL_ARRAY_BUFFER,
+                sizeof(vertices) + sizeof(texCoords),
+                NULL,
+                GL_STATIC_DRAW);
+  glBufferSubData( GL_ARRAY_BUFFER, 0, sizeof(vertices), vertices);
+  glBufferSubData( GL_ARRAY_BUFFER, g_texCoordOffset,
+                   sizeof(texCoords), texCoords);
   CheckGLError("InitShaders", __LINE__);
 }
 
+/*
 GLuint CreateCheckerboardTexture() {
   //printf("gles2_demo_cc.cc -> GLuint CreateCheckerboardTexture() {\n");
   CheckGLError("CreateCheckerboardTexture", __LINE__);
   static unsigned char texels[] = {
     255, 0, 0,
     0, 255, 0,
+    123, 123, 255,
+    
     0, 0, 255,
+    0, 123, 255,
     123, 123, 123,
+    
+    0, 123, 255,
+    123, 123, 13,
+    123, 23, 123,
   };
   
   GLuint texture;
@@ -186,15 +208,41 @@ GLuint CreateCheckerboardTexture() {
   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
   glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
-  glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, 2, 2, 0, GL_RGB, GL_UNSIGNED_BYTE,
+  glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, 3, 3, 0, GL_RGB, GL_UNSIGNED_BYTE,
+               texels);
+  CheckGLError("CreateCheckerboardTexture", __LINE__);
+  return texture;
+}
+*/
+
+
+
+GLuint CreateCheckerboardTexture(uint8* texels, uint16 w, uint16 h) {
+  //printf("gles2_demo_cc.cc -> GLuint CreateCheckerboardTexture() {\n");
+  CheckGLError("CreateCheckerboardTexture", __LINE__);
+
+  GLuint texture;
+  glGenTextures(1, &texture);
+  glBindTexture(GL_TEXTURE_2D, texture);
+  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+  glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
+  //                                      w  h
+  glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, w, h, 0, GL_RGBA, GL_UNSIGNED_BYTE,
                texels);
   CheckGLError("CreateCheckerboardTexture", __LINE__);
   return texture;
 }
 
 
+
+
+
 }  // anonymous namespace.
 
+/*
 void GLFromCPPInit() {
   printf("gles2_demo_cc.cc -> void GLFromCPPInit() {\n");
   CheckGLError("GLFromCPPInit", __LINE__);
@@ -203,6 +251,17 @@ void GLFromCPPInit() {
   InitShaders();
   CheckGLError("GLFromCPPInit", __LINE__);
 }
+*/
+
+void GLFromCPPInit(uint8* texels, uint16 w, uint16 h) {
+  printf("gles2_demo_cc.cc -> void GLFromCPPInit() {\n");
+  CheckGLError("GLFromCPPInit", __LINE__);
+  glClearColor(0.f, 0.f, .7f, 1.f);
+  g_texture = CreateCheckerboardTexture(texels, w, h);
+  InitShaders();
+  CheckGLError("GLFromCPPInit", __LINE__);
+}
+
 
 void GLFromCPPDraw() {
   //printf("gles2_demo_cc.cc -> void GLFromCPPDraw() {\n");
@@ -218,25 +277,30 @@ void GLFromCPPDraw() {
   GLfloat sin_angle = sinf(static_cast<GLfloat>(g_angle) * kPi / 180.0f);
 
   // OpenGL matrices are column-major  
-  rot_matrix[0] = cos_angle;
+  rot_matrix[0] = 1.0f;
   rot_matrix[1] = 0.0f;
   rot_matrix[2] = 0.0f;
   rot_matrix[3] = 0.0f;
   
   rot_matrix[4] = 0.0f;
-  rot_matrix[5] = cos_angle;
-  rot_matrix[6] = sin_angle;
+  rot_matrix[5] = 1.0f;
+  rot_matrix[6] = 0.0f;
   rot_matrix[7] = 0.0f;
 
-  rot_matrix[8] = 0.0f;
+  rot_matrix[8] = sin_angle;
   rot_matrix[9] = cos_angle;
   rot_matrix[10] = cos_angle;
   rot_matrix[11] = 0.0f;
   
-  rot_matrix[12] = 0.0f;
-  rot_matrix[13] = 0.0f;
+  rot_matrix[12] = sin_angle;
+  rot_matrix[13] = sin_angle;
   rot_matrix[14] = 0.0f;
   rot_matrix[15] = 1.0f;
+
+
+  // enable transparency.
+  glEnable (GL_BLEND);
+  glBlendFunc (GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
   
   // Note: the viewport is automatically set up to cover the entire Canvas.
   // Clear the color buffer

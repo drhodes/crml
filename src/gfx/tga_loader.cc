@@ -124,7 +124,6 @@ void TgaLoader::LoadColorMapSpec(){
   DebugNum(color_map_pixel_size_, "color_map_pixel_size_");
 }
 
-
 TgaImageType TgaLoader::GetImageType(){
   switch (image_type_) {
     case 0:
@@ -195,12 +194,10 @@ void TgaLoader::FillImageId(){
   uint8 fieldlen = id_length_;
 
   for(int i=offset; i<offset+fieldlen; i++){
-    //DebugNum(stash_[i], "filling image");
     image_spec_.push_back(uint8(stash_[i]));
   }
 }
 
-//From color map specification fieldColor map dataLook-up table containing color map data
 void TgaLoader::FillColorMapData(){
   /*
   DebugNum(id_length_, "id_length_");
@@ -234,25 +231,26 @@ std::vector<Color> TgaLoader::PixelVector(){
   std::vector<Color> pixels;
   uint8 bpp = depth_ / 8;
   uint8 r=0, g=0, b=0, a=0;      
+  printf("bpp: %d\n", bpp);
 
-
+  
   int count = 0;
   for (uint32 i=0; i < image_data_.size(); i++){    
     switch (count){
-      // tga pixel ordering [ B G R A ]  
+      // tga pixel ordering [ B G R A ]
       case 0: b = image_data_[i]; break;
       case 1: g = image_data_[i]; break;
       case 2: r = image_data_[i]; break;
       case 3: a = image_data_[i]; break;
     }
     count++;
-    if (count == bpp){
+    if (count == bpp){      
       if (bpp == 3)
         pixels.push_back(Color(r,g,b));
       if (bpp == 4)
         pixels.push_back(Color(r,g,b,a));
-      count = 0;
-    }
+      count = 0;      
+    }    
   }
 
   if (pixels.size() != image_data_.size() / bpp){
