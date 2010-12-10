@@ -42,7 +42,7 @@ void RunOnce() {
  
   TgaLoader img;
   //img.LoadFromStash(img__munch_tga, sizeof(img__sun_tga));
-  img.LoadFromStash(img__sun_tga, sizeof(img__sun_tga));
+  img.LoadFromStash(img__gopher_tga, sizeof(img__gopher_tga));
   //tga.LoadFromStash(img__rainbow4_tga, sizeof(img__rainbow4_tga));
 
   Sprite s1;
