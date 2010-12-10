@@ -8,17 +8,18 @@
 #include "../core/error.h"
 #include "./layer_group.h"
 #include <stdio.h>
+
 namespace crml {
         
 LayerGroup::~LayerGroup(){
 }
 
 void LayerGroup::AddTop(std::string layerName){
-  Insert(layerName, Layer(), 0);
+  InsertNew(layerName, 0);
 }
 
 void LayerGroup::AddBottom(std::string layerName){
-  Insert(layerName, Layer(), layers_.size());
+  InsertNew(layerName, layers_.size());
 }
 
 StringVec::iterator LayerGroup::GetLayerNameIter(std::string layerName){
@@ -50,25 +51,37 @@ void LayerGroup::Remove(std::string layerName){
   layers_.erase(layerName);
 }
 
-void LayerGroup::Insert(std::string layerName, Layer layer, int listIndex){
+
+void LayerGroup::InsertNew(std::string layerName, int listIndex){
   if (Contains(layerName)){
     SetReportErr(LAYERGROUP_LAYER_ALREADY_EXISTS);
   }
-    
+  
   layerNames_.insert(layerNames_.begin() + listIndex, layerName);
-  layers_[layerName] = layer;
+  layers_[layerName] = new Layer;
+}
+
+
+void LayerGroup::Insert(std::string layerName, Layer& layer, int listIndex){
+  if (Contains(layerName)){
+    SetReportErr(LAYERGROUP_LAYER_ALREADY_EXISTS);
+  }
+  
+  layerNames_.insert(layerNames_.begin() + listIndex, layerName);
+  layers_[layerName] = &layer;
 }
 
 Layer* LayerGroup::GetLayer(std::string layerName){
   if (!Contains(layerName)){
     SetReportErr(LAYERGROUP_LAYER_DOESNT_EXIST);
   }
-  return &layers_[layerName];
+  return layers_[layerName];
 }
 
 bool LayerGroup::Contains(std::string layerName){
   return layers_.count(layerName) != 0;
 }
+
 
 void LayerGroup::Swap(std::string lyr1, std::string lyr2){
   if (!Contains(lyr1)){
@@ -87,10 +100,12 @@ void LayerGroup::Swap(std::string lyr1, std::string lyr2){
   layerNames_[i1] = lyr2;
   layerNames_[i2] = lyr1;
         
-  Layer tmp1 = layers_[lyr1]; 
+  Layer* tmp1 = layers_[lyr1]; 
   layers_[lyr1] = layers_[lyr2];
   layers_[lyr2] = tmp1; 
 }
+
+
 
 bool LayerGroup::Ok(){
   return Err() == LAYERGROUP_OK;

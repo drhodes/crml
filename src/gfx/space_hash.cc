@@ -15,15 +15,15 @@ SpaceHash::~SpaceHash(){
 
 Vector SpaceHash::AlignTopLeft(Rect& r){
   Vector v = r.TopLeft();
-  v.X(v.X() - (v.X() % res_));
-  v.Y(v.Y() - (v.Y() % res_));
+  v.X(v.X() - (v.X() % gridgap_));
+  v.Y(v.Y() - (v.Y() % gridgap_));
   return v;      
 }
 
 Vector SpaceHash::AlignBottomRight(Rect& r){
   Vector v = r.BottomRight();
-  v.X(v.X() + (res_ - (v.X() % res_)));
-  v.Y(v.Y() + (res_ - (v.Y() % res_)));
+  v.X(v.X() + (gridgap_ - (v.X() % gridgap_)));
+  v.Y(v.Y() + (gridgap_ - (v.Y() % gridgap_)));
   return v;
 }
 
@@ -39,8 +39,8 @@ void SpaceHash::Add(Rect& r){
   Vector tl = AlignTopLeft(r);
   Vector br = AlignBottomRight(r);
   
-  for (int y = tl.Y(); y <= br.Y(); y += res_){
-    for (int x = tl.X(); x <= br.X(); x += res_){
+  for (int y = tl.Y(); y <= br.Y(); y += gridgap_){
+    for (int x = tl.X(); x <= br.X(); x += gridgap_){
       std::pair<int, int> key(x, y);
       
       if (space_.count(key) == 0) {        
@@ -73,9 +73,9 @@ std::set<Rect*> SpaceHash::GetNeighbors(Rect& r){
   std::set<Rect*> inter;
   
   for (uint i = 0; i < bm.size(); i++) {    
-    std::set_union(inter.begin(), inter.end(),
-                   space_[bm[i]].begin(), space_[bm[i]].end(),
-                   std::inserter(inter, inter.begin()) );
+    std::set_union( inter.begin(), inter.end(),
+                    space_[bm[i]].begin(), space_[bm[i]].end(),
+                    std::inserter(inter, inter.begin()) );
   }    
   return inter;
 }

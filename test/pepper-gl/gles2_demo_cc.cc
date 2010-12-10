@@ -141,34 +141,42 @@ void InitShaders() {
   g_textureLoc = glGetUniformLocation(g_programObject, "tex");
   glGenBuffers(1, &g_vbo);
   glBindBuffer(GL_ARRAY_BUFFER, g_vbo);
+
   /*
-  static float vertices[] = {
-    0.25,  .75, 0.0,
-    -0.75,  0.75, 0.0,
-    -0.75, -0.25, 0.0,
-    0.25,  0.75, 0.0,
-    -0.75, -0.25, 0.0,
-    0.25, -0.25, 0.0,
+      0.25,  0.75, 0.0,
+     -0.75,  0.75, 0.0,
+     -0.75, -0.25, 0.0,
+      0.25,  0.75, 0.0,
+     -0.75, -0.25, 0.0,
+      0.25, -0.25, 0.0,
   };
-  */
+  static float texCoords[] = {
+    1.0, 1.0,
+    0.0, 1.0,
+    0.0, 0.0,
+    1.0, 1.0,
+    0.0, 0.0,
+    1.0, 0.0,
+  };
+*/
+  
   static float vertices[] = {
-    0, 0, 0,
-    1, 0, 0,
-    1, 1, 0,
+    /* bl */ -1, -1, 0,
+    /* br */ 1, -1, 0,
+    /* ur */ 1, 1, 0,
     
-    0, 0, 0,
-    1, 1, 0,
-    0, 1, 0,
+    /* bl */ -1, -1, 0,
+    /* ur */ 1, 1, 0,
+    /* ul */ -1, 1, 0,
   };
 
   static float texCoords[] = {
     0, 0,
     1, 0,
-    1, 1,
-    
+    1, 1,   
     0, 0,
     1, 1,
-    0, 1
+    0, 1,
   };
   
   g_texCoordOffset = sizeof(vertices);
@@ -236,10 +244,6 @@ GLuint CreateCheckerboardTexture(uint8* texels, uint16 w, uint16 h) {
   return texture;
 }
 
-
-
-
-
 }  // anonymous namespace.
 
 /*
@@ -256,47 +260,49 @@ void GLFromCPPInit() {
 void GLFromCPPInit(uint8* texels, uint16 w, uint16 h) {
   printf("gles2_demo_cc.cc -> void GLFromCPPInit() {\n");
   CheckGLError("GLFromCPPInit", __LINE__);
-  glClearColor(0.f, 0.f, .7f, 1.f);
+  //glClearColor(0.f, 0.f, .7f, 1.f);
+  glClearColor(0.0f, 0.0f, 0.0f, 1.f);
   g_texture = CreateCheckerboardTexture(texels, w, h);
   InitShaders();
   CheckGLError("GLFromCPPInit", __LINE__);
 }
 
 
-void GLFromCPPDraw() {
+void GLFromCPPDraw(float scale) {
   //printf("gles2_demo_cc.cc -> void GLFromCPPDraw() {\n");
   const float kPi = 3.1415926535897932384626433832795f;
-
+  
   CheckGLError("GLFromCPPDraw", __LINE__);
   // TODO(kbr): base the angle on time rather than on ticks
   g_angle = (g_angle + 1) % 360;
   //g_angle = 0;//(g_angle + 1) % 360;`
   // Rotate about the Z axis
   GLfloat rot_matrix[16];
-  GLfloat cos_angle = cosf(static_cast<GLfloat>(g_angle) * kPi / 180.0f);
+  GLfloat cos_angle = cosf(static_cast<GLfloat>(g_angle) * kPi / 180.0f) / 10.0;
   GLfloat sin_angle = sinf(static_cast<GLfloat>(g_angle) * kPi / 180.0f);
 
-  // OpenGL matrices are column-major  
-  rot_matrix[0] = 1.0f;
-  rot_matrix[1] = 0.0f;
+  // OpenGL matrices are column-major
+  printf("scale: %f", scale);
+  
+  rot_matrix[0] = scale * cos_angle;
+  rot_matrix[1] = -sin_angle;
   rot_matrix[2] = 0.0f;
   rot_matrix[3] = 0.0f;
   
-  rot_matrix[4] = 0.0f;
-  rot_matrix[5] = 1.0f;
+  rot_matrix[4] = sin_angle;
+  rot_matrix[5] = scale * cos_angle;
   rot_matrix[6] = 0.0f;
   rot_matrix[7] = 0.0f;
-
-  rot_matrix[8] = sin_angle;
-  rot_matrix[9] = cos_angle;
-  rot_matrix[10] = cos_angle;
+  
+  rot_matrix[8] =  0.0f;
+  rot_matrix[9] =  0.0f;
+  rot_matrix[10] = scale;
   rot_matrix[11] = 0.0f;
   
-  rot_matrix[12] = sin_angle;
-  rot_matrix[13] = sin_angle;
+  rot_matrix[12] = 0.0f;
+  rot_matrix[13] = 0.0f;
   rot_matrix[14] = 0.0f;
   rot_matrix[15] = 1.0f;
-
 
   // enable transparency.
   glEnable (GL_BLEND);
@@ -306,6 +312,7 @@ void GLFromCPPDraw() {
   // Clear the color buffer
   glClear(GL_COLOR_BUFFER_BIT);
   CheckGLError("GLFromCPPDraw", __LINE__);
+
   // Use the program object
   glUseProgram(g_programObject);
   CheckGLError("GLFromCPPDraw", __LINE__);

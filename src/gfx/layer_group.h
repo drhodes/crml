@@ -28,7 +28,8 @@ namespace crml {
     void AddTop(std::string layerName);
     void AddBottom(std::string layerName);
     void Remove(std::string layerName);
-    void Insert(std::string layerName, Layer layer, int listIndex);
+    void InsertNew(std::string layerName, int listIndex);
+    void Insert(std::string layerName, Layer& layer, int listIndex);
     bool Contains(std::string layerName);
     void Swap(std::string a, std::string b); 
     Layer* GetLayer(std::string layerName);
@@ -39,7 +40,7 @@ namespace crml {
     bool Ok();
    private:
     StringVec layerNames_;
-    std::map<std::string, Layer> layers_;
+    std::map<std::string, Layer*> layers_;
         
   };
 }       // namespace crml

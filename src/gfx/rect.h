@@ -14,7 +14,6 @@ namespace crml {
     Rect();
     Rect(int, int, int, int);
     Rect(Vector, Vector);
-    Rect(const Rect&);
     
     void StretchLeft(int n);
     void StretchRight(int n);
@@ -36,6 +35,10 @@ namespace crml {
     const Vector TopLeft();
     const Vector BottomRight();      
    private:
+    // Prevent copy.
+    Rect(const Rect&);     
+    Rect& operator = (const Rect&);
+
     
     int id__; // memory management helper.
     Vector topleft_, bottomright_;           

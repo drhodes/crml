@@ -16,5 +16,9 @@ bool Layer::Ok(){
   return Err() == LAYER_OK;
 }
 
+void Layer::AddSprite(Sprite& s){
+  Add(s);
+}
+
 }       // namespace crml
 #endif  // LAYER_CC

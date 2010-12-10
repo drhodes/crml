@@ -1,0 +1,8 @@
+/tmp/gambc-v4_6_0-devel/gsc/gsc -keep-c gambit-test.scm 
+
+
+/home/derek/dev/nacl-oct24/native_client/toolchain/linux_x86/bin/nacl-gcc\
+		gambit-test.c \
+		-I /usr/custom/gambc-v4_6_0-devel/include \
+		-L /usr/custom/gambc-v4_6_0-devel/lib/  \
+		-lgambc

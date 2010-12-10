@@ -15,18 +15,21 @@ TgaLoader::~TgaLoader() {
   //delete stash_;    
 }
 
-void TgaLoader::LoadFromStash(char* src, int32 len){
+void TgaLoader::LoadFromString(std::string str){
+  LoadFromStash((char*)str.c_str(), (uint32)str.size());
+}
+
+void TgaLoader::LoadFromStash(char* src, uint32 len){
   printf("Buildtime: %s \n", __TIME__);     
   
   stash_.clear();
 
-  int32 i = 0;
+  uint32 i = 0;
   while(i < len) {
     stash_ += char(src[i]);
     i++;
   }
 
-  printf("stash_: %s\n", stash_.c_str());
   printf("Header length is?: %d\n", stash_.size());
    
   uint32 headerLen = header_len_;

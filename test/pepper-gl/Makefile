@@ -6,7 +6,7 @@ NACLPORTS_ROOT	= ~/dev/naclports/src
 NACL_SDK_ROOT	= ~/dev/nacl_sdk
 CRML_ROOT		= ../../
 
-CCFILES =	main.cc game.cc 
+CCFILES =	main.cc game.cc
 MEDIA_BLOB = ./media/media-blob.a
 MEDIA_HEADER = ./media
 
@@ -21,18 +21,20 @@ CFLAGS =	-Wall \
 
 INCLUDES =	-I $(NACL_SDK_ROOT) \
 			-I $(CRML_ROOT)/include \
+			-I /usr/custom/gambc-v4_6_0-devel/include \
 			-I $(NACLPORTS_ROOT)/include \
 			-I $(MEDIA_HEADER) \
 
 LDFLAGS =	-L $(CRML_ROOT)/build \
 			-L $(CRML_ROOT)/third-party \
+			-L /usr/custom/gambc-v4_6_0-devel/lib/ \
 			-l crml-win \
 			-l crml-core \
 			-l crml-sys \
 			-l crml-evt \
 			-l crml-gfx \
+			-l gambc \
 			-l osg \
-			-l png \
 			-l freetype \
 			-l z \
 			-l google_nacl_imc \

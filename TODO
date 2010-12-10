@@ -1,4 +1,16 @@
 
+- Thu Dec  9 16:30:33 EST 2010
+  * Need to remove all copy constructor laden code from layer group
+  as layers can't be copied.  They need to be managed as references.
+  The managing vector needs to store references, but the memory
+  has to exist somewhere. a map<string, Layer> would work nicely.
+  
+  - After that works, need to fix layer so it also complies with 
+  	the copyconstructorless requirement.
+  
+  Then what?
+
+
 * Thu Nov 11 17:17:30 EST 2010 -- invoke main loop from javascript.
 ! Thu Nov 11 17:17:06 EST 2010 -- can't access npp from different thread. DOH!
 * Wed Nov 10 12:02:05 EST 2010 -- setup a threaded loop and worry about crashes

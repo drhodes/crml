@@ -46,7 +46,8 @@ namespace crml {
     
     ~TgaLoader();
     
-    void LoadFromStash(char* stash, int32 len);
+    void LoadFromString(std::string str);
+    void LoadFromStash(char* stash, uint32 len);
     
     // Header
     void LoadHeader();

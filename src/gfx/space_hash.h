@@ -20,14 +20,15 @@ namespace crml {
        
   class SpaceHash: public Error {
    public:
-    explicit SpaceHash(int resolution):
+    explicit SpaceHash(int gridgap):
     Error(SPACEHASH_OK) {
       ClassName("SpaceHash");
-      res_ = resolution;
+      gridgap_ = gridgap;
     }
     
     ~SpaceHash();    
     void Add(Rect&);
+    
     void Delete(Rect&);
     void GetBuckets(Rect&);
     std::set<Rect*> GetNeighbors(Rect&);
@@ -35,7 +36,7 @@ namespace crml {
     int BucketCount(Rect& r);    
     Vector AlignTopLeft(Rect& r);
     Vector AlignBottomRight(Rect& r);
-    
+
     bool Ok();
    private:
     SpaceMap space_;
@@ -43,7 +44,7 @@ namespace crml {
     // RectID -> BucketList, for quick deletion of rects.
     RectIdBucketMap bucketmap_;
     
-    int res_; // bucket resolution.    
+    int gridgap_; // bucket gridgap.    
   };
   
 }       // namespace crml
