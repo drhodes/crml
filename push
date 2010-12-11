@@ -1,0 +1,3 @@
+tweezer -r ./src -l ./license -i
+git push
+tweezer -r ./src -l ./license -x
