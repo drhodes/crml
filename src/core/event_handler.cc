@@ -1,4 +1,4 @@
-// include apple.copyright
+// _.-{{ apple-bsd }}-._
 
 #include "event_handler.h"
 

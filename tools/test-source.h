@@ -1,5 +1,5 @@
-// -*- c++ -*-
-// Copyright 2010 <Derek A. Rhodes>
+//
+//
 
 #ifndef CAMERA_H_
 #define CAMERA_H_
@@ -21,6 +21,7 @@ class Camera {
 }       // namespace crml
 #endif  // CAMERA_H_
 
+// -*- c++ -*-
 
 
 

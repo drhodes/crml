@@ -1,3 +1,4 @@
+// -*- c++ -*-
 // Copyright 2010 <Derek A. Rhodes>
 
 #ifndef SPRITE_CC

@@ -19,7 +19,7 @@ typedef enum {
   NPExtensionsReservedStateSyncChannel = 66538,
   // Used by the Audio device to return a pointer to the
   // structure used to implement the synchronization channel for the device.
-  NPExtensionsReservedStateSharedMemoryChecksum = 66539
+  NPExtensionsReservedStateSharedMemoryChecksum = 66539,
   // Used by the Device2D to return the CRC32 checksum of the content
   // stored in the shared memory buffer for the device.
 } NPExtensionsReservedStates;

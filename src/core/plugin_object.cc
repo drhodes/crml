@@ -1,4 +1,5 @@
-// inclue apple.copyright
+// _.-{{ apple }}-._
+
 #include "plugin_object.h"
 
 #include <assert.h>
