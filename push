@@ -1,8 +1,26 @@
 #!/bin/bash
+
+echo
+echo Zapping
 ./zap
+
+echo
+echo Tweezer inserting license
 tweezer -r ./src -l ./license -i
+
+echo
+echo Git Commit "$1"
 git add .
 git commit -a -m "$1"
+
+echo
+echo Git Pushing
 git push
+
+echo
+echo Tweezering extracting licenses
 tweezer -r ./src -l ./license -x
-git commit -a -m "delicensing"
+
+echo
+echo
+git commit -a -m "$1"
