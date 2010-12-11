@@ -22,5 +22,5 @@ echo Tweezering extracting licenses
 tweezer -r ./src -l ./license -x
 
 echo
-echo
+echo Git update commit
 git commit -a -m "$1"
