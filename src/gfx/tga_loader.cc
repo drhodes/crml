@@ -1,4 +1,4 @@
-// Copyright 2010 <Derek A. Rhodes>
+// _.-{{crml}}-._
 
 #ifndef TGALOADER_CC
 #define TGALOADER_CC
@@ -45,7 +45,7 @@ void TgaLoader::LoadFromStash(char* src, uint32 len){
   FillImageData();
 }
 
-// Header
+
 void TgaLoader::LoadHeader(){
   LoadIdLength();
   LoadColorMapType();
@@ -218,13 +218,11 @@ void TgaLoader::FillImageData(){
   DebugNum(id_length_, "id_length_");
   uint8 offset = header_len_ + id_length_ + color_map_length_;
 
-  // need to address this magic 3 when supporting formats with
-  // different bit maps.
   uint32 fieldlen = width_ * height_ * (depth_ / 8); 
 
   int count = 1;
   for(uint32 i=offset; i<offset+fieldlen; i++){
-    //DebugNum(uint8(stash_[i]), "filling image data");
+    // DebugNum(uint8(stash_[i]), "filling image data");
     image_data_.push_back(uint8(stash_[i]));
     count++;
   } 
@@ -263,7 +261,8 @@ std::vector<Color> TgaLoader::PixelVector(){
 }
 
 bool TgaLoader::Ok(){
-  return Err() == TGALOADER_OK;
+  return Err() == OK;
 }
+
 }       // namespace crml
 #endif  // TGALOADER_CC

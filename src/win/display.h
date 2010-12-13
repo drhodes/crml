@@ -8,7 +8,6 @@
 #include <GLES2/gl2.h>
 
 namespace crml {
-  ERR_(DISPLAY_OK);
   ERR_(DISPLAY_CREATE_CONTEXT_FAILED);
   ERR_(DISPLAY_ACQUIRE_DEVICE_FAILED);
   ERR_(DISPLAY_NULL_REGION);
@@ -19,7 +18,15 @@ namespace crml {
   //------------------------------------------------------------------
   class Display : public Error {
    public:
-    explicit Display() : Error(DISPLAY_OK) {
+    static GLuint g_texture;
+    static int g_textureLoc;
+    static GLuint g_programObject;
+    static GLuint g_worldMatrixLoc;
+    static GLuint g_vbo;
+    static GLsizei g_texCoordOffset;
+    static int g_angle;
+    
+    explicit Display() : Error(OK) {
       ClassName("Display");
     }    
     
@@ -29,7 +36,6 @@ namespace crml {
     uint32_t* Pixels();
     int Height();
     int Width();
-
     
     void Redraw();
     void Init();

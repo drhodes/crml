@@ -1,0 +1,2 @@
+make: to build and run the tests
+make clean: to clean

@@ -1,12 +1,12 @@
-// Copyright 2010 <Derek A. Rhodes>
+// _.-{{crml}}-._
 
 #ifndef SPACEHASH_CC
 #define SPACEHASH_CC
 
 #include <stdio.h>
-#include "./space_hash.h"
 #include <algorithm>
 #include <utility> 
+#include "./space_hash.h"
 
 namespace crml {
 
@@ -81,7 +81,7 @@ std::set<Rect*> SpaceHash::GetNeighbors(Rect& r){
 }
 
 bool SpaceHash::Ok(){
-  return Err() == SPACEHASH_OK;
+  return Err() == OK;
 }
 
 

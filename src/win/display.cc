@@ -1,4 +1,4 @@
-// Copyright 2010 <Derek A. Rhodes>
+// _.-{{crml}}-._
 
 #ifndef DISPLAY_CC
 #define DISPLAY_CC
@@ -6,6 +6,16 @@
 #include "./display.h"
 
 namespace crml {
+
+GLuint Display::g_texture = 0;
+int Display::g_textureLoc = -1;
+GLuint Display::g_programObject = 0;
+GLuint Display::g_worldMatrixLoc = 0;
+GLuint Display::g_vbo = 0;
+GLsizei Display::g_texCoordOffset = 0;
+int Display::g_angle = 0;
+
+
 void FlushCallback(NPP instance, NPDeviceContext* context,
                    NPError err, void* user_data) {
 }
@@ -16,9 +26,9 @@ inline uint32_t MakeRGBA(uint32_t r, uint32_t g, uint32_t b, uint32_t a) {
 
 Display::~Display(){}
 
-/// Is the display OK?
+// Is the display OK?
 bool Display::Ok(){ 
-  return Err() == DISPLAY_OK;
+  return Err() == OK;
 }
 
 uint32_t* Display::Pixels(){
