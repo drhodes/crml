@@ -28,7 +28,6 @@ class Layer : public Rect, public SpaceHash {
     
   ~Layer();
   
-  void Draw(Drawer& dwr);  
   void AddSprite(Sprite& s);
 
   bool Ok();

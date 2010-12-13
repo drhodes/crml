@@ -20,14 +20,6 @@ namespace {
    these globals should be static members?
 */
 
-GLuint g_texture = 0;
-int g_textureLoc = -1;
-GLuint g_programObject = 0;
-GLuint g_worldMatrixLoc = 0;
-GLuint g_vbo = 0;
-GLsizei g_texCoordOffset = 0;
-int g_angle = 0;
-
 void CheckGLError(const char* func_name, int line_no) {
 #ifndef NDEBUG
   GLenum error = GL_NO_ERROR;
@@ -63,8 +55,7 @@ GLuint LoadShaderFromStash(GLenum type, const char* stash){
   }
   return shader;
 }
-  
-
+ 
 GLuint LoadShader(GLenum type, const char* shaderSrc) {
   //printf("gles2_demo_cc.cc -> GLuint LoadShader(GLenum type, const char* shaderSrc) {\n");
   CheckGLError("LoadShader", __LINE__);
@@ -113,11 +104,11 @@ void InitShaders() {
   glAttachShader(programObject, vertexShader);
   glAttachShader(programObject, fragmentShader);
 
-  // Bind g_Position to attribute 0
-  glBindAttribLocation(programObject, 0, "g_Position");
+  // Bind crml::Display::g_Position to attribute 0
+  glBindAttribLocation(programObject, 0, "crml::Display::g_Position");
 
-  // Bind g_TexCoord0 to attribute 1
-  glBindAttribLocation(programObject, 1, "g_TexCoord0");
+  // Bind crml::Display::g_TexCoord0 to attribute 1
+  glBindAttribLocation(programObject, 1, "crml::Display::g_TexCoord0");
 
   // Link the program
   glLinkProgram(programObject);
@@ -136,11 +127,11 @@ void InitShaders() {
     return;
   }
   
-  g_programObject = programObject;
-  g_worldMatrixLoc = glGetUniformLocation(g_programObject, "worldMatrix");
-  g_textureLoc = glGetUniformLocation(g_programObject, "tex");
-  glGenBuffers(1, &g_vbo);
-  glBindBuffer(GL_ARRAY_BUFFER, g_vbo);
+  crml::Display::g_programObject = programObject;
+  crml::Display::g_worldMatrixLoc = glGetUniformLocation(crml::Display::g_programObject, "worldMatrix");
+  crml::Display::g_textureLoc = glGetUniformLocation(crml::Display::g_programObject, "tex");
+  glGenBuffers(1, &crml::Display::g_vbo);
+  glBindBuffer(GL_ARRAY_BUFFER, crml::Display::g_vbo);
 
   /*
       0.25,  0.75, 0.0,
@@ -179,13 +170,13 @@ void InitShaders() {
     0, 1,
   };
   
-  g_texCoordOffset = sizeof(vertices);
+  crml::Display::g_texCoordOffset = sizeof(vertices);
   glBufferData( GL_ARRAY_BUFFER,
                 sizeof(vertices) + sizeof(texCoords),
                 NULL,
                 GL_STATIC_DRAW);
   glBufferSubData( GL_ARRAY_BUFFER, 0, sizeof(vertices), vertices);
-  glBufferSubData( GL_ARRAY_BUFFER, g_texCoordOffset,
+  glBufferSubData( GL_ARRAY_BUFFER, crml::Display::g_texCoordOffset,
                    sizeof(texCoords), texCoords);
   CheckGLError("InitShaders", __LINE__);
 }
@@ -214,7 +205,7 @@ GLuint CreateCheckerboardTexture() {
   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MACRML::DISPLAY::G_FILTER, GL_NEAREST);
   glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
   glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, 3, 3, 0, GL_RGB, GL_UNSIGNED_BYTE,
                texels);
@@ -251,7 +242,7 @@ void GLFromCPPInit() {
   printf("gles2_demo_cc.cc -> void GLFromCPPInit() {\n");
   CheckGLError("GLFromCPPInit", __LINE__);
   glClearColor(0.f, 0.f, .7f, 1.f);
-  g_texture = CreateCheckerboardTexture();
+  crml::Display::g_texture = CreateCheckerboardTexture();
   InitShaders();
   CheckGLError("GLFromCPPInit", __LINE__);
 }
@@ -262,7 +253,7 @@ void GLFromCPPInit(uint8* texels, uint16 w, uint16 h) {
   CheckGLError("GLFromCPPInit", __LINE__);
   //glClearColor(0.f, 0.f, .7f, 1.f);
   glClearColor(0.0f, 0.0f, 0.0f, 1.f);
-  g_texture = CreateCheckerboardTexture(texels, w, h);
+  crml::Display::g_texture = CreateCheckerboardTexture(texels, w, h);
   InitShaders();
   CheckGLError("GLFromCPPInit", __LINE__);
 }
@@ -274,15 +265,15 @@ void GLFromCPPDraw(float scale) {
   
   CheckGLError("GLFromCPPDraw", __LINE__);
   // TODO(kbr): base the angle on time rather than on ticks
-  g_angle = (g_angle + 1) % 360;
-  //g_angle = 0;//(g_angle + 1) % 360;`
+  crml::Display::g_angle = (crml::Display::g_angle + 1) % 360;
+  //crml::Display::g_angle = 0;//(crml::Display::g_angle + 1) % 360;`
   // Rotate about the Z axis
   GLfloat rot_matrix[16];
-  GLfloat cos_angle = cosf(static_cast<GLfloat>(g_angle) * kPi / 180.0f) / 10.0;
-  GLfloat sin_angle = sinf(static_cast<GLfloat>(g_angle) * kPi / 180.0f);
+  GLfloat cos_angle = cosf(static_cast<GLfloat>(crml::Display::g_angle) * kPi / 180.0f) / 10.0;
+  GLfloat sin_angle = sinf(static_cast<GLfloat>(crml::Display::g_angle) * kPi / 180.0f);
 
   // OpenGL matrices are column-major
-  printf("scale: %f", scale);
+  //printf("scale: %f", scale);
   
   rot_matrix[0] = scale * cos_angle;
   rot_matrix[1] = -sin_angle;
@@ -314,27 +305,27 @@ void GLFromCPPDraw(float scale) {
   CheckGLError("GLFromCPPDraw", __LINE__);
 
   // Use the program object
-  glUseProgram(g_programObject);
+  glUseProgram(crml::Display::g_programObject);
   CheckGLError("GLFromCPPDraw", __LINE__);
   
   // Set up the model matrix
-  glUniformMatrix4fv(g_worldMatrixLoc, 1, GL_FALSE, rot_matrix);
+  glUniformMatrix4fv(crml::Display::g_worldMatrixLoc, 1, GL_FALSE, rot_matrix);
 
   // Load the vertex data
-  glBindBuffer(GL_ARRAY_BUFFER, g_vbo);
+  glBindBuffer(GL_ARRAY_BUFFER, crml::Display::g_vbo);
   glEnableVertexAttribArray(0);
   glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);
   glEnableVertexAttribArray(1);
   glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 0,
-                        reinterpret_cast<const void*>(g_texCoordOffset));
+                        reinterpret_cast<const void*>(crml::Display::g_texCoordOffset));
   CheckGLError("GLFromCPPDraw", __LINE__);
   
   // Bind the texture to texture unit 0
-  glBindTexture(GL_TEXTURE_2D, g_texture);
+  glBindTexture(GL_TEXTURE_2D, crml::Display::g_texture);
   CheckGLError("GLFromCPPDraw", __LINE__);
   
   // Point the uniform sampler to texture unit 0
-  glUniform1i(g_textureLoc, 0);
+  glUniform1i(crml::Display::g_textureLoc, 0);
   CheckGLError("GLFromCPPDraw", __LINE__);
   
   glDrawArrays(GL_TRIANGLES, 0, 6);

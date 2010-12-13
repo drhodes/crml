@@ -1,4 +1,4 @@
-// Copyright 2010 <Derek A. Rhodes>
+// _.-{{crml}}-._
 
 #ifndef TGALOADER_H_
 #define TGALOADER_H_
@@ -25,7 +25,6 @@ namespace crml {
     TgaColorMapPresent = 1
   };
 
-  ERR_(TGALOADER_OK);    
   ERR_(TGALOADER_NO_DATA);
   ERR_(TGALOADER_INVALID_HEADER);
   ERR_(TGALOADER_COMPRESSION_NOT_SUPPORTED);
@@ -40,7 +39,7 @@ namespace crml {
     uint8 header_len_;
     
     explicit TgaLoader() :
-    Error(TGALOADER_OK) {
+    Error(OK) {
       header_len_ = 18;
     }
     

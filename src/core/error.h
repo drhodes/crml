@@ -6,6 +6,8 @@
 #include "./error_macro.cc"
 
 namespace crml {
+  ERR_(OK);
+  
   class Error {
    public:
     static bool DEBUG;

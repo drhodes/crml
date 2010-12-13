@@ -1,19 +1,17 @@
-// Copyright 2010 <Derek A. Rhodes>
+// _.-{{crml}}-._
 
 #ifndef SPACEHASH_H_
 #define SPACEHASH_H_
-
-#include "../core/error.h"
-#include "rect.h"
-#include "vector.h"
 
 #include <map>
 #include <vector>
 #include <set>
 
-namespace crml {
-  ERR_(SPACEHASH_OK);
+#include "../core/error.h"
+#include "rect.h"
+#include "vector.h"
 
+namespace crml {
   typedef std::pair<int, int> IntPair;
   typedef std::map<IntPair, std::set<Rect*> > SpaceMap;
   typedef std::map<int, std::vector<IntPair> > RectIdBucketMap;
@@ -21,7 +19,7 @@ namespace crml {
   class SpaceHash: public Error {
    public:
     explicit SpaceHash(int gridgap):
-    Error(SPACEHASH_OK) {
+    Error(OK) {
       ClassName("SpaceHash");
       gridgap_ = gridgap;
     }
@@ -41,7 +39,8 @@ namespace crml {
    private:
     SpaceMap space_;
 
-    // RectID -> BucketList, for quick deletion of rects.
+    // A lookup table RectID -> BucketList
+    // Needed for quick deletes of rects.
     RectIdBucketMap bucketmap_;
     
     int gridgap_; // bucket gridgap.    

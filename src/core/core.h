@@ -1,4 +1,4 @@
-// Copyright 2010 <Derek A. Rhodes>
+// _.-{{crml}}-._
 
 #ifndef CORE_H_
 #define CORE_H_

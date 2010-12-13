@@ -1,4 +1,4 @@
-// Copyright 2010 <Derek A. Rhodes>
+// _.-{{crml}}-._
 
 #ifndef SPRITE_H_
 #define SPRITE_H_
@@ -9,11 +9,10 @@
 #include "./tga_loader.h"
 
 namespace crml {
-ERR_(SPRITE_OK);
 
 class Sprite: public Error, public Rect {
  public:
-  explicit Sprite(): Error(SPRITE_OK) {
+  explicit Sprite(): Error(OK) {
     ClassName("Sprite");
     scale_ = 1;
     angle_ = 0; // 0 on unit circle. CCW is pos.
@@ -22,7 +21,11 @@ class Sprite: public Error, public Rect {
   
   ~Sprite();    
   void LoadImage(TgaLoader& tga);
-  
+  void Angle(int32 h);
+  int32 Angle();
+  void Rotate(int32 angle);
+  void Scale(float scale_);
+    
   std::vector<Color> PixelVector(); // opportunity for optimization.
   
   bool Ok();
@@ -31,11 +34,11 @@ class Sprite: public Error, public Rect {
   Sprite(const Sprite&);     
   Sprite& operator = (const Sprite&);
 
-  int32 scale_;
+  float scale_;
   int32 angle_;
   uint8 alpha_;
     
-  TgaLoader* image;
+  TgaLoader* image_;
 };
 
 }       // namespace crml

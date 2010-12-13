@@ -33,7 +33,6 @@ void RunOnce() {
   Error::DebugOn(); 
   dsp.Init();
   glViewport(0, 0, dsp.Width(), dsp.Height());
-
   
   lg.AddTop("clouds");
   lg.AddTop("stars");
@@ -48,10 +47,27 @@ void RunOnce() {
   Sprite s1;
   s1.LoadImage(img);
   s1.Move(10,10);
-   
+  s1.Angle(33);
+    
+  //      
+  // Layer->UpdateRects 
+  // this will remove the rects from the spacehash and reinsert 
+  // to respect their change in position
+  // 
+  
   Layer* clouds = lg.GetLayer("clouds");
   clouds->AddSprite(s1);
   // s1 will be destroyed at the end of this function. :<
+
+  std::set<Rect*> nbrs = clouds->GetNeighbors(s1);
+  std::set<Rect*>::iterator it;
+  
+  Sprite* s2 = new Sprite;
+  printf("nbrs contains:\n");
+  for ( it=nbrs.begin(); it != nbrs.end(); it++ ) {
+    s2 = (Sprite*)(*it);
+    printf("Angle is: %d\n", int(s2->Angle()) );    
+  }
   
   //Sprite s2;
   //s2 = s1; doesn't work, this is good.
@@ -88,7 +104,7 @@ void Core::Main3D(){
     RunOnce();    
   }
 
-  float temp = float(frame) / 15.0;  
+  //float temp = float(frame) / 15.0;  
   GLFromCPPDraw(scale);
   
   /*
@@ -103,10 +119,10 @@ void Core::Main3D(){
   
   Text txt(txt__hello_txt, incon, 70);
   txt.Move(40,40);  
-  clouds->Draw(txt);
+  //clouds->Draw(txt);
   
   txt.Move(50,50);
-  clouds->Draw(txt);
+  //clouds->Draw(txt);
 
   Vector p;
   
