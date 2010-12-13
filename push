@@ -7,6 +7,7 @@ echo Zapping
 echo
 echo Tweezer inserting license
 tweezer -r ./src -l ./license -i
+tweezer -r ./tests -l ./license -i
 
 echo
 echo Git Commit "$1"
@@ -20,6 +21,7 @@ git push
 echo
 echo Tweezering extracting licenses
 tweezer -r ./src -l ./license -x
+tweezer -r ./tests -l ./license -x
 
 echo
 echo Git update commit
