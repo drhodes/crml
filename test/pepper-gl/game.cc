@@ -1,3 +1,5 @@
+// _.-{{crml}}-._
+
 #include <crml-core.h>
 #include <crml-win.h>
 #include <crml-sys.h>
