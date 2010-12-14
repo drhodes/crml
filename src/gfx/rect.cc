@@ -95,10 +95,13 @@ void Rect::Move(Vector v){
 }
 
 void Rect::Move(int32 x, int32 y){
+  int32 w, h;
+  w = Right() - Left();
+  h = Bottom() - Top();  
   topleft_.X(x);
-  bottomright_.X(x);
   topleft_.Y(y);
-  bottomright_.Y(y);
+  bottomright_.X( topleft_.X() + w );
+  bottomright_.Y( topleft_.Y() + h );  
 }
 
 void Rect::MoveRel(int32 x, int32 y){

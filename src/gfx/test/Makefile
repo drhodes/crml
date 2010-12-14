@@ -21,9 +21,11 @@ OPTFLAG = -O3
 all:
 	nacl-g++ $(OPTFLAG) space_hash-test.cc $(LDFLAGS) -o space_hash-testbin
 	nacl-g++ $(OPTFLAG) utility-test.cc $(LDFLAGS) -o utility-testbin
+	nacl-g++ $(OPTFLAG) rect-test.cc $(LDFLAGS) -o rect-testbin
 
 	@sel_ldr ./space_hash-testbin
 	@sel_ldr ./utility-testbin
+	@sel_ldr ./rect-testbin
 
 clean:
 	@rm -f ./*testbin
