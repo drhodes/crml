@@ -12,7 +12,7 @@ tweezer -r ./test -l ./license -i
 echo
 echo Git Commit "$1"
 git add .
-git commit -a -m "$1"
+git commit -a
 
 echo
 echo Git Pushing
@@ -25,4 +25,5 @@ tweezer -r ./test -l ./license -x
 
 echo
 echo Git update commit
+git add .
 git commit -a
