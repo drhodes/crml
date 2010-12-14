@@ -1,4 +1,5 @@
-// Copyright 2010 <Derek A. Rhodes>
+// -*- c++ -*-
+// _.-{{ crml }}-._
 
 #ifndef DISPLAY_H_
 #define DISPLAY_H_
@@ -12,6 +13,7 @@ namespace crml {
   ERR_(DISPLAY_ACQUIRE_DEVICE_FAILED);
   ERR_(DISPLAY_NULL_REGION);
   ERR_(DISPLAY_NULL_WINDOW);
+  ERR_(DISPLAY_NOT_YET_INITED);
   ERR_(DISPLAY_CANT_GET_HEIGHT);
   ERR_(DISPLAY_CANT_GET_WIDTH);
   
@@ -27,6 +29,7 @@ namespace crml {
     static int g_angle;
     
     explicit Display() : Error(OK) {
+      inited_ = false;
       ClassName("Display");
     }    
     
@@ -47,8 +50,11 @@ namespace crml {
     void Draw3D();
     
     /// Satisfies Event.
-    virtual bool Ok();  // Is the object in a OK state?    
+    virtual bool Ok();  // Is the object in a OK state?
+    
    private:
+    bool inited_;
+    
     NPDeviceContext2D context_;
     NPDevice* device2d_;
     uint32_t* pixels_;

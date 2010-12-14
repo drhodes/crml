@@ -54,6 +54,8 @@ uint32_t* Display::Pixels(){
 }
 
 int Display::Height(){
+  if (!inited_) SetReportErr(DISPLAY_NOT_YET_INITED); 
+  
   if (!Core::self_->Ok()) {     
     Core::self_->ReportErr();
     SetReportErr(DISPLAY_CANT_GET_HEIGHT);
@@ -80,6 +82,9 @@ void Display::Draw(Drawer& dwr){
 }
 
 int Display::Width(){
+  if (!inited_) SetReportErr(DISPLAY_NOT_YET_INITED);
+  
+  
   if (!Core::self_->Ok()) {     
     Core::self_->ReportErr();
     SetReportErr(DISPLAY_CANT_GET_WIDTH);
@@ -104,7 +109,8 @@ void Display::Init(){
   pgl_context_ = Core::self_->PglContext();
   context3d_ = Core::self_->Context3d();
   
-  pixels_ = static_cast<uint32_t*>(context_.region);  
+  pixels_ = static_cast<uint32_t*>(context_.region);
+  inited_ = true;
 }
 
 

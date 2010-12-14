@@ -29,11 +29,15 @@ int y = 1;
 LayerGroup lg;
 SpaceHash sh(32);
 float scale = 1;
+Camera cam;
 
 void RunOnce() {
   firstrun = false;  
   Error::DebugOn(); 
   dsp.Init();
+  cam.StretchRight(dsp.Width());
+  cam.StretchBottom(dsp.Height());
+  
   glViewport(0, 0, dsp.Width(), dsp.Height());
   
   lg.AddTop("clouds");
@@ -48,28 +52,37 @@ void RunOnce() {
 
   Sprite s1;
   s1.LoadImage(img);
-  s1.Move(10,10);
+  s1.StretchRight(1000);
+  s1.StretchBottom(1000);
   s1.Angle(33);
-    
+  
   //      
-  // Layer->UpdateRects 
+  // Layer->UpdateRects
+  // should have automatic dirty sprite marking.
   // this will remove the rects from the spacehash and reinsert 
   // to respect their change in position
-  // 
-  
+  //   
   Layer* clouds = lg.GetLayer("clouds");
   clouds->AddSprite(s1);
+  printf("num buckets %d\n", clouds->BucketCount(s1));
+  
+  printf("%s\n", s1.ShowRect().c_str());
+  
   // s1 will be destroyed at the end of this function. :<
 
+  if (clouds) cam.DrawLayer(*clouds);
+  
+  /*
   std::set<Rect*> nbrs = clouds->GetNeighbors(s1);
   std::set<Rect*>::iterator it;
   
   Sprite* s2 = new Sprite;
   printf("nbrs contains:\n");
   for ( it=nbrs.begin(); it != nbrs.end(); it++ ) {
-    s2 = (Sprite*)(*it);
+    s2 = static_cast<Sprite*>(*it);
     printf("Angle is: %d\n", int(s2->Angle()) );    
   }
+  */
   
   //Sprite s2;
   //s2 = s1; doesn't work, this is good.

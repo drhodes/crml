@@ -1,3 +1,4 @@
+// -*- c++ -*-
 // _.-{{crml}}-._
 
 #ifndef TGALOADER_H_
@@ -33,7 +34,8 @@ namespace crml {
   ERR_(TGALOADER_BLACK_AND_WHITE_NOT_YET_SUPPORTED);
   ERR_(TGALOADER_COLORMAPS_NOT_YET_SUPPORTED);
   ERR_(TGALOADER_CORRUPT_PIXELS);
-  
+
+  //------------------------------------------------------------------
   class TgaLoader: public Error {
    public:
     uint8 header_len_;

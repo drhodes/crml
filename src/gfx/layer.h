@@ -1,4 +1,5 @@
-// Copyright 2010 <Derek A. Rhodes>
+// -*- c++ -*-
+// _.-{{ crml }}-._
 
 #ifndef LAYER_H_
 #define LAYER_H_
@@ -10,33 +11,36 @@
 #include "./sprite.h"
 
 namespace crml {
-  ERR_(LAYER_OK);
   
 class Layer : public Rect, public SpaceHash {    
  public:
-  explicit Layer():
-      Rect(),
-      SpaceHash(32) {
+  explicit Layer(): Rect(),
+                    SpaceHash(64) {    
     ClassName("Layer");
+    cam_dist_ = 1;
   }
   
-  explicit Layer(uint32 gridgap):
-      Rect(),
-      SpaceHash(gridgap) {
-      ClassName("Layer");
+  explicit Layer(uint32 gridgap): Rect(),
+                                  SpaceHash(gridgap) {
+    ClassName("Layer");
+    cam_dist_ = 1;
   }    
     
   ~Layer();
   
   void AddSprite(Sprite& s);
+  void DeleteSprite(Sprite& s);
 
+  int32 CamDistance();
+  void CamDistance(int32 d);
+  
   bool Ok();
   
  private:
+  float cam_dist_;
 
+  
 };
-
-
 }       // namespace crml
 #endif  // LAYER_H_
 
