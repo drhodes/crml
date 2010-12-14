@@ -10,9 +10,9 @@ tweezer -r ./src -l ./license -i
 tweezer -r ./test -l ./license -i
 
 echo
-echo Git Commit "$1"
+echo Git Commit
 git add .
-git commit --amend
+git commit --amend -C HEAD
 
 echo
 echo Git Pushing
@@ -26,4 +26,4 @@ tweezer -r ./test -l ./license -x
 echo
 echo Git update commit
 git add .
-git commit --amend
+git commit --amend -C HEAD
