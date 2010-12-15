@@ -13,10 +13,8 @@ namespace crml {
 SpaceHash::~SpaceHash(){
 }
 
-
-/* Given a Rect, snap the upper left corner of it
- * to the upper left corner of the bucket it's in.
- * this doesn't mutate the rect.
+/* Given a Rect, snap the upper left corner to the upper left
+ * corner of the bucket it's in. this doesn't mutate the rect.
  * @ param r is a rect
  * @ return Vector representing the upper left of the mentioned bucket.  
  */
@@ -27,8 +25,8 @@ Vector SpaceHash::AlignTopLeft(Rect& r){
   return v;      
 }
 
-/* Given a Rect, snap the bottom right corner of it
- * to the bottom right corner of the bucket it's in.
+/* Given a Rect, snap the bottom right corner to the bottom right
+ * corner of the bucket it's in.
  * this doesn't mutate the rect.
  * @ param r is a rect
  * @ return Vector representing the bottom right of the mentioned bucket.  
@@ -51,7 +49,6 @@ int SpaceHash::BucketCount(Rect& r){
     return bucketmap_[r.Id()].size();
   }
 }
-
 
 /* Add a reference to Rect, or any subclass of rect to the space hash.
  * As it stands space hash doesn't manage any memory here, just references.
@@ -81,21 +78,27 @@ void SpaceHash::Add(Rect& r){
   }
 }  
 
+/// Delete a rect from the space_hash.  This must delete from two private
+/// members: bucketmap_, which enables quick deletes, and space_ which contains
+/// and organizes and stores all the rects in space
+/// @param r, The rect to delete
+/// @return void
 void SpaceHash::Delete(Rect& r){  
   std::vector<IntPair> bm = bucketmap_[r.Id()];
-  std::vector<IntPair>::iterator it;
-
+  std::vector<IntPair>::iterator it;  
+  
   for (it = bm.begin(); it < bm.end(); it++) {
+    // need to delete r from this point in space_    
+    space_[(*it)].erase(&r);
+    
+    //printf("deleting <%d, %d> from bucketmap_\n", (*it).first, (*it).second);        
     bucketmap_[r.Id()].erase(it);
   }  
 }
 
-//! Retrieve a set<Rect> overlapping the Rect r
-//! r must already be contained in this spacehash
-/*!
-  \param r is the overlapping Rect  
-  \return A set<Rect*> which overlaps with r
-*/
+/// Retrieve a set<Rect> overlapping the Rect r
+/// @param r is the overlapping Rect  
+/// @return A set<Rect*> which overlaps with r
 std::set<Rect*> SpaceHash::GetNeighbors(Rect& r){
   bool is_temp_rect = false;
   if (BucketCount(r) == 0){

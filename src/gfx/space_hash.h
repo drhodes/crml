@@ -37,6 +37,7 @@ namespace crml {
 
     bool Ok();
    private:
+    /// IntPair -> set<Rect*>
     SpaceMap space_;
 
     // A lookup table RectID -> BucketList

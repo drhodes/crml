@@ -66,6 +66,15 @@ int32 Rect::Right(){
   return bottomright_.X();
 }
 
+int32 Rect::Width(){
+  return Right() - Left();
+}
+
+int32 Rect::Height(){
+  return Bottom() - Top();
+}
+
+
 void Rect::Top(int32 n){
   topleft_.Y(n);
 }
@@ -90,13 +99,10 @@ void Rect::Move(Vector v){
 }
 
 void Rect::Move(int32 x, int32 y){
-  int32 w, h;
-  w = Right() - Left();
-  h = Bottom() - Top();  
   topleft_.X(x);
   topleft_.Y(y);
-  bottomright_.X( topleft_.X() + w );
-  bottomright_.Y( topleft_.Y() + h );  
+  bottomright_.X( topleft_.X() + Width() );
+  bottomright_.Y( topleft_.Y() + Height() );  
 }
 
 void Rect::MoveRel(int32 x, int32 y){

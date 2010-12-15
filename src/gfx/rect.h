@@ -43,6 +43,9 @@ namespace crml {
     void Left(int32 n);
     void Right(int32 n);
 
+    int32 Width();
+    int32 Height();
+        
     std::string ShowRect();
     
     int32 Id();

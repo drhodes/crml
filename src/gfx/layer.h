@@ -25,9 +25,8 @@ class Layer : public Rect, public SpaceHash {
     ClassName("Layer");
     cam_dist_ = 1;
   }    
-    
-  ~Layer();
   
+  ~Layer();  
   void AddSprite(Sprite& s);
   void DeleteSprite(Sprite& s);
   bool ContainsSprite(Sprite& s);

@@ -40,10 +40,10 @@ void RunOnce() {
   
   glViewport(0, 0, dsp.Width(), dsp.Height());
   
-  //lg.AddTop("clouds");
-  //lg.AddTop("stars");
-  //lg.AddBottom("background");  
-  //lg.Check();
+  lg.AddTop("clouds");
+  lg.AddTop("stars");
+  lg.AddBottom("background");  
+  lg.Check();
   
   TgaLoader img;
   //img.LoadFromStash(img__munch_tga, sizeof(img__sun_tga));
@@ -51,19 +51,16 @@ void RunOnce() {
   //tga.LoadFromStash(img__rainbow4_tga, sizeof(img__rainbow4_tga));
 
   Sprite s1;
-  s1.LoadImage(img);
-  s1.StretchRight(1000);
-  s1.StretchBottom(1000);
-
+  s1.LoadImage(img); 
+  
   Sprite s2;  
   s2.LoadImage(img);
-  s2.Move(-100, -100);
-  s2.StretchRight(2000);
-  s2.StretchBottom(1000);
+  s2.Move(10, 10);
 
   // Need to think about how the rect changes as the angle changes.
   // not hard, but it needs to be done.
-  //s1.Angle(33);
+  // maybe it's a bit more subtle. 
+  // s1.Angle(33);
   
   //      
   // Layer->UpdateRects
@@ -72,24 +69,18 @@ void RunOnce() {
   // to respect their change in position
   // 
 
-  //Layer* clouds = lg.GetLayer("clouds");
-  Layer clouds;
-  clouds.AddSprite(s1);
-  clouds.AddSprite(s2);
-
-  printf("s1 in there?: %d\n", clouds.ContainsSprite(s1));
-  printf("s2 in there?: %d\n", clouds.ContainsSprite(s2));
+  Layer* clouds = lg.GetLayer("clouds");
+  clouds->AddSprite(s1);
+  clouds->AddSprite(s2);
   
-  // s1 will be destroyed at the end of this function. :<
-  cam.DrawLayer(clouds);
-
-  Rect testr(-10000,-10000,10000,10000);
-  std::set<Rect*> nbrs = clouds.GetNeighbors(testr);
-  printf("num nbrs: %d\n", nbrs.size());
+  cam.DrawLayer(*clouds);
   
-  //Sprite s2;
-  //s2 = s1; doesn't work, this is good.
-   
+  clouds->DeleteSprite(s2);
+
+  cam.DrawLayer(*clouds);
+
+
+  
   std::vector<Color> pixels = img.PixelVector();
   
   uint8* texels;
