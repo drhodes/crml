@@ -1,5 +1,4 @@
 // Copyright 2010 <Derek A. Rhodes> All Rights Reseverd.
-
 #ifndef HEXDECODE_CC
 #define HEXDECODE_CC
 

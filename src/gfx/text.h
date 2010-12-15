@@ -7,7 +7,6 @@
 #include "./font.h"
 
 namespace crml {
-  ERR_(TEXT_OK);
   
   class Text: public Error, public Drawer { 
    public:
@@ -16,7 +15,7 @@ namespace crml {
     
     // inherited virtuals
     void Draw();
-    bool Ok();
+
    private:        
   };
   

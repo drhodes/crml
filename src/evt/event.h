@@ -15,11 +15,10 @@
 
 namespace crml {  
   ERR_(EVENT_INIT_FAILED);
-  ERR_(EVENT_OK);
   
   class Event: public Error {
    public:       
-    explicit Event() : Error(EVENT_OK) {
+    explicit Event() : Error(OK) {
       ClassName("Event");
       Init();
     }    
@@ -32,8 +31,7 @@ namespace crml {
     void Drain();
     NPPepperEvent PopEvent();
     bool GetEvent(NPPepperEvent* e);
-
-    virtual bool Ok(); // for error interface
+    
    private:
     static std::queue<NPPepperEvent> queue_;
   };

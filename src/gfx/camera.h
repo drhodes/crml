@@ -32,7 +32,6 @@ class Camera: public Error, public Rect {
   void DrawSprite(Sprite* spr);
   void DrawLayer(Layer& lyr);
 
-  bool Ok();
  private:
 
 };

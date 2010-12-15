@@ -12,7 +12,6 @@
 typedef std::vector<std::string> StringVec;
 
 namespace crml {
-  ERR_(LAYERGROUP_OK);
   ERR_(LAYERGROUP_LAYER_DOESNT_EXIST);
   ERR_(LAYERGROUP_INDEX_OUT_OF_RANGE);
   ERR_(LAYERGROUP_LAYER_ALREADY_EXISTS);
@@ -20,7 +19,7 @@ namespace crml {
   class LayerGroup : public Error {
    public:    
     explicit LayerGroup() :
-    Error(LAYERGROUP_OK) {
+    Error(OK) {
       ClassName("LayerGroup");
     }
 
@@ -37,7 +36,6 @@ namespace crml {
     StringVec::iterator GetLayerNameIter(std::string layerName);
     int GetLayerNameIndex(std::string layerName);
     
-    bool Ok();
    private:
     StringVec layerNames_;
     std::map<std::string, Layer*> layers_;

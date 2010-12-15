@@ -33,10 +33,6 @@ class Sprite: public Error, public Rect {
   // think about why this might not be a good idea.
   void LoadTexelArray();
   const uint8* TexelArray();
-
-  // move Ok() back to error.cc for eternity.
-  bool Ok();
-
   
  private:
   // Prevent copy.

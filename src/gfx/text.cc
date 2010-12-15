@@ -30,10 +30,6 @@ void Text::Draw(){
   */
 }
 
-bool Text::Ok(){
-  return Err() == TEXT_OK;
-}
-
 
 }       // namespace crml
 #endif  // TEXT_CC

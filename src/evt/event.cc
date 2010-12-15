@@ -14,10 +14,6 @@ std::queue<NPPepperEvent> Event::queue_;
 Event::~Event() {  
 }
 
-bool Event::Ok() {
-  return Err() == EVENT_OK;
-}
-
 void Event::Init() {
 
 }

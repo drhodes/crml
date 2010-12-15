@@ -83,8 +83,6 @@ namespace crml {
     
     std::vector<Color> PixelVector();
     
-    bool Ok();
-    
    private:
     
     std::string stash_;

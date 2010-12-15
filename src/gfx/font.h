@@ -14,7 +14,6 @@
 #include <string>
 
 namespace crml {
-  ERR_(FONT_OK);
   ERR_(FONT_INIT_FAILED);
   ERR_(FONT_NEW_MEMORY_FAILED);
   ERR_(FONT_SET_CHAR_SIZE_FAILED);
@@ -30,9 +29,6 @@ namespace crml {
     void Text(std::string t);
     void SetColor(Color c);
 
-    // inherited virtual
-    bool Ok();
-    
    private:
     FT_Library library_;
     FT_Face face_;      

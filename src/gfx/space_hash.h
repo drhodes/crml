@@ -35,7 +35,6 @@ namespace crml {
     Vector AlignTopLeft(Rect& r);
     Vector AlignBottomRight(Rect& r);
 
-    bool Ok();
    private:
     /// IntPair -> set<Rect*>
     SpaceMap space_;

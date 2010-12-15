@@ -80,12 +80,5 @@ int Font::Size(){
   return size_;
 }
 
-
-bool Font::Ok(){
-  return Err() == FONT_OK;
-}
-
-
-
 }       // namespace crml
 #endif  // FONT_CC

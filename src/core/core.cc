@@ -52,7 +52,7 @@ int Core::Height() { return plugin_->height_; }
 void Core::SetPlugin(PluginObject* plugin){
   if (plugin) {    
     plugin_ = plugin;
-    Err(CORE_OK);
+    Err(OK);
   } else {
     plugin_ = 0;
     SetReportErr(CORE_NULL_PLUGIN);
@@ -63,11 +63,6 @@ Core::~Core(){}
 
 void Core::Alert(std::string msg){
   printf("%s\n", msg.c_str());
-}
-
-
-bool Core::Ok() {
-  return Err() == CORE_OK;
 }
 
 }       // namespace crml

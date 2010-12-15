@@ -105,12 +105,6 @@ void LayerGroup::Swap(std::string lyr1, std::string lyr2){
   layers_[lyr2] = tmp1; 
 }
 
-
-
-bool LayerGroup::Ok(){
-  return Err() == LAYERGROUP_OK;
-}
-
 }       // namespace crml
 #endif  // LAYERGROUP_CC
 

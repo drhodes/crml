@@ -260,9 +260,5 @@ std::vector<Color> TgaLoader::PixelVector(){
   return pixels;
 }
 
-bool TgaLoader::Ok(){
-  return Err() == OK;
-}
-
 }       // namespace crml
 #endif  // TGALOADER_CC

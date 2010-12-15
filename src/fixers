@@ -1,0 +1,1 @@
+mymacs ./evt/event.h ./core/error.h ./core/old/scripting_bridge.h ./core/old/scripting_bridge.h ./core/core.h ./w n/display.h ./sys/hex_store.h ./sys/scripting_bridge.h ./sys/scripting_bridge.h ./gfx/tga_loader.h ./gfx/sprite.h ./gfx/space_hash.cc ./gfx/camera.h ./gfx/layer_group.h ./gfx/text.h ./gfx/layer.h ./gfx/font.h ./gfx/space_hash.h

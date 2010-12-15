@@ -13,7 +13,6 @@
 namespace crml { 
   /// error codestrings.
   ERR_(CORE_NULL);
-  ERR_(CORE_OK);
   ERR_(CORE_NULL_PLUGIN);
   ERR_(CORE_NULL_DEVICE_2D);
   ERR_(CORE_NULL_DEVICE_3D);
@@ -25,7 +24,7 @@ namespace crml {
    public:
     static Core* self_;
     
-    explicit Core() : Error(CORE_OK) {
+    explicit Core() : Error(OK) {
       ClassName("Core");
       self_ = 0;
     }    
@@ -59,7 +58,6 @@ namespace crml {
     /// \return a context2D, be careful.
     NPDeviceContext2D GetContext2D();
 
-    virtual bool Ok();  // Is the object in a OK state?
    private:
     PluginObject* plugin_;
     pthread_t loop_;	

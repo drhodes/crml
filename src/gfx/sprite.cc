@@ -67,10 +67,6 @@ void Sprite::Rotate(int32 a){
 void Sprite::Scale(float s){
   scale_ = s;
 }
-
-bool Sprite::Ok(){
-  return Err() == OK;
-}
   
 }       // namespace crml
 #endif  // SPRITE_CC

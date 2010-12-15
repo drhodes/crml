@@ -34,8 +34,6 @@ class Layer : public Rect, public SpaceHash {
   int32 CamDistance();
   void CamDistance(int32 d);
   
-  bool Ok();
-  
  private:
   float cam_dist_;
 

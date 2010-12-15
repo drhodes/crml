@@ -125,10 +125,5 @@ std::set<Rect*> SpaceHash::GetNeighbors(Rect& r){
   return inter;
 }
 
-bool SpaceHash::Ok(){
-  return Err() == OK;
-}
-
-
 }       // namespace crml
 #endif  // SPACEHASH_CC

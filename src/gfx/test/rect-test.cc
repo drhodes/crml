@@ -4,11 +4,8 @@
 
 using namespace crml;
 
-#define EQ( _V1_, _V2_ )                        \
-  if(_V1_==_V2_){\
-    printf("passes> %s == %s\n", #_V1_, #_V2_);\
-  } else {\
-    printf("FAILS!> %s == %s\n", #_V1_, #_V2_);}
+#define EQ( _V1_, _V2_ )\
+  if(_V1_==_V2_){ printf("passes> %s == %s\n", #_V1_, #_V2_); } else { printf("FAILS!> %s == %s\n", #_V1_, #_V2_); } 
 
 int main(){
   Rect r(0,0,100,100);
@@ -30,6 +27,7 @@ int main(){
   EQ(r.Right(), 210);
   EQ(r.Bottom(), 210);
 
+
   r.Move(0, 0);
   EQ(r.Right(), 200);
   EQ(r.Bottom(), 200);
@@ -44,15 +42,10 @@ int main(){
 
   Rect r2(0,0,0,0);
   r.CopyInto(r2);
-  EQ(r2.Top(), 20);
-  EQ(r2.Left(), 20);  
-  EQ(r2.Right(), 220);
-  EQ(r2.Bottom(), 220);
-  
-  /*
-  printf("%d\n", r.Right());
-  printf("%d\n", r.Bottom());
-  */
+  EQ(r2.Top(), r.Top());
+  EQ(r2.Left(), r.Left());  
+  EQ(r2.Right(), r.Right());
+  EQ(r2.Bottom(), r.Bottom());
   
   return 0;
 }

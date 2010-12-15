@@ -42,11 +42,14 @@ void Error::ReportErr(){
     printf("!! %s: -OK!- > %s\n", class_name_.c_str(), err_.c_str());
 }
 
-
 void Error::Check(){
   if (!Ok()) {
     ReportErr();
   }        
+}
+
+bool Error::Ok(){
+  return Err() == OK;
 }
 
 

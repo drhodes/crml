@@ -32,10 +32,6 @@ void Camera::DrawLayer(Layer& lyr){
   }
 }
 
-bool Camera::Ok(){
-  return Err() == OK;
-}
-
 }       // namespace crml
 #endif  // CAMERA_CC
 

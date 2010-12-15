@@ -1,42 +1,38 @@
-// Copyright 2010 <Derek A. Rhodes> All Rights Reseverd.
-
+// _.-{{crml}}-._
 #ifndef HEX_STORE_H_
 #define HEX_STORE_H_
 
 #include <string>
 #include <map>
+#include "../core/error.h"
 
-namespace scm {  
-  // resource-class/name -> hex encoded binary resource.
-  // "png/your-image.png" -> "a037c748b898d9effffff893..."
-  typedef std::map<std::string, std::string> HexMap;
+namespace crml {  
+// resource-class/name -> hex encoded binary resource.
+// "png/your-image.png" -> "a037c748b898d9effffff893..."
+typedef std::map<std::string, std::string> HexMap;
 
-  enum HexStoreErr {
-    HEXSTORE_OK,
-    HEXSTORE_KEY_ERROR,
-  };
-  
-  class HexStore {
+ERR_(HEXSTORE_KEY_ERROR);
+
+class HexStore: public Error {
  public:
-    HexStore();
-    ~HexStore();
-
-    // Error specific methods
-    bool Ok(); // Is the object in OK state?
-    int Err(); // What is the error?
-    void ReportErr();
-    
-    void Store(std::string, std::string);
-    int ValLength(std::string);
-    bool EmptyVal(std::string);
-    void Append(std::string, std::string);
-    std::string GetValue(std::string);    
-    const char* ByteArray(std::string);
-
+  explicit HexStore(): Error(OK) {
+    ClassName("HexStore");
+  }
+  ~HexStore();
+  
+  // Error specific methods
+  void ReportErr();
+  
+  void Store(std::string, std::string);
+  int ValLength(std::string);
+  bool EmptyVal(std::string);
+  void Append(std::string, std::string);
+  std::string GetValue(std::string);    
+  const char* ByteArray(std::string);
+  
  private:
-    int err_;
-    HexMap store_;
-  };
+  HexMap store_;
+};
 
-}  // namespace scm
+}  // namespace crml
 #endif  // HEX_STORE_H_

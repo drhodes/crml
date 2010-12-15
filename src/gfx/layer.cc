@@ -10,10 +10,6 @@ namespace crml {
 
 Layer::~Layer(){}
 
-bool Layer::Ok(){
-  return Err() == OK;
-}
-
 void Layer::AddSprite(Sprite& s){
   Add(s);  
 }
