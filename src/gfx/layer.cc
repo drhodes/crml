@@ -15,12 +15,17 @@ bool Layer::Ok(){
 }
 
 void Layer::AddSprite(Sprite& s){
-  Add(s);
+  Add(s);  
 }
 
 void Layer::DeleteSprite(Sprite& s){
   Delete(s);
 }
+
+bool Layer::ContainsSprite(Sprite& s){
+  return BucketCount(s) > 0;
+}
+
 
 void Layer::CamDistance(int32 d){
   cam_dist_ = d;

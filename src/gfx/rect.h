@@ -12,8 +12,12 @@ namespace crml {
   class Rect {
    public:
     static int32 ID__;
-    
-    Rect();
+
+    explicit Rect() : id__(ID__++) {
+      topleft_ = Vector(0, 0);
+      bottomright_ = Vector(0, 0);
+    }
+
     Rect(int32, int32, int32, int32);
     Rect(Vector, Vector);
 
