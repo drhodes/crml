@@ -4,8 +4,11 @@
 
 using namespace crml;
 
-//#define EQ( _V1_, _V2_, _MSG_ ) if(_V1_==_V2_){printf("passes> %s\n",_MSG_);}else{printf("fails!! %s\n",_MSG_);}
-#define EQ( _V1_, _V2_ ) if(_V1_==_V2_){printf("passes> %s == %s\n", #_V1_, #_V2_);}else{printf("FAILS!> %s == %s\n", #_V1_, #_V2_);}
+#define EQ( _V1_, _V2_ )                        \
+  if(_V1_==_V2_){\
+    printf("passes> %s == %s\n", #_V1_, #_V2_);\
+  } else {\
+    printf("FAILS!> %s == %s\n", #_V1_, #_V2_);}
 
 int main(){
   Rect r(0,0,100,100);
@@ -39,6 +42,12 @@ int main(){
   EQ(r.Right(), 220);
   EQ(r.Bottom(), 220);
 
+  Rect r2(0,0,0,0);
+  r.CopyInto(r2);
+  EQ(r2.Top(), 20);
+  EQ(r2.Left(), 20);  
+  EQ(r2.Right(), 220);
+  EQ(r2.Bottom(), 220);
   
   /*
   printf("%d\n", r.Right());

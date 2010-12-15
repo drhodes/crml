@@ -10,11 +10,6 @@
 namespace crml {
 int32 Rect::ID__ = 0;
 
-Rect::Rect() : id__(ID__++) {
-  topleft_ = Vector(0, 0);
-  bottomright_ = Vector(0, 0);
-}
-
 Rect::Rect(int32 x1, int32 y1, int32 x2, int32 y2) : id__(ID__++) {
   topleft_ = Vector(x1, y1);
   bottomright_ = Vector(x2, y2);

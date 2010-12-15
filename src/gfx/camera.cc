@@ -14,10 +14,14 @@ void Camera::DrawSprite(Sprite* spr){
 
 void Camera::DrawLayer(Layer& lyr){
   Rect view;
-  CopyInto(view);
-  view.StretchRight(lyr.CamDistance());
-  view.StretchBottom(lyr.CamDistance());
+  //CopyInto(view);
+  view.Move(-100, -100);
+  view.StretchRight(10000);
+  view.StretchBottom(10000);
+  //lyr.CamDistance());
+  printf("%s\n",view.ShowRect().c_str());
 
+  
   std::set<Rect*> nbrs = lyr.GetNeighbors(view);
   std::set<Rect*>::iterator it;
 

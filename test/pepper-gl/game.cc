@@ -35,16 +35,16 @@ void RunOnce() {
   firstrun = false;  
   Error::DebugOn(); 
   dsp.Init();
-  cam.StretchRight(dsp.Width());
-  cam.StretchBottom(dsp.Height());
+  cam.StretchRight(512);
+  cam.StretchBottom(512);
   
   glViewport(0, 0, dsp.Width(), dsp.Height());
   
-  lg.AddTop("clouds");
-  lg.AddTop("stars");
-  lg.AddBottom("background");  
-  lg.Check();
- 
+  //lg.AddTop("clouds");
+  //lg.AddTop("stars");
+  //lg.AddBottom("background");  
+  //lg.Check();
+  
   TgaLoader img;
   //img.LoadFromStash(img__munch_tga, sizeof(img__sun_tga));
   img.LoadFromStash(img__gopher_tga, sizeof(img__gopher_tga));
@@ -54,35 +54,38 @@ void RunOnce() {
   s1.LoadImage(img);
   s1.StretchRight(1000);
   s1.StretchBottom(1000);
-  s1.Angle(33);
+
+  Sprite s2;  
+  s2.LoadImage(img);
+  s2.Move(-100, -100);
+  s2.StretchRight(2000);
+  s2.StretchBottom(1000);
+
+  // Need to think about how the rect changes as the angle changes.
+  // not hard, but it needs to be done.
+  //s1.Angle(33);
   
   //      
   // Layer->UpdateRects
   // should have automatic dirty sprite marking.
   // this will remove the rects from the spacehash and reinsert 
   // to respect their change in position
-  //   
-  Layer* clouds = lg.GetLayer("clouds");
-  clouds->AddSprite(s1);
-  printf("num buckets %d\n", clouds->BucketCount(s1));
-  
-  printf("%s\n", s1.ShowRect().c_str());
+  // 
+
+  //Layer* clouds = lg.GetLayer("clouds");
+  Layer clouds;
+  clouds.AddSprite(s1);
+  clouds.AddSprite(s2);
+
+  printf("s1 in there?: %d\n", clouds.ContainsSprite(s1));
+  printf("s2 in there?: %d\n", clouds.ContainsSprite(s2));
   
   // s1 will be destroyed at the end of this function. :<
+  cam.DrawLayer(clouds);
 
-  if (clouds) cam.DrawLayer(*clouds);
-  
-  /*
-  std::set<Rect*> nbrs = clouds->GetNeighbors(s1);
-  std::set<Rect*>::iterator it;
-  
-  Sprite* s2 = new Sprite;
-  printf("nbrs contains:\n");
-  for ( it=nbrs.begin(); it != nbrs.end(); it++ ) {
-    s2 = static_cast<Sprite*>(*it);
-    printf("Angle is: %d\n", int(s2->Angle()) );    
-  }
-  */
+  Rect testr(-10000,-10000,10000,10000);
+  std::set<Rect*> nbrs = clouds.GetNeighbors(testr);
+  printf("num nbrs: %d\n", nbrs.size());
   
   //Sprite s2;
   //s2 = s1; doesn't work, this is good.
@@ -129,8 +132,8 @@ void Core::Main3D(){
   timer1.Reset();
   */
     
-  Layer* clouds = lg.GetLayer("clouds");
-  clouds->Move(10,10);
+  //Layer* clouds = lg.GetLayer("clouds");
+  //clouds->Move(10,10);
   
   Text txt(txt__hello_txt, incon, 70);
   txt.Move(40,40);  
