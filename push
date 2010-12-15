@@ -16,7 +16,7 @@ git commit --amend -C HEAD
 
 echo
 echo Git Pushing
-git push
+git push -f
 
 echo
 echo Tweezering extracting licenses
