@@ -8,7 +8,7 @@
 namespace crml {
 Font::~Font(){}
  
-Font::Font(char* fontdata) : Error(FONT_OK) {
+Font::Font(char* fontdata) : Error(OK) {
   ClassName("Font");
   
   ft_error_ = FT_Init_FreeType( &library_ );  

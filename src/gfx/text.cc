@@ -8,7 +8,7 @@
 namespace crml {
 
 Text::Text(char*, Font& fnt, int height) :   
-    Error(TEXT_OK),
+    Error(OK),
     Drawer() {
   ClassName("Text");
 }
