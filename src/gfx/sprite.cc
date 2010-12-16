@@ -10,8 +10,8 @@
 namespace crml {
 
 /*
-  Currently this is a TGA centric sprite.  As different loaders
-  are introduced things will be genericized, but not before that
+  Currently this is TGA centric.  As different loaders are introduced
+  things will be genericized, but not before that
 */
 
 Sprite::~Sprite(){
@@ -57,7 +57,6 @@ void Sprite::Angle(int32 a){
 int32 Sprite::Angle(){
   return angle_;
 }
-
 
 void Sprite::Rotate(int32 a){
   // how to hangle negative numbers?
