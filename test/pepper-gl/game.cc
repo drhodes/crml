@@ -59,7 +59,22 @@ void RunOnce() {
 
   // Need to think about how the rect changes as the angle changes.
   // not hard, but it needs to be done.
-  // maybe it's a bit more subtle. 
+  // maybe it's a bit more subtle.
+  // add a FindCenter of rect that returns a vector.
+  // add a method MatrixTransform to vector
+  // add a method MatrixTransform to Rect
+  // need to update all corners of rect.
+  // 
+  // Can these transforms be passed to opengl directly?
+  // Figure this out, it's a big piece.
+
+  // Think about changing vectors to a Float type.
+  // What are the cost/benefits.
+  // *integer based sprites align nicely.
+  // -float based are graphically smoother all around
+  // -values less than one can be used for scaling. ..
+  // -rotation of very large things can be done smoother at the exterior.
+  
   // s1.Angle(33);
   
   //      
