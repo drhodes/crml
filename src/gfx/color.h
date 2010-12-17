@@ -3,7 +3,7 @@
 #ifndef COLOR_H_
 #define COLOR_H_
 
-#include "../core/crmlint.h"
+#include "../core/crmltypes.h"
 #include <string>
 
 namespace crml {

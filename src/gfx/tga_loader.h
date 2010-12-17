@@ -4,7 +4,7 @@
 #ifndef TGALOADER_H_
 #define TGALOADER_H_
 
-#include "../core/crmlint.h"
+#include "../core/crmltypes.h"
 #include "../core/error.h"
 #include "./color.h"
 #include <stdio.h>
