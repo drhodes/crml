@@ -49,21 +49,33 @@ void Sprite::LoadTexelArray(){
   texels_size_ = pixels.size() * 4;
 }
 
-void Sprite::Angle(int32 a){
-  // how to hangle negative numbers?
-  angle_ = a % 360;
+void Sprite::Angle(float64 a){
+  if (angle_ < 0.0f)
+    SetReportErr(SPRITE_ANGLE_NEGATIVE_NORMALIZE);
+  if (angle_ >= 360.0f)
+    SetReportErr(SPRITE_ANGLE_OVERFLOW_NORMALIZE);
+  
+  angle_ = a;
 }
 
-int32 Sprite::Angle(){
+float64 Sprite::Angle(){
   return angle_;
 }
 
-void Sprite::Rotate(int32 a){
+void Sprite::Rotate(float64 a){
   // how to hangle negative numbers?
-  angle_ = (angle_ + a) % 360;
+  angle_ += a;
+
+  while (a >= 360.0f) {
+    a -= 360;
+  }
+  
+  while (a < 0.0f) {
+    angle_ += 360;
+  } 
 }
 
-void Sprite::Scale(float s){
+void Sprite::Scale(float64 s){
   scale_ = s;
 }
   

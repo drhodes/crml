@@ -17,23 +17,25 @@ class Camera: public Error, public Rect {
     ClassName("Camera");    
   }
   
-  explicit Camera(int height, int width): Error(OK),
-                                          Rect(0,0, width, height) {           
+  explicit Camera(float64 height, float64 width):
+      Error(OK),
+      Rect(0,0, width, height) {           
     ClassName("Camera");    
   }
   
-  explicit Camera(Rect r): Error(OK),
-                           Rect( r.Left(), r.Top(), r.Right(), r.Bottom() ) {
+  explicit Camera(Rect r):
+      Error(OK),
+      Rect( r.Left(), r.Top(), r.Right(), r.Bottom() ) {
     ClassName("Camera");    
-  }
-  
+  }  
   //~Camera();
 
   void DrawSprite(Sprite* spr);
   void DrawLayer(Layer& lyr);
 
  private:
-
+  float64 cam_dist_;
+  
 };
   
 }       // namespace crml

@@ -1,4 +1,5 @@
-// Copyright 2010 <Derek A. Rhodes>
+// -*- c++ -*-
+// _.-{{ crml }}-._
 
 #ifndef RECT_H_
 #define RECT_H_
@@ -17,41 +18,41 @@ namespace crml {
       topleft_ = Vector(0, 0);
       bottomright_ = Vector(0, 0);
     }
-
-    Rect(int32, int32, int32, int32);
+    
+    Rect(float64, float64, float64, float64);
     Rect(Vector, Vector);
 
     void CopyInto(Rect& other); // rethink 
     
-    void StretchLeft(int32 n);
-    void StretchRight(int32 n);
-    void StretchTop(int32 n);
-    void StretchBottom(int32 n);
+    void StretchLeft(float64 n);
+    void StretchRight(float64 n);
+    void StretchTop(float64 n);
+    void StretchBottom(float64 n);
 
     void Move(Vector v);
-    void Move(int32 x, int32 y);        
-    void MoveRel(int32 x, int32 y);
+    void Move(float64 x, float64 y);        
+    void MoveRel(float64 x, float64 y);
     void MoveRel(Vector v);
 
-    int32 Top();
-    int32 Bottom();
-    int32 Left();
-    int32 Right();
+    float64 Top();
+    float64 Bottom();
+    float64 Left();
+    float64 Right();
 
-    void Top(int32 n);
-    void Bottom(int32 n);
-    void Left(int32 n);
-    void Right(int32 n);
+    void Top(float64 n);
+    void Bottom(float64 n);
+    void Left(float64 n);
+    void Right(float64 n);
 
-    int32 Width();
-    int32 Height();
-        
-    std::string ShowRect();
+    float64 Width();
+    float64 Height();        
+    const Vector TopLeft();
+    const Vector BottomRight();
     
     int32 Id();
       
-    const Vector TopLeft();
-    const Vector BottomRight();      
+    std::string ShowRect();
+    
    private:
     // Prevent copy.
     Rect(const Rect&);     
@@ -66,16 +67,3 @@ namespace crml {
   
 }       // namespace crml
 #endif  // RECT_H_
-
-
-
-
-
-
-
-
-
-
-
-
-
