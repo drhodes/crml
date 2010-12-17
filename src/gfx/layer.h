@@ -20,8 +20,8 @@ class Layer : public Rect, public SpaceHash {
     cam_dist_ = 1;
   }
   
-  explicit Layer(uint32 gridgap): Rect(),
-                                  SpaceHash(gridgap) {
+  explicit Layer(float64 gridgap): Rect(),
+                                   SpaceHash(gridgap) {
     ClassName("Layer");
     cam_dist_ = 1;
   }    
@@ -31,8 +31,8 @@ class Layer : public Rect, public SpaceHash {
   void DeleteSprite(Sprite& s);
   bool ContainsSprite(Sprite& s);
   
-  int32 CamDistance();
-  void CamDistance(int32 d);
+  float64 CamDistance();
+  void CamDistance(float64 d);
   
  private:
   float cam_dist_;

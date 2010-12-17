@@ -12,7 +12,7 @@ Vector::Vector() {
   y_ = 0;     
 }
 
-Vector::Vector(int x, int y) {
+Vector::Vector(float64 x, float64 y) {
   x_ = x;
   y_ = y;     
 }
@@ -26,46 +26,45 @@ Vector::Vector(const Vector& v){
 Vector::~Vector() {
 }
 
-void Vector::XY(int x, int y) {
+void Vector::XY(float64 x, float64 y) {
   x_ = x;
   y_ = y;
 }
 
-int Vector::X() {
+float64 Vector::X() {
   return x_;
 }
 
-void Vector::X(int x) {
+void Vector::X(float64 x) {
   x_= x;
 }
 
-int Vector::Y() {
+float64 Vector::Y() {
   return y_;
 }
 
-void Vector::Y(int y) {
+void Vector::Y(float64 y) {
   y_ = y;
 }
 
-int Vector::Distance(Vector* other){
+float64 Vector::Distance(Vector* other){
   // consider the quake optimization.
   return sqrt((x_ - other->x_)*(x_ - other->x_) +
               (y_ - other->y_)*(y_ - other->y_));  
 }
 
-int Vector::Length() {
+float64 Vector::Length() {
   return sqrt(x_*x_ + y_*y_);
 }
 
 
-
-
-
 // given a grid with spacing <res>
 // floor x and y to the closest grid intersection.
-Vector Vector::Align(int res){
-  Vector v(X()-(X()%res), Y()-(Y()%res));
-  return v;
+Vector Vector::Align(int32 res){
+  float64 snap_x = X() - float64(int32(X()) % res );
+  float64 snap_y = Y() - float64(int32(Y()) % res );
+
+  return Vector(snap_x, snap_y);
 }
 
 

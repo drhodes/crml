@@ -23,11 +23,11 @@ bool Layer::ContainsSprite(Sprite& s){
 }
 
 
-void Layer::CamDistance(int32 d){
+void Layer::CamDistance(float64 d){
   cam_dist_ = d;
 }
 
-int32 Layer::CamDistance(){
+float64 Layer::CamDistance(){
   return cam_dist_;
 }
 

@@ -1,2 +1,18 @@
 make: to build and run the tests
 make clean: to clean
+
+
+clarifying yet irrelevant fact:
+to run individual tests, which someone may want to do.
+must be done like this.
+
+$ sel_ldr ./xyz-test 
+
+
+---
+exectuting each test build at bash like:
+
+$ ./xyz-test
+
+will segfault :)
+

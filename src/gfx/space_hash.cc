@@ -20,8 +20,8 @@ SpaceHash::~SpaceHash(){
  */
 Vector SpaceHash::AlignTopLeft(Rect& r){
   Vector v = r.TopLeft();
-  v.X(v.X() - (v.X() % gridgap_));
-  v.Y(v.Y() - (v.Y() % gridgap_));
+  v.X(v.X() - float64(int32(v.X()) % gridgap_));
+  v.Y(v.Y() - float64(int32(v.Y()) % gridgap_));
   return v;      
 }
 
@@ -33,8 +33,8 @@ Vector SpaceHash::AlignTopLeft(Rect& r){
  */
 Vector SpaceHash::AlignBottomRight(Rect& r){
   Vector v = r.BottomRight();
-  v.X(v.X() + (gridgap_ - (v.X() % gridgap_)));
-  v.Y(v.Y() + (gridgap_ - (v.Y() % gridgap_)));
+  v.X(v.X() + (gridgap_ - float64(int32(v.X()) % gridgap_)));
+  v.Y(v.Y() + (gridgap_ - float64(int32(v.Y()) % gridgap_)));
   return v;
 }
 
@@ -71,7 +71,7 @@ void SpaceHash::Add(Rect& r){
       space_[key].insert(&r);
 
       if (bucketmap_.count(r.Id()) == 0) {
-        bucketmap_[r.Id()] = std::vector<IntPair>();
+        bucketmap_[r.Id()] = std::vector<FloatPair>();
       }
       bucketmap_[r.Id()].push_back(key);
     }
@@ -84,8 +84,8 @@ void SpaceHash::Add(Rect& r){
 /// @param r, The rect to delete
 /// @return void
 void SpaceHash::Delete(Rect& r){  
-  std::vector<IntPair> bm = bucketmap_[r.Id()];
-  std::vector<IntPair>::iterator it;  
+  std::vector<FloatPair> bm = bucketmap_[r.Id()];
+  std::vector<FloatPair>::iterator it;  
   
   for (it = bm.begin(); it < bm.end(); it++) {
     // need to delete r from this point in space_    
@@ -107,7 +107,7 @@ std::set<Rect*> SpaceHash::GetNeighbors(Rect& r){
   }
   
   // get a vector of all the buckets a rect is in.
-  std::vector<IntPair> bm = bucketmap_[r.Id()];
+  std::vector<FloatPair> bm = bucketmap_[r.Id()];
 
   // get the intersection of all those buckets
   std::set<Rect*> inter;

@@ -10,7 +10,7 @@
 namespace crml {
 int32 Rect::ID__ = 0;
 
-Rect::Rect(int32 x1, int32 y1, int32 x2, int32 y2) : id__(ID__++) {
+Rect::Rect(float64 x1, float64 y1, float64 x2, float64 y2) : id__(ID__++) {
   topleft_ = Vector(x1, y1);
   bottomright_ = Vector(x2, y2);
 }
@@ -34,59 +34,59 @@ void Rect::CopyInto(Rect& other){ // rethink this.
   other.Bottom(Bottom());
 }
 
-void Rect::StretchLeft(int32 n){
+void Rect::StretchLeft(float64 n){
   topleft_.X(Left() - n);
 }
 
-void Rect::StretchRight(int32 n){
+void Rect::StretchRight(float64 n){
   bottomright_.X(Right() + n);
 }
 
-void Rect::StretchTop(int32 n){
+void Rect::StretchTop(float64 n){
   topleft_.Y(Top() - n);
 }
 
-void Rect::StretchBottom(int32 n){
+void Rect::StretchBottom(float64 n){
   bottomright_.Y(Bottom() + n);
 }
 
-int32 Rect::Top(){
+float64 Rect::Top(){
   return topleft_.Y();
 }
 
-int32 Rect::Bottom(){
+float64 Rect::Bottom(){
   return bottomright_.Y();
 }
 
-int32 Rect::Left(){
+float64 Rect::Left(){
   return topleft_.X();
 }
 
-int32 Rect::Right(){
+float64 Rect::Right(){
   return bottomright_.X();
 }
 
-int32 Rect::Width(){
+float64 Rect::Width(){
   return Right() - Left();
 }
 
-int32 Rect::Height(){
+float64 Rect::Height(){
   return Bottom() - Top();
 }
 
-void Rect::Top(int32 n){
+void Rect::Top(float64 n){
   topleft_.Y(n);
 }
 
-void Rect::Bottom(int32 n){
+void Rect::Bottom(float64 n){
   bottomright_.Y(n);
 }
 
-void Rect::Left(int32 n){
+void Rect::Left(float64 n){
   topleft_.X(n);
 }
 
-void Rect::Right(int32 n){
+void Rect::Right(float64 n){
   bottomright_.X(n);
 }
 
@@ -98,16 +98,16 @@ void Rect::Move(Vector v){
   bottomright_.Y(v.Y());
 }
 
-void Rect::Move(int32 x, int32 y){
-  int32 h = Height();
-  int32 w = Width();  
+void Rect::Move(float64 x, float64 y){
+  float64 h = Height();
+  float64 w = Width();  
   topleft_.X(x);
   topleft_.Y(y);
   bottomright_.X( topleft_.X() + w );
   bottomright_.Y( topleft_.Y() + h );  
 }
 
-void Rect::MoveRel(int32 x, int32 y){
+void Rect::MoveRel(float64 x, float64 y){
   topleft_.X(topleft_.X() + x);
   bottomright_.X(bottomright_.X() + x);
   topleft_.Y(topleft_.Y() + y);

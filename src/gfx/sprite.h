@@ -10,8 +10,11 @@
 #include "./tga_loader.h"
 
 namespace crml {
-  
+ERR_(SPRITE_ANGLE_NEGATIVE_NORMALIZE);
+ERR_(SPRITE_ANGLE_OVERFLOW_NORMALIZE);  
+
 class Sprite: public Error, public Rect {
+
  public:
   explicit Sprite(): Error(OK) {
     ClassName("Sprite");
@@ -22,10 +25,10 @@ class Sprite: public Error, public Rect {
   
   ~Sprite();    
   void LoadImage(TgaLoader& tga);
-  void Angle(int32 h);
-  int32 Angle();
-  void Rotate(int32 angle);
-  void Scale(float scale_);
+  void Angle(float64 a);
+  float64 Angle();
+  void Rotate(float64 angle);
+  void Scale(float64 scale_);
     
   std::vector<Color> PixelVector(); // opportunity for optimization.
 
@@ -40,28 +43,17 @@ class Sprite: public Error, public Rect {
   Sprite& operator = (const Sprite&);
   // ------------------------------------------------------------------
   
-  float scale_;
-  int32 angle_;
+  float64 scale_;
+  float64 angle_;
   uint8 alpha_;
     
   TgaLoader* image_;
   const uint8* texels_;
-  int32 texels_size_;
+  uint32 texels_size_;
 };
 
 }       // namespace crml
 #endif  // SPRITE_H_
-
-
-
-
-
-
-
-
-
-
-
 
 
 
