@@ -5,7 +5,7 @@
 #define SPRITE_H_
 
 #include "../core/error.h"
-#include "../core/crmlint.h"
+#include "../core/crmltypes.h"
 #include "./rect.h"
 #include "./tga_loader.h"
 

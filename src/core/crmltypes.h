@@ -26,6 +26,9 @@ typedef int_least64 int_fast64;
 typedef uint_least64 uint_fast64;
 
 
+typedef double float64;
+
+
 /*
 
 namespace crml {

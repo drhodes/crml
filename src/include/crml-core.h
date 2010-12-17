@@ -1,5 +1,5 @@
 #include "../core/core.h"
-#include "../core/crmlint.h"
+#include "../core/crmltypes.h"
 #include "../core/error.h"
 #include "../core/event_handler.h"
 #include "../core/md5.h"

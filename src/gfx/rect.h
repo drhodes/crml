@@ -3,7 +3,7 @@
 #ifndef RECT_H_
 #define RECT_H_
 
-#include "../core/crmlint.h"
+#include "../core/crmltypes.h"
 #include "./vector.h"
 
 #include <string>
