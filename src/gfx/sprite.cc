@@ -49,13 +49,36 @@ void Sprite::LoadTexelArray(){
   texels_size_ = pixels.size() * 4;
 }
 
+Matrix2 Sprite::GetTransformationMatrix(){
+  Matrix2 result;
+  if (angle_changed_) {
+    result.RotateUpdate(angle_);
+  }
+  if (shear_changed_) {
+    //result.ShearUpdate(shear_);
+  }
+  if (scale_changed_) {
+    //result.ScaleUpdate(scale_);
+  }
+  if (reflect_changed_) {
+    //result.ReflectUpdate(reflect_);
+  }
+
+  angle_changed_ = false;
+  shear_changed_ = false;
+  scale_changed_ = false;
+  reflect_changed_ = false;
+
+  return result;
+}
+
 void Sprite::Angle(float64 a){
   if (angle_ < 0.0f)
     SetReportErr(SPRITE_ANGLE_NEGATIVE_NORMALIZE);
   if (angle_ >= 360.0f)
-    SetReportErr(SPRITE_ANGLE_OVERFLOW_NORMALIZE);
-  
+    SetReportErr(SPRITE_ANGLE_OVERFLOW_NORMALIZE);  
   angle_ = a;
+  angle_changed_ = true;
 }
 
 float64 Sprite::Angle(){
@@ -66,32 +89,37 @@ void Sprite::Rotate(float64 a){
   // how to hangle negative numbers?
   angle_ += a;
 
+  // change this to fmod -->
+  // #include <math.h>
+  // fmod(double x, double y);
+  // once this is determined to work as expected.
   while (a >= 360.0f) {
     a -= 360;
   }
   
   while (a < 0.0f) {
     angle_ += 360;
-  } 
+  }
+  angle_changed_ = true;
 }
 
+float64 Sprite::Scale(){ return scale_; }
 void Sprite::Scale(float64 s){
-  scale_ = s;
+  scale_ += s;
+  scale_changed_ = true;
 }
-  
+
+float64 Sprite::Shear(){ return shear_; }
+void Sprite::Shear(float64 s){
+  shear_ += s;
+  shear_changed_ = true;
+}
+
+float64 Sprite::Reflect(){ return reflect_; }
+void Sprite::Reflect(float64 s){
+  reflect_ += s;
+  reflect_changed_ = true;
+}
+
 }       // namespace crml
 #endif  // SPRITE_CC
-
-
-
-
-
-
-
-
-
-
-
-
-
-

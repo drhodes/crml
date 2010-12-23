@@ -5,6 +5,8 @@
 
 #include "../core/crmltypes.h"
 #include <math.h>
+#include <stdio.h>
+#include <string>
 
 namespace crml {
   
@@ -21,9 +23,20 @@ namespace crml {
     float64 Y();
     void Y(float64 y);
     float64 Length();
-    float64 Distance(Vector* other);                  
-    Vector Align(int32 resolution);
+    float64 Distance(Vector& v);
+
+    Vector Multiply(float n);
+    Vector Negate();
+    Vector Add(Vector& v);
+    Vector Subtract(Vector& v);
+    bool Equal(Vector& v);
     
+    Vector Rotate(float64 theta);
+    void RotateUpdate(float64 theta);
+    
+    Vector Align(int32 resolution);
+
+    std::string ShowVector();
    private:
     float64 x_, y_;
   };

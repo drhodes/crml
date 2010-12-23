@@ -19,13 +19,31 @@ LDFLAGS =	-L $(CRML_ROOT)/build \
 OPTFLAG = -O3
 
 all:
-	nacl-g++ $(OPTFLAG) space_hash-test.cc $(LDFLAGS) -o space_hash-testbin
-	nacl-g++ $(OPTFLAG) utility-test.cc $(LDFLAGS) -o utility-testbin
-	nacl-g++ $(OPTFLAG) rect-test.cc $(LDFLAGS) -o rect-testbin
+	+ make space_hash
+	+ make utility
+	+ make rect
+	+ make vector
+	+ make matrix
 
+space_hash:
+	nacl-g++ $(OPTFLAG) space_hash-test.cc $(LDFLAGS) -o space_hash-testbin
 	@sel_ldr ./space_hash-testbin
+
+utility:
+	nacl-g++ $(OPTFLAG) utility-test.cc $(LDFLAGS) -o utility-testbin
 	@sel_ldr ./utility-testbin
+
+rect:
+	nacl-g++ $(OPTFLAG) rect-test.cc $(LDFLAGS) -o rect-testbin
 	@sel_ldr ./rect-testbin
+
+vector:
+	nacl-g++ $(OPTFLAG) vector-test.cc $(LDFLAGS) -o vector-testbin
+	@sel_ldr ./vector-testbin	
+
+matrix:
+	nacl-g++ $(OPTFLAG) $(CFLAGS) matrix-test.cc $(LDFLAGS) -o matrix-testbin
+	@sel_ldr ./matrix-testbin	
 
 clean:
 	@rm -f ./*testbin

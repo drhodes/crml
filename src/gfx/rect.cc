@@ -20,13 +20,6 @@ Rect::Rect(Vector v1, Vector v2) : id__(ID__++) {
   bottomright_ = v2;
 }
 
-// may be able to scrap this copy constructor.
-Rect::Rect(const Rect& r) {
-  topleft_ = r.topleft_;
-  bottomright_ = r.bottomright_;
-  id__ = ID__++;
-}
-
 void Rect::CopyInto(Rect& other){ // rethink this.
   other.Left(Left()); // hesitating on the copy constructer
   other.Right(Right()); // because __id__ can't be copied without messing up the 
@@ -64,6 +57,10 @@ float64 Rect::Left(){
 
 float64 Rect::Right(){
   return bottomright_.X();
+}
+
+Vector Rect::Center() {
+  return Vector(Right() - Width()/2, Bottom() - Height()/2);
 }
 
 float64 Rect::Width(){
@@ -121,12 +118,70 @@ void Rect::MoveRel(Vector v){
   bottomright_.Y(bottomright_.Y() + v.Y());
 }
 
-const Vector Rect::TopLeft(){
+Vector Rect::TopLeft(){
   return topleft_;
 }
 
-const Vector Rect::BottomRight(){
+Vector Rect::TopRight(){
+  return Vector(bottomright_.X(), topleft_.Y());
+}
+
+Vector Rect::BottomLeft(){
+  return Vector(topleft_.X(), bottomright_.Y());
+}
+
+Vector Rect::BottomRight(){
   return bottomright_;
+}
+
+// some min/max utility functions
+// ------------------------------------------------------------------
+inline float64 max( float64 a, float64 b){
+  if (a >= b)
+    return a;
+  return b;
+}
+
+inline float64 max4( float64 a,
+                     float64 b,
+                     float64 c,
+                     float64 d ){
+  return max(max(a, b), max(c, d));  
+}
+
+inline float64 min( float64 a, float64 b){
+  if (a <= b)
+    return a;
+  return b;
+}
+
+inline float64 min4( float64 a,
+                     float64 b,
+                     float64 c,
+                     float64 d ){
+  return min(min(a, b), min(c, d));  
+}
+// ------------------------------------------------------------------
+
+Rect Rect::BoundingBox(){
+  float64 t, b, l, r;
+  // find topmost
+  t = min4( TopLeft().Y(), TopRight().Y(),
+            BottomLeft().Y(), BottomRight().Y() );
+  
+  // find bottommost
+  b = max4( TopLeft().Y(), TopRight().Y(),
+            BottomLeft().Y(), BottomRight().Y() );
+  
+  // find leftmost
+  l = min4( TopLeft().X(), TopRight().X(),
+            BottomLeft().X(), BottomRight().X() );
+  
+  // find rightmost
+  r = max4( TopLeft().X(), TopRight().X(),
+            BottomLeft().X(), BottomRight().X() );
+
+  return Rect(l, t, r, b);  
 }
 
 std::string Rect::ShowRect(){
@@ -139,8 +194,6 @@ std::string Rect::ShowRect(){
 int32 Rect::Id() {
   return id__;
 }
-
-
 
 }       // namespace crml
 #endif  // RECT_CC

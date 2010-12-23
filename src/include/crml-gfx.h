@@ -4,6 +4,7 @@
 #include "../gfx/font.h"
 #include "../gfx/layer_group.h"
 #include "../gfx/layer.h"
+#include "../gfx/matrix.h"
 #include "../gfx/rect.h"
 #include "../gfx/space_hash.h"
 #include "../gfx/sprite.h"

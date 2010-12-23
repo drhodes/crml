@@ -1,43 +1,35 @@
-// Copyright 2010 <Derek A. Rhodes>
+#include "../vector.h"
+#include <stdio.h>
+#include <string>
 
-#ifndef VECTOR_H_
-#define VECTOR_H_
+#include "test-macro.cc"
 
-#include <math.h>
+using namespace crml;
 
-namespace crml {
+int main(){
+  printf("Vector tests -------------------------------------------------------\n");
+  Vector v0;
+  Vector v1(1, 0);
+  Vector v2(2, 0);
+  Vector v3(3, 5);
   
-  class Vector {
-   public:
-    Vector();
-    Vector(int, int);
-    Vector(const Vector&);
-    ~Vector();
-
-    void XY(int x, int y);    
-    int X();
-    void X(int x);
-    int Y();
-    void Y(int y);
-    int Length();
-    int Distance(Vector* other);                  
-    Vector Align(int resolution);
-    
-   private:
-    int x_, y_;
-  };
+  EQ(v1.Add(v1).Equal(v2), true);
+  EQ(v1.Add(v0).Equal(v1), true);
+  EQ(v1.Multiply(1).Equal(v1), true);
   
-}       // namespace crml
-#endif  // VECTOR_H_
+  EQ(v3.Rotate(360).Equal(v3), true);
+  printf("%s\n", v3.Rotate(360).ShowVector().c_str());
+  printf("%s\n", v3.ShowVector().c_str());
+  
+  printf("v1.X(): %f\n", v1.X());
+  printf("v1.Y(): %f\n", v1.Y());
 
+  for (float64 i=0; i<=360; i+=90){
+    Vector temp = v1.Rotate(i);
+    printf("%f: %s\n", i, temp.ShowVector().c_str());
+  }
 
-
-
-
-
-
-
-
-
-
-
+  
+  
+  return 0;
+}

@@ -44,10 +44,22 @@ namespace crml {
     void Left(float64 n);
     void Right(float64 n);
 
+    Vector Center();
+    Vector TopLeft();
+    Vector BottomRight();
+    Vector TopRight();
+    Vector BottomLeft();
+    
+    Rect BoundingBox();
+    
+    // void snap? thing about snapping rect vectors to closest
+    // in a float metric in an opengl context this doesn't matter
+    // the concern is pixel leaks between adjacent tile edges
+    // just wait and see, it's going to take some fiddling.
+    
     float64 Width();
-    float64 Height();        
-    const Vector TopLeft();
-    const Vector BottomRight();
+    float64 Height();
+    
     
     int32 Id();
       

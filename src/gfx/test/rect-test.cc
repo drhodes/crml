@@ -1,4 +1,4 @@
-#include "../rect.h"
+#include "../rect.cc"
 #include "../vector.h"
 #include <stdio.h>
 
@@ -27,7 +27,6 @@ int main(){
   EQ(r.Right(), 210);
   EQ(r.Bottom(), 210);
 
-
   r.Move(0, 0);
   EQ(r.Right(), 200);
   EQ(r.Bottom(), 200);
@@ -46,6 +45,13 @@ int main(){
   EQ(r2.Left(), r.Left());  
   EQ(r2.Right(), r.Right());
   EQ(r2.Bottom(), r.Bottom());
+
+  EQ(max4(1,2,3,4), 4);
+  EQ(max4(7,2,3,4), 7);
+  EQ(min4(1,2,3,4), 1);
+  EQ(min4(7,2,3,-4), -4);
+
   
   return 0;
+
 }

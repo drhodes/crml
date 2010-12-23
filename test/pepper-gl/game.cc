@@ -52,6 +52,7 @@ void RunOnce() {
 
   Sprite s1;
   s1.LoadImage(img); 
+  s1.Rotate(10);
   
   Sprite s2;  
   s2.LoadImage(img);
@@ -68,12 +69,6 @@ void RunOnce() {
   // Can these transforms be passed to opengl directly?
   // Figure this out, it's a big piece.
 
-  // Think about changing vectors to a Float type.
-  // What are the cost/benefits.
-  // *integer based sprites align nicely.
-  // -float based are graphically smoother all around
-  // -values less than one can be used for scaling. ..
-  // -rotation of very large things can be done smoother at the exterior.
   
   // s1.Angle(33);
   

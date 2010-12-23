@@ -1,0 +1,1 @@
+xmacroplay -d 70 :0.0 < crml-term.rec
