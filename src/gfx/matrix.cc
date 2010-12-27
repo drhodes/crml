@@ -39,6 +39,21 @@ void Matrix2::CopyInto(Matrix2& other){
   other.r2c2_ = r2c2_;
 }
 
+std::vector<float64> Matrix2::GlMatrix(){
+  // optimization, consider making this a mutable array.
+  // or, in C style, pass a pointer and copy into it.
+  // void Matrix2::CopyGlMatrix(char* gl_array){yatta}...
+  // for now this is easier to debug.
+  float64 els[] = {
+      r1c1_, r1c2_, 0, 0,
+      r2c1_, r2c2_, 0, 0,
+      0,     0,     0, 0,
+      0,     0,     0, 0,    
+  };
+  return std::vector<float64>(els, els + sizeof(els) / sizeof(float64));
+}
+
+// Scaling ------------------------------------------------------------------
 Matrix2 Matrix2::Scale(float64 s){
   Matrix2 result;
   result.ScaleUpdate(s);
@@ -56,6 +71,41 @@ void Matrix2::ScaleUpdate(float64 s){
   r2c2_ *= s;
 }
 
+// Scaling X ------------------------------------------------------------------
+Matrix2 Matrix2::ScaleX(float64 s){
+  Matrix2 result;
+  result.ScaleXUpdate(s);
+  return result;
+}
+
+Vector Matrix2::ScaleX(float64 s, Vector& v){
+  Matrix2 result;
+  result.ScaleXUpdate(s);
+  return result.Transform(v);
+}
+
+void Matrix2::ScaleXUpdate(float64 s){
+  r1c1_ *= s;
+}
+
+// Scaling Y ------------------------------------------------------------------
+Matrix2 Matrix2::ScaleY(float64 s){
+  Matrix2 result;
+  result.ScaleYUpdate(s);
+  return result;
+}
+
+Vector Matrix2::ScaleY(float64 s, Vector& v){
+  Matrix2 result;
+  result.ScaleYUpdate(s);
+  return result.Transform(v);
+}
+
+void Matrix2::ScaleYUpdate(float64 s){
+  r2c2_ *= s;
+}
+
+// Rotating ----------------------------------------------------------------
 Matrix2 Matrix2::Rotate(float64 theta){  
   Matrix2 result;
   float64 degs = theta / 57.295779513082323;
@@ -66,8 +116,6 @@ Matrix2 Matrix2::Rotate(float64 theta){
   result.r2c2_ = +cos(degs);
 
   return result;
-  //x__ = +x_ * cos(degs) -y_ * sin(degs);
-  //y__ = +x_ * sin(degs) +y_ * cos(degs); 
 }
 
 Vector Matrix2::Rotate(float64 angle, Vector& v){
@@ -75,14 +123,50 @@ Vector Matrix2::Rotate(float64 angle, Vector& v){
   return result.Rotate(angle).Transform(v);
 }
 
-/*
-Vector Vector::Shear(Vector& v){ 
+void Matrix2::RotateUpdate(float64 angle){
+  Matrix2 result = Rotate(angle);
+  result.CopyInto(*this);                   
 }
 
-Vector Vector::Reflect(Vector& v){
-  
+// Shearing X --------------------------------------------------------------
+Matrix2 Matrix2::ShearX(float64 n){
+  Matrix2 result;
+  result.r1c2_ = n;
+  return result;
 }
-*/
+
+void Matrix2::ShearXUpdate(float64 n){
+  Matrix2 result = ShearX(n);
+  result.CopyInto(*this);                   
+}
+
+Vector Matrix2::ShearX(float64 n, Vector& v){
+  Matrix2 result;
+  return result.ShearX(n).Transform(v);
+}
+
+// Shearing Y --------------------------------------------------------------
+Matrix2 Matrix2::ShearY(float64 n){
+  Matrix2 result;
+  result.r2c1_ = n;
+  return result;
+}
+
+void Matrix2::ShearYUpdate(float64 n){
+  Matrix2 result = ShearY(n);
+  result.CopyInto(*this);                   
+}
+
+Vector Matrix2::ShearY(float64 n, Vector& v){
+  Matrix2 result;
+  return result.ShearY(n).Transform(v);
+}
+
+// Do some reading to see if this makes sense in 2d.
+// Reflecting 
+// Matrix2 Reflect(float64 n);
+// Vector Reflect(float64 n, Vector& v);
+// void ReflectUpdate(float64 n);
 
 Vector Matrix2::Transform(Vector& v){
   float64 x = r1c1_ * v.X() + r1c2_ * v.Y();
@@ -97,18 +181,5 @@ std::string Matrix2::ShowMatrix() {
   return std::string(buffer);
 }
 
-
-
 }       // namespace crml
 #endif  // MATRIX2_CC
-
-
-
-
-
-
-
-
-
-
-
