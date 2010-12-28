@@ -26,22 +26,6 @@ Vector::Vector(const Vector& v){
 Vector::~Vector() {
 }
 
-// x' = +xcosθ -ysinθ
-// y' = +xsinθ +ycosθ.  
-Vector Vector::Rotate(float64 theta){  
-  float64 x__, y__, degs;
-  degs = theta / 57.295779513082323;  
-  x__ = +x_ * cos(degs) -y_ * sin(degs);
-  y__ = +x_ * sin(degs) +y_ * cos(degs);
-  return Vector(x__, y__);  
-}
-
-void Vector::RotateUpdate(float64 theta){
-  Vector v = this->Rotate(theta);
-  XY(v.X(), v.Y());
-}
-
-
 void Vector::XY(float64 x, float64 y) {
   x_ = x;
   y_ = y;
@@ -73,24 +57,28 @@ float64 Vector::Length() {
   return sqrt(x_*x_ + y_*y_);
 }
 
-Vector Vector::Multiply(float n) {
+Vector Vector::Multiply(float64 n) {
   return Vector(n*x_, n*y_);
+}
+
+Vector Vector::Normalize(){
+  return Multiply(1 / Length());
 }
 
 Vector Vector::Negate() {
   return Multiply(-1);
 }
 
-Vector Vector::Add(Vector& v) {
+Vector Vector::Add(Vector v) {
   return Vector(X() + v.X(), Y() + v.Y());  
 }
 
-Vector Vector::Subtract(Vector& v) {
+Vector Vector::Subtract(Vector v) {
   Vector temp = v.Negate();
   return Add(temp);
 }
 
-bool Vector::Equal(Vector& v) {
+bool Vector::Equal(Vector v) {
   // IEEE float rears its ugly head and demands blood
   // for the pendantics of precision.
   // bug alert
@@ -101,9 +89,9 @@ bool Vector::Equal(Vector& v) {
            fabs(y_ - v.Y()) < 0.00000001 );
 }
 
-
 // given a grid with spacing <res>
 // floor x and y to the closest grid intersection.
+// todo use fmod instead.
 Vector Vector::Align(int32 res){
   float64 snap_x = X() - float64(int32(X()) % res );
   float64 snap_y = Y() - float64(int32(Y()) % res );

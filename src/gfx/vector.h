@@ -25,11 +25,12 @@ namespace crml {
     float64 Length();
     float64 Distance(Vector& v);
 
-    Vector Multiply(float n);
+    Vector Normalize();
+    Vector Multiply(float64 n);
     Vector Negate();
-    Vector Add(Vector& v);
-    Vector Subtract(Vector& v);
-    bool Equal(Vector& v);
+    Vector Add(Vector v);
+    Vector Subtract(Vector v);
+    bool Equal(Vector v);
     
     Vector Rotate(float64 theta);
     void RotateUpdate(float64 theta);

@@ -21,7 +21,7 @@ void Sprite::LoadImage(TgaLoader& tga){
   // this has got to be managed in a responsible fashion.
   //     
   image_ = &tga;
-  Move(0,0);
+  Move(0,0);  
   StretchRight(image_->Width());
   StretchBottom(image_->Height());
   LoadTexelArray();
