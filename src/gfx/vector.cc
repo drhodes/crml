@@ -85,8 +85,8 @@ bool Vector::Equal(Vector v) {
   // the error can grow over time, think about how snapping
   // to a kind of planck metric could help here.
   
-  return ( fabs(x_ - v.X()) < 0.00000001 &&
-           fabs(y_ - v.Y()) < 0.00000001 );
+  return ( fabs(x_ - v.X()) < 0.00001 &&
+           fabs(y_ - v.Y()) < 0.00001 );
 }
 
 // given a grid with spacing <res>

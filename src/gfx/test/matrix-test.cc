@@ -1,3 +1,4 @@
+#include "../rect.h"
 #include "../vector.h"
 #include "../matrix.h"
 #include "test-macro.cc"
@@ -6,8 +7,7 @@
 using namespace crml;
 
 int main(){
-  printf("Matrix tests -------------------------------------------------------\n");    
-
+  printf("Matrix tests -------------------------------------------------------\n");   
   Matrix2 I; // identity.
   Matrix2 m0(0,0,0,0);
   Matrix2 m1(1,0,0,1);
@@ -68,9 +68,28 @@ int main(){
 
 
   // next check GlMatrix()  
-  EQ(mat.GlMatrix() == mat.GlMatrix(), true);
+  EQ((mat.GlMatrix() == mat.GlMatrix()), true);
   //  EQ(mat.GlMatrix()[0] == mat., true);
   
+  Rect r1(-50, -50, 50, 50);
+  mat.Scale(2).Rotate(45).Transform(r1);
+  LOG(r1.ShowRect());
+  
+  EQ(r1.TopLeft().Equal(Vector(0, -141.421356)), true);  
+  EQ(r1.TopRight().Equal(Vector(141.421356, -0.000000)), true);
+  EQ(r1.BottomLeft().Equal(Vector(-141.421356, 0.000000)), true);
+  EQ(r1.BottomRight().Equal(Vector(0.000000, 141.421356)), true);
+ 
+  Rect r2(-10, -10, 10, 10);
+  mat.ShearX(3, r2);
+  LOG(r2.ShowRect());
+
+  EQ(r2.TopLeft().Equal(Vector(-40.000000, -10.000000)), true);
+  EQ(r2.TopRight().Equal(Vector(-20.000000, -10.000000)), true);
+  EQ(r2.BottomLeft().Equal(Vector(20.000000, 10.000000)), true);
+  EQ(r2.BottomRight().Equal(Vector(40.000000, 10.000000)), true);
+      
+
 
   
   

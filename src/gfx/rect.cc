@@ -150,37 +150,36 @@ Vector Rect::TopRight(){ return topright_; }
 Vector Rect::BottomRight(){ return bottomright_; }
 Vector Rect::BottomLeft(){ return bottomleft_; }
 
+void Rect::TopLeft(Vector v) {
+  topleft_ = v;
+}
+
+void Rect::TopRight(Vector v) {
+  topright_ = v;
+}
+
+void Rect::BottomLeft(Vector v) {
+  bottomleft_ = v;
+}
+
+void Rect::BottomRight(Vector v) {
+  bottomright_ = v;
+}
+
 // ------------------------------------------------------------------
 
 Rect Rect::BoundingBox(){
-  /*
-  float64 t, b, l, r;
-  // find topmost
-  t = min4( TopLeft().Y(), TopRight().Y(),
-            BottomLeft().Y(), BottomRight().Y() );
-  
-  // find bottommost
-  b = max4( TopLeft().Y(), TopRight().Y(),
-            BottomLeft().Y(), BottomRight().Y() );
-  
-  // find leftmost
-  l = min4( TopLeft().X(), TopRight().X(),
-            BottomLeft().X(), BottomRight().X() );
-  
-  // find rightmost
-  r = max4( TopLeft().X(), TopRight().X(),
-            BottomLeft().X(), BottomRight().X() );
-  */
   return Rect(Left(), Top(), Right(), Bottom());  
 }
 
-
-
-
 std::string Rect::ShowRect(){
-  char buffer[100];
-  sprintf(buffer, "<id: %d | left:%d, top:%d, right:%d, bottom%d>",
-          int(id__), int(Left()), int(Top()), int(Right()), int(Bottom()));
+  char buffer[200];
+  sprintf(buffer, "<id: %d |\n tl:%s, \n tr:%s, \n bl:%s, \n br:%s>",
+          int(id__),
+          topleft_.ShowVector().c_str(),
+          topright_.ShowVector().c_str(),
+          bottomleft_.ShowVector().c_str(),
+          bottomright_.ShowVector().c_str() );
   return std::string(buffer);
 }
 

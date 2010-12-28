@@ -43,7 +43,7 @@ namespace crml {
     // Needed for quick deletes of rects.
     RectIdBucketMap bucketmap_;
 
-    // todo: decide if this should be a float64.
+    // todo: decide if this should be a float64.    
     int32 gridgap_; // bucket gridgap.    
   };
   

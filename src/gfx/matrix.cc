@@ -57,7 +57,7 @@ std::vector<float64> Matrix2::GlMatrix(){
 Matrix2 Matrix2::Scale(float64 s){
   Matrix2 result;
   result.ScaleUpdate(s);
-  return result;
+  return Multiply(result);
 }
 
 Vector Matrix2::Scale(float64 s, Vector& v){
@@ -75,7 +75,7 @@ void Matrix2::ScaleUpdate(float64 s){
 Matrix2 Matrix2::ScaleX(float64 s){
   Matrix2 result;
   result.ScaleXUpdate(s);
-  return result;
+  return Multiply(result);
 }
 
 Vector Matrix2::ScaleX(float64 s, Vector& v){
@@ -92,7 +92,7 @@ void Matrix2::ScaleXUpdate(float64 s){
 Matrix2 Matrix2::ScaleY(float64 s){
   Matrix2 result;
   result.ScaleYUpdate(s);
-  return result;
+  return Multiply(result);
 }
 
 Vector Matrix2::ScaleY(float64 s, Vector& v){
@@ -115,7 +115,7 @@ Matrix2 Matrix2::Rotate(float64 theta){
   result.r2c1_ = +sin(degs);
   result.r2c2_ = +cos(degs);
 
-  return result;
+  return Multiply(result); // Multiply to chain calls.
 }
 
 Vector Matrix2::Rotate(float64 angle, Vector& v){
@@ -132,7 +132,7 @@ void Matrix2::RotateUpdate(float64 angle){
 Matrix2 Matrix2::ShearX(float64 n){
   Matrix2 result;
   result.r1c2_ = n;
-  return result;
+  return Multiply(result);
 }
 
 void Matrix2::ShearXUpdate(float64 n){
@@ -149,7 +149,7 @@ Vector Matrix2::ShearX(float64 n, Vector& v){
 Matrix2 Matrix2::ShearY(float64 n){
   Matrix2 result;
   result.r2c1_ = n;
-  return result;
+  return Multiply(result);
 }
 
 void Matrix2::ShearYUpdate(float64 n){
@@ -168,11 +168,51 @@ Vector Matrix2::ShearY(float64 n, Vector& v){
 // Vector Reflect(float64 n, Vector& v);
 // void ReflectUpdate(float64 n);
 
-Vector Matrix2::Transform(Vector& v){
+Vector Matrix2::Transform(Vector v){
   float64 x = r1c1_ * v.X() + r1c2_ * v.Y();
   float64 y = r2c1_ * v.X() + r2c2_ * v.Y();
   return Vector(x,y);
 }
+
+
+// Rects ------------------------------------------------------------------
+void Matrix2::Scale(float64 s, Rect& r) {
+  Matrix2().Scale(s).Transform(r);
+}
+
+void Matrix2::ScaleX(float64 s, Rect& r) {  
+  Matrix2().ScaleX(s).Transform(r);
+}
+
+void Matrix2::ScaleY(float64 s, Rect& r) {
+  Matrix2().ScaleY(s).Transform(r);
+}
+
+void Matrix2::Rotate(float64 theta, Rect& r) {  
+  Matrix2().Rotate(theta).Transform(r);
+}
+
+void Matrix2::ShearX(float64 n, Rect& r) {
+  Matrix2().ShearX(n).Transform(r);
+}
+
+void Matrix2::ShearY(float64 n, Rect& r) {
+  Matrix2().ShearY(n).Transform(r);
+}
+
+// Rect Matrix2::Reflect(float64 n, Rect& r) {
+// }
+
+void Matrix2::Transform(Rect& r){
+  Vector c = r.Center();
+  
+  r.TopLeft(Transform(r.TopLeft().Subtract(c)).Add(c));
+  r.TopRight(Transform(r.TopRight().Subtract(c)).Add(c));
+  r.BottomLeft(Transform(r.BottomLeft().Subtract(c)).Add(c));
+  r.BottomRight(Transform(r.BottomRight().Subtract(c)).Add(c));
+}
+
+
 
 std::string Matrix2::ShowMatrix() {
   char buffer[100];  

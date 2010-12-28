@@ -82,7 +82,8 @@ namespace crml {
     // Prevent copy.
     Rect(const Rect&);     
     Rect& operator = (const Rect&);
-    
+
+    bool dirty_;
     int32 id__; // memory management helper.
     Vector topleft_, topright_, bottomleft_, bottomright_;
   };

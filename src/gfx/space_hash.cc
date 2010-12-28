@@ -80,7 +80,7 @@ void SpaceHash::Add(Rect& r){
 
 /// Delete a rect from the space_hash.  This must delete from two private
 /// members: bucketmap_, which enables quick deletes, and space_ which contains
-/// and organizes and stores all the rects in space
+/// organizes and stores all the rects in space
 /// @param r, The rect to delete
 /// @return void
 void SpaceHash::Delete(Rect& r){  
