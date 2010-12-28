@@ -8,59 +8,113 @@
 #include "./rect.h"
 
 namespace crml {
+// some min/max utility functions
+// ------------------------------------------------------------------
+inline float64 max( float64 a, float64 b){
+  if (a >= b)
+    return a;
+  return b;
+}
+
+inline float64 max4( float64 a, float64 b,
+                     float64 c, float64 d ){
+  return max(max(a, b), max(c, d));  
+}
+
+inline float64 min( float64 a, float64 b){
+  if (a <= b)
+    return a;
+  return b;
+}
+
+inline float64 min4( float64 a, float64 b,
+                     float64 c, float64 d ){
+  return min(min(a, b), min(c, d));  
+}
+
+// -------------------------------------------------------------------------
 int32 Rect::ID__ = 0;
 
 Rect::Rect(float64 x1, float64 y1, float64 x2, float64 y2) : id__(ID__++) {
   topleft_ = Vector(x1, y1);
+  topright_ = Vector(x2, y1);
+  bottomleft_ = Vector(x1, y2);
   bottomright_ = Vector(x2, y2);
 }
 
 Rect::Rect(Vector v1, Vector v2) : id__(ID__++) {
   topleft_ = v1;
+  topright_ = Vector(v2.X(), v1.Y());
+  bottomleft_ = Vector(v1.X(), v2.Y());
   bottomright_ = v2;
 }
 
-void Rect::CopyInto(Rect& other){ // rethink this.
-  other.Left(Left()); // hesitating on the copy constructer
-  other.Right(Right()); // because __id__ can't be copied without messing up the 
-  other.Top(Top()); // quick delete.
-  other.Bottom(Bottom());
+Rect::Rect(Vector v1, Vector v2,
+           Vector v3, Vector v4) : id__(ID__++) {
+  topleft_ = v1;
+  topright_ = v2;
+  bottomleft_ = v3;
+  bottomright_ = v4;
 }
 
+void Rect::CopyInto(Rect& other){ // rethink this.
+  other.topleft_ = topleft_;
+  other.topright_ = topright_;
+  other.bottomleft_ = bottomleft_;
+  other.bottomright_ = bottomright_;
+}
+
+// the stretches are done with vector scaling multiplication.
+// n is a scaling factor, not number of pixels.
 void Rect::StretchLeft(float64 n){
-  topleft_.X(Left() - n);
+  Vector topAug = topleft_.Subtract(topright_).Normalize().Multiply(n);
+  Vector botAug = bottomleft_.Subtract(bottomright_).Normalize().Multiply(n);
+  topleft_ = topleft_.Add(topAug);
+  bottomleft_ = bottomleft_.Add(botAug);  
 }
 
 void Rect::StretchRight(float64 n){
-  bottomright_.X(Right() + n);
+  Vector topAug = topright_.Subtract(topleft_).Normalize().Multiply(n);
+  Vector botAug = bottomright_.Subtract(bottomleft_).Normalize().Multiply(n);
+  topright_ = topright_.Add(topAug);
+  bottomright_ = bottomright_.Add(botAug);  
 }
 
 void Rect::StretchTop(float64 n){
-  topleft_.Y(Top() - n);
+  Vector leftAug = topleft_.Subtract(bottomleft_).Normalize().Multiply(n);
+  Vector rightAug = topright_.Subtract(bottomright_).Normalize().Multiply(n);
+  topleft_ = topleft_.Add(leftAug);
+  topright_ = topright_.Add(rightAug);
 }
 
 void Rect::StretchBottom(float64 n){
-  bottomright_.Y(Bottom() + n);
+  Vector leftAug = bottomleft_.Subtract(topleft_).Normalize().Multiply(n);
+  Vector rightAug = bottomright_.Subtract(topright_).Normalize().Multiply(n);
+  bottomleft_ = bottomleft_.Add(leftAug);
+  bottomright_ = bottomright_.Add(rightAug);
 }
 
 float64 Rect::Top(){
-  return topleft_.Y();
+  return min4(topleft_.Y(), topright_.Y(), bottomleft_.Y(), bottomright_.Y());
 }
 
 float64 Rect::Bottom(){
-  return bottomright_.Y();
+  return max4(topleft_.Y(), topright_.Y(), bottomleft_.Y(), bottomright_.Y());
 }
 
 float64 Rect::Left(){
-  return topleft_.X();
+  return min4(topleft_.X(), topright_.X(), bottomleft_.X(), bottomright_.X());
 }
 
 float64 Rect::Right(){
-  return bottomright_.X();
+  return max4(topleft_.X(), topright_.X(), bottomleft_.X(), bottomright_.X());
 }
 
 Vector Rect::Center() {
-  return Vector(Right() - Width()/2, Bottom() - Height()/2);
+  // the average of X of all points, ... same with Y
+  float64 x = (topleft_.X() + topright_.X() + bottomleft_.X() + bottomright_.X()) / 4;
+  float64 y = (topleft_.Y() + topright_.Y() + bottomleft_.Y() + bottomright_.Y()) / 4;
+  return Vector(x, y);
 }
 
 float64 Rect::Width(){
@@ -71,123 +125,61 @@ float64 Rect::Height(){
   return Bottom() - Top();
 }
 
-void Rect::Top(float64 n){
-  topleft_.Y(n);
-}
-
-void Rect::Bottom(float64 n){
-  bottomright_.Y(n);
-}
-
-void Rect::Left(float64 n){
-  topleft_.X(n);
-}
-
-void Rect::Right(float64 n){
-  bottomright_.X(n);
-}
-
 void Rect::Move(Vector v){
-  topleft_.X(v.X());
-  topleft_.Y(v.Y());
-  
-  bottomright_.X(v.X());
-  bottomright_.Y(v.Y());
+  Vector delta = v.Subtract(topleft_);
+  MoveRel(delta);
 }
 
 void Rect::Move(float64 x, float64 y){
-  float64 h = Height();
-  float64 w = Width();  
-  topleft_.X(x);
-  topleft_.Y(y);
-  bottomright_.X( topleft_.X() + w );
-  bottomright_.Y( topleft_.Y() + h );  
+  Move(Vector(x, y));
 }
 
 void Rect::MoveRel(float64 x, float64 y){
-  topleft_.X(topleft_.X() + x);
-  bottomright_.X(bottomright_.X() + x);
-  topleft_.Y(topleft_.Y() + y);
-  bottomright_.Y(bottomright_.Y() + y);
+  MoveRel(Vector(x, y));
 }
 
 void Rect::MoveRel(Vector v){
-  topleft_.X(topleft_.X() + v.X());
-  bottomright_.X(bottomright_.X() + v.X());
-  topleft_.Y(topleft_.Y() + v.Y());
-  bottomright_.Y(bottomright_.Y() + v.Y());
+  topleft_ = topleft_.Add(v);
+  topright_ = topright_.Add(v);
+  bottomleft_ = bottomleft_.Add(v);
+  bottomright_ = bottomright_.Add(v);
 }
 
-Vector Rect::TopLeft(){
-  return topleft_;
+Vector Rect::TopLeft(){ return topleft_; }
+Vector Rect::TopRight(){ return topright_; }
+Vector Rect::BottomRight(){ return bottomright_; }
+Vector Rect::BottomLeft(){ return bottomleft_; }
+
+void Rect::TopLeft(Vector v) {
+  topleft_ = v;
 }
 
-Vector Rect::TopRight(){
-  return Vector(bottomright_.X(), topleft_.Y());
+void Rect::TopRight(Vector v) {
+  topright_ = v;
 }
 
-Vector Rect::BottomLeft(){
-  return Vector(topleft_.X(), bottomright_.Y());
+void Rect::BottomLeft(Vector v) {
+  bottomleft_ = v;
 }
 
-Vector Rect::BottomRight(){
-  return bottomright_;
+void Rect::BottomRight(Vector v) {
+  bottomright_ = v;
 }
 
-// some min/max utility functions
-// ------------------------------------------------------------------
-inline float64 max( float64 a, float64 b){
-  if (a >= b)
-    return a;
-  return b;
-}
-
-inline float64 max4( float64 a,
-                     float64 b,
-                     float64 c,
-                     float64 d ){
-  return max(max(a, b), max(c, d));  
-}
-
-inline float64 min( float64 a, float64 b){
-  if (a <= b)
-    return a;
-  return b;
-}
-
-inline float64 min4( float64 a,
-                     float64 b,
-                     float64 c,
-                     float64 d ){
-  return min(min(a, b), min(c, d));  
-}
 // ------------------------------------------------------------------
 
 Rect Rect::BoundingBox(){
-  float64 t, b, l, r;
-  // find topmost
-  t = min4( TopLeft().Y(), TopRight().Y(),
-            BottomLeft().Y(), BottomRight().Y() );
-  
-  // find bottommost
-  b = max4( TopLeft().Y(), TopRight().Y(),
-            BottomLeft().Y(), BottomRight().Y() );
-  
-  // find leftmost
-  l = min4( TopLeft().X(), TopRight().X(),
-            BottomLeft().X(), BottomRight().X() );
-  
-  // find rightmost
-  r = max4( TopLeft().X(), TopRight().X(),
-            BottomLeft().X(), BottomRight().X() );
-
-  return Rect(l, t, r, b);  
+  return Rect(Left(), Top(), Right(), Bottom());  
 }
 
 std::string Rect::ShowRect(){
-  char buffer[100];
-  sprintf(buffer, "<id: %d | left:%d, top:%d, right:%d, bottom%d>",
-          int(id__), int(Left()), int(Top()), int(Right()), int(Bottom()));
+  char buffer[200];
+  sprintf(buffer, "<id: %d |\n tl:%s, \n tr:%s, \n bl:%s, \n br:%s>",
+          int(id__),
+          topleft_.ShowVector().c_str(),
+          topright_.ShowVector().c_str(),
+          bottomleft_.ShowVector().c_str(),
+          bottomright_.ShowVector().c_str() );
   return std::string(buffer);
 }
 

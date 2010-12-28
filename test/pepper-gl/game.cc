@@ -83,10 +83,8 @@ void RunOnce() {
   clouds->AddSprite(s1);
   clouds->AddSprite(s2);
   
-  cam.DrawLayer(*clouds);
-  
+  cam.DrawLayer(*clouds);  
   clouds->DeleteSprite(s2);
-
   cam.DrawLayer(*clouds);
 
 

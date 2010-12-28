@@ -9,6 +9,12 @@
 
 #include <string>
 
+/*
+  Needs to be rethought top to bottom.
+  This models a non rotatable rect.
+  the rect needs to rotate.
+ */
+
 namespace crml {  
   class Rect {
    public:
@@ -16,12 +22,15 @@ namespace crml {
 
     explicit Rect() : id__(ID__++) {
       topleft_ = Vector(0, 0);
+      topright_ = Vector(0, 0);
+      bottomleft_ = Vector(0, 0);
       bottomright_ = Vector(0, 0);
     }
     
     Rect(float64, float64, float64, float64);
     Rect(Vector, Vector);
-
+    Rect(Vector, Vector, Vector, Vector);
+      
     void CopyInto(Rect& other); // rethink 
     
     void StretchLeft(float64 n);
@@ -46,9 +55,14 @@ namespace crml {
 
     Vector Center();
     Vector TopLeft();
-    Vector BottomRight();
     Vector TopRight();
     Vector BottomLeft();
+    Vector BottomRight();
+
+    void TopLeft(Vector v);
+    void TopRight(Vector v);
+    void BottomLeft(Vector v);
+    void BottomRight(Vector v);
     
     Rect BoundingBox();
     
@@ -59,8 +73,7 @@ namespace crml {
     
     float64 Width();
     float64 Height();
-    
-    
+       
     int32 Id();
       
     std::string ShowRect();
@@ -69,9 +82,10 @@ namespace crml {
     // Prevent copy.
     Rect(const Rect&);     
     Rect& operator = (const Rect&);
-    
+
+    bool dirty_;
     int32 id__; // memory management helper.
-    Vector topleft_, bottomright_;           
+    Vector topleft_, topright_, bottomleft_, bottomright_;
   };
 
   //static initializer.

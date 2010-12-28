@@ -19,7 +19,7 @@ SpaceHash::~SpaceHash(){
  * @ return Vector representing the upper left of the mentioned bucket.  
  */
 Vector SpaceHash::AlignTopLeft(Rect& r){
-  Vector v = r.TopLeft();
+  Vector v = r.BoundingBox().TopLeft();
   v.X(v.X() - float64(int32(v.X()) % gridgap_));
   v.Y(v.Y() - float64(int32(v.Y()) % gridgap_));
   return v;      
@@ -32,7 +32,7 @@ Vector SpaceHash::AlignTopLeft(Rect& r){
  * @ return Vector representing the bottom right of the mentioned bucket.  
  */
 Vector SpaceHash::AlignBottomRight(Rect& r){
-  Vector v = r.BottomRight();
+  Vector v = r.BoundingBox().BottomRight();
   v.X(v.X() + (gridgap_ - float64(int32(v.X()) % gridgap_)));
   v.Y(v.Y() + (gridgap_ - float64(int32(v.Y()) % gridgap_)));
   return v;
@@ -80,7 +80,7 @@ void SpaceHash::Add(Rect& r){
 
 /// Delete a rect from the space_hash.  This must delete from two private
 /// members: bucketmap_, which enables quick deletes, and space_ which contains
-/// and organizes and stores all the rects in space
+/// organizes and stores all the rects in space
 /// @param r, The rect to delete
 /// @return void
 void SpaceHash::Delete(Rect& r){  

@@ -2,21 +2,21 @@
 #include "../vector.h"
 #include <stdio.h>
 
+#include "./test-macro.cc"
 using namespace crml;
-
-#define EQ( _V1_, _V2_ )\
-  if(_V1_==_V2_){ printf("passes> %s == %s\n", #_V1_, #_V2_); } else { printf("FAILS!> %s == %s\n", #_V1_, #_V2_); } 
 
 int main(){
   Rect r(0,0,100,100);
   Vector v(10, 10);
+
+  LOG(r.ShowRect());
   
   EQ(r.Id(), 0);
   EQ(r.Top(), 0);
   EQ(r.Left(), 0);  
   EQ(r.Bottom(), 100);
   EQ(r.Right(), 100);
-
+ 
   r.StretchRight(100);
   EQ(r.Right(), 200);
 
@@ -50,7 +50,6 @@ int main(){
   EQ(max4(7,2,3,4), 7);
   EQ(min4(1,2,3,4), 1);
   EQ(min4(7,2,3,-4), -4);
-
   
   return 0;
 
