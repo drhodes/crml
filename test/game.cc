@@ -1,3 +1,4 @@
+// -*- c++ -*-
 // Copyright 2010 <Derek A. Rhodes> All Rights Reseverd.
 
 #ifndef GAME_CC

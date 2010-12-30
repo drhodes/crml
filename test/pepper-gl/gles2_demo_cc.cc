@@ -1,7 +1,9 @@
-// Copyright (c) 2009 The Chromium Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style license that can be
-// found in the LICENSE file.
-
+/*  
+  -*- c++ -*-
+  Copyright (c) 2009 The Chromium Authors. All rights reserved.
+  Use of this source code is governed by a BSD-style license that can be
+  found in the /crml/license/google-bsd file
+*/  
 // #include "gles2_demo_cc.h"
 
 #include <math.h>
@@ -30,7 +32,7 @@ void CheckGLError(const char* func_name, int line_no) {
 #endif
 }
 
-GLuint LoadShaderFromStash(GLenum type, const char* stash){   
+
   CheckGLError("LoadShader", __LINE__);
   GLuint shader = glCreateShader(type);
   if (shader == 0) {

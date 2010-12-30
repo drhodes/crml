@@ -6,6 +6,7 @@
 #include "../gfx/layer.h"
 #include "../gfx/matrix.h"
 #include "../gfx/rect.h"
+#include "../gfx/shader.h"
 #include "../gfx/space_hash.h"
 #include "../gfx/sprite.h"
 #include "../gfx/text.h"

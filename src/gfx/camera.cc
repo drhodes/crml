@@ -1,5 +1,7 @@
 // -*- c++ -*-
-// _.-{{ crml }}-._
+// Copyright (c) 2010 Derek A. Rhodes. All rights reserved.
+// Use of this source code is governed by a BSD-style license that can be
+// found in the /crml/license directory. {{crml}}
 
 #ifndef CAMERA_CC
 #define CAMERA_CC
@@ -11,7 +13,12 @@ namespace crml {
 
 
 void Camera::DrawSprite(Sprite* spr){
-  if (spr) printf("Drawing %p\n", spr); 
+  if (spr) printf("Drawing %p\n", spr);
+  
+
+
+
+  
 }
 
 void Camera::DrawLayer(Layer& lyr){

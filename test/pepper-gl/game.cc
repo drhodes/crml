@@ -47,7 +47,8 @@ void RunOnce() {
   
   TgaLoader img;
   //img.LoadFromStash(img__munch_tga, sizeof(img__sun_tga));
-  img.LoadFromStash(img__gopher_tga, sizeof(img__gopher_tga));
+  //img.LoadFromStash(img__gopher_tga, sizeof(img__gopher_tga));
+  img.LoadFromStash(img__ring_tga, sizeof(img__ring_tga));
   //tga.LoadFromStash(img__rainbow4_tga, sizeof(img__rainbow4_tga));
 
   Sprite s1;
@@ -86,9 +87,7 @@ void RunOnce() {
   cam.DrawLayer(*clouds);  
   clouds->DeleteSprite(s2);
   cam.DrawLayer(*clouds);
-
-
-  
+    
   std::vector<Color> pixels = img.PixelVector();
   
   uint8* texels;
