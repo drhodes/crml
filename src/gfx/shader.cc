@@ -29,7 +29,7 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 POSSIBILITY OF SUCH DAMAGE.
 
 */
-  _.-{{crml}}-._
+_.-{{crml}}-._
 */
 
 #ifndef SHADER_CC
@@ -39,13 +39,11 @@ POSSIBILITY OF SUCH DAMAGE.
 namespace crml {
 
 void CheckGLError(const char* func_name, int line_no) {
-#ifndef NDEBUG
   GLenum error = GL_NO_ERROR;
   while ((error = glGetError()) != GL_NO_ERROR) {
     printf( "GL Error in %s at line %d: 0x%4x\n",
             func_name, line_no, error);
   }
-#endif
 }
 
 void Shader::Compile(GLuint shader, std::string err){
