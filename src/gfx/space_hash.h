@@ -51,6 +51,7 @@ namespace crml {
     Error(OK) {
       ClassName("SpaceHash");
       gridgap_ = gridgap;
+      num_rects_ = 0;
     }
     
     ~SpaceHash();    
@@ -60,12 +61,17 @@ namespace crml {
     void GetBuckets(Rect&);
     std::set<Rect*> GetNeighbors(Rect&);
         
-    int BucketCount(Rect& r);    
+    int BucketCount(Rect& r);
+    bool ContainsRect(Rect& r);
     Vector AlignTopLeft(Rect& r);
     Vector AlignBottomRight(Rect& r);
 
+    int32 NumRects();
+    
    private:
     /// IntPair -> set<Rect*>
+    int32 num_rects_;
+    
     SpaceMap space_;
 
     // A lookup table RectID -> BucketList

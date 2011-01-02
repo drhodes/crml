@@ -51,6 +51,10 @@ bool Layer::ContainsSprite(Sprite& s){
   return BucketCount(s) > 0;
 }
 
+int32 Layer::NumSprites(){
+  return NumRects();
+}
+
 void Layer::CamDistance(float64 d){
   cam_dist_ = d;
 }

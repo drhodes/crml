@@ -29,7 +29,7 @@ int main(){
   EQ(I.Multiply(m4).Equal(m4), true);
   EQ(m2.Multiply(m1).Equal(m2), true);
   Matrix2 mat;
-  Matrix2 mat;
+  
   Vector v1(1,1);  
   Vector v2(2,2);
   Vector v3(1,0);
@@ -67,10 +67,8 @@ int main(){
   // LOG(v14.ShowVector());  
   // EQ(mat.ShearX(2, v8).Equal(v13), true);  <-- not true.
 
-
-  // next check GlMatrix()  
+  // sanity check GlMatrix()  
   EQ((mat.GlMatrix() == mat.GlMatrix()), true);
-  //  EQ(mat.GlMatrix()[0] == mat., true);
   
   Rect r1(-50, -50, 50, 50);
   mat.Scale(2).Rotate(45).Transform(r1);
@@ -89,10 +87,6 @@ int main(){
   EQ(r2.TopRight().Equal(Vector(-20.000000, -10.000000)), true);
   EQ(r2.BottomLeft().Equal(Vector(20.000000, 10.000000)), true);
   EQ(r2.BottomRight().Equal(Vector(40.000000, 10.000000)), true);
-      
-
-
-  
   
   printf("\nDone.\n");
   return 0;

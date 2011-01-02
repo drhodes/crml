@@ -34,11 +34,13 @@ POSSIBILITY OF SUCH DAMAGE.
 #ifndef SPRITE_H_
 #define SPRITE_H_
 
+#include <GLES2/gl2.h>
 #include "../core/error.h"
 #include "../core/crmltypes.h"
 #include "./rect.h"
 #include "./tga_loader.h"
 #include "./matrix.h"
+#include "./shader.h"
 
 namespace crml {
 ERR_(SPRITE_ANGLE_NEGATIVE_NORMALIZE);
@@ -47,12 +49,16 @@ ERR_(SPRITE_ANGLE_OVERFLOW_NORMALIZE);
 class Sprite: public Error, public Rect {
 
  public:
-  explicit Sprite(): Error(OK) {
+  explicit Sprite():
+      Error(OK),      
+      Rect(0,0,100,100) {
     ClassName("Sprite");
     scale_ = 1;
     angle_ = 0; // 0 on unit circle. CCW is pos.
-    shear_ = 0; // todo 0 or 1 here? check the transformation
-    reflect_ = 1; // todo 0 or 1 here? check the transformation
+    shear_x_ = 0;
+    shear_y_ = 0;
+    scale_x_ = 0;
+    scale_y_ = 0;
     alpha_ = 255;
   };
   
@@ -64,46 +70,64 @@ class Sprite: public Error, public Rect {
   void SnapAngleDown();  
 
   float64 Scale();
-  float64 Shear();
+  float64 ScaleX();
+  float64 ScaleY();
+  float64 ShearX();
+  float64 ShearY();
   float64 Reflect();
   
   void Rotate(float64 angle);
   void Scale(float64 scale);
-  void Shear(float64 scale);
-  void Reflect(float64 scale);
-    
+  void ScaleX(float64 scale);
+  void ScaleY(float64 scale);
+  void ShearX(float64 scale);
+  void ShearY(float64 scale);
+
   std::vector<Color> PixelVector(); // opportunity for optimization.
 
-  void UpdateBoundingBox();
-  Matrix2 GetTransformationMatrix();
+  void UpdateBoundingBox(); 
+  void CopyGlMatrix(GLfloat* mat16);
   
   // need to move texel stuff to TgaLoader.
   // think about why this might not be a good idea.
   void LoadTexelArray();
   const uint8* TexelArray();
+
+  GLuint VertexShader();
+  GLuint FragmentShader();
+  GLuint Program();
+  GLuint Texture();
+  int TextureLoc();
+  GLuint WorldMatrixLoc();
+  GLuint Vbo();
+  GLsizei TexCoordOffset();
   
  private:
   // Prevent copy.
-  // allowing the = operator would introduce a false sense of
-  // what happening under the covers.  
+  // allowing the = operator would introduce a false sense of correctness.
   Sprite(const Sprite&);     
   Sprite& operator = (const Sprite&);
   // ------------------------------------------------------------------
   
   float64 scale_;
   bool scale_changed_;
+  float64 scale_x_;
+  bool scale_x_changed_;
+  float64 scale_y_;
+  bool scale_y_changed_;
   
   float64 angle_;
   bool angle_changed_;
   
-  float64 shear_;
-  bool shear_changed_;
-  
-  float64 reflect_;
-  bool reflect_changed_;
-   
+  float64 shear_x_;
+  bool shear_x_changed_;
+  float64 shear_y_;
+  bool shear_y_changed_;
+     
   uint8 alpha_;
-    
+
+  Shader shader_;
+  Matrix2 matrix_;
   TgaLoader* image_;
   const uint8* texels_;
   uint32 texels_size_;

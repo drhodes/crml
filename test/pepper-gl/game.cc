@@ -46,7 +46,7 @@ Event evt;
 Display dsp;
 Clock timer1, timer2;
 Color c;
-Font incon(fnt__inconsolata_otf);
+//Font incon(fnt__inconsolata_otf);
 int frame = 0;
 int fps = 15;
 uint32_t* pixels_;
@@ -57,14 +57,15 @@ int y = 1;
 LayerGroup lg;
 SpaceHash sh(32);
 float scale = 1;
-Camera cam;
+Camera cam(512,512);
 
 void RunOnce() {
   firstrun = false;  
   Error::DebugOn(); 
   dsp.Init();
-  cam.StretchRight(512);
-  cam.StretchBottom(512);
+  cam.StretchRight(1024);
+  cam.StretchBottom(1024);
+  cam.Move(-100, -100);
   
   glViewport(0, 0, dsp.Width(), dsp.Height());
   
@@ -87,20 +88,6 @@ void RunOnce() {
   s2.LoadImage(img);
   s2.Move(10, 10);
 
-  // Need to think about how the rect changes as the angle changes.
-  // not hard, but it needs to be done.
-  // maybe it's a bit more subtle.
-  // add a FindCenter of rect that returns a vector.
-  // add a method MatrixTransform to vector
-  // add a method MatrixTransform to Rect
-  // need to update all corners of rect.
-  // 
-  // Can these transforms be passed to opengl directly?
-  // Figure this out, it's a big piece.
-
-  
-  // s1.Angle(33);
-  
   //      
   // Layer->UpdateRects
   // should have automatic dirty sprite marking.
@@ -113,8 +100,6 @@ void RunOnce() {
   clouds->AddSprite(s2);
   
   cam.DrawLayer(*clouds);  
-  clouds->DeleteSprite(s2);
-  cam.DrawLayer(*clouds);
     
   std::vector<Color> pixels = img.PixelVector();
   
@@ -148,25 +133,13 @@ void Core::Main3D(){
     RunOnce();    
   }
 
-  //float temp = float(frame) / 15.0;  
+  auto clouds = lg.GetLayer("clouds");  
+  cam.DrawLayer(*clouds);
+
+
+  //printf("number of sprites: %d\n", clouds->NumSprites());
+  
   GLFromCPPDraw(scale);
-  
-  /*
-  if (timer1.ElapsedMilli() < 2){
-    return;
-  }  
-  timer1.Reset();
-  */
-    
-  //Layer* clouds = lg.GetLayer("clouds");
-  //clouds->Move(10,10);
-  
-  Text txt(txt__hello_txt, incon, 70);
-  txt.Move(40,40);  
-  //clouds->Draw(txt);
-  
-  txt.Move(50,50);
-  //clouds->Draw(txt);
 
   Vector p;
   

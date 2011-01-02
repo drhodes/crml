@@ -59,6 +59,7 @@ class Layer : public Rect, public SpaceHash {
   void AddSprite(Sprite& s);
   void DeleteSprite(Sprite& s);
   bool ContainsSprite(Sprite& s);
+  int32 NumSprites();
   
   float64 CamDistance();
   void CamDistance(float64 d);

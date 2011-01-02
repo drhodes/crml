@@ -36,6 +36,7 @@ POSSIBILITY OF SUCH DAMAGE.
 #include <algorithm>
 #include <utility> 
 #include "./space_hash.h"
+#include <assert.h>
 
 namespace crml {
 
@@ -87,9 +88,14 @@ int SpaceHash::BucketCount(Rect& r){
  * But there may be no way of avoiding it.
  */
 void SpaceHash::Add(Rect& r){
+  if (ContainsRect(r)){
+    SetReportErr("Tried to add a rect which already exists in this spacehash|layer");
+    return;
+  }
+  
   Vector tl = AlignTopLeft(r);
   Vector br = AlignBottomRight(r);
-  
+
   for (int y = tl.Y(); y <= br.Y(); y += gridgap_){
     for (int x = tl.X(); x <= br.X(); x += gridgap_){
       std::pair<int, int> key(x, y);
@@ -98,31 +104,45 @@ void SpaceHash::Add(Rect& r){
         space_[key] = std::set<Rect*>();
       }
       space_[key].insert(&r);
-
+    
       if (bucketmap_.count(r.Id()) == 0) {
         bucketmap_[r.Id()] = std::vector<FloatPair>();
       }
       bucketmap_[r.Id()].push_back(key);
-    }
+    }    
   }
+  num_rects_ += 1;
 }  
+
 
 /// Delete a rect from the space_hash.  This must delete from two private
 /// members: bucketmap_, which enables quick deletes, and space_ which contains
 /// organizes and stores all the rects in space
 /// @param r, The rect to delete
 /// @return void
-void SpaceHash::Delete(Rect& r){  
+
+void SpaceHash::Delete(Rect& r){
+  if (!ContainsRect(r)){
+    SetReportErr("Tried to remove a rect which does not exist in the space hash");
+    return;
+  }
+    
   std::vector<FloatPair> bm = bucketmap_[r.Id()];
   std::vector<FloatPair>::iterator it;  
-  
+
   for (it = bm.begin(); it < bm.end(); it++) {
     // need to delete r from this point in space_    
     space_[(*it)].erase(&r);
-    
-    //printf("deleting <%d, %d> from bucketmap_\n", (*it).first, (*it).second);        
+    //printf("deleting <%f, %f> from bucketmap_\n", (*it).first, (*it).second);    
     bucketmap_[r.Id()].erase(it);
-  }  
+  }
+  num_rects_ -= 1;
+}
+
+
+bool SpaceHash::ContainsRect(Rect& r){
+  printf("%s\n", r.ShowRect().c_str());
+  return BucketCount(r) > 0;
 }
 
 /// Retrieve a set<Rect> overlapping the Rect r
@@ -130,29 +150,45 @@ void SpaceHash::Delete(Rect& r){
 /// @return A set<Rect*> which overlaps with r
 std::set<Rect*> SpaceHash::GetNeighbors(Rect& r){
   bool is_temp_rect = false;
-  if (BucketCount(r) == 0){
+  if (!ContainsRect(r)){
     Add(r);
+    assert(ContainsRect(r));
     is_temp_rect = true;
   }
+
+  printf("a : num rects %d\n", int(NumRects()));
+  // What's going on here?
+  // we're getting a vector of pairs, where somehow a
+  // the rect bucketmap_.size() is being incremented by 1.
+  // this doesn't make sense because the code calls Id() which
+  // is just a getter.
+  // answer: the builtin [] operator on std::set creates an element.
   
   // get a vector of all the buckets a rect is in.
   std::vector<FloatPair> bm = bucketmap_[r.Id()];
+  printf("b : num rects %d\n", int(NumRects()));    
 
   // get the intersection of all those buckets
   std::set<Rect*> inter;
-  
+
   for (uint i = 0; i < bm.size(); i++) {    
     std::set_union( inter.begin(), inter.end(),
                     space_[bm[i]].begin(), space_[bm[i]].end(),
                     std::inserter(inter, inter.begin()) );
   }
-  
+
   if (is_temp_rect) {    
-    Delete(r);    
+    Delete(r);
   }
-  
+
   return inter;
 }
+
+int32 SpaceHash::NumRects(){
+  return num_rects_;
+}
+
+
 
 }       // namespace crml
 #endif  // SPACEHASH_CC

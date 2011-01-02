@@ -33,16 +33,21 @@ POSSIBILITY OF SUCH DAMAGE.
 #ifndef CAMERA_H_
 #define CAMERA_H_
 
+
+#include "../core/error.h"
+#include "../win/display.h"
 #include "./layer.h"
 #include "./rect.h"
-#include "../win/display.h"
+#include "./sprite.h"
+#include "./glutil.h"
 
 namespace crml {
+ERR_(CAMERA_NULL_SPRITE);
 
 class Camera: public Error, public Rect {
  public:
   explicit Camera(): Error(OK),
-                     Rect() {           
+                     Rect(0,0,100,100) {           
     ClassName("Camera");    
   }
   
@@ -59,6 +64,7 @@ class Camera: public Error, public Rect {
   }  
   //~Camera();
 
+  void DrawDraw(Sprite* spr);
   void DrawSprite(Sprite* spr);
   void DrawLayer(Layer& lyr);
 

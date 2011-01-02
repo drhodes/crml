@@ -11,7 +11,7 @@ using namespace crml;
 
 int main(){
   SpaceHash sh(64);
-
+    
   Rect r(0,0,100,100);
   Rect r2(20,20,100,100);
   Rect cam(-1000, -1000, 1000, 1000);
@@ -19,6 +19,7 @@ int main(){
   EQ(r.Id(), 0);
   EQ(r2.Id(), 1);
  
+  sh.Add(r);
   sh.Add(r);
   sh.Add(r2);
 
@@ -29,6 +30,11 @@ int main(){
 
   EQ(sh.GetNeighbors(r).size(), 2);
   EQ(sh.GetNeighbors(cam).size(), 3);
-  
+
+  for(int i=0; i<3; i++){
+    EQ(sh.GetNeighbors(r).size(), 2);
+    EQ(sh.GetNeighbors(cam).size(), 3);
+  }
+    
   return 0;
 }

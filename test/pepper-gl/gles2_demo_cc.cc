@@ -2,14 +2,12 @@
   -*- c++ -*-
   Copyright (c) 2009 The Chromium Authors. All rights reserved.
   Use of this source code is governed by a BSD-style license that can be
-  found in the /crml/license/google-bsd file
+  found in the /crml/license/google-bsd file  
 */  
-// #include "gles2_demo_cc.h"
 
 #include <math.h>
 #include <stdio.h>
 #include <GLES2/gl2.h>
-//#include "./media/media-blob.h"
 #include <string>
 #include <vector>
 #include <cstring>
@@ -22,7 +20,7 @@ namespace {
    these globals should be static members?
 */
 
-void CheckGLError(const char* func_name, int line_no) {
+void CheckGLError2(const char* func_name, int line_no) {
 #ifndef NDEBUG
   GLenum error = GL_NO_ERROR;
   while ((error = glGetError()) != GL_NO_ERROR) {
@@ -32,8 +30,8 @@ void CheckGLError(const char* func_name, int line_no) {
 #endif
 }
 
-
-  CheckGLError("LoadShader", __LINE__);
+GLuint LoadShaderFromStash(GLenum type, const char* stash) {
+CheckGLError2("LoadShader", __LINE__);
   GLuint shader = glCreateShader(type);
   if (shader == 0) {
     return 0;
@@ -60,7 +58,7 @@ void CheckGLError(const char* func_name, int line_no) {
  
 GLuint LoadShader(GLenum type, const char* shaderSrc) {
   //printf("gles2_demo_cc.cc -> GLuint LoadShader(GLenum type, const char* shaderSrc) {\n");
-  CheckGLError("LoadShader", __LINE__);
+  CheckGLError2("LoadShader", __LINE__);
   GLuint shader = glCreateShader(type);
   if (shader == 0) {
     return 0;
@@ -91,7 +89,7 @@ GLuint LoadShader(GLenum type, const char* shaderSrc) {
 void InitShaders() {
   //printf("gles2_demo_cc.cc -> void InitShaders() {\n");
 
-  CheckGLError("InitShaders", __LINE__);
+  CheckGLError2("InitShaders", __LINE__);
 
   GLuint vertexShader = LoadShaderFromStash(GL_VERTEX_SHADER, txt__gl_v_shader);
   GLuint fragmentShader = LoadShaderFromStash(GL_FRAGMENT_SHADER, txt__gl_f_shader);
@@ -180,13 +178,13 @@ void InitShaders() {
   glBufferSubData( GL_ARRAY_BUFFER, 0, sizeof(vertices), vertices);
   glBufferSubData( GL_ARRAY_BUFFER, crml::Display::g_texCoordOffset,
                    sizeof(texCoords), texCoords);
-  CheckGLError("InitShaders", __LINE__);
+  CheckGLError2("InitShaders", __LINE__);
 }
 
 /*
 GLuint CreateCheckerboardTexture() {
   //printf("gles2_demo_cc.cc -> GLuint CreateCheckerboardTexture() {\n");
-  CheckGLError("CreateCheckerboardTexture", __LINE__);
+  CheckGLError2("CreateCheckerboardTexture", __LINE__);
   static unsigned char texels[] = {
     255, 0, 0,
     0, 255, 0,
@@ -211,7 +209,7 @@ GLuint CreateCheckerboardTexture() {
   glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
   glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, 3, 3, 0, GL_RGB, GL_UNSIGNED_BYTE,
                texels);
-  CheckGLError("CreateCheckerboardTexture", __LINE__);
+  CheckGLError2("CreateCheckerboardTexture", __LINE__);
   return texture;
 }
 */
@@ -220,7 +218,7 @@ GLuint CreateCheckerboardTexture() {
 
 GLuint CreateCheckerboardTexture(uint8* texels, uint16 w, uint16 h) {
   //printf("gles2_demo_cc.cc -> GLuint CreateCheckerboardTexture() {\n");
-  CheckGLError("CreateCheckerboardTexture", __LINE__);
+  CheckGLError2("CreateCheckerboardTexture", __LINE__);
 
   GLuint texture;
   glGenTextures(1, &texture);
@@ -233,7 +231,7 @@ GLuint CreateCheckerboardTexture(uint8* texels, uint16 w, uint16 h) {
   //                                      w  h
   glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, w, h, 0, GL_RGBA, GL_UNSIGNED_BYTE,
                texels);
-  CheckGLError("CreateCheckerboardTexture", __LINE__);
+  CheckGLError2("CreateCheckerboardTexture", __LINE__);
   return texture;
 }
 
@@ -242,22 +240,22 @@ GLuint CreateCheckerboardTexture(uint8* texels, uint16 w, uint16 h) {
 /*
 void GLFromCPPInit() {
   printf("gles2_demo_cc.cc -> void GLFromCPPInit() {\n");
-  CheckGLError("GLFromCPPInit", __LINE__);
+  CheckGLError2("GLFromCPPInit", __LINE__);
   glClearColor(0.f, 0.f, .7f, 1.f);
   crml::Display::g_texture = CreateCheckerboardTexture();
   InitShaders();
-  CheckGLError("GLFromCPPInit", __LINE__);
+  CheckGLError2("GLFromCPPInit", __LINE__);
 }
 */
 
 void GLFromCPPInit(uint8* texels, uint16 w, uint16 h) {
   printf("gles2_demo_cc.cc -> void GLFromCPPInit() {\n");
-  CheckGLError("GLFromCPPInit", __LINE__);
+  CheckGLError2("GLFromCPPInit", __LINE__);
   //glClearColor(0.f, 0.f, .7f, 1.f);
   glClearColor(0.0f, 0.0f, 0.0f, 1.f);
   crml::Display::g_texture = CreateCheckerboardTexture(texels, w, h);
   InitShaders();
-  CheckGLError("GLFromCPPInit", __LINE__);
+  CheckGLError2("GLFromCPPInit", __LINE__);
 }
 
 
@@ -265,7 +263,7 @@ void GLFromCPPDraw(float scale) {
   //printf("gles2_demo_cc.cc -> void GLFromCPPDraw() {\n");
   const float kPi = 3.1415926535897932384626433832795f;
   
-  CheckGLError("GLFromCPPDraw", __LINE__);
+  CheckGLError2("GLFromCPPDraw", __LINE__);
   // TODO(kbr): base the angle on time rather than on ticks
   crml::Display::g_angle = (crml::Display::g_angle + 1) % 360;
   //crml::Display::g_angle = 0;//(crml::Display::g_angle + 1) % 360;`
@@ -304,11 +302,11 @@ void GLFromCPPDraw(float scale) {
   // Note: the viewport is automatically set up to cover the entire Canvas.
   // Clear the color buffer
   glClear(GL_COLOR_BUFFER_BIT);
-  CheckGLError("GLFromCPPDraw", __LINE__);
+  CheckGLError2("GLFromCPPDraw", __LINE__);
 
   // Use the program object
   glUseProgram(crml::Display::g_programObject);
-  CheckGLError("GLFromCPPDraw", __LINE__);
+  CheckGLError2("GLFromCPPDraw", __LINE__);
   
   // Set up the model matrix
   glUniformMatrix4fv(crml::Display::g_worldMatrixLoc, 1, GL_FALSE, rot_matrix);
@@ -320,20 +318,20 @@ void GLFromCPPDraw(float scale) {
   glEnableVertexAttribArray(1);
   glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 0,
                         reinterpret_cast<const void*>(crml::Display::g_texCoordOffset));
-  CheckGLError("GLFromCPPDraw", __LINE__);
+  CheckGLError2("GLFromCPPDraw", __LINE__);
   
   // Bind the texture to texture unit 0
   glBindTexture(GL_TEXTURE_2D, crml::Display::g_texture);
-  CheckGLError("GLFromCPPDraw", __LINE__);
+  CheckGLError2("GLFromCPPDraw", __LINE__);
   
   // Point the uniform sampler to texture unit 0
   glUniform1i(crml::Display::g_textureLoc, 0);
-  CheckGLError("GLFromCPPDraw", __LINE__);
+  CheckGLError2("GLFromCPPDraw", __LINE__);
   
   glDrawArrays(GL_TRIANGLES, 0, 6);
   //glDrawArrays(GL_TRIANGLES, 0, 3);
   
-  CheckGLError("GLFromCPPDraw", __LINE__);
+  CheckGLError2("GLFromCPPDraw", __LINE__);
   
   glFlush();
 }

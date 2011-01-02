@@ -38,12 +38,6 @@ POSSIBILITY OF SUCH DAMAGE.
 
 #include <string>
 
-/*
-  Needs to be rethought top to bottom.
-  This models a non rotatable rect.
-  the rect needs to rotate.
- */
-
 namespace crml {  
   class Rect {
    public:
@@ -60,7 +54,7 @@ namespace crml {
     Rect(Vector, Vector);
     Rect(Vector, Vector, Vector, Vector);
       
-    void CopyInto(Rect& other); // rethink 
+    void CopyInto(Rect& other);     
     
     void StretchLeft(float64 n);
     void StretchRight(float64 n);

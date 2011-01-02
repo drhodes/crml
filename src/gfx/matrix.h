@@ -33,6 +33,7 @@ POSSIBILITY OF SUCH DAMAGE.
 #ifndef MATRIX_H_
 #define MATRIX_H_
 
+#include <GLES2/gl2.h>
 #include "../core/crmltypes.h"
 #include "./vector.h"
 #include "./rect.h"
@@ -57,8 +58,7 @@ class Matrix2 {
   Vector Transform(Vector v);
   void Transform(Rect& v);
 
-  std::vector<float64> GlMatrix();
-
+  void CopyGlMatrix(GLfloat* mat16);
   std::vector<float64> GlMatrix();
   
   Matrix2 Scale(float64 s);

@@ -82,6 +82,13 @@ std::vector<float64> Matrix2::GlMatrix(){
   return std::vector<float64>(els, els + sizeof(els) / sizeof(float64));
 }
 
+void Matrix2::CopyGlMatrix(GLfloat* mat16){
+  mat16[0] = r1c1_;
+  mat16[1] = r1c2_;
+  mat16[4] = r2c1_;
+  mat16[5] = r2c2_;
+}
+
 // Scaling ------------------------------------------------------------------
 Matrix2 Matrix2::Scale(float64 s){
   Matrix2 result;
@@ -190,39 +197,12 @@ Vector Matrix2::ShearY(float64 n, Vector& v){
   return result.ShearY(n).Transform(v);
 }
 
+// Reflecting ------------------------------------------------------------------
 // Do some reading to see if this makes sense in 2d.
-// Reflecting 
 // Matrix2 Reflect(float64 n);
 // Vector Reflect(float64 n, Vector& v);
 // void ReflectUpdate(float64 n);
-
-Vector Matrix2::ShearX(float64 n, Vector& v){
-  Matrix2 result;
-  return result.ShearX(n).Transform(v);
-}
-
-// Shearing Y --------------------------------------------------------------
-Matrix2 Matrix2::ShearY(float64 n){
-  Matrix2 result;
-  result.r2c1_ = n;
-  return Multiply(result);
-}
-
-void Matrix2::ShearYUpdate(float64 n){
-  Matrix2 result = ShearY(n);
-  result.CopyInto(*this);                   
-}
-
-Vector Matrix2::ShearY(float64 n, Vector& v){
-  Matrix2 result;
-  return result.ShearY(n).Transform(v);
-}
-
-// Do some reading to see if this makes sense in 2d.
-// Reflecting 
-// Matrix2 Reflect(float64 n);
-// Vector Reflect(float64 n, Vector& v);
-// void ReflectUpdate(float64 n);
+// -----------------------------------------------------------------------
 
 Vector Matrix2::Transform(Vector v){
   float64 x = r1c1_ * v.X() + r1c2_ * v.Y();

@@ -1,5 +1,4 @@
-/*
-  -*- c++ -*-
+// -*- c++ -*-
 /* _.-{ license management }-._ 
 Copyright (c) 2010, Derek A. Rhodes
 All rights reserved.
@@ -29,8 +28,7 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 POSSIBILITY OF SUCH DAMAGE.
 
 */
-_.-{{crml}}-._
-*/
+// _.-{{crml}}-._
 
 #ifndef SHADER_CC
 #define SHADER_CC
@@ -38,15 +36,7 @@ _.-{{crml}}-._
 
 namespace crml {
 
-void CheckGLError(const char* func_name, int line_no) {
-  GLenum error = GL_NO_ERROR;
-  while ((error = glGetError()) != GL_NO_ERROR) {
-    printf( "GL Error in %s at line %d: 0x%4x\n",
-            func_name, line_no, error);
-  }
-}
-
-void Shader::Compile(GLuint shader, std::string err){
+GLuint Shader::Compile(GLuint shader, std::string err){
   // Compile the shader
   glCompileShader(shader);
   
@@ -59,11 +49,32 @@ void Shader::Compile(GLuint shader, std::string err){
     glGetShaderInfoLog(shader, sizeof(buffer), &length, buffer);
     std::string log(buffer, length);
 
-    SetReportErr(err);
     printf("Error compiling shader: %s\n", log.c_str());
     glDeleteShader(shader);
+    SetReportErr(err);
+  }
+  return shader;
+}
+
+void Shader::Link(){
+  // Link the program
+  glLinkProgram(program_);
+
+  // Check the link status
+  GLint linked;
+  
+  glGetProgramiv(program_, GL_LINK_STATUS, &linked);
+  if (linked == 0) {
+    char buffer[1024];
+    GLsizei length = 0;
+    glGetProgramInfoLog(program_, sizeof(buffer), &length, buffer);
+    std::string log(buffer, length);
+    printf("Error linking program: %s\n", log.c_str());
+    glDeleteProgram(program_);
+    SetReportErr(SHADER_LINKING_PROGRAM_FAILS);
   }
 }
+
 
 void Shader::LoadVertexShader(const char* stash){
   CheckGLError("LoadShader", __LINE__);
@@ -73,7 +84,7 @@ void Shader::LoadVertexShader(const char* stash){
   }
 
   glShaderSource(shader, 1, &stash, NULL);  
-  Compile(shader, SHADER_COMPILE_VERTEX_SHADER_FAILS);
+  vertex_shader_ = Compile(shader, SHADER_COMPILE_VERTEX_SHADER_FAILS);
 }
 
 void Shader::LoadFragmentShader(const char* stash){
@@ -84,9 +95,75 @@ void Shader::LoadFragmentShader(const char* stash){
   }
   
   glShaderSource(shader, 1, &stash, NULL);
-  Compile(shader, SHADER_COMPILE_FRAGMENT_SHADER_FAILS);
+  fragment_shader_ = Compile(shader, SHADER_COMPILE_FRAGMENT_SHADER_FAILS);
 }
- 
+
+void Shader::InitShaders() {
+  CheckGLError("InitShaders", __LINE__);
+
+  // Create the program object
+  program_ = glCreateProgram();
+  if (program_ == 0) {
+    SetReportErr(SHADER_CREATE_PROGRAM_FAILS);
+    return;
+  }
+  
+  glAttachShader(program_, vertex_shader_);
+  glAttachShader(program_, fragment_shader_);
+
+  // Bind crml::Display::g_Position to attribute 0
+  glBindAttribLocation(program_, 0, "crml::Display::g_Position");
+
+  // Bind crml::Display::g_TexCoord0 to attribute 1
+  glBindAttribLocation(program_, 1, "crml::Display::g_TexCoord0");
+
+  Link();
+  if (!Ok()) return;
+
+  world_matrix_loc_ = glGetUniformLocation(program_, "worldMatrix");
+  texture_loc_ = glGetUniformLocation(program_, "tex");
+  glGenBuffers(1, &vbo_);
+  glBindBuffer(GL_ARRAY_BUFFER, vbo_);
+  
+  static float vertices[] = {
+    /* bl */ -1, -1, 0,
+    /* br */ 1, -1, 0,
+    /* ur */ 1, 1, 0,
+    
+    /* bl */ -1, -1, 0,
+    /* ur */ 1, 1, 0,
+    /* ul */ -1, 1, 0,
+  };
+  
+  static float texCoords[] = {
+    0, 0,
+    1, 0,
+    1, 1,   
+    0, 0,
+    1, 1,
+    0, 1,
+  };
+  
+  tex_coord_offset_ = sizeof(vertices);
+  glBufferData( GL_ARRAY_BUFFER,
+                sizeof(vertices) + sizeof(texCoords),
+                NULL,
+                GL_STATIC_DRAW);
+  glBufferSubData( GL_ARRAY_BUFFER, 0, sizeof(vertices), vertices);
+  glBufferSubData( GL_ARRAY_BUFFER, tex_coord_offset_,
+                   sizeof(texCoords), texCoords);
+  CheckGLError("InitShaders", __LINE__);
+}
+  
+GLuint Shader::VertexShader() { return vertex_shader_;}
+GLuint Shader::FragmentShader() { return fragment_shader_;}
+GLuint Shader::Program() { return program_;}
+GLuint Shader::Texture() { return texture_;}
+int Shader::TextureLoc() { return texture_loc_;}
+GLuint Shader::WorldMatrixLoc() { return world_matrix_loc_;}
+GLuint Shader::Vbo() { return vbo_;}
+GLsizei Shader::TexCoordOffset() { return tex_coord_offset_;}
+
 }       // namespace crml
 #endif  // SHADER_CC
 

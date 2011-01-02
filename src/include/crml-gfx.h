@@ -2,6 +2,7 @@
 #include "../gfx/color.h"
 #include "../gfx/drawer.h"
 #include "../gfx/font.h"
+#include "../gfx/glutil.h"
 #include "../gfx/layer_group.h"
 #include "../gfx/layer.h"
 #include "../gfx/matrix.h"
