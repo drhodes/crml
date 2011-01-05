@@ -30,7 +30,6 @@ POSSIBILITY OF SUCH DAMAGE.
 */
 // _.-{{crml}}-._
 
-
 #ifndef SPRITE_H_
 #define SPRITE_H_
 
@@ -101,6 +100,14 @@ class Sprite: public Error, public Rect {
   GLuint WorldMatrixLoc();
   GLuint Vbo();
   GLsizei TexCoordOffset();
+
+  void MarkDirty();
+  void MarkClean();
+  bool IsDirty();
+  
+  // move this to private and wrap the GL functions which
+  // mutate it as methods on (class Shader)
+  Shader shader_;  
   
  private:
   // Prevent copy.
@@ -110,27 +117,26 @@ class Sprite: public Error, public Rect {
   // ------------------------------------------------------------------
   
   float64 scale_;
-  bool scale_changed_;
   float64 scale_x_;
-  bool scale_x_changed_;
   float64 scale_y_;
-  bool scale_y_changed_;
   
-  float64 angle_;
-  bool angle_changed_;
-  
+  float64 angle_;  
+
   float64 shear_x_;
-  bool shear_x_changed_;
   float64 shear_y_;
-  bool shear_y_changed_;
      
   uint8 alpha_;
 
-  Shader shader_;
   Matrix2 matrix_;
   TgaLoader* image_;
   const uint8* texels_;
   uint32 texels_size_;
+  
+  // If the sprite mutates it should be marked dirty.
+  // when the layer renders in the next frame
+  // only the dirty sprites should be updated in the spacehash
+  // which could be expensive.
+  bool dirty_;   
 };
 
 }       // namespace crml

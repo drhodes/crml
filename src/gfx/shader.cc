@@ -34,6 +34,7 @@ POSSIBILITY OF SUCH DAMAGE.
 #define SHADER_CC
 #include "./shader.h"
 
+
 namespace crml {
 
 GLuint Shader::Compile(GLuint shader, std::string err){
@@ -48,7 +49,6 @@ GLuint Shader::Compile(GLuint shader, std::string err){
     GLsizei length = 0;
     glGetShaderInfoLog(shader, sizeof(buffer), &length, buffer);
     std::string log(buffer, length);
-
     printf("Error compiling shader: %s\n", log.c_str());
     glDeleteShader(shader);
     SetReportErr(err);
@@ -56,8 +56,12 @@ GLuint Shader::Compile(GLuint shader, std::string err){
   return shader;
 }
 
+
 void Shader::Link(){
   // Link the program
+  glBindAttribLocation(program_, 0, "position_");
+  glBindAttribLocation(program_, 1, "tex_coord_0");
+  
   glLinkProgram(program_);
 
   // Check the link status
@@ -72,15 +76,24 @@ void Shader::Link(){
     printf("Error linking program: %s\n", log.c_str());
     glDeleteProgram(program_);
     SetReportErr(SHADER_LINKING_PROGRAM_FAILS);
+    exit(1);
   }
 }
 
+void Shader::CreateProgram() {
+  program_ = glCreateProgram();
+  if (program_ == 0) {
+    SetReportErr(SHADER_CREATE_PROGRAM_FAILS);
+    exit(1);
+  }
+}
 
 void Shader::LoadVertexShader(const char* stash){
   CheckGLError("LoadShader", __LINE__);
   GLuint shader = glCreateShader(GL_VERTEX_SHADER);
   if (shader == 0) {
     SetReportErr(SHADER_ALLOCATE_VERTEX_SHADER_FAILS);
+    exit(1);
   }
 
   glShaderSource(shader, 1, &stash, NULL);  
@@ -92,6 +105,7 @@ void Shader::LoadFragmentShader(const char* stash){
   GLuint shader = glCreateShader(GL_FRAGMENT_SHADER);
   if (shader == 0) {
     SetReportErr(SHADER_ALLOCATE_FRAGMENT_SHADER_FAILS);
+    exit(1);
   }
   
   glShaderSource(shader, 1, &stash, NULL);
@@ -100,22 +114,17 @@ void Shader::LoadFragmentShader(const char* stash){
 
 void Shader::InitShaders() {
   CheckGLError("InitShaders", __LINE__);
-
-  // Create the program object
-  program_ = glCreateProgram();
-  if (program_ == 0) {
-    SetReportErr(SHADER_CREATE_PROGRAM_FAILS);
-    return;
-  }
+  CreateProgram();  
+  UseProgram();
   
   glAttachShader(program_, vertex_shader_);
   glAttachShader(program_, fragment_shader_);
 
   // Bind crml::Display::g_Position to attribute 0
-  glBindAttribLocation(program_, 0, "crml::Display::g_Position");
+  // glBindAttribLocation(program_, 0, "crml::Display::g_Position");
 
   // Bind crml::Display::g_TexCoord0 to attribute 1
-  glBindAttribLocation(program_, 1, "crml::Display::g_TexCoord0");
+  // glBindAttribLocation(program_, 1, "crml::Display::g_TexCoord0");
 
   Link();
   if (!Ok()) return;
@@ -154,7 +163,13 @@ void Shader::InitShaders() {
                    sizeof(texCoords), texCoords);
   CheckGLError("InitShaders", __LINE__);
 }
-  
+
+void Shader::UseProgram(){
+  glUseProgram(program_);
+}
+
+
+
 GLuint Shader::VertexShader() { return vertex_shader_;}
 GLuint Shader::FragmentShader() { return fragment_shader_;}
 GLuint Shader::Program() { return program_;}

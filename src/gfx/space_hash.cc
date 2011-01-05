@@ -116,8 +116,8 @@ void SpaceHash::Add(Rect& r){
 
 
 /// Delete a rect from the space_hash.  This must delete from two private
-/// members: bucketmap_, which enables quick deletes, and space_ which contains
-/// organizes and stores all the rects in space
+/// members: bucketmap_, which provides quick lookups for fast deletes,
+/// and space_ which contains organizes and stores all the rects in space
 /// @param r, The rect to delete
 /// @return void
 
@@ -131,17 +131,18 @@ void SpaceHash::Delete(Rect& r){
   std::vector<FloatPair>::iterator it;  
 
   for (it = bm.begin(); it < bm.end(); it++) {
-    // need to delete r from this point in space_    
-    space_[(*it)].erase(&r);
-    //printf("deleting <%f, %f> from bucketmap_\n", (*it).first, (*it).second);    
-    bucketmap_[r.Id()].erase(it);
+    // need to delete r from point (*it) in space_
+    space_[*it].erase(&r);
   }
+  
+  bucketmap_.erase(r.Id());
   num_rects_ -= 1;
 }
 
-
+/// Is the Rect contained within this SpaceHash or Layer?
+/// @param A rect to test the existence of.
+/// @return boolean value
 bool SpaceHash::ContainsRect(Rect& r){
-  printf("%s\n", r.ShowRect().c_str());
   return BucketCount(r) > 0;
 }
 
@@ -150,30 +151,26 @@ bool SpaceHash::ContainsRect(Rect& r){
 /// @return A set<Rect*> which overlaps with r
 std::set<Rect*> SpaceHash::GetNeighbors(Rect& r){
   bool is_temp_rect = false;
+  
   if (!ContainsRect(r)){
     Add(r);
     assert(ContainsRect(r));
     is_temp_rect = true;
   }
-
-  printf("a : num rects %d\n", int(NumRects()));
-  // What's going on here?
-  // we're getting a vector of pairs, where somehow a
-  // the rect bucketmap_.size() is being incremented by 1.
-  // this doesn't make sense because the code calls Id() which
-  // is just a getter.
-  // answer: the builtin [] operator on std::set creates an element.
   
+  // clue: the builtin [] operator on std::map creates an element.
+
   // get a vector of all the buckets a rect is in.
   std::vector<FloatPair> bm = bucketmap_[r.Id()];
-  printf("b : num rects %d\n", int(NumRects()));    
 
   // get the intersection of all those buckets
   std::set<Rect*> inter;
 
   for (uint i = 0; i < bm.size(); i++) {    
-    std::set_union( inter.begin(), inter.end(),
-                    space_[bm[i]].begin(), space_[bm[i]].end(),
+    std::set_union( inter.begin(), // the accumulating set.
+                    inter.end(),
+                    space_[bm[i]].begin(), 
+                    space_[bm[i]].end(),
                     std::inserter(inter, inter.begin()) );
   }
 

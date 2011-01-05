@@ -35,7 +35,10 @@ POSSIBILITY OF SUCH DAMAGE.
 
 #include "../core/error.h"
 #include "../core/crmltypes.h"
+
 #include "./glutil.h"
+
+#include <stdlib.h>
 #include <stdio.h>
 
 namespace crml {
@@ -54,17 +57,21 @@ class Shader: public Error {
     texture_loc_ = -1;
     world_matrix_loc_ = 0;
     vbo_ = 0;
-    tex_coord_offset_ = 0;      
+    tex_coord_offset_ = 0;
+
+    // InitShaders();
   }
 
   GLuint Compile(GLuint shader, std::string err);
   void Link();
   void LoadVertexShader(const char* stash);
   void LoadFragmentShader(const char* stash);
+  void CreateProgram();
+  void UseProgram();
   void InitShaders();
-
+  
   GLuint VertexShader();
-  GLuint FragmentShader();
+  GLuint FragmentShader();  
   GLuint Program();
   GLuint Texture();
   int TextureLoc();
@@ -72,7 +79,7 @@ class Shader: public Error {
   GLuint Vbo();
   GLsizei TexCoordOffset();
 
- private:
+  // private:
   GLuint vertex_shader_;
   GLuint fragment_shader_;
   GLuint program_;

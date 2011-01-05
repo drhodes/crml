@@ -75,32 +75,21 @@ void RunOnce() {
   lg.Check();
   
   TgaLoader img;
-  //img.LoadFromStash(img__munch_tga, sizeof(img__sun_tga));
-  //img.LoadFromStash(img__gopher_tga, sizeof(img__gopher_tga));
   img.LoadFromStash(img__ring_tga, sizeof(img__ring_tga));
-  //tga.LoadFromStash(img__rainbow4_tga, sizeof(img__rainbow4_tga));
 
-  Sprite s1;
-  s1.LoadImage(img); 
-  s1.Rotate(10);
+  //Sprite s1;
+  //s1.LoadImage(img); 
+  //s1.Rotate(10);
+  //s1.shader_.LoadVertexShader(txt__gl_v_shader);
+  //s1.shader_.LoadFragmentShader(txt__gl_f_shader);
+  //s1.shader_.InitShaders();
   
-  Sprite s2;  
-  s2.LoadImage(img);
-  s2.Move(10, 10);
-
-  //      
-  // Layer->UpdateRects
-  // should have automatic dirty sprite marking.
-  // this will remove the rects from the spacehash and reinsert 
-  // to respect their change in position
-  // 
-
   Layer* clouds = lg.GetLayer("clouds");
-  clouds->AddSprite(s1);
-  clouds->AddSprite(s2);
+  //clouds->AddSprite(s1);
   
   cam.DrawLayer(*clouds);  
-    
+
+
   std::vector<Color> pixels = img.PixelVector();
   
   uint8* texels;
@@ -124,7 +113,7 @@ void RunOnce() {
   
   GLFromCPPInit(texels, img.Width(), img.Height());
   delete texels;
-  
+   
 }
 
 void Core::Main3D(){

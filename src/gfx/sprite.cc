@@ -90,7 +90,7 @@ void Sprite::Angle(float64 a){
   if (angle_ >= 360.0f)
     SetReportErr(SPRITE_ANGLE_OVERFLOW_NORMALIZE);  
   angle_ = a;
-  angle_changed_ = true;
+  MarkDirty();
 }
 
 float64 Sprite::Angle(){
@@ -116,35 +116,48 @@ void Sprite::Rotate(float64 a){
 
   // this needs to be tested.
     
-  angle_changed_ = true;
+  MarkDirty();
 }
 
 float64 Sprite::Scale(){ return scale_; }
 void Sprite::Scale(float64 s){
   matrix_.ScaleUpdate(s);
   scale_ += s;
-  scale_changed_ = true;
+  MarkDirty();
 }
 
 float64 Sprite::ScaleX(){ return scale_x_; }
 void Sprite::ScaleX(float64 s){
   matrix_.ScaleXUpdate(s);
   scale_x_ += s;
-  scale_x_changed_ = true;
+  MarkDirty();
 }
 
 float64 Sprite::ShearX(){ return shear_x_; }
 void Sprite::ShearX(float64 s){
   shear_x_ += s;
-  shear_x_changed_ = true;
+  MarkDirty();
 }
 
 float64 Sprite::ScaleY(){ return scale_y_; }
 void Sprite::ScaleY(float64 s){
   matrix_.ScaleYUpdate(s);
   scale_y_ += s;
-  scale_y_changed_ = true;
+  MarkDirty();
 }
+
+void Sprite::MarkDirty(){
+  dirty_ = true;
+}
+
+bool Sprite::IsDirty(){
+  return dirty_;
+}
+
+void Sprite::MarkClean(){
+  dirty_ = false;
+}
+
 
 GLuint Sprite::VertexShader() { return shader_.VertexShader(); }
 GLuint Sprite::FragmentShader() { return shader_.FragmentShader(); }

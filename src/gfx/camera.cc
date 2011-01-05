@@ -38,8 +38,7 @@ POSSIBILITY OF SUCH DAMAGE.
 namespace crml {
 
 void Camera::DrawSprite(Sprite* spr){
-  if (spr) printf("Drawing %p\n", spr);
- 
+  if (spr) printf("Drawing %p\n", spr); 
 }
 
 void Camera::DrawLayer(Layer& lyr){  
@@ -51,41 +50,40 @@ void Camera::DrawLayer(Layer& lyr){
   printf("%s\n", view.ShowRect().c_str());
 
   // a weird error.
-  /*
+
   std::set<Rect*> nbrs = lyr.GetNeighbors(view);
   std::set<Rect*>::iterator it;
 
   for ( it=nbrs.begin(); it != nbrs.end(); it++ ) {
     DrawDraw(static_cast<Sprite*>(*it));
   }
-  */
 }
 
-void Camera::DrawDraw(Sprite* spr) {
-  /*
+void Camera::DrawDraw(Sprite* spr) {  
   if (spr == 0) {
     SetReportErr(CAMERA_NULL_SPRITE);
     return;
   }
   
-  CheckGLError("GLFromCPPDraw", __LINE__);
+  CheckGLError("DrawDraw", __LINE__);
 
   GLfloat mat[16];
   spr->CopyGlMatrix(mat);
 
   // enable transparency.
-  glEnable (GL_BLEND);
-  glBlendFunc (GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-  
+  // glEnable (GL_BLEND);
+  // glBlendFunc (GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
   // Note: the viewport is automatically set up to cover the entire Canvas.
   // Clear the color buffer
-  glClear(GL_COLOR_BUFFER_BIT);
-  CheckGLError("GLFromCPPDraw", __LINE__);
-  
+  //glClear(GL_COLOR_BUFFER_BIT);
+  //CheckGLError("GLFromCPPDraw", __LINE__);
+
   // Use the program object
-  glUseProgram(spr->Program());
-  CheckGLError("GLFromCPPDraw", __LINE__);
-  
+  //glUseProgram(spr->shader_.program_);
+  //spr->shader_.UseProgram();
+  //CheckGLError("GLFromCPPDraw", __LINE__);
+  /*      
   // Set up the model matrix
   glUniformMatrix4fv(spr->WorldMatrixLoc(), 1, GL_FALSE, mat);
 
