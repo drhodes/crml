@@ -53,8 +53,7 @@ void Sprite::LoadImage(TgaLoader& tga){
   Move(0,0);  
   StretchRight(image_->Width());
   StretchBottom(image_->Height());
-  LoadTexelArray();
-  
+  LoadTexelArray();  
 }
 
 std::vector<Color> Sprite::PixelVector(){
@@ -65,22 +64,25 @@ void Sprite::CopyGlMatrix(GLfloat* mat16){
   matrix_.CopyGlMatrix(mat16);
 }
 
-void Sprite::LoadTexelArray(){
+void Sprite::LoadTexelArray(){  
   // this only works with RGBA pixels, must chane to work with RGB.
   std::vector<Color> pixels = PixelVector();
   
   texels_ = (uint8*)(malloc (pixels.size()*4));
-  uint8* cur = (uint8*)(texels_);
+  uint8* cur = texels_;
+
+  image_->GetImageType();
   
   printf("num pixels: %d\n", pixels.size()*4);  
   
   for (uint32 i=0; i < pixels.size(); i++){
-    *cur++ = pixels[i].Red();
-    *cur++ = pixels[i].Green();
-    *cur++ = pixels[i].Blue();
-    *cur++ = pixels[i].Alpha();      
+    *texels_++ = pixels[i].Red();
+    *texels_++ = pixels[i].Green();
+    *texels_++ = pixels[i].Blue();
+    *texels_++ = pixels[i].Alpha();      
   }
-  texels_size_ = pixels.size() * 4;
+
+  texels_ = cur;
 }
 
 // consider deep sixing this method.

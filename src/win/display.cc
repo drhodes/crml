@@ -122,7 +122,8 @@ int Display::Width(){
   return Core::self_->Width();
 }
 
-void Display::Init(){  
+void Display::Init(){
+  
   NPDeviceContext2DConfig config;
   NPDevice* device2d = Core::self_->Device2d();
   
@@ -133,10 +134,19 @@ void Display::Init(){
     }
   }
   device2d_ = device2d;
-
+    
   device3d_ = Core::self_->Device3d();
   pgl_context_ = Core::self_->PglContext();
   context3d_ = Core::self_->Context3d();
+
+  // Is this a good place for this gl call?
+  // probably, and all this 2D needs to go away.
+  // this entire module might be able to vanish
+  // since a window is not really a valid concept in browser.
+  //
+  //glViewport(0, 0, Width(), Height());  
+  //
+  //
   
   pixels_ = static_cast<uint32_t*>(context_.region);
   inited_ = true;

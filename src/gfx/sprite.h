@@ -108,6 +108,7 @@ class Sprite: public Error, public Rect {
   // move this to private and wrap the GL functions which
   // mutate it as methods on (class Shader)
   Shader shader_;  
+  uint8* texels_;
   
  private:
   // Prevent copy.
@@ -129,7 +130,7 @@ class Sprite: public Error, public Rect {
 
   Matrix2 matrix_;
   TgaLoader* image_;
-  const uint8* texels_;
+
   uint32 texels_size_;
   
   // If the sprite mutates it should be marked dirty.

@@ -49,13 +49,11 @@ Color c;
 //Font incon(fnt__inconsolata_otf);
 int frame = 0;
 int fps = 15;
-uint32_t* pixels_;
 bool firstrun = true;
 NPPepperEvent e;
 int x = 1;
 int y = 1;
 LayerGroup lg;
-SpaceHash sh(32);
 float scale = 1;
 Camera cam(512,512);
 
@@ -63,6 +61,7 @@ void RunOnce() {
   firstrun = false;  
   Error::DebugOn(); 
   dsp.Init();
+  
   cam.StretchRight(1024);
   cam.StretchBottom(1024);
   cam.Move(-100, -100);
@@ -77,43 +76,10 @@ void RunOnce() {
   TgaLoader img;
   img.LoadFromStash(img__ring_tga, sizeof(img__ring_tga));
 
-  //Sprite s1;
-  //s1.LoadImage(img); 
-  //s1.Rotate(10);
-  //s1.shader_.LoadVertexShader(txt__gl_v_shader);
-  //s1.shader_.LoadFragmentShader(txt__gl_f_shader);
-  //s1.shader_.InitShaders();
-  
-  Layer* clouds = lg.GetLayer("clouds");
-  //clouds->AddSprite(s1);
-  
-  cam.DrawLayer(*clouds);  
-
-
-  std::vector<Color> pixels = img.PixelVector();
-  
-  uint8* texels;
-  texels = (uint8*) (malloc (pixels.size()*4));
-  uint8* first = texels;
-  
-  printf("num pixels: %d\n", pixels.size()*4);  
-  
-  img.GetImageType();
-
-  for (uint32 i=0; i < pixels.size(); i++){
-    *texels++ = pixels[i].Red();
-    *texels++ = pixels[i].Green();
-    *texels++ = pixels[i].Blue();
-    *texels++ = pixels[i].Alpha();      
-  }
-  texels = first;
-  
-  printf("W: %d\n", img.Width());
-  printf("h: %d\n", img.Height());
-  
-  GLFromCPPInit(texels, img.Width(), img.Height());
-  delete texels;
-   
+  Sprite s1;
+  s1.LoadImage(img);
+    
+  GLFromCPPInit(s1.texels_, img.Width(), img.Height());
 }
 
 void Core::Main3D(){
@@ -124,7 +90,6 @@ void Core::Main3D(){
 
   auto clouds = lg.GetLayer("clouds");  
   cam.DrawLayer(*clouds);
-
 
   //printf("number of sprites: %d\n", clouds->NumSprites());
   
