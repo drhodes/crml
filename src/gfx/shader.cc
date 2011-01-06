@@ -56,7 +56,6 @@ GLuint Shader::Compile(GLuint shader, std::string err){
   return shader;
 }
 
-
 void Shader::Link(){
   // Link the program
   glBindAttribLocation(program_, 0, "position_");
@@ -127,7 +126,6 @@ void Shader::InitShaders() {
   // glBindAttribLocation(program_, 1, "crml::Display::g_TexCoord0");
 
   Link();
-  if (!Ok()) return;
 
   world_matrix_loc_ = glGetUniformLocation(program_, "worldMatrix");
   texture_loc_ = glGetUniformLocation(program_, "tex");
@@ -135,9 +133,9 @@ void Shader::InitShaders() {
   glBindBuffer(GL_ARRAY_BUFFER, vbo_);
   
   static float vertices[] = {
-    /* bl */ -1, -1, 0,
-    /* br */ 1, -1, 0,
-    /* ur */ 1, 1, 0,
+    -1, -1, 0, // bl
+    1, -1, 0,  // br
+    1, 1, 0,    /* ur */ 
     
     /* bl */ -1, -1, 0,
     /* ur */ 1, 1, 0,
@@ -167,7 +165,6 @@ void Shader::InitShaders() {
 void Shader::UseProgram(){
   glUseProgram(program_);
 }
-
 
 
 GLuint Shader::VertexShader() { return vertex_shader_;}

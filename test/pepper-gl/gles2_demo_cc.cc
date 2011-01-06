@@ -14,6 +14,12 @@
 #include <iostream>
 #include <sstream>
 
+#include <crml-core.h>
+#include <crml-win.h>
+#include <crml-sys.h>
+#include <crml-evt.h>
+#include <crml-gfx.h>
+
 namespace {
 
 /* when this is integrated into the display object
@@ -181,39 +187,6 @@ void InitShaders() {
   CheckGLError2("InitShaders", __LINE__);
 }
 
-/*
-GLuint CreateCheckerboardTexture() {
-  //printf("gles2_demo_cc.cc -> GLuint CreateCheckerboardTexture() {\n");
-  CheckGLError2("CreateCheckerboardTexture", __LINE__);
-  static unsigned char texels[] = {
-    255, 0, 0,
-    0, 255, 0,
-    123, 123, 255,
-    
-    0, 0, 255,
-    0, 123, 255,
-    123, 123, 123,
-    
-    0, 123, 255,
-    123, 123, 13,
-    123, 23, 123,
-  };
-  
-  GLuint texture;
-  glGenTextures(1, &texture);
-  glBindTexture(GL_TEXTURE_2D, texture);
-  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
-  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MACRML::DISPLAY::G_FILTER, GL_NEAREST);
-  glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
-  glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, 3, 3, 0, GL_RGB, GL_UNSIGNED_BYTE,
-               texels);
-  CheckGLError2("CreateCheckerboardTexture", __LINE__);
-  return texture;
-}
-*/
-
 
 
 GLuint CreateCheckerboardTexture(uint8* texels, uint16 w, uint16 h) {
@@ -237,28 +210,17 @@ GLuint CreateCheckerboardTexture(uint8* texels, uint16 w, uint16 h) {
 
 }  // anonymous namespace.
 
-/*
-void GLFromCPPInit() {
-  printf("gles2_demo_cc.cc -> void GLFromCPPInit() {\n");
-  CheckGLError2("GLFromCPPInit", __LINE__);
-  glClearColor(0.f, 0.f, .7f, 1.f);
-  crml::Display::g_texture = CreateCheckerboardTexture();
-  InitShaders();
-  CheckGLError2("GLFromCPPInit", __LINE__);
-}
-*/
-
 void GLFromCPPInit(uint8* texels, uint16 w, uint16 h) {
   printf("gles2_demo_cc.cc -> void GLFromCPPInit() {\n");
   CheckGLError2("GLFromCPPInit", __LINE__);
   //glClearColor(0.f, 0.f, .7f, 1.f);
-  glClearColor(0.0f, 0.0f, 0.0f, 1.f);
+  glClearColor(0.2f, 0.2f, 0.2f, 1.f);
+  //glClearColor(0.0f, 0.0f, 0.0f, 1.f);
   crml::Display::g_texture = CreateCheckerboardTexture(texels, w, h);
   InitShaders();
   CheckGLError2("GLFromCPPInit", __LINE__);
 }
-
-
+/*
 void GLFromCPPDraw(float scale) {
   //printf("gles2_demo_cc.cc -> void GLFromCPPDraw() {\n");
   const float kPi = 3.1415926535897932384626433832795f;
@@ -335,5 +297,92 @@ void GLFromCPPDraw(float scale) {
   
   glFlush();
 }
+*/
+
+void GLFromCPPDraw(crml::Sprite& spr) {
+  //printf("gles2_demo_cc.cc -> void GLFromCPPDraw() {\n");
+  //const float kPi = 3.1415926535897932384626433832795f;
+  
+  CheckGLError2("GLFromCPPDraw", __LINE__);
+  GLfloat rot_matrix[16];
+  spr.CopyGlMatrix(rot_matrix);
+
+  // enable transparency.
+  glEnable (GL_BLEND);
+  glBlendFunc (GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+  
+  // Note: the viewport is automatically set up to cover the entire Canvas.
+  // Clear the color buffer
+  glClear(GL_COLOR_BUFFER_BIT);
+  CheckGLError2("GLFromCPPDraw", __LINE__);
+
+  // Use the program object
+  glUseProgram(crml::Display::g_programObject);
+  CheckGLError2("GLFromCPPDraw", __LINE__);
+  
+  // Set up the model matrix
+  glUniformMatrix4fv(crml::Display::g_worldMatrixLoc, 1, GL_FALSE, rot_matrix);
+
+  // Load the vertex data
+  glBindBuffer(GL_ARRAY_BUFFER, crml::Display::g_vbo);
+  glEnableVertexAttribArray(0);
+  glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);
+  glEnableVertexAttribArray(1);
+  glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 0,
+                        reinterpret_cast<const void*>(crml::Display::g_texCoordOffset));
+  CheckGLError2("GLFromCPPDraw", __LINE__);
+  
+  // Bind the texture to texture unit 0
+  glBindTexture(GL_TEXTURE_2D, crml::Display::g_texture);
+  CheckGLError2("GLFromCPPDraw", __LINE__);
+  
+  // Point the uniform sampler to texture unit 0
+  glUniform1i(crml::Display::g_textureLoc, 0);
+  CheckGLError2("GLFromCPPDraw", __LINE__);
+  
+  glDrawArrays(GL_TRIANGLES, 0, 6);
+  //glDrawArrays(GL_TRIANGLES, 0, 3);
+  
+  CheckGLError2("GLFromCPPDraw", __LINE__);
+  
+  glFlush();
+}
 
 
+
+
+
+
+
+/*
+GLuint CreateCheckerboardTexture() {
+  //printf("gles2_demo_cc.cc -> GLuint CreateCheckerboardTexture() {\n");
+  CheckGLError2("CreateCheckerboardTexture", __LINE__);
+  static unsigned char texels[] = {
+    255, 0, 0,
+    0, 255, 0,
+    123, 123, 255,
+    
+    0, 0, 255,
+    0, 123, 255,
+    123, 123, 123,
+    
+    0, 123, 255,
+    123, 123, 13,
+    123, 23, 123,
+  };
+  
+  GLuint texture;
+  glGenTextures(1, &texture);
+  glBindTexture(GL_TEXTURE_2D, texture);
+  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MACRML::DISPLAY::G_FILTER, GL_NEAREST);
+  glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
+  glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, 3, 3, 0, GL_RGB, GL_UNSIGNED_BYTE,
+               texels);
+  CheckGLError2("CreateCheckerboardTexture", __LINE__);
+  return texture;
+}
+*/

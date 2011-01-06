@@ -45,9 +45,9 @@ using namespace crml;
 Event evt;
 Display dsp;
 Clock timer1, timer2;
-Color c;
 //Font incon(fnt__inconsolata_otf);
 int frame = 0;
+int totalframe = 0;
 int fps = 15;
 bool firstrun = true;
 NPPepperEvent e;
@@ -56,6 +56,7 @@ int y = 1;
 LayerGroup lg;
 float scale = 1;
 Camera cam(512,512);
+Sprite s1;
 
 void RunOnce() {
   firstrun = false;  
@@ -75,11 +76,13 @@ void RunOnce() {
   
   TgaLoader img;
   img.LoadFromStash(img__ring_tga, sizeof(img__ring_tga));
+  //img.LoadFromStash(img__gopher_tga, sizeof(img__gopher_tga));
+  s1.Scale(.1);
 
-  Sprite s1;
   s1.LoadImage(img);
     
   GLFromCPPInit(s1.texels_, img.Width(), img.Height());
+  //GLFromCPPInit2(s1)
 }
 
 void Core::Main3D(){
@@ -91,10 +94,16 @@ void Core::Main3D(){
   auto clouds = lg.GetLayer("clouds");  
   cam.DrawLayer(*clouds);
 
-  //printf("number of sprites: %d\n", clouds->NumSprites());
-  
-  GLFromCPPDraw(scale);
+  //GLFromCPPDraw(scale);
+  if ((totalframe % 200) < 100) {
+    s1.ScaleX(1.01);
+    //s1.ScaleY(.99);
+  } else {
+    s1.ScaleX(.99);
+    s1.ScaleY(1.005);
+  }    
 
+  GLFromCPPDraw(s1); 
   Vector p;
   
   while(evt.GetEvent(&e)) {
@@ -122,7 +131,7 @@ void Core::Main3D(){
     timer2.Reset();
   }
   frame += 1;
-
+  totalframe += 1;
 
 }
 

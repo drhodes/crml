@@ -135,11 +135,6 @@ void Sprite::ScaleX(float64 s){
   MarkDirty();
 }
 
-float64 Sprite::ShearX(){ return shear_x_; }
-void Sprite::ShearX(float64 s){
-  shear_x_ += s;
-  MarkDirty();
-}
 
 float64 Sprite::ScaleY(){ return scale_y_; }
 void Sprite::ScaleY(float64 s){
@@ -147,6 +142,22 @@ void Sprite::ScaleY(float64 s){
   scale_y_ += s;
   MarkDirty();
 }
+
+
+float64 Sprite::ShearX(){ return shear_x_; }
+void Sprite::ShearX(float64 s){
+  matrix_.ShearXUpdate(s);
+  shear_x_ += s;
+  MarkDirty();
+}
+
+float64 Sprite::ShearY(){ return shear_y_; }
+void Sprite::ShearY(float64 s){
+  matrix_.ShearYUpdate(s);
+  shear_y_ += s;
+  MarkDirty();
+}
+
 
 void Sprite::MarkDirty(){
   dirty_ = true;
@@ -159,6 +170,19 @@ bool Sprite::IsDirty(){
 void Sprite::MarkClean(){
   dirty_ = false;
 }
+
+/*
+void GLFromCPPInit(uint8* texels, uint16 w, uint16 h) {
+  printf("gles2_demo_cc.cc -> void GLFromCPPInit() {\n");
+  CheckGLError2("GLFromCPPInit", __LINE__);
+  //glClearColor(0.f, 0.f, .7f, 1.f);
+  glClearColor(0.7f, 0.7f, 0.7f, 1.f);
+  crml::Display::g_texture = CreateCheckerboardTexture(texels, w, h);
+  InitShaders();
+  CheckGLError2("GLFromCPPInit", __LINE__);
+}
+*/
+
 
 
 GLuint Sprite::VertexShader() { return shader_.VertexShader(); }

@@ -61,7 +61,7 @@ Matrix2 Matrix2::Multiply(Matrix2& other){
   return result;  
 }
 
-void Matrix2::CopyInto(Matrix2& other){
+void Matrix2::CopyInto(Matrix2& other){  
   other.r1c1_ = r1c1_;
   other.r1c2_ = r1c2_;
   other.r2c1_ = r2c1_;
@@ -83,10 +83,13 @@ std::vector<float64> Matrix2::GlMatrix(){
 }
 
 void Matrix2::CopyGlMatrix(GLfloat* mat16){
+  for (int i=0; i<16; i++) mat16[i] = 0;
   mat16[0] = r1c1_;
   mat16[1] = r1c2_;
   mat16[4] = r2c1_;
   mat16[5] = r2c2_;
+  mat16[10] = 1;
+  mat16[15] = 1;
 }
 
 // Scaling ------------------------------------------------------------------
@@ -124,6 +127,7 @@ void Matrix2::ScaleXUpdate(float64 s){
   r1c1_ *= s;
 }
 
+
 // Scaling Y ------------------------------------------------------------------
 Matrix2 Matrix2::ScaleY(float64 s){
   Matrix2 result;
@@ -140,6 +144,7 @@ Vector Matrix2::ScaleY(float64 s, Vector& v){
 void Matrix2::ScaleYUpdate(float64 s){
   r2c2_ *= s;
 }
+
 
 // Rotating ----------------------------------------------------------------
 Matrix2 Matrix2::Rotate(float64 theta){  
@@ -172,8 +177,8 @@ Matrix2 Matrix2::ShearX(float64 n){
 }
 
 void Matrix2::ShearXUpdate(float64 n){
-  Matrix2 result = ShearX(n);
-  result.CopyInto(*this);                   
+  Matrix2 result = ShearX(n);  
+  Multiply(result).CopyInto(*this);                   
 }
 Vector Matrix2::ShearX(float64 n, Vector& v){
   Matrix2 result;
@@ -189,7 +194,7 @@ Matrix2 Matrix2::ShearY(float64 n){
 
 void Matrix2::ShearYUpdate(float64 n){
   Matrix2 result = ShearY(n);
-  result.CopyInto(*this);                   
+  Multiply(result).CopyInto(*this);                   
 }
 
 Vector Matrix2::ShearY(float64 n, Vector& v){
@@ -229,6 +234,7 @@ void Matrix2::ShearX(float64 n, Rect& r) {
 void Matrix2::ShearY(float64 n, Rect& r) {
   Matrix2().ShearY(n).Transform(r);
 }
+
 // Rect Matrix2::Reflect(float64 n, Rect& r) {
 // }
 void Matrix2::Transform(Rect& r){
@@ -239,11 +245,13 @@ void Matrix2::Transform(Rect& r){
   r.BottomLeft(Transform(r.BottomLeft().Subtract(c)).Add(c));
   r.BottomRight(Transform(r.BottomRight().Subtract(c)).Add(c));
 }
+
 std::string Matrix2::ShowMatrix() {
   char buffer[100];  
   sprintf(buffer, "\n|%3.2f, %3.2f|\n|%3.2f, %3.2f|\n",
           r1c1_, r1c2_, r2c1_, r2c2_);  
   return std::string(buffer);
 }
+
 }       // namespace crml
 #endif  // MATRIX2_CC
