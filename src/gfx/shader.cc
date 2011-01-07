@@ -51,13 +51,17 @@ GLuint Shader::Compile(GLuint shader, std::string err){
     std::string log(buffer, length);
     printf("Error compiling shader: %s\n", log.c_str());
     glDeleteShader(shader);
-    SetReportErr(err);
+    SetReportDie(err);
   }
+ 
   return shader;
 }
 
 void Shader::Link(){
   // Link the program
+  glAttachShader(program_, vertex_shader_);
+  glAttachShader(program_, fragment_shader_);
+
   glBindAttribLocation(program_, 0, "position_");
   glBindAttribLocation(program_, 1, "tex_coord_0");
   
@@ -74,16 +78,14 @@ void Shader::Link(){
     std::string log(buffer, length);
     printf("Error linking program: %s\n", log.c_str());
     glDeleteProgram(program_);
-    SetReportErr(SHADER_LINKING_PROGRAM_FAILS);
-    exit(1);
+    SetReportDie(SHADER_LINKING_PROGRAM_FAILS);
   }
 }
 
 void Shader::CreateProgram() {
   program_ = glCreateProgram();
   if (program_ == 0) {
-    SetReportErr(SHADER_CREATE_PROGRAM_FAILS);
-    exit(1);
+    SetReportDie(SHADER_CREATE_PROGRAM_FAILS);
   }
 }
 
@@ -91,8 +93,7 @@ void Shader::LoadVertexShader(const char* stash){
   CheckGLError("LoadShader", __LINE__);
   GLuint shader = glCreateShader(GL_VERTEX_SHADER);
   if (shader == 0) {
-    SetReportErr(SHADER_ALLOCATE_VERTEX_SHADER_FAILS);
-    exit(1);
+    SetReportDie(SHADER_ALLOCATE_VERTEX_SHADER_FAILS);
   }
 
   glShaderSource(shader, 1, &stash, NULL);  
@@ -103,8 +104,7 @@ void Shader::LoadFragmentShader(const char* stash){
   CheckGLError("LoadShader", __LINE__);
   GLuint shader = glCreateShader(GL_FRAGMENT_SHADER);
   if (shader == 0) {
-    SetReportErr(SHADER_ALLOCATE_FRAGMENT_SHADER_FAILS);
-    exit(1);
+    SetReportDie(SHADER_ALLOCATE_FRAGMENT_SHADER_FAILS);
   }
   
   glShaderSource(shader, 1, &stash, NULL);
@@ -116,8 +116,8 @@ void Shader::InitShaders() {
   CreateProgram();  
   UseProgram();
   
-  glAttachShader(program_, vertex_shader_);
-  glAttachShader(program_, fragment_shader_);
+  //glAttachShader(program_, vertex_shader_);
+  //glAttachShader(program_, fragment_shader_);
 
   // Bind crml::Display::g_Position to attribute 0
   // glBindAttribLocation(program_, 0, "crml::Display::g_Position");
@@ -131,15 +131,17 @@ void Shader::InitShaders() {
   texture_loc_ = glGetUniformLocation(program_, "tex");
   glGenBuffers(1, &vbo_);
   glBindBuffer(GL_ARRAY_BUFFER, vbo_);
-  
+
+
+  // these are coordinate in gl space.
+  // 
   static float vertices[] = {
     -1, -1, 0, // bl
-    1, -1, 0,  // br
-    1, 1, 0,    /* ur */ 
-    
-    /* bl */ -1, -1, 0,
-    /* ur */ 1, 1, 0,
-    /* ul */ -1, 1, 0,
+    +1, -1, 0, // br
+    +1, +1, 0, // ur     
+    -1, -1, 0, // bl
+    +1, +1, 0, // ur
+    -1, +1, 0, // ul
   };
   
   static float texCoords[] = {
@@ -155,7 +157,7 @@ void Shader::InitShaders() {
   glBufferData( GL_ARRAY_BUFFER,
                 sizeof(vertices) + sizeof(texCoords),
                 NULL,
-                GL_STATIC_DRAW);
+                GL_STATIC_DRAW);  
   glBufferSubData( GL_ARRAY_BUFFER, 0, sizeof(vertices), vertices);
   glBufferSubData( GL_ARRAY_BUFFER, tex_coord_offset_,
                    sizeof(texCoords), texCoords);
@@ -170,7 +172,6 @@ void Shader::UseProgram(){
 GLuint Shader::VertexShader() { return vertex_shader_;}
 GLuint Shader::FragmentShader() { return fragment_shader_;}
 GLuint Shader::Program() { return program_;}
-GLuint Shader::Texture() { return texture_;}
 int Shader::TextureLoc() { return texture_loc_;}
 GLuint Shader::WorldMatrixLoc() { return world_matrix_loc_;}
 GLuint Shader::Vbo() { return vbo_;}

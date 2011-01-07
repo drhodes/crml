@@ -78,6 +78,8 @@ void Error::Check(){
   }        
 }
 
+
+
 bool Error::Ok(){
   return Err() == OK;
 }
@@ -88,6 +90,15 @@ void Error::SetReportErr(ErrString es){
   Err(es);
   ReportErr();  
 }
+
+
+void Error::SetReportDie(ErrString es){
+  Err(es);
+  ReportErr();
+  exit(1);
+}
+
+
 
 }       // namespace crml
 #endif  // ERROR_CC

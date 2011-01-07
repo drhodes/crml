@@ -22,10 +22,6 @@
 
 namespace {
 
-/* when this is integrated into the display object
-   these globals should be static members?
-*/
-
 void CheckGLError2(const char* func_name, int line_no) {
 #ifndef NDEBUG
   GLenum error = GL_NO_ERROR;
@@ -220,6 +216,34 @@ void GLFromCPPInit(uint8* texels, uint16 w, uint16 h) {
   InitShaders();
   CheckGLError2("GLFromCPPInit", __LINE__);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*
 void GLFromCPPDraw(float scale) {
   //printf("gles2_demo_cc.cc -> void GLFromCPPDraw() {\n");

@@ -1,4 +1,5 @@
 // Copyright 2010 <Derek A. Rhodes> All Rights Reseverd.
+
 #ifndef ERROR_H_
 #define ERROR_H_
 
@@ -6,7 +7,7 @@
 #include "./error_macro.cc"
 
 namespace crml {
-  ERR_(OK);
+  ERR_(OK);  // ERR_ is a macro, which here creates an error string: "OK"
   
   class Error {
    public:
@@ -29,6 +30,7 @@ namespace crml {
     void Err(ErrString es);
     void ReportErr();
     void SetReportErr(ErrString es);
+    void SetReportDie(ErrString es);
     void Check();
     
     void ClassName(std::string cn){

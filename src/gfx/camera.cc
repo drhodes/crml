@@ -50,7 +50,6 @@ void Camera::DrawLayer(Layer& lyr){
   printf("%s\n", view.ShowRect().c_str());
 
   // a weird error.
-
   std::set<Rect*> nbrs = lyr.GetNeighbors(view);
   std::set<Rect*>::iterator it;
 
@@ -69,48 +68,6 @@ void Camera::DrawDraw(Sprite* spr) {
 
   GLfloat mat[16];
   spr->CopyGlMatrix(mat);
-
-  // enable transparency.
-  // glEnable (GL_BLEND);
-  // glBlendFunc (GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-
-  // Note: the viewport is automatically set up to cover the entire Canvas.
-  // Clear the color buffer
-  //glClear(GL_COLOR_BUFFER_BIT);
-  //CheckGLError("GLFromCPPDraw", __LINE__);
-
-  // Use the program object
-  //glUseProgram(spr->shader_.program_);
-  //spr->shader_.UseProgram();
-  //CheckGLError("GLFromCPPDraw", __LINE__);
-  /*      
-  // Set up the model matrix
-  glUniformMatrix4fv(spr->WorldMatrixLoc(), 1, GL_FALSE, mat);
-
-  // Load the vertex data
-  glBindBuffer(GL_ARRAY_BUFFER, spr->Vbo());
-  glEnableVertexAttribArray(0);
-  glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);
-  glEnableVertexAttribArray(1);
-  glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 0,
-                        reinterpret_cast<const void*>(spr->TexCoordOffset()));
-  CheckGLError("GLFromCPPDraw", __LINE__);
-  
-  // Bind the texture to texture unit 0
-  glBindTexture(GL_TEXTURE_2D, spr->Texture());
-  CheckGLError("GLFromCPPDraw", __LINE__);
-  
-  // Point the uniform sampler to texture unit 0
-  glUniform1i(spr->TextureLoc(), 0);
-  CheckGLError("GLFromCPPDraw", __LINE__);
-  
-  glDrawArrays(GL_TRIANGLES, 0, 6);
-  //glDrawArrays(GL_TRIANGLES, 0, 3);
-  
-  CheckGLError("GLFromCPPDraw", __LINE__);
-  
-  glFlush();
-  */
 }
 
 

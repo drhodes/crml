@@ -86,7 +86,9 @@ class Sprite: public Error, public Rect {
 
   void UpdateBoundingBox(); 
   void CopyGlMatrix(GLfloat* mat16);
-  
+  void CreateTexture();
+  void SetShader(Shader shdr);
+    
   // need to move texel stuff to TgaLoader.
   // think about why this might not be a good idea.
   void LoadTexelArray();
@@ -101,6 +103,7 @@ class Sprite: public Error, public Rect {
   GLuint Vbo();
   GLsizei TexCoordOffset();
 
+  
   void MarkDirty();
   void MarkClean();
   bool IsDirty();
@@ -109,6 +112,7 @@ class Sprite: public Error, public Rect {
   // mutate it as methods on (class Shader)
   Shader shader_;  
   uint8* texels_;
+  GLuint texture_;
   
  private:
   // Prevent copy.
@@ -132,7 +136,7 @@ class Sprite: public Error, public Rect {
   TgaLoader* image_;
 
   uint32 texels_size_;
-  
+
   // If the sprite mutates it should be marked dirty.
   // when the layer renders in the next frame
   // only the dirty sprites should be updated in the spacehash

@@ -52,8 +52,7 @@ ERR_(SHADER_LINKING_PROGRAM_FAILS);
 class Shader: public Error {
  public:
   explicit Shader() : Error(OK){
-    ClassName("Shader");
-    texture_ = 0;
+    ClassName("Shader");    
     texture_loc_ = -1;
     world_matrix_loc_ = 0;
     vbo_ = 0;
@@ -62,18 +61,19 @@ class Shader: public Error {
     // InitShaders();
   }
 
-  GLuint Compile(GLuint shader, std::string err);
-  void Link();
   void LoadVertexShader(const char* stash);
   void LoadFragmentShader(const char* stash);
   void CreateProgram();
+  GLuint Compile(GLuint shader, std::string err);
+
+  
+  void Link();
   void UseProgram();
   void InitShaders();
   
   GLuint VertexShader();
   GLuint FragmentShader();  
   GLuint Program();
-  GLuint Texture();
   int TextureLoc();
   GLuint WorldMatrixLoc();
   GLuint Vbo();
@@ -83,7 +83,7 @@ class Shader: public Error {
   GLuint vertex_shader_;
   GLuint fragment_shader_;
   GLuint program_;
-  GLuint texture_;
+  //GLuint texture_;
   int texture_loc_;
   GLuint world_matrix_loc_;
   GLuint vbo_;

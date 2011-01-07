@@ -55,6 +55,7 @@ int x = 1;
 int y = 1;
 LayerGroup lg;
 float scale = 1;
+Shader shdr;
 Camera cam(512,512);
 Sprite s1;
 
@@ -70,16 +71,22 @@ void RunOnce() {
   glViewport(0, 0, dsp.Width(), dsp.Height());
   
   lg.AddTop("clouds");
-  lg.AddTop("stars");
-  lg.AddBottom("background");  
   lg.Check();
-  
+
+  shdr.CreateProgram();
+  shdr.LoadVertexShader(txt__gl_v_shader);
+  shdr.LoadFragmentShader(txt__gl_f_shader);
+  shdr.Link();
+  shdr.UseProgram();
+   
   TgaLoader img;
-  img.LoadFromStash(img__ring_tga, sizeof(img__ring_tga));
-  //img.LoadFromStash(img__gopher_tga, sizeof(img__gopher_tga));
-  s1.Scale(.1);
+  //img.LoadFromStash(img__ring_tga, sizeof(img__ring_tga));
+  img.LoadFromStash(img__gopher_tga, sizeof(img__gopher_tga));
 
   s1.LoadImage(img);
+  s1.SetShader(shdr);
+  s1.CreateTexture();
+  s1.Scale(.5);
     
   GLFromCPPInit(s1.texels_, img.Width(), img.Height());
   //GLFromCPPInit2(s1)
@@ -95,12 +102,12 @@ void Core::Main3D(){
   cam.DrawLayer(*clouds);
 
   //GLFromCPPDraw(scale);
-  if ((totalframe % 200) < 100) {
-    s1.ScaleX(1.01);
-    //s1.ScaleY(.99);
+  if ((totalframe % 50) <= 25) {
+    s1.ScaleX(1.03);
+    s1.ScaleY(.97);
   } else {
-    s1.ScaleX(.99);
-    s1.ScaleY(1.005);
+    s1.ScaleX(.97);
+    s1.ScaleY(1.03);
   }    
 
   GLFromCPPDraw(s1); 

@@ -171,20 +171,43 @@ void Sprite::MarkClean(){
   dirty_ = false;
 }
 
-/*
-void GLFromCPPInit(uint8* texels, uint16 w, uint16 h) {
-  printf("gles2_demo_cc.cc -> void GLFromCPPInit() {\n");
-  CheckGLError2("GLFromCPPInit", __LINE__);
-  //glClearColor(0.f, 0.f, .7f, 1.f);
-  glClearColor(0.7f, 0.7f, 0.7f, 1.f);
-  crml::Display::g_texture = CreateCheckerboardTexture(texels, w, h);
-  InitShaders();
-  CheckGLError2("GLFromCPPInit", __LINE__);
+void Sprite::SetShader(Shader shdr){
+  shader_ = shdr;
 }
-*/
+
+void Sprite::CreateTexture(){
+  //printf("gles2_demo_cc.cc -> GLuint CreateCheckerboardTexture() {\n");
+  CheckGLError("Sprite::CreateTexture", __LINE__);
+  
+  glGenTextures(1, &texture_);
+  glBindTexture(GL_TEXTURE_2D, texture_);
+  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+  glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
 
 
+  if (image_ == 0) {
+    SetReportDie("Null Image in Sprite");
+  }
 
+  int32 h = 0, w = 0;
+  
+  if (image_->Ok()) {
+    h = image_->Height();
+    w = image_->Width();
+  } else {
+    image_->Check();
+  }
+
+  glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA,
+               w, h,
+               0, GL_RGBA, GL_UNSIGNED_BYTE, texels_);
+  CheckGLError("Sprite::CreateTexture", __LINE__);
+}
+
+/*
 GLuint Sprite::VertexShader() { return shader_.VertexShader(); }
 GLuint Sprite::FragmentShader() { return shader_.FragmentShader(); }
 GLuint Sprite::Program() { return shader_.Program(); }
@@ -193,6 +216,7 @@ int Sprite::TextureLoc() { return shader_.TextureLoc(); }
 GLuint Sprite::WorldMatrixLoc() { return shader_.WorldMatrixLoc(); }
 GLuint Sprite::Vbo() { return shader_.Vbo(); }
 GLsizei Sprite::TexCoordOffset() { return shader_.TexCoordOffset(); }
+*/
 
 }       // namespace crml
 #endif  // SPRITE_CC
