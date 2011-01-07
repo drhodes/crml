@@ -60,12 +60,27 @@ class Shader: public Error {
 
     // InitShaders();
   }
-
+    
+  explicit Shader(const char* vert_shader,
+                  const char* frag_shader) : Error(OK){
+    ClassName("Shader");    
+    texture_loc_ = -1;
+    world_matrix_loc_ = 0;
+    vbo_ = 0;
+    tex_coord_offset_ = 0;
+        
+    CreateProgram();
+    LoadVertexShader(vert_shader);
+    LoadFragmentShader(frag_shader);
+    Link();
+    UseProgram();
+    InitShaders();        
+  }
+  
   void LoadVertexShader(const char* stash);
   void LoadFragmentShader(const char* stash);
   void CreateProgram();
   GLuint Compile(GLuint shader, std::string err);
-
   
   void Link();
   void UseProgram();

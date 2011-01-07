@@ -128,11 +128,12 @@ NPError NPP_SetWindow(NPP instance, NPWindow* window) {
     obj->SetWindow(*window);
 
     /* crml changes.
-      Need to figure out a better way to do this when the next
-      sdk is released.
+       Need to figure out a better way to do this when the next
+       sdk is released.
     */   
     crml::Core::self_->SetPlugin(obj);
     crml::Core::self_->Check();
+    // crml changes end.
   }
   
   return NPERR_NO_ERROR;

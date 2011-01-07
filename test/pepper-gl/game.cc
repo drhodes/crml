@@ -34,9 +34,6 @@ POSSIBILITY OF SUCH DAMAGE.
 #include <crml-evt.h>
 #include <crml-gfx.h>
 
-#include <sstream>
-#include <iostream>
-
 #include <media-blob.h>
 #include "./gles2_demo_cc.cc"
 
@@ -54,60 +51,43 @@ NPPepperEvent e;
 int x = 1;
 int y = 1;
 LayerGroup lg;
-float scale = 1;
-Shader shdr;
 Camera cam(512,512);
 Sprite s1;
 
 void RunOnce() {
-  firstrun = false;  
-  Error::DebugOn(); 
+  Error::DebugOn();  
+  firstrun=false;
   dsp.Init();
   
   cam.StretchRight(1024);
   cam.StretchBottom(1024);
   cam.Move(-100, -100);
   
-  glViewport(0, 0, dsp.Width(), dsp.Height());
-  
   lg.AddTop("clouds");
   lg.Check();
 
-  shdr.CreateProgram();
-  shdr.LoadVertexShader(txt__gl_v_shader);
-  shdr.LoadFragmentShader(txt__gl_f_shader);
-  shdr.Link();
-  shdr.UseProgram();
-  shdr.InitShaders();
-  
+  Shader shdr(txt__gl_v_shader, txt__gl_f_shader);  
   TgaLoader img;
-  //img.LoadFromStash(img__ring_tga, sizeof(img__ring_tga));
-  img.LoadFromStash(img__gopher_tga, sizeof(img__gopher_tga));
+  img.LoadFromStash(img__ring_tga, sizeof(img__ring_tga));
+  //img.LoadFromStash(img__gopher_tga, sizeof(img__gopher_tga));
 
   s1.LoadImage(img);
   s1.SetShader(shdr);
   s1.CreateTexture();
-  s1.Scale(.5);
-  
-  //GLFromCPPInit(s1.texels_, img.Width(), img.Height());
-  //GLFromCPPInit2(s1)
+  s1.Scale(.5);  
 }
 
 void Core::Main3D(){
-  if (firstrun) {
-    firstrun=false;
-    RunOnce();    
-  }
+  if (firstrun) { RunOnce(); }
 
   auto clouds = lg.GetLayer("clouds");  
   cam.DrawLayer(*clouds);
 
-  //GLFromCPPDraw(scale);
-  if ((totalframe % 50) <= 25) {
+  if ((totalframe % 51) < 25 ) {
     s1.ScaleX(1.03);
-    s1.ScaleY(.97);
+    s1.ScaleY(.970873786);
   } else {
-    s1.ScaleX(.97);
+    s1.ScaleX(.970873786);
     s1.ScaleY(1.03);
   }    
 
@@ -121,9 +101,9 @@ void Core::Main3D(){
         y = e.u.mouse.y;
         p.XY(x, y);      
         break;
+        
       case NPEventType_MouseMove:        
         x = e.u.mouse.x;
-        scale = x / 100.0;
         break;
         
       case NPEventType_KeyDown: 
@@ -140,7 +120,6 @@ void Core::Main3D(){
   }
   frame += 1;
   totalframe += 1;
-
 }
 
 void Core::MainLoop() {    

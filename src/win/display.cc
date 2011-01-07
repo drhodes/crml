@@ -147,7 +147,8 @@ void Display::Init(){
   //glViewport(0, 0, Width(), Height());  
   //
   //
-  
+
+  glViewport(0, 0, Width(), Height());
   pixels_ = static_cast<uint32_t*>(context_.region);
   inited_ = true;
 }
