@@ -53,7 +53,7 @@ GLuint Shader::Compile(GLuint shader, std::string err){
     glDeleteShader(shader);
     SetReportDie(err);
   }
- 
+  
   return shader;
 }
 
@@ -80,6 +80,11 @@ void Shader::Link(){
     glDeleteProgram(program_);
     SetReportDie(SHADER_LINKING_PROGRAM_FAILS);
   }
+
+  world_matrix_loc_ = glGetUniformLocation(program_, "world_matrix");
+  texture_loc_ = glGetUniformLocation(program_, "tex");
+  glGenBuffers(1, &vbo_);
+  glBindBuffer(GL_ARRAY_BUFFER, vbo_);
 }
 
 void Shader::CreateProgram() {
@@ -113,25 +118,11 @@ void Shader::LoadFragmentShader(const char* stash){
 
 void Shader::InitShaders() {
   CheckGLError("InitShaders", __LINE__);
-  CreateProgram();  
-  UseProgram();
-  
-  //glAttachShader(program_, vertex_shader_);
-  //glAttachShader(program_, fragment_shader_);
-
-  // Bind crml::Display::g_Position to attribute 0
-  // glBindAttribLocation(program_, 0, "crml::Display::g_Position");
-
-  // Bind crml::Display::g_TexCoord0 to attribute 1
-  // glBindAttribLocation(program_, 1, "crml::Display::g_TexCoord0");
-
-  Link();
 
   world_matrix_loc_ = glGetUniformLocation(program_, "worldMatrix");
   texture_loc_ = glGetUniformLocation(program_, "tex");
   glGenBuffers(1, &vbo_);
   glBindBuffer(GL_ARRAY_BUFFER, vbo_);
-
 
   // these are coordinate in gl space.
   // 

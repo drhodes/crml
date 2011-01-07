@@ -78,7 +78,8 @@ void RunOnce() {
   shdr.LoadFragmentShader(txt__gl_f_shader);
   shdr.Link();
   shdr.UseProgram();
-   
+  shdr.InitShaders();
+  
   TgaLoader img;
   //img.LoadFromStash(img__ring_tga, sizeof(img__ring_tga));
   img.LoadFromStash(img__gopher_tga, sizeof(img__gopher_tga));
@@ -87,8 +88,8 @@ void RunOnce() {
   s1.SetShader(shdr);
   s1.CreateTexture();
   s1.Scale(.5);
-    
-  GLFromCPPInit(s1.texels_, img.Width(), img.Height());
+  
+  //GLFromCPPInit(s1.texels_, img.Width(), img.Height());
   //GLFromCPPInit2(s1)
 }
 
