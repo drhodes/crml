@@ -35,14 +35,12 @@ POSSIBILITY OF SUCH DAMAGE.
 #include <crml-gfx.h>
 
 #include <media-blob.h>
-//#include "./gles2_demo_cc.cc"
 
 using namespace crml;
 
 Event evt;
 Display dsp;
 Clock timer1, timer2;
-//Font incon(fnt__inconsolata_otf);
 int frame = 0;
 int totalframe = 0;
 int fps = 15;
@@ -80,7 +78,10 @@ void RunOnce() {
   s2.LoadImage(img2);
   s2.SetShader(shdr);
   s2.CreateTexture();
-  s2.Scale(.5);  
+  s2.Scale(.5);
+
+
+
 }
 
 void Core::Main3D(){
@@ -98,8 +99,9 @@ void Core::Main3D(){
   }    
 
   cam.GlClearColor();
-  
-  s1.Rotate(1);
+
+  s2.Translate(Vector(.01,0));
+  s2.Scale(1.01);
   
   cam.GLFromCPPDraw(s1);
   s2.Rotate(359);
@@ -136,6 +138,7 @@ void Core::Main3D(){
   frame += 1;
   totalframe += 1;
 }
+
 
 void Core::MainLoop() {    
 }

@@ -42,20 +42,20 @@ POSSIBILITY OF SUCH DAMAGE.
 
 namespace crml {
 
-// pallatable matrix notation
-
 class Matrix2 {
  public:
   explicit Matrix2(){
     IdentityUpdate();
   }
-
+  
   explicit Matrix2( float64 r1c1, float64 r1c2, float64 r2c1, float64 r2c2){
     IdentityUpdate();
-    r1c1_ = r1c1; r1c2_ = r1c2;
-    r2c1_ = r2c1; r2c2_ = r2c2;
+    mat_[0][0] = r1c1;
+    mat_[0][1] = r1c2;
+    mat_[1][0] = r2c1;
+    mat_[1][1] = r2c2;
   }
-
+   
   bool Equal(Matrix2& other);  
   Matrix2 Multiply(Matrix2& other);
   Vector Transform(Vector v);
@@ -110,11 +110,7 @@ class Matrix2 {
   std::string ShowMatrix();
   
  private:
-  // a little wordy, but better than indices or macros.
-  // prove me wrong!
-  float64 r1c1_, r1c2_, r1c3_;
-  float64 r2c1_, r2c2_, r2c3_;
-  float64 r3c1_, r3c2_, r3c3_;
+  float64 mat_[4][4];
 };
 
 }       // namespace crml

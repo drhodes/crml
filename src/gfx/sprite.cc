@@ -126,8 +126,6 @@ void Sprite::Translate(Vector v){
   MarkDirty();
 }
 
-
-
 float64 Sprite::Scale(){ return scale_; }
 void Sprite::Scale(float64 s){
   matrix_.ScaleUpdate(s);
