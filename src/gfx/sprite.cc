@@ -121,6 +121,13 @@ void Sprite::Rotate(float64 a){
   MarkDirty();
 }
 
+void Sprite::Translate(Vector v){
+  matrix_.TranslateUpdate(v);    
+  MarkDirty();
+}
+
+
+
 float64 Sprite::Scale(){ return scale_; }
 void Sprite::Scale(float64 s){
   matrix_.ScaleUpdate(s);

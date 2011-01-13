@@ -21,7 +21,7 @@
 #include <crml-gfx.h>
 
 namespace {
-
+/*
 void CheckGLError2(const char* func_name, int line_no) {
 #ifndef NDEBUG
   GLenum error = GL_NO_ERROR;
@@ -31,7 +31,7 @@ void CheckGLError2(const char* func_name, int line_no) {
   }
 #endif
 }
-
+*/
 /*
 //-----------------------------------------------------------------------------
 GLuint LoadShaderFromStash(GLenum type, const char* stash) {
@@ -175,6 +175,7 @@ void InitShaders() {
 }
 */
 
+/*
 //------------------------------------------------------------------
 GLuint CreateCheckerboardTexture(uint8* texels, uint16 w, uint16 h) {
   //printf("gles2_demo_cc.cc -> GLuint CreateCheckerboardTexture() {\n");
@@ -194,7 +195,7 @@ GLuint CreateCheckerboardTexture(uint8* texels, uint16 w, uint16 h) {
   CheckGLError2("CreateCheckerboardTexture", __LINE__);
   return texture;
 }
-
+*/
 }  // anonymous namespace.
 
 
@@ -212,12 +213,12 @@ void GLFromCPPInit(uint8* texels, uint16 w, uint16 h) {
 }
 */
 
-
+/*
 //-----------------------------------------------------------------------------
 void GLFromCPPDraw(crml::Sprite& spr) {
   //printf("gles2_demo_cc.cc -> void GLFromCPPDraw() {\n");
   //const float kPi = 3.1415926535897932384626433832795f;
-  glClearColor(0.2f, 0.2f, 0.2f, 1.f);
+  //glClearColor(0.2f, 0.2f, 0.2f, 1.f);
   
   CheckGLError2("GLFromCPPDraw", __LINE__);
   GLfloat rot_matrix[16];
@@ -229,7 +230,7 @@ void GLFromCPPDraw(crml::Sprite& spr) {
 
   // Note: the viewport is automatically set up to cover the entire Canvas.
   // Clear the color buffer
-  glClear(GL_COLOR_BUFFER_BIT);
+  //glClear(GL_COLOR_BUFFER_BIT);
   CheckGLError2("GLFromCPPDraw", __LINE__);
 
   // Use the program object
@@ -270,8 +271,9 @@ void GLFromCPPDraw(crml::Sprite& spr) {
   
   CheckGLError2("GLFromCPPDraw", __LINE__);
   
-  glFlush();
+  //glFlush();
 }
+*/
 
   /*
       0.25,  0.75, 0.0,

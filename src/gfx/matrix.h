@@ -38,17 +38,20 @@ POSSIBILITY OF SUCH DAMAGE.
 #include "./vector.h"
 #include "./rect.h"
 #include <vector>
+#include <stdlib.h>
 
 namespace crml {
+
+// pallatable matrix notation
 
 class Matrix2 {
  public:
   explicit Matrix2(){
-    r1c1_ = 1; r1c2_ = 0;
-    r2c1_ = 0; r2c2_ = 1;      
+    IdentityUpdate();
   }
 
   explicit Matrix2( float64 r1c1, float64 r1c2, float64 r2c1, float64 r2c2){
+    IdentityUpdate();
     r1c1_ = r1c1; r1c2_ = r1c2;
     r2c1_ = r2c1; r2c2_ = r2c2;
   }
@@ -60,6 +63,8 @@ class Matrix2 {
 
   void CopyGlMatrix(GLfloat* mat16);
   std::vector<float64> GlMatrix();
+
+  void IdentityUpdate();
   
   Matrix2 Scale(float64 s);
   Vector Scale(float64 s, Vector& v);
@@ -90,6 +95,11 @@ class Matrix2 {
   Vector ShearY(float64 n, Vector& v);
   void ShearY(float64 n, Rect& v);
   void ShearYUpdate(float64 n);
+
+  Matrix2 Translate(Vector& v);
+  void TranslateUpdate(Vector& v);
+  void Translate(Vector& v, Rect& r);
+  Vector TranslateVector(Vector& v);
   
   Matrix2 Reflect(float64 n);
   Vector Reflect(float64 n, Vector& v);
@@ -100,7 +110,11 @@ class Matrix2 {
   std::string ShowMatrix();
   
  private:
-  float64 r1c1_, r1c2_, r2c1_, r2c2_;
+  // a little wordy, but better than indices or macros.
+  // prove me wrong!
+  float64 r1c1_, r1c2_, r1c3_;
+  float64 r2c1_, r2c2_, r2c3_;
+  float64 r3c1_, r3c2_, r3c3_;
 };
 
 }       // namespace crml

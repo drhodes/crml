@@ -63,11 +63,15 @@ class Camera: public Error, public Rect {
     ClassName("Camera");    
   }  
   //~Camera();
-
+  
+  void GLFromCPPDraw(crml::Sprite& spr);
+  
   void DrawDraw(Sprite* spr);
   void DrawSprite(Sprite* spr);
   void DrawLayer(Layer& lyr);
-
+  void GlClearColor();
+  void GlFlush();
+  
  private:
   float64 cam_dist_;
   

@@ -35,7 +35,7 @@ POSSIBILITY OF SUCH DAMAGE.
 #include <crml-gfx.h>
 
 #include <media-blob.h>
-#include "./gles2_demo_cc.cc"
+//#include "./gles2_demo_cc.cc"
 
 using namespace crml;
 
@@ -52,7 +52,7 @@ int x = 1;
 int y = 1;
 LayerGroup lg;
 Camera cam(512,512);
-Sprite s1;
+Sprite s1, s2;
 
 void RunOnce() {
   Error::DebugOn();  
@@ -67,21 +67,27 @@ void RunOnce() {
   lg.Check();
 
   Shader shdr(txt__gl_v_shader, txt__gl_f_shader);  
-  TgaLoader img;
+  TgaLoader img, img2;
+  
   img.LoadFromStash(img__ring_tga, sizeof(img__ring_tga));
-  //img.LoadFromStash(img__gopher_tga, sizeof(img__gopher_tga));
-
+  img2.LoadFromStash(img__gopher_tga, sizeof(img__gopher_tga));
+  
   s1.LoadImage(img);
   s1.SetShader(shdr);
   s1.CreateTexture();
-  s1.Scale(.5);  
+  s1.Scale(.5);
+
+  s2.LoadImage(img2);
+  s2.SetShader(shdr);
+  s2.CreateTexture();
+  s2.Scale(.5);  
 }
 
 void Core::Main3D(){
   if (firstrun) { RunOnce(); }
 
-  auto clouds = lg.GetLayer("clouds");  
-  cam.DrawLayer(*clouds);
+  //auto clouds = lg.GetLayer("clouds");  
+  //cam.DrawLayer(*clouds);
 
   if ((totalframe % 51) < 25 ) {
     s1.ScaleX(1.03);
@@ -91,7 +97,16 @@ void Core::Main3D(){
     s1.ScaleY(1.03);
   }    
 
-  GLFromCPPDraw(s1); 
+  cam.GlClearColor();
+  
+  s1.Rotate(1);
+  
+  cam.GLFromCPPDraw(s1);
+  s2.Rotate(359);
+  cam.GLFromCPPDraw(s2);
+
+  cam.GlFlush();
+  
   Vector p;
   
   while(evt.GetEvent(&e)) {

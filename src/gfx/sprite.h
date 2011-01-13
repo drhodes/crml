@@ -74,7 +74,8 @@ class Sprite: public Error, public Rect {
   float64 ShearX();
   float64 ShearY();
   float64 Reflect();
-  
+
+  void Translate(Vector v);
   void Rotate(float64 angle);
   void Scale(float64 scale);
   void ScaleX(float64 scale);

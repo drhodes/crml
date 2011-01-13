@@ -29,7 +29,8 @@ int main(){
   EQ(I.Multiply(m4).Equal(m4), true);
   EQ(m2.Multiply(m1).Equal(m2), true);
   Matrix2 mat;
-  
+
+  Vector v0(0,0);
   Vector v1(1,1);  
   Vector v2(2,2);
   Vector v3(1,0);
@@ -66,9 +67,6 @@ int main(){
   // LOG(v13.ShowVector());
   // LOG(v14.ShowVector());  
   // EQ(mat.ShearX(2, v8).Equal(v13), true);  <-- not true.
-
-  // sanity check GlMatrix()  
-  EQ((mat.GlMatrix() == mat.GlMatrix()), true);
   
   Rect r1(-50, -50, 50, 50);
   mat.Scale(2).Rotate(45).Transform(r1);
@@ -87,7 +85,34 @@ int main(){
   EQ(r2.TopRight().Equal(Vector(-20.000000, -10.000000)), true);
   EQ(r2.BottomLeft().Equal(Vector(20.000000, 10.000000)), true);
   EQ(r2.BottomRight().Equal(Vector(40.000000, 10.000000)), true);
+
+  EQ(I.TranslateVector(v0).Equal(v0), true);
+  EQ(I.TranslateVector(v1).Equal(v1), true);
   
+  Matrix2 trans;
+  trans.TranslateUpdate(v1);
+  EQ(trans.Transform(v0).Equal(v1), true);
+  LOG(trans.Transform(v0).ShowVector());
+  
+  LOG(trans.ShowMatrix());
+  
+  LOG(I.Translate(v1).TranslateVector(v0).ShowVector());
+  EQ(I.Translate(v1).Transform(v0).Equal(v1), true);
+
+  Rect r3(0, 0, 10, 10);
+  trans.Translate(v1, r3);
+  EQ(r3.TopLeft().Equal(Vector(1, 1)), true);
+  EQ(r3.TopRight().Equal(Vector(11, 1)), true);
+  EQ(r3.BottomLeft().Equal(Vector(1, 11)), true);
+  EQ(r3.BottomRight().Equal(Vector(11, 11)), true);
+
+  Rect r4(0, 0, 10, 10);
+  trans.Translate(v1, r4);
+  EQ(r4.TopLeft().Equal(Vector(1, 1)), true);
+  EQ(r4.TopRight().Equal(Vector(11, 1)), true);
+  EQ(r4.BottomLeft().Equal(Vector(1, 11)), true);
+  EQ(r4.BottomRight().Equal(Vector(11, 11)), true);
+    
   printf("\nDone.\n");
   return 0;
 }
