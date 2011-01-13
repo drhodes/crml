@@ -80,7 +80,7 @@ void RunOnce() {
   s2.CreateTexture();
   s2.Scale(.5);
 
-
+  s2.Translate(Vector(2,0));
 
 }
 
@@ -100,11 +100,11 @@ void Core::Main3D(){
 
   cam.GlClearColor();
 
-  s2.Translate(Vector(.01,0));
-  s2.Scale(1.01);
+
+  //s2.Scale(1.01);
   
   cam.GLFromCPPDraw(s1);
-  s2.Rotate(359);
+  s2.Rotate(1.0);
   cam.GLFromCPPDraw(s2);
 
   cam.GlFlush();

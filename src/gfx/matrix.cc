@@ -80,13 +80,12 @@ void Matrix2::CopyGlMatrix(GLfloat* mat16){
     exit(1);
   }
 
-  // Think about doing the transpose here and justify
-  // not just doing it from the start.  Then feel guilty,
-  // and go back and do it correctly.  Programmer self loathing.
+  // Need to copy in the transpose for GL
    
   for (int row = 0; row < 4; row++) {
     for (int col = 0; col < 4; col++) {
-      mat16[4*row+col] = mat_[row][col];
+      //mat16[4*row+col] = mat_[row][col];
+      mat16[4*row+col] = mat_[col][row];
     }
   }
 }
@@ -147,12 +146,17 @@ void Matrix2::ScaleYUpdate(float64 s){
 Matrix2 Matrix2::Rotate(float64 theta){  
   Matrix2 result;
   float64 degs = theta / 57.295779513082323;
-
-  result.mat_[0][0] = +cos(degs);
-  result.mat_[0][1] = -sin(degs);
-  result.mat_[1][0] = +sin(degs);
-  result.mat_[1][1] = +cos(degs);
-
+  if (theta >= 0){ // counterclockwise
+    result.mat_[0][0] = +cos(degs);
+    result.mat_[0][1] = -sin(degs);
+    result.mat_[1][0] = +sin(degs);
+    result.mat_[1][1] = +cos(degs);
+  } else { // clockwise
+    result.mat_[0][0] = +cos(degs);
+    result.mat_[0][1] = +sin(degs);
+    result.mat_[1][0] = -sin(degs);
+    result.mat_[1][1] = +cos(degs);
+  }
   return Multiply(result); // Multiply to chain calls.
 }
 
@@ -210,8 +214,8 @@ Vector Matrix2::ShearY(float64 n, Vector& v){
 // Translation ------------------------------------------------------------------
 Matrix2 Matrix2::Translate(Vector& v){
   Matrix2 result;
-  result.mat_[3][0] = v.X();
-  result.mat_[3][1] = v.Y();
+  result.mat_[0][3] = v.X();
+  result.mat_[1][3] = v.Y();
   return Multiply(result);
 }
 
