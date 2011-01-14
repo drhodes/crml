@@ -35,6 +35,7 @@ POSSIBILITY OF SUCH DAMAGE.
 #include <crml-gfx.h>
 
 #include <media-blob.h>
+#include <stdlib.h>
 
 using namespace crml;
 
@@ -51,11 +52,17 @@ int y = 1;
 LayerGroup lg;
 Camera cam(512,512);
 Sprite s1, s2;
+Sprite wedges[200];
+
+float rand01(){
+  return float(rand()/float(RAND_MAX));
+}
 
 void RunOnce() {
   Error::DebugOn();  
   firstrun=false;
   dsp.Init();
+  cam.Init();
   
   cam.StretchRight(1024);
   cam.StretchBottom(1024);
@@ -65,10 +72,12 @@ void RunOnce() {
   lg.Check();
 
   Shader shdr(txt__gl_v_shader, txt__gl_f_shader);  
-  TgaLoader img, img2;
+  TgaLoader img, img2, imgwedge;
   
   img.LoadFromStash(img__ring_tga, sizeof(img__ring_tga));
   img2.LoadFromStash(img__gopher_tga, sizeof(img__gopher_tga));
+  imgwedge.LoadFromStash(img__circlewedge_tga, sizeof(img__circlewedge_tga));
+
   
   s1.LoadImage(img);
   s1.SetShader(shdr);
@@ -79,9 +88,16 @@ void RunOnce() {
   s2.SetShader(shdr);
   s2.CreateTexture();
   s2.Scale(.5);
+ 
+  s2.Translate(Vector(-.5,0));
 
-  s2.Translate(Vector(2,0));
-
+  for (int i=0; i<200; i++){
+    wedges[i].LoadImage(imgwedge);
+    wedges[i].SetShader(shdr);
+    wedges[i].CreateTexture();
+    wedges[i].Scale(rand01());
+    wedges[i].Translate(Vector(.5 - rand01(), .5 - rand01()));    
+  }
 }
 
 void Core::Main3D(){
@@ -89,7 +105,7 @@ void Core::Main3D(){
 
   //auto clouds = lg.GetLayer("clouds");  
   //cam.DrawLayer(*clouds);
-
+  /*
   if ((totalframe % 51) < 25 ) {
     s1.ScaleX(1.03);
     s1.ScaleY(.970873786);
@@ -97,16 +113,25 @@ void Core::Main3D(){
     s1.ScaleX(.970873786);
     s1.ScaleY(1.03);
   }    
-
+  */
+  
   cam.GlClearColor();
 
+  s2.Scale(.99);
+  s2.Translate(Vector(.001, 0));
+  s2.Rotate(10.0);
 
-  //s2.Scale(1.01);
-  
-  cam.GLFromCPPDraw(s1);
-  s2.Rotate(1.0);
-  cam.GLFromCPPDraw(s2);
+  s1.Translate(Vector(-.0001, .0002));
+  s1.Scale(1.001);
 
+  for (int i=0; i<200; i++) {   
+    wedges[i].Rotate(float((i%50+1))/10);
+    wedges[i].Scale(.999);
+    cam.GLFromCPPDraw(wedges[i]);
+  }
+
+  //cam.GLFromCPPDraw(s1);
+  //cam.GLFromCPPDraw(s2);
   cam.GlFlush();
   
   Vector p;

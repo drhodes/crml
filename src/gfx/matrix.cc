@@ -213,10 +213,13 @@ Vector Matrix2::ShearY(float64 n, Vector& v){
 
 // Translation ------------------------------------------------------------------
 Matrix2 Matrix2::Translate(Vector& v){
+  // The matrix may be scaled, therefore any translation here
+    
   Matrix2 result;
   result.mat_[0][3] = v.X();
   result.mat_[1][3] = v.Y();
-  return Multiply(result);
+  return result.Multiply(*this);
+  //return Multiply(result);
 }
 
 Vector Matrix2::TranslateVector(Vector& v){

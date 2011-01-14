@@ -65,7 +65,7 @@ class Camera: public Error, public Rect {
   //~Camera();
   
   void GLFromCPPDraw(crml::Sprite& spr);
-  
+  void Init();
   void DrawDraw(Sprite* spr);
   void DrawSprite(Sprite* spr);
   void DrawLayer(Layer& lyr);

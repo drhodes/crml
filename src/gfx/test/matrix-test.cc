@@ -113,6 +113,18 @@ int main(){
   EQ(r4.BottomLeft().Equal(Vector(1, 11)), true);
   EQ(r4.BottomRight().Equal(Vector(11, 11)), true);
     
+  
+  Vector v23(2,3);  
+  TRUE( mat.Scale(.5, v23).Equal(Vector(1,1.5)) );
+
+  Matrix2 trans2;
+  trans2.ScaleUpdate(.5);
+  trans2.TranslateUpdate(v23);
+  EQ(trans2.Transform(v0).Equal(v23), true);
+  LOG(trans2.Transform(v0).ShowVector());
+
+
+
   printf("\nDone.\n");
   return 0;
 }

@@ -41,6 +41,7 @@ void Camera::DrawSprite(Sprite* spr){
   if (spr) printf("Drawing %p\n", spr); 
 }
 
+
 void Camera::DrawLayer(Layer& lyr){  
   Rect view(0,0,0,0);
   CopyInto(view);
@@ -72,13 +73,18 @@ void Camera::DrawDraw(Sprite* spr) {
 
 void Camera::GlClearColor(){
   glClear(GL_COLOR_BUFFER_BIT);      
-  glClearColor(0.2f, 0.2f, 0.2f, 1.f);
+  glClearColor(0.1f, 0.1f, 0.1f, 1.f);
 }
 
 void Camera::GlFlush(){
   glFlush();  
 }
 
+void Camera::Init(){
+  // enable transparency.
+  glEnable (GL_BLEND);
+  glBlendFunc (GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+}
 
 void Camera::GLFromCPPDraw(crml::Sprite& spr) {
   //printf("gles2_demo_cc.cc -> void GLFromCPPDraw() {\n");
@@ -86,56 +92,56 @@ void Camera::GLFromCPPDraw(crml::Sprite& spr) {
   //glClearColor(0.2f, 0.2f, 0.2f, 1.f);
 
   // This 
-  CheckGLError("GLFromCPPDraw", __LINE__);
+  //CheckGLError("GLFromCPPDraw", __LINE__);
   GLfloat rot_matrix[16];
   spr.CopyGlMatrix(rot_matrix);
-
-  // enable transparency.
-  glEnable (GL_BLEND);
-  glBlendFunc (GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
   // Note: the viewport is automatically set up to cover the entire Canvas.
   // Clear the color buffer
   //glClear(GL_COLOR_BUFFER_BIT);
-  CheckGLError("GLFromCPPDraw", __LINE__);
+  //CheckGLError("GLFromCPPDraw", __LINE__);
 
-  // Use the program object
-  spr.shader_.UseProgram();
+
+  // ATTENTION.  I COMMENTED OUT THIS LINE FOR AN OPTIMIZATION TEST
+  // THE PROGRAM SCREAMS. INVESTIGATE WHEN BRAIN IS FRESH.
+  
+  // Use the program object  
+  // spr.shader_.UseProgram();
   //glUseProgram(crml::Display::g_programObject);
-  CheckGLError("GLFromCPPDraw", __LINE__);
+  //CheckGLError("GLFromCPPDraw", __LINE__);
   
   // Set up the model matrix
   glUniformMatrix4fv(spr.shader_.world_matrix_loc_, 1, GL_FALSE, rot_matrix);
-  CheckGLError("GLFromCPPDraw", __LINE__);
+  //CheckGLError("GLFromCPPDraw", __LINE__);
   // Load the vertex data
   glBindBuffer(GL_ARRAY_BUFFER, spr.shader_.vbo_);
-  CheckGLError("GLFromCPPDraw", __LINE__);
+  //CheckGLError("GLFromCPPDraw", __LINE__);
 
   glEnableVertexAttribArray(0);
-  CheckGLError("GLFromCPPDraw", __LINE__);
+  //CheckGLError("GLFromCPPDraw", __LINE__);
 
   glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);
-  CheckGLError("GLFromCPPDraw", __LINE__);
+  //CheckGLError("GLFromCPPDraw", __LINE__);
 
   glEnableVertexAttribArray(1);
-  CheckGLError("GLFromCPPDraw", __LINE__);
+  //CheckGLError("GLFromCPPDraw", __LINE__);
   
   glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 0,
                         reinterpret_cast<const void*>(spr.shader_.tex_coord_offset_));
-  CheckGLError("GLFromCPPDraw", __LINE__);
+  //CheckGLError("GLFromCPPDraw", __LINE__);
   
   // Bind the texture to texture unit 0
   glBindTexture(GL_TEXTURE_2D, spr.texture_);
-  CheckGLError("GLFromCPPDraw", __LINE__);
+  //CheckGLError("GLFromCPPDraw", __LINE__);
   
   // Point the uniform sampler to texture unit 0
   glUniform1i(spr.shader_.texture_loc_, 0);
-  CheckGLError("GLFromCPPDraw", __LINE__);
+  //CheckGLError("GLFromCPPDraw", __LINE__);
   
   glDrawArrays(GL_TRIANGLES, 0, 6);
   //glDrawArrays(GL_TRIANGLES, 0, 3);
   
-  CheckGLError("GLFromCPPDraw", __LINE__);
+  //CheckGLError("GLFromCPPDraw", __LINE__);
   
   //glFlush();
 }
